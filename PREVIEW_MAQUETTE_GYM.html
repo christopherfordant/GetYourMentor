@@ -6,16 +6,16 @@
   <title>GetYourMentor - Preview Maquette</title>
   <style>
     :root {
-      --bg: #f6f2eb;
-      --surface: #fffdfc;
-      --surface-soft: #f9f5ef;
-      --text: #0f172a;
-      --text-soft: #5b6475;
-      --accent: #d97757;
-      --accent-dark: #b85e42;
-      --success: #1f8f5f;
-      --border: #e7ded2;
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --bg: #0b0d10;
+      --surface: #13171c;
+      --surface-soft: #191f26;
+      --text: #f3efe8;
+      --text-soft: #a6afbc;
+      --accent: #ff8a3d;
+      --accent-dark: #d96a24;
+      --success: #28b56f;
+      --border: #2a313b;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
       --radius-xl: 28px;
       --radius-lg: 24px;
       --radius-md: 20px;
@@ -29,8 +29,9 @@
       margin: 0;
       font-family: var(--font-ui);
       background:
-        radial-gradient(circle at top left, rgba(217, 119, 87, 0.12), transparent 28%),
-        linear-gradient(180deg, #f6f2eb 0%, #f2ece4 100%);
+        radial-gradient(circle at top left, rgba(255, 138, 61, 0.16), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(255, 138, 61, 0.08), transparent 24%),
+        linear-gradient(180deg, #0b0d10 0%, #11151a 100%);
       color: var(--text);
     }
     h1, h2, h3, h4, p { margin: 0; }
@@ -45,8 +46,8 @@
     .intro,
     .frame,
     .footer-note {
-      border: 1px solid rgba(231, 222, 210, 0.95);
-      background: rgba(255, 253, 252, 0.84);
+      border: 1px solid rgba(42, 49, 59, 0.95);
+      background: rgba(19, 23, 28, 0.88);
       box-shadow: var(--shadow);
     }
 
@@ -60,7 +61,7 @@
       display: inline-flex;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(217, 119, 87, 0.1);
+      background: rgba(255, 138, 61, 0.14);
       color: var(--accent-dark);
       font-size: 13px;
       font-weight: 800;
@@ -167,7 +168,7 @@
     .button {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 14px 24px rgba(217, 119, 87, 0.22);
+      box-shadow: 0 14px 24px rgba(255, 138, 61, 0.24);
     }
 
     .ghost-button {
@@ -251,7 +252,7 @@
     .hero-panel {
       padding: 24px;
       background:
-        linear-gradient(180deg, rgba(217, 119, 87, 0.12), transparent 60%),
+        linear-gradient(180deg, rgba(255, 138, 61, 0.16), transparent 60%),
         var(--surface);
     }
 
@@ -351,8 +352,8 @@
       border-radius: 22px;
       border: 1px solid var(--border);
       background:
-        linear-gradient(135deg, rgba(217, 119, 87, 0.24), rgba(15, 23, 42, 0.06)),
-        #f0e7dd;
+        linear-gradient(135deg, rgba(255, 138, 61, 0.22), rgba(243, 239, 232, 0.04)),
+        #1a2028;
     }
 
     .avatar {
@@ -378,9 +379,9 @@
       min-height: 34px;
       padding: 0 12px;
       border-radius: 999px;
-      background: rgba(217, 119, 87, 0.08);
+      background: rgba(255, 138, 61, 0.12);
       color: var(--accent-dark);
-      border-color: rgba(217, 119, 87, 0.12);
+      border-color: rgba(255, 138, 61, 0.18);
       font-size: 13px;
     }
 
@@ -445,8 +446,8 @@
     }
 
     .line.selected {
-      border-color: rgba(217, 119, 87, 0.45);
-      background: rgba(217, 119, 87, 0.08);
+      border-color: rgba(255, 138, 61, 0.45);
+      background: rgba(255, 138, 61, 0.14);
       color: var(--accent-dark);
       font-weight: 700;
     }
@@ -489,8 +490,8 @@
     }
 
     .small-button.primary {
-      background: rgba(31, 143, 95, 0.1);
-      border-color: rgba(31, 143, 95, 0.24);
+      background: rgba(40, 181, 111, 0.12);
+      border-color: rgba(40, 181, 111, 0.26);
       color: var(--success);
     }
 

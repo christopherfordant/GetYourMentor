@@ -14,7 +14,7 @@ La capture d'ecran doit etre utilisee comme **reference de style**, pas comme mo
 
 Le produit final doit rester :
 
-- plus clair
+- premium
 - plus rassurant
 - plus lisible
 - plus orientee reservation
@@ -27,16 +27,16 @@ Use the attached screenshot only as a style inspiration, not as a 1:1 rebuild.
 I want a more premium visual direction for GetYourMentor:
 - keep the product logic and UX very Planity-like
 - keep the interface clearer and more reassuring than the attached fitness concept
-- keep the terracotta / orange energy from the reference
+- keep the orange energy from the reference
 - keep a layered, cinematic, premium composition for hero areas and transitions
 - keep the UI in French by default with a discreet language selector
 - only show these 4 sports in visible UI: football, basketball, fitness, combat sports
 
 Visual adaptation rules:
-- do not switch the whole product to a dark dashboard style
-- keep the main product screens mostly light, warm, and elegant
-- use dark charcoal only in selected hero or transition backgrounds
-- preserve the warm cream surfaces and terracotta CTA system
+- use a dark premium theme as the default direction
+- keep the main product screens dark, elegant, and very readable
+- use charcoal surfaces with clear layering
+- preserve strong orange CTA energy and high contrast readability
 - keep the UI conversion-oriented and easy to scan
 
 I want subtle motion with a premium feel:
@@ -87,4 +87,4 @@ Le rendu doit ressembler a :
 - un produit de reservation premium
 - une plateforme sportive credible
 - une experience plus vivante que Planity
-- mais plus claire et plus rassurante qu'une app fitness dark classique
+- mais plus lisible et plus rassurante qu'une app fitness dark classique

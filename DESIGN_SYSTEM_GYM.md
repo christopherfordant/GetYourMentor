@@ -3,7 +3,7 @@
 ## 1. Direction
 
 GetYourMentor doit adopter un style :
-- clair
+- sombre
 - premium
 - rassurant
 - rapide a comprendre
@@ -45,9 +45,9 @@ Cette direction garde l'esprit `Planity-like`, mais reprend certains codes d'une
 
 Regle importante :
 
-- ne pas transformer tout le produit en dark mode
-- garder le coeur de l'interface clair, lisible et rassurant
-- utiliser les zones sombres surtout dans le hero, les fonds de transition ou certains modules premium
+- assumer un theme sombre premium comme direction principale de la maquette
+- garder le coeur de l'interface lisible, rassurant et tres scannable
+- utiliser des surfaces charbon, des bordures discretes et des accents orange nets
 
 En resume :
 
@@ -76,21 +76,22 @@ Regles :
 
 ### Couleurs principales
 
-- `Background`: `#F6F2EB`
-- `Surface`: `#FFFDFC`
-- `Primary`: `#0F172A`
-- `Secondary`: `#5B6475`
-- `Accent`: `#D97757`
-- `Accent dark`: `#B85E42`
-- `Success`: `#1F8F5F`
-- `Border`: `#E7DED2`
+- `Background`: `#0B0D10`
+- `Surface`: `#13171C`
+- `Surface soft`: `#191F26`
+- `Primary`: `#F3EFE8`
+- `Secondary`: `#A6AFBC`
+- `Accent`: `#FF8A3D`
+- `Accent dark`: `#D96A24`
+- `Success`: `#28B56F`
+- `Border`: `#2A313B`
 
 ### Usage
 
-- fond principal creme chaud
-- cartes blanches legerement cassees
-- texte principal sombre
-- accent orange terre cuite pour les CTA
+- fond principal charbon profond
+- cartes sombres legerement relevees
+- texte principal clair
+- accent orange energique pour les CTA
 - vert reserve aux confirmations
 
 ## 4. Typographie recommandee
@@ -296,7 +297,6 @@ Le prototype doit etre pense en mobile d'abord :
 
 - trop de couleurs
 - effets futuristes inutiles
-- style dark mode par defaut
 - look trop "app de running"
 - look trop medical
 - tunnel trop technique
