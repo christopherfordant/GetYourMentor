@@ -342,3 +342,8 @@ Si vous voulez aller encore plus vite, le coeur absolu du MVP est seulement :
 
 Tout le reste peut etre simplifie ou gere manuellement au debut.
 
+## 10. Documents de travail lies
+
+- [SPEC_FONCTIONNELLE_MVP_GYM.md](c:\Users\cashe\Documents\GetYourMentor\SPEC_FONCTIONNELLE_MVP_GYM.md)
+- [USER_STORIES_MVP_GYM.md](c:\Users\cashe\Documents\GetYourMentor\USER_STORIES_MVP_GYM.md)
+- [BACKLOG_MVP_GYM.md](c:\Users\cashe\Documents\GetYourMentor\BACKLOG_MVP_GYM.md)
