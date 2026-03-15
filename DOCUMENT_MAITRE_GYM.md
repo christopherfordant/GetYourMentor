@@ -134,6 +134,7 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - interface en francais par defaut avec selecteur de langue
 - profils coachs avec photo, presentation, discipline, zone geographique, diplomes, tarifs
 - moteur de recherche simple par sport et localisation, limite a 4 sports visibles
+- filtres de recherche MVP : genre du coach, lieu de pratique, niveau, format, budget, disponibilite, note, coach verifie
 - fiche coach detaillee
 - demande de reservation validee par le coach
 - prise de rendez-vous
@@ -344,6 +345,27 @@ A la fin de cette etape, vous devez avoir un dossier suffisamment propre pour :
 - decouper le projet en sprints
 - estimer le temps de developpement
 - commencer le build sans repartir dans le flou
+
+### Filtres de recherche recommandes pour le MVP
+
+Filtres a conserver dans la recherche MVP :
+
+- sport
+- ville
+- genre du coach : `Homme`, `Femme`
+- lieu de pratique : `Interieur`, `Exterieur`
+- niveau : `Debutant`, `Intermediaire`, `Confirme`
+- format : `Presentiel`, `Visio`
+- budget
+- disponibilite
+- note
+- coach verifie
+
+Regle produit :
+
+- ces filtres doivent aider la recherche
+- ils ne doivent pas rendre la recherche lourde ou confuse
+- sur mobile, seuls les filtres les plus utiles doivent rester visibles en premier
 
 ## 13. Ordre recommande apres maquette
 
