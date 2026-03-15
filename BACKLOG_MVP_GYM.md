@@ -18,7 +18,7 @@ Valider que le MVP retenu est bien le bon.
 - figer les fonctionnalites MVP
 - valider la maquette courte
 - faire relire le tunnel de reservation a quelques utilisateurs cibles
-- choisir reservation directe ou demande de reservation
+- acter la demande de reservation validee par le coach comme logique MVP
 
 ## 3. Phase 1 - Fondations produit
 
@@ -59,12 +59,13 @@ Permettre de choisir une offre et un rendez-vous.
 - modele des offres coach
 - page choix de la seance
 - page choix du creneau
-- recap de reservation
+- recap de demande de reservation
 - gestion du statut reservation
+- validation / refus cote coach
 
 ### Decision cle
 
-- si l'agenda complet est trop complexe, passer en demande de reservation controlee par le coach
+- la logique MVP retenue est la demande de reservation controlee par le coach
 
 ## 6. Phase 4 - Paiement
 
@@ -76,7 +77,7 @@ Confirmer une reservation par paiement.
 
 - integration Stripe
 - page paiement
-- confirmation de reservation
+- confirmation de reservation apres validation coach
 - emails de confirmation
 - gestion des echecs paiement
 
@@ -130,8 +131,9 @@ Le MVP est livrable quand :
 - un coach peut creer un profil complet
 - un admin peut verifier ce profil
 - un sportif peut le trouver
-- un sportif peut reserver
-- un sportif peut payer
+- un sportif peut envoyer une demande
+- un coach peut valider
+- un sportif peut payer apres validation
 - le coach peut suivre la reservation
 - l'admin peut intervenir en cas de probleme
 
@@ -139,7 +141,7 @@ Le MVP est livrable quand :
 
 ### Produit
 
-- `Choisir reservation directe ou demande de reservation`
+- `Formaliser la demande de reservation validee par le coach`
 - `Definir les champs du profil coach`
 - `Definir les champs de l'offre coach`
 - `Definir les statuts de reservation`
@@ -163,4 +165,3 @@ Le MVP est livrable quand :
 - `Tester les cas d'echec paiement`
 - `Valider la recherche mobile`
 - `Valider la lisibilite des profils coach`
-

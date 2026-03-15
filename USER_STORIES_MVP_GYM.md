@@ -17,9 +17,9 @@ Priorites :
 - En tant que sportif, je veux voir une liste de coachs avec les informations clefs afin de comparer rapidement plusieurs profils.
 - En tant que sportif, je veux consulter la fiche detaillee d'un coach afin de comprendre son experience, ses tarifs et ses offres.
 - En tant que sportif, je veux choisir une seance afin de reserver une offre claire.
-- En tant que sportif, je veux choisir un creneau ou envoyer une demande de reservation afin d'organiser un rendez-vous.
+- En tant que sportif, je veux proposer un ou plusieurs creneaux preferes afin d'envoyer une demande de reservation au coach.
 - En tant que sportif, je veux creer un compte rapidement afin de finaliser ma reservation.
-- En tant que sportif, je veux payer en ligne afin de confirmer ma reservation.
+- En tant que sportif, je veux payer en ligne apres validation du coach afin de confirmer ma reservation.
 - En tant que sportif, je veux recevoir une confirmation afin d'etre rassure sur ma reservation.
 - En tant que sportif, je veux retrouver mes seances a venir afin de suivre mon activite.
 
@@ -40,14 +40,14 @@ Priorites :
 - En tant que coach, je veux creer un compte afin de proposer mes services.
 - En tant que coach, je veux completer mon profil avec photo, bio, disciplines, tarifs et diplomes afin d'etre visible et credible.
 - En tant que coach, je veux definir mes offres afin que les sportifs comprennent ce que je propose.
-- En tant que coach, je veux renseigner mes disponibilites ou gerer des demandes afin de recevoir des reservations.
+- En tant que coach, je veux renseigner mes disponibilites indicatives ou gerer des demandes afin de recevoir des reservations sans agenda complexe.
 - En tant que coach, je veux voir les nouvelles demandes ou reservations afin d'organiser mon planning.
+- En tant que coach, je veux accepter ou refuser une demande afin de controler la reservation avant paiement.
 - En tant que coach, je veux voir les paiements ou revenus lies a mes reservations afin de suivre mon activite.
 
 ### Should have
 
 - En tant que coach, je veux modifier mon profil a tout moment afin de garder mes informations a jour.
-- En tant que coach, je veux accepter ou refuser une demande manuelle afin de controler mon agenda.
 
 ### Could have
 
@@ -61,6 +61,7 @@ Priorites :
 - En tant qu'admin, je veux verifier ou refuser un coach afin de proteger la qualite de la plateforme.
 - En tant qu'admin, je veux voir la liste des reservations afin de suivre le bon fonctionnement du service.
 - En tant qu'admin, je veux voir les statuts de paiement et de reservation afin de gerer les cas bloquants.
+- En tant qu'admin, je veux voir les demandes en attente de validation coach afin de suivre le tunnel de reservation.
 
 ### Should have
 

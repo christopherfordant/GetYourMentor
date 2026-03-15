@@ -106,8 +106,8 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - profils coachs avec photo, presentation, discipline, zone geographique, diplomes, tarifs
 - moteur de recherche simple par sport et localisation
 - fiche coach detaillee
-- disponibilites ou demande de reservation
-- prise de rendez-vous
+- demande de reservation validee par le coach
+- prise de rendez-vous apres validation coach
 - paiement securise
 - messagerie simple ou systeme de contact integre
 - avis apres seance
@@ -247,9 +247,10 @@ Ces decisions doivent etre considerees comme prioritaires :
 2. Le MVP reste volontairement simple et centre sur coach + sportif.
 3. Le club entre dans le MVP en mode leger, pas en gestion avancee.
 4. Le style produit du site sera tres "Planity-like" dans sa clarte et sa logique de reservation.
-5. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.
-6. Les fonctions V2/V3 restent hors lancement.
-7. L'equipe se donne une verite unique dans ce document maitre.
+5. La reservation du MVP fonctionne en demande de reservation validee par le coach, pas en agenda instantane complexe.
+6. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.
+7. Les fonctions V2/V3 restent hors lancement.
+8. L'equipe se donne une verite unique dans ce document maitre.
 
 ## 11. Prochaines actions concretes
 
