@@ -20,6 +20,7 @@ A eviter :
 ### Header
 
 - logo : `GetYourMentor`
+- selecteur langue : `FR | EN`
 - lien 1 : `Devenir coach`
 - lien 2 : `Connexion`
 - CTA : `S'inscrire`
@@ -41,7 +42,7 @@ Label champ sport :
 `Sport`
 
 Placeholder champ sport :
-`Basketball, football, boxe...`
+`Football, basketball, fitness, sports de combat`
 
 Label champ ville :
 `Ville`
@@ -144,7 +145,7 @@ Alternative :
 - `Note`
 
 Placeholders filtres :
-- `Tous les sports`
+- `Football, basketball, fitness, sports de combat`
 - `Toutes les villes`
 - `Tous les budgets`
 - `Toutes les disponibilites`

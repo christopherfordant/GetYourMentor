@@ -9,6 +9,7 @@ Faire comprendre le service en 5 secondes et lancer la recherche.
 ### Header
 
 - logo `GetYourMentor`
+- selecteur de langue `FR | EN`
 - lien `Devenir coach`
 - lien `Connexion`
 - bouton `S'inscrire`
@@ -25,6 +26,12 @@ Barre de recherche :
 - champ 1 : `Quel sport ?`
 - champ 2 : `Ville ou code postal`
 - bouton : `Trouver un coach`
+
+Options visibles pour le champ sport :
+- `Football`
+- `Basketball`
+- `Fitness`
+- `Sports de combat`
 
 Bloc confiance sous la recherche :
 - `Coachs verifies`
@@ -88,6 +95,12 @@ Sous-ligne :
 - `Budget`
 - `Disponibilite`
 - `Note`
+
+Options visibles du filtre sport :
+- `Football`
+- `Basketball`
+- `Fitness`
+- `Sports de combat`
 
 ### Cartes coach
 

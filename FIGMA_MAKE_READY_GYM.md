@@ -26,6 +26,9 @@ Core product logic:
 - the athlete proposes one to three preferred timeslots
 - the coach accepts or refuses the request
 - payment happens only after coach approval
+- all visible UI copy should be in French by default
+- include a language selector with French as default and English as secondary option
+- only show these 4 sports in the MVP: football, basketball, fitness, combat sports
 
 Target users:
 - athletes looking for a coach near them
@@ -108,6 +111,7 @@ Screen content expectations:
 
 Home:
 - clean header with logo, become a coach, login, sign up
+- language selector visible but discreet
 - hero title focused on finding the right coach nearby
 - subtitle mentioning basketball, football, combat sports, fitness
 - search bar with sport field and city field
@@ -185,6 +189,7 @@ Output expectation:
 - create a coherent, premium, responsive prototype
 - prioritize trust, clarity, and fast understanding
 - keep the design realistic to build later in Next.js
+- keep all main navigation and interface labels in French
 ```
 
 ## 3. Microcopy de base a injecter
@@ -193,6 +198,7 @@ Output expectation:
 
 - Hero title: `Trouvez le coach qu'il vous faut. Pres de chez vous.`
 - Hero subtitle: `Basket, football, sports de combat, fitness : trouvez un coach verifie, consultez son profil et envoyez une demande de reservation en quelques etapes.`
+- Language selector: `FR` actif, `EN` secondaire
 - Search CTA: `Trouver un coach`
 - Trust points: `Coachs verifies`, `Demande simple`, `Paiement securise`
 
@@ -200,6 +206,7 @@ Output expectation:
 
 - Page title: `Coachs disponibles a Marseille`
 - Search summary: `Basketball - 24 resultats`
+- Sports filter options: `Football`, `Basketball`, `Fitness`, `Sports de combat`
 - Coach card example: `Steven Fordant`
 - Coach subtitle: `Coach basketball individuel`
 - Price: `A partir de 35 EUR`

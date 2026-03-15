@@ -18,6 +18,8 @@ Direction UX :
 - experience de reservation simple
 - pages lisibles
 - preuve de confiance visible
+- interface en francais par defaut avec selecteur de langue
+- seulement 4 sports visibles dans le MVP : football, basketball, fitness, sports de combat
 
 ## 2. Parcours MVP principal
 
@@ -43,7 +45,7 @@ But :
 - lancer la recherche en quelques secondes
 
 Blocs MVP :
-- header avec logo, connexion, inscription
+- header avec logo, selecteur de langue, connexion, inscription
 - hero avec promesse courte
 - barre de recherche :
   - sport
@@ -58,6 +60,7 @@ Notes UX :
 - le hero doit pousser la recherche avant tout
 - CTA principal visible immediatement
 - mobile first
+- les options de sport visibles sont limitees a 4
 
 ### Ecran 2 - Resultats de recherche
 
@@ -72,6 +75,12 @@ Blocs MVP :
   - budget
   - disponibilite
 - liste de coachs en cartes
+
+Options de sport visibles :
+- football
+- basketball
+- fitness
+- sports de combat
 
 Carte coach :
 - photo

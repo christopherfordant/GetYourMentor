@@ -8,6 +8,32 @@ La promesse centrale de GYM est la suivante : rendre le coaching individuel spor
 
 GYM doit d'abord etre pense comme un site web responsive, pas comme une application mobile native. Le web permet de lancer plus vite, a moindre cout, avec des usages adaptes au projet : profils, recherche, reservation, paiement, planning, back-office et tableaux de bord.
 
+## 1.0 Langue et sports visibles
+
+Le MVP doit etre pense en **francais par defaut**.
+
+Regles de lancement :
+
+- toute la maquette MVP est en francais
+- l'interface propose un selecteur de langue discret
+- la langue par defaut est `Francais`
+- une langue secondaire peut etre ajoutee via ce selecteur, avec `Anglais` comme premiere option logique
+
+Le catalogue visible du MVP doit rester limite a 4 sports :
+
+- football
+- basketball
+- fitness
+- sports de combat
+
+Ces 4 sports sont les seuls visibles dans :
+
+- la recherche
+- les filtres
+- les suggestions
+- les tags de discipline
+- les ecrans de maquette
+
 ## 1.1 Direction visuelle
 
 La direction visuelle du site doit etre clairement **"Planity-like"** dans son esprit produit. Cela veut dire :
@@ -72,9 +98,11 @@ Le projet vise trois publics, mais le lancement doit etre plus etroit pour evite
 
 ### Cible primaire de lancement
 
-Les coachs independants dans 1 ou 2 disciplines prioritaires, avec une premiere recommandation forte pour :
+Les coachs independants dans les 4 categories visibles du MVP, avec une priorite commerciale a arbitrer ensuite selon votre reseau reel :
+- football
 - basketball
-- football ou sports de combat selon le reseau reel le plus accessible
+- fitness
+- sports de combat
 
 ### Cible secondaire de lancement
 
@@ -103,8 +131,9 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 
 - page d'accueil et pages de presentation du service
 - creation de compte
+- interface en francais par defaut avec selecteur de langue
 - profils coachs avec photo, presentation, discipline, zone geographique, diplomes, tarifs
-- moteur de recherche simple par sport et localisation
+- moteur de recherche simple par sport et localisation, limite a 4 sports visibles
 - fiche coach detaillee
 - demande de reservation validee par le coach
 - prise de rendez-vous
@@ -250,14 +279,16 @@ Ces decisions doivent etre considerees comme prioritaires :
 5. La reservation du MVP fonctionne en demande de reservation validee par le coach, pas en agenda instantane complexe.
 6. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.
 7. Les fonctions V2/V3 restent hors lancement.
-8. L'equipe se donne une verite unique dans ce document maitre.
+8. L'interface du MVP est en francais par defaut avec selecteur de langue.
+9. Le MVP ne montre que 4 sports : `football`, `basketball`, `fitness`, `sports de combat`.
+10. L'equipe se donne une verite unique dans ce document maitre.
 
 ## 11. Prochaines actions concretes
 
 ### Semaine 1
 
 - valider ce document maitre entre vous 3
-- choisir les 1 a 2 disciplines de lancement
+- figer la liste des 4 sports visibles du MVP
 - fixer la liste finale des fonctionnalites MVP
 - choisir la personne responsable du cadrage produit
 - lister les 5 a 8 ecrans de la premiere maquette Figma

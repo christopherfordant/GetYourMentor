@@ -29,6 +29,8 @@ I want a more premium visual direction for GetYourMentor:
 - keep the interface clearer and more reassuring than the attached fitness concept
 - keep the terracotta / orange energy from the reference
 - keep a layered, cinematic, premium composition for hero areas and transitions
+- keep the UI in French by default with a discreet language selector
+- only show these 4 sports in visible UI: football, basketball, fitness, combat sports
 
 Visual adaptation rules:
 - do not switch the whole product to a dark dashboard style
