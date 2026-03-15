@@ -5,7 +5,7 @@
 ```text
 Create a responsive web app prototype for a sports coaching marketplace called GetYourMentor.
 
-The product should feel inspired by Planity in its clarity and booking-first UX, but adapted to sports coaching. Do not copy another brand. The interface must feel premium, reassuring, clean, fast to understand, and strongly conversion-oriented.
+The product should feel inspired by Planity in its clarity and booking-request-first UX, but adapted to sports coaching. Do not copy another brand. The interface must feel premium, reassuring, clean, fast to understand, and strongly conversion-oriented.
 
 Target users:
 - athletes looking for a coach near them
@@ -16,10 +16,12 @@ Primary user journey:
 2. browse coach results
 3. open a coach profile
 4. choose a session type
-5. pick a timeslot
+5. choose one to three preferred timeslots
 6. sign up or log in
-7. confirm and pay
-8. view booking confirmation
+7. send a booking request
+8. wait for coach approval
+9. pay after approval
+10. view final booking confirmation
 
 Design direction:
 - warm light background
@@ -53,17 +55,21 @@ Typography:
 - modern clean sans serif
 - readable, premium, not futuristic
 
-Create the following screens:
+Create the following core screens:
 - Home
 - Search Results
 - Coach Profile
 - Session Choice
-- Timeslot Selection
+- Preferred Timeslot Selection
 - Login / Sign Up
-- Booking Confirmation + Payment
+- Booking Request Review
 - Coach Dashboard
 
-The prototype must prioritize booking clarity, trust, and simplicity.
+Also create:
+- a request-sent success state
+- an optional payment-after-approval state
+
+The prototype must prioritize request-flow clarity, trust, and simplicity.
 ```
 
 ## 2. Prompt Home
@@ -79,13 +85,13 @@ Include:
 - subtitle mentioning basketball, football, combat sports, fitness
 - search bar with sport field and city field
 - strong primary CTA: Find a coach
-- 3 trust points: verified coaches, easy booking, secure payment
+- 3 trust points: verified coaches, easy request flow, secure payment
 - simple how-it-works section in 3 steps
 - testimonials section
 - final CTA section
 
 Style:
-- premium, clear, warm, mobile-first, booking-first
+- premium, clear, warm, mobile-first, request-first
 - strict spacing, strong alignment, clean borders, centered layout
 ```
 
@@ -116,23 +122,23 @@ Style:
 ```text
 Design a coach profile page for GetYourMentor.
 
-Goal: build trust and convert users to booking.
+Goal: build trust and convert users to a booking request.
 
 Include:
 - large coach photo
 - name, specialty, city, rating, reviews, verified badge
-- sticky booking card with price and reserve button
+- sticky request card with price and request button
 - about section
 - specialties section
 - diplomas or certifications section
 - offered sessions section
 - reviews section
-- clear reserve and contact actions
+- clear request and contact actions
 
 Style:
 - premium but practical
 - long page with strong section hierarchy
-- booking always visible
+- request action always visible
 - aligned two-column logic on desktop, stacked layout on mobile
 ```
 
@@ -159,16 +165,16 @@ Style:
 ## 6. Prompt Timeslot Selection
 
 ```text
-Design a timeslot selection page for GetYourMentor.
+Design a preferred timeslot selection page for GetYourMentor.
 
-Goal: let the user select a date and time quickly.
+Goal: let the user choose one to three preferred timeslots and prepare a booking request.
 
 Include:
 - title
-- week or calendar selector
-- visible available timeslots
+- a clear instruction that the user can select up to 3 preferred timeslots
+- visible time options
 - booking summary card with coach, session, duration, price
-- continue CTA
+- a clear next step CTA
 
 Style:
 - mobile-first
@@ -182,13 +188,13 @@ Style:
 ```text
 Design a login and sign-up page for GetYourMentor.
 
-Goal: complete account creation without breaking conversion.
+Goal: complete account creation without breaking the booking-request flow.
 
 Include:
-- title about finishing the booking
+- title about sending the request
 - tabs for login and sign up
 - simple sign up form
-- reassurance block about secure booking and payment
+- reassurance block about secure request flow and payment after approval
 - clean CTA buttons
 
 Style:
@@ -198,22 +204,22 @@ Style:
 - tabs must be perfectly aligned and equally sized
 ```
 
-## 8. Prompt Checkout
+## 8. Prompt Request Review
 
 ```text
-Design a booking confirmation and payment page for GetYourMentor.
+Design a booking request review page for GetYourMentor.
 
-Goal: help the user review the booking and pay with confidence.
+Goal: help the user review the booking request before sending it to the coach.
 
 Include:
 - booking summary
 - coach name
 - session type
-- date and time
+- preferred date and time choices
 - location
 - total price
-- secure card payment module
-- primary pay button
+- a clear explanation that payment happens only after coach approval
+- primary send-request button
 - trust and cancellation information
 
 Style:
@@ -223,7 +229,28 @@ Style:
 - balanced summary blocks, clean spacing, aligned payment fields
 ```
 
-## 9. Prompt Coach Dashboard
+## 9. Prompt Request Sent
+
+```text
+Design a request sent confirmation page for GetYourMentor.
+
+Goal: reassure the user after sending a booking request.
+
+Include:
+- success state
+- coach name
+- selected session
+- reminder that the coach will validate or refuse
+- summary of the preferred timeslots sent
+- CTA to view requests or contact the coach
+
+Style:
+- reassuring
+- premium
+- simple
+```
+
+## 10. Prompt Coach Dashboard
 
 ```text
 Design a simple coach dashboard for GetYourMentor.

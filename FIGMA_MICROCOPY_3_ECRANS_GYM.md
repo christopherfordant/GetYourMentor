@@ -30,10 +30,10 @@ Option titre 1 :
 `Trouvez le coach qu'il vous faut. Pres de chez vous.`
 
 Option titre 2 :
-`Reservez un coach sportif adapte a votre niveau.`
+`Trouvez un coach sportif adapte a votre niveau.`
 
 Sous-titre principal :
-`Basket, football, sports de combat, fitness : trouvez un coach verifie, consultez son profil et reservez simplement votre seance.`
+`Basket, football, sports de combat, fitness : trouvez un coach verifie, consultez son profil et envoyez une demande de reservation en quelques etapes.`
 
 ### Barre de recherche
 
@@ -55,12 +55,12 @@ CTA principal :
 ### Reassurance line
 
 - `Coachs verifies`
-- `Reservation simple`
+- `Demande simple`
 - `Paiement securise`
 
 Option plus premium :
 - `Profils verifies`
-- `Reservation rapide`
+- `Demande rapide`
 - `Paiement protege`
 
 ### Section comment ca marche
@@ -77,8 +77,8 @@ Carte 2 :
 - texte : `Consultez les profils, les avis, les tarifs et les specialites de chaque coach.`
 
 Carte 3 :
-- titre : `Reservez`
-- texte : `Selectionnez une seance, choisissez un creneau et confirmez votre reservation en ligne.`
+- titre : `Demandez`
+- texte : `Selectionnez une seance, proposez vos creneaux et attendez la validation du coach.`
 
 ### Section valeur
 
@@ -95,29 +95,29 @@ Titre :
 
 Point 1 :
 - titre : `Des profils lisibles`
-- texte : `Toutes les informations utiles sont visibles avant de reserver.`
+- texte : `Toutes les informations utiles sont visibles avant d'envoyer une demande.`
 
 Point 2 :
-- titre : `Une reservation sans friction`
-- texte : `Vous choisissez votre coach, votre seance et votre creneau en quelques etapes.`
+- titre : `Une demande sans friction`
+- texte : `Vous choisissez votre coach, votre seance et proposez vos creneaux en quelques etapes.`
 
 Point 3 :
 - titre : `Une experience rassurante`
-- texte : `Avis, verification et paiement securise vous aident a reserver en confiance.`
+- texte : `Avis, verification et paiement securise vous aident a avancer en confiance.`
 
 ### Avis courts
 
 - `J'ai trouve un coach de basket en quelques minutes.`
 - `Les profils sont clairs, les tarifs aussi.`
-- `La reservation est simple et tres rassurante.`
+- `La demande de reservation est simple et tres rassurante.`
 
 ### CTA final
 
 Titre :
-`Pret a reserver votre premiere seance ?`
+`Pret a trouver votre coach ?`
 
 Texte :
-`Trouvez un coach adapte a votre objectif et reservez en quelques clics.`
+`Trouvez un coach adapte a votre objectif et envoyez votre demande en quelques clics.`
 
 Bouton :
 `Trouver un coach`
@@ -191,7 +191,7 @@ CTA primaire :
 `Voir le profil`
 
 CTA secondaire optionnel :
-`Reserver`
+`Demander`
 
 ### Etat vide
 
@@ -237,23 +237,23 @@ Badge :
 ### Bloc reservation sticky
 
 Titre :
-`Reserver une seance`
+`Demander une reservation`
 
 Prix :
 `A partir de 35 EUR`
 
 Texte court :
-`Choisissez une seance adaptee a votre objectif puis selectionnez un creneau.`
+`Choisissez une seance adaptee a votre objectif puis proposez vos creneaux preferes.`
 
 CTA principal :
-`Reserver`
+`Demander une reservation`
 
 CTA secondaire :
 `Contacter`
 
 Microcopy confiance :
 - `Paiement securise`
-- `Reservation simple`
+- `Demande simple`
 
 ### Section a propos
 
@@ -325,7 +325,7 @@ Avis 1 :
 
 Avis 2 :
 - note : `5/5`
-- texte : `Reservation simple, coach ponctuel et a l'ecoute.`
+- texte : `Demande simple, coach ponctuel et a l'ecoute.`
 
 Avis 3 :
 - note : `4/5`
@@ -343,7 +343,7 @@ Reponse 1 :
 `Le lieu est precise sur chaque seance ou au moment de la reservation.`
 
 Question 2 :
-`Puis-je contacter le coach avant de reserver ?`
+`Puis-je contacter le coach avant d'envoyer ma demande ?`
 
 Reponse 2 :
 `Oui, vous pouvez envoyer un message depuis son profil.`
@@ -359,9 +359,9 @@ Reponse 3 :
 CTA principaux :
 - `Trouver un coach`
 - `Voir le profil`
-- `Reserver`
+- `Demander une reservation`
 - `Continuer`
-- `Payer`
+- `Envoyer ma demande`
 
 CTA secondaires :
 - `Contacter`
@@ -373,7 +373,7 @@ CTA secondaires :
 
 - `Coach verifie`
 - `Paiement securise`
-- `Reservation simple`
+- `Demande simple`
 - `Confirmation rapide`
 - `Profil complet`
 - `Avis verifies`
