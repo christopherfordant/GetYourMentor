@@ -140,16 +140,26 @@ Alternative :
 
 - `Sport`
 - `Ville`
+- `Genre du coach`
+- `Lieu`
+- `Niveau`
+- `Format`
 - `Budget`
 - `Disponibilite`
 - `Note`
+- `Coach verifie`
 
 Placeholders filtres :
 - `Football, basketball, fitness, sports de combat`
 - `Toutes les villes`
+- `Homme ou femme`
+- `Interieur ou exterieur`
+- `Tous les niveaux`
+- `Presentiel ou visio`
 - `Tous les budgets`
 - `Toutes les disponibilites`
 - `Toutes les notes`
+- `Oui / Non`
 
 ### Resume de recherche
 

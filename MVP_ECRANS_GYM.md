@@ -72,8 +72,14 @@ Blocs MVP :
 - filtres simples :
   - sport
   - ville
+  - genre du coach
+  - lieu de pratique
+  - niveau
+  - format
   - budget
   - disponibilite
+  - note
+  - coach verifie
 - liste de coachs en cartes
 
 Options de sport visibles :
@@ -81,6 +87,23 @@ Options de sport visibles :
 - basketball
 - fitness
 - sports de combat
+
+Options de genre du coach :
+- homme
+- femme
+
+Options de lieu de pratique :
+- interieur
+- exterieur
+
+Options de niveau :
+- debutant
+- intermediaire
+- confirme
+
+Options de format :
+- presentiel
+- visio
 
 Carte coach :
 - photo
@@ -95,6 +118,7 @@ Carte coach :
 Notes UX :
 - interface tres scannable
 - infos utiles au premier regard
+- sur mobile, afficher en priorite : sport, ville, genre du coach, lieu de pratique
 
 ### Ecran 3 - Fiche coach
 

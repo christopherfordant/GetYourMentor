@@ -124,7 +124,7 @@ Home:
 
 Search Results:
 - page title with city and sport
-- filter bar with sport, city, budget, availability, rating
+- filter bar with sport, city, coach gender, indoor/outdoor, level, format, budget, availability, rating, verified toggle
 - coach cards with photo, name, specialty, city, price from, rating, tags, and profile CTA
 - highly scannable layout
 
@@ -209,6 +209,10 @@ Output expectation:
 - Page title: `Coachs disponibles a Marseille`
 - Search summary: `Basketball - 24 resultats`
 - Sports filter options: `Football`, `Basketball`, `Fitness`, `Sports de combat`
+- Coach gender options: `Homme`, `Femme`
+- Practice location options: `Interieur`, `Exterieur`
+- Level options: `Debutant`, `Intermediaire`, `Confirme`
+- Format options: `Presentiel`, `Visio`
 - Coach card example: `Steven Fordant`
 - Coach subtitle: `Coach basketball individuel`
 - Price: `A partir de 35 EUR`

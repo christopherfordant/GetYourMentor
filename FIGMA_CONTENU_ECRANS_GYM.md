@@ -92,15 +92,37 @@ Sous-ligne :
 
 - `Sport`
 - `Ville`
+- `Genre du coach`
+- `Lieu`
+- `Niveau`
+- `Format`
 - `Budget`
 - `Disponibilite`
 - `Note`
+- `Coach verifie`
 
 Options visibles du filtre sport :
 - `Football`
 - `Basketball`
 - `Fitness`
 - `Sports de combat`
+
+Options visibles du filtre genre du coach :
+- `Homme`
+- `Femme`
+
+Options visibles du filtre lieu :
+- `Interieur`
+- `Exterieur`
+
+Options visibles du filtre niveau :
+- `Debutant`
+- `Intermediaire`
+- `Confirme`
+
+Options visibles du filtre format :
+- `Presentiel`
+- `Visio`
 
 ### Cartes coach
 
