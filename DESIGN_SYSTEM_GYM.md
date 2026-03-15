@@ -103,6 +103,126 @@ Regles :
 - ombres douces
 - bordures discretes
 
+## 6.1 Echelle d'espacement
+
+Utiliser une echelle fixe pour garder une interface reguliere :
+
+- `4 px`
+- `8 px`
+- `12 px`
+- `16 px`
+- `24 px`
+- `32 px`
+- `40 px`
+- `48 px`
+- `64 px`
+- `80 px`
+
+Regle :
+- ne pas inventer des espacements aleatoires
+- les espaces verticaux entre sections doivent etre plus grands que les espaces entre elements d'une meme carte
+
+## 6.2 Grille et conteneurs
+
+### Mobile
+
+- largeur de reference : `390 px`
+- marge laterale : `20 px`
+- largeur de contenu : `calc(100% - 40 px)`
+- grille : `4 colonnes`
+
+### Tablette
+
+- largeur de reference : `768 px`
+- marge laterale : `32 px`
+- grille : `8 colonnes`
+
+### Desktop
+
+- largeur de reference : `1440 px`
+- conteneur max : `1200 px`
+- marge laterale externe : `80 px`
+- grille : `12 colonnes`
+
+Regle :
+- le contenu principal reste centre
+- les blocs ne flottent jamais de facon arbitraire
+- les cartes s'alignent sur la grille
+
+## 6.3 Rythme vertical
+
+- espace entre titre et sous-titre : `12 a 16 px`
+- espace entre sous-titre et CTA ou formulaire : `24 px`
+- espace entre sections majeures : `64 px` mobile, `80 px` desktop
+- espace entre cartes dans une meme liste : `16 px` mobile, `24 px` desktop
+
+## 6.4 Paddings composants
+
+### Cartes standards
+
+- padding mobile : `16 px`
+- padding desktop : `24 px`
+
+### Cartes hero ou reservation
+
+- padding mobile : `20 px`
+- padding desktop : `24 a 32 px`
+
+### Inputs
+
+- hauteur minimale : `52 px`
+- padding horizontal : `16 px`
+
+### Boutons
+
+- hauteur minimale : `52 px`
+- padding horizontal : `20 a 24 px`
+
+## 6.5 Rayons et bordures
+
+- rayon petits elements : `12 px`
+- rayon cartes : `20 px`
+- rayon hero search / blocs importants : `24 px`
+- bordure standard : `1 px solid #E7DED2`
+
+Regle :
+- garder des rayons cohérents
+- pas de mix entre coins tres carres et tres ronds dans un meme ecran
+
+## 6.6 Alignement et centrage
+
+- titres de section alignes a gauche dans les blocs de contenu
+- hero centre visuellement, mais la barre de recherche reste rigoureusement alignee
+- boutons d'action alignes sur la meme ligne de base quand ils sont cote a cote
+- cartes d'une meme rangée avec meme hauteur visuelle si possible
+- colonnes et blocs toujours relies a la meme largeur de conteneur
+
+## 6.7 Onglets et navigation
+
+Pour les onglets comme `Connexion / Inscription` :
+
+- largeur egale des onglets
+- hauteur uniforme
+- alignement horizontal strict
+- etat actif tres visible
+- espace de `8 px` maximum entre onglets si separes
+
+Pour la navigation desktop :
+
+- logo a gauche
+- liens centraux ou legerement decales a gauche
+- actions compte a droite
+- alignement vertical rigoureux
+
+## 6.8 Responsive behavior
+
+- aucune carte ne doit coller au bord de l'ecran
+- aucun texte ne doit depasser sur 2 colonnes sans raison
+- les blocs lateraux desktop passent sous le contenu en mobile
+- les CTA principaux restent visibles sans scroller trop loin
+- les listes de cartes passent de multi-colonnes a une seule colonne en mobile
+- les formulaires doivent rester remplissables au pouce
+
 ## 7. Iconographie et images
 
 - vraies photos de coachs ou scenes d'entrainement credibles
@@ -116,6 +236,9 @@ Le prototype doit etre pense en mobile d'abord :
 - cartes scannables
 - etapes de reservation tres courtes
 - recap toujours lisible
+- espacements respirants sans gaspiller l'ecran
+- alignements stricts pour eviter l'effet brouillon
+- boutons et champs faciles a toucher
 
 ## 9. Ce qu'il faut eviter
 
@@ -125,4 +248,7 @@ Le prototype doit etre pense en mobile d'abord :
 - look trop "app de running"
 - look trop medical
 - tunnel trop technique
-
+- elements mal centres
+- bordures incoherentes
+- cartes de tailles inegales sans logique
+- espaces irreguliers entre les blocs
