@@ -30,6 +30,17 @@ Design direction:
 - strong trust signals
 - clear CTA buttons
 
+Layout constraints:
+- use a strict spacing system based on 8, 12, 16, 24, 32, 48, 64
+- keep all content aligned to a clear responsive grid
+- mobile reference width around 390px
+- desktop container max width around 1200px
+- keep 20px side padding on mobile and around 80px outer spacing on desktop
+- use consistent border radius across inputs, cards, and buttons
+- make tabs, buttons, cards, and form fields perfectly aligned
+- ensure elements are visually centered and never floating randomly
+- keep all screens realistically responsive and developer-friendly
+
 Suggested style tokens:
 - background: #F6F2EB
 - surface: #FFFDFC
@@ -75,6 +86,7 @@ Include:
 
 Style:
 - premium, clear, warm, mobile-first, booking-first
+- strict spacing, strong alignment, clean borders, centered layout
 ```
 
 ## 3. Prompt Search Results
@@ -96,6 +108,7 @@ Style:
 - elegant cards
 - high readability
 - fast comparison
+- perfectly aligned card grid and consistent spacing
 ```
 
 ## 4. Prompt Coach Profile
@@ -120,6 +133,7 @@ Style:
 - premium but practical
 - long page with strong section hierarchy
 - booking always visible
+- aligned two-column logic on desktop, stacked layout on mobile
 ```
 
 ## 5. Prompt Session Choice
@@ -139,6 +153,7 @@ Include:
 Style:
 - minimal friction
 - very clear pricing
+- evenly spaced cards with matching heights
 ```
 
 ## 6. Prompt Timeslot Selection
@@ -159,6 +174,7 @@ Style:
 - mobile-first
 - clear rhythm
 - no unnecessary complexity
+- precise spacing between date blocks, timeslots, and summary card
 ```
 
 ## 7. Prompt Login Signup
@@ -179,6 +195,7 @@ Style:
 - lightweight
 - clear
 - confidence-building
+- tabs must be perfectly aligned and equally sized
 ```
 
 ## 8. Prompt Checkout
@@ -203,6 +220,7 @@ Style:
 - reassuring
 - structured
 - minimal friction
+- balanced summary blocks, clean spacing, aligned payment fields
 ```
 
 ## 9. Prompt Coach Dashboard
@@ -224,4 +242,5 @@ Style:
 - clear and calm
 - useful first
 - no unnecessary complexity
+- aligned KPI cards and regular dashboard grid
 ```

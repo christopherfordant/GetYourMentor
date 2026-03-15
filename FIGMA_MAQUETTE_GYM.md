@@ -141,5 +141,6 @@ Les 5 plus importants sont :
 ## Documents de travail lies
 
 - [DESIGN_SYSTEM_GYM.md](c:\Users\cashe\Documents\GetYourMentor\DESIGN_SYSTEM_GYM.md)
+- [RESPONSIVE_LAYOUT_GYM.md](c:\Users\cashe\Documents\GetYourMentor\RESPONSIVE_LAYOUT_GYM.md)
 - [FIGMA_CONTENU_ECRANS_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_CONTENU_ECRANS_GYM.md)
 - [FIGMA_MAKE_PROMPTS_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_MAKE_PROMPTS_GYM.md)
