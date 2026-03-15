@@ -38,14 +38,14 @@ Ces 4 sports sont les seuls visibles dans :
 
 La direction visuelle du site doit etre clairement **"Planity-like"** dans son esprit produit. Cela veut dire :
 
-- une interface tres claire, rassurante et facile a reserver
+- une interface premium, sombre et rassurante
 - une home orientee recherche et prise de rendez-vous
 - des fiches coachs tres lisibles avec photo, informations clefs, tarifs et disponibilites
 - une presentation simple des prestations ou types de seances
 - des appels a l'action visibles et repetes : reserver, contacter, creer un compte
 - une experience mobile tres soignee, avec navigation fluide et rapide
 
-Le but n'est pas de copier a l'identique, mais d'adopter la meme logique d'usage : **recherche simple, confiance, reservation rapide, friction minimale**.
+Le but n'est pas de copier a l'identique, mais d'adopter la meme logique d'usage : **recherche simple, confiance, reservation rapide, friction minimale**, avec un **theme sombre premium** et des accents orange plus sportifs.
 
 ## 1.2 Validation visuelle et produit
 
@@ -281,7 +281,8 @@ Ces decisions doivent etre considerees comme prioritaires :
 7. Les fonctions V2/V3 restent hors lancement.
 8. L'interface du MVP est en francais par defaut avec selecteur de langue.
 9. Le MVP ne montre que 4 sports : `football`, `basketball`, `fitness`, `sports de combat`.
-10. L'equipe se donne une verite unique dans ce document maitre.
+10. La direction visuelle de la maquette MVP est en theme sombre premium avec accent orange.
+11. L'equipe se donne une verite unique dans ce document maitre.
 
 ## 11. Prochaines actions concretes
 

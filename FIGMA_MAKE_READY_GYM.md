@@ -47,24 +47,25 @@ Primary user journey:
 10. view final booking confirmation
 
 Design direction:
-- warm light background
-- elegant cards
-- dark typography
-- terracotta accent color for primary actions
+- dark premium background
+- charcoal surfaces
+- light typography
+- vivid orange accent color for primary actions
 - mobile-first layout
 - strong trust signals
 - clear CTA buttons
 - premium but calm visual rhythm
 
 Style tokens:
-- background: #F6F2EB
-- surface: #FFFDFC
-- primary text: #0F172A
-- secondary text: #5B6475
-- accent: #D97757
-- accent dark: #B85E42
-- success: #1F8F5F
-- border: #E7DED2
+- background: #0B0D10
+- surface: #13171C
+- surface soft: #191F26
+- primary text: #F3EFE8
+- secondary text: #A6AFBC
+- accent: #FF8A3D
+- accent dark: #D96A24
+- success: #28B56F
+- border: #2A313B
 
 Typography:
 - use a modern clean sans serif similar to Manrope
@@ -190,6 +191,7 @@ Output expectation:
 - prioritize trust, clarity, and fast understanding
 - keep the design realistic to build later in Next.js
 - keep all main navigation and interface labels in French
+- dark theme should be the default visual direction
 ```
 
 ## 3. Microcopy de base a injecter
