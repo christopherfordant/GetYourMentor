@@ -16,10 +16,10 @@ Le MVP GetYourMentor est un site web responsive de reservation de coaching sport
 Le MVP doit permettre :
 - a un sportif de trouver un coach
 - a un sportif de consulter un profil coach
-- a un sportif de reserver ou demander une seance
+- a un sportif d'envoyer une demande de reservation
 - a un sportif de payer en ligne
 - a un coach de creer et gerer son profil
-- a un coach de recevoir et gerer des reservations
+- a un coach de recevoir, valider ou refuser des demandes
 - a un admin de verifier les coachs et suivre les reservations
 
 Le MVP ne doit pas chercher a couvrir toutes les idees du projet.
@@ -28,11 +28,11 @@ Le MVP ne doit pas chercher a couvrir toutes les idees du projet.
 
 ### Sportif
 
-Utilisateur qui cherche un coach, consulte des profils, reserve une seance et paie.
+Utilisateur qui cherche un coach, consulte des profils, envoie une demande de reservation et paie apres validation.
 
 ### Coach
 
-Professionnel qui cree son profil, propose des seances, gere ses reservations et suit son activite de base.
+Professionnel qui cree son profil, propose des seances, gere les demandes et suit son activite de base.
 
 ### Admin
 
@@ -49,11 +49,12 @@ Hors coeur du MVP. Le club n'entre que sous forme de profil vitrine ou de prise 
 3. il consulte une liste de resultats
 4. il ouvre la fiche d'un coach
 5. il choisit un type de seance
-6. il choisit un creneau ou envoie une demande de reservation
+6. il choisit 1 a 3 creneaux preferes
 7. il se connecte ou cree son compte
-8. il confirme sa reservation
-9. il paie
-10. il recoit une confirmation
+8. il envoie sa demande de reservation
+9. le coach valide ou refuse
+10. si la demande est validee, le sportif paie
+11. il recoit une confirmation
 
 Ce parcours est le coeur du MVP. Si lui fonctionne, le MVP remplit sa mission initiale.
 
@@ -109,7 +110,8 @@ Champs minimum :
 - sportif_id
 - coach_id
 - offre_id
-- date_heure
+- requested_slots
+- confirmed_slot
 - statut
 - montant
 - statut_paiement
@@ -142,22 +144,25 @@ Champs minimum :
 
 ### Regles reservation
 
-- une reservation doit contenir un coach, une offre, une date et un montant
+- une demande de reservation doit contenir un coach, une offre, au moins un creneau propose et un montant
+- une reservation n'est consideree comme confirmee qu'apres validation du coach
 - une reservation doit passer par un statut clair
 - le paiement doit etre trace
 
 ### Regles paiement
 
-- le paiement en ligne est obligatoire pour confirmer automatiquement une reservation payante
-- si la logique choisie est une demande manuelle, le paiement peut etre declenche seulement apres validation du coach
+- le paiement en ligne intervient apres validation du coach
+- une demande refusee ne doit pas declencher de paiement
 
 ## 7. Etats fonctionnels
 
 ### Statuts reservation recommandes
 
 - `draft`
-- `pending_confirmation`
+- `pending_coach_validation`
+- `accepted_waiting_payment`
 - `confirmed`
+- `refused`
 - `cancelled`
 - `completed`
 
@@ -215,13 +220,13 @@ Objectif :
 
 Fonctions minimum :
 - afficher photo, bio, disciplines, diplomes, tarifs, offres et avis
-- afficher un bloc de reservation visible
+- afficher un bloc de demande de reservation visible
 - permettre de contacter le coach
 - afficher le badge `coach verifie` si applicable
 
 Conditions de reussite :
 - un sportif peut comprendre qui est le coach et ce qu'il propose
-- le CTA `Reserver` est clair
+- le CTA `Demander une reservation` est clair
 
 ### Ecran 4 - Choix de la seance
 
@@ -239,18 +244,15 @@ Conditions de reussite :
 ### Ecran 5 - Choix du creneau
 
 Objectif :
-- selectionner une date et une heure
+- proposer des creneaux au coach
 
 Fonctions minimum :
-- afficher les disponibilites du coach
-- permettre la selection d'un creneau
+- afficher les disponibilites indicatives du coach si elles existent
+- permettre la selection de 1 a 3 creneaux preferes
 - afficher un recap de l'offre choisie
 
-Alternative MVP :
-- si le calendrier est trop complexe, remplacer par une demande de reservation avec 2 a 3 choix preferes
-
 Conditions de reussite :
-- l'utilisateur sait exactement quel rendez-vous il demande ou reserve
+- l'utilisateur sait exactement quels creneaux il soumet au coach
 
 ### Ecran 6 - Connexion / inscription
 
@@ -269,17 +271,17 @@ Conditions de reussite :
 ### Ecran 7 - Confirmation
 
 Objectif :
-- verifier avant paiement
+- verifier avant envoi de la demande
 
 Fonctions minimum :
-- afficher le recap complet de la reservation
+- afficher le recap complet de la demande
 - afficher les conditions d'annulation
-- lancer le paiement
+- envoyer la demande de reservation
 
 ### Ecran 8 - Paiement
 
 Objectif :
-- finaliser la transaction
+- finaliser la transaction apres validation du coach
 
 Fonctions minimum :
 - integrer Stripe ou equivalent
@@ -422,18 +424,18 @@ Le MVP est considere comme valide si :
 1. un coach peut creer un profil complet
 2. un admin peut verifier ce coach
 3. un sportif peut le trouver dans la recherche
-4. un sportif peut reserver ou demander une seance
-5. un sportif peut payer
-6. le coach voit la reservation
-7. l'admin peut suivre la reservation
+4. un sportif peut envoyer une demande de reservation
+5. le coach peut valider ou refuser
+6. un sportif peut payer apres validation
+7. le coach voit la reservation confirmee
+8. l'admin peut suivre la reservation
 
 ## 14. Decisions produit recommandees maintenant
 
 Pour reduire le risque et accelerer le lancement :
 
-1. demarrer avec un systeme de reservation simple
-2. si besoin, utiliser au debut une demande de reservation plutot qu'un agenda complexe
+1. demarrer avec un systeme de demande de reservation validee par le coach
+2. ne pas construire un agenda instantane complexe dans le MVP
 3. limiter le nombre de filtres de recherche
 4. limiter les types d'offres au strict utile
 5. garder la messagerie tres legere
-
