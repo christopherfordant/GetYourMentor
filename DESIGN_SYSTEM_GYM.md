@@ -107,6 +107,17 @@ Regles :
 - titres simples et forts
 - peu de fantaisie
 - tres bonne lisibilite mobile
+- interface en francais par defaut
+- selecteur de langue discret dans le header ou le menu compte
+
+## 4.1 Regles contenu MVP
+
+Pour la maquette MVP :
+
+- tous les textes visibles sont en francais
+- le selecteur de langue peut afficher `FR` actif et `EN` disponible
+- les sports visibles sont limites a `Football`, `Basketball`, `Fitness`, `Sports de combat`
+- aucun autre sport ne doit apparaitre dans la home, la recherche, les filtres ou les cartes coach
 
 ## 5. Style des composants
 
