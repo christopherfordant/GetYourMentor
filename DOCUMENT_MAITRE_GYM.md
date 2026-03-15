@@ -106,13 +106,24 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - profils coachs avec photo, presentation, discipline, zone geographique, diplomes, tarifs
 - moteur de recherche simple par sport et localisation
 - fiche coach detaillee
-- disponibilites ou demande de reservation
-- prise de rendez-vous
-- paiement securise
+- demande de reservation avec proposition de 1 a 3 creneaux preferes
+- validation ou refus de la demande par le coach
+- paiement securise apres acceptation de la demande
 - messagerie simple ou systeme de contact integre
 - avis apres seance
 - espace coach basique pour gerer profil, planning, reservations et paiements
 - back-office admin minimum pour verifier les coachs et suivre l'activite
+
+### Logique exacte du tunnel MVP
+
+Le MVP ne fonctionne pas en reservation instantanee. Le parcours retenu est le suivant :
+
+1. le sportif choisit un coach et une offre
+2. le sportif propose 1 a 3 creneaux preferes
+3. la demande part en attente de validation
+4. le coach accepte ou refuse
+5. en cas d'acceptation, le sportif recoit le lien de paiement
+6. la reservation est confirmee apres paiement
 
 ### Inclus en version legere seulement
 
@@ -249,7 +260,9 @@ Ces decisions doivent etre considerees comme prioritaires :
 4. Le style produit du site sera tres "Planity-like" dans sa clarte et sa logique de reservation.
 5. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.
 6. Les fonctions V2/V3 restent hors lancement.
-7. L'equipe se donne une verite unique dans ce document maitre.
+7. Le tunnel MVP fonctionne en demande de reservation validee par le coach, puis paiement.
+8. La stack de lancement retenue est : `Next.js + TypeScript + Tailwind + Supabase + Stripe + Resend + Vercel + n8n`.
+9. L'equipe se donne une verite unique dans ce document maitre.
 
 ## 11. Prochaines actions concretes
 
