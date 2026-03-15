@@ -314,3 +314,66 @@ Ces decisions doivent etre considerees comme prioritaires :
 - figer le MVP
 - lancer le planning d'execution
 - preparer la base memoire `Supabase + n8n`
+
+## 12. Prochaine etape du projet
+
+La maquette etant maintenant suffisante pour aligner la vision, la prochaine etape n'est plus le design. La prochaine etape est le **passage en mode build**.
+
+Le bon objectif n'est pas encore de coder tout de suite a l'aveugle. Le bon objectif est de transformer la maquette en **MVP reellement constructible**, sans ambiguite produit.
+
+### Etape prioritaire
+
+Transformer le travail de maquette en **dossier d'execution MVP**.
+
+### Ce dossier doit contenir
+
+- la liste finale des ecrans MVP
+- les composants principaux a reutiliser
+- les regles metier ecran par ecran
+- les statuts de reservation
+- les textes critiques de l'interface
+- la regle langue : `FR` par defaut, `EN` en second
+- la regle catalogue : seulement `football`, `basketball`, `fitness`, `sports de combat`
+- les cas limites importants : refus coach, paiement apres validation, etat vide, aucun resultat
+
+### Resultat attendu
+
+A la fin de cette etape, vous devez avoir un dossier suffisamment propre pour :
+
+- briefer un developpeur sans oral long
+- decouper le projet en sprints
+- estimer le temps de developpement
+- commencer le build sans repartir dans le flou
+
+## 13. Ordre recommande apres maquette
+
+1. figer le parcours final ecran par ecran
+2. figer les fonctionnalites exactes du MVP
+3. figer les regles metier de reservation
+4. figer la structure de donnees MVP
+5. transformer tout cela en backlog de build
+6. seulement ensuite lancer le developpement
+
+## 14. Prochain livrable concret
+
+Le prochain livrable le plus utile pour GYM est :
+
+**une specification fonctionnelle finale du MVP, exploitable par un developpeur**
+
+Cette specification doit etre votre pont entre :
+
+- le document maitre
+- la maquette
+- la stack technique
+- le backlog de developpement
+
+## 15. Decision de cadence
+
+Tant que la maquette est consideree comme satisfaisante, l'equipe ne revient pas en boucle sur le design.
+
+La priorite passe maintenant a :
+
+- cadrer
+- specifier
+- ordonner
+- construire
