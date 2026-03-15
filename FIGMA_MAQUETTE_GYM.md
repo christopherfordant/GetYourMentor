@@ -154,6 +154,8 @@ Les 5 plus importants sont :
 - [PREVIEW_MAQUETTE_GYM.md](c:\Users\cashe\Documents\GetYourMentor\PREVIEW_MAQUETTE_GYM.md)
 - [PREVIEW_MAQUETTE_GYM.html](c:\Users\cashe\Documents\GetYourMentor\PREVIEW_MAQUETTE_GYM.html)
 - [FIGMA_MAKE_READY_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_MAKE_READY_GYM.md)
+- [FIGMA_MAKE_MOTION_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_MAKE_MOTION_GYM.md)
+- [FIGMA_VIEW_GUIDE_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_VIEW_GUIDE_GYM.md)
 - [DESIGN_SYSTEM_GYM.md](c:\Users\cashe\Documents\GetYourMentor\DESIGN_SYSTEM_GYM.md)
 - [RESPONSIVE_LAYOUT_GYM.md](c:\Users\cashe\Documents\GetYourMentor\RESPONSIVE_LAYOUT_GYM.md)
 - [FIGMA_CONTENU_ECRANS_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_CONTENU_ECRANS_GYM.md)

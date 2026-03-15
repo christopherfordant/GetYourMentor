@@ -31,6 +31,47 @@ Le ton visuel doit etre :
 - plus premium que "fitness low cost"
 - plus dynamique qu'une plateforme de reservation beaute
 
+## 2.1 Direction visuelle v2
+
+Une deuxieme direction visuelle peut etre utilisee pour la maquette si vous voulez un rendu plus fort visuellement.
+
+Cette direction garde l'esprit `Planity-like`, mais reprend certains codes d'une capture premium de type app fitness :
+
+- composition hero plus cinematographique
+- profondeur visuelle plus marquee
+- couches d'ecrans ou de mockups mobiles inclines
+- contrastes un peu plus forts
+- sensation de mouvement plus moderne
+
+Regle importante :
+
+- ne pas transformer tout le produit en dark mode
+- garder le coeur de l'interface clair, lisible et rassurant
+- utiliser les zones sombres surtout dans le hero, les fonds de transition ou certains modules premium
+
+En resume :
+
+- inspiration de la capture pour l'energie et la mise en scene
+- adaptation Planity-like pour la clarte, la confiance et la conversion
+
+## 2.2 Motion design
+
+La motion doit rester discrete et premium.
+
+Animations recommandees :
+
+- apparition progressive des cartes
+- hover doux sur coach cards et CTA
+- transition de page avec profondeur legere
+- effet "carousel 3D" subtil entre quelques ecrans clefs
+
+Regles :
+
+- pas d'animation permanente envahissante
+- pas de gimmick trop "gaming"
+- la motion doit toujours servir la comprehension
+- si le 3D complet degrade la lisibilite, reduire l'effet
+
 ## 3. Palette recommandee
 
 ### Couleurs principales
