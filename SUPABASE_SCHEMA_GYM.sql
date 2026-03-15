@@ -1,0 +1,192 @@
+-- GetYourMentor - Supabase project memory schema
+-- Starter version focused on project memory, task sync, decisions and document search.
+-- Run this in the Supabase SQL editor.
+
+create extension if not exists pgcrypto;
+create extension if not exists vector;
+
+create schema if not exists gym_memory;
+
+create or replace function gym_memory.set_updated_at()
+returns trigger
+language plpgsql
+as $$
+begin
+  new.updated_at = timezone('utc', now());
+  return new;
+end;
+$$;
+
+create table if not exists gym_memory.decisions (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  description text not null,
+  status text not null default 'active' check (status in ('active', 'superseded', 'cancelled')),
+  category text not null default 'general' check (category in ('general', 'product', 'business', 'finance', 'marketing', 'commercial', 'ops', 'tech')),
+  decided_by text[] not null default '{}',
+  source_doc text,
+  source_url text,
+  decision_date date not null default current_date,
+  impact_level text not null default 'medium' check (impact_level in ('low', 'medium', 'high')),
+  tags text[] not null default '{}',
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.features (
+  id uuid primary key default gen_random_uuid(),
+  name text not null unique,
+  description text not null default '',
+  phase text not null default 'backlog' check (phase in ('mvp', 'post_mvp', 'v2', 'v3', 'backlog')),
+  priority text not null default 'medium' check (priority in ('critical', 'high', 'medium', 'low')),
+  status text not null default 'idea' check (status in ('idea', 'validated', 'planned', 'in_progress', 'done', 'dropped')),
+  target_user text not null default 'all' check (target_user in ('coach', 'sportif', 'club', 'admin', 'all')),
+  owner text,
+  source_doc text,
+  success_metric text,
+  notes text,
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.roadmap_items (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  description text not null default '',
+  phase text not null default 'phase_1' check (phase in ('phase_1', 'phase_2', 'phase_3', 'phase_4')),
+  status text not null default 'planned' check (status in ('planned', 'in_progress', 'blocked', 'done')),
+  owner text,
+  due_date date,
+  linked_feature_ids uuid[] not null default '{}',
+  linked_decision_ids uuid[] not null default '{}',
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.meetings (
+  id uuid primary key default gen_random_uuid(),
+  meeting_date timestamptz not null,
+  title text not null,
+  participants text[] not null default '{}',
+  summary text not null default '',
+  action_items jsonb not null default '[]'::jsonb,
+  linked_decision_ids uuid[] not null default '{}',
+  source_doc text,
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.contacts (
+  id uuid primary key default gen_random_uuid(),
+  contact_type text not null check (contact_type in ('coach', 'club', 'partner', 'investor', 'incubator', 'provider', 'other')),
+  full_name text,
+  organization_name text,
+  email text,
+  phone text,
+  sport text,
+  city text,
+  source text,
+  status text not null default 'new' check (status in ('new', 'contacted', 'follow_up', 'interested', 'pilot', 'won', 'lost', 'inactive')),
+  next_action text,
+  next_action_date date,
+  owner text,
+  notes text,
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.tasks_sync (
+  trello_card_id text primary key,
+  trello_board_id text,
+  trello_list_id text,
+  trello_list_name text,
+  title text not null,
+  description text,
+  status text not null default 'backlog',
+  labels text[] not null default '{}',
+  members text[] not null default '{}',
+  due_date timestamptz,
+  url text,
+  synced_at timestamptz not null default timezone('utc', now()),
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.documents (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  document_type text not null check (document_type in ('master_doc', 'business_plan', 'pitch', 'functional_spec', 'meeting_note', 'finance', 'contact_list', 'other')),
+  file_path text,
+  file_hash text,
+  version text,
+  summary text,
+  status_reference text not null default 'working' check (status_reference in ('draft', 'working', 'reference', 'archived')),
+  source_system text not null default 'local' check (source_system in ('local', 'trello', 'drive', 'notion', 'email', 'other')),
+  tags text[] not null default '{}',
+  created_at timestamptz not null default timezone('utc', now()),
+  updated_at timestamptz not null default timezone('utc', now())
+);
+
+create table if not exists gym_memory.document_chunks (
+  id uuid primary key default gen_random_uuid(),
+  document_id uuid not null references gym_memory.documents(id) on delete cascade,
+  chunk_index integer not null,
+  section text,
+  chunk_text text not null,
+  tags text[] not null default '{}',
+  embedding vector(1536),
+  created_at timestamptz not null default timezone('utc', now()),
+  unique (document_id, chunk_index)
+);
+
+create table if not exists gym_memory.weekly_briefs (
+  id uuid primary key default gen_random_uuid(),
+  week_start date not null unique,
+  summary text not null,
+  blockers text[] not null default '{}',
+  top_priorities text[] not null default '{}',
+  generated_from text[] not null default '{}',
+  created_at timestamptz not null default timezone('utc', now())
+);
+
+create index if not exists idx_decisions_status on gym_memory.decisions(status);
+create index if not exists idx_decisions_category on gym_memory.decisions(category);
+create index if not exists idx_features_phase on gym_memory.features(phase);
+create index if not exists idx_features_status on gym_memory.features(status);
+create index if not exists idx_roadmap_phase on gym_memory.roadmap_items(phase);
+create index if not exists idx_contacts_status on gym_memory.contacts(status);
+create index if not exists idx_contacts_next_action_date on gym_memory.contacts(next_action_date);
+create index if not exists idx_documents_type on gym_memory.documents(document_type);
+create index if not exists idx_document_chunks_document_id on gym_memory.document_chunks(document_id);
+
+create trigger decisions_set_updated_at
+before update on gym_memory.decisions
+for each row execute function gym_memory.set_updated_at();
+
+create trigger features_set_updated_at
+before update on gym_memory.features
+for each row execute function gym_memory.set_updated_at();
+
+create trigger roadmap_set_updated_at
+before update on gym_memory.roadmap_items
+for each row execute function gym_memory.set_updated_at();
+
+create trigger meetings_set_updated_at
+before update on gym_memory.meetings
+for each row execute function gym_memory.set_updated_at();
+
+create trigger contacts_set_updated_at
+before update on gym_memory.contacts
+for each row execute function gym_memory.set_updated_at();
+
+create trigger tasks_sync_set_updated_at
+before update on gym_memory.tasks_sync
+for each row execute function gym_memory.set_updated_at();
+
+create trigger documents_set_updated_at
+before update on gym_memory.documents
+for each row execute function gym_memory.set_updated_at();
+
+comment on schema gym_memory is 'Project memory schema for GetYourMentor.';
+comment on table gym_memory.document_chunks is 'Store chunks and embeddings for semantic search. Adjust vector dimension if you use another embedding model.';
+
