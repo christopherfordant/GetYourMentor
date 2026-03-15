@@ -19,7 +19,7 @@ Titre :
 `Trouvez le coach qu'il vous faut. Pres de chez vous.`
 
 Sous-titre :
-`Basket, football, sports de combat, fitness : reservez une seance avec un coach verifie en quelques clics.`
+`Basket, football, sports de combat, fitness : trouvez un coach verifie, envoyez une demande et finalisez la reservation apres validation.`
 
 Barre de recherche :
 - champ 1 : `Quel sport ?`
@@ -28,7 +28,7 @@ Barre de recherche :
 
 Bloc confiance sous la recherche :
 - `Coachs verifies`
-- `Reservation simple`
+- `Demande simple`
 - `Paiement securise`
 
 ### Section 1
@@ -39,7 +39,7 @@ Titre :
 3 cartes :
 - `Recherchez` : `Choisissez votre sport et votre ville.`
 - `Comparez` : `Consultez les profils, avis et tarifs.`
-- `Reservez` : `Selectionnez votre seance et confirmez en ligne.`
+- `Demandez` : `Choisissez votre seance, proposez vos creneaux et attendez la validation du coach.`
 
 ### Section 2
 
@@ -57,12 +57,12 @@ Titre :
 3 avis courts :
 - `J'ai trouve un coach de basket en 2 minutes.`
 - `Le profil et les tarifs etaient super clairs.`
-- `La reservation a ete hyper simple.`
+- `La demande de reservation est hyper simple.`
 
 ### CTA final
 
 Titre :
-`Pret a reserver votre premiere seance ?`
+`Pret a trouver votre coach ?`
 
 Bouton :
 `Trouver un coach`
@@ -115,7 +115,7 @@ Carte 2 exemple :
 
 ### Objectif
 
-Donner confiance et pousser a la reservation.
+Donner confiance et pousser a la demande de reservation.
 
 ### Hero fiche
 
@@ -131,7 +131,8 @@ Donner confiance et pousser a la reservation.
 
 - `Seance individuelle`
 - `A partir de 35 EUR`
-- bouton `Reserver`
+- texte : `Choisissez une seance puis proposez vos creneaux preferes.`
+- bouton `Demander une reservation`
 - bouton secondaire `Contacter`
 
 ### Section a propos
@@ -170,7 +171,7 @@ Avis 1 :
 `Tres pedagogique et tres precis. Mon fils a progresse rapidement.`
 
 Avis 2 :
-`Reservation simple, coach ponctuel et a l'ecoute.`
+`Demande simple, coach ponctuel et a l'ecoute.`
 
 ## 4. Choix de la seance
 
@@ -210,19 +211,19 @@ Carte 3 :
 - recap coach
 - lien `Retour au profil`
 
-## 5. Choix du creneau
+## 5. Choix des creneaux preferes
 
 ### Objectif
 
-Faire reserver un horaire sans friction.
+Permettre d'envoyer une demande de reservation sans friction.
 
 ### Titre
 
-`Choisissez un creneau`
+`Choisissez vos creneaux preferes`
 
 ### Bloc date
 
-- semaine visible
+- choisissez jusqu'a 3 creneaux
 - jours disponibles
 
 ### Bloc horaires
@@ -247,11 +248,11 @@ Faire reserver un horaire sans friction.
 
 ### Objectif
 
-Finir le tunnel sans casser la conversion.
+Finir le tunnel de demande sans casser la conversion.
 
 ### Titre
 
-`Connectez-vous pour finaliser votre reservation`
+`Connectez-vous pour envoyer votre demande`
 
 ### Onglets
 
@@ -269,43 +270,40 @@ Finir le tunnel sans casser la conversion.
 
 ### Bloc reassurance
 
-- `Reservation securisee`
+- `Demande securisee`
 - `Paiement protege`
-- `Confirmation immediate`
+- `Validation par le coach`
 
-## 7. Confirmation + Paiement
+## 7. Confirmation de demande
 
 ### Objectif
 
-Faire verifier puis payer.
+Faire verifier puis envoyer la demande.
 
 ### Titre
 
-`Confirmez votre reservation`
+`Confirmez votre demande`
 
 ### Recap reservation
 
 - coach : `Steven Fordant`
 - seance : `Seance individuelle`
-- date : `Lundi 18 mai`
-- heure : `18:00`
+- creneaux : `3 creneaux proposes`
 - lieu : `Marseille`
 
 ### Recap prix
 
 - seance : `35 EUR`
-- frais : `0 EUR` ou `inclus`
-- total : `35 EUR`
+- paiement : `Apres validation coach`
 
-### Paiement
+### CTA
 
-- bloc CB simple
-- bouton `Payer 35 EUR`
+- bouton `Envoyer ma demande`
 
 ### Bloc confiance
 
-- `Paiement securise`
-- `Annulation selon les conditions du coach`
+- `Le coach validera votre demande`
+- `Le paiement intervient apres acceptation`
 
 ## 8. Dashboard coach
 
@@ -334,7 +332,7 @@ Titre :
 Elements :
 - nom sportif
 - seance
-- date souhaitee
+- creneaux proposes
 - bouton `Accepter`
 - bouton `Refuser`
 
@@ -354,4 +352,18 @@ Elements :
 - taux de completion
 - diplomes ajoutes
 - disponibilites renseignees
+
+## 9. Etats optionnels apres validation coach
+
+### Paiement apres acceptation
+
+- recap reservation validee
+- module paiement securise
+- bouton `Payer`
+
+### Reservation confirmee
+
+- message de confirmation
+- recap final
+- bouton `Voir mes reservations`
 

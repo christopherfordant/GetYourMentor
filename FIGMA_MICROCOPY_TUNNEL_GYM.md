@@ -80,7 +80,7 @@ Titre :
 `Besoin d'un conseil ?`
 
 Texte :
-`Vous pouvez contacter le coach avant de reserver si vous avez une question sur le format ou le niveau.`
+`Vous pouvez contacter le coach avant d'envoyer votre demande si vous avez une question sur le format ou le niveau.`
 
 CTA secondaire :
 `Contacter le coach`
@@ -89,14 +89,14 @@ CTA secondaire :
 
 ### Objectif
 
-Permettre de reserver rapidement une date et une heure.
+Permettre d'envoyer une demande de reservation claire.
 
 ### Titre
 
-`Choisissez un creneau`
+`Choisissez vos creneaux preferes`
 
 Sous-titre :
-`Selectionnez la date et l'heure qui vous conviennent.`
+`Selectionnez jusqu'a 3 creneaux preferes pour aider le coach a vous repondre rapidement.`
 
 ### Resume de reservation
 
@@ -108,15 +108,15 @@ Sous-titre :
 ### Bloc date
 
 Titre :
-`Dates disponibles`
+`Creneaux proposes`
 
 Microcopy :
-`Les disponibilites proposees par le coach sont mises a jour regulierement.`
+`Choisissez les horaires qui vous conviennent le mieux.`
 
 ### Horaires
 
 Libelle :
-`Choisissez un horaire`
+`Choisissez jusqu'a 3 horaires`
 
 Exemples :
 - `Lundi - 18:00`
@@ -134,29 +134,18 @@ CTA secondaire :
 
 ### Bloc reassurance
 
-- `Reservation simple`
-- `Confirmation rapide`
-
-### Variante si demande manuelle
-
-Titre :
-`Indiquez vos preferences`
-
-Texte :
-`Choisissez jusqu'a 3 creneaux preferes. Le coach vous confirmera rapidement la meilleure disponibilite.`
-
-CTA :
-`Envoyer ma demande`
+- `Demande simple`
+- `Validation rapide par le coach`
 
 ## 3. Ecran 6 - Connexion / Inscription
 
 ### Objectif
 
-Permettre de finaliser la reservation sans casser l'envie.
+Permettre de finaliser la demande sans casser l'envie.
 
 ### Titre
 
-`Connectez-vous pour finaliser votre reservation`
+`Connectez-vous pour envoyer votre demande`
 
 Sous-titre :
 `Creer votre compte ne prend qu'un instant.`
@@ -201,7 +190,7 @@ Titre :
 
 Points :
 - `Retrouver facilement vos reservations`
-- `Recevoir vos confirmations`
+- `Recevoir les reponses du coach`
 - `Contacter votre coach`
 
 ### Microcopy confiance
@@ -209,18 +198,18 @@ Points :
 - `Paiement protege`
 - `Donnees securisees`
 
-## 4. Ecran 7 - Confirmation + Paiement
+## 4. Ecran 7 - Confirmation de demande
 
 ### Objectif
 
-Faire verifier la reservation puis payer avec confiance.
+Faire verifier la demande puis l'envoyer avec confiance.
 
 ### Titre
 
-`Confirmez votre reservation`
+`Confirmez votre demande`
 
 Sous-titre :
-`Verifiez les details avant de passer au paiement.`
+`Verifiez les details avant d'envoyer votre demande au coach.`
 
 ### Bloc recap coach
 
@@ -231,7 +220,7 @@ Sous-titre :
 ### Bloc recap seance
 
 Titre :
-`Votre seance`
+`Votre demande`
 
 Lignes :
 - `Type` : `Seance individuelle`
@@ -250,16 +239,16 @@ Lignes :
 - `Frais` : `Inclus`
 - `Total` : `35 EUR`
 
-### Paiement
+### Envoi
 
 Titre :
-`Paiement securise`
+`Etape suivante`
 
 Microcopy :
-`Votre reservation est confirmee une fois le paiement valide.`
+`Le coach recevra votre demande. Vous ne paierez qu'apres son acceptation.`
 
 CTA :
-`Payer 35 EUR`
+`Envoyer ma demande`
 
 ### Bloc annulation
 
@@ -272,7 +261,7 @@ Texte :
 Lien :
 `Voir les conditions`
 
-## 5. Ecran 8 - Reservation confirmee
+## 5. Ecran 8 - Demande envoyee
 
 ### Objectif
 
@@ -280,16 +269,16 @@ Rassurer et guider la suite.
 
 ### Titre
 
-`Votre reservation est confirmee`
+`Votre demande a bien ete envoyee`
 
 Sous-titre :
-`Vous recevrez egalement une confirmation par email.`
+`Le coach vous repondra rapidement. Vous recevrez egalement une confirmation par email.`
 
 ### Bloc recap
 
 - `Steven Fordant`
 - `Seance individuelle`
-- `Lundi 18 mai a 18:00`
+- `3 creneaux proposes`
 - `Marseille`
 
 ### CTA principaux
@@ -303,7 +292,7 @@ Titre :
 `Et maintenant ?`
 
 Texte :
-`Retrouvez votre rendez-vous dans votre espace et echangez avec le coach si besoin avant la seance.`
+`Retrouvez votre demande dans votre espace et attendez la validation du coach avant le paiement.`
 
 ## 6. Ecran 9 - Dashboard coach
 
@@ -351,7 +340,7 @@ Titre :
 
 Element 1 :
 - nom : `Lucas R.`
-- detail : `Seance individuelle - mardi 18:00`
+- detail : `Seance individuelle - 3 creneaux proposes`
 - CTA principal : `Accepter`
 - CTA secondaire : `Refuser`
 
@@ -394,7 +383,7 @@ CTA :
 ## 7. Microcopy de systeme reutilisable
 
 Succes :
-- `Votre reservation a bien ete enregistree.`
+- `Votre demande a bien ete enregistree.`
 - `Le paiement a ete valide.`
 - `Votre demande a ete envoyee.`
 
@@ -406,4 +395,25 @@ Erreurs douces :
 Attente :
 - `Chargement des disponibilites...`
 - `Validation en cours...`
-- `Confirmation de votre reservation...`
+- `Envoi de votre demande...`
+
+## 8. Etats optionnels apres acceptation
+
+### Paiement apres validation coach
+
+Titre :
+`Le coach a accepte votre demande`
+
+Sous-titre :
+`Vous pouvez maintenant finaliser votre reservation en procedant au paiement.`
+
+CTA :
+`Payer 35 EUR`
+
+### Reservation confirmee
+
+Titre :
+`Votre reservation est confirmee`
+
+Sous-titre :
+`Votre seance est maintenant validee.`

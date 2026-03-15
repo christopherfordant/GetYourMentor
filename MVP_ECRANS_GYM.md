@@ -7,7 +7,7 @@ Ce document definit le MVP concret du site web GetYourMentor.
 Objectif :
 - permettre a un sportif de trouver un coach
 - consulter son profil
-- demander ou reserver une seance
+- demander une reservation
 - payer
 - recevoir une confirmation
 - permettre au coach de gerer ses demandes de base
@@ -27,11 +27,12 @@ Le parcours principal du MVP est :
 2. il recherche un coach par sport et ville
 3. il consulte les resultats
 4. il ouvre la fiche coach
-5. il choisit un type de seance ou une disponibilite
+5. il choisit un type de seance puis propose des creneaux
 6. il cree son compte ou se connecte
-7. il confirme la reservation
-8. il paie
-9. il recoit la confirmation
+7. il envoie une demande de reservation
+8. le coach valide la demande
+9. il paie
+10. il recoit la confirmation
 
 ## 3. Ecrans publics
 
@@ -103,8 +104,8 @@ Blocs MVP :
 - presentation du coach
 - diplomes ou certifications
 - types de seances proposes
-- disponibilites ou demande de reservation
-- bouton `Reserver`
+- disponibilites indicatives ou demande de reservation
+- bouton `Demander une reservation`
 - bouton `Contacter`
 
 Blocs de confiance :
@@ -114,7 +115,7 @@ Blocs de confiance :
 
 Notes UX :
 - page longue mais tres claire
-- CTA reservation toujours visible
+- CTA demande toujours visible
 
 ### Ecran 4 - Choix de la seance
 
@@ -139,17 +140,19 @@ Notes UX :
 ### Ecran 5 - Choix du creneau
 
 But :
-- selectionner un rendez-vous
+- proposer des creneaux au coach
 
 Blocs MVP :
-- calendrier ou liste des prochains creneaux
+- choix de 1 a 3 creneaux preferes
 - date
 - heure
 - recap seance
-- bouton `Continuer`
+- bouton `Envoyer ma demande`
 
-Alternative MVP :
-- si la vraie disponibilite est trop complexe au debut, utiliser une demande de reservation avec 2 ou 3 choix proposes par le sportif
+Decision MVP :
+- le sportif propose 1 a 3 creneaux
+- le coach valide ensuite la demande
+- le paiement intervient apres validation
 
 ### Ecran 6 - Connexion / Inscription
 
@@ -173,7 +176,7 @@ Notes UX :
 ### Ecran 7 - Confirmation de reservation
 
 But :
-- verifier avant paiement
+- verifier avant envoi de la demande
 
 Blocs MVP :
 - recap coach
@@ -181,12 +184,12 @@ Blocs MVP :
 - recap date / heure
 - recap prix
 - conditions d'annulation
-- bouton `Passer au paiement`
+- bouton `Envoyer ma demande`
 
 ### Ecran 8 - Paiement
 
 But :
-- finaliser la reservation
+- finaliser la reservation apres validation du coach
 
 Blocs MVP :
 - recap commande
@@ -335,7 +338,7 @@ Si vous voulez aller encore plus vite, le coeur absolu du MVP est seulement :
 - Home
 - Resultats de recherche
 - Fiche coach
-- Demande ou reservation
+- Demande de reservation
 - Paiement
 - Confirmation
 - Dashboard coach minimum

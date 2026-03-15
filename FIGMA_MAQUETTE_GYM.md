@@ -8,6 +8,8 @@ Realiser une premiere maquette courte de 8 ecrans maximum pour :
 - montrer le projet clairement
 - obtenir des retours avant developpement
 
+Le coeur du prototype doit montrer une logique de **demande de reservation validee par le coach**, pas une reservation instantanee.
+
 ## Les 8 ecrans a maquetter en premier
 
 ### 1. Home
@@ -44,7 +46,7 @@ Contenu cle :
 - tarifs
 - avis
 - diplomes
-- disponibilites ou bouton reserver
+- disponibilites indicatives ou bouton de demande
 
 ### 4. Choix de la seance
 
@@ -57,13 +59,13 @@ Contenu cle :
 - lieu
 - prix
 
-### 5. Choix du creneau
+### 5. Choix des creneaux preferes
 
 Pourquoi :
-- c'est la bascule vers la reservation reelle
+- c'est la bascule vers la demande de reservation
 
 Contenu cle :
-- calendrier ou liste de disponibilites
+- choix de 1 a 3 creneaux preferes
 - recap seance
 - CTA continuer
 
@@ -77,17 +79,17 @@ Contenu cle :
 - inscription simple
 - reassurance
 
-### 7. Confirmation + Paiement
+### 7. Confirmation de demande
 
 Pourquoi :
-- il faut valider la fin du tunnel de conversion
+- il faut valider la fin du tunnel de demande
 
 Contenu cle :
 - recap coach
 - recap seance
-- recap date
+- recap des creneaux proposes
 - prix
-- paiement securise
+- CTA envoyer ma demande
 
 ### 8. Dashboard coach
 
@@ -96,7 +98,7 @@ Pourquoi :
 
 Contenu cle :
 - nouvelles demandes
-- reservations
+- actions accepter / refuser
 - profil
 - revenus ou paiements
 
@@ -106,10 +108,18 @@ Contenu cle :
 2. Resultats
 3. Fiche coach
 4. Choix seance
-5. Choix creneau
-6. Confirmation / paiement
-7. Connexion / inscription
+5. Choix des creneaux
+6. Connexion / inscription
+7. Confirmation de demande
 8. Dashboard coach
+
+## Etats optionnels a montrer ensuite
+
+Si vous voulez montrer la suite du flux apres validation coach, vous pouvez ajouter :
+
+- demande envoyee
+- paiement apres acceptation
+- reservation confirmee
 
 ## Si vous voulez faire seulement 5 ecrans
 
@@ -118,8 +128,8 @@ Les 5 plus importants sont :
 1. Home
 2. Resultats
 3. Fiche coach
-4. Choix creneau
-5. Confirmation / paiement
+4. Choix des creneaux
+5. Confirmation de demande
 
 ## Regles de design
 
@@ -128,15 +138,16 @@ Les 5 plus importants sont :
 - CTA visibles
 - fiches tres lisibles
 - peu de texte inutile
-- reservation rassurante et rapide
+- demande de reservation rassurante et simple
 
 ## Ce que la maquette doit permettre de verifier
 
 - est-ce qu'on comprend tout de suite le service
-- est-ce qu'on comprend comment reserver
+- est-ce qu'on comprend comment envoyer une demande de reservation
 - est-ce que la fiche coach donne confiance
 - est-ce que le style est coherent avec la promesse
 - est-ce que le MVP semble realiste
+- est-ce que la logique "demande puis validation coach" est comprise sans explication orale
 
 ## Documents de travail lies
 
