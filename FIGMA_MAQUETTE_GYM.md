@@ -137,3 +137,9 @@ Les 5 plus importants sont :
 - est-ce que la fiche coach donne confiance
 - est-ce que le style est coherent avec la promesse
 - est-ce que le MVP semble realiste
+
+## Documents de travail lies
+
+- [DESIGN_SYSTEM_GYM.md](c:\Users\cashe\Documents\GetYourMentor\DESIGN_SYSTEM_GYM.md)
+- [FIGMA_CONTENU_ECRANS_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_CONTENU_ECRANS_GYM.md)
+- [FIGMA_MAKE_PROMPTS_GYM.md](c:\Users\cashe\Documents\GetYourMentor\FIGMA_MAKE_PROMPTS_GYM.md)
