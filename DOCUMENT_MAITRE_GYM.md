@@ -294,3 +294,13 @@ Ces decisions doivent etre considerees comme prioritaires :
 - figer le MVP
 - lancer le planning d'execution
 - preparer la base memoire `Supabase + n8n`
+
+## 12. Documents de build de reference
+
+Pour construire le site sans oublier les elements critiques, utiliser maintenant en priorite :
+
+- `DOSSIER_EXECUTION_SITE_GYM.md`
+- `CHECKLIST_BUILD_SITE_GYM.md`
+- `STACK_TECHNIQUE_GYM.md`
+- `ROADMAP_TECHNIQUE_GYM.md`
+- `SUPABASE_SCHEMA_GYM.sql`
