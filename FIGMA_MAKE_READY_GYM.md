@@ -69,6 +69,152 @@ Ajoute ou corrige uniquement ces elements :
 - garder les espacements, la grille et le style existants
 ```
 
+## 1.2 Prompt 2 - Recherche et fiche coach
+
+Si tu veux depenser peu de credits, utilise ce prompt apres le premier ajustement deja envoye. Il met a jour seulement la partie recherche et fiche coach.
+
+```text
+Modifie uniquement les ecrans `Search Results` et `Coach Profile` du projet existant GetYourMentor.
+
+Conserve :
+- le theme sombre premium
+- la base `gris / noir / blanc`
+- les espacements, la grille et les alignements existants
+- les 4 sports visibles : football, basketball, fitness, sports de combat
+- la logique de demande de reservation validee par le coach
+- le style general proche d'un parcours de reservation clair type Planity
+
+Objectif :
+- rendre la recherche et la fiche coach plus `fenetre par fenetre`
+- garder une lecture tres simple
+- faire de la fiche coach une etape de decision claire
+
+1. Search Results
+- garder une page tres lisible avec une logique de reservation, pas d'annuaire surcharge
+- conserver la recherche par sport et ville
+- afficher les filtres principaux de facon claire en haut :
+  - Sport
+  - Ville
+  - Genre du coach
+  - Lieu
+- mettre les filtres secondaires dans `Plus de filtres` :
+  - Niveau
+  - Format
+  - Budget
+  - Disponibilite
+  - Note
+  - Coach verifie
+- faire sentir que cette fenetre aide a choisir un coach rapidement
+- rendre les cartes coach plus premium, tres scannables, tres alignees
+
+2. Coach Profile
+- garder une fiche coach tres claire et tres conversion-oriented
+- ajouter des onglets propres et regulierement alignes :
+  - `A propos`
+  - `Creneaux`
+  - `Contenu`
+- conserver l'action principale : `Demander une reservation`
+- le bloc reservation doit rester prioritaire visuellement
+
+3. Onglet `Contenu`
+- l'onglet `Contenu` doit s'inspirer de la logique MYM mais adaptee au coaching sportif
+- montrer une galerie de contenus premium de coach :
+  - routines
+  - exercices
+  - analyses video
+  - plans d'entrainement
+- certains contenus sont visibles en preview
+- certains contenus premium sont floutes tant qu'ils ne sont pas debloques
+- le flou doit signaler un acces premium, pas censurer l'interface
+- afficher un CTA simple : `Debloquer le contenu premium`
+- garder la reservation comme action principale de la page
+
+4. Regles importantes
+- ne pas redesign toute l'application
+- ne modifier que `Search Results` et `Coach Profile`
+- garder les textes en francais
+- ne pas ajouter d'autres sports
+- garder la lisibilite comme priorite absolue
+```
+
+## 1.3 Prompt 3 - Tunnel fenetre par fenetre jusqu'au paiement
+
+Utilise ce prompt ensuite pour mettre a jour seulement le tunnel de reservation.
+
+```text
+Modifie uniquement le tunnel de reservation de GetYourMentor sans refaire toute l'application.
+
+Conserve :
+- le theme sombre premium
+- la base `gris / noir / blanc`
+- la logique de demande de reservation validee par le coach
+- les espacements, la grille, les alignements et le style global existants
+
+Objectif :
+- rendre le tunnel encore plus `fenetre par fenetre`
+- une fenetre = une decision principale
+- garder un flow tres simple du choix de seance jusqu'au paiement
+
+Met a jour uniquement ces ecrans :
+- `Session Choice`
+- `Preferred Timeslot Selection`
+- `Login / Sign Up`
+- `Booking Request Review`
+- `Request Sent`
+- `Payment After Coach Approval`
+- `Booking Confirmed`
+
+1. Session Choice
+- cette fenetre doit servir uniquement a choisir le type de seance
+- layout tres propre, sans bruit visuel
+- recap coach visible mais discret
+
+2. Preferred Timeslot Selection
+- cette fenetre doit servir uniquement a choisir 1 a 3 creneaux
+- garder seulement le contexte utile :
+  - date
+  - horaire
+  - lieu si pertinent
+  - format si pertinent
+- recap reservation visible mais simple
+
+3. Login / Sign Up
+- garder un ecran tres simple
+- pas de bouton social inutile si cela brouille le parcours
+- si un bouton `Continue with Apple` existe encore, le remplacer par une logique metier adaptee ou le supprimer
+- garder la priorite sur l'envoi de la demande
+
+4. Booking Request Review
+- recap tres clair
+- une seule action principale : `Envoyer ma demande`
+- rappeler que le paiement vient seulement apres validation du coach
+
+5. Request Sent
+- ecran de reassurance simple
+- rappeler que le coach peut accepter ou refuser
+- garder le ton premium et calme
+
+6. Payment After Coach Approval
+- ecran de paiement tres epure
+- titre clair
+- recap de reservation validee
+- total
+- module de paiement securise
+- CTA principal `Payer`
+- style proche d'une fenetre de paiement sobre et premium
+
+7. Booking Confirmed
+- confirmation finale tres lisible
+- recap simple
+- CTA `Voir mes reservations`
+
+Regles importantes
+- ne pas reintroduire une logique de reservation instantanee
+- ne pas surcharger les ecrans
+- toujours garder la progression claire
+- garder tous les textes en francais
+```
+
 ## 2. Prompt principal a coller dans Figma Make
 
 ```text
