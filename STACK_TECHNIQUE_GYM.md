@@ -344,7 +344,34 @@ Variables d'environnement recommandees :
 - `AUTH_SMTP_USER`
 - `AUTH_SMTP_PASS`
 
-## 11. Ordre de build recommande
+## 11. Realite budgetaire et plans a retenir
+
+Le document `GYM_Couts_Infrastructure Mensuel.xlsx` confirme que la stack retenue reste adaptee, mais avec un phasage d'infrastructure plus strict.
+
+### Dev / prototype
+
+- `Supabase Free` accepte pour dev interne
+- `Vercel Hobby` accepte pour previews internes
+
+### Beta privee / preprod
+
+- `Supabase Pro` recommande avant exposition a de vrais testeurs
+- `Vercel Pro` recommande avant usage commercial public
+
+### Production
+
+Socle prudent a retenir :
+
+- `Supabase Pro` : environ `23 EUR/mois`
+- `Vercel Pro` : environ `20 EUR/mois` pour 1 seat
+- emails transactionnels : budget variable selon provider et volume
+
+Decision maintenue :
+
+- on garde `Resend` comme choix MVP pour sa simplicite de dev
+- `Brevo` reste une alternative a revisiter si vous voulez unifier transactionnel + marketing
+
+## 12. Ordre de build recommande
 
 1. bootstrap Next.js + Tailwind + Supabase
 2. auth + profils
@@ -357,7 +384,7 @@ Variables d'environnement recommandees :
 9. back-office admin
 10. tests E2E Playwright
 
-## 12. Decision finale
+## 13. Decision finale
 
 Si vous voulez aller vite sans sacrifier la qualite, la meilleure stack pour GYM est :
 
@@ -368,7 +395,7 @@ Si vous voulez aller vite sans sacrifier la qualite, la meilleure stack pour GYM
 - `Vercel`
 - `n8n` hors coeur produit
 
-## 13. Sources officielles
+## 14. Sources officielles
 
 - Next.js Route Handlers: https://nextjs.org/docs/app/getting-started/route-handlers-and-middleware
 - Next.js Server Functions / Updating Data: https://nextjs.org/docs/app/getting-started/updating-data
