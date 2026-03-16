@@ -18,6 +18,8 @@ Regles de lancement :
 - l'interface propose un selecteur de langue discret
 - la langue par defaut est `Francais`
 - une langue secondaire peut etre ajoutee via ce selecteur, avec `Anglais` comme premiere option logique
+- l'application peut detecter la langue disponible de l'utilisateur et afficher automatiquement l'interface dans cette langue si elle existe
+- l'utilisateur peut toujours changer sa langue manuellement via le selecteur
 
 Le catalogue visible du MVP doit rester limite a 4 sports :
 
@@ -139,6 +141,8 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - demande de reservation validee par le coach
 - prise de rendez-vous
 - paiement securise
+- ecran de paiement apres validation du coach
+- module fidelite simple visible dans l'espace sportif apres plusieurs seances
 - messagerie simple ou systeme de contact integre
 - avis apres seance
 - espace coach basique pour gerer profil, planning, reservations et paiements
@@ -283,7 +287,9 @@ Ces decisions doivent etre considerees comme prioritaires :
 8. L'interface du MVP est en francais par defaut avec selecteur de langue.
 9. Le MVP ne montre que 4 sports : `football`, `basketball`, `fitness`, `sports de combat`.
 10. La direction visuelle de la maquette MVP est en theme sombre premium avec accent orange.
-11. L'equipe se donne une verite unique dans ce document maitre.
+11. L'application peut traduire automatiquement l'interface selon la langue disponible de l'utilisateur, avec changement manuel possible.
+12. La maquette doit montrer explicitement le paiement apres acceptation du coach et un premier module de fidelite.
+13. L'equipe se donne une verite unique dans ce document maitre.
 
 ## 11. Prochaines actions concretes
 
@@ -334,8 +340,10 @@ Transformer le travail de maquette en **dossier d'execution MVP**.
 - les statuts de reservation
 - les textes critiques de l'interface
 - la regle langue : `FR` par defaut, `EN` en second
+- la regle auto-traduction : langue detectee si disponible, sinon `FR`, avec changement manuel possible
 - la regle catalogue : seulement `football`, `basketball`, `fitness`, `sports de combat`
 - les cas limites importants : refus coach, paiement apres validation, etat vide, aucun resultat
+- la logique fidelite : progression visible et avantage apres plusieurs seances
 
 ### Resultat attendu
 

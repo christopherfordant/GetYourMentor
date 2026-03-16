@@ -12,6 +12,45 @@ Utilisation recommandee :
 4. demander d'abord `Home`, `Search Results` et `Coach Profile`
 5. iterer ensuite sur le tunnel de demande
 
+## 1.1 Prompt de modification en francais
+
+Si tu veux modifier le projet existant sans tout regenerer, utilise ce prompt dans la conversation Figma Make deja ouverte :
+
+```text
+Modifie uniquement le projet existant de GetYourMentor sans refaire toute l'application.
+
+Conserve :
+- le theme sombre premium
+- le style general deja cree
+- les 4 sports visibles : football, basketball, fitness, sports de combat
+- la logique de demande de reservation validee par le coach
+
+Ajoute ou corrige uniquement ces elements :
+
+1. Langue
+- interface en francais par defaut
+- selecteur de langue visible mais discret
+- traduction automatique de l'interface dans la langue de l'utilisateur si disponible
+- possibilite de changer manuellement la langue
+
+2. Paiement
+- ajouter un vrai ecran `Paiement apres validation coach`
+- rappeler clairement que le coach a accepte la demande
+- afficher le recap seance + total + bloc paiement securise + bouton `Payer`
+
+3. Fidelite
+- ajouter un ecran ou module `Fidelite` dans l'espace sportif
+- montrer une progression apres plusieurs seances realisees
+- exemple : `3 seances realisees sur 5`
+- afficher le prochain avantage debloquable
+- exemple : `-10% sur votre prochaine seance`
+
+4. Ne pas changer inutilement
+- ne pas redesign toute la maquette
+- ne pas toucher aux autres ecrans si ce n'est pas necessaire
+- garder les espacements, la grille et le style existants
+```
+
 ## 2. Prompt principal a coller dans Figma Make
 
 ```text
@@ -28,6 +67,8 @@ Core product logic:
 - payment happens only after coach approval
 - all visible UI copy should be in French by default
 - include a language selector with French as default and English as secondary option
+- support automatic translation of the interface when the user's available language is supported
+- allow manual language override at any time
 - only show these 4 sports in the MVP: football, basketball, fitness, combat sports
 
 Target users:
@@ -45,6 +86,7 @@ Primary user journey:
 8. wait for coach approval
 9. pay after approval
 10. view final booking confirmation
+11. see loyalty progression after several completed sessions
 
 Design direction:
 - dark premium background
@@ -106,6 +148,9 @@ Create the following screens:
 - Login / Sign Up
 - Booking Request Review
 - Request Sent
+- Payment After Coach Approval
+- Booking Confirmed
+- Athlete Area with Loyalty
 - Coach Dashboard
 
 Screen content expectations:
@@ -172,6 +217,25 @@ Request Sent:
 - reminder that the coach will validate or refuse
 - summary of preferred timeslots sent
 - CTA to view requests or contact the coach
+
+Payment After Coach Approval:
+- title stating that the coach accepted the request
+- order summary
+- payment module
+- total amount
+- secure payment reassurance
+- confirm payment CTA
+
+Booking Confirmed:
+- clear confirmation state
+- session summary
+- CTA to view bookings
+
+Athlete Area with Loyalty:
+- number of completed sessions
+- visible loyalty progress
+- next reward or unlocked reward
+- simple and motivating layout
 
 Coach Dashboard:
 - profile header
@@ -258,6 +322,19 @@ Output expectation:
 - Subtitle: `Le coach vous repondra rapidement. Vous recevrez egalement une confirmation par email.`
 - CTA 1: `Voir mes reservations`
 - CTA 2: `Contacter le coach`
+
+### Payment After Coach Approval
+
+- Title: `Le coach a accepte votre demande`
+- Subtitle: `Vous pouvez maintenant finaliser votre reservation en procedant au paiement.`
+- CTA: `Payer 35 EUR`
+
+### Loyalty
+
+- Module title: `Vos avantages fidelite`
+- Progress text: `3 seances realisees sur 5 avant votre prochain avantage`
+- Reward example: `-10% sur votre prochaine seance`
+- Secondary text: `Plus vous reservez, plus vous debloquez d'avantages`
 
 ### Coach Dashboard
 

@@ -254,6 +254,10 @@ Blocs MVP :
 - reservations passees
 - annulation ou deplacement si autorise
 - messages
+- module fidelite simple :
+  - nombre de seances realisees
+  - progression vers le prochain avantage
+  - avantage debloque ou a venir
 
 ### Ecran 11 - Mes rendez-vous
 

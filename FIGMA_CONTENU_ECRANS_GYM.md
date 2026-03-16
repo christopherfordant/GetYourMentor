@@ -402,3 +402,10 @@ Elements :
 - recap final
 - bouton `Voir mes reservations`
 
+### Fidelite dans l'espace sportif
+
+- bloc progression
+- nombre de seances realisees
+- prochain avantage debloquable
+- bouton `Voir mes avantages`
+
