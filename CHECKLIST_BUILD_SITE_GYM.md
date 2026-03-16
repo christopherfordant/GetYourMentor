@@ -128,7 +128,18 @@
 - uploads controles
 - validations serveur
 
-## 15. QA
+## 15. Infrastructure
+
+- environnement `dev` distinct
+- environnement `preview` distinct
+- `Supabase Pro` prevu avant beta externe
+- `Vercel Pro` prevu avant mise en ligne commerciale
+- domaine custom configure
+- budget mensuel infra valide
+- spend caps / alertes budget verifiees
+- provider email transactionnel choisi et teste
+
+## 16. QA
 
 - test home > recherche > fiche
 - test demande > acceptation > paiement
@@ -137,7 +148,7 @@
 - test fidelite
 - test mobile
 
-## 16. Lancement beta
+## 17. Lancement beta
 
 - premiers coachs onboardes
 - premiers sportifs invites

@@ -304,3 +304,37 @@ Pour construire le site sans oublier les elements critiques, utiliser maintenant
 - `STACK_TECHNIQUE_GYM.md`
 - `ROADMAP_TECHNIQUE_GYM.md`
 - `SUPABASE_SCHEMA_GYM.sql`
+- `SYNTHESE_COUTS_INFRA_GYM.md`
+
+## 13. Phasage infrastructure et couts
+
+Le document `GYM_Couts_Infrastructure Mensuel.xlsx` confirme que l'architecture retenue reste bonne, mais impose de distinguer clairement `prototype`, `beta privee` et `production`.
+
+### Prototype interne
+
+- `Supabase Free` accepte pour dev et tests internes
+- `Vercel Hobby` accepte pour previews et maquettes
+- aucun engagement de production sur ces plans
+
+### Beta privee / preproduction
+
+Des que le produit commence a etre teste en conditions plus reelles, la base recommandee devient :
+
+- `Supabase Pro`
+- `Vercel Pro`
+- provider email transactionnel dedie
+
+### Production commerciale
+
+La mise en ligne publique doit etre consideree comme payante des le depart sur l'infrastructure critique.
+
+Decision retenue :
+
+1. ne pas changer l'architecture cible
+2. garder `Supabase + Vercel + Stripe`
+3. conserver `Resend` comme choix email MVP
+4. utiliser le nouveau fichier de couts pour piloter le passage du gratuit vers le payant
+
+Budget mensuel prudent de lancement production :
+
+- environ `50 a 80 EUR/mois` fixes hors frais variables Stripe et eventuels overages

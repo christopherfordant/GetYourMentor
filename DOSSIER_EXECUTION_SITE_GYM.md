@@ -380,6 +380,25 @@ Le MVP doit aussi prouver qu'un coach peut :
 
 - `Playwright`
 
+## 12.1 Realite d'infrastructure et passage en production
+
+Le fichier `GYM_Couts_Infrastructure Mensuel.xlsx` a ete integre a l'architecture.
+
+Impact retenu :
+
+- `Supabase Free` et `Vercel Hobby` peuvent servir pour prototypage et previews internes
+- ils ne doivent pas etre consideres comme la base normale d'une mise en ligne commerciale
+- avant beta externe serieuse ou lancement public, le minimum recommande devient :
+  - `Supabase Pro`
+  - `Vercel Pro`
+  - provider email transactionnel dedie
+
+Ordre de grandeur mensuel prudent de lancement :
+
+- environ `50 a 80 EUR/mois` fixes
+- plus frais variables `Stripe`
+- plus overages eventuels si usage superieur au forfait
+
 ## 13. Internationalisation
 
 ### Recommandation senior
