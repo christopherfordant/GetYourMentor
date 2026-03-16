@@ -46,8 +46,12 @@ La direction visuelle du site doit etre clairement **"Planity-like"** dans son e
 - une presentation simple des prestations ou types de seances
 - des appels a l'action visibles et repetes : reserver, contacter, creer un compte
 - une experience mobile tres soignee, avec navigation fluide et rapide
+- un parcours de recherche jusqu'au paiement construit `fenetre par fenetre`
+- une progression ecran par ecran avec une seule decision principale a chaque etape
 
 Le but n'est pas de copier a l'identique, mais d'adopter la meme logique d'usage : **recherche simple, confiance, reservation rapide, friction minimale**, avec un **theme sombre premium** et des accents orange plus sportifs.
+
+Un module `Contenu premium` peut etre montre dans la maquette comme extension de la fiche coach, avec inspiration de la logique de contenus reserves visible sur MYM, mais adapte au coaching sportif : apercus publics, contenus premium floutes, deblocage simple, sans casser la priorite du booking.
 
 ## 1.2 Validation visuelle et produit
 
