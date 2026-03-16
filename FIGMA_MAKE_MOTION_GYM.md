@@ -30,7 +30,10 @@ I want a more premium visual direction for GetYourMentor:
 - keep the orange energy from the reference
 - keep a layered, cinematic, premium composition for hero areas and transitions
 - keep the UI in French by default with a discreet language selector
+- support automatic interface translation when the user's language is available, with manual override
 - only show these 4 sports in visible UI: football, basketball, fitness, combat sports
+- include a payment screen after coach approval
+- include a loyalty/progression module in the athlete area after several completed sessions
 
 Visual adaptation rules:
 - use a dark premium theme as the default direction

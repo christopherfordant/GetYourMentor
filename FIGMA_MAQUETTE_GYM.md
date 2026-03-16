@@ -120,6 +120,7 @@ Si vous voulez montrer la suite du flux apres validation coach, vous pouvez ajou
 - demande envoyee
 - paiement apres acceptation
 - reservation confirmee
+- module fidelite dans l'espace sportif
 
 ## Si vous voulez faire seulement 5 ecrans
 
@@ -130,6 +131,14 @@ Les 5 plus importants sont :
 3. Fiche coach
 4. Choix des creneaux
 5. Confirmation de demande
+
+## Si vous voulez une maquette plus complete
+
+Ajoutez ensuite :
+
+1. Paiement apres validation coach
+2. Reservation confirmee
+3. Espace sportif avec module fidelite
 
 ## Regles de design
 

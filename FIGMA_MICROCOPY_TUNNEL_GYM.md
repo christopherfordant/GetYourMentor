@@ -417,3 +417,18 @@ Titre :
 
 Sous-titre :
 `Votre seance est maintenant validee.`
+
+### Fidelite apres plusieurs seances
+
+Titre :
+`Vos avantages fidelite`
+
+Sous-titre :
+`Plus vous reservez, plus vous debloquez d'avantages.`
+
+Bloc progression :
+- `3 seances realisees sur 5`
+- `Prochain avantage : -10% sur votre prochaine seance`
+
+CTA :
+`Voir mes avantages`
