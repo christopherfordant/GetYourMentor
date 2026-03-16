@@ -8,6 +8,8 @@ GetYourMentor doit adopter un style :
 - rassurant
 - rapide a comprendre
 - tres centre sur la reservation
+- gris / noir / blanc en base
+- avec accent unique pour les actions principales
 
 Inspiration produit :
 - logique "Planity-like"
@@ -17,6 +19,12 @@ Le but est de donner l'impression suivante :
 - je trouve vite
 - je comprends vite
 - je peux reserver sans stress
+
+Regle UX majeure :
+
+- le parcours principal doit se construire `fenetre par fenetre`
+- chaque ecran doit avoir une seule action principale
+- la progression recherche > profil > seance > creneaux > demande > paiement doit rester aussi claire qu'un tunnel de reservation
 
 ## 2. Positionnement visuel
 
@@ -30,6 +38,8 @@ Il faut un equilibre entre :
 Le ton visuel doit etre :
 - plus premium que "fitness low cost"
 - plus dynamique qu'une plateforme de reservation beaute
+- plus editorial qu'un simple annuaire
+- mais jamais plus complexe que le parcours de reservation
 
 ## 2.1 Direction visuelle v2
 
@@ -53,6 +63,20 @@ En resume :
 
 - inspiration de la capture pour l'energie et la mise en scene
 - adaptation Planity-like pour la clarte, la confiance et la conversion
+
+## 2.3 Regles d'inspiration officielles a respecter
+
+Inferences produit a partir des sources officielles :
+
+- cote `Planity`, il faut retenir la clarte de la reservation, la page etablissement dediee, les horaires visibles, la presentation simple des prestations et une experience fluide de module de reservation
+- cote `MYM`, il faut retenir l'idee de contenu premium verrouille, de galerie de contenus exclusifs et de floutage des medias reserves aux membres actifs
+
+Adaptation GYM :
+
+- on ne copie ni la marque ni l'univers visuel exact de ces sites
+- on adapte la logique `Planity` au booking sportif
+- on adapte la logique `MYM` a un onglet `Contenu premium` de coach : exercices, analyses video, routines, programmes ou medias exclusifs
+- ce module contenu reste secondaire par rapport a la reservation
 
 ## 2.2 Motion design
 
@@ -79,8 +103,10 @@ Regles :
 - `Background`: `#0B0D10`
 - `Surface`: `#13171C`
 - `Surface soft`: `#191F26`
+- `Surface contrast`: `#F5F5F3`
 - `Primary`: `#F3EFE8`
 - `Secondary`: `#A6AFBC`
+- `Muted`: `#C9C9C4`
 - `Accent`: `#FF8A3D`
 - `Accent dark`: `#D96A24`
 - `Success`: `#28B56F`
@@ -91,7 +117,8 @@ Regles :
 - fond principal charbon profond
 - cartes sombres legerement relevees
 - texte principal clair
-- accent orange energique pour les CTA
+- CTA principaux en blanc ou gris clair tres contraste
+- accent reserve aux badges, etats actifs et details premium
 - vert reserve aux confirmations
 
 ## 4. Typographie recommandee
@@ -127,13 +154,17 @@ Pour la maquette MVP :
 - grands
 - rayon moyen a large
 - texte tres lisible
-- CTA principal plein avec couleur accent
+- CTA principal plein contraste blanc / gris clair sur fond sombre quand il s'agit de l'action de reservation
+- CTA secondaires contour sombre ou ghost
+- accent couleur seulement pour actions premium, etats actifs ou recompenses
 
 ### Champs de recherche
 
 - aspect large, propre, respirant
 - icones simples
 - placeholders tres explicites
+- filtres visibles sous forme de chips ou petites fenetres alignees
+- logique d'un pas apres l'autre
 
 ### Cartes coach
 
@@ -147,6 +178,24 @@ Pour la maquette MVP :
 - structure en blocs
 - infos hierarchisees
 - reservation toujours proche de l'utilisateur
+- onglets propres et reguliers : `A propos`, `Creneaux`, `Contenu`
+- chaque onglet ouvre un bloc clair, pas une page confuse
+
+### Contenu premium coach
+
+- grille de contenus sport / coaching
+- certains contenus visibles en preview
+- certains contenus floutes si non debloques
+- badge `Premium` visible
+- CTA de deblocage simple
+- le flou doit servir a signaler un contenu reserve, pas a cacher l'interface
+
+Regle d'adaptation MYM :
+
+- garder des vignettes floutees pour les contenus reserves aux membres actifs
+- garder des apercus publics non floutes pour donner envie
+- si l'acces premium expire, les contenus reserves redeviennent floutes dans la galerie
+- les contenus debloques a l'unite peuvent rester visibles si la regle produit le prevoit plus tard
 
 ## 6. Espace et rythme
 
@@ -292,6 +341,7 @@ Le prototype doit etre pense en mobile d'abord :
 - espacements respirants sans gaspiller l'ecran
 - alignements stricts pour eviter l'effet brouillon
 - boutons et champs faciles a toucher
+- transitions d'une fenetre a l'autre tres claires, avec progression evidente
 
 ## 9. Ce qu'il faut eviter
 

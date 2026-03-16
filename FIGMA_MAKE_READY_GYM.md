@@ -24,6 +24,7 @@ Conserve :
 - le style general deja cree
 - les 4 sports visibles : football, basketball, fitness, sports de combat
 - la logique de demande de reservation validee par le coach
+- la logique de parcours fenetre par fenetre type reservation claire
 
 Ajoute ou corrige uniquement ces elements :
 
@@ -45,7 +46,24 @@ Ajoute ou corrige uniquement ces elements :
 - afficher le prochain avantage debloquable
 - exemple : `-10% sur votre prochaine seance`
 
-4. Ne pas changer inutilement
+4. Home et tunnel
+- remplacer toute logique de texte hero par une approche plus directe, plus proche de l'esprit Planity
+- supprimer le paragraphe `Trouvez le coach qu'il vous faut. Pres de chez vous.`
+- utiliser a la place un hero plus simple avec CTA principal `Trouver un coach professionnel`
+- si un bouton type `Continue with Apple` est visible dans la maquette, le remplacer par une action metier adaptee au produit : `Trouver un coach professionnel`
+- construire le parcours de recherche jusqu'au paiement fenetre par fenetre
+- chaque fenetre doit avoir une seule action principale
+
+5. Onglet contenu
+- sur la fiche coach, ajouter un onglet `Contenu`
+- cet onglet doit fonctionner comme une galerie premium inspiree de MYM mais adaptee au coaching sportif
+- montrer une grille de contenus de coach
+- certains contenus sont visibles en preview
+- certains contenus premium sont floutes tant qu'ils ne sont pas debloques
+- afficher un CTA simple de deblocage
+- garder la reservation comme action principale de la fiche
+
+6. Ne pas changer inutilement
 - ne pas redesign toute la maquette
 - ne pas toucher aux autres ecrans si ce n'est pas necessaire
 - garder les espacements, la grille et le style existants
@@ -56,7 +74,7 @@ Ajoute ou corrige uniquement ces elements :
 ```text
 Create a responsive web app prototype for a sports coaching marketplace called GetYourMentor.
 
-The product should feel inspired by Planity in its clarity and request-first UX, but adapted to sports coaching. Do not copy another brand. The interface must feel premium, reassuring, clean, fast to understand, and strongly conversion-oriented.
+The product should feel inspired by Planity in its clarity and request-first UX, but adapted to sports coaching. The `Contenu` section can take interaction inspiration from MYM's premium content logic, but must be adapted to sport coaching, not creator subscription culture. Do not copy another brand. The interface must feel premium, reassuring, clean, fast to understand, and strongly conversion-oriented.
 
 Core product logic:
 - this is a web-first product, not a native mobile app
@@ -87,6 +105,11 @@ Primary user journey:
 9. pay after approval
 10. view final booking confirmation
 11. see loyalty progression after several completed sessions
+
+Interaction rule:
+- the booking flow should feel window-by-window, with one main decision per screen
+- each screen should feel like a clear booking step
+- keep relevant filters visible at the right moment, but do not overload the UI
 
 Design direction:
 - dark premium background
@@ -158,10 +181,10 @@ Screen content expectations:
 Home:
 - clean header with logo, become a coach, login, sign up
 - language selector visible but discreet
-- hero title focused on finding the right coach nearby
-- subtitle mentioning basketball, football, combat sports, fitness
+- hero title focused on `Trouver un coach professionnel`
+- subtitle mentioning basketball, football, combat sports, fitness in a short and direct way
 - search bar with sport field and city field
-- strong primary CTA: Find a coach
+- strong primary CTA in French: `Trouver un coach professionnel`
 - 3 trust points: verified coaches, simple request flow, secure payment
 - simple how-it-works section in 3 steps
 - testimonials section
@@ -177,11 +200,16 @@ Coach Profile:
 - large coach photo
 - name, specialty, city, rating, reviews, verified badge
 - sticky request card with price and request CTA
+- clean tabs: `A propos`, `Creneaux`, `Contenu`
 - about section
 - specialties section
 - diplomas or certifications section
 - offered sessions section
 - reviews section
+- a premium content tab with a grid of previews and locked blurred premium coaching content
+- the blurred content should indicate premium access only, not censorship
+- examples of premium content: drills, routines, exercise plans, video analyses
+- include a CTA in French like `Debloquer le contenu premium`
 
 Session Choice:
 - coach summary
@@ -262,10 +290,10 @@ Output expectation:
 
 ### Home
 
-- Hero title: `Trouvez le coach qu'il vous faut. Pres de chez vous.`
-- Hero subtitle: `Basket, football, sports de combat, fitness : trouvez un coach verifie, consultez son profil et envoyez une demande de reservation en quelques etapes.`
+- Hero title: `Trouver un coach professionnel`
+- Hero subtitle: `Football, basketball, fitness et sports de combat : trouvez, comparez et demandez votre seance dans un parcours simple et clair.`
 - Language selector: `FR` actif, `EN` secondaire
-- Search CTA: `Trouver un coach`
+- Search CTA: `Trouver un coach professionnel`
 - Trust points: `Coachs verifies`, `Demande simple`, `Paiement securise`
 
 ### Search Results
@@ -288,6 +316,10 @@ Output expectation:
 - Sticky block title: `Demander une reservation`
 - Primary CTA: `Demander`
 - Badge: `Coach verifie`
+- Tabs: `A propos`, `Creneaux`, `Contenu`
+- Content CTA: `Debloquer le contenu premium`
+- Content card label: `Preview`
+- Content premium label: `Premium`
 
 ### Session Choice
 

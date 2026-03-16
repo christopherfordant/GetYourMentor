@@ -17,10 +17,10 @@ Faire comprendre le service en 5 secondes et lancer la recherche.
 ### Hero
 
 Titre :
-`Trouvez le coach qu'il vous faut. Pres de chez vous.`
+`Trouver un coach professionnel`
 
 Sous-titre :
-`Basket, football, sports de combat, fitness : trouvez un coach verifie, envoyez une demande et finalisez la reservation apres validation.`
+`Football, basketball, fitness et sports de combat : trouvez, comparez et demandez votre seance dans un parcours simple et clair.`
 
 Barre de recherche :
 - champ 1 : `Quel sport ?`
@@ -37,6 +37,12 @@ Bloc confiance sous la recherche :
 - `Coachs verifies`
 - `Demande simple`
 - `Paiement securise`
+
+### Regle de progression
+
+- la home n'est qu'une porte d'entree
+- la recherche ensuite se fait fenetre par fenetre
+- chaque ecran suivant garde les filtres utiles ou le recap utile
 
 ### Section 1
 
@@ -124,6 +130,12 @@ Options visibles du filtre format :
 - `Presentiel`
 - `Visio`
 
+Regle UX :
+
+- les filtres principaux restent visibles en haut
+- les filtres secondaires vont dans un panneau `Plus de filtres`
+- chaque ecran de recherche doit ressembler a une fenetre claire de reservation, pas a un annuaire dense
+
 ### Cartes coach
 
 Carte 1 exemple :
@@ -169,6 +181,32 @@ Donner confiance et pousser a la demande de reservation.
 - texte : `Choisissez une seance puis proposez vos creneaux preferes.`
 - bouton `Demander une reservation`
 - bouton secondaire `Contacter`
+
+### Navigation par onglets
+
+- `A propos`
+- `Creneaux`
+- `Contenu`
+
+### Onglet contenu
+
+Objectif :
+
+- montrer un module de contenu premium inspire de la logique MYM mais adapte au coaching sportif
+
+Contenu visible :
+
+- previews publiques : exercices, routines, extraits d'analyse video
+- contenus premium floutes : plans, sequences, medias reserves
+- badge `Premium`
+- CTA `Debloquer le contenu premium`
+
+Regles :
+
+- le contenu floute doit rester identifiable visuellement
+- la grille doit donner envie sans casser la lisibilite
+- la reservation reste l'action principale de la fiche
+- le contenu est une voie secondaire de monetisation ou d'engagement
 
 ### Section a propos
 
@@ -218,6 +256,11 @@ Faire choisir une offre sans confusion.
 
 `Choisissez votre seance`
 
+Regle :
+
+- cette fenetre ne sert qu'a choisir le type de seance
+- aucun bruit visuel inutile
+
 ### Cartes
 
 Carte 1 :
@@ -255,6 +298,11 @@ Permettre d'envoyer une demande de reservation sans friction.
 ### Titre
 
 `Choisissez vos creneaux preferes`
+
+Regle :
+
+- fonctionnement type reservation par etapes
+- filtres et contexte reduits a l'essentiel : date, disponibilites, lieu, format
 
 ### Bloc date
 
@@ -340,6 +388,12 @@ Faire verifier puis envoyer la demande.
 - `Le coach validera votre demande`
 - `Le paiement intervient apres acceptation`
 
+### Structure fenetre
+
+- recap clair
+- un bouton principal
+- une sortie secondaire seulement
+
 ## 8. Dashboard coach
 
 ### Objectif
@@ -395,6 +449,7 @@ Elements :
 - recap reservation validee
 - module paiement securise
 - bouton `Payer`
+- style tres clair, simple, proche d'une fenetre de paiement epuree
 
 ### Reservation confirmee
 
@@ -408,4 +463,14 @@ Elements :
 - nombre de seances realisees
 - prochain avantage debloquable
 - bouton `Voir mes avantages`
+
+## 10. Regle generale de parcours
+
+De la recherche au paiement :
+
+1. une fenetre = une decision principale
+2. les filtres restent visibles quand ils aident la decision
+3. le recap reste visible quand il rassure
+4. aucune fenetre ne doit surcharger l'utilisateur
+5. le style doit rester `gris / noir / blanc`, tres propre, avec inspiration `Planity-like`
 
