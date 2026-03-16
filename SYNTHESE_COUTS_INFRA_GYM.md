@@ -69,6 +69,11 @@ Decision GYM :
 - conserver `Resend` comme choix recommande MVP
 - garder `Brevo` comme alternative budget / marketing a reevaluer plus tard
 
+Regle officielle du projet :
+
+- `Resend` pour le MVP et les emails transactionnels du site
+- `Brevo` a reevaluer en phase croissance si l'objectif devient d'unifier transactionnel, marketing, relances et CRM email
+
 ### Stripe
 
 Le classeur confirme que :
