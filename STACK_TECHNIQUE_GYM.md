@@ -371,6 +371,11 @@ Decision maintenue :
 - on garde `Resend` comme choix MVP pour sa simplicite de dev
 - `Brevo` reste une alternative a revisiter si vous voulez unifier transactionnel + marketing
 
+Regle simple du projet :
+
+- `Resend` en phase MVP et lancement technique
+- `Brevo` a reevaluer en phase croissance si GYM a besoin d'un outil plus large pour CRM, campagnes et marketing lifecycle
+
 ## 12. Ordre de build recommande
 
 1. bootstrap Next.js + Tailwind + Supabase

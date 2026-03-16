@@ -333,7 +333,8 @@ Decision retenue :
 1. ne pas changer l'architecture cible
 2. garder `Supabase + Vercel + Stripe`
 3. conserver `Resend` comme choix email MVP
-4. utiliser le nouveau fichier de couts pour piloter le passage du gratuit vers le payant
+4. reevaluer `Brevo` en phase croissance si le besoin devient plus marketing / CRM que purement transactionnel
+5. utiliser le nouveau fichier de couts pour piloter le passage du gratuit vers le payant
 
 Budget mensuel prudent de lancement production :
 
