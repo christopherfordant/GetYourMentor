@@ -95,6 +95,10 @@ La bonne methode n'est donc pas de tout melanger, mais de :
 
 Les documents les plus importants a garder en tete en permanence sont :
 
+- `Bussiness Plan.pdf`
+- `GetYourMentor MVP_V1 - Fonctionnalites generales.pdf`
+- `Copie de Devis DEV - GetYourMentor.pdf`
+- `SOURCES_PRIORITAIRES_2026_03_19.md`
 - `DOCUMENT_MAITRE_GYM.md`
 - `MVP_ECRANS_GYM.md`
 - `SUPABASE_SCHEMA_GYM.sql`
@@ -104,6 +108,8 @@ Les documents les plus importants a garder en tete en permanence sont :
 - `Fonctionnalité/GetYourMentor MVP_V1.xlsx`
 - `Parcours Utilisateur (user flow)/Parcours Utilisateur COACH.docx`
 - `Pitch Deck/GYM Pitch Deck Presentation.pdf`
+
+Depuis le `19 mars 2026`, les `3 PDFs` ajoutes a la racine doivent etre consideres comme prioritaires sur les anciennes variantes historiques.
 
 ## 6. Lecture honnete
 

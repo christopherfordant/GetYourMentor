@@ -1,5 +1,27 @@
 # GetYourMentor - Document Maitre v1
 
+## 0. Sources prioritaires actuelles
+
+A compter du `19 mars 2026`, les documents de reference prioritaires du projet sont :
+
+- `Bussiness Plan.pdf`
+- `GetYourMentor MVP_V1 - Fonctionnalites generales.pdf`
+- `Copie de Devis DEV - GetYourMentor.pdf`
+
+Ces 3 fichiers passent avant les anciennes versions `.docx`, `.xlsx` ou variantes historiques lorsqu'il faut arbitrer :
+
+- le perimetre du MVP
+- les roles utilisateurs
+- les fonctionnalites principales
+- la logique de reservation et paiement
+- l'ordre de construction produit
+
+Regle de travail :
+
+- les nouveaux PDFs = verite prioritaire actuelle
+- les anciens fichiers = contexte, details, historique ou variantes
+- les fichiers markdown du repo = synthese operative mise a jour a partir de ces sources prioritaires
+
 ## 1. Vision
 
 GetYourMentor (GYM) est une plateforme web qui met en relation des coachs, des sportifs et, a terme, des clubs autour du coaching individuel sportif. L'objectif n'est pas seulement de permettre de trouver un coach, mais de construire un ecosysme simple, fiable et rentable pour organiser des seances, reserver, payer, communiquer et suivre la progression.
@@ -138,6 +160,7 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - page d'accueil et pages de presentation du service
 - creation de compte
 - interface en francais par defaut avec selecteur de langue
+- 4 interfaces principales : `Sportif`, `Coach`, `Etablissement`, `Admin`
 - profils coachs avec photo, presentation, discipline, zone geographique, diplomes, tarifs
 - moteur de recherche simple par sport et localisation, limite a 4 sports visibles
 - filtres de recherche MVP : genre du coach, lieu de pratique, niveau, format, budget, disponibilite, note, coach verifie
@@ -146,10 +169,17 @@ Le MVP doit etre volontairement restreint. Il doit permettre de prouver qu'un co
 - prise de rendez-vous
 - paiement securise
 - ecran de paiement apres validation du coach
+- code de reservation genere pour l'execution terrain cote coach
+- blocage automatique des creneaux complets
+- remboursement a cadrer dans la V1 selon la base metier actuelle :
+  - `100%` si annulation plus de `48h` avant le rendez-vous
+  - `50%` si annulation entre `48h` et `24h` avant le rendez-vous
 - module fidelite simple visible dans l'espace sportif apres plusieurs seances
 - messagerie simple ou systeme de contact integre
+- masquage du mail et du numero avant reservation
 - avis apres seance
 - espace coach basique pour gerer profil, planning, reservations et paiements
+- espace etablissement en version legere
 - back-office admin minimum pour verifier les coachs et suivre l'activite
 
 ### Inclus en version legere seulement
