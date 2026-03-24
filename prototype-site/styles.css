@@ -121,7 +121,6 @@ button {
 
 .sport-link:hover::after,
 .sport-link:focus-visible::after,
-.sport-link.is-active::after,
 .topbar-link:hover::after,
 .topbar-link:focus-visible::after {
   transform: scaleX(1);
