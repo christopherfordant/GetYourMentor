@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Réserver une séance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell booking-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link brand-name-dark" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav sports-nav-dark" aria-label="Sports">
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="booking-page" data-booking-page>
+        <section class="booking-hero">
+          <div class="booking-intro">
+            <div class="booking-title-wrap">
+              <h1 data-booking-name>Studio Form Marseille</h1>
+              <div class="booking-address" data-booking-address>10 Rue du Sport, 13002 Marseille</div>
+              <div class="booking-meta" data-booking-meta>4.9 (284 avis) • Premium</div>
+            </div>
+
+            <div class="booking-hero-actions">
+              <button class="booking-ghost-action" type="button" data-booking-nav="programmes">Programmes</button>
+              <button class="booking-ghost-action" type="button" data-booking-nav="abonnements">Abonnements</button>
+              <a class="booking-primary-action" href="#booking-services">Réserver</a>
+            </div>
+          </div>
+
+          <div class="booking-gallery">
+            <div class="booking-gallery-main"></div>
+            <div class="booking-gallery-side">
+              <div class="booking-gallery-thumb thumb-1"></div>
+              <div class="booking-gallery-thumb thumb-2"></div>
+              <div class="booking-gallery-thumb thumb-3"></div>
+              <div class="booking-gallery-thumb thumb-4"></div>
+            </div>
+          </div>
+
+          <nav class="booking-tabs" aria-label="Sections de la page">
+            <a class="booking-tab is-active" href="#booking-services" data-booking-tab="reserver">Réserver</a>
+            <a class="booking-tab" href="#booking-services" data-booking-tab="programmes">Programmes</a>
+            <a class="booking-tab" href="#booking-services" data-booking-tab="abonnements">Abonnements</a>
+          </nav>
+        </section>
+
+        <section class="booking-content" id="booking-services">
+          <div class="booking-main-column">
+            <header class="booking-section-head">
+              <h2 data-booking-heading>Réserver en ligne une séance chez Studio Form Marseille</h2>
+              <p>24h/24 - Sans appel - Confirmation rapide</p>
+            </header>
+
+            <div class="booking-service-block">
+              <h3>Choix de la séance</h3>
+            </div>
+
+            <section class="booking-card-stack">
+              <h4>Informations</h4>
+              <div class="booking-info-list" data-booking-info-list></div>
+            </section>
+
+            <section class="booking-card-stack">
+              <h4 data-booking-category>Forme - Coaching premium</h4>
+              <div class="booking-service-list" data-booking-service-list></div>
+            </section>
+          </div>
+
+          <aside class="booking-side-column">
+            <section class="booking-rating-card">
+              <div class="booking-rating-tabs">
+                <button class="is-active" type="button" data-rating-tab="global">Note globale</button>
+                <button type="button" data-rating-tab="reviews">Avis</button>
+              </div>
+              <div class="booking-rating-body" data-rating-body>
+                <div class="booking-rating-score">4,9</div>
+                <div class="booking-rating-lines">
+                  <div>Accueil <strong>4,9 ★</strong></div>
+                  <div>Ponctualité <strong>4,9 ★</strong></div>
+                  <div>Cadre &amp; ambiance <strong>4,8 ★</strong></div>
+                  <div>Qualité de l'accompagnement <strong>4,9 ★</strong></div>
+                  <p>284 clients ont donné leur avis</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="booking-hours-card">
+              <h4>Horaires d'ouverture</h4>
+              <div class="booking-hours-list">
+                <div><span>Lundi</span><strong>10:00 - 19:00</strong></div>
+                <div><span>Mardi</span><strong>10:00 - 19:00</strong></div>
+                <div><span>Mercredi</span><strong>10:00 - 19:00</strong></div>
+                <div><span>Jeudi</span><strong>10:00 - 20:00</strong></div>
+                <div><span>Vendredi</span><strong>10:00 - 19:00</strong></div>
+                <div><span>Samedi</span><strong>09:30 - 18:30</strong></div>
+                <div><span>Dimanche</span><strong>09:00 - 19:00</strong></div>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens l&eacute;gaux">
+          <a href="./accueil.html#faq-title">CGV</a>
+          <a href="./accueil.html#faq-title">CGU</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialit&eacute;</a>
+          <a href="./accueil.html#faq-title">Mentions l&eacute;gales</a>
+        </nav>
+        <small>&copy; 2026 GetYourMentor. Tous droits r&eacute;serv&eacute;s.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

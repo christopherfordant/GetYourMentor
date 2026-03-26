@@ -1,0 +1,148 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1440" y2="1120" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#181B20"/>
+      <stop offset="0.45" stop-color="#0E1115"/>
+      <stop offset="1" stop-color="#06080B"/>
+    </linearGradient>
+    <radialGradient id="haloLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 300) rotate(45) scale(480 360)">
+      <stop offset="0" stop-color="#313740" stop-opacity="0.52"/>
+      <stop offset="1" stop-color="#313740" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 260) rotate(125) scale(520 390)">
+      <stop offset="0" stop-color="#242A32" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#242A32" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171C22" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#0F1318" stop-opacity="0.88"/>
+    </linearGradient>
+    <linearGradient id="panelStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#303844"/>
+      <stop offset="1" stop-color="#202833"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141920" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#0D1116" stop-opacity="0.72"/>
+    </linearGradient>
+    <radialGradient id="accentGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1235 905) rotate(120) scale(260 220)">
+      <stop offset="0" stop-color="#FF8A3D" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FF8A3D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-40" y="-40" width="1680" height="1280" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="26" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <rect width="1600" height="1200" fill="url(#haloLeft)"/>
+  <rect width="1600" height="1200" fill="url(#haloRight)"/>
+  <ellipse cx="1235" cy="910" rx="170" ry="120" fill="url(#accentGlow)"/>
+
+  <g opacity="0.18">
+    <path d="M92 990C298 890 530 840 785 824C1035 808 1236 840 1508 958" stroke="#2B323C" stroke-width="2"/>
+    <path d="M122 1076C360 978 612 920 872 906C1096 894 1285 918 1496 1006" stroke="#232A33" stroke-width="2"/>
+    <path d="M810 120C974 172 1098 266 1188 395C1266 506 1304 648 1290 824" stroke="#2A323D" stroke-width="2"/>
+  </g>
+
+  <!-- booking panel -->
+  <g filter="url(#shadow)">
+    <rect x="184" y="260" width="720" height="346" rx="34" fill="url(#glass)" stroke="#2B313A"/>
+    <rect x="240" y="318" width="300" height="58" rx="18" fill="#12171D" stroke="#2C333D"/>
+    <rect x="558" y="318" width="290" height="58" rx="18" fill="#12171D" stroke="#2C333D"/>
+    <rect x="240" y="402" width="608" height="66" rx="20" fill="#F3F1EC"/>
+    <rect x="240" y="500" width="410" height="18" rx="9" fill="#F3EFE8" fill-opacity="0.15"/>
+    <rect x="240" y="534" width="332" height="18" rx="9" fill="#F3EFE8" fill-opacity="0.1"/>
+  </g>
+
+  <!-- athletes strip -->
+  <g filter="url(#shadow)">
+    <rect x="166" y="682" width="1268" height="326" rx="36" fill="#101419" stroke="#222A34"/>
+  </g>
+
+  <!-- football athlete -->
+  <g transform="translate(218 728)">
+    <rect width="276" height="236" rx="28" fill="url(#panel)" stroke="url(#panelStroke)"/>
+    <ellipse cx="140" cy="64" rx="78" ry="34" fill="#1A1F26" opacity="0.72"/>
+    <circle cx="142" cy="68" r="24" fill="#D9D4CC"/>
+    <path d="M118 100C136 92 149 92 166 100L186 164H98L118 100Z" fill="#F3EFE8"/>
+    <rect x="112" y="110" width="60" height="64" rx="18" fill="#161B21"/>
+    <rect x="128" y="164" width="20" height="48" rx="10" fill="#D9D4CC"/>
+    <rect x="154" y="164" width="20" height="48" rx="10" fill="#D9D4CC"/>
+    <rect x="121" y="206" width="18" height="28" rx="9" fill="#F3EFE8"/>
+    <rect x="161" y="206" width="18" height="28" rx="9" fill="#F3EFE8"/>
+    <path d="M92 162L58 188" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M192 160L220 132" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="78" cy="188" r="22" fill="#F2F0EA"/>
+    <path d="M78 166L90 174L86 188L70 188L66 174L78 166Z" fill="#0F1419"/>
+    <path d="M58 188H98" stroke="#0F1419" stroke-width="3"/>
+    <path d="M68 172L88 204" stroke="#0F1419" stroke-width="3"/>
+    <path d="M88 172L68 204" stroke="#0F1419" stroke-width="3"/>
+    <rect x="82" y="194" width="96" height="14" rx="7" fill="#F3EFE8" fill-opacity="0.9"/>
+    <rect x="108" y="218" width="46" height="8" rx="4" fill="#F3EFE8" fill-opacity="0.26"/>
+  </g>
+
+  <!-- basketball athlete -->
+  <g transform="translate(520 728)">
+    <rect width="276" height="236" rx="28" fill="url(#panel)" stroke="url(#panelStroke)"/>
+    <ellipse cx="146" cy="60" rx="80" ry="34" fill="#1A1F26" opacity="0.72"/>
+    <circle cx="138" cy="68" r="24" fill="#D9D4CC"/>
+    <path d="M112 102C132 92 150 92 170 102L186 162H96L112 102Z" fill="#20262D"/>
+    <rect x="120" y="108" width="52" height="60" rx="18" fill="#FF8A3D"/>
+    <path d="M96 160L66 134" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M188 154L224 180" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M132 162L120 214" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M168 162L190 212" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="236" cy="180" r="24" fill="#FF8A3D"/>
+    <path d="M236 156C245 162 251 170 252 180C251 190 245 198 236 204" stroke="#1B2026" stroke-width="3"/>
+    <path d="M236 156C227 162 221 170 220 180C221 190 227 198 236 204" stroke="#1B2026" stroke-width="3"/>
+    <path d="M212 180H260" stroke="#1B2026" stroke-width="3"/>
+    <path d="M236 156V204" stroke="#1B2026" stroke-width="3"/>
+    <rect x="94" y="194" width="110" height="14" rx="7" fill="#F3EFE8" fill-opacity="0.9"/>
+    <rect x="124" y="218" width="52" height="8" rx="4" fill="#F3EFE8" fill-opacity="0.26"/>
+  </g>
+
+  <!-- fitness athlete -->
+  <g transform="translate(822 728)">
+    <rect width="276" height="236" rx="28" fill="url(#panel)" stroke="url(#panelStroke)"/>
+    <ellipse cx="138" cy="60" rx="78" ry="34" fill="#1A1F26" opacity="0.72"/>
+    <circle cx="138" cy="68" r="24" fill="#D9D4CC"/>
+    <path d="M110 102C128 94 148 94 166 102L180 154H96L110 102Z" fill="#F3EFE8"/>
+    <path d="M96 152L72 120" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M180 152L206 118" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M130 154L116 214" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M156 154L172 214" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <rect x="56" y="110" width="20" height="42" rx="10" fill="#FF8A3D"/>
+    <rect x="202" y="110" width="20" height="42" rx="10" fill="#FF8A3D"/>
+    <rect x="74" y="124" width="40" height="14" rx="7" fill="#F3EFE8"/>
+    <rect x="164" y="124" width="40" height="14" rx="7" fill="#F3EFE8"/>
+    <rect x="92" y="194" width="96" height="14" rx="7" fill="#F3EFE8" fill-opacity="0.9"/>
+    <rect x="118" y="218" width="44" height="8" rx="4" fill="#F3EFE8" fill-opacity="0.26"/>
+  </g>
+
+  <!-- combat athlete -->
+  <g transform="translate(1124 728)">
+    <rect width="276" height="236" rx="28" fill="url(#panel)" stroke="url(#panelStroke)"/>
+    <ellipse cx="138" cy="60" rx="80" ry="34" fill="#1A1F26" opacity="0.72"/>
+    <circle cx="142" cy="68" r="24" fill="#D9D4CC"/>
+    <path d="M112 102C130 92 154 92 172 102L184 158H100L112 102Z" fill="#1A2026"/>
+    <path d="M100 154L66 136" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M184 154L220 128" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M132 158L118 216" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <path d="M160 158L178 216" stroke="#D9D4CC" stroke-width="16" stroke-linecap="round"/>
+    <rect x="48" y="122" width="34" height="26" rx="13" fill="#FF8A3D"/>
+    <rect x="212" y="114" width="34" height="26" rx="13" fill="#FF4F6A"/>
+    <rect x="90" y="194" width="104" height="14" rx="7" fill="#F3EFE8" fill-opacity="0.9"/>
+    <rect x="122" y="218" width="42" height="8" rx="4" fill="#F3EFE8" fill-opacity="0.26"/>
+  </g>
+
+  <!-- editorial abstract element on right -->
+  <g opacity="0.9">
+    <path d="M1098 202L1342 202L1252 1036L1016 1036L1098 202Z" fill="#181D23"/>
+    <path d="M1126 226L1314 226L1248 1010L1068 1010L1126 226Z" fill="#232830"/>
+    <path d="M1168 254L1196 254L1144 994L1116 994L1168 254Z" fill="#101419"/>
+    <path d="M1208 254L1236 254L1184 994L1156 994L1208 254Z" fill="#101419"/>
+    <path d="M1248 254L1276 254L1224 994L1196 994L1248 254Z" fill="#101419"/>
+    <path d="M1286 254L1304 254L1256 994L1234 994L1286 254Z" fill="#101419"/>
+  </g>
+</svg>
