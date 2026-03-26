@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Paiement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell payment-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link brand-name-dark" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav sports-nav-dark" aria-label="Sports">
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="payment-page" data-payment-page>
+        <section class="payment-main">
+          <div class="payment-intro">
+            <p class="payment-kicker">Paiement sécurisé</p>
+            <h1>Finaliser votre réservation</h1>
+            <p class="payment-subcopy">Choisissez votre mode de paiement pour confirmer votre séance GetYourMentor.</p>
+          </div>
+
+          <section class="payment-card">
+            <header class="payment-card-head">
+              <h2>Moyen de paiement</h2>
+              <p>Vous pouvez simuler les options les plus probables du tunnel.</p>
+            </header>
+
+            <div class="payment-methods" data-payment-methods>
+              <button class="payment-method is-active" type="button" data-method="card">
+                <strong>Carte bancaire</strong>
+                <span>Visa, Mastercard, CB</span>
+              </button>
+              <button class="payment-method" type="button" data-method="apple-pay">
+                <strong>Apple Pay</strong>
+                <span>Paiement rapide</span>
+              </button>
+              <button class="payment-method" type="button" data-method="google-pay">
+                <strong>Google Pay</strong>
+                <span>Validation instantanée</span>
+              </button>
+              <button class="payment-method" type="button" data-method="onsite">
+                <strong>Sur place</strong>
+                <span>Selon les conditions du coach</span>
+              </button>
+            </div>
+
+            <div class="payment-form">
+              <label class="payment-field">
+                <span>Nom sur la carte</span>
+                <input type="text" value="Client GetYourMentor" />
+              </label>
+              <label class="payment-field">
+                <span>Numéro de carte</span>
+                <input type="text" value="4242 4242 4242 4242" />
+              </label>
+              <div class="payment-field-row">
+                <label class="payment-field">
+                  <span>Expiration</span>
+                  <input type="text" value="12 / 28" />
+                </label>
+                <label class="payment-field">
+                  <span>CVC</span>
+                  <input type="text" value="123" />
+                </label>
+              </div>
+              <label class="payment-checkbox">
+                <input type="checkbox" checked />
+                <span>J'accepte les conditions de réservation du coach.</span>
+              </label>
+            </div>
+          </section>
+        </section>
+
+        <aside class="payment-side">
+          <section class="payment-summary-card">
+            <h2>Récapitulatif</h2>
+            <div class="payment-summary-line">
+              <span>Lieu / coach</span>
+              <strong data-payment-name>Studio Form Marseille</strong>
+            </div>
+            <div class="payment-summary-line">
+              <span>Séance</span>
+              <strong data-payment-service>Coaching remise en forme</strong>
+            </div>
+            <div class="payment-summary-line">
+              <span>Durée</span>
+              <strong data-payment-duration>30min</strong>
+            </div>
+            <div class="payment-summary-line">
+              <span>Date</span>
+              <strong data-payment-datetime>Vendredi 27 mars 2026 à 10:00</strong>
+            </div>
+            <div class="payment-summary-line">
+              <span>Coach retenu</span>
+              <strong data-payment-mentor>Coach confirmé</strong>
+            </div>
+            <div class="payment-summary-total">
+              <span>Total</span>
+              <strong data-payment-price>35 €</strong>
+            </div>
+            <button class="payment-submit" type="button" data-payment-submit>Payer et confirmer</button>
+            <p class="payment-note">La confirmation finale est simulée dans cette maquette.</p>
+          </section>
+
+          <section class="payment-success-card" data-payment-success hidden>
+            <h3>Réservation confirmée</h3>
+            <p>Votre paiement est validé et votre séance est confirmée.</p>
+            <div class="payment-success-actions">
+              <a class="payment-secondary-link" href="./accueil.html">Retour à l'accueil</a>
+              <a class="payment-primary-link" href="./compte.html">Voir mon compte</a>
+            </div>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens l&eacute;gaux">
+          <a href="./accueil.html#faq-title">CGV</a>
+          <a href="./accueil.html#faq-title">CGU</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialit&eacute;</a>
+          <a href="./accueil.html#faq-title">Mentions l&eacute;gales</a>
+        </nav>
+        <small>&copy; 2026 GetYourMentor. Tous droits r&eacute;serv&eacute;s.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
