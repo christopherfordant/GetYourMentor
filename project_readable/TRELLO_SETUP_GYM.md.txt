@@ -1,0 +1,170 @@
+# GetYourMentor - Setup Trello
+
+## 1. Board unique
+
+Nom du board :
+- `GetYourMentor - Pilotage`
+
+Objectif :
+- centraliser le projet entre vous 3
+- garder un seul point d'avancement
+- relier execution, documents et priorites
+
+## 2. Listes
+
+Creer ces 6 listes :
+
+1. `Vision / Docs`
+2. `Backlog`
+3. `A faire cette semaine`
+4. `En cours`
+5. `En attente`
+6. `Termine`
+
+## 3. Regles simples
+
+- maximum 2 cartes en `En cours` par personne
+- maximum 6 cartes dans `A faire cette semaine`
+- chaque carte a 1 responsable principal
+- les cartes bloquees vont dans `En attente`
+
+## 4. Labels
+
+- `Produit`
+- `Business`
+- `Finance`
+- `Commercial`
+- `Marketing`
+- `Organisation`
+- `Juridique`
+- `Urgent`
+- `Decision`
+
+## 5. Cartes a mettre dans Vision / Docs
+
+- `Vision GetYourMentor en 3 phrases`
+- `Pitch court 30 secondes`
+- `Document maitre`
+- `Business plan`
+- `Pitch deck`
+- `Fonctionnalites MVP`
+- `Parcours utilisateur coach`
+- `Parcours utilisateur joueur`
+- `Parcours utilisateur club`
+- `Base contacts`
+- `Dossier financement`
+- `Architecture memoire`
+
+Description conseillee pour chaque carte :
+- lien vers le document local, cloud ou notion
+- statut du document
+- derniere mise a jour
+
+## 6. Cartes a mettre dans Backlog
+
+### Produit
+
+- `Figer les fonctionnalites MVP`
+- `Definir parcours joueur v1`
+- `Definir parcours club v1 leger`
+- `Lister les ecrans du site`
+- `Definir le back-office admin minimum`
+- `Choisir la solution technique du site`
+
+### Business
+
+- `Valider le modele abonnement + commission`
+- `Definir les prix de lancement coach`
+- `Definir les prix clubs post-MVP`
+
+### Commercial
+
+- `Construire la liste des 30 premiers coachs a contacter`
+- `Construire la liste des 30 premiers clubs a contacter`
+- `Creer script d'appel coach`
+- `Creer script d'appel club`
+- `Creer message Instagram / email de prospection`
+
+### Finance
+
+- `Nettoyer le dossier banque final`
+- `Comparer les devis developpement`
+- `Fixer le budget reel de lancement`
+
+### Organisation
+
+- `Creer Supabase projet memoire`
+- `Creer workflows n8n prioritaires`
+- `Mettre en place le journal des decisions`
+
+## 7. Cartes a mettre dans A faire cette semaine
+
+Ces 6 cartes doivent etre vos toutes premieres :
+
+1. `Valider le document maitre`
+2. `Figer les fonctionnalites MVP`
+3. `Lister les ecrans du site`
+4. `Comparer les devis developpement`
+5. `Construire la liste des 30 premiers coachs`
+6. `Creer Supabase projet memoire`
+
+## 8. Assignation conseillee entre vous 3
+
+### Toi
+
+- `Commercial`
+- `Finance`
+- `Pitch`
+- `Partenariats`
+
+### Frere 1
+
+- `Produit`
+- `Parcours utilisateur`
+- `Specification des ecrans`
+
+### Frere 2
+
+- `Organisation`
+- `Trello`
+- `n8n`
+- `Base contacts`
+
+## 9. Modele de carte
+
+Titre :
+- action claire
+
+Description :
+
+```text
+Objectif :
+Responsable :
+Date limite :
+Pourquoi c'est important :
+Prochaine action :
+Lien document :
+```
+
+## 10. Mapping direct avec Supabase
+
+Quand vous connecterez `n8n`, chaque carte Trello devra alimenter `gym_memory.tasks_sync`.
+
+Correspondances :
+- nom de la carte -> `title`
+- description -> `description`
+- liste -> `status`
+- membres -> `members`
+- labels -> `labels`
+- date d'echeance -> `due_date`
+- url carte -> `url`
+
+## 11. Premier rituel hebdomadaire
+
+Chaque semaine :
+
+1. vider ou reduire `A faire cette semaine`
+2. fermer les cartes terminees
+3. deplacer les cartes bloquees
+4. enregistrer les decisions importantes
+5. choisir les 3 priorites de la semaine suivante

@@ -91,13 +91,31 @@ if (topbar && hero) {
 }
 
 const homeSearchForm = document.querySelector("[data-home-search-form]");
+const homeSearchPreview = document.querySelector("[data-home-search-preview]");
 
 if (homeSearchForm) {
+  const launchHomeSearchPreview = (callback) => {
+    if (!hero || !homeSearchPreview) {
+      callback();
+      return;
+    }
+
+    if (hero.classList.contains("is-search-previewing")) {
+      return;
+    }
+
+    hero.classList.add("is-search-previewing");
+
+    window.setTimeout(() => {
+      callback();
+    }, 700);
+  };
+
   homeSearchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const sportValue = homeSearchForm.querySelector("[data-home-sport-input]")?.value || "football";
     const cityValue = homeSearchForm.querySelector("[data-home-city-input]")?.value || "";
-    navigateToSearch(sportValue, cityValue);
+    launchHomeSearchPreview(() => navigateToSearch(sportValue, cityValue));
   });
 
   document.querySelectorAll("[data-home-profile-link]").forEach((button) => {
@@ -151,6 +169,7 @@ if (sportPage) {
   const params = new URLSearchParams(window.location.search);
   const sportSlug = params.get("sport") || "football";
   const currentSport = sportDictionary[sportSlug] || sportDictionary.football;
+  sportPage.dataset.sportTheme = sportSlug;
   const title = document.querySelector("[data-sport-title]");
   const kicker = document.querySelector("[data-sport-kicker]");
   const queryInput = document.querySelector("[data-sport-query]");
@@ -267,16 +286,42 @@ if (coachDirectoryPage) {
   if (results) {
     results.innerHTML = currentDirectory
       .getCoaches(city)
-      .map((coach) => {
+      .map((coach, index) => {
         const detailsLink = buildPath("./reserver-seance.html", {
           sport: sportSlug,
           city,
           coach: coach.name,
         });
+        const dayMap = new Map();
+
+        coach.morning.forEach((slot) => {
+          const existing = dayMap.get(slot) || { day: slot, periods: [] };
+          existing.periods.push("Matin");
+          dayMap.set(slot, existing);
+        });
+
+        coach.afternoon.forEach((slot) => {
+          const existing = dayMap.get(slot) || { day: slot, periods: [] };
+          existing.periods.push("Apres-midi");
+          dayMap.set(slot, existing);
+        });
+
+        const scheduleMarkup = Array.from(dayMap.values())
+          .map(
+            (entry) => `
+              <div class="coach-day-card">
+                <strong>${entry.day}</strong>
+                <div class="coach-day-periods">
+                  ${entry.periods.map((period) => `<span class="coach-day-period">${period}</span>`).join("")}
+                </div>
+              </div>
+            `
+          )
+          .join("");
 
         return `
-          <article class="coach-result-card">
-            <div class="coach-result-media"></div>
+          <article class="coach-result-card coach-result-card--${sportSlug}">
+            <div class="coach-result-media coach-result-media--${sportSlug} coach-result-media--${sportSlug}-${index + 1}"></div>
             <div class="coach-result-body">
               <div class="coach-result-top">
                 <h2>${coach.name}</h2>
@@ -284,10 +329,7 @@ if (coachDirectoryPage) {
                 <div class="coach-result-meta">${coach.meta}</div>
               </div>
               <div class="coach-result-slots">
-                <strong>Matin</strong>
-                <div class="coach-slot-list">${coach.morning.map((slot) => `<button class="coach-slot" type="button">${slot}</button>`).join("")}</div>
-                <strong>Aprs-midi</strong>
-                <div class="coach-slot-list">${coach.afternoon.map((slot) => `<button class="coach-slot" type="button">${slot}</button>`).join("")}</div>
+                ${scheduleMarkup}
               </div>
               <div class="coach-result-footer">
                 <a class="coach-more-link" href="${detailsLink}">Plus d'informations</a>
@@ -352,29 +394,73 @@ const bookingDictionary = {
   },
 };
 
+const bookingProfileDictionary = {
+  football: {
+    followers: "22 joueurs suivis",
+    specialty: "Specialite football",
+    bio: "Bonjour, je m'appelle Bryce et je partage une experience de terrain fondee sur l'exigence, la lecture du jeu et la repetition utile. Mon objectif est d'aider chaque joueur a progresser avec plus de clarte, de confiance et de regularite.",
+  },
+  basketball: {
+    followers: "18 joueurs suivis",
+    specialty: "Specialite basketball",
+    bio: "Bonjour, je m'appelle Sarah et j'accompagne les joueurs qui veulent gagner en mecanique, en rythme et en constance. Chaque seance est construite pour transformer rapidement les automatismes en vrai niveau de jeu.",
+  },
+  "metiers-de-la-forme": {
+    followers: "31 clients suivis",
+    specialty: "Specialite remise en forme",
+    bio: "Bonjour, je m'appelle Julien et je propose un accompagnement premium pour reprendre, accelerer ou structurer votre routine. Le cadre est progressif, lisible et adapte a votre energie comme a vos objectifs.",
+  },
+  "sports-de-combat": {
+    followers: "16 athletes suivis",
+    specialty: "Specialite sports de combat",
+    bio: "Bonjour, je m'appelle Ines et je conçois des sessions precises pour travailler technique, garde, placement et confiance. L'idee est d'allier intensite, securite et progression concrete a chaque rendez-vous.",
+  },
+};
+
 if (bookingPage) {
   const params = new URLSearchParams(window.location.search);
   const sportSlug = params.get("sport") || "metiers-de-la-forme";
   const city = params.get("city") || "Paris";
   const coach = params.get("coach") || "Studio Form Marseille";
   const currentBooking = bookingDictionary[sportSlug] || bookingDictionary["metiers-de-la-forme"];
+  const currentProfile = bookingProfileDictionary[sportSlug] || bookingProfileDictionary["metiers-de-la-forme"];
   const nameNode = document.querySelector("[data-booking-name]");
   const addressNode = document.querySelector("[data-booking-address]");
   const metaNode = document.querySelector("[data-booking-meta]");
   const headingNode = document.querySelector("[data-booking-heading]");
   const categoryNode = document.querySelector("[data-booking-category]");
+  const followersNode = document.querySelector("[data-booking-followers]");
+  const followersSecondaryNode = document.querySelector("[data-booking-followers-secondary]");
+  const specialtyNode = document.querySelector("[data-booking-specialty]");
+  const contentSpecialtyNode = document.querySelector("[data-content-specialty]");
+  const contentCoachNameNode = document.querySelector("[data-content-coach-name]");
+  const bioNode = document.querySelector("[data-booking-bio]");
+  const shortNameNode = document.querySelector("[data-booking-short-name]");
+  const scoreLargeNode = document.querySelector("[data-booking-score-large]");
   const infoList = document.querySelector("[data-booking-info-list]");
   const serviceList = document.querySelector("[data-booking-service-list]");
   const ratingBody = document.querySelector("[data-rating-body]");
   const bookingTabs = document.querySelectorAll("[data-booking-tab]");
   const bookingGhostButtons = document.querySelectorAll("[data-booking-nav]");
+  const bookingPanes = document.querySelectorAll("[data-booking-pane]");
   const ratingTabs = document.querySelectorAll("[data-rating-tab]");
+  const contentUnlockButton = document.querySelector("[data-content-unlock]");
+  const contentFeed = document.querySelector("[data-content-feed]");
+  const contentLockNote = document.querySelector("[data-content-lock-note]");
 
   if (nameNode) nameNode.textContent = coach;
-  if (addressNode) addressNode.textContent = `10 Rue du Sport, ${city}`;
-  if (metaNode) metaNode.textContent = "4.9 (284 avis)  Coaching premium";
-  if (headingNode) headingNode.textContent = `Rserver en ligne une sance chez ${coach}`;
+  if (addressNode) addressNode.textContent = `9e arrondissement, ${city}`;
+  if (metaNode) metaNode.textContent = currentProfile.specialty;
+  if (headingNode) headingNode.textContent = `Prenez votre rendez-vous avec ${coach}`;
   if (categoryNode) categoryNode.textContent = currentBooking.category;
+  if (followersNode) followersNode.textContent = currentProfile.followers;
+  if (followersSecondaryNode) followersSecondaryNode.textContent = currentProfile.followers;
+  if (specialtyNode) specialtyNode.textContent = currentProfile.specialty;
+  if (contentSpecialtyNode) contentSpecialtyNode.textContent = currentProfile.specialty;
+  if (contentCoachNameNode) contentCoachNameNode.textContent = coach;
+  if (bioNode) bioNode.textContent = currentProfile.bio;
+  if (shortNameNode) shortNameNode.textContent = coach.split(" ").slice(-1)[0] || coach;
+  if (scoreLargeNode) scoreLargeNode.textContent = "5 / 5";
 
   if (infoList) {
     infoList.innerHTML = currentBooking.info
@@ -426,17 +512,30 @@ if (bookingPage) {
     bookingTabs.forEach((tab) => {
       tab.classList.toggle("is-active", tab.dataset.bookingTab === value);
     });
+
+    bookingPanes.forEach((pane) => {
+      pane.classList.toggle("is-active", pane.dataset.bookingPane === value);
+    });
   };
 
   bookingGhostButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      setActiveBookingTab(button.dataset.bookingNav || "reserver");
-      document.querySelector("#booking-services")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const target = button.dataset.bookingNav || "planning";
+      setActiveBookingTab(target);
+      document.querySelector(`[data-booking-pane="${target}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   });
 
   bookingTabs.forEach((tab) => {
-    tab.addEventListener("click", () => setActiveBookingTab(tab.dataset.bookingTab || "reserver"));
+    tab.addEventListener("click", () => setActiveBookingTab(tab.dataset.bookingTab || "apropos"));
+  });
+
+  contentUnlockButton?.addEventListener("click", () => {
+    contentFeed?.classList.remove("is-locked");
+    contentFeed?.classList.add("is-unlocked");
+    contentUnlockButton.textContent = "Abonnement actif";
+    contentUnlockButton.disabled = true;
+    contentLockNote && (contentLockNote.textContent = "Abonnement actif. Tous les contenus du coach sont maintenant visibles.");
   });
 
   ratingTabs.forEach((button) => {

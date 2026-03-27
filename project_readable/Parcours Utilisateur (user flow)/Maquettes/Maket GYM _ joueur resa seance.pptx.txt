@@ -1,0 +1,142 @@
+# Slide 1
+Vous recherchez quel sport ? :
+Fitness
+Où ?
+Niort
+Créer son profil
+Se connecter
+Langues :
+
+# Slide 2
+Basket-ball
+Filtre
+uniquement coach feminin
+uniquement entre femme
+cours individuel uniquement
+cours uniquement en
+intérieur
+Visio
+Disponibilité
+=> aujourdhui
+=> demain
+=> choisir une date/heure
+Trier par :
+=> sans
+préférence
+=> mieux noté
+=> + au - cher
+=> - au + cher
+
+# Slide 3
+Basket-ball
+Les Coachs
+Mike.F
+Fabien.T
+Chris.D
+Pierre.E
+
+# Slide 4
+Basket-ball
+Les Coachs
+Mike.F
+Mon
+professionnalisme vous permettra de progresser
+Notes *****
+Commentaire
+“Très bon coach”
+Tarifs :
+25€ / heure groupe de 4 max
+40€ / heure individuel
+Lieux proposé :
+Espinassou
+René
+gaillard
+Pissardant
+Travail proposé :
+Gainage
+cardio
+Renfo
+circuit training
+lundi
+mardi
+mercredi
+jeudi
+vendredi
+samedi
+dimanche
+9h-10h
+1 place
+1 place
+1 place
+12h-13h
+2 places
+2 places
+1 place
+14h-15h
+2 places
+1 place
+1 place
+2 places
+18h-19h
+2 places
+1 place
+19h-20h
+2 places
+2 places
+3 places
+4places
+4places
+4places
+2 places
+Disponibilités :
+
+# Slide 5
+Veuillez
+créer
+votre profil
+Connectez vous
+
+# Slide 6
+Identification sportif
+Nom :
+Prénom :
+Date de naissance :
+Sexe : M / F
+Mail :
+Téléphone
+:
+Mot de passe :
+Connection Google ?
+Licencié Oui/Non, si Oui : nom du club
+Considérez vous être
+débutant
+expérience régulière
+haut niveau
+professionnel
+Présentation
+Adresse Mail / numéro de téléphone
+Carte d’identité
+Photo d’identité (utilisé comme photo de profil)
+Souhaitez vous enregistrer votre CB
+
+# Slide 7
+Basket-ball
+Réservation
+Souhaitez vous envoyer un message au coach ?
+joueur : Est ce que l’on pourra faire une séance spécifique gainage ?
+Mike.F : Oui bien sûr, avez vous l’habitude d’en faire ?
+Joueur : oui
+Mike.F : Très bien j'emmènerai un tapis pour vos coudes 😉
+Joueur : Super je valide, à lundi
+Mike.F : A lundi !
+Lundi 19h-20h
+Individuel 40€ / heure
+
+# Slide 8
+Basket-ball
+Paiement
+Au moment du paiement vous aurez un code qu’il faudra transmettre au coach
+Annulation gratuite à 48h
+Annulation 50% à 24h
+Annulation sous 24h pas de remboursement
+Utiliser la carte bleu enregistré ?

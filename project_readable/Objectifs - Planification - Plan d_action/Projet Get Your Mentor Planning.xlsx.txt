@@ -1,0 +1,46 @@
+# sheet1
+Projet Get Your Mentor
+Diagramme de développement projet -> Objectif création entreprise | Période à mettre en évidence : | 1 | Durée du plan | Début réel | % accompli | Réel (au-delà du plan) | % accompli (au-delà du plan)
+ACTIVITÉS | DÉBUT DU PLAN | DURÉE DU PLAN | DÉBUT RÉEL | DURÉE RÉELLE | POURCENTAGE ACCOMPLI | PÉRIODES
+1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 | 41 | 42 | 43 | 44 | 45 | 46 | 47 | 48 | 49 | 50 | 51 | 52 | 53 | 54 | 55 | 56 | 57 | 58 | 59 | 60
+Phase Préparatoire (1-2 mois) | 2 | 8
+Démarche Marketing analyse de marché | 2 | 3
+Définition du concept | 2 | 2
+Description du modèle économique (abonnement, pub etc..) | 4 | 2
+Analyse du Business Case | 4 | 3
+Validation BC | 6 | 1
+Choix du nom et entité visuelle | 7 | 1
+Charte Graphique validée | 8 | 1
+Phase Juridique & Administrative (1 mois)
+Définition Modèle de société | 9 | 1
+Création de l'entreprise : Statut juridique, KBIS et immatriculation à la chambre de commerce | 10 | 1
+Recrument et partenariat Coach | 9 | 4
+Signature des partenariats et contrats | 11 | 3
+Phase Technique (4 - 8 mois)
+Création cahier des charges techniques | 12 | 4
+Lancement consultations | 15 | 6
+Signature contrat Dev & designer | 20 | 1
+UX/UI Design : Maquettes et prototypes | 21 | 4
+Lancement Création site internet | 25 | 1
+Lancement Application mobile | 26 | 1
+Back end API Base de données | 26 | 4
+Front-end (Ios, Android) | 27 | 4
+Test & Simulations Appli & Site | 30 | 2
+Test & Simulation Application Mobile | 31 | 2
+Bêta test coach & feedback | 33 | 4
+Sécurité et RGPD : données personnelles | 38 | 2
+Phase Marketing & Lancement (1 - 3 mois)
+Frais légaux et administratifs (mensualisation site & appli) | 40 | 1
+Ouverture Site internet Vitrine | 41 | 1
+Ouverture Application Mobile | 42 | 1
+Correction Site & Appli | 43 | 1
+Pré-lancement : inscription anticipée, teaser | 44 | 5
+Go Live | 51 | 1
+Recrutement des commerciaux | 52 | 4
+Developpement market & communication | 52 | 4
+Phase Post Lancement (continue) | 56 | 1
+Support & Maintenance | 57 | 2
+Collecte de Feedbacks | 59 | 2
+Evolution du produit (IA coaching ?) | 61 | 4
+Recherche d'actionnaires ? | 61 | 4
+Nouvelle campagnes (concours…) | 61 | 3

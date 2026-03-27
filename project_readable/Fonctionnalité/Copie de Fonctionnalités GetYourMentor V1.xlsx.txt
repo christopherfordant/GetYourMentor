@@ -1,0 +1,137 @@
+# sheet1
+Mise en relation entre coach, sportifs et etablissements recevant des sportifs V1
+- Plateforme en Français
+- 4 sports : Football, Basket ball, Sports de combat, Remise en forme (métier de la forme)
+- 4 interfaces (4 utilisateurs différents)
+=> Coachs
+=> Etablissements privé et asso sportive
+=> Sportifs
+=> Administrateurs
+- Geolocalisation
+=> Où trouver un coachs / un Club (dans un rayon de... pour eviter qu'ils s'y rendent)
+- Paiement en ligne
+=> 100% du rembousement au sportif (annulation 48h avant le rdv)
+=> 50% du rembousement au sportif (annulation entre 48h et 24h avant le rdv)
+> Générer un code à la réservation du client à donner au coach
+=> Retenue 5% de comissions aux coachs non premium
+=> 10% de commissions à régler en plus pour le sportif
+=> Formule via pack, tarif differencié pour une reservation d'un créneau individuel ou par groupe. Blocage des réservations automatique lorsque le créneau est complet
+- Création de profils
+=> Verification d'identité (Pièce d'identité (automatisée si possible) + verfication du numéro de téléphone)
+=> Stokage securisé des données ( profil, documents d'identités, diplomes, Photos, logos, RIB etc... )
+- Filtre de recherche
+=> uniquement coach feminin (seulement pour les femmes)
+=> uniquement entre femme (seulement pour les femmes)
+=> seulement cours individuel / 2 à 4 personnes / 4 et plus
+=> cours uniquement en intérieur
+=> Disponibilité :
+> aujourdhui
+> demain
+> choisir une date/heure
+=> Localisation :
+> 1km
+> 5km
+> 10km
+=> Trier par :
+> sans préférence
+> mieux noté
+> + au - cher
+> - au + cher
+- Planning
+=> Pour joueur ( sous forme de liste, cours précédent, cours à venir)
+=> Pour coachs
+=> Pour etablissements/associations
+- Discussion entre les coachs et les sportifs
+=> blocage mail et numéro de téléphone (démasqué apres la reservation d'une séance)
+- Reservation de séance
+> réservation pour 2 ou plusieurs personnes : informations personelles (nom, prénom, âge, mail) demandées pour autres réservants
+- Système de rappel de reservation de cours H -72 par mail et notification sur le site/app
+-  Système de facturation
+- Système qui va permettre de mettre en tete de liste les coachs/clubs actifs et ayant la meilleure note de manière décroissante en fonction de leur localisation
+V2 et + : Appels vidéos, magasin en ligne, Système d'abonnement
+
+# sheet2
+Les Administrateur
+- Reçoivent 10% du paiement des coachs si pas abonnés
+- Possibilité de faire un rembousement aux Sportifs  ou automatisé ?
+- Valident les profils ou automatisé
+- Certification des coachs diplomés
+
+# sheet3
+Les Sportifs
+V1
+- Nom / Prénom / Sexe / Date de naissance / Mail / Tel
+- Photo de profil
+- Mes cours (cours passés - cours à venir)
+- Mes coachs favoris
+- Messagerie
+- Notification
+- Mon expérience (à propos)
+- Paiement en ligne aux Coachs
+- Rechercher des Coachs (via filtre)
+- Peut noter et faire un commentaire aux Coachs
+- Prendre rdv via planning avec les Coachs
+- Peut parler avec les Coachs (Debloqué apres la reservation d'une séance)
+- Peut payer en ligne un cour ou un pack
+- Verification d'identité
+- Identification via Google / Facebook
+V2 et + | - Peut faire un cour en visio avec le coach (indiv ou collective)
+- Peut payer en ligne un programme sportif (via PDF ?)
+
+# sheet4
+Les Coachs
+V1
+- Nom / Prénom / Sexe / Date de naissance / Mail / Tel / Diplome(s) (Mail et Tel affichés uniquement au moment de la réservation)
+- Photo de profil
+- Lieu du cours (ville) / intérieur ou exterieur ou les 2 possibles (au choix)
+- A propos
+- Note
+- Avis
+- Messagerie
+- Notification
+- Mon RIB (IBAN du coach/club)
+- Mes virements (listing de tout les cours donnés avec leurs factures téléchargeable en pdf)
+- Coach(s) affilé(s) (Uniquement pour les "profils clubs", afin que les sportifs identifient les coachs intervenants - possible de cliquer sur leur profil coach)
+- Planning des séances disponibles (calendrier - JJ/MM/AA - listing des heures dispos)
+- Séance à venir avec le nombre de place disponible
+- Contacter le coach/club ("envoyer un message" - messagerie uniquement disponible pour les joueurs ayant deja reservé ou qui vont avoir une séance avec le coach/club)
+- Système d'abonnement (gratuit à l'inscription mais avec frais de comission et payant sans frais de comission
+- Reçoivent 90% du paiement des Sportifs si pas abonnés
+- Proposent des creneaux sur planning | => mettre des commentaire exemple : pour 12-15 ans | => choisir le nombre de partcipant | => choisir le lieu
+- Identification via Google / Facebook
+- Vendre des packs
+- Verification d'identité
+- Création de séance d'entrainement : séance solo / entre 2 et 6 sportifs / 6 et +
+- Tarification des séances
+V2 et + | - Tableau de bord avancé (Nbre de visite du profil aujourd'hui / nombre de visite sur le profil ce mois ci / Nombre de joueur entrainé ce mois ci / Nombre de séance données ce mois ci / Nombre de programme vendu / programme le plus vendu - programme le moins vendu / Revenu généré ce mois ci)
+- Statistiques | => nombre de clic | => profils de sportif | => Facturation
+- Relance sportif par sms
+- Ont la possibilité de faire des lives
+- Ont la possibilité d'avoir une base de donnés vidéo (à télécharger contre paiement)
+- Ont la possibilités de vendre des programme (PDF ?)
+- Fils d'actualité (publication, commentaire)
+- communauté visible (ajouts de joueurs)
+- Séance évènement (challenge, Récupération, Challenge X jours, live spécial, séance découverte etc...
+
+# sheet5
+Les Etablissements
+- Peuvent proposer des creneaux sur planning | => Y joindre les coachs intervenants
+- Peuvent recevoir un paiement des Sportifs | => 5% du paiement reviendra au profil administrateur
+- Abonnement 19€/mois pour les clubs
+- Contre partie ? Camp ? Détéction ?
+- Le club peut donner acces ou non à la modification des pannings aux coachs
+- Statistiques | => nombre de clic | => profils des sportifs | => facturation | => quand les créneaux sont ils pris ?
+- Verification d'identité
+Ajout d'entraineur (diplomé ayant un compte) via nom du compte ou adresse mail qui sera ensuite affilé au club dont ils pourront lui fixer des heures et qui apparaitront sur son planning
+Génération de compte restreint pour leurs coach non diplomé :
+Nom - Prénom - Date de naissance - mail
+=> accès à un planning avec ses heures de coaching
+
+# sheet6
+Créateur de séance
+(V2 et + ) Type d'évènement : Entrainement - workout etc...
+Date / heure
+Lieu
+Nbre de joueur(s) : Au choix  -  (soit 2 à 6   ou     6 et +   combiné avec séance solo       OU         2 à 6 ou 6 et +          OU          solo )L
+Prix : /pers en grpe et prix solo
+Pour les clubs et établissements/collectifs : Sélectionner l'intervenant (listing)

@@ -1,0 +1,72 @@
+Les parcours utilisateurs (user flow)
+Sommaire
+Fixer les objectifs des utilisateurs.
+Déterminer le moyen d'accès au site web ou à l'application.
+Identifier les contenus pertinents pour les utilisateurs.
+Répertorier les actions.
+Détailler les interactions.
+Définir l'interface utilisateur.
+Cartographier le user flow.
+Collecter des commentaires de l'équipe de développement.
+Analyser et améliorer le user flow.
+Fixer les objectifs des utilisateurs
+Les sportifs :
+Trouver les coachs adaptés à leur niveau de pratique,
+Trouver un coach adapté à leur budget et simplement.
+Payer de manières sécurisé
+Les coachs :
+Avoir de la visibilité
+Augmenter leur CA
+Outil de réservation/gestion de planning simple
+Sécurisation de leur paiement
+Les clubs / salle de sport / studio de danse :
+Augmenter leur CA
+Financer un salarié
+Faire rayonner leur club
+Pourquoi augmenter le salaire de leur coach
+Déterminer le moyen d'accès au site web ou à l'application
+Accès via une application mobile (iOS et Android) :
+Application mobile dédiée : Il est courant pour une plateforme de mise en relation de disposer d'une application mobile. Vous devez créer une application compatible avec iOS et Android.
+Fonctionnalités : L'application permettra aux coachs et sportifs de :
+Créer un profil (coach ou sportif).
+Rechercher et filtrer des coachs ou sportifs selon des critères spécifiques (spécialités, disponibilité, localisation, etc.).
+Envoyer des messages, prendre des rendez-vous, partager des vidéos ou des sessions de coaching.
+Téléchargement : Les utilisateurs peuvent télécharger l’application depuis l'App Store (iOS) ou le Google Play Store (Android).
+Accès via un site web responsive :
+Site web optimisé pour tous les appareils : Pour ceux qui préfèrent utiliser un navigateur, le site web doit être responsive, c'est-à-dire qu'il doit s'adapter à la taille de l'écran (ordinateur, tablette ou téléphone).
+Fonctionnalités : Le site web permettra aux utilisateurs de :
+Créer un compte (en tant que coach ou sportif).
+Consulter des profils de coachs ou de sportifs, avec des informations détaillées sur les services proposés, les tarifs, et les avis.
+Planifier des séances de coaching et communiquer via une messagerie interne.
+URL : Les utilisateurs accèdent au site via un URL simple à mémoriser et adapté à la plateforme, par exemple : www.nomdelaplatforme.com.
+Accès via une application web progressive (PWA) :
+Web Progressif (PWA) : Si vous ne souhaitez pas obliger les utilisateurs à télécharger une application depuis un store, une PWA peut être une excellente solution. Elle fonctionne comme une application native mais sans nécessiter un téléchargement depuis un magasin d’applications.
+Installation facile : Les utilisateurs peuvent "installer" la PWA directement depuis leur navigateur et l’utiliser comme une application native.
+Avantages : Vous avez une accessibilité multiplateforme, et l'utilisateur peut facilement accéder à la plateforme via un navigateur tout en bénéficiant d’une expérience similaire à celle d’une application.
+Accès via un lien direct et un code QR :
+Lien direct : Vous pouvez créer des liens directs vers la plateforme qui permettront aux utilisateurs de se connecter facilement. Par exemple, un coach peut envoyer un lien direct à un sportif pour l’inviter à rejoindre sa page de profil.
+Code QR : Pour faciliter l’accès, vous pouvez aussi générer un code QR qui redirige directement vers l’application mobile ou le site web de la plateforme. Cela peut être particulièrement utile lors d’événements ou de promotions.
+Connexion et inscription :
+Inscription et création de profil : Lors de la première connexion, les utilisateurs (coachs ou sportifs) devront créer un profil avec des informations spécifiques :
+Pour les coachs : qualifications, spécialités, horaires, tarifs.
+Pour les sportifs : objectifs, préférences, niveau.
+Pour les établissements : planning, coach en place…
+Authentification : Pour des raisons de sécurité, un système de connexion via e-mail, numéro de téléphone, ou un réseau social (comme Facebook ou Google) peut être proposé. Il est aussi possible d’intégrer une authentification multi-facteurs pour plus de sécurité.
+Exigences supplémentaires :
+Fonctionnalités de géolocalisation : Si la plateforme permet de trouver un coach ou un sportif à proximité, il sera nécessaire d'utiliser des fonctionnalités de géolocalisation (activée via l'application mobile ou sur le site web).
+Notifications push : Pour une expérience optimale, l'application mobile peut envoyer des notifications push pour rappeler les séances de coaching, les messages, ou les promotions.
+Compatibilité du périphérique :
+Ordinateur de bureau/portable : Les utilisateurs peuvent accéder à la plateforme via un navigateur web (sur un ordinateur), ce qui garantit une expérience riche en fonctionnalités, avec des possibilités de visualisation de vidéos ou de contenu détaillé.
+Smartphones et tablettes : La plateforme doit être optimisée pour ces appareils afin que les utilisateurs puissent facilement accéder à toutes les fonctionnalités même en déplacement.
+Exemple d’accès :
+Plateforme web : Un sportif ou coach peut visiter www.coachmatch.com sur son navigateur pour créer un compte et accéder aux fonctionnalités.
+Application mobile : Un utilisateur peut télécharger l’application CoachMatch depuis l'App Store ou Google Play, s’inscrire et commencer à chercher des coachs ou des sportifs.
+PWA : Un utilisateur peut aussi ouvrir le site via un navigateur et ajouter la plateforme à son écran d'accueil pour une utilisation comme une application.
+En résumé, vous pouvez offrir plusieurs moyens d'accès à votre plateforme : via une application mobile dédiée, un site web responsive, ou une PWA, tout en veillant à ce que les fonctionnalités répondent aux besoins des utilisateurs, qu’ils soient coachs ou sportifs.
+Identifier les contenus pertinents pour les utilisateurs.
+Répertorier les actions.
+Détailler les interactions.
+Définir l'interface utilisateur.
+Cartographier le user flow.
+Collecter des commentaires de l'équipe de développement.
+Analyser et améliorer le user flow.

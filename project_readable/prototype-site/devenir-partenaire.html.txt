@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Devenir partenaire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="partner-page">
+      <section class="partner-hero" aria-labelledby="partner-title">
+        <a class="partner-brand" href="./accueil.html">
+          <span class="partner-brand-name">GETYOURMENTOR</span>
+          <span class="partner-brand-tag">PRO</span>
+        </a>
+
+        <div class="partner-copy">
+          <h1 id="partner-title">Devenir partenaire GetYourMentor Pro</h1>
+          <p class="partner-lead">
+            Soyez visible auprès de <strong>sportifs engagés</strong>.
+          </p>
+        </div>
+
+        <ul class="partner-benefits" aria-label="Avantages">
+          <li>Sans engagement</li>
+          <li>Sans commission</li>
+        </ul>
+
+        <div class="partner-media-strip" aria-hidden="true">
+          <div class="partner-media partner-media-1"></div>
+          <div class="partner-media partner-media-2"></div>
+          <div class="partner-media partner-media-3"></div>
+        </div>
+
+        <div class="partner-options" aria-label="Choix de profil">
+          <a class="partner-option is-featured" href="./compte.html">
+            <span class="partner-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M7.5 5.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm9 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM12 13a2.75 2.75 0 1 1 0 5.5A2.75 2.75 0 0 1 12 13Zm-5 7c0-2.3 2.05-4 5-4s5 1.7 5 4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </span>
+            <span class="partner-option-copy">
+              <strong>Je suis un professionnel du sport</strong>
+              <span>Coach, club, salle, studio, préparateur physique...</span>
+            </span>
+            <span class="partner-option-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a class="partner-option" href="./accueil.html">
+            <span class="partner-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M6.75 7.75h10.5M6.75 12h10.5M6.75 16.25h7.5M7 4.75h10c1.1 0 2 .9 2 2v10.5c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V6.75c0-1.1.9-2 2-2Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </span>
+            <span class="partner-option-copy">
+              <strong>Je ne suis pas un professionnel</strong>
+              <span>Je souhaite réserver une séance sportive</span>
+            </span>
+            <span class="partner-option-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">GETYOURMENTOR</div>
+      <p>Trouvez votre coach sportif en quelques clics</p>
+      <nav class="footer-links" aria-label="Liens légaux">
+        <a href="./accueil.html#faq-title">CGV</a>
+        <a href="./accueil.html#faq-title">CGU</a>
+        <a href="./accueil.html#faq-title">Politique de confidentialité</a>
+        <a href="./accueil.html#faq-title">Mentions légales</a>
+      </nav>
+      <small>© 2026 GetYourMentor. Tous droits réservés.</small>
+    </footer>
+  </body>
+</html>

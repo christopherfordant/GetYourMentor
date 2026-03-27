@@ -1,0 +1,45 @@
+# Slide 1
+Vous êtes :
+COACH
+SPORTIF
+CLUB SPORTIF / SALLE
+Créer son profil
+Se connecter
+Langues :
+
+# Slide 2
+Sportif
+Créer son profil
+Formulaire : identité
+NOM /
+Prénom
+NOM de profil (?)
+Adresse Postal
+Date de naissance
+Sexe
+Sport pratiquer
+Licencié Oui/Non, si Oui : nom du club
+Considérez vous être
+débutant
+expérience régulière
+haut niveau
+professionnel
+Présentation
+Adresse Mail / numéro de téléphone
+Carte d’identité
+Photo d’identité (utilisé comme photo de profil)
+Souhaitez vous enregistrer votre CB
+
+# Slide 3
+Sportif
+Bienvenue ……..
+Vous pouvez dès à présent
+réserver
+une séance de coaching !
+
+# Slide 4
+identité : Nom, prénom, adresse, sexe, date de naissance
+contact : adresse mail, numéro de téléphone
+licencié : Oui ou Non
+si Non /
+si Oui : Nom du club, nbre d’année de pratique, division actuelle (sport co) indiv ?

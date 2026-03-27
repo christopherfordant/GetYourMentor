@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GetYourMentor - Réserver une séance</title>
+    <title>GetYourMentor - Reserver une seance</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,105 +40,191 @@
         </div>
       </header>
 
-      <main class="booking-page" data-booking-page>
-        <section class="booking-hero">
-          <div class="booking-intro">
+      <main class="booking-page booking-profile-page" data-booking-page>
+        <section class="booking-profile-hero">
+          <div class="booking-profile-top">
             <div class="booking-title-wrap">
-              <h1 data-booking-name>Studio Form Marseille</h1>
-              <div class="booking-address" data-booking-address>10 Rue du Sport, 13002 Marseille</div>
-              <div class="booking-meta" data-booking-meta>4.9 (284 avis) • Premium</div>
+              <h1 data-booking-name>Jackson Bryce</h1>
             </div>
 
-            <div class="booking-hero-actions">
-              <button class="booking-ghost-action" type="button" data-booking-nav="programmes">Programmes</button>
-              <button class="booking-ghost-action" type="button" data-booking-nav="abonnements">Abonnements</button>
-              <a class="booking-primary-action" href="#booking-services">Réserver</a>
+            <div class="booking-profile-meta">
+              <div class="booking-followers-pill" data-booking-followers>22 joueurs suivis</div>
+              <div class="booking-address" data-booking-address>9e arrondissement, Marseille</div>
+              <div class="booking-meta" data-booking-meta>Coach premium - Specialite football</div>
             </div>
           </div>
 
-          <div class="booking-gallery">
-            <div class="booking-gallery-main"></div>
-            <div class="booking-gallery-side">
-              <div class="booking-gallery-thumb thumb-1"></div>
-              <div class="booking-gallery-thumb thumb-2"></div>
-              <div class="booking-gallery-thumb thumb-3"></div>
-              <div class="booking-gallery-thumb thumb-4"></div>
+          <div class="booking-profile-showcase">
+            <div class="booking-gallery booking-gallery-profile">
+              <button class="booking-gallery-arrow booking-gallery-arrow-left" type="button" aria-label="Image precedente">
+                &lsaquo;
+              </button>
+              <div class="booking-gallery-main"></div>
+              <button class="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
+                &rsaquo;
+              </button>
             </div>
+
+            <aside class="booking-score-panel">
+              <p class="booking-score-label">Note :</p>
+              <div class="booking-score-display" data-booking-score-large>5 / 5</div>
+            </aside>
           </div>
 
-          <nav class="booking-tabs" aria-label="Sections de la page">
-            <a class="booking-tab is-active" href="#booking-services" data-booking-tab="reserver">Réserver</a>
-            <a class="booking-tab" href="#booking-services" data-booking-tab="programmes">Programmes</a>
-            <a class="booking-tab" href="#booking-services" data-booking-tab="abonnements">Abonnements</a>
+          <div class="booking-profile-lead">
+            <div>
+              <strong data-booking-heading>Prenez votre rendez-vous avec Jackson Bryce</strong>
+              <p>Sans frais de reservation - 24h/24 - paiement en ligne - confirmation immediate</p>
+            </div>
+            <button class="booking-primary-action" type="button" data-booking-nav="planning">Planning</button>
+          </div>
+
+          <nav class="booking-tabs booking-tabs-profile" aria-label="Sections du profil">
+            <button class="booking-tab is-active" type="button" data-booking-tab="apropos">A propos</button>
+            <button class="booking-tab" type="button" data-booking-tab="planning">Planning</button>
+            <button class="booking-tab" type="button" data-booking-tab="contenus">Contenus</button>
           </nav>
         </section>
 
-        <section class="booking-content" id="booking-services">
-          <div class="booking-main-column">
-            <header class="booking-section-head">
-              <h2 data-booking-heading>Réserver en ligne une séance chez Studio Form Marseille</h2>
-              <p>24h/24 - Sans appel - Confirmation rapide</p>
-            </header>
+        <section class="booking-pane is-active" data-booking-pane="apropos">
+          <div class="booking-pane-grid">
+            <div class="booking-pane-main">
+              <article class="booking-story-card">
+                <h2>A propos de <span data-booking-short-name>Bryce</span></h2>
+                <p data-booking-bio>
+                  Bonjour, je m'appelle Bryce et je partage une experience de terrain construite avec exigence,
+                  pedagogie et gout du detail.
+                </p>
+              </article>
 
-            <div class="booking-service-block">
-              <h3>Choix de la séance</h3>
+              <article class="booking-story-card">
+                <h3>La seance</h3>
+                <div class="booking-story-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </article>
             </div>
 
-            <section class="booking-card-stack">
-              <h4>Informations</h4>
-              <div class="booking-info-list" data-booking-info-list></div>
-            </section>
-
-            <section class="booking-card-stack">
-              <h4 data-booking-category>Forme - Coaching premium</h4>
-              <div class="booking-service-list" data-booking-service-list></div>
-            </section>
-          </div>
-
-          <aside class="booking-side-column">
-            <section class="booking-rating-card">
-              <div class="booking-rating-tabs">
-                <button class="is-active" type="button" data-rating-tab="global">Note globale</button>
-                <button type="button" data-rating-tab="reviews">Avis</button>
-              </div>
-              <div class="booking-rating-body" data-rating-body>
-                <div class="booking-rating-score">4,9</div>
-                <div class="booking-rating-lines">
-                  <div>Accueil <strong>4,9 ★</strong></div>
-                  <div>Ponctualité <strong>4,9 ★</strong></div>
-                  <div>Cadre &amp; ambiance <strong>4,8 ★</strong></div>
-                  <div>Qualité de l'accompagnement <strong>4,9 ★</strong></div>
-                  <p>284 clients ont donné leur avis</p>
+            <aside class="booking-pane-side">
+              <section class="booking-rating-card booking-rating-card-profile">
+                <div class="booking-rating-tabs">
+                  <button class="is-active" type="button" data-rating-tab="global">Note</button>
+                  <button type="button" data-rating-tab="reviews">Avis</button>
                 </div>
-              </div>
-            </section>
+                <div class="booking-rating-body" data-rating-body>
+                  <div class="booking-rating-score">5</div>
+                  <div class="booking-rating-lines">
+                    <div>Accompagnement <strong>5 / 5</strong></div>
+                    <div>Pedagogie <strong>5 / 5</strong></div>
+                    <div>Qualite terrain <strong>5 / 5</strong></div>
+                    <p>Des retours tres positifs sur la clarte et l'intensite des seances.</p>
+                  </div>
+                </div>
+              </section>
 
-            <section class="booking-hours-card">
-              <h4>Horaires d'ouverture</h4>
-              <div class="booking-hours-list">
-                <div><span>Lundi</span><strong>10:00 - 19:00</strong></div>
-                <div><span>Mardi</span><strong>10:00 - 19:00</strong></div>
-                <div><span>Mercredi</span><strong>10:00 - 19:00</strong></div>
-                <div><span>Jeudi</span><strong>10:00 - 20:00</strong></div>
-                <div><span>Vendredi</span><strong>10:00 - 19:00</strong></div>
-                <div><span>Samedi</span><strong>09:30 - 18:30</strong></div>
-                <div><span>Dimanche</span><strong>09:00 - 19:00</strong></div>
+              <section class="booking-profile-summary">
+                <span class="booking-summary-tag" data-booking-specialty>Specialite football</span>
+                <strong data-booking-followers-secondary>22 joueurs suivis</strong>
+                <div class="booking-profile-avatar-card"></div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="booking-pane" data-booking-pane="planning" id="booking-services">
+          <div class="booking-content">
+            <div class="booking-main-column">
+              <header class="booking-section-head">
+                <h2>Planning de reservation</h2>
+                <p>Choisissez la seance qui correspond le mieux a votre objectif et a votre disponibilite.</p>
+              </header>
+
+              <div class="booking-service-block">
+                <h3>Choix de la seance</h3>
               </div>
-            </section>
-          </aside>
+
+              <section class="booking-card-stack">
+                <h4>Informations</h4>
+                <div class="booking-info-list" data-booking-info-list></div>
+              </section>
+
+              <section class="booking-card-stack">
+                <h4 data-booking-category>Football - Coaching individuel</h4>
+                <div class="booking-service-list" data-booking-service-list></div>
+              </section>
+            </div>
+
+            <aside class="booking-side-column">
+              <section class="booking-hours-card">
+                <h4>Horaires d'ouverture</h4>
+                <div class="booking-hours-list">
+                  <div><span>Lundi</span><strong>10:00 - 19:00</strong></div>
+                  <div><span>Mardi</span><strong>10:00 - 19:00</strong></div>
+                  <div><span>Mercredi</span><strong>10:00 - 19:00</strong></div>
+                  <div><span>Jeudi</span><strong>10:00 - 20:00</strong></div>
+                  <div><span>Vendredi</span><strong>10:00 - 19:00</strong></div>
+                  <div><span>Samedi</span><strong>09:30 - 18:30</strong></div>
+                  <div><span>Dimanche</span><strong>09:00 - 19:00</strong></div>
+                </div>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <section class="booking-pane" data-booking-pane="contenus">
+          <section class="booking-content-social" data-content-lock-root>
+            <div class="booking-content-profile">
+              <div class="booking-content-cover"></div>
+              <div class="booking-content-avatar"></div>
+              <div class="booking-content-profile-copy">
+                <strong data-content-coach-name>Jackson Bryce</strong>
+                <span data-content-specialty>Specialite football</span>
+              </div>
+              <button class="booking-content-subscribe" type="button" data-content-unlock>
+                S'abonner pour 9,99 EUR / mois
+              </button>
+            </div>
+
+            <div class="booking-content-lock-note" data-content-lock-note>
+              Contenus verrouilles au debut. Une fois abonne, on peut tout voir.
+            </div>
+
+            <div class="booking-content-feed is-locked" data-content-feed>
+              <article class="booking-content-tile booking-content-tile-1">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+              <article class="booking-content-tile booking-content-tile-2">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+              <article class="booking-content-tile booking-content-tile-3">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+              <article class="booking-content-tile booking-content-tile-4">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+              <article class="booking-content-tile booking-content-tile-5">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+              <article class="booking-content-tile booking-content-tile-6">
+                <span class="booking-content-lock">Verrouille</span>
+              </article>
+            </div>
+          </div>
         </section>
       </main>
 
       <footer class="site-footer">
         <div class="footer-brand">GETYOURMENTOR</div>
         <p>Trouvez votre coach sportif en quelques clics</p>
-        <nav class="footer-links" aria-label="Liens légaux">
+        <nav class="footer-links" aria-label="Liens legaux">
           <a href="./accueil.html#faq-title">CGV</a>
           <a href="./accueil.html#faq-title">CGU</a>
-          <a href="./accueil.html#faq-title">Politique de confidentialité</a>
-          <a href="./accueil.html#faq-title">Mentions légales</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialite</a>
+          <a href="./accueil.html#faq-title">Mentions legales</a>
         </nav>
-        <small>&copy; 2026 GetYourMentor. Tous droits réservés.</small>
+        <small>&copy; 2026 GetYourMentor. Tous droits reserves.</small>
       </footer>
     </div>
 

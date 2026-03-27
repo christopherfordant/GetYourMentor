@@ -1,0 +1,186 @@
+# GetYourMentor - Workflow n8n 1
+
+## Trello vers Supabase pas a pas
+
+## 1. Objectif
+
+Ce workflow est le premier a construire, car il cree la base de suivi automatique du projet.
+
+Il doit permettre de :
+- recuperer chaque carte Trello creee ou modifiee
+- la transformer en format stable
+- la stocker dans `gym_memory.tasks_sync`
+
+Ainsi, votre projet existe a la fois :
+- dans Trello pour l'action
+- dans Supabase pour la memoire et les syntheses
+
+## 2. Prerequis
+
+Avant de construire ce workflow, il faut :
+
+1. avoir cree le board Trello
+2. avoir cree le projet Supabase
+3. avoir execute [SUPABASE_SCHEMA_GYM.sql](c:\Users\cashe\Documents\GetYourMentor\SUPABASE_SCHEMA_GYM.sql)
+4. avoir les credentials :
+   - Trello API key / token
+   - Supabase URL
+   - Supabase service role key
+
+## 3. Table cible
+
+La table cible est :
+- `gym_memory.tasks_sync`
+
+Champs utilises par ce workflow :
+- `trello_card_id`
+- `trello_board_id`
+- `trello_list_id`
+- `trello_list_name`
+- `title`
+- `description`
+- `status`
+- `labels`
+- `members`
+- `due_date`
+- `url`
+- `synced_at`
+
+## 4. Structure du workflow
+
+Le workflow contient 4 noeuds :
+
+1. `Trello Trigger`
+2. `Set`
+3. `Supabase`
+4. `Optional Log / Notification`
+
+## 5. Noeud 1 - Trello Trigger
+
+Type :
+- `Trello Trigger`
+
+Events a activer :
+- card created
+- card updated
+- card moved
+
+Board :
+- votre board `GetYourMentor - Pilotage`
+
+But :
+- chaque changement utile d'une carte declenche une synchro
+
+## 6. Noeud 2 - Set
+
+But :
+- normaliser le payload Trello
+- ne garder que les champs utiles
+
+Champs a preparer :
+
+- `trello_card_id`
+- `trello_board_id`
+- `trello_list_id`
+- `trello_list_name`
+- `title`
+- `description`
+- `status`
+- `labels`
+- `members`
+- `due_date`
+- `url`
+- `synced_at`
+
+Logique conseillee :
+
+- `status` = nom de la liste Trello
+- `title` = nom de la carte
+- `description` = description de la carte
+- `labels` = tableau des noms de labels
+- `members` = tableau des noms ou usernames
+- `synced_at` = date/heure courante
+
+Si Trello ne donne pas directement le nom de la liste dans le trigger, ajoutez un noeud `Trello` intermediaire pour relire la carte ou la liste.
+
+## 7. Noeud 3 - Supabase
+
+Type :
+- `Supabase`
+
+Operation :
+- `Upsert`
+
+Schema :
+- `gym_memory`
+
+Table :
+- `tasks_sync`
+
+Clé de conflit :
+- `trello_card_id`
+
+Mappings :
+- `trello_card_id` -> id de la carte Trello
+- `trello_board_id` -> id du board
+- `trello_list_id` -> id de la liste
+- `trello_list_name` -> nom de la liste
+- `title` -> nom carte
+- `description` -> description carte
+- `status` -> nom liste
+- `labels` -> labels
+- `members` -> membres
+- `due_date` -> date limite
+- `url` -> url carte
+- `synced_at` -> timestamp courant
+
+Resultat attendu :
+- la carte est creee ou mise a jour automatiquement dans Supabase
+
+## 8. Noeud 4 - Optionnel
+
+Vous pouvez ajouter :
+- un log interne
+- un message Telegram
+- un email si la synchro echoue
+
+Au debut, ce n'est pas obligatoire.
+
+## 9. Test minimal
+
+Pour verifier que le workflow marche :
+
+1. creer une carte test dans `Backlog`
+2. ajouter un label
+3. assigner un membre
+4. deplacer la carte dans `A faire cette semaine`
+5. verifier qu'une ligne est creee ou mise a jour dans `gym_memory.tasks_sync`
+
+## 10. Cas a gerer ensuite
+
+Version 1 :
+- creation
+- mise a jour
+- deplacement
+
+Version 2 :
+- suppression archivee
+- commentaires
+- checklist
+- pieces jointes
+
+## 11. Pourquoi ce workflow passe avant les autres
+
+Parce qu'il cree la colonne vertebrale du projet :
+- toutes les cartes deviennent interrogeables
+- le brief hebdo peut s'appuyer dessus
+- les statuts projet sont exploitables par l'IA
+- la memoire du projet ne depend plus seulement de Trello
+
+## 12. Suite logique
+
+Une fois ce workflow stable, le prochain est :
+- `Brief hebdomadaire`
+
+Puis :
+- `Journal des decisions`

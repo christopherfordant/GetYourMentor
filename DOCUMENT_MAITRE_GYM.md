@@ -94,6 +94,43 @@ L'objectif n'est pas de maquetter tout le produit au debut, mais de produire un 
 - recueillir des retours
 - eviter de developper trop tot dans la mauvaise direction
 
+## 1.3 Regle stricte de decoupage des missions
+
+Pour tout travail de design, de maquettage ou de construction MVP, il faut privilegier des missions tres courtes, nettes et controlables.
+
+Regle de travail stricte :
+
+- des que j'oublie un element
+- des que je pense pouvoir oublier un element
+- des que plusieurs decisions, ecrans, blocs ou objectifs se melangent
+- des que la demande devient un peu trop large pour etre traitee parfaitement en une seule passe
+
+alors il faut **decouper immediatement la mission**.
+
+Il ne faut pas attendre :
+
+- d'avoir oublie `5%` ou `10%` du besoin
+- que la demande devienne floue
+- que la reponse devienne trop longue
+- qu'une partie du perimetre soit deja traitee de travers
+
+Application concrete :
+
+- arreter la mission globale
+- la decouper en sous-missions simples
+- proposer ou demander un traitement mission par mission
+- traiter une seule sous-mission claire a la fois
+- valider l'etape avant de passer a la suivante
+
+Priorite absolue :
+
+- ne rien oublier
+- ne pas melanger trop de choses en une seule fois
+- proteger la clarte
+- proteger la coherence du MVP
+- proteger la qualite du design
+- eviter toute derive hors perimetre
+
 ## 2. Probleme a resoudre
 
 ### Pour les coachs

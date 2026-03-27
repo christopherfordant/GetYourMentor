@@ -1,0 +1,53 @@
+Accompagnement sur la création de marque
+J’ai contacté une petite équipe pour la partie marque afin d’avoir le meilleur rendu possible. Chaque mission peut être adaptée, et on peut rediscuter de chaque point si besoin. Ce sont des versions complètes des missions proposées.
+L’ÉQUIPE POUR LA PARTIE MARQUE.
+Thomas Jimeno
+Un gars avec qui je travaille sur beaucoup de sujets. À l’inverse de moi, qui ai un profil créatif qui s’est de plus en plus tourné vers la stratégie, lui est à l’origine un profil stratégique qui s’est tourné vers la création. Il intervient sur les parties stratégie et copywriting.
+Clients sur lesquels on travaille ensemble : Mars, Le Site de Douche, agences de voyage au Panama, etc. Il travaille aussi sur des stratégies publicitaires pour Adidas.
+Manon Malvesin
+Cheffe de projet. Son rôle est de coordonner le projet pour assurer une bonne gestion des plannings, des retours clients et des échanges entre les clients et les intervenants. Elle doit comprendre les enjeux de chacun et assurer le suivi à toutes les étapes. Elle est présente à tous les rendez-vous et veille à ce que tout soit respecté.
+Moi
+En binôme avec Thomas sur la stratégie et le copywriting, et en charge de la gestion du branding (logo, éléments graphiques, image, etc.).
+MARQUE TARIFS (calculé sur un tjm de 350 au lieux de 480):
+Stratégie de marque - 2800
+Charte graphique (logo 3 propositions + éléments graphiques + système graphique + déclinaisons supports : cartes de visite, documents officiels, etc.)- 3500
+Copywriting & ton de marque (personnalité de la marque, ligne éditoriale, naming, signature, storytelling, clefs de langage, syntaxe, etc.) - 3500
+PDF de présentation B2B (écriture + direction artistique) - 1400
+Stratégie réseaux sociaux (découlant de la stratégie: idée et post aux quotidien) 1750
+Mise en place des réseaux sociaux (réalisation de templates, montage utilisable par tous) 1750
+Gestion de projet 1750 (en fonction du nombre de missions)
+PARTIE APPLICATION (à re-deviser en fonction des besoins).
+De 80 à 100 k pour le développement.
+Wireframe (AB testing inclus, à définir en fonction du nombre de pages) 1750 à 3500
+UI design des assets 1050 + 350 €/page
+Reprise d’un design UX simple (iOS & Android friendly, inspiré du fonctionnement d’Uber) À définir
+Accompagnement Manon En fonction des missions.
+Planning prévisionnel
+Création de marque : Avril à fin juin
+Développement : Début juin à fin décembre 2025
+Préparation avant lancement : 3 mois de marge pour gérer d’éventuels retards
+Objectif : Avoir terminé toute la partie maquette de l’app avant l’été pour permettre le démarchage B2B dès la rentrée. On pourrait aussi en profiter pour faire une campagne directement dans les clubs 1 mois avant l’ouverture de l’application.
+Points de vigilance
+Choix technologique (App vs Web App)
+Tout est pensé pour être une application native et non un site.
+Le choix de la technologie aura un impact direct sur les coûts et l’expérience utilisateur.
+Un site oblige à ouvrir un navigateur sur téléphone ou un ordinateur, ce qui peut être un frein énorme pour les utilisateurs.
+Une web app est une solution intermédiaire, hébergée comme un site, mais elle ne serait pas téléchargeable sur l’App Store.
+Coûts récurrents non pris en compte dans l’estimation
+Coût d’une campagne marketing (inclut-elle la création du contenu ?)
+Maintenance mensuelle de l’application pour assurer son bon fonctionnement
+Gestion de la modération
+Impact de ces coûts sur le prix des abonnements (comment ont-ils été calculés ?)
+Accès admin et gestion des profils
+Il est essentiel d’avoir un accès et un contrôle total en cas de profils problématiques.
+Exemple : un coach qui ne prend que des profils féminins avec un comportement déplacé, ou inversement, un utilisateur qui cible uniquement des coachs femmes.
+Il faudrait aussi que les coachs puissent noter leur expérience avec les utilisateurs, mais sans que cela soit visible du grand public.
+Fonctionnalités coûteuses mais pas forcément essentielles
+Pack vidéos : Le marché existe, mais cela alourdit l’application et mettrait en concurrence des plateformes comme YouTube (Tibo InShape, etc.) qui sont gratuite: peu de valeurs ajoutées selon moi sur ce que vous voulez proposer.Beaucoup de coachs peuvent proposer un suivi personnalisé après la séance (feuilles d’exercice etc) , ce qui est plus pertinent que des vidéos préenregistrées.
+Viso: l’idée est bonne mais la gestion du live est compliquée sur une app, à voir s' il existe une api pour avoir un « »faux numéro » par coach, ou adresse mail personnalisée.
+Commentaires : Plutôt que des avis libres, on pourrait avoir des commentaires préécrits à sélectionner (comme Uber, Deliveroo, Blablacar). Cela simplifierait l’expérience utilisateur et augmenterait le taux d’engagement.
+Même si l’intégration des clubs est un vrai différenciateur, certains concurrents proposent déjà du coaching mais personnes à pris le rôle de leader sur ce segment et je pense que cela passera bcp par l'expérience utilisateur et donc surement une vrai application .
+Naming de l’application
+- GYM – Get Your Mentor «  »-Gym" est trop courant pour être identifier et "Get Your Mentor" trop long, même si cela peut être une tagline.
+- On pourrait s’inspirer d’exemples comme Uber, Nike, Apple, qui utilisent des noms courts et impactants sans être directement rattacher directement à leur secteur.
+Pourquoi ne pas repartir sur un prénom, comme JIM ? (à réfléchir)

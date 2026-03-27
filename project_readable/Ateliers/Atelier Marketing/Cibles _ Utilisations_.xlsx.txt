@@ -1,0 +1,144 @@
+# sheet1
+Football | Basketball | Sports de combats | Handball | Voleyball | Natation | Metier de la forme | Atlétisme
+Les cibles | Consommation | Utilisation | Boxe anglaise | Taekowdown | Judo | Aikido | MMA | Boxe thai | Kick boxing | Jujitsu brésilien | Jujitsu | Lutte | Yoga | Fitness | Musculation | Pilate | Course de fond | Sprint | Saut en longueur | Saut en hauteur | Lancé de javelot | Lancé de poids
+Sportifs | 35 ans et + | Commissions | UBER
+20 35 ans | Commissions | UBER
+16 20 ans | Commissions + Packs | UBER
+13 16 ans | Commissions + Packs | UBER
+Body summer | Commissions + Packs | UBER
+Pré saison | UBER
+Vacanciers | UBER
+Sports de combats | Boxe anglaise | Commissions + Packs | UBER
+Taekowdown | Commissions + Packs | UBER
+Judo | Commissions + Packs | UBER
+Jujitsu brésilien | Commissions + Packs | UBER
+Jujitsu | Commissions + Packs | UBER
+Lutte | Commissions + Packs | UBER
+UBER
+UBER
+UBER
+UBER
+Aikido | Commissions + Packs | UBER
+MMA | Commissions + Packs | UBER
+Boxe thai | Commissions + Packs | UBER
+Kick boxing | Commissions + Packs | UBER
+Sports collectifs | Football | Commissions + Packs | UBER
+Basketball | Commissions + Packs | UBER
+Handball | Commissions + Packs | UBER
+Voleyball | Commissions + Packs | UBER
+Rugby | Commissions + Packs | UBER
+Sports individuels | Natation | UBER
+Atlétisme | Course de fond | Commissions + Packs | UBER
+Sprint | Commissions + Packs | UBER
+Saut en longueur | Commissions + Packs | UBER
+Saut en hauteur | Commissions + Packs | UBER
+Lancé de javelot | Commissions + Packs | UBER
+Lancé de poids | Commissions + Packs | UBER
+Metier de la forme | Yoga | Commissions + Packs | UBER
+Fitness | Commissions + Packs | UBER
+Musculation | Commissions + Packs | UBER
+Pilate | Commissions + Packs | UBER
+Coachs | Sports de combats | Boxe anglaise | Abonnement simple ou commission | Planity
+Taekowdown | Abonnement simple ou commission | Planity
+Judo | Abonnement simple ou commission | Planity
+Jujitsu brésilien | Abonnement simple ou commission | Planity
+Jujitsu | Abonnement simple ou commission | Planity
+Lutte | Abonnement simple ou commission | Planity
+Planity
+Planity
+Planity
+Planity
+Aikido | Abonnement simple ou commission | Planity
+MMA | Abonnement simple ou commission | Planity
+Boxe thai | Abonnement simple ou commission | Planity
+Kick boxing | Abonnement simple ou commission | Planity
+Sports collectifs | Football | Abonnement simple ou commission | Planity
+Basketball | Abonnement simple ou commission | Planity
+Handball | Abonnement simple ou commission | Planity
+Voleyball | Abonnement simple ou commission | Planity
+Rugby | Abonnement simple ou commission | Planity
+Sports individuels | Sports de raquette | Padel | Abonnement simple ou commission | Planity
+Squatch | Abonnement simple ou commission | Planity
+Tennis | Abonnement simple ou commission | Planity
+Badbinton | Abonnement simple ou commission | Planity
+Ping pong | Abonnement simple ou commission | Planity
+Sports d'hiver | Ski | Abonnement simple ou commission | Planity
+Raquette | Abonnement simple ou commission | Planity
+Snowboard | Abonnement simple ou commission | Planity
+Ski de fond | Abonnement simple ou commission | Planity
+Planity
+Natation | Planity
+Atlétisme | Course de fond | Abonnement simple ou commission | Planity
+Sprint | Abonnement simple ou commission | Planity
+Saut en longueur | Abonnement simple ou commission | Planity
+Saut en hauteur | Abonnement simple ou commission | Planity
+Lancé de javelot | Abonnement simple ou commission | Planity
+Lancé de poids | Abonnement simple ou commission | Planity
+Sport de la forme | Yoga | Abonnement premium ou commission | Planity
+Fitness | Abonnement premium ou commission | Planity
+Musculation | Abonnement premium ou commission | Planity
+Pilate | Abonnement premium ou commission | Planity
+Associations sportives | Sports de combats | Boxe anglaise | Abonnement simple ou commission | Planity
+Taekowdown | Abonnement simple ou commission | Planity
+Judo | Abonnement simple ou commission | Planity
+Jujitsu brésilien | Abonnement simple ou commission | Planity
+Jujitsu | Abonnement simple ou commission | Planity
+Lutte | Abonnement simple ou commission | Planity
+Abonnement simple ou commission | Planity
+Planity
+Planity
+Planity
+Aikido | Abonnement simple ou commission | Planity
+MMA | Abonnement simple ou commission | Planity
+Boxe thai | Abonnement simple ou commission | Planity
+Kick boxing | Abonnement simple ou commission | Planity
+Sports collectifs | Football | Abonnement simple ou commission | Planity
+Basketball | Abonnement simple ou commission | Planity
+Handball | Abonnement simple ou commission | Planity
+Voleyball | Abonnement simple ou commission | Planity
+Rugby | Abonnement simple ou commission | Planity
+Salles de sports | Salle de musculation | Franchise | ? | Planity
+? | Planity
+? | Planity
+Individuel | Abonnement premium ou commission | Planity
+Planity
+Salles de fitness / bien être | Abonnement premium ou commission | Planity
+Salles de Basket | Abonnement premium ou commission | Planity
+Salles de de foot | Abonnement premium ou commission | Planity
+Salle de Padel | Abonnement premium ou commission | Planity
+Salles de Squatchs | Abonnement premium ou commission | Planity
+Salles de Crossfit | Planity
+Studio de danse | Classique | Abonnement premium ou commission | Planity
+Salsa | Abonnement premium ou commission | Planity
+Batchata | Abonnement premium ou commission | Planity
+Urbain | Abonnement premium ou commission | Planity
+Préparation mentale | Abonnement premium
+E-Sport
+Féderations | Aikido
+MMA
+Boxe thai
+Kick boxing
+Football
+Basketball
+Handball
+Voleyball
+Rugby
+Natation
+Boxe anglaise
+Taekowdown
+Judo
+Jujitsu brésilien
+Jujitsu
+Lutte
+Atlétisme
+Pays | Espagne
+UK
+Portugal
+Italie
+Belgique
+
+# sheet2
+Abonnements | Sans abonnements
+Coachs | Salle de sport | Coachs | Salle de sport
+9€ / mois | 29€ / mois | 19€ / mois | 5% à terme | 5% à termes
+Sportifs | 5% à terme | 5% à terme | 5% à terme | 5% à terme | 5% à termes

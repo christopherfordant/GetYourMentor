@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GetYourMentor - Preview Maquette</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --surface: #13171c;
+      --surface-soft: #191f26;
+      --text: #f3efe8;
+      --text-soft: #a6afbc;
+      --accent: #ff8a3d;
+      --accent-dark: #d96a24;
+      --success: #28b56f;
+      --border: #2a313b;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --radius-xl: 28px;
+      --radius-lg: 24px;
+      --radius-md: 20px;
+      --radius-sm: 16px;
+      --container: 1200px;
+      --font-ui: "Manrope", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-ui);
+      background:
+        radial-gradient(circle at top left, rgba(255, 138, 61, 0.16), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(255, 138, 61, 0.08), transparent 24%),
+        linear-gradient(180deg, #0b0d10 0%, #11151a 100%);
+      color: var(--text);
+    }
+    h1, h2, h3, h4, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+      padding: 32px 0 80px;
+    }
+
+    .intro,
+    .frame,
+    .footer-note {
+      border: 1px solid rgba(42, 49, 59, 0.95);
+      background: rgba(19, 23, 28, 0.88);
+      box-shadow: var(--shadow);
+    }
+
+    .intro {
+      border-radius: 32px;
+      padding: 32px;
+      backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 138, 61, 0.14);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .intro h1 {
+      margin-top: 24px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 10ch;
+    }
+
+    .intro p {
+      margin-top: 20px;
+      max-width: 760px;
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .screen {
+      margin-top: 64px;
+    }
+
+    .screen-label {
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .screen-label h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.03em;
+    }
+
+    .screen-label span {
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .frame {
+      border-radius: 34px;
+      overflow: hidden;
+    }
+
+    .desktop {
+      padding: 28px;
+    }
+
+    .mobile {
+      width: 390px;
+      max-width: 100%;
+      padding: 18px;
+      margin: 0 auto;
+      border-radius: 32px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .desktop-header,
+    .mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .desktop-nav,
+    .desktop-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .desktop-nav {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .button,
+    .ghost-button,
+    .chip,
+    .metric {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 20px;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .button {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 14px 24px rgba(255, 138, 61, 0.24);
+    }
+
+    .ghost-button {
+      border-color: var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .hero {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-copy h3 {
+      font-size: clamp(36px, 4.8vw, 60px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+      margin-top: 20px;
+    }
+
+    .hero-copy p {
+      margin-top: 18px;
+      max-width: 560px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    .search-card,
+    .panel,
+    .coach-card,
+    .profile-card,
+    .request-card,
+    .mobile-card,
+    .stat-card,
+    .trust-item,
+    .how-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+    }
+
+    .search-card {
+      margin-top: 24px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-soft);
+    }
+
+    .field-box,
+    .line {
+      min-height: 52px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 0 16px;
+      background: var(--surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .hero-panel {
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 138, 61, 0.16), transparent 60%),
+        var(--surface);
+    }
+
+    .hero-panel .card-title {
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-panel h4 {
+      margin-top: 14px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-panel ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--text-soft);
+      line-height: 1.8;
+    }
+
+    .trust-row,
+    .section-grid,
+    .coach-grid,
+    .dashboard-grid,
+    .mobile-collection {
+      display: grid;
+      gap: 16px;
+    }
+
+    .trust-row,
+    .section-grid {
+      margin-top: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .trust-item,
+    .how-card,
+    .coach-card,
+    .profile-card,
+    .request-card,
+    .mobile-card,
+    .stat-card,
+    .panel {
+      padding: 20px;
+    }
+
+    .trust-item strong,
+    .how-card strong,
+    .coach-card strong,
+    .profile-card strong,
+    .request-card strong,
+    .mobile-card strong,
+    .stat-card strong,
+    .panel strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .trust-item span,
+    .how-card span,
+    .coach-card span,
+    .profile-card span,
+    .request-card span,
+    .mobile-card span,
+    .stat-card span,
+    .panel span {
+      display: block;
+      margin-top: 8px;
+      color: var(--text-soft);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .results-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+    }
+
+    .coach-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .coach-top {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .avatar,
+    .hero-photo {
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(255, 138, 61, 0.22), rgba(243, 239, 232, 0.04)),
+        #1a2028;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+    }
+
+    .hero-photo {
+      min-height: 320px;
+    }
+
+    .tag-row,
+    .metric-row,
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip,
+    .metric {
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255, 138, 61, 0.12);
+      color: var(--accent-dark);
+      border-color: rgba(255, 138, 61, 0.18);
+      font-size: 13px;
+    }
+
+    .metric {
+      background: var(--surface-soft);
+      color: var(--text-soft);
+      border-color: var(--border);
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .profile-main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .profile-hero {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+    }
+
+    .request-card {
+      position: sticky;
+      top: 18px;
+    }
+
+    .price {
+      margin-top: 18px;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .request-card .button,
+    .request-card .ghost-button,
+    .mobile-card .button,
+    .mobile-card .ghost-button {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .mobile-collection {
+      grid-template-columns: repeat(3, minmax(260px, 1fr));
+    }
+
+    .mobile-screen-title {
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .line-list,
+    .request-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .line.selected {
+      border-color: rgba(255, 138, 61, 0.45);
+      background: rgba(255, 138, 61, 0.14);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .dashboard-grid {
+      margin-top: 24px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .stat-card em {
+      display: block;
+      margin-top: 10px;
+      font-style: normal;
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .request-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .small-button {
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .small-button.primary {
+      background: rgba(40, 181, 111, 0.12);
+      border-color: rgba(40, 181, 111, 0.26);
+      color: var(--success);
+    }
+
+    .footer-note {
+      margin-top: 64px;
+      border-radius: 24px;
+      padding: 20px 24px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .results-layout,
+      .profile-layout,
+      .profile-hero,
+      .coach-grid,
+      .trust-row,
+      .section-grid,
+      .dashboard-grid,
+      .mobile-collection {
+        grid-template-columns: 1fr;
+      }
+
+      .request-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: calc(100% - 40px);
+        padding: 20px 0 64px;
+      }
+
+      .intro,
+      .desktop {
+        padding: 20px;
+      }
+
+      .desktop-nav,
+      .desktop-actions .ghost-button {
+        display: none;
+      }
+
+      .search-card {
+        grid-template-columns: 1fr;
+      }
+
+      .request-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="intro">
+      <div class="eyebrow">Preview maquette</div>
+      <h1>GetYourMentor en version visible, avant Figma Make.</h1>
+      <p>
+        Cette pre-maquette reprend le style "Planity-like", le flow de demande de reservation
+        validee par le coach, et les premiers ecrans du MVP pour que tu puisses juger la direction
+        visuelle avant de generer ou dessiner la vraie maquette dans Figma.
+      </p>
+    </section>
+
+    <section class="screen">
+      <div class="screen-label">
+        <h2>Ecran 1 - Home</h2>
+        <span>Version desktop responsive</span>
+      </div>
+      <div class="frame desktop">
+        <div class="desktop-header">
+          <div class="brand">GetYourMentor</div>
+          <div class="desktop-nav">
+            <a href="#">Comment ca marche</a>
+            <a href="#">Coachs</a>
+            <a href="#">Devenir coach</a>
+          </div>
+          <div class="desktop-actions">
+            <a class="ghost-button" href="#">FR | EN</a>
+            <a class="ghost-button" href="#">Connexion</a>
+            <a class="button" href="#">S'inscrire</a>
+          </div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">Coachs verifies • Demande simple • Paiement securise</div>
+            <h3>Trouvez le coach qu'il vous faut. Pres de chez vous.</h3>
+            <p>
+              Basket, football, sports de combat, fitness : trouvez un coach verifie,
+              consultez son profil et envoyez une demande de reservation en quelques etapes.
+            </p>
+
+            <div class="search-card">
+              <div class="field">
+                <label>Sport</label>
+                <div class="field-box">Football, basketball, fitness, sports de combat</div>
+              </div>
+              <div class="field">
+                <label>Ville</label>
+                <div class="field-box">Marseille, Lyon, Paris...</div>
+              </div>
+              <a class="button" href="#">Trouver un coach</a>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust-item">
+                <strong>Coachs verifies</strong>
+                <span>Profils clairs, diplomes, specialites, avis et prix visibles.</span>
+              </div>
+              <div class="trust-item">
+                <strong>Demande simple</strong>
+                <span>Tu proposes jusqu'a 3 creneaux, puis le coach valide ou refuse.</span>
+              </div>
+              <div class="trust-item">
+                <strong>Paiement securise</strong>
+                <span>Le paiement n'intervient qu'apres acceptation du coach.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="card-title">Comment ca marche</div>
+            <h4>Une reservation claire, sans stress.</h4>
+            <ul>
+              <li>Recherche par sport et ville</li>
+              <li>Comparaison des coachs et de leurs offres</li>
+              <li>Demande envoyee avec 1 a 3 creneaux preferes</li>
+              <li>Paiement uniquement apres validation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-grid">
+          <div class="how-card">
+            <strong>Recherchez</strong>
+            <span>Choisissez un sport et une ville pour trouver les coachs autour de vous.</span>
+          </div>
+          <div class="how-card">
+            <strong>Comparez</strong>
+            <span>Consultez les avis, les tarifs, les specialites et le niveau du coach.</span>
+          </div>
+          <div class="how-card">
+            <strong>Demandez</strong>
+            <span>Selectionnez une seance, proposez vos creneaux et attendez sa reponse.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen">
+      <div class="screen-label">
+        <h2>Ecran 2 - Resultats de recherche</h2>
+        <span>Comparaison rapide des coachs</span>
+      </div>
+      <div class="frame desktop">
+        <div class="results-layout">
+          <aside class="panel">
+            <strong>Votre recherche</strong>
+            <span>Basketball • Marseille</span>
+            <div class="field" style="margin-top: 16px;">
+              <label>Sport</label>
+              <div class="field-box">Basketball</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Ville</label>
+              <div class="field-box">Marseille</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Budget</label>
+              <div class="field-box">Tous les budgets</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Disponibilite</label>
+              <div class="field-box">Toutes les disponibilites</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Genre du coach</label>
+              <div class="field-box">Homme ou femme</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Lieu</label>
+              <div class="field-box">Interieur ou exterieur</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Niveau</label>
+              <div class="field-box">Tous les niveaux</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Format</label>
+              <div class="field-box">Presentiel ou visio</div>
+            </div>
+            <div class="field" style="margin-top: 12px;">
+              <label>Coach verifie</label>
+              <div class="field-box">Oui / Non</div>
+            </div>
+            <a class="ghost-button" style="margin-top: 16px;" href="#">Modifier ma recherche</a>
+          </aside>
+
+          <div>
+            <div class="panel">
+              <strong>Coachs disponibles a Marseille</strong>
+              <span>24 coachs trouves pour le basketball a Marseille</span>
+            </div>
+
+            <div class="coach-grid" style="margin-top: 16px;">
+              <article class="coach-card">
+                <div class="coach-top">
+                  <div class="avatar"></div>
+                  <div>
+                    <strong>Steven Fordant</strong>
+                    <span>Coach basketball individuel • Marseille</span>
+                    <div class="tag-row">
+                      <span class="chip">Technique</span>
+                      <span class="chip">Performance</span>
+                      <span class="chip">Jeunes</span>
+                    </div>
+                  </div>
+                </div>
+                <span style="margin-top: 16px;">A partir de 35 EUR • 4,9 (38 avis)</span>
+                <span>Travail technique individuel, tir, lecture de jeu et progression personnalisee.</span>
+                <a class="button" style="margin-top: 18px;" href="#">Voir le profil</a>
+              </article>
+
+              <article class="coach-card">
+                <div class="coach-top">
+                  <div class="avatar"></div>
+                  <div>
+                    <strong>Sarah Mendy</strong>
+                    <span>Coach preparation physique • Marseille</span>
+                    <div class="tag-row">
+                      <span class="chip">Explosivite</span>
+                      <span class="chip">Retour blessure</span>
+                    </div>
+                  </div>
+                </div>
+                <span style="margin-top: 16px;">A partir de 42 EUR • 4,8 (21 avis)</span>
+                <span>Seances individuelles pour progresser physiquement avec un suivi clair.</span>
+                <a class="button" style="margin-top: 18px;" href="#">Voir le profil</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen">
+      <div class="screen-label">
+        <h2>Ecran 3 - Fiche coach</h2>
+        <span>Page cle pour la conversion</span>
+      </div>
+      <div class="frame desktop">
+        <div class="profile-layout">
+          <div class="profile-main">
+            <div class="profile-card profile-hero">
+              <div class="hero-photo"></div>
+              <div>
+                <div class="eyebrow">Coach verifie</div>
+                <h3 style="margin-top: 18px; font-size: 44px; max-width: none;">Steven Fordant</h3>
+                <p style="margin-top: 14px; max-width: none; color: var(--text-soft); line-height: 1.7;">
+                  Coach basketball individuel a Marseille. Travail technique, lecture de jeu,
+                  confiance offensive et progression personnalisee.
+                </p>
+                <div class="metric-row">
+                  <span class="metric">Marseille</span>
+                  <span class="metric">4,9 • 38 avis</span>
+                  <span class="metric">Jeunes • Adultes</span>
+                  <span class="metric">Diplome d'Etat</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-card">
+              <strong>A propos</strong>
+              <span>
+                J'accompagne les joueurs qui veulent structurer leur progression avec des seances
+                precises, exigeantes et lisibles. Mon travail est centre sur la technique, la
+                repetition utile et les objectifs concrets.
+              </span>
+            </div>
+
+            <div class="profile-card">
+              <strong>Seances proposees</strong>
+              <div class="section-grid" style="margin-top: 18px;">
+                <div class="how-card">
+                  <strong>Seance individuelle</strong>
+                  <span>60 min • 35 EUR</span>
+                </div>
+                <div class="how-card">
+                  <strong>Pack 5 seances</strong>
+                  <span>5 x 60 min • 165 EUR</span>
+                </div>
+                <div class="how-card">
+                  <strong>Analyse video</strong>
+                  <span>30 min • 20 EUR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="request-card">
+            <strong>Demander une reservation</strong>
+            <span>Envoie une demande avec 1 a 3 creneaux. Le coach valide ensuite.</span>
+            <div class="price">35 EUR</div>
+            <span>A partir de la seance individuelle</span>
+            <a class="button" href="#">Demander</a>
+            <a class="ghost-button" href="#">Contacter le coach</a>
+            <div class="tag-row" style="margin-top: 18px;">
+              <span class="chip">Paiement apres acceptation</span>
+              <span class="chip">Reponse rapide</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen">
+      <div class="screen-label">
+        <h2>Tunnel de demande</h2>
+        <span>Version mobile pour juger le flow</span>
+      </div>
+      <div class="mobile-collection">
+        <div class="frame mobile">
+          <div class="mobile-header">
+            <div class="brand">GYM</div>
+            <span style="color: var(--text-soft); font-size: 14px;">Etape 1</span>
+          </div>
+          <div class="mobile-card" style="margin-top: 18px;">
+            <strong class="mobile-screen-title">Choisissez votre seance</strong>
+            <span>Selectionnez l'offre qui correspond le mieux a votre objectif.</span>
+            <div class="line-list">
+              <div class="line selected"><span>Seance individuelle</span><span>35 EUR</span></div>
+              <div class="line"><span>Pack 5 seances</span><span>165 EUR</span></div>
+              <div class="line"><span>Visio analyse video</span><span>20 EUR</span></div>
+            </div>
+            <a class="button" href="#">Choisir cette seance</a>
+          </div>
+        </div>
+
+        <div class="frame mobile">
+          <div class="mobile-header">
+            <div class="brand">GYM</div>
+            <span style="color: var(--text-soft); font-size: 14px;">Etape 2</span>
+          </div>
+          <div class="mobile-card" style="margin-top: 18px;">
+            <strong class="mobile-screen-title">Choisissez vos creneaux preferes</strong>
+            <span>Selectionnez jusqu'a 3 creneaux preferes pour aider le coach a vous repondre rapidement.</span>
+            <div class="line-list">
+              <div class="line selected"><span>Lundi</span><span>18:00</span></div>
+              <div class="line selected"><span>Mercredi</span><span>17:30</span></div>
+              <div class="line"><span>Jeudi</span><span>18:30</span></div>
+            </div>
+            <div class="panel" style="margin-top: 16px;">
+              <strong>Recap</strong>
+              <span>Steven Fordant • Seance individuelle • 35 EUR</span>
+            </div>
+            <a class="button" href="#">Continuer</a>
+          </div>
+        </div>
+
+        <div class="frame mobile">
+          <div class="mobile-header">
+            <div class="brand">GYM</div>
+            <span style="color: var(--text-soft); font-size: 14px;">Etape 3</span>
+          </div>
+          <div class="mobile-card" style="margin-top: 18px;">
+            <strong class="mobile-screen-title">Confirmez votre demande</strong>
+            <span>Le coach recevra votre demande. Vous ne paierez qu'apres son acceptation.</span>
+            <div class="line-list">
+              <div class="line"><span>Coach</span><span>Steven Fordant</span></div>
+              <div class="line"><span>Seance</span><span>60 min</span></div>
+              <div class="line"><span>Creneaux</span><span>2 proposes</span></div>
+              <div class="line"><span>Total</span><span>35 EUR</span></div>
+            </div>
+            <a class="button" href="#">Envoyer ma demande</a>
+            <a class="ghost-button" href="#">Retour</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen">
+      <div class="screen-label">
+        <h2>Espace coach</h2>
+        <span>Valeur cote coach</span>
+      </div>
+      <div class="frame desktop">
+        <div class="desktop-header">
+          <div>
+            <div class="brand">Bonjour Steven</div>
+            <span style="color: var(--text-soft); font-size: 15px;">Voici un apercu de votre activite.</span>
+          </div>
+          <a class="button" href="#">Modifier mon profil</a>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="stat-card">
+            <strong>Demandes recues</strong>
+            <em>12</em>
+            <span>Cette semaine</span>
+          </div>
+          <div class="stat-card">
+            <strong>Seances a venir</strong>
+            <em>7</em>
+            <span>Reservations confirmees</span>
+          </div>
+          <div class="stat-card">
+            <strong>Avis</strong>
+            <em>4,9</em>
+            <span>Moyenne actuelle</span>
+          </div>
+          <div class="stat-card">
+            <strong>Revenus</strong>
+            <em>420 EUR</em>
+            <span>Derniers 30 jours</span>
+          </div>
+        </div>
+
+        <div class="request-list">
+          <div class="request-row">
+            <div>
+              <strong>Nouvelle demande - Seance individuelle</strong>
+              <span>Lucas M. • Marseille • Lundi 18:00 ou Mercredi 17:30</span>
+            </div>
+            <div class="actions">
+              <div class="small-button primary">Accepter</div>
+              <div class="small-button">Refuser</div>
+            </div>
+          </div>
+
+          <div class="request-row">
+            <div>
+              <strong>Nouvelle demande - Pack 5 seances</strong>
+              <span>Amine K. • Aix • Jeudi 18:30 ou Samedi 10:00</span>
+            </div>
+            <div class="actions">
+              <div class="small-button primary">Accepter</div>
+              <div class="small-button">Refuser</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      Cette preview n'est pas encore la maquette Figma finale. C'est une base visuelle pour valider
+      la direction, les espacements, le style, le centrage, les cartes, les CTA et le flow de
+      demande avant de passer dans Figma Make ou dans une vraie integration Next.js.
+    </section>
+  </div>
+</body>
+</html>

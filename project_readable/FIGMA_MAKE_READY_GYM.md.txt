@@ -1,0 +1,561 @@
+# GetYourMentor - Figma Make Ready
+
+## 1. Usage simple
+
+Ce fichier sert de point d'entree unique pour `Figma Make`.
+
+Utilisation recommandee :
+
+1. creer un nouveau fichier dans `Figma Make`
+2. joindre ce fichier au prompt si Figma te propose d'attacher un document
+3. coller le prompt principal ci-dessous
+4. demander d'abord `Home`, `Search Results` et `Coach Profile`
+5. iterer ensuite sur le tunnel de demande
+
+## 1.1 Prompt de modification en francais
+
+Si tu veux modifier le projet existant sans tout regenerer, utilise ce prompt dans la conversation Figma Make deja ouverte :
+
+```text
+Modifie uniquement le projet existant de GetYourMentor sans refaire toute l'application.
+
+Conserve :
+- le theme sombre premium
+- le style general deja cree
+- les 4 sports visibles : football, basketball, fitness, sports de combat
+- la logique de demande de reservation validee par le coach
+- la logique de parcours fenetre par fenetre type reservation claire
+
+Ajoute ou corrige uniquement ces elements :
+
+1. Langue
+- interface en francais par defaut
+- selecteur de langue visible mais discret
+- traduction automatique de l'interface dans la langue de l'utilisateur si disponible
+- possibilite de changer manuellement la langue
+
+2. Paiement
+- ajouter un vrai ecran `Paiement apres validation coach`
+- rappeler clairement que le coach a accepte la demande
+- afficher le recap seance + total + bloc paiement securise + bouton `Payer`
+
+3. Fidelite
+- ajouter un ecran ou module `Fidelite` dans l'espace sportif
+- montrer une progression apres plusieurs seances realisees
+- exemple : `3 seances realisees sur 5`
+- afficher le prochain avantage debloquable
+- exemple : `-10% sur votre prochaine seance`
+
+4. Home et tunnel
+- remplacer toute logique de texte hero par une approche plus directe, plus proche de l'esprit Planity
+- supprimer le paragraphe `Trouvez le coach qu'il vous faut. Pres de chez vous.`
+- utiliser a la place un hero plus simple avec CTA principal `Trouver un coach professionnel`
+- si un bouton type `Continue with Apple` est visible dans la maquette, le remplacer par une action metier adaptee au produit : `Trouver un coach professionnel`
+- construire le parcours de recherche jusqu'au paiement fenetre par fenetre
+- chaque fenetre doit avoir une seule action principale
+
+5. Onglet contenu
+- sur la fiche coach, ajouter un onglet `Contenu`
+- cet onglet doit fonctionner comme une galerie premium inspiree de MYM mais adaptee au coaching sportif
+- montrer une grille de contenus de coach
+- certains contenus sont visibles en preview
+- certains contenus premium sont floutes tant qu'ils ne sont pas debloques
+- afficher un CTA simple de deblocage
+- garder la reservation comme action principale de la fiche
+
+6. Ne pas changer inutilement
+- ne pas redesign toute la maquette
+- ne pas toucher aux autres ecrans si ce n'est pas necessaire
+- garder les espacements, la grille et le style existants
+```
+
+## 1.2 Prompt 2 - Recherche et fiche coach
+
+Si tu veux depenser peu de credits, utilise ce prompt apres le premier ajustement deja envoye. Il met a jour seulement la partie recherche et fiche coach.
+
+```text
+Modifie uniquement les ecrans `Search Results` et `Coach Profile` du projet existant GetYourMentor.
+
+Conserve :
+- le theme sombre premium
+- la base `gris / noir / blanc`
+- les espacements, la grille et les alignements existants
+- les 4 sports visibles : football, basketball, fitness, sports de combat
+- la logique de demande de reservation validee par le coach
+- le style general proche d'un parcours de reservation clair type Planity
+
+Objectif :
+- rendre la recherche et la fiche coach plus `fenetre par fenetre`
+- garder une lecture tres simple
+- faire de la fiche coach une etape de decision claire
+
+1. Search Results
+- garder une page tres lisible avec une logique de reservation, pas d'annuaire surcharge
+- conserver la recherche par sport et ville
+- afficher les filtres principaux de facon claire en haut :
+  - Sport
+  - Ville
+  - Genre du coach
+  - Lieu
+- mettre les filtres secondaires dans `Plus de filtres` :
+  - Niveau
+  - Format
+  - Budget
+  - Disponibilite
+  - Note
+  - Coach verifie
+- faire sentir que cette fenetre aide a choisir un coach rapidement
+- rendre les cartes coach plus premium, tres scannables, tres alignees
+
+2. Coach Profile
+- garder une fiche coach tres claire et tres conversion-oriented
+- ajouter des onglets propres et regulierement alignes :
+  - `A propos`
+  - `Creneaux`
+  - `Contenu`
+- conserver l'action principale : `Demander une reservation`
+- le bloc reservation doit rester prioritaire visuellement
+
+3. Onglet `Contenu`
+- l'onglet `Contenu` doit s'inspirer de la logique MYM mais adaptee au coaching sportif
+- montrer une galerie de contenus premium de coach :
+  - routines
+  - exercices
+  - analyses video
+  - plans d'entrainement
+- certains contenus sont visibles en preview
+- certains contenus premium sont floutes tant qu'ils ne sont pas debloques
+- le flou doit signaler un acces premium, pas censurer l'interface
+- afficher un CTA simple : `Debloquer le contenu premium`
+- garder la reservation comme action principale de la page
+
+4. Regles importantes
+- ne pas redesign toute l'application
+- ne modifier que `Search Results` et `Coach Profile`
+- garder les textes en francais
+- ne pas ajouter d'autres sports
+- garder la lisibilite comme priorite absolue
+```
+
+## 1.3 Prompt 3 - Tunnel fenetre par fenetre jusqu'au paiement
+
+Utilise ce prompt ensuite pour mettre a jour seulement le tunnel de reservation.
+
+```text
+Modifie uniquement le tunnel de reservation de GetYourMentor sans refaire toute l'application.
+
+Conserve :
+- le theme sombre premium
+- la base `gris / noir / blanc`
+- la logique de demande de reservation validee par le coach
+- les espacements, la grille, les alignements et le style global existants
+
+Objectif :
+- rendre le tunnel encore plus `fenetre par fenetre`
+- une fenetre = une decision principale
+- garder un flow tres simple du choix de seance jusqu'au paiement
+
+Met a jour uniquement ces ecrans :
+- `Session Choice`
+- `Preferred Timeslot Selection`
+- `Login / Sign Up`
+- `Booking Request Review`
+- `Request Sent`
+- `Payment After Coach Approval`
+- `Booking Confirmed`
+
+1. Session Choice
+- cette fenetre doit servir uniquement a choisir le type de seance
+- layout tres propre, sans bruit visuel
+- recap coach visible mais discret
+
+2. Preferred Timeslot Selection
+- cette fenetre doit servir uniquement a choisir 1 a 3 creneaux
+- garder seulement le contexte utile :
+  - date
+  - horaire
+  - lieu si pertinent
+  - format si pertinent
+- recap reservation visible mais simple
+
+3. Login / Sign Up
+- garder un ecran tres simple
+- pas de bouton social inutile si cela brouille le parcours
+- si un bouton `Continue with Apple` existe encore, le remplacer par une logique metier adaptee ou le supprimer
+- garder la priorite sur l'envoi de la demande
+
+4. Booking Request Review
+- recap tres clair
+- une seule action principale : `Envoyer ma demande`
+- rappeler que le paiement vient seulement apres validation du coach
+
+5. Request Sent
+- ecran de reassurance simple
+- rappeler que le coach peut accepter ou refuser
+- garder le ton premium et calme
+
+6. Payment After Coach Approval
+- ecran de paiement tres epure
+- titre clair
+- recap de reservation validee
+- total
+- module de paiement securise
+- CTA principal `Payer`
+- style proche d'une fenetre de paiement sobre et premium
+
+7. Booking Confirmed
+- confirmation finale tres lisible
+- recap simple
+- CTA `Voir mes reservations`
+
+Regles importantes
+- ne pas reintroduire une logique de reservation instantanee
+- ne pas surcharger les ecrans
+- toujours garder la progression claire
+- garder tous les textes en francais
+```
+
+## 2. Prompt principal a coller dans Figma Make
+
+```text
+Create a responsive web app prototype for a sports coaching marketplace called GetYourMentor.
+
+The product should feel inspired by Planity in its clarity and request-first UX, but adapted to sports coaching. The `Contenu` section can take interaction inspiration from MYM's premium content logic, but must be adapted to sport coaching, not creator subscription culture. Do not copy another brand. The interface must feel premium, reassuring, clean, fast to understand, and strongly conversion-oriented.
+
+Core product logic:
+- this is a web-first product, not a native mobile app
+- the MVP booking flow is not instant booking
+- the athlete chooses a coach and a session
+- the athlete proposes one to three preferred timeslots
+- the coach accepts or refuses the request
+- payment happens only after coach approval
+- all visible UI copy should be in French by default
+- include a language selector with French as default and English as secondary option
+- support automatic translation of the interface when the user's available language is supported
+- allow manual language override at any time
+- only show these 4 sports in the MVP: football, basketball, fitness, combat sports
+
+Target users:
+- athletes looking for a coach near them
+- coaches who want visibility and booking requests
+
+Primary user journey:
+1. search by sport and city
+2. browse coach results
+3. open a coach profile
+4. choose a session type
+5. choose one to three preferred timeslots
+6. sign up or log in
+7. review and send a booking request
+8. wait for coach approval
+9. pay after approval
+10. view final booking confirmation
+11. see loyalty progression after several completed sessions
+
+Interaction rule:
+- the booking flow should feel window-by-window, with one main decision per screen
+- each screen should feel like a clear booking step
+- keep relevant filters visible at the right moment, but do not overload the UI
+
+Design direction:
+- dark premium background
+- charcoal surfaces
+- light typography
+- vivid orange accent color for primary actions
+- mobile-first layout
+- strong trust signals
+- clear CTA buttons
+- premium but calm visual rhythm
+
+Style tokens:
+- background: #0B0D10
+- surface: #13171C
+- surface soft: #191F26
+- primary text: #F3EFE8
+- secondary text: #A6AFBC
+- accent: #FF8A3D
+- accent dark: #D96A24
+- success: #28B56F
+- border: #2A313B
+
+Typography:
+- use a modern clean sans serif similar to Manrope
+- readable, premium, not futuristic
+- optional elegant editorial accent for some titles only
+
+Layout constraints:
+- use a strict spacing system based on 8, 12, 16, 24, 32, 48, 64, 80
+- keep all content aligned to a clear responsive grid
+- mobile reference width around 390px
+- desktop container max width around 1200px
+- keep 20px side padding on mobile and around 80px outer spacing on desktop
+- use consistent border radius across inputs, cards, and buttons
+- buttons and inputs should be at least 52px tall
+- make tabs, buttons, cards, and form fields perfectly aligned
+- ensure elements are visually centered and never floating randomly
+- keep all screens realistically responsive and developer-friendly
+
+Grid rules:
+- mobile: 4 columns, 12px gutters
+- tablet: 8 columns, 16px gutters
+- desktop: 12 columns, 24px gutters
+
+Component rules:
+- buttons radius around 16px
+- inputs radius around 16px
+- cards radius around 20px
+- booking summary blocks radius around 24px
+- coach cards must have the same padding and visual rhythm
+- tabs must be the same width and perfectly aligned
+
+Create the following screens:
+- Home
+- Search Results
+- Coach Profile
+- Session Choice
+- Preferred Timeslot Selection
+- Login / Sign Up
+- Booking Request Review
+- Request Sent
+- Payment After Coach Approval
+- Booking Confirmed
+- Athlete Area with Loyalty
+- Coach Dashboard
+
+Screen content expectations:
+
+Home:
+- clean header with logo, become a coach, login, sign up
+- language selector visible but discreet
+- hero title focused on `Trouver un coach professionnel`
+- subtitle mentioning basketball, football, combat sports, fitness in a short and direct way
+- search bar with sport field and city field
+- strong primary CTA in French: `Trouver un coach professionnel`
+- 3 trust points: verified coaches, simple request flow, secure payment
+- simple how-it-works section in 3 steps
+- testimonials section
+- final CTA section
+
+Search Results:
+- page title with city and sport
+- filter bar with sport, city, coach gender, indoor/outdoor, level, format, budget, availability, rating, verified toggle
+- coach cards with photo, name, specialty, city, price from, rating, tags, and profile CTA
+- highly scannable layout
+
+Coach Profile:
+- large coach photo
+- name, specialty, city, rating, reviews, verified badge
+- sticky request card with price and request CTA
+- clean tabs: `A propos`, `Creneaux`, `Contenu`
+- about section
+- specialties section
+- diplomas or certifications section
+- offered sessions section
+- reviews section
+- a premium content tab with a grid of previews and locked blurred premium coaching content
+- the blurred content should indicate premium access only, not censorship
+- examples of premium content: drills, routines, exercise plans, video analyses
+- include a CTA in French like `Debloquer le contenu premium`
+
+Session Choice:
+- coach summary
+- session cards for individual session, session pack, and remote video analysis
+- each card must show duration, price, short description, and choose button
+
+Preferred Timeslot Selection:
+- instruction that the user can select up to 3 preferred timeslots
+- visible date and time options
+- booking summary card with coach, session, duration, price
+- CTA to continue
+
+Login / Sign Up:
+- title about sending the request
+- tabs for login and sign up
+- simple sign up form
+- reassurance block about secure request flow and payment after approval
+
+Booking Request Review:
+- booking summary
+- coach name
+- session type
+- preferred date and time choices
+- location
+- total price
+- a clear explanation that payment happens only after coach approval
+- primary send-request button
+
+Request Sent:
+- success state
+- coach name
+- selected session
+- reminder that the coach will validate or refuse
+- summary of preferred timeslots sent
+- CTA to view requests or contact the coach
+
+Payment After Coach Approval:
+- title stating that the coach accepted the request
+- order summary
+- payment module
+- total amount
+- secure payment reassurance
+- confirm payment CTA
+
+Booking Confirmed:
+- clear confirmation state
+- session summary
+- CTA to view bookings
+
+Athlete Area with Loyalty:
+- number of completed sessions
+- visible loyalty progress
+- next reward or unlocked reward
+- simple and motivating layout
+
+Coach Dashboard:
+- profile header
+- edit profile button
+- KPI cards for requests, upcoming bookings, reviews, earnings
+- recent requests list with accept and refuse actions
+- next sessions list
+- profile completion block
+
+Critical product rule:
+- never show instant booking as the main logic
+- always make it clear that the coach validates the request first
+- payment should be shown only after approval
+
+Output expectation:
+- create a coherent, premium, responsive prototype
+- prioritize trust, clarity, and fast understanding
+- keep the design realistic to build later in Next.js
+- keep all main navigation and interface labels in French
+- dark theme should be the default visual direction
+```
+
+## 3. Microcopy de base a injecter
+
+### Home
+
+- Hero title: `Trouver un coach professionnel`
+- Hero subtitle: `Football, basketball, fitness et sports de combat : trouvez, comparez et demandez votre seance dans un parcours simple et clair.`
+- Language selector: `FR` actif, `EN` secondaire
+- Search CTA: `Trouver un coach professionnel`
+- Trust points: `Coachs verifies`, `Demande simple`, `Paiement securise`
+
+### Search Results
+
+- Page title: `Coachs disponibles a Marseille`
+- Search summary: `Basketball - 24 resultats`
+- Sports filter options: `Football`, `Basketball`, `Fitness`, `Sports de combat`
+- Coach gender options: `Homme`, `Femme`
+- Practice location options: `Interieur`, `Exterieur`
+- Level options: `Debutant`, `Intermediaire`, `Confirme`
+- Format options: `Presentiel`, `Visio`
+- Coach card example: `Steven Fordant`
+- Coach subtitle: `Coach basketball individuel`
+- Price: `A partir de 35 EUR`
+- Rating: `4,9 (38 avis)`
+- Primary CTA: `Voir le profil`
+
+### Coach Profile
+
+- Sticky block title: `Demander une reservation`
+- Primary CTA: `Demander`
+- Badge: `Coach verifie`
+- Tabs: `A propos`, `Creneaux`, `Contenu`
+- Content CTA: `Debloquer le contenu premium`
+- Content card label: `Preview`
+- Content premium label: `Premium`
+
+### Session Choice
+
+- Title: `Choisissez votre seance`
+- Card 1: `Seance individuelle`, `60 min`, `35 EUR`
+- Card 2: `Pack 5 seances`, `5 x 60 min`, `165 EUR`
+- Card 3: `Visio analyse video`, `30 min`, `20 EUR`
+
+### Preferred Timeslot Selection
+
+- Title: `Choisissez vos creneaux preferes`
+- Subtitle: `Selectionnez jusqu'a 3 creneaux preferes pour aider le coach a vous repondre rapidement.`
+- Primary CTA: `Continuer`
+
+### Login / Sign Up
+
+- Title: `Connectez-vous pour envoyer votre demande`
+- Tabs: `Connexion`, `Inscription`
+- Login CTA: `Se connecter`
+- Signup CTA: `Creer mon compte`
+
+### Booking Request Review
+
+- Title: `Confirmez votre demande`
+- Subtitle: `Verifiez les details avant d'envoyer votre demande au coach.`
+- Payment reassurance: `Le coach recevra votre demande. Vous ne paierez qu'apres son acceptation.`
+- Primary CTA: `Envoyer ma demande`
+
+### Request Sent
+
+- Title: `Votre demande a bien ete envoyee`
+- Subtitle: `Le coach vous repondra rapidement. Vous recevrez egalement une confirmation par email.`
+- CTA 1: `Voir mes reservations`
+- CTA 2: `Contacter le coach`
+
+### Payment After Coach Approval
+
+- Title: `Le coach a accepte votre demande`
+- Subtitle: `Vous pouvez maintenant finaliser votre reservation en procedant au paiement.`
+- CTA: `Payer 35 EUR`
+
+### Loyalty
+
+- Module title: `Vos avantages fidelite`
+- Progress text: `3 seances realisees sur 5 avant votre prochain avantage`
+- Reward example: `-10% sur votre prochaine seance`
+- Secondary text: `Plus vous reservez, plus vous debloquez d'avantages`
+
+### Coach Dashboard
+
+- Title: `Bonjour Steven`
+- Subtitle: `Voici un apercu de votre activite.`
+- Primary CTA: `Modifier mon profil`
+
+## 4. Sequence de travail recommandee
+
+Commencer par ces 3 ecrans :
+
+1. `Home`
+2. `Search Results`
+3. `Coach Profile`
+
+Puis construire le tunnel :
+
+1. `Session Choice`
+2. `Preferred Timeslot Selection`
+3. `Login / Sign Up`
+4. `Booking Request Review`
+5. `Request Sent`
+
+Terminer par :
+
+1. `Coach Dashboard`
+
+## 5. Checklist de validation
+
+Avant de garder une version de la maquette, verifier :
+
+- le service est compris en moins de 5 secondes
+- les CTA sont visibles sans effort
+- la logique `demande puis validation coach` est evidente
+- les boutons, champs et onglets sont bien alignes
+- les marges laterales sont regulieres
+- la fiche coach inspire confiance
+- le prototype semble realiste a integrer plus tard
+
+## 6. Documents source lies
+
+- `DESIGN_SYSTEM_GYM.md`
+- `RESPONSIVE_LAYOUT_GYM.md`
+- `FIGMA_MAKE_PROMPTS_GYM.md`
+- `FIGMA_MICROCOPY_3_ECRANS_GYM.md`
+- `FIGMA_MICROCOPY_TUNNEL_GYM.md`
