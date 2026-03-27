@@ -3448,6 +3448,14 @@ button {
   text-align: center;
 }
 
+.auth-subtitle {
+  margin: 14px 0 0;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .auth-form {
   margin-top: 28px;
 }
@@ -3597,6 +3605,212 @@ button {
   font-size: 28px;
   line-height: 1.08;
   text-align: center;
+}
+
+.account-dashboard {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+
+.account-summary-card,
+.account-dashboard-card {
+  border: 1px solid #d9dde4;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.account-summary-card {
+  padding: 22px;
+}
+
+.account-summary-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.account-summary-label {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-summary-head h2 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.account-summary-copy {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.account-summary-badge {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #24314a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.account-summary-metrics {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.account-summary-metrics div {
+  padding: 14px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 6px;
+}
+
+.account-summary-metrics strong {
+  font-size: 22px;
+  letter-spacing: -0.03em;
+}
+
+.account-summary-metrics span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.account-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.account-dashboard-card {
+  padding: 20px;
+}
+
+.account-dashboard-card-wide {
+  grid-column: 1 / -1;
+}
+
+.account-dashboard-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.account-dashboard-card-head h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.account-dashboard-card-head span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.account-dashboard-list,
+.account-dashboard-schedule,
+.account-dashboard-finance {
+  display: grid;
+  gap: 12px;
+}
+
+.account-dashboard-list div,
+.account-dashboard-schedule div,
+.account-dashboard-finance div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 5px;
+}
+
+.account-dashboard-list strong,
+.account-dashboard-schedule strong,
+.account-dashboard-finance strong {
+  font-size: 14px;
+}
+
+.account-dashboard-list span,
+.account-dashboard-schedule span,
+.account-dashboard-finance span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.account-dashboard-reviews {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.account-review-score {
+  border-radius: 16px;
+  background: #222;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.account-review-copy {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 6px;
+}
+
+.account-review-copy strong {
+  font-size: 14px;
+}
+
+.account-review-copy span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.account-dashboard-checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.account-dashboard-checklist span {
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #f7f8fb;
+  border: 1px solid #d9dde4;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .account-visual {
@@ -3870,6 +4084,16 @@ button {
     padding: 40px 24px;
   }
 
+  .account-summary-head,
+  .account-dashboard-card-head {
+    display: grid;
+  }
+
+  .account-summary-metrics,
+  .account-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
   .account-footer-grid {
     gap: 28px;
   }
@@ -4102,6 +4326,10 @@ button {
 
   .auth-card h1 {
     font-size: 34px;
+  }
+
+  .account-dashboard-reviews {
+    grid-template-columns: 1fr;
   }
 
   .signup-block h2 {
