@@ -305,7 +305,7 @@ button {
 
 .hero-backdrop {
   z-index: 0;
-  background-image: url("../montage_planity/image_accueil.jpg");
+  background-image: url("../design_assets/hero_accueil_whatsapp.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -978,7 +978,7 @@ button {
   border-radius: 22px;
   background:
     linear-gradient(180deg, rgba(20, 24, 33, 0.08), rgba(20, 24, 33, 0.08)),
-    url("../montage_planity/image_accueil.jpg") center/cover no-repeat;
+    url("../design_assets/hero_accueil_whatsapp.jpeg") center/cover no-repeat;
   box-shadow: var(--shadow-soft);
 }
 
