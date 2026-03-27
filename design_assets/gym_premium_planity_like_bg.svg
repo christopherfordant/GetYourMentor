@@ -1,0 +1,89 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1420" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#171A1F"/>
+      <stop offset="0.5" stop-color="#0E1115"/>
+      <stop offset="1" stop-color="#07090C"/>
+    </linearGradient>
+    <radialGradient id="spotLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(530 380) rotate(52) scale(520 420)">
+      <stop offset="0" stop-color="#3A4048" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#3A4048" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="spotRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 370) rotate(120) scale(560 460)">
+      <stop offset="0" stop-color="#252A31" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#252A31" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="255" y1="310" x2="930" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1C2027" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#10141A" stop-opacity="0.72"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1E24" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#0F1318" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="shadowBand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.38"/>
+    </linearGradient>
+    <radialGradient id="accentGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1220 905) rotate(120) scale(250 220)">
+      <stop offset="0" stop-color="#FF8A3D" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#FF8A3D" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurGlow" x="900" y="720" width="640" height="480" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="40"/>
+    </filter>
+    <filter id="softBlur" x="180" y="250" width="960" height="840" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <rect width="1600" height="1200" fill="url(#spotLeft)"/>
+  <rect width="1600" height="1200" fill="url(#spotRight)"/>
+
+  <g opacity="0.42">
+    <path d="M90 998C290 888 500 830 770 804C1020 780 1210 820 1510 950" stroke="#2A313B" stroke-width="2"/>
+    <path d="M120 1082C360 964 600 900 860 884C1090 870 1290 900 1500 1008" stroke="#232A33" stroke-width="2"/>
+    <path d="M860 156C1015 214 1130 292 1205 405C1278 515 1307 648 1288 830" stroke="#242B34" stroke-width="2"/>
+    <path d="M770 120C960 186 1100 286 1188 418C1274 547 1302 696 1278 900" stroke="#2E3640" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#softBlur)" opacity="0.55">
+    <ellipse cx="620" cy="650" rx="280" ry="220" fill="#0B0E12"/>
+  </g>
+
+  <g opacity="0.88">
+    <path d="M1050 230L1340 230L1235 1045L955 1045L1050 230Z" fill="#181D23"/>
+    <path d="M1085 255L1305 255L1228 1020L1015 1020L1085 255Z" fill="#21262D"/>
+    <path d="M1085 255L1305 255L1228 1020L1015 1020L1085 255Z" fill="url(#shadowBand)"/>
+    <path d="M1138 285L1170 285L1110 1008L1078 1008L1138 285Z" fill="#11151A"/>
+    <path d="M1185 285L1217 285L1157 1008L1125 1008L1185 285Z" fill="#11151A"/>
+    <path d="M1232 285L1264 285L1204 1008L1172 1008L1232 285Z" fill="#11151A"/>
+    <path d="M1279 285L1299 285L1242 1008L1220 1008L1279 285Z" fill="#11151A"/>
+  </g>
+
+  <rect x="210" y="292" width="700" height="604" rx="34" fill="url(#glass)" stroke="#2B313A"/>
+  <rect x="255" y="344" width="610" height="34" rx="17" fill="#12171D" stroke="#2E3540"/>
+  <rect x="255" y="410" width="290" height="120" rx="26" fill="url(#panel)" stroke="#2A313B"/>
+  <rect x="575" y="410" width="290" height="120" rx="26" fill="url(#panel)" stroke="#2A313B"/>
+  <rect x="255" y="564" width="610" height="66" rx="20" fill="#F1F1EE"/>
+  <rect x="255" y="664" width="610" height="152" rx="26" fill="#141920" stroke="#2A313B"/>
+  <rect x="295" y="706" width="250" height="18" rx="9" fill="#F3EFE8" fill-opacity="0.18"/>
+  <rect x="295" y="742" width="370" height="18" rx="9" fill="#F3EFE8" fill-opacity="0.11"/>
+  <rect x="295" y="778" width="310" height="18" rx="9" fill="#F3EFE8" fill-opacity="0.11"/>
+
+  <g opacity="0.96">
+    <rect x="1118" y="844" width="230" height="62" rx="19" fill="#F4F2ED"/>
+    <rect x="1365" y="844" width="95" height="62" rx="19" fill="#151A20" stroke="#2B313A"/>
+    <rect x="1232" y="111" width="92" height="30" rx="15" fill="#151A20" stroke="#2B313A"/>
+  </g>
+
+  <g filter="url(#blurGlow)">
+    <ellipse cx="1210" cy="950" rx="145" ry="110" fill="#FF8A3D"/>
+  </g>
+  <ellipse cx="1210" cy="950" rx="145" ry="110" fill="url(#accentGlow)"/>
+
+  <g opacity="0.14">
+    <rect x="0" y="0" width="1600" height="1200" fill="url(#shadowBand)"/>
+  </g>
+</svg>

@@ -13,22 +13,22 @@ const sportDictionary = {
   football: {
     name: "Football",
     search: "Coachs de football",
-    title: "Réserver en ligne un coach de football",
+    title: "Rserver en ligne un coach de football",
   },
   basketball: {
     name: "Basketball",
     search: "Coachs de basketball",
-    title: "Réserver en ligne un coach de basketball",
+    title: "Rserver en ligne un coach de basketball",
   },
   "metiers-de-la-forme": {
-    name: "Métiers de la forme",
-    search: "Coachs métiers de la forme",
-    title: "Réserver en ligne un coach métiers de la forme",
+    name: "Mtiers de la forme",
+    search: "Coachs mtiers de la forme",
+    title: "Rserver en ligne un coach mtiers de la forme",
   },
   "sports-de-combat": {
     name: "Sports de combat",
     search: "Coachs sports de combat",
-    title: "Réserver en ligne un coach de sports de combat",
+    title: "Rserver en ligne un coach de sports de combat",
   },
 };
 
@@ -185,50 +185,50 @@ if (sportPage) {
       }
     });
 
-    if (heading) heading.textContent = `Coachs de ${currentSport.name} à ${city}`;
+    if (heading) heading.textContent = `Coachs de ${currentSport.name}  ${city}`;
   });
 }
 
 const directoryDictionary = {
   football: {
     name: "Football",
-    chips: ["Coach individuel", "Préparation match", "Centre indoor"],
-    getTitle: () => "Sélectionnez un coach de football",
-    getSubtitle: (city) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
+    chips: ["Coach individuel", "Prparation match", "Centre indoor"],
+    getTitle: () => "Slectionnez un coach de football",
+    getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Thomas Dubois", address: `5 Rue du Stade, ${city}`, meta: "4.9 (33 avis) • Premium", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
-      { name: "Mehdi Rahal", address: `7 Avenue des Appuis, ${city}`, meta: "4.8 (19 avis) • Intensif", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
+      { name: "Thomas Dubois", address: `5 Rue du Stade, ${city}`, meta: "4.9 (33 avis)  Premium", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
+      { name: "Mehdi Rahal", address: `7 Avenue des Appuis, ${city}`, meta: "4.8 (19 avis)  Intensif", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
     ],
   },
   basketball: {
     name: "Basketball",
-    chips: ["Shooting", "Défense", "Condition physique"],
-    getTitle: () => "Sélectionnez un coach de basketball",
-    getSubtitle: (city) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
+    chips: ["Shooting", "Dfense", "Condition physique"],
+    getTitle: () => "Slectionnez un coach de basketball",
+    getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Sarah Benali", address: `12 Rue des Arceaux, ${city}`, meta: "5.0 (21 avis) • Elite", morning: ["Jeu. 26"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
-      { name: "Nolan Vasseur", address: `18 Quai Central, ${city}`, meta: "4.7 (12 avis) • Junior / Pro", morning: ["Ven. 27"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
+      { name: "Sarah Benali", address: `12 Rue des Arceaux, ${city}`, meta: "5.0 (21 avis)  Elite", morning: ["Jeu. 26"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
+      { name: "Nolan Vasseur", address: `18 Quai Central, ${city}`, meta: "4.7 (12 avis)  Junior / Pro", morning: ["Ven. 27"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
     ],
   },
   "metiers-de-la-forme": {
-    name: "Métiers de la forme",
+    name: "Mtiers de la forme",
     chips: ["Coach individuel", "Salle premium", "Programme forme"],
-    getTitle: () => "Sélectionnez un coach de la forme",
-    getSubtitle: (city) => `Les meilleurs coachs et studios aux alentours de ${city} : réservation en ligne`,
+    getTitle: () => "Slectionnez un coach de la forme",
+    getSubtitle: (city) => `Les meilleurs coachs et studios aux alentours de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Studio Form Marseille", address: `5 Rue de la Forme, ${city}`, meta: "5 (33 avis) • Premium", morning: ["Jeu. 26"], afternoon: ["Jeu. 26"], cta: "Prendre RDV" },
-      { name: "Kenza Training Club", address: `7 Rue de la République, ${city}`, meta: "4.9 (189 avis) • Club", morning: ["Ven. 27"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
-      { name: "Pulse Mobility", address: `22 Place du Centre, ${city}`, meta: "4.8 (41 avis) • Mobilité", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
+      { name: "Studio Form Marseille", address: `5 Rue de la Forme, ${city}`, meta: "5 (33 avis)  Premium", morning: ["Jeu. 26"], afternoon: ["Jeu. 26"], cta: "Prendre RDV" },
+      { name: "Kenza Training Club", address: `7 Rue de la Rpublique, ${city}`, meta: "4.9 (189 avis)  Club", morning: ["Ven. 27"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
+      { name: "Pulse Mobility", address: `22 Place du Centre, ${city}`, meta: "4.8 (41 avis)  Mobilit", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
     ],
   },
   "sports-de-combat": {
     name: "Sports de combat",
-    chips: ["Boxe", "MMA", "Self-défense"],
-    getTitle: () => "Sélectionnez un coach de sports de combat",
-    getSubtitle: (city) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
+    chips: ["Boxe", "MMA", "Self-dfense"],
+    getTitle: () => "Slectionnez un coach de sports de combat",
+    getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Ines Caron Fight Club", address: `4 Boulevard Arena, ${city}`, meta: "4.9 (26 avis) • Performance", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
-      { name: "Combat Lab", address: `14 Rue des Champions, ${city}`, meta: "4.8 (17 avis) • Club", morning: ["Sam. 28"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
+      { name: "Ines Caron Fight Club", address: `4 Boulevard Arena, ${city}`, meta: "4.9 (26 avis)  Performance", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
+      { name: "Combat Lab", address: `14 Rue des Champions, ${city}`, meta: "4.8 (17 avis)  Club", morning: ["Sam. 28"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
     ],
   },
 };
@@ -286,7 +286,7 @@ if (coachDirectoryPage) {
               <div class="coach-result-slots">
                 <strong>Matin</strong>
                 <div class="coach-slot-list">${coach.morning.map((slot) => `<button class="coach-slot" type="button">${slot}</button>`).join("")}</div>
-                <strong>Après-midi</strong>
+                <strong>Aprs-midi</strong>
                 <div class="coach-slot-list">${coach.afternoon.map((slot) => `<button class="coach-slot" type="button">${slot}</button>`).join("")}</div>
               </div>
               <div class="coach-result-footer">
@@ -305,49 +305,49 @@ const bookingDictionary = {
   football: {
     category: "Football - Coaching individuel",
     info: [
-      { title: "Avant votre séance", subtitle: "Objectifs, poste et niveau actuel", more: "Le coach prépare la séance selon votre profil et vos axes de progression.", duration: "15min" },
-      { title: "Organisation du rendez-vous", subtitle: "Lieu, matériel et confirmation", more: "La séance est confirmée après validation du créneau et du terrain.", duration: "10min" },
-      { title: "Conditions de réservation", subtitle: "Annulation et reprogrammation", more: "Toute réservation validée bloque un créneau dédié du coach.", duration: "2min" },
+      { title: "Avant votre sance", subtitle: "Objectifs, poste et niveau actuel", more: "Le coach prpare la sance selon votre profil et vos axes de progression.", duration: "15min" },
+      { title: "Organisation du rendez-vous", subtitle: "Lieu, matriel et confirmation", more: "La sance est confirme aprs validation du crneau et du terrain.", duration: "10min" },
+      { title: "Conditions de rservation", subtitle: "Annulation et reprogrammation", more: "Toute rservation valide bloque un crneau ddi du coach.", duration: "2min" },
     ],
     services: [
-      { title: "Séance technique individuelle", subtitle: "1 joueur - appuis, conduite, lecture du jeu", more: "Travail ciblé sur vos points forts et vos axes de progression.", duration: "30min", price: "35 €" },
-      { title: "Séance intensité match", subtitle: "Explosivité, prise d'information et finition", more: "Format premium avec retour personnalisé du coach en fin de séance.", duration: "45min", price: "55 €" },
+      { title: "Sance technique individuelle", subtitle: "1 joueur - appuis, conduite, lecture du jeu", more: "Travail cibl sur vos points forts et vos axes de progression.", duration: "30min", price: "35 " },
+      { title: "Sance intensit match", subtitle: "Explosivit, prise d'information et finition", more: "Format premium avec retour personnalis du coach en fin de sance.", duration: "45min", price: "55 " },
     ],
   },
   basketball: {
-    category: "Basketball - Développement joueur",
+    category: "Basketball - Dveloppement joueur",
     info: [
-      { title: "Bilan de départ", subtitle: "Poste, niveau et attentes", more: "Les fondamentaux à travailler sont identifiés avant le rendez-vous.", duration: "15min" },
-      { title: "Infos de séance", subtitle: "Terrain, équipement et accès", more: "Le coach confirme la disponibilité du terrain et le matériel utile.", duration: "10min" },
-      { title: "Politique de réservation", subtitle: "Annulation et acompte", more: "Annulation possible jusqu'à 24h avant selon le créneau choisi.", duration: "2min" },
+      { title: "Bilan de dpart", subtitle: "Poste, niveau et attentes", more: "Les fondamentaux  travailler sont identifis avant le rendez-vous.", duration: "15min" },
+      { title: "Infos de sance", subtitle: "Terrain, quipement et accs", more: "Le coach confirme la disponibilit du terrain et le matriel utile.", duration: "10min" },
+      { title: "Politique de rservation", subtitle: "Annulation et acompte", more: "Annulation possible jusqu' 24h avant selon le crneau choisi.", duration: "2min" },
     ],
     services: [
-      { title: "Shooting et mécanique", subtitle: "Gestuelle, rythme et constance", more: "Séance ciblée pour gagner en régularité et en confiance au tir.", duration: "30min", price: "35 €" },
-      { title: "Session intensité", subtitle: "Enchaînements, lecture et cardio", more: "Pour des joueurs ambitieux qui veulent franchir un cap rapidement.", duration: "50min", price: "60 €" },
+      { title: "Shooting et mcanique", subtitle: "Gestuelle, rythme et constance", more: "Sance cible pour gagner en rgularit et en confiance au tir.", duration: "30min", price: "35 " },
+      { title: "Session intensit", subtitle: "Enchanements, lecture et cardio", more: "Pour des joueurs ambitieux qui veulent franchir un cap rapidement.", duration: "50min", price: "60 " },
     ],
   },
   "metiers-de-la-forme": {
     category: "Forme - Coaching premium",
     info: [
-      { title: "Avant votre séance", subtitle: "Objectif forme, niveau et contraintes", more: "Le coach adapte la séance à votre niveau, votre énergie du moment et votre objectif.", duration: "15min" },
-      { title: "Infos pratiques", subtitle: "Horaires flexibles et accès", more: "La réservation en ligne est validée après confirmation du coach et du lieu de séance.", duration: "10min" },
-      { title: "Conditions de réservation", subtitle: "Report et annulation", more: "En cas d'empêchement, le créneau peut être reprogrammé selon les disponibilités.", duration: "2min" },
-      { title: "Séances week-end", subtitle: "Sous réserve de disponibilité", more: "Certaines séances du dimanche nécessitent une validation préalable du coach.", duration: "1min" },
+      { title: "Avant votre sance", subtitle: "Objectif forme, niveau et contraintes", more: "Le coach adapte la sance  votre niveau, votre nergie du moment et votre objectif.", duration: "15min" },
+      { title: "Infos pratiques", subtitle: "Horaires flexibles et accs", more: "La rservation en ligne est valide aprs confirmation du coach et du lieu de sance.", duration: "10min" },
+      { title: "Conditions de rservation", subtitle: "Report et annulation", more: "En cas d'empchement, le crneau peut tre reprogramm selon les disponibilits.", duration: "2min" },
+      { title: "Sances week-end", subtitle: "Sous rserve de disponibilit", more: "Certaines sances du dimanche ncessitent une validation pralable du coach.", duration: "1min" },
     ],
     services: [
-      { title: "Coaching remise en forme", subtitle: "Renforcement, cardio doux et mobilité", more: "Une séance claire, progressive et premium pour reprendre ou relancer votre routine.", duration: "30min", price: "35 €" },
-      { title: "Coaching transformation", subtitle: "Condition physique, intensité et suivi", more: "Format plus complet pour celles et ceux qui veulent une vraie montée en charge.", duration: "45min", price: "48 €" },
+      { title: "Coaching remise en forme", subtitle: "Renforcement, cardio doux et mobilit", more: "Une sance claire, progressive et premium pour reprendre ou relancer votre routine.", duration: "30min", price: "35 " },
+      { title: "Coaching transformation", subtitle: "Condition physique, intensit et suivi", more: "Format plus complet pour celles et ceux qui veulent une vraie monte en charge.", duration: "45min", price: "48 " },
     ],
   },
   "sports-de-combat": {
-    category: "Combat - Séance premium",
+    category: "Combat - Sance premium",
     info: [
-      { title: "Avant votre séance", subtitle: "Objectif, niveau et discipline", more: "Le coach définit le format selon votre pratique et votre expérience.", duration: "10min" },
-      { title: "Règles de sécurité", subtitle: "Matériel obligatoire", more: "Gants, protège-tibias ou protections peuvent être fournis sur demande.", duration: "5min" },
+      { title: "Avant votre sance", subtitle: "Objectif, niveau et discipline", more: "Le coach dfinit le format selon votre pratique et votre exprience.", duration: "10min" },
+      { title: "Rgles de scurit", subtitle: "Matriel obligatoire", more: "Gants, protge-tibias ou protections peuvent tre fournis sur demande.", duration: "5min" },
     ],
     services: [
-      { title: "Cours privé boxe", subtitle: "Technique, cardio et garde", more: "Une session premium, progressive et structurée.", duration: "45min", price: "55 €" },
-      { title: "Self-defense premium", subtitle: "Mouvements utiles et confiance", more: "Parfait pour une progression concrète, rassurante et lisible.", duration: "50min", price: "60 €" },
+      { title: "Cours priv boxe", subtitle: "Technique, cardio et garde", more: "Une session premium, progressive et structure.", duration: "45min", price: "55 " },
+      { title: "Self-defense premium", subtitle: "Mouvements utiles et confiance", more: "Parfait pour une progression concrte, rassurante et lisible.", duration: "50min", price: "60 " },
     ],
   },
 };
@@ -372,8 +372,8 @@ if (bookingPage) {
 
   if (nameNode) nameNode.textContent = coach;
   if (addressNode) addressNode.textContent = `10 Rue du Sport, ${city}`;
-  if (metaNode) metaNode.textContent = "4.9 (284 avis) • Coaching premium";
-  if (headingNode) headingNode.textContent = `Réserver en ligne une séance chez ${coach}`;
+  if (metaNode) metaNode.textContent = "4.9 (284 avis)  Coaching premium";
+  if (headingNode) headingNode.textContent = `Rserver en ligne une sance chez ${coach}`;
   if (categoryNode) categoryNode.textContent = currentBooking.category;
 
   if (infoList) {
@@ -449,9 +449,9 @@ if (bookingPage) {
       if (button.dataset.ratingTab === "reviews") {
         ratingBody.innerHTML = `
           <div class="booking-rating-lines booking-rating-reviews">
-            <div>"Séance très claire et ultra motivante." <strong>— Camille</strong></div>
-            <div>"Coach ponctuel, exercices adaptés et très bonne énergie." <strong>— Mehdi</strong></div>
-            <div>"On se sent accompagné du début à la fin." <strong>— Sarah</strong></div>
+            <div>"Sance trs claire et ultra motivante." <strong> Camille</strong></div>
+            <div>"Coach ponctuel, exercices adapts et trs bonne nergie." <strong> Mehdi</strong></div>
+            <div>"On se sent accompagn du dbut  la fin." <strong> Sarah</strong></div>
             <p>Extraits d'avis visibles dans la maquette.</p>
           </div>
         `;
@@ -461,11 +461,11 @@ if (bookingPage) {
       ratingBody.innerHTML = `
         <div class="booking-rating-score">4,9</div>
         <div class="booking-rating-lines">
-          <div>Accueil <strong>4,9 ★</strong></div>
-          <div>Ponctualité <strong>4,9 ★</strong></div>
-          <div>Cadre &amp; ambiance <strong>4,8 ★</strong></div>
-          <div>Qualité de l'accompagnement <strong>4,9 ★</strong></div>
-          <p>284 clients ont donné leur avis</p>
+          <div>Accueil <strong>4,9 </strong></div>
+          <div>Ponctualit <strong>4,9 </strong></div>
+          <div>Cadre &amp; ambiance <strong>4,8 </strong></div>
+          <div>Qualit de l'accompagnement <strong>4,9 </strong></div>
+          <p>284 clients ont donn leur avis</p>
         </div>
       `;
     });
@@ -500,13 +500,13 @@ if (reservationMultiPage) {
   const coach = params.get("coach") || "Studio Form Marseille";
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
-  const price = params.get("price") || "35 €";
+  const price = params.get("price") || "35 ";
   let selectedSlot = params.get("slot") || "10:00";
-  let selectedMentor = params.get("mentor") || "Sans préférence";
+  let selectedMentor = params.get("mentor") || "Sans prfrence";
   let weekIndex = 0;
 
   const coaches = [
-    { id: "SP", name: "Sans préférence" },
+    { id: "SP", name: "Sans prfrence" },
     { id: "M", name: "Mika" },
     { id: "T", name: "Titi" },
     { id: "Y", name: "Yullia" },
@@ -529,9 +529,9 @@ if (reservationMultiPage) {
 
   if (nameNode) nameNode.textContent = coach;
   if (addressNode) addressNode.textContent = `10 Rue du Sport, ${city}`;
-  if (metaNode) metaNode.textContent = "4.9 (423 avis) • Coaching premium";
+  if (metaNode) metaNode.textContent = "4.9 (423 avis)  Coaching premium";
   if (serviceNode) serviceNode.textContent = service;
-  if (serviceMetaNode) serviceMetaNode.textContent = `${duration} • ${price}`;
+  if (serviceMetaNode) serviceMetaNode.textContent = `${duration}  ${price}`;
 
   const updateConfirmHref = () => {
     if (!confirmNode) return;
@@ -564,7 +564,7 @@ if (reservationMultiPage) {
 
     coachGrid.querySelectorAll("[data-mentor]").forEach((button) => {
       button.addEventListener("click", () => {
-        selectedMentor = button.dataset.mentor || "Sans préférence";
+        selectedMentor = button.dataset.mentor || "Sans prfrence";
         renderCoachOptions();
         updateConfirmHref();
       });
@@ -648,9 +648,9 @@ if (recapPage) {
   const coach = params.get("coach") || "Studio Form Marseille";
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
-  const price = params.get("price") || "35 €";
+  const price = params.get("price") || "35 ";
   const slot = params.get("slot") || "10:00";
-  const mentor = params.get("mentor") || "Coach confirmé";
+  const mentor = params.get("mentor") || "Coach confirm";
   const nameNode = document.querySelector("[data-recap-name]");
   const addressNode = document.querySelector("[data-recap-address]");
   const metaNode = document.querySelector("[data-recap-meta]");
@@ -662,22 +662,22 @@ if (recapPage) {
 
   if (nameNode) nameNode.textContent = coach;
   if (addressNode) addressNode.textContent = `10 Rue du Sport, ${city}`;
-  if (metaNode) metaNode.textContent = "4.9 (284 avis) • Coaching premium";
-  if (datetimeNode) datetimeNode.textContent = `Vendredi 27 mars 2026 à ${slot}`;
+  if (metaNode) metaNode.textContent = "4.9 (284 avis)  Coaching premium";
+  if (datetimeNode) datetimeNode.textContent = `Vendredi 27 mars 2026  ${slot}`;
 
   if (servicesNode) {
     servicesNode.innerHTML = `
       <article class="recap-service-card">
         <div class="recap-service-copy">
           <strong>${service}</strong>
-          <div>${duration} • ${price} • avec ${mentor}</div>
+          <div>${duration}  ${price}  avec ${mentor}</div>
         </div>
         <a class="recap-link" href="${buildPath("./choix-coach-creneau.html", { sport, city, coach, service, duration, price, slot, mentor })}">Supprimer</a>
       </article>
       <article class="recap-service-card">
         <div class="recap-service-copy">
-          <strong>Bilan express avant séance</strong>
-          <div>10min • inclus dans votre réservation</div>
+          <strong>Bilan express avant sance</strong>
+          <div>10min  inclus dans votre rservation</div>
         </div>
         <a class="recap-link" href="${buildPath("./reserver-seance.html", { sport, city, coach })}">Modifier</a>
       </article>
@@ -748,7 +748,7 @@ if (accountPage) {
       return;
     }
 
-    setStatus("Connexion simulée. Vous pouvez maintenant reprendre votre réservation ou naviguer dans le site.");
+    setStatus("Connexion simule. Vous pouvez maintenant reprendre votre rservation ou naviguer dans le site.");
   });
 
   signupNode?.addEventListener("click", () => {
@@ -757,12 +757,12 @@ if (accountPage) {
       return;
     }
 
-    setStatus("Création de compte simulée. Votre profil est prêt pour réserver une prochaine séance.");
+    setStatus("Cration de compte simule. Votre profil est prt pour rserver une prochaine sance.");
   });
 
   forgotNode?.addEventListener("click", (event) => {
     event.preventDefault();
-    setStatus("Un lien de réinitialisation serait envoyé à votre adresse e-mail dans la version finale.");
+    setStatus("Un lien de rinitialisation serait envoy  votre adresse e-mail dans la version finale.");
     document.querySelector("#account-email")?.focus();
   });
 }
@@ -773,9 +773,9 @@ if (paymentPage) {
   const city = params.get("city") || "Marseille";
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
-  const price = params.get("price") || "35 €";
+  const price = params.get("price") || "35 ";
   const slot = params.get("slot") || "10:00";
-  const mentor = params.get("mentor") || "Coach confirmé";
+  const mentor = params.get("mentor") || "Coach confirm";
   const methodButtons = document.querySelectorAll(".payment-method");
   const submitButton = document.querySelector("[data-payment-submit]");
   const successCard = document.querySelector("[data-payment-success]");
@@ -784,7 +784,7 @@ if (paymentPage) {
   document.querySelector("[data-payment-name]")?.replaceChildren(`${coach} - ${city}`);
   document.querySelector("[data-payment-service]")?.replaceChildren(service);
   document.querySelector("[data-payment-duration]")?.replaceChildren(duration);
-  document.querySelector("[data-payment-datetime]")?.replaceChildren(`Vendredi 27 mars 2026 à ${slot}`);
+  document.querySelector("[data-payment-datetime]")?.replaceChildren(`Vendredi 27 mars 2026  ${slot}`);
   document.querySelector("[data-payment-price]")?.replaceChildren(price);
   document.querySelector("[data-payment-mentor]")?.replaceChildren(mentor);
 
@@ -799,7 +799,7 @@ if (paymentPage) {
   submitButton?.addEventListener("click", () => {
     successCard?.removeAttribute("hidden");
     submitButton.textContent =
-      selectedMethod === "onsite" ? "Réservation enregistrée" : "Paiement confirmé";
+      selectedMethod === "onsite" ? "Rservation enregistre" : "Paiement confirm";
     successCard?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
 }

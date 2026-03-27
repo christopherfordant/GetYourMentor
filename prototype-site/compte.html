@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Mon compte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell account-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav" aria-label="Sports">
+          <a class="sport-link" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html" aria-current="page">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="account-page" data-account-page>
+        <section class="account-panel">
+          <div class="auth-card">
+            <h1>Vous avez d&eacute;j&agrave; utilis&eacute; GetYourMentor ?</h1>
+            <p class="auth-status-message" data-account-status hidden></p>
+
+            <form class="auth-form" data-account-form>
+              <label class="auth-field">
+                <span>Email</span>
+                <input id="account-email" type="email" placeholder="Email" />
+              </label>
+
+              <label class="auth-field">
+                <span>Mot de passe</span>
+                <div class="password-field">
+                  <input
+                    id="account-password"
+                    type="password"
+                    placeholder="Mot de passe"
+                  />
+                  <button
+                    class="password-toggle"
+                    type="button"
+                    aria-controls="account-password"
+                    aria-label="Afficher le mot de passe"
+                    aria-pressed="false"
+                  >
+                    <span class="eye-open" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path
+                          d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="3"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                        />
+                      </svg>
+                    </span>
+                    <span class="eye-closed" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path
+                          d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="3"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                        />
+                        <path
+                          d="M4 4 20 20"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </label>
+
+              <a class="auth-link" href="./compte.html" data-account-forgot>Mot de passe oubli&eacute; ?</a>
+
+              <button class="auth-primary" type="submit" data-account-login>Se connecter</button>
+            </form>
+
+            <div class="auth-divider" aria-hidden="true">
+              <span>ou</span>
+            </div>
+
+            <div class="signup-block">
+              <h2>Nouveau sur GetYourMentor ?</h2>
+              <button class="auth-secondary" type="button" data-account-signup>Cr&eacute;er mon compte</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="account-visual" aria-label="Visuel premium coaching">
+          <div class="account-visual-image"></div>
+          <div class="account-visual-overlay"></div>
+        </aside>
+      </main>
+
+      <footer class="account-footer">
+        <div class="account-footer-grid">
+          <div class="account-footer-brand">
+            <div class="footer-brand">GETYOURMENTOR</div>
+            <div class="account-socials" aria-label="R&eacute;seaux sociaux">
+              <a href="#instagram" aria-label="Instagram">IG</a>
+              <a href="#facebook" aria-label="Facebook">FB</a>
+            </div>
+          </div>
+
+          <div class="account-footer-column">
+            <h3>&Agrave; propos de GetYourMentor</h3>
+            <a href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+            <a href="./devenir-partenaire.html">Rejoignez-nous</a>
+            <a href="./accueil.html#faq-title">CGU</a>
+            <a href="./accueil.html#faq-title">Politique de confidentialit&eacute;</a>
+            <a href="./accueil.html#faq-title">Gestion des cookies</a>
+            <a href="./accueil.html#faq-title">Accessibilit&eacute;</a>
+          </div>
+
+          <div class="account-footer-column">
+            <h3>Trouvez votre coach</h3>
+            <a href="./recherche-coachs.html?sport=football">Football</a>
+            <a href="./recherche-coachs.html?sport=basketball">Basketball</a>
+            <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Fitness</a>
+            <a href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+            <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Coaching en visio</a>
+            <a href="./recherche-coachs.html?sport=football">Coaching en pr&eacute;sentiel</a>
+          </div>
+
+          <div class="account-footer-column">
+            <h3>Recherches fr&eacute;quentes</h3>
+            <a href="./selection-coachs.html?sport=football&amp;city=Paris">Coach sportif Paris</a>
+            <a href="./selection-coachs.html?sport=metiers-de-la-forme&amp;city=Marseille">Coach sportif Marseille</a>
+            <a href="./selection-coachs.html?sport=basketball&amp;city=Lyon">Coach sportif Lyon</a>
+            <a href="./selection-coachs.html?sport=metiers-de-la-forme&amp;city=Lille">Coach fitness Lille</a>
+          </div>
+        </div>
+
+        <div class="account-footer-bottom">Copyright &copy; 2026 GetYourMentor</div>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
