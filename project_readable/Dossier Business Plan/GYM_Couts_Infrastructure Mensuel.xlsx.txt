@@ -1,0 +1,103 @@
+# sheet1
+💸  GetYourMentor — Coûts d'infrastructure & Comparatif Plans
+Tous les prix sont en EUR HT/mois — Sources : supabase.com, vercel.com, brevo.com, stripe.com (Mars 2026)
+Critère / Fonctionnalité | 🟢 Free / Hobby | 🔵 Pro / Starter | 🟡 Team / Business | 📝 Notes & Recommandations GYM
+🗄️  SUPABASE  (BDD / Auth / Storage / Realtime)  ⚠️ Prix en USD — vérifiés janv. 2026
+Prix mensuel (base) | 0 $ | 25 $/mois | 599 $/mois | ⚠️ Facturé en USD — ~23€ et ~550€ selon taux EUR/USD
+Crédits compute inclus | ❌ | 10 $/mois | 10 $/mois | Couvre 1 instance Micro — suffisant pour MVP GYM
+Projets actifs | 2 projets | Illimités | Illimités | 1 projet suffit pour GYM V1
+Base de données (storage) | 500 MB | 8 GB inclus | 8 GB inclus | 500 MB = ~500k lignes — suffisant au lancement
+Egress / bande passante DB | 5 GB | 250 GB | 2 TB | Overage Pro : 0,09 $/GB — peu impactant pour GYM
+File Storage (diplomes, photos) | 1 GB | 100 GB | 100 GB | Photos profils + diplomes coachs — Pro suffisant
+Utilisateurs actifs / mois (MAU) | 50 000 | 100 000 | 500 000 | Overage Pro : 0,00325 $/MAU — alertes a configurer
+Auth (JWT, email, magic link) | ✅ | ✅ | ✅ | Auth complete incluse dans tous les plans
+Row Level Security (RLS) | ✅ | ✅ | ✅ | Indispensable securite GYM — inclus partout
+Realtime (chat temps reel) | ✅ 200 conn. | ✅ | ✅ | Messagerie coach < > sportif — incluse partout
+Edge Functions | 500k appels | 2M appels | 2M appels | Webhooks Stripe, logique serveur custom
+Backups automatiques | ❌ | ✅ 7 jours | ✅ 14 jours | INDISPENSABLE en prod — necessite minimum Pro
+Pause si inactif 7 jours | ✅ BLOQUANT | ❌ | ❌ | Free se coupe tout seul → inutilisable en production !
+Spend cap (plafond budget) | ❌ | ✅ par defaut | ✅ | Sur Pro : bloque a 25$/mois par defaut — a ajuster
+Logs retention | ❌ | 7 jours | 28 jours | Utile pour deboguer bugs en production
+Support | Communaute | Email | Prioritaire | —
+SSO / SAML | ❌ | ❌ | ✅ | Non necessaire pour GYM — B2B Enterprise seulement
+SOC 2 / Conformite | ❌ | ❌ | ✅ | Non necessaire pour GYM V1
+✅ Plan recommande GYM | ❌ Dev/proto | ✅ PRO ~23 EUR | ❌ Inutile | Pro des la mise en prod — Team inutile avant 100k+ MAU
+🚀  VERCEL  (Hébergement Frontend — Next.js)  ⚠️ Données vérifiées sur docs.vercel.com
+Prix mensuel | 0 € (Hobby) | 20 $/mois/membre | Sur devis (~20-25k$/an) | Enterprise = contrat annuel, inutile pour GYM
+Usage commercial autorisé | ❌ INTERDIT | ✅ | ✅ | ⚠️ CRITIQUE : Hobby strictement interdit pour usage pro/commercial
+Edge Requests incluses / mois | 1 000 000 | 10 000 000 | Sur mesure | Largement suffisant pour GYM au lancement
+Bandwidth / Fast Data Transfer | Non précisé | 1 TB inclus | Illimité | Overage Pro : 0,15$/GB au-delà de 1 TB
+Déploiements / jour | 100/jour | 6 000/jour | Illimité | 100/jour = bloquant si déploiements fréquents
+Build minutes / mois | 6 000 min | 24 000 min | Sur mesure | Suffisant pour GYM
+Durée max. Function (API routes) | 60s max | 300s max (5 min) | Sur mesure | Important pour webhooks Stripe — Pro recommandé
+Function Invocations incluses | 1 000 000 | Selon usage | Sur mesure | API routes Next.js = serverless functions Vercel
+Domaine custom (getyourmentor.fr) | ✅ | ✅ | ✅ | Inclus dans tous les plans
+SSL / HTTPS automatique | ✅ | ✅ | ✅ | Inclus automatiquement, pas de surcoût
+CDN mondial | ✅ | ✅ | ✅ | Réseau edge global inclus partout
+Previews de déploiement (branches Git) | ✅ | ✅ | ✅ | Utile pour tester features avant prod
+Web Analytics incluses | 50k events, 1 mois | 100k events, 12 mois | Sur mesure | Pro = historique 12 mois + custom events
+Logs Runtime | 1h, 4 000 lignes | 1 jour, 100k lignes | Sur mesure | Pro indispensable pour débugger en prod
+Spend Management (plafond budget) | ❌ | ✅ | ✅ | Évite les mauvaises surprises d'overages
+DDoS Mitigation & WAF basique | ✅ | ✅ | ✅ | Protection incluse partout
+WAF Custom Rules | 3 règles max | 40 règles max | Illimité | Pro largement suffisant pour GYM
+Support | Communauté | Email | Dédié + SLA | —
+Cron Jobs (rappels 72h, emails auto…) | ✅ (limité) | ✅ Illimités | ✅ Illimités | Système de rappels GYM → fonctionne sur Pro
+Collaboration / membres d'équipe | ❌ Solo only | ✅ +20$/membre | ✅ | 1 seul dev = 1 seat = 20$/mois total
+✅ Plan recommandé GYM | ❌ Interdit pro | ✅ PRO — ~20 € | ❌ Inutile | 👉 Pro OBLIGATOIRE dès la mise en production (usage commercial)
+📧  BREVO  (Emails transactionnels — confirmations, rappels, notifications)  ⚠️ Plans renommés depuis oct. 2025
+Nom du plan | Free | Starter | Business | ⚠️ Plan 'Standard' renommé 'Business' depuis octobre 2025
+Prix mensuel | 0 € | 9 €/mois | 18 €/mois | Starter = à partir de 5 000 emails/mois
+Volume emails / mois | ~9 000 (300/j) | 5 000 → 100 000 | 5 000 → 1M | Business démarre aussi à 5k — la diff c'est les features
+Limite quotidienne | 300/jour 🔴 | ❌ (supprimée) | ❌ (supprimée) | ⚠️ Limite quotidienne = risque bloquant en prod
+Emails transactionnels (API/SMTP) | ✅ | ✅ | ✅ | Inclus dans TOUS les plans — essentiel pour GYM
+Brevo branding dans les emails | ✅ Forcé | ✅ (+9€ add-on) | ❌ Absent | Retirer le logo sur Starter = +9€/mois en add-on
+Statistiques d'envoi | ❌ Aucune | Basiques | ✅ Avancées | Taux d'ouverture, clics — basique suffit pour MVP
+Automations | 2 000 contacts | 2 000 contacts | ✅ Illimitées | Automations limitées sur Free ET Starter — Business pour scale
+Landing pages | ❌ | ❌ | ✅ (1 incluse) | Non nécessaire pour GYM
+A/B Testing | ❌ | ❌ | ✅ | Non nécessaire MVP
+Utilisateurs (accès équipe) | 1 | 1 | Illimités | 1 user = suffisant pour GYM V1
+Support | Email (lent) | Email | Email + Prioritaire | —
+✅ Plan recommandé GYM | ✅ Lancement | ✅ Starter — 9 € | ❌ Inutile MVP | 👉 Free au lancement → Starter (9€) dès que volume dépasse 300/jour
+💳  STRIPE  (Paiements, Stripe Connect virements coachs, Remboursements)
+Abonnement fixe mensuel | 0 € | 0 € | 0 € | Stripe = 100% variable, zero abonnement
+Carte europeenne standard (FR/EU) | — | 1,5% + 0,25€/tx | — | Ex: 60€ reservation → ~1,15€ de frais Stripe
+Carte europeenne premium (commerciale) | — | 1,9% + 0,25€/tx | — | Cartes Amex, Gold, Business — plus rares mais a prevoir
+Carte internationale (hors EU/UK) | — | 3,25% + 0,25€/tx | — | Peu probable pour marche FR au lancement
+Carte britannique (UK) | — | 2,5% + 0,25€/tx | — | Post-Brexit — taux specifique UK
+Frais de litige / chargeback | — | 20€ / litige | — | Rembourse si gagne, perdu si dispute perdue
+SEPA (virement bancaire direct) | — | 0,35€ / tx | — | Option interessante pour grosses transactions B2B
+3D Secure (SCA europeen) | — | 0,03€ / tx | — | Demande aleatoire par la banque — prevoir dans le calcul
+Stripe Connect — frais plateforme | — | 0,25% + 0,25€/vir | — | Si GYM gere la tarification (recommande) — par virement coach
+Stripe Connect — compte actif coach | — | 2$/coach actif/mois | — | Coach actif = mois ou un virement est envoye vers sa banque
+Stripe Checkout (page de paiement) | — | Inclus | — | Page securisee hebergee — recommande pour GYM
+Webhooks Stripe | — | Inclus | — | Indispensable pour automatiser confirmations GYM
+Remboursements (Refund API) | — | Frais Stripe perdus | — | Les frais 1,5%+0,25€ ne sont PAS rembourses en cas de refund
+Dashboard & exports CSV | — | Inclus | — | Historique transactions, reporting — inclus partout
+✅ Modele recommande GYM | — | Vous gerez la tarif | — | GYM facture commission 15% aux coachs — frais Stripe couverts
+🌐  NOM DE DOMAINE  (ex: getyourmentor.fr ou .com)
+Domaine .fr / an | — | ~7 €/an | — | OVH, Namecheap, Cloudflare — ~0,60 €/mois
+Domaine .com / an | — | ~10–15 €/an | — | ~1 €/mois
+SSL/HTTPS | — | Gratuit (Vercel) | — | Inclus automatiquement dans Vercel
+✅ Recommandation GYM | — | ~1 €/mois | — | 👉 .fr ou .com — à prendre dès maintenant
+📊  RÉCAPITULATIF BUDGÉTAIRE PAR PHASE
+Service | 🚀 Lancement (J+0) | 📈 Croissance (~200 users) | ⚡ Scale (~2 000+ users) | Remarque
+Supabase | Free — 0 € | Pro — 25 € | Pro — 25 €+ | Passer au Pro dès mise en production
+Vercel | Pro — 20 € | Pro — 20 € | Pro — 20 €+ | Pro obligatoire (usage commercial)
+Brevo | Free — 0 € | Starter — 9 € | Business — 18 € | Free OK si <300 emails/jour — Starter sinon
+Domaine | ~1 € | ~1 € | ~1 € | Coût fixe et stable
+Stripe | Variable | Variable | Variable | Carte EU standard : 1,5%+0,25€ | +0,25%+0,25€ virement coach
+TOTAL FIXE / MOIS | ~21 €/mois | ~55 €/mois | ~65 €/mois | + Stripe variable selon CA
+💡 Stripe France : carte EU standard = 1,5% + 0,25€/tx. Carte premium (Amex/Business) = 1,9% + 0,25€. Litige = 20€. Connect (virement coach) = 0,25%+0,25€/vir + 2$/compte actif/mois. Commission GYM 15% couvre largement tous ces frais.
+⚠️ Supabase Free se COUPE automatiquement après 7 jours d'inactivité → NE PAS utiliser en production. Passer au Pro (25€) dès le lancement.
+⚠️ Vercel Hobby est INTERDIT pour usage commercial. Le plan Pro à 20€/mois est obligatoire dès que la plateforme est en production.
+
+# sheet2
+💳  Simulation coûts Stripe vs Revenus GYM (commission 15%)
+Frais Stripe carte EU : 1,5% + 0,25€ / transaction  |  Stripe Connect virement coach : +0,25€
+Scénario | Réservations/mois | Prix moy. réservation | CA mensuel | Frais Stripe estimés | Commission GYM (15%)
+Très petit lancement | 10.0 | 50.0 | 500 | 12.5 | 75
+Lancement | 50.0 | 60.0 | 3000 | 70 | 450
+Croissance | 150.0 | 65.0 | 9750 | 221.25 | 1462.5
+Forte croissance | 400.0 | 70.0 | 28000 | 620 | 4200
+Scale | 1000.0 | 75.0 | 75000 | 1625 | 11250
+📌 La commission GYM (15%) couvre largement les frais Stripe (~1,75%). Rentabilité immédiate dès la 1ère transaction.

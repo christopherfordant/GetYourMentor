@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Récapitulatif de réservation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell recap-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link brand-name-dark" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav sports-nav-dark" aria-label="Sports">
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="recap-page" data-recap-page>
+        <section class="recap-header">
+          <h1 data-recap-name>Studio Form Marseille</h1>
+          <div class="recap-address" data-recap-address>10 Rue du Sport, 13002 Marseille</div>
+          <div class="recap-meta" data-recap-meta>4.9 (284 avis) • Coaching premium</div>
+          <div class="recap-header-visual" aria-hidden="true">
+            <div class="recap-header-shot recap-header-shot-main"></div>
+            <div class="recap-header-shot recap-header-shot-side"></div>
+          </div>
+        </section>
+
+        <section class="recap-step">
+          <h2><span>1.</span> Séances sélectionnées</h2>
+          <div class="recap-cards" data-recap-services></div>
+        </section>
+
+        <section class="recap-step">
+          <h2><span>2.</span> Date et heure sélectionnées</h2>
+          <div class="recap-date-card">
+            <div data-recap-datetime>Vendredi 27 mars 2026 à 10:00</div>
+            <a href="./choix-coach-creneau.html" class="recap-link" data-recap-edit>Modifier</a>
+          </div>
+        </section>
+
+        <section class="recap-step">
+          <h2><span>3.</span> Identification</h2>
+          <div class="recap-auth-card">
+            <div class="recap-auth-block">
+              <h3>Nouveau sur GetYourMentor ?</h3>
+              <a class="recap-outline-button" href="./compte.html" data-recap-create>Créer mon compte</a>
+            </div>
+
+            <div class="recap-divider"><span>ou</span></div>
+
+            <div class="recap-auth-block">
+              <h3>Vous avez déjà utilisé GetYourMentor ?</h3>
+              <a class="recap-dark-button" href="./compte.html" data-recap-login>Se connecter pour accéder au paiement</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+          <a href="./accueil.html#faq-title">CGV</a>
+          <a href="./accueil.html#faq-title">CGU</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialité</a>
+          <a href="./accueil.html#faq-title">Mentions légales</a>
+        </nav>
+        <small>© 2026 GetYourMentor. Tous droits réservés.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

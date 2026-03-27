@@ -1,0 +1,84 @@
+# sheet1
+NOM | EMAIL | Numéro de téléphone
+A. Des Portugais | emerystephanie@orange.fr  kevin.alho@hotmail.com | 0631652084
+Ain Sud Foot | b.paris5@icloud.com  pierrefayard0628@orange.fr franckgrava@sfr.fr | 06 80 36 33 11 - 06 59 23 28 64
+Albarine Foot J. | templierju@gmail.com  lucie.templier@gmail.com | 0666793055 - 0763730163
+Amberieu FC | ra-no@hotmail.fr  laurentmp01@gmail.com | 0627114547 - 0625625928
+Am.S. Travailleurs Turcs Oyonnax | ybhome@outlook.fr  altanizzet@hotmail.fr  kavalci.david92@gmail.com | 0646399339 - 06 75 73 85 51 - 0626203598
+AS Anglefort | romain.perna20@gmail.com  mouhlimf@hotmail.fr | 07 57 68 03 13 - 0784214055
+AS Bage Le Chatel | antoninb@laposte.net  ddaubourg@gmail.com | 0768233345     0699141551
+AS Chaveyriat | j-b-93@hotmail.fr | 0613199049   06 88 23 20 75
+AS Chazey Bons | patrick1463@hotmail.fr  519781@laurafoot.org | 0637602108
+AS Colomieu | eric.baratin1977@gmail.com    eric.baratin@outlook.fr   orasse.landot@gmail.com | 0606770328   0606590030
+AS D'attignat | president@asattignat-foot.com    correspondant@asattignat-foot.com  secretaire@asattignat-foot.com | 0677641083   0660111709     0608312524
+A.S. DE COLIGNY | spochon01@gmail.com michelfabien13@gmail.com | 06 63 18 98 42
+AS Dortan Lavancia | rojalalbert@hotmail.fr     bochard.olivier@neuf.fr | 0625820723
+AS Grieges Pont de Veyle | arnaud.lamps@wanadoo.fr    carrachou01@icloud.com   frendoflorian@gmail.com | 0385317089   0676976085   0788696207  0670944447
+AS Guereins Genouilleux | presidentasggm@gmail.com   secretaireasggm@gmail.com  michel.gary333@orange.fr | 0667126387  06 82 22 68 78
+AS Hautecourt Romaneche | ron-aure@orange.fr  le_ge_ashr@hotmail.fr | 0668567693  06 66 30 58 89
+AS Miserieux Trevoux | julien.toscani@wanadoo.fr   t.latour@pyramide-conseils.fr    franck.aucourt@wanadoo.fr | 06 13 59 24 25  06 02 35 79 09
+AS Prevessin Moens | 0610295917
+AS St Andre D Huiriat | lepidanoux@orange.fr   pellegrino.rudolph@wanadoo.fr   davidcerato@yahoo.fr | 0492890587   0686275638
+A.S. ST ETIENNE S/CHALARONNE | perretamelie@orange.fr  kevinpaget06-93@hotmail.fr  verane.genillon@gmail.com | 0652562339  06 18 22 41 41
+AS St Laurentin | alexgourcuff10@gmail.com     patrick.poulain4@wanadoo.fr | 0616320581   0616121583
+A.S. VERSONNEX GRILLY SAUVERNY | fabrice.margaine@gmail.com  fabrice.margaine@gmail.com | 0618012482  0618012482
+A.S. VIRIEU LE GRAND | b.deglise@laposte.net   andre.fostier@icloud.com | 07 81 34 53 37    06 49 62 03 56
+Ain Sud | b.paris5@icloud.com  franckgrava@sfr.fr pierrefayard0628@orange.fr | 06 80 36 33 11      06 59 23 28 64        0689457454
+Bourg Sud | zakiabourgsud@outlook.fr | 07 82 29 89 91
+Bresse Tonic Foot | j.gonnu@autobernard.com   erwanlepyfoot@gmail.com | 0687804768   06 17 28 57 73
+Club Sportif De Belleysan – Section Foot… | phil.reveyron@gmail.com  othman.ihnane@gmail.com | 0787148517
+C. MULTISPORT DE BRESSOLLES | mmatrisciano01@aol.com     plorbois@hotmail.fr | 0610241923     0615479705
+Concordia FC | g.savinel@groupe-chevillardauto.fr     sboeglin29@gmail.com | 06 50 65 53 50    0659711790
+Cotiere Meximieux Villieu | pascal.bernin@gmail.com   sylvain_marechal@outlook.fr   cugno.agnes@gmail.com | 06 78 44 07 15  06 20 93 57 24   0698136908
+CS Chevroux | alain.marguin@club-internet.fr  daviid-du-01@hotmail.fr  alain.corrand@orange.fr | 0624080209  0624080261   0385349170
+CS De Beon | ostalpaert@gmail.com   ostalpaert@gmail.com   martinien.philippe42@gmail.com | 0699177878  0678009864    0678009864
+CS De Reyrieux | goudard.laurent@free.fr  goudard.laurent@free.fr    ieniengsxr@gmail.com | 07 78 81 49 29   07 78 20 75 91
+CS Lagnieu | choucroute01@free.fr     crapo_didier@yahoo.fr    crapo_didier@yahoo.fr  dylancaroff1309@gmail.com
+CS Viriat | csviriat01@gmail.com   mathisfroment5@gmail.com | 04 74 45 98 50    0601166124
+ECHENEVEX SEGNY CHEVRY O. | michel.folco@orange.fr     roger.boutherre@orange.fr | 0603907967     0607529872
+Ent. Bas Bugey Rhone | mic69bg@hotmail.fr    renevuillerod@hotmail.fr | 0621062810
+Entente Sportive Ambronay St Jean Le Vieux | mike.lagneau@hotmail.com    doriane.bei@gmail.com      julien.linda23@gmail.com
+ENT.S. REVERMONTOISE | sodavgregori@gmail.com    sodavgregori@gmail.com   anthonychene@orange.fr | 06 17 25 73 88    07 50 41 85 50
+Entente Sportive Val De Saone | cedric.badin@wanadoo.fr       vollet.karine@orange.fr    thierry.saxemard@sfr.fr | 0674203828     0670808092
+Esb Football Marboz | jeremy.moiraud@marboz-foot.com     jeunes@marboz-foot.com     secretaire@marboz-foot.com | 0618069189     06 88 85 68 88
+Essor Bresse Saone | alain.granturco@yahoo.fr       antoninb@laposte.net    alain.granturco@yahoo.fr | 0646715899
+Étoile S. Foissiat Etrez | mesguia0@gmail.com      florian.guillot2@sfr.fr    ludovicfontaine9@sfr.fr | 0641049177      06 68 84 72 77
+Étoile sportive Cormoranche | bertheaud-jl13@hotmail.com | 0675874653
+Fareins Saone Vallee Foot | lilou-axel@live.fr    ansoudyves@gmail.com     fp.perisse@orange.fr      thierry.nuguet@orange.fr | 0673666909   06 82 36 26 06     06 40 88 79 85
+FC Bords De Saone | chantal.borgey@gmail.com   thomas.rivas@hotmail.fr    a.chappelin.csrvds@gmail.com | 06 74 08 78 69     06 08 94 63 76
+FC Bressans | yves.fontaine@siemens.com    villafranca.lucas1998@gmail.com    xperrelle@orange.fr | 0629564657
+FC Bresse Nord | 06 51 75 70 91
+FC Cormoz St Nizier | sabrecarole@gmail.com    fccsn01@gmail.com    compta.fccsn@gmail.com | 0623781926     06 46 03 94 95
+FC Curtafond Confrancon St M. | ponsardthomasdu01@gmail.com | 0784953726
+FC De Balan | cloegironfcbalan@gmail.com          christellebouillot20@gmail.com
+FC D Injoux Genissiat | quentinbrachet01200@gmail.com      patrice-morfin@samse.fr
+FC Dombes | laet-13@hotmail.fr | 0621644455
+FC Dombes Bresse | lanet01@wanadoo.fr      udubourguais@gmail.com | 0681485446    0781511815
+FC Manziat | jeremie.corrand@orange.fr       amaury.benoit@ecomail.fr     filo.catherin@gmail.com | 07 68 90 06 55        0607575835
+FC Mas Rillier | stephanepaillet01120@gmail.com    cyrillebertrand69@gmail.com | 0633585854   0687713423
+FC Priay | mathieu.zicchi@gmail.com | 06 06 55 71 46
+FC Serrieres De Briord – Villebois | nicolasfornaini@hotmail.fr     jeanjacques.garcin@orange.fr  patricecouder36@gmail.com | 0674531024   04 74 88 55 69    0645773076
+FC St Maurice De Gourdans | philippe.peyraudsmg@gmail.com   deborah.zavaglia01@gmail.com    philippe.peyraudsmg@gmail.com | 0619557997    0619557997
+FC Veyle Vieux Jonc | 0622172816
+F.O. BOURG EN BRESSE | rayan_idrissi1@hotmail.com    522537@laurafoot.net | 07 51 32 57 91   0698166374
+BOURG EN BRESSE PERONNAS 01 | christine.morales@fbbp01.fr     s.rabault@hotmail.fr   curt.alexis@gmail.com   quentingros96@gmail.com | 0631687408    04 74 32 65 84    04 74 21 50 71 (club)
+Football Club Cotiere-luenaz | clinegrau@gmail.com   renardjohan@icloud.com    renardinho69680@gmail.com | 06 21 87 10 22    0658143413
+Football Club De Bord De Veyle | rahhhououamalich@gmail.com    : rodriguezyvann@gmail.com | 07 50 86 41 44   07 71 28 11 61
+F. Sud Gessien | christophe.frolot@etavis.ch   lperouchet@orange.fr    ghaithchihi9@gmail.com | 0787507937    0610637107
+JS Bettant | templierju@gmail.com    lucie.templier@gmail.com     ludovicampos@gmail.com | 0666793055     0763730163
+La St Cyrienne US | fion.anais@hotmail.fr    fredctr@hotmail.fr | 06 64 82 18 40   0629567062
+O. De St Denis Les Bourg | saad.bouziane699@gmail.com   romanobranche@gmail.com | 0619767192    06 87 06 08 54
+O. Sud Revermont 01 | mercado.eric@wanadoo.fr    paquet.christian@wanadoo.fr    maximecarvalho98@gmail.com | 06.61.32.59.17   : 0640427683
+Plastics Vallee FC | pvfc.ma@gmail.com     yusuf.ozcelik@hotmail.fr     brunetkenny@yahoo.fr | 06 48 44 45 62    07 69 32 27 97
+SC MILLE ETANGS | 06 36 96 24 33     06 63 62 94 19
+St Denis En Bugey Ambutrix FC | jordan.scalmana@gmail.com    fredfleury01@outlook.fr    Herverossi3@gmail.com | 0622402048    0630598868
+US Arbent Marchon | musomebens@gmail.com      v.ss77@yahoo.fr     sambardy.alexandre@hotmail.fr | 04 74 81 62 63    0760201562
+US Challex | hugo.duarte@wanadoo.fr    f.raphoz74@aol.fr   jeandamail@yahoo.fr | 0787072718  0617814268
+US Divonnaise | poncetjf@yahoo.fr      usdfoot@gmail.com     duffourjeanclaude@orange.fr | 0608803254          0625606194
+US Feillens | franckdagognet@orange.fr       brunochanut1706@free.fr      antoinerude5@gmail.com | 0680520188    06 14 69 93 01
+US Nantuatienne | oburhan@free.fr         coet.cathy@orange.fr    emre.acikgoz6639@gmail.com    diogocastanheiraprofissional@gmail.com | 06 32 77 80 68
+US Pont De Vaux Arbigny | bibi1987.kb@gmail.com      didier010415@orange.fr | 0638738078    06 13 38 29 78
+US Replonges | jeancharlesdurand9@gmail.com    david.rety@yahoo.fr    j.contet@orange.fr | 0681964144
+US Vaux En Bugey | bibi1987.kb@gmail.com      didier010415@orange.fr | 0638738078    06 13 38 29 78
+US Veyziat Oyonnax | emmanuelle.gonzalez8@orange.fr       jacques-maire@orange.fr       sasa.mt020@gmail.com | 0686120588      0632748801
+Valserine Football Club | sylvainsellier@yahoo.com         chaoukiramz@yahoo.fr           sboeglin29@gmail.com | 06 66 06 70 27     0614130974

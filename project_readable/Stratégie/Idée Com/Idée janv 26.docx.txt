@@ -1,0 +1,113 @@
+1. “Tour de France des Coachs” 100% digital
+Idée : tu fais un “Tour de France” virtuel des coachs/clubs/salles, ville par ville, et tu en fais un feuilleton sur 30 à 60 jours. Ça donne une histoire que les gens suivent, partagent, et que les médias locaux peuvent relayer.​
+Comment le faire concrètement
+Choisis 10 à 15 villes stratégiquesMarseille, Lyon, Paris, Lille, Toulouse, Bordeaux, Nice, Montpellier, Nantes, Strasbourg, etc.​
+Dans chaque ville, ton objectif = 3 coachs + 1 club mis en avant.
+Format de contenu par ville :
+1 mini-interview vidéo d’un coach (30–60 sec, tourné au smartphone).
+1 mini-interview d’un dirigeant de club / salle.
+1 post “carrousel” sur Instagram/LinkedIn : “Les coachs à suivre à [Ville]”.
+Tu postes chaque jour/2 jours :
+“Jour 1 – Marseille”
+“Jour 2 – Lyon”
+etc.
+Pourquoi c’est puissant
+Tu crées un effet feuilleton : les gens attendent la prochaine ville.
+Tu touches des communautés locales déjà engagées (clubs, coachs, pratiquants). La SporTech montre que l’ancrage territorial + digital est ce qui marche le mieux pour se faire connaître dans tout le pays.​
+Chaque personne mise en avant partage naturellement le contenu → diffusion gratuite.
+Coût & organisation
+Matériel : ton téléphone.
+Outils : Canva pour habillage visuel (gratuit), Google Sheets pour organiser le “roadbook”.
+Budget : essentiellement du temps + éventuellement quelques tickets de train ciblés (mais tu peux faire 80% à distance en visio).
+2. Challenge national “Coach vs Club” gamifié
+Idée : lancer un challenge national en ligne qui oppose des duos Coach + Club autour de mini-défis (performance, créativité, engagement réseaux sociaux). Tu exploites la gamification, un levier très utilisé par les startups sportech pour créer du buzz à faible coût.​
+Concept du challenge
+Nom (exemples) :
+“GetYourMentor Cup”
+“France Coaching Challenge”
+Format :
+Une paire “Coach + Club” s’inscrit gratuitement.
+Sur 3 à 4 semaines, tu proposes 1 défi par semaine :
+Semaine 1 : meilleur contenu vidéo ou reel (ex : séance d’entraînement originale).
+Semaine 2 : plus belle transformation / témoignage client.
+Semaine 3 : meilleur engagement local (ex : faire participer les adhérents).
+Semaine 4 : mini-tournoi interne, skill challenge filmé.
+Les participants postent sur leurs réseaux avec un hashtag unique (#GetYourMentorCup, par exemple).
+Ce que tu gagnes
+Tu fais bosser l’algorithme pour toi : les coachs et clubs produisent du contenu et te taguent, ce qui augmente fortement la visibilité sans acheter de publicité.​
+Tu te positionnes comme organisateur d’un événement national, pas juste “une app de plus”.
+Tu récupères :
+Des contacts qualifiés (coachs/clubs inscrits au challenge).
+Des tonnes de contenus réutilisables (reposts, stories, best-of).
+Organisation & coûts
+Inscription gratuite via un simple formulaire (Typeform/Google Form).
+Règles et scoring clairs publiés sur une landing page.
+Jury : vous 3 associés + 1 ou 2 “invités” (coach connu localement, influenceur sport).
+Récompenses low-cost mais attractives :
+Abonnements gratuits à la plateforme (6 à 12 mois).
+Shooting photo/vidéo offert (fait maison mais présenté comme “pack visibilité”).
+Budget : 0–500 € (essentiellement pour quelques visuels et éventuellement un petit cadeau symbolique).
+3. Guérilla marketing sportif “codes QR + défis terrain”
+Le marketing de guérilla est pensé pour générer un gros impact avec peu de budget, en misant sur la créativité et l’effet de surprise dans des lieux très fréquentés.​
+Concept : “Scan ton coach”
+Tu crées des visuels simples (affiches A3 / flyers) avec un message très direct :
+“Tu cherches un coach sérieux ?”
+“Tu es coach, tu veux plus de clients ?”
+Au centre : un énorme QR code qui mène vers une landing page GetYourMentor (pré-inscription).
+Tu vas poser ces visuels dans des endroits hyper ciblés :
+Devant les stades / complexes sportifs les soirs de match amateur.
+Dans les bars sportifs.
+Aux abords des grands parcs où les gens s’entraînent (parcours santé, bords de mer).
+Tu peux associer le QR code à un mini-jeu :
+“Scanne et tente de gagner 3 mois de coaching gratuit / 6 mois d’abonnement offert pour ton club.”
+Variante plus “coup de punch”
+Organiser une flash mob sportive dans 1–2 grandes villes (Marseille + Lyon par exemple) :
+Un groupe de coachs fait une courte démo (shadow boxing, mini-séance cross-training) sur une place ou devant un stade.
+Tout le monde finit la démo en montrant le message : “GetYourMentor – Trouve ton coach / ton club”.
+Films courts → publiés sur TikTok / Instagram Reels, rattachés à ton hashtag officiel.
+Ce type d’actions de guérilla a montré qu’on pouvait générer des hausses massives de trafic et d’engagement sans budget média, juste avec une bonne idée et une exécution propre.​
+Coût & prépa
+Impression affiches/flyers : 100–300 € pour une première vague.
+Autorisations : privilégie les lieux privés (bars, salles, clubs) ou les zones d’affichage libre pour éviter des amendes.
+Matériel vidéo : smartphone + trépied basique.
+4. “Top 100 Coachs France” – classement annuel GetYourMentor
+Les classements et tops (“Top 50”, “Top 100”) sont souvent utilisés par les médias et les startups pour générer du buzz et de l’autorité sans gros budget.​
+Comment le mettre en place
+Tu annonces : “GetYourMentor lance le 1er TOP 100 des coachs en France (par sport)”.
+Catégories :
+Top 20 coachs Football
+Top 20 coachs Basket
+Top 20 coachs Sports de combat
+Top 20 coachs Métiers de la forme
+quelques “coup de cœur” régionaux.
+Critères (simples) :
+Expérience
+Engagement sur les réseaux
+Avis clients (même s’ils ne sont pas encore sur ta plateforme)
+Implication associative / club.
+Process concret
+Création d’un formulaire “Candidature / Recommandation” pour les coachs.
+Tu demandes aussi aux clubs et sportifs de proposer des coachs.
+Tu constitues un petit comité (vous 3 + 1–2 experts locaux).
+Tu sors un PDF / page web avec la liste finale, photos et mini-bio de chaque coach.
+Tu envoies le classement à :
+Les coachs eux-mêmes (qui vont partager partout).
+Les clubs associés.
+Les médias locaux / blogs sportifs qui adorent ce genre de contenu.
+Pourquoi c’est très viral
+Chaque coach classé est fier → partage sur ses réseaux : “Je suis dans le Top 100 France”.
+Les clubs qui les emploient partagent aussi.
+Tu deviens la référence qui “donne des médailles” dans le monde du coaching sportif, ce qui te positionne au-dessus d’une simple app.
+Coût
+Temps de collecte et tri.
+Outils : Typeform/Google Form + Canva pour la mise en forme du PDF.
+Budget : quasi zéro.
+5. Te connecter aux collectifs & médias SporTech
+Pour amplifier tout ça, tu peux te greffer sur l’écosystème SporTech existant afin d’avoir un relais national sans payer de pub.​
+Actions simples
+Te référencer officiellement dans les annuaires/startups listes Sportech (SporTech FR, Les Pépites Tech, etc.).​
+Proposer un article “retour d’expérience” :
+“Comment on a lancé GetYourMentor avec 30 000 € de budget”
+“Ce que les coachs français nous ont appris en 2026”
+Participer à 1–2 événements / webinaires nationaux (souvent gratuits pour les startups early stage) pour présenter ton projet.
+Impact : ces organisations fédèrent déjà des centaines de startups et d’acteurs du sport, et sont conçues pour donner de la visibilité aux nouvelles solutions.

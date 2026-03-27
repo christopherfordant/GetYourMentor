@@ -1,0 +1,51 @@
+Côté sportifs, pour les sportifs :
+1,Quelle(s) fonctionnalité(s) sera(ont) ajoutée(s) à leur profil ?
+Profil :
+Âge
+Taille
+Expérience :Depuis combien de temps pratiquez-vous une activité sportive ? (1an, 3 ans, 10 ans…)
+Poids
+Sport pratiqués
+Localisation
+Ajouter le LOGO du club/joueur/salle de sport en fonction de sa sélection : IA
+Football/Basket-ball :
+Licencié = oui/non
+quel niveau ?
+poste de jeu
+Points forts (cités en 3)
+axes d’améliorations (cités en 3)
+objectif
+Antécédent médicaux
+Sports de combat :
+Licencié = oui/non
+quel niveau ?
+Quel sport ? MMA, Boxe anglaise, pied-poing, taekwondo, judo
+Points forts (cités en 3)
+axes d’améliorations (cités en 3)
+objectifs
+Antécédent médicaux
+Métiers de la forme :
+Abonné(e) à une salle = oui/non
+quel niveau ?
+Quel sport ? MMA, Boxe anglaise, pied-poing, taekwondo, judo
+Points forts (cités en 3)
+axes d’améliorations (cités en 3)
+objectifs
+antécédent médicaux
+IL FAUT CRÉER UNE FICHE SUIVI
+On parle d’un suivi mais quels sont les critères de suivi qu’il faudra intégrer (exemple : poids, taille, évolution carrière,  ? Faudra t-il les différencier, les personnaliser en fonction du sport choisi ? FIXER CES CRITERES. “fiche suivi sportif général”, fiche suivi sportif basket, fiche suivi sportif foot etc… ?
+2,COACHUP plateforme qui ressemble beaucoup à la notre (sans clubs) CA 110millions
+3, voir le Grand 2. Problématique du secteur sportif
+4. fidélisation des clients/engagement communautaire : Comment envisager les outils communautaires : réseaux sociaux (instgram, facebook, tiktok, discordLicencié = oui/non
+quel niveau ?
+quel sport ? MMA, Boxe anglaise, pied-poing, taekwondo, judo
+Points forts (cités en 3)
+axe d’amélioration (cités en 3)
+objectifs
+, LinkedIn) ? Défis collectifs, espaces d’échanges ?
+5. MVP, V1, V2, V3, V4 à fixer
+6. Est ce que les sportifs peuvent “follow” les clubs/coachs pour être au courant lorsque des séances sont proposés/dispos ou des défis communautaires ou autres sont mis en lignes ?
+OUI
+7. fixer le dépot en ligne des créateurs de contenu
+8. Les coachs qui font du cash !
+9. fitness park fait réserver ses créneaux sur Trainme

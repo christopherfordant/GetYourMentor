@@ -1,0 +1,90 @@
+COACH
+Tableau de bord
+↳ Mon profil
+↳ Mes notifications
+↳ Mes invitations
+↳ Mon planning / Mes cours programmés
+↳ Mes statistiques
+↳ Messagerie
+↳ Mes joueurs
+↳ Mes contenus (V2-V3)
+↳ My club (V4-V5-V6)?
+↳ Conseils et aide
+↳ Forum
+↳
+_________________________________________________________________________
+Mon Profil :
+Mon identifiant
+Adresse mail, mot de passe, changer le mot de passe
+Informations personnels
+Nom, prénom, date de naissance, numéro de téléphone
+Carte d’identité
+Mes diplômes
+Les disciplines enseignées
+Lieu d’intervention - rayon d’intervention
+Mes avis
+A propos de moi (rédaction d’une présentation)
+_________________________________________________________________________
+Mon planning / Mes cours programmés :
+Mon planning perso - mon planning club (si affilé)
+Affichage via un calendrier + listing des futurs rendez vous
+Affichage du profil ( envoyer un message / numéro de téléphone)
+_________________________________________________________________________
+Données bancaires :
+Mon rib
+listing des paiements reçus
+Mes factures
+liste de facture
+_________________________________________________________________________
+Mes statistiques :
+Nombre de visites du profil aujourd’hui :
+………
+Nombre de joueurs entraînés :
+……….
+Avis :
+……….
+Nombre de visites ce mois-ci :
+……….
+Nombre de séance données ce mois-ci :
+……….
+Nombre de programmes vendus :
+………
+Revenus générés :
+……….
+_________________________________________________________________________
+Messagerie :
+Boîte de réception sous forme de listing
+_________________________________________________________________________
+Mes joueurs :
+↳ Listing/affichage des profils sous forme de liste avec photo etc…
+* trier par : de A à Z, date de réservation, note de l'entraînement
+↳ Le profil du joueur
+affichage :  Nom, prénom, note de l'entraînement, commentaire (ou laissez un commentaire juste après une séance)
+fiche joueur
+Nombre de séance déjà effectuées avec ce sportif
+Thème des séances (exemple : 3 travail technique off, 3 tir ext, etc…)
+Groupe d'entraînement : afficher les photos de profils avec la possibilité de cliquer sur le profil
+_________________________________________________________________________
+Mon club d’entrainement : (V3-V4-V5?)
+Organise et centralise la gestion de tes entraînements en collaboration avec d’autres entraîneurs !  Grâce à une messagerie commune (groupe de discussion), vous pourrez gérer la création de vos évènements répartis sur une ou plusieurs séances. Invite d’autres entraîneurs afin d’optimiser tes ressources et ton temps de travail. Forme ton CREW et développe ta communauté !
+Affichage page principal :
+Photo de profil du club, video ou photo de couverture, nom du club, les profils coachs (bulles),à propos,  les evènements ou évènements à venir, Planning/EDT créneaux,
+Mon club
+nom du club, description
+photo de profil
+Membre du club
+Affichage liste des profils coachs
+Affichage liste des profils joueurs
+invite un entraîneur : adresse mail
+Mes événements
+Créer un événement ( date des séances, lieu, nom des entraîneurs, nombre de participant maximum, à propos de l'événement, gratuit ou payant, réservé au membre du club ou à tous)
+Gérer mon évènement (modification etc..)
+Événement(s) à venir
+Mon vestiaire
+Salon de discussion (affichage des derniers messages + Voir tous les messages)
+Vidéo Conseil, routine, plan d’entrainement
+programme téléchargeable
+_________________________________________________________________________
+Conseil et aide
+_________________________________________________________________________
+Forum

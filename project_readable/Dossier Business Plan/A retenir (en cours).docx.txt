@@ -1,0 +1,113 @@
+A RETENIR
+📖 Résumé exécutif
+👓 Vision et mission de GetYourMentor
+Notre mission est triple :
+Rendre le coaching sportif accessible à tous, quel que soit le niveau, l’âge ou la discipline pratiquée
+Développer le chiffre d’affaires des coachs individuels
+Donner, aux associations sportives et salles de sport, une nouvelle source de revenus.
+Objectifs mesurables :
+Pour concrétiser cette vision, GetYourMentor s'est fixé des objectifs ambitieux mais réalistes :
+5 000 coachs abonnés payants d’ici 3 ans
+1 500 associations sportives utilisant activement GetYourMentor
+Chaque coach et club réalise en moyenne 10 transactions par mois
+1.2 🥇 Proposition de valeur unique
+Notre proposition de valeur repose sur 3 piliers fondamentaux :
+Une offre multi-acteurs et multisports inédite :
+GYM permet à n’importe quel coach, club ou joueur d’interagir et de collaborer facilement dans un même environnement, en physique ou en ligne. Le tout avec un système de réservation fluide, une logique de visibilité personnalisée et un moteur de recherche par géolocalisation et discipline
+Un modèle Premium attractif et participatif
+Les coachs Premium bénéficie d’avantages concrets : visibilité boostée, création de packs d'entraînement, paiement instantané, tableau de bord avancé… mais surtout la possibilité de créer du contenu à disposition des sportifs contre un abonnement mensuel tarifé. Une vraie innovation communautaire qui leur permettra de mettre en vente des vidéos pédagogiques, un coaching à distance ainsi que le suivi du joueur. Ils pourront aussi répondre à n’importe quelle demande particulière d’un sportif (conseil, démonstration technique, programme personnalisé etc…). Ce système crée un effet réseau puissant et encourage la rétention.
+Un outil technologique intelligent et évolutif
+Grâce à des fonctionnalités modernes comme la messagerie intégrée, un espace membre dédié, des évènements thématiques, et à terme, une intégration d’outil d’intelligence artificielle pour personnaliser la progression et la performance des utilisateurs, GYM entend devenir la référence d’un accompagnement sportif personnalisé, accessible et structuré.
+Notre mission est simple : démocratiser l’accès à un accompagnement sportif personnalisé de qualité, tout en créant des opportunités concrètes pour les coachs et les clubs.
+1.3 🎯 Objectifs stratégiques
+Positionnement sur un marché en forte croissance :
+GYM se positionne sur le marché du coaching sportif en ligne, “SportTech”, un secteur en pleine expansion avec un taux de croissance annuel moyen de 10% en Europe.
+Déploiement progressif et ciblé :
+Notre stratégie repose sur un déploiement en deux phases :
+Phase 1 (Années 1 - 2) : Lancement national en France avec un focus sur les régions urbaines (Paris, Marseille, Lyon, Toulouse, Bordeaux, Lille, Strasbourg, Nantes, Rennes, Nice). Nous ciblons en priorité les coachs indépendants et les clubs locaux.
+Phase 2 (Années 3 - 5) : Expansion vers les villes moyennes et développement de partenariats avec les fédérations sportives.
+Partenariats clés :
+Nous prévoyons de nouer des partenariats stratégiques avec :
+Les clubs locaux et les salles de sport pour élargir notre réseau de coachs
+Des influenceurs sportifs et des sportifs professionnels pour une visibilité accrues
+Les fédérations sportives pour attirer plus de clubs et de coachs diplômés
+2 ⚠️ Problématique du secteur sportif
+2.1 📌 Les enjeux du coaching individuel et de la performance
+Digitalisation accélérée : Les sportifs recherchent désormais des outils flexibles, accessibles 24/7 et adaptés à leurs contraintes (télétravail, horaires décalés).
+Personnalisation : Les athlètes, qu’ils soient amateurs ou confirmés, exigent des programmes sur mesure, intégrant des données biométriques (fréquence cardiaque, récupération etc…) et des feedbacks en temps réel. Selon une étude de Deloitte (2024), 68% des sportifs sont prêts à payer plus cher pour un coaching individualisé.
+Professionnalisation des coachs : Les coachs indépendants, autrefois cantonnés aux salles de sport, doivent désormais maîtriser des outils digitaux (création de contenu, analyse de données) pour rester compétitifs. Pourtant, seulement 30% d’entre eux utilisent une plateforme dédiée (INSEE, 2023), laissant un marché immense à conquérir.
+Les coachs indépendants :
+Visibilité et acquisition de clients : En France, 70% des coachs dépendent du bouche-à-oreille ou des réseaux sociaux. Sans outil de référencement automatisé ou de gestion de communauté, ils peinent à fidéliser une clientèle stable. Par conséquent, un turnover élevé s’effectue (30% des clients changent de coach chaque année) et une précarité financière peut se présenter.
+Gestion administrative :
+Les coachs passent 20% de leur temps à gérer les réservations, paiements et suivis (IFOP, 2023). L’absence d'outils intégrés entraîne des erreurs de facturation et une perte de temps précieux. La conséquence ? Une baisse de productivité et un manque de focus sur le cœur du métier : le coaching.
+Monétisation des contenus : Seuls 15% des coachs vendent des programmes en ligne (Baromètre SportTech, 2024), faute de plateforme adaptée. Pourtant le marché des contenus sportifs digitaux représente 1.2 milliard d’euros en Europe. Par coach, la perte de revenus est estimée entre 500 et 1000 euros par mois.
+Les clubs et salles de sport :
+Fidélisation des membres : Le taux d’attrition moyen dans les salles de sport est de 40% par an (IHRSA). Les clubs manquent d’outils pour créer du lien entre coachs et membres ce qui a provoqué une baisse des revenus récurrents et une dépendance aux abonnements physiques, fragilisés par le confinement et le télétravail.
+Gestion des coachs indépendants : Les clubs peinent à intégrer les coachs freelances dans leur écosystème (réservations, paiements, évaluations). Résultat, seulement 20% des clubs collaborent avec des coachs externes (fédération des clubs de fitness). Les clubs se passent donc d’une offre complémentaire et perdent ainsi un revenu non négligeable.
+Les sportifs :
+Accès à des coachs qualifiés : 60% des sportifs ont du mal à trouver un coach adapté à leurs besoins (niveau, discipline, budget) selon une étude Les Mills (2023). Les plateformes existantes manquent de filtres intelligents (par objectif, localisation, spécialisation). Ce qui a créé une méfiance envers les solutions en ligne et un abandon rapide des plateformes (3 mois en moyenne).
+Suivi et motivation : Sans outil de suivi personnalisé (statistiques, rappels, feedbacks) 75% des sportifs abandonnent leur programme après 6 mois provoquant un échec de leurs objectifs fixés et une réticence à réinvestir dans du coaching.
+2.2 🤝Un marché en mutation : nouvelles attentes et usages
+Les coachs recherchent désormais des outils leur permettant de mieux structurer leur activité tout en optimisant leur temps. Ils souhaitent également bénéficier d’une visibilité accrue pour attirer une clientèle plus large et plus fidèle. Les clubs, quant à eux, doivent s’adapter à une demande croissante pour des services plus personnalisés et engageants. Ils cherchent à intégrer des solutions leur permettant de fidéliser leurs membres tout en diversifiant leur offre. Les sportifs, de leur côté, attendent des expériences plus flexibles, mieux adaptées à leurs besoins spécifiques et à leurs contraintes horaires.
+Les nouvelles attentes des sportifs incluent une personnalisation accrue des programmes d'entraînement. Ils souhaitent des séances adaptées à leurs objectifs précis, qu’il s’agisse de perte de poids, de préparation à une compétition ou de rééducation. Cette personnalisation doit s’accompagner d’un suivi régulier pour maintenir leur motivation et mesurer leurs progrès. Les coachs et les clubs doivent donc être en mesure de proposer des solutions sur mesure, tout en assurant un accompagnement continu.
+La fidélisation des clients représente un enjeu majeur pour les clubs et les coachs. Les outils communautaires, comme les défis collectifs ou les espaces d’échange, deviennent indispensables pour créer un sentiment d’appartenance. Ces fonctionnalités permettent de renforcer l’engagement des sportifs et de réduire le taux d’attrition, qui reste un défi important dans le secteur. Les clubs qui parviennent à créer une véritable communauté autour de leur offre, bénéficient d’une clientèle plus stable et plus satisfaite.
+Les plateformes qui réussissent à combiner simplicité, personnalisation et engagement communautaire se positionnent comme des leaders dans ce secteur en pleine évolution. Elles répondent aux nouvelles attentes des coachs, des clubs et des sportifs, tout en créant un écosystème vertueux et durable.
+3 📊 Etude de marché
+3.1 🌎 Marché global du sport et du coaching individuel
+Un secteur en pleine expansion : En 2025, le marché, mondial du fitness et du coaching individuel est estimé à plus de 100 milliards de dollars avec une croissance annuelle de 8 à 10%. En Europe, ce marché représente environ 30 milliards d’euros, dont 5 milliards rien qu’en France, ou le coaching individuel occupe une place centrale.
+Le coaching individuel, qu’il soit dispensé en salle de sport, à domicile ou en extérieur, représente environ 40% de ce marché en France, soit 2 milliards d’euros.
+Contrairement aux séances collectives, le coach individuel offre une personnalisation poussée, un suivi rigoureux et une relation privilégiée entre le coach et le sportif, des atouts majeurs qui justifient son succès.
+Les moteurs de croissance du marché :
+Plusieurs facteurs expliquent cette dynamique :
+Les études scientifiques et les campagnes de santé publique (ex. : “Bougez pour votre santé” en France) ont sensibilisé la population aux bienfaits de l’activité physique, tant sur le plan physique que mental. Par exemple, selon l’OMS, 1 adulte sur 4 ne pratique pas assez d’activité physique, ce qui pousse les gouvernements et assurances à encourager le sport via des subventions ou des remboursements partiels (ex. : certaines mutuelles remboursent jusqu’à 100€ /an pour des séances de coaching).
+L’évolution des modes de vie et des attentes
+Le télétravail et les horaires flexibles ont modifié les habitudes : les sportifs recherchent des séances adaptées à leurs contraintes (ex. : tôt le matin, le midi ou en soirée).
+La professionnalisation du secteur. Les coachs sont de plus en plus diplômés (BPJEPS, DEUST, licences STAPS) et spécialisés (rééducation, nutrition, préparation mentale), ce qui renforce la crédibilité du secteur. Les clubs de sport intègrent davantage de coachs freelances pour élargir leur offre, créant un écosystème hybride (salle + extérieur + domicile). Par exemple, le nombre de coachs indépendants a augmenté de 25% depuis 2020 (source : UNSA Sport).
+L’influence des réseaux sociaux et des influenceurs. Les plateformes comme Instagram ou TikTok ont démocratisé le coaching en mettant en avant des success stories (transformations physiques, défis sportifs). Les coachs utilisent ces canaux pour se faire connaître, mais peinent à monétiser leur audience sans outil dédié.  Chiffre clé : 70% des coachs utilisent les réseaux sociaux pour trouver des clients, mais seulement 30% parviennent à en vivre (source : Fédération Française de Fitness).
+Les attentes des consommateurs en 2025
+Les sportifs et les coachs ont des attentes précises qui façonnent le marché :
+Pour les sportifs :
+Personnalisation : 80% des clients recherchent des programmes adaptés à leurs objectifs (perte de poids, performance, bien-être).
+Flexibilité : Possibilité de réserver des séances à la carte (sans abonnement) ou en forfait (ex. : 10 séances)
+Transparence : Accès aux profils détaillés des coachs (diplômés, avis, spécialisations) avant de choisir.
+Suivi : Outils pour mesurer leurs progrès (poids, performances) et recevoir des feedbacks réguliers.
+Pour les coachs :
+Visibilité : 60% des coachs indépendants citent le manque de clients comme leur principal défi
+Outils de gestion : Besoin de solutions pour automatiser les réservations, les paiements et le suivi client.
+Monétisation : Possibilité de vendre des contenus complémentaires (programme PDF, vidéos) pour diversifier leurs revenus.
+Sécurité : Protection des données clients et des paiements (normes PCI-DSS).
+Pour les clubs :
+Réduire le taux d’attrition (40% par an) via des outils communautaires.
+Collaboration : avec des coachs externes pour élargir leur offre sans alourdir leur gestion.
+Fidélisation : Intégration de coachs freelances :
+Diversification : Proposer des forfaits hybrides (salle + extérieur + en ligne) pour attirer plus de membres.
+Les défis du marché
+Malgré sa croissance, le secteur du coaching individuel fait face à plusieurs défis :
+La concurrence accrue
+Le manque d’outils adaptés
+La méfiance envers les plateformes
+La réglementation et les assurances
+Les perspectives d’évolution du marché
+L’hybridation des modèles
+L’intégration de la technologie
+La montée en gamme
+L’expansion géographique
+3.2 💥 Tendances et innovations du secteur
+L’hybridation des modèles : le meilleur des deux mondes
+Le coaching sportif ne se limite plus à des séances physiques traditionnelles. Il s’enrichit désormais d’une dimension digitale complémentaire, créant un modèle hybride qui combine les avantages du contact humain et ceux de la technologie. Cette hybridation se manifeste de plusieurs manières :
+Programmes en ligne complémentaires : Selon une étude de Les Mills (2024), 60% des sportifs utilisant ce modèle hybride déclarent une meilleure progression que ceux qui ne suivent que des séances en présentiel.
+Suivi à distance entre les séances :
+Les outils de suivi digital permettent aux coachs de monitorer les progrès de leurs clients entre les séances. Cette approche renforce l’engagement des sportifs, avec un taux de rétention 30% plus élevé que les méthodes traditionnelles (source : Deloitte Sport, 2023).
+Communautés virtuelles :
+Les clubs et les coachs créent des espaces communautaires en ligne (groupe Facebook, forum dédiés, applications) ou les membres peuvent échanger, partager leur progrès et participer à des défis. Ces communautés renforcent la motivation et créent un sentiment d’appartenance, réduisant ainsi le taux d’abandon.
+La personnalisation poussée : au-delà du “one-size-fits-all”
+Les sportifs ne veulent plus de programmes génériques. Ils recherchent une expérience sur mesure, adaptée à leurs objectifs spécifiques, leur niveau, leur emploi du temps et même leur état psychologique.
+Cette tendance vers la personnalisation se traduit par plusieurs innovations :
+Les évolutions initiales approfondies : les coachs utilisent désormais des questionnaires détaillés pour évaluer les besoins de leurs clients avant de concevoir un programme.
+Les programmes dynamiques : grâce à l’intelligence artificielle et aux données collectées (capteurs etc…), les programmes peuvent être ajustés en temps réel. Selon McKinsey (2024), les programmes dynamiques augmentent la satisfaction client de 40%
+Le coaching holistique :
+70% des sportifs déclarent rechercher un accompagnement qui va au-delà du simple entraînement physique (Ifop, 2024) (la nutrition, la préparation mentale ou même la gestion du stress)
+.
+3.3 💡 Opportunités de positionnement stratégique
+Les sportifs recherchent de plus en plus des expériences collectives et des outils de motivation, comme en témoignent les succès des plateformes Strava ou Nike Training club. En intégrant des défis, des groupes de discussion et des systèmes de récompense, GYM peut fidéliser ses utilisateurs et créer un écosystème vertueux où chaque acteur (coach, sportif, club) trouve une valeur ajoutée.
+Le positionnement hybride de GYM, combinant présentiel et digital, est un atout stratégique dans un secteur où les deux modèles sont souvent perçus comme concurrents. En réalité, ils sont complémentaires : les séances en présentiel restent indispensables pour le contact humain et la motivation, tandis que les outils digitaux (suivi des progrès, contenus en ligne, communautés) enrichissent l’expérience et permettent un accompagnement continu.

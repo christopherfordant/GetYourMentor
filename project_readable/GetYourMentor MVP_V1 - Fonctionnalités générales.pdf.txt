@@ -1,0 +1,12 @@
+# Page 1
+Mise en relation entre coach, sportifs et etablissements recevant des sportifs MVP/V1
+- Plateforme en Français- 4 sports : Football, Basket ball, Sports de combat, Remise en forme (métier de la forme)- 4 interfaces (4 utilisateurs différents)  => Coachs => Etablissements privé et asso sportive => Sportifs => Administrateurs
+- Geolocalisation => Où trouver un coachs / un Club (dans un rayon de... pour eviter qu'ils s'y rendent)
+- Paiement en ligne => 100% du rembousement au sportif (annulation 48h avant le rdv) => 50% du rembousement au sportif (annulation entre 48h et 24h avant le rdv)> Générer un code à la réservation du client à donner au coach => Retenue 15% de commissions aux coachs       => Blocage des réservations automatique lorsque le créneau est complet
+- Création de profils => Verification d'identité (Pièce d'identité manuellement + verfication du numéro de téléphone) => Stokage securisé des données ( profil, documents d'identités, diplomes, Photos, logos, RIB etc... )
+- Filtre de recherche => uniquement coach feminin (seulement pour les femmes) => uniquement entre femme (seulement pour les femmes) => seulement cours individuel / 2 à 4 personnes / 4 et plus => cours uniquement en intérieur  => Disponibilité :         > aujourdhui         > demain          > choisir une date/heure    => Localisation :         > 1km         > 5km         > 10km => Trier par :         > sans préférence         > mieux noté         > + au - cher         > - au + cher
+- Planning => Pour joueur ( sous forme de liste, cours précédent, cours à venir) => Pour coachs => Pour etablissements/associations
+- Discussion entre les coachs et les sportifs => blocage mail et numéro de téléphone (démasqué apres la reservation d'une séance)
+- Reservation de séance > réservation pour 2 ou plusieurs personnes : informations personelles (nom, prénom, âge, mail) demandées pour autres réservants- Système de rappel de reservation de cours H -72 par mail et notification 
+-  Système de facturation
+- Système qui va permettre de mettre en tete de liste les coachs/clubs actifs et ayant la meilleure note de manière décroissante en fonction de leur localisation

@@ -1,0 +1,895 @@
+La première plateforme tout-en-un pour les coachs, clubs et sportifs
+Table des matières
+1Résumé exécutif3
+1.1Vision et mission de GetYourMentor3
+1.2Proposition de valeur unique4
+1.3Objectifs stratégiques5
+2⚠️ Problématique du secteur sportif6
+2.1Les enjeux du coaching individuel et de la performance6
+2.2Un marché en mutation : nouvelles attentes et usages9
+2.3Analyse des besoins spécifiques par cible : coachs / clubs / joueurs10
+3Etude de marché16
+3.1Marché global du sport et du coaching individuel16
+3.2Tendances et innovations du secteur21
+3.3Analyse concurrentielle25
+3.4Opportunités de positionnement stratégique26
+4💻 Notre solution28
+4.1Présentation de la plateforme GYM28
+4.2Fonctionnalités principales (réservation, messagerie, clubs, packs, événements, etc.)29
+4.3Offre communautaire & espace Création de contenu33
+4.4Abonnement premium, Système de paiement & gestion des commissions35
+5📢 Stratégie marketing & commerciale37
+5.1Go-To-Market : stratégie de lancement37
+5.2Acquisition des coachs, clubs et joueurs39
+5.3Fidélisation et rétention utilisateurs41
+6Plan opérationnel44
+6.1Roadmap produit (MVP, V1, V2…)44
+6.2Équipe projet et rôles des associés46
+6.3Recrutement des commerciaux et stratégie terrain48
+7💼 Modèle économique & projections financières49
+7.1Structure de revenus (abonnements, commissions, événements…)49
+7.2Hypothèses et projections sur 5 ans50
+7.3🏗️ Charges prévisionnelles et rentabilité53
+7.4🌟 Analyse du seuil de rentabilité57
+7.5🏦 Besoins de financement64
+8📢 Stratégie de croissance69
+8.1Expansion nationale puis internationale69
+8.2Déploiement multisport & partenariats élargis70
+8.3Développement de fonctionnalités avancées73
+📖 Résumé exécutif
+👓 Vision et mission de GetYourMentor
+GetYourMentor aspire à transformer le quotidien des associations sportives, des coachs (métiers de la forme, de basketball, de football, de combat) et des sportifs en digitalisant, optimisant et personnalisant leur rencontre et leur pratique sportive au quotidien. Née d'une frustration face au manque de connaissance de joueurs et d’un réseau local, notre plateforme incarne une vision claire : démocratiser l'accès à un répertoire de coachs de qualités et de sportifs de tous niveaux voulant avoir accès à un entraînement individuel.
+Notre mission est triple :
+Rendre le coaching sportif accessible à tous, quel que soit le niveau, l’âge ou la discipline pratiquée
+Développer le chiffre d’affaires des coachs individuels
+Donner, aux associations sportives et salles de sport, une nouvelle source de revenus.
+Nos valeurs fondamentales :
+L’Accessibilité : GetYourMentor veut rendre le sport accessible à tous, quel que soit le niveau, l’âge ou la discipline pratiquée.
+La Simplicité : GYM promet une expérience utilisateur fluide et intuitive facilitant la réservation d’une séance
+Le professionnalisme : La mise en avant des coachs diplômés et certifiés par l’application garantiront des séances de qualités
+Confiance et sécurité : Un système d’avis, des paiements sécurisés et des coachs vérifiés afin d’instaurer et d’entretenir une relation de confiance entre nos utilisateurs
+Collaboration & Partage : Construire une communauté active et solidaire afin de renforcer le sentiment d’appartenance
+Impact durable : Faire évoluer les méthodes de coaching et la consommation du sport à long terme
+GetYourMentor ne se limite pas à mettre en relation des coachs et des sportifs, mais ambitionne une transformation structurelle du coaching, que ce soit dans les associations sportives ou dans la simple pratique du coaching ou de la consommation du sport en général :
+"Nous ne voulons pas simplement simplifier l'entraînement, mais changer fondamentalement la façon dont le coaching fonctionne dans le monde du basketball."
+Objectifs mesurables :
+Pour concrétiser cette vision, GetYourMentor s'est fixé des objectifs ambitieux mais réalistes :
+5 000 coachs abonnés premium d’ici 3 ans
+1 500 associations sportives utilisant activement GetYourMentor
+Chaque coach et club réalise en moyenne 10 transactions par mois
+Cette approche s’inscrit parfaitement dans l’évolution actuelle du coaching sportif, où la demande pour des outils digitaux performants ne cesse de croître. Le marché mondial du coaching est estimé à 12.7 milliards de dollars. Il est prévu qu’il atteigne 20 milliards de dollars d’ici 2032, avec un taux de croissance annuel de 6.5% %, soulignant le potentiel de GetYourMentor dans cet écosystème en pleine expansion.
+🥇 Proposition de valeur unique
+GetYourMentor se positionne comme la première plateforme digitale tout-en-un dédiée à la mise en relation instantanée entre coachs sportifs, clubs et pratiquants, accessible à tous niveaux et pour tous les sports. Là où les acteurs existants se contentent souvent d’un modèle unique (coach fitness, coaching à domicile, ou simple annuaire), GYM propose un écosystème complet, structuré autour de la progression, de la performance et de la communauté.
+Notre proposition de valeur repose sur 3 piliers fondamentaux :
+Une offre multi-acteurs et multisports inédite :
+GYM permet à n’importe quel coach, club ou joueur d’interagir et de collaborer facilement dans un même environnement, en physique ou en ligne. Le tout avec un système de réservation fluide, une logique de visibilité personnalisée et un moteur de recherche par géolocalisation et discipline
+Un modèle Premium attractif et participatif
+Les coachs Premium bénéficie d’avantages concrets : visibilité boostée, création de packs d'entraînement, paiement instantané, tableau de bord avancé… mais surtout la possibilité de créer du contenu à disposition des sportifs contre un abonnement mensuel tarifé. Une vraie innovation communautaire qui leur permettra de mettre en vente des vidéos pédagogiques, un coaching à distance ainsi que le suivi du joueur. Ils pourront aussi répondre à n’importe quelle demande particulière d’un sportif (conseil, démonstration technique, programme personnalisé etc…). Ce système crée un effet réseau puissant et encourage la rétention.
+Un outil technologique intelligent et évolutif
+Grâce à des fonctionnalités modernes comme la messagerie intégrée, un espace membre dédié, des évènements thématiques, et à terme, une intégration d’outil d’intelligence artificielle pour personnaliser la progression et la performance des utilisateurs, GYM entend devenir la référence d’un accompagnement sportif personnalisé, accessible et structuré.
+Enfin, l’ADN de GYM repose sur l’authenticité, l’inclusivité et l’expérience utilisateur. Fondée par trois passionnés de sport issus du basketball français et des sports de combat, GYM combine expertise terrain, réseau étendu, sens du branding et culture de l’excellence.
+Notre mission est simple : démocratiser l’accès à un accompagnement sportif personnalisé de qualité, tout en créant des opportunités concrètes pour les coachs et les clubs.
+🎯 Objectifs stratégiques
+Positionnement sur un marché en forte croissance :
+GYM se positionne sur le marché du coaching sportif en ligne, “SportTech”, un secteur en pleine expansion avec un taux de croissance annuel moyen de 10% en Europe. Notre plateforme répond à une demande croissante de digitalisation des services sportifs, en offrant une solution complète pour les coachs, les clubs et les sportifs. Nous visons à devenir un acteur majeur en France d’ici 3 ans, en capitalisant sur l’absence de plateforme intégrée combinant réservation, gestion de contenu et outils de performance.
+Déploiement progressif et ciblé :
+Notre stratégie repose sur un déploiement en deux phases :
+Phase 1 (Années 1 - 2) : Lancement national en France avec un focus sur les régions urbaines (Paris, Marseille, Lyon, Toulouse, Bordeaux, Lille, Strasbourg, Nantes, Rennes, Nice). Nous ciblons en priorité les coachs indépendants et les clubs locaux.
+Phase 2 (Années 3 - 5) : Expansion vers les villes moyennes et développement de partenariats avec les fédérations sportives.
+Innovation et différenciation :
+Nous nous différencions par notre approche axée sur la réservation instantanée de séance, la création de contenu et notre modèle hybride (abonnements + commissions), qui permet une fidélisation accrue des utilisateurs. Notre priorité sera de développer des fonctionnalités clés comme la création de séance par le coach, la création de contenu et la messagerie interne pour renforcer l’engagement des utilisateurs.
+Partenariats clés :
+Nous prévoyons de nouer des partenariats stratégiques avec :
+Les clubs locaux et les salles de sport pour élargir notre réseau de coachs
+Des influenceurs sportifs et des sportifs professionnels pour une visibilité accrues
+Les fédérations sportives pour attirer plus de clubs et de coachs diplômés
+⚠️ Problématique du secteur sportif
+📌 Les enjeux du coaching individuel et de la performance
+Un secteur en pleine mutation.
+Le marché du coaching individuel, et plus largement celui de la performance sportive, connaît une transformation profonde, portée par plusieurs tendances structurelles :
+Digitalisation accélérée : la demande pour des solutions en ligne a explosé depuis 2020, avec une croissance annuelle moyenne de 12% pour les plateformes de coaching digital (McKinsey, 2023). Les sportifs recherchent désormais des outils flexibles, accessibles 24/7 et adaptés à leurs contraintes (télétravail, horaires décalés).
+Personnalisation : Les athlètes, qu’ils soient amateurs ou confirmés, exigent des programmes sur mesure, intégrant des données biométriques (fréquence cardiaque, récupération etc…) et des feedbacks en temps réel. Selon une étude de Deloitte (2024), 68% des sportifs sont prêts à payer plus cher pour un coaching individualisé.
+Professionnalisation des coachs : Les coachs indépendants, autrefois cantonnés aux salles de sport, doivent désormais maîtriser des outils digitaux (création de contenu, analyse de données) pour rester compétitifs. Pourtant, seulement 30% d’entre eux utilisent une plateforme dédiée (INSEE, 2023), laissant un marché immense à conquérir.
+Des défis majeurs se présentent donc pour les acteurs du secteur :
+Les coachs indépendants :
+Visibilité et acquisition de clients : En France, 70% des coachs dépendent du bouche-à-oreille ou des réseaux sociaux. Sans outil de référencement automatisé ou de gestion de communauté, ils peinent à fidéliser une clientèle stable. Par conséquent, un turnover élevé s’effectue (30% des clients changent de coach chaque année) et une précarité financière peut se présenter.
+Gestion administrative : Les coachs passent 20% de leur temps à gérer les réservations, paiements et suivis (IFOP, 2023). L’absence d'outils intégrés entraîne des erreurs de facturation et une perte de temps précieux. La conséquence ? Une baisse de productivité et un manque de focus sur le cœur du métier : le coaching.
+Monétisation des contenus : Seuls 15% des coachs vendent des programmes en ligne (Baromètre SportTech, 2024), faute de plateforme adaptée. Pourtant le marché des contenus sportifs digitaux représente 1.2 milliard d’euros en Europe. Par coach, la perte de revenus est estimée entre 500 et 1000 euros par mois.
+Les clubs et salles de sport :
+Fidélisation des membres : Le taux d’attrition moyen dans les salles de sport est de 40% par an (IHRSA). Les clubs manquent d’outils pour créer du lien entre coachs et membres ce qui a provoqué une baisse des revenus récurrents et une dépendance aux abonnements physiques, fragilisés par le confinement et le télétravail.
+Gestion des coachs indépendants : Les clubs peinent à intégrer les coachs freelances dans leur écosystème (réservations, paiements, évaluations). Résultat, seulement 20% des clubs collaborent avec des coachs externes (fédération des clubs de fitness). Les clubs se passent donc d’une offre complémentaire et perdent ainsi un revenu non négligeable.
+Les sportifs :
+Accès à des coachs qualifiés : 60% des sportifs ont du mal à trouver un coach adapté à leurs besoins (niveau, discipline, budget) selon une étude Les Mills (2023). Les plateformes existantes manquent de filtres intelligents (par objectif, spécialisation). Ce qui a créé une méfiance envers les solutions en ligne et un abandon rapide des plateformes (3 mois en moyenne).
+Suivi et motivation : Sans outil de suivi personnalisé (statistiques, rappels, feedbacks) 75% des sportifs abandonnent leur programme après 6 mois provoquant un échec de leurs objectifs fixés et une réticence à réinvestir dans du coaching.
+UNE OPPORTUNITÉ POUR “GET YOUR MENTOR”
+En proposant une solution qui présente plusieurs fonctionnalités nécessaires et répondant aux besoins des utilisateurs, GYM permet à chaque acteur de se concentrer sur l’essentiel :
+Les coachs :
+Visibilité accrue : Grâce à un algorithme de match (sportif/coach) et un système de notation
+Outils de gestion : Emploi du temps individualisé, Réservations automatisées, paiements sécurisés
+Monétisation : vente de contenus (vidéos, programmes, suivis…) avec une commission optimisée (20%)
+Les clubs :
+Fidélisation : Espace dédié pour les membres (suivi des progrès, challenge communautaires)
+Outils de gestion : Emploi du temps individualisé, Réservations automatisées, paiements sécurisés
+Les sportifs :
+Accès simplifié : Filtres par genre, budget, localisation et avis vérifiés
+Suivi personnalisé : Tableau de bord avec statistiques (progrès, fréquences) et rappels automatiques
+Système de paiement sécurisé et transparent
+En répondant à ces enjeux, GYM ne se contente pas de simplifier la vie de ses utilisateurs : elle crée un écosystème vertueux où chacun y trouvera son compte, dans un marché en pleine croissance.
+🤝Un marché en mutation : nouvelles attentes et usages
+Le marché du coaching sportif connaît une évolution significative ces dernières années. Les attentes des coachs, des clubs et des sportifs se transforment rapidement sous l’influence de nouvelles tendances sociétales et technologiques.
+Les coachs recherchent désormais des outils leur permettant de mieux structurer leur activité tout en optimisant leur temps. Ils souhaitent également bénéficier d’une visibilité accrue pour attirer une clientèle plus large et plus fidèle. Les clubs, quant à eux, doivent s’adapter à une demande croissante pour des services plus personnalisés et engageants. Ils cherchent à intégrer des solutions leur permettant de fidéliser leurs membres tout en diversifiant leur offre. Les sportifs, de leur côté, attendent des expériences plus flexibles, mieux adaptées à leurs besoins spécifiques et à leurs contraintes horaires.
+La digitalisation joue un rôle clé dans cette mutation, même pour les séances en présentiel. Les coachs et les clubs ont besoin d’outils numériques pour simplifier la gestion des réservations, des paiements et des plannings. Ces outils leur permettent de se concentrer sur leur cœur de métier tout en améliorant l’expérience client. Les sportifs, eux, recherchent des plateformes leur offrant une plus grande transparence sur les profils des coachs, les avis des autres utilisateurs et les tarifs pratiqués. Ils veulent également pouvoir réserver facilement leurs séances et suivre leurs progrès de manière intuitive.
+Les nouvelles attentes des sportifs incluent une personnalisation accrue des programmes d'entraînement. Ils souhaitent des séances adaptées à leurs objectifs précis, qu’il s’agisse de perte de poids, de préparation à une compétition ou de rééducation. Cette personnalisation doit s’accompagner d’un suivi régulier pour maintenir leur motivation et mesurer leurs progrès. Les coachs et les clubs doivent donc être en mesure de proposer des solutions sur mesure, tout en assurant un accompagnement continu.
+La fidélisation des clients représente un enjeu majeur pour les clubs et les coachs. Les outils communautaires, comme les défis collectifs ou les espaces d’échange, deviennent indispensables pour créer un sentiment d’appartenance. Ces fonctionnalités permettent de renforcer l’engagement des sportifs et de réduire le taux d’attrition, qui reste un défi important dans le secteur. Les clubs qui parviennent à créer une véritable communauté autour de leur offre, bénéficient d’une clientèle plus stable et plus satisfaite.
+Les coachs doivent également faire face à une concurrence accrue. Pour se différencier, ils misent de plus en plus sur leur expertise et leur capacité à offrir un accompagnement de qualité. Les plateformes qui leur permettent de mettre en avant leurs compétences, leurs certifications et leurs spécialisations deviennent donc essentielles. Ces outils leur offrent une visibilité accrue et les aident à attirer une clientèle plus large et engagée.
+De leur côté, les clubs cherchent à diversifier leur offre pour répondre aux attentes variées de leurs membres. Les plateformes, en proposant des systèmes de réservation et de paiement centralisés, deviennent ainsi des partenaires stratégiques. Ces solutions permettent de générer des revenus complémentaires tout en offrant une expérience plus riche à leurs membres.
+Les sportifs, enfin, attendent des solutions qui permettent de trouver rapidement le coach idéal. Les critères de choix incluent désormais la localisation, les spécialisations, les tarifs et les avis des autres utilisateurs. Les plateformes qui proposent des moteurs de recherche avancés, combinés à des systèmes de notation transparents, répondent parfaitement à cette demande. Elles permettent aux sportifs de faire un choix éclairé et de réserver leurs séances en quelques clics.
+Cette mutation du marché du coaching offre des opportunités significatives pour les acteurs capables de s’adapter. Les plateformes qui réussissent à combiner simplicité, personnalisation et engagement communautaire se positionnent comme des leaders dans ce secteur en pleine évolution. Elles répondent aux nouvelles attentes des coachs, des clubs et des sportifs, tout en créant un écosystème vertueux et durable.
+🔍 Analyse des besoins spécifiques par cible : coachs / clubs / joueurs
+Cible :
+Coachs Indépendants
+Besoins Principaux (avec exemples et fonctionnalités)
+Besoins secondaires (avec opportunité)
+Attentes Transversales (avec solution GYM)
+Gestion centralisée des réservations :
+Calendrier synchronisé avec Google/Outlook, rappels automatiques par SMS/email (ex.: “Votre séance avec [Client] est confirmée demain à 18h”).
+Création de contenus complémentaires :
+Éditeur intégré pour concevoir des programmes PDF/vidéos (ex. : “Programme 8 semaines pour préparation du marathon”), avec monétisation (commission 20%).
+Simplicité d’utilisation :
+Interface “glisser-déposer” pour gérer les créneaux avec tutoriels vidéo intégrés.
+Visibilité accrue :
+Profil coach avec certifications vérifiées et système de notation (ex. : 4.8 / 5 sur 50 avis). Mise en avant via un algorithme de recommandation (ex. : “Coach spécialisé en rééducation à Lyon”).
+Collaboration avec les clubs :
+Partenariats pour animer des ateliers (ex. : Séance découverte gratuite pour les membres du club X”).
+Sécurité des transactions :
+Paiements sécurisés via Stripe Connect (normes PCI-DSS), avec historique des transactions exportables pour la comptabilité.
+Organisation optimisée :
+Vue calendrier avec couleurs par type de séance (ex. : bleu = séance individuelle, vert = atelier groupe) et synchronisation avec les agendas des clients.
+Accès à des ressources :
+Webinaires mensuels avec des experts (“Comment fidéliser ses clients”), et bibliothèque de templates (ex. : contrats types, fiches d’exercices).
+Support réactif :
+Chatbot 24/7 pour les questions fréquentes + équipe dédiée répondant sous 24h (ex. Problème de paiement ? Nous intervenons en moins d’une journée”).
+Suivi des revenus :
+Tableau de bord avec graphiques (ex. : “CA mensuel : 3 200€, +15% par rapport au mois dernier”), et export des données pour l’expert comptable
+Transparence :
+Affichage des commissions (ex. : 20% sur les ventes de contenus) et simulateur de revenus
+Promotion des services :
+Outils de marketing intégrés (ex. : génération automatique de posts pour les réseaux sociaux : “dernicette eres places pour mes séances semaine !”)
+Accès mobile :
+Application iOS/Android avec notifications push (ex. : “Nouvelle réservation !”), et gestion hors ligne des plannings.
+Cible :
+Clubs
+Besoins Principaux (avec exemples et fonctionnalités)
+Besoins secondaires (avec opportunité)
+Attentes Transversales (avec solution GYM)
+Intégration des coachs :
+Système de création de compte pour les “coachs clubs”, récupérable via leurs adresses mail (Le club crée les comptes de ses coachs, qui donneront des séances).
+Organisation d’évènements
+Module “Évènements” pour créer des ateliers (ex. : Atelier mobilité Senior”) avec gestion des inscriptions et paiements.
+Simplicité
+Tableau de bord unique pour gérer les coachs, les membres et les évènements, avec formation en ligne pour les administrateurs.
+Gestion centralisée des réservations
+Vue d’ensemble des créneaux des coachs (ex. : 10 séances réservées au club avec rappels automatiques.
+Promotion des services :
+Outils pour envoyer des newsletters (ex. : “Découvrez nos nouveaux coachs !”) et afficher des bannières sur l’application (ex. : “Offre spéciale : - 20% sur les ateliers ce mois-ci).
+Sécurité
+Chiffrement des données clients, conformité RGPD, et audit annuel des processus de paiement.
+Suivi des performances :
+Enquête de satisfaction, données afin de mesurer l’engagement des licenciés (ex. : “Taux de participation aux entraînements individuels : 45%. +10% par rapport au trimestre dernier”)
+Partenariats stratégiques :
+Module pour collaborer avec des sponsors du club (ex. : Initiation au basket-ball pour les salariés de l’entreprise décathlon)
+Support :
+Ligne dédiée pour les clubs, avec un gestionnaire de compte attribué (ex. : “Votre contact privilégié : Romain, disponible au 01 23 45 67 89”)
+Création d’un espace communautaire :
+Forum intégré pour les membres (ex. : Groupe ‘Préparation marathon’ avec 50 participants”),
+Transparence :
+Contrats types pré-remplis pour les partenariats avec les coachs, et tableau comparatif des commissions
+Diversification des revenus :
+Système de commissions sur les séances des coachs partenaires (ex. : Le club X gagne 500€/mois via des coachs GYM”).
+Mobilité :
+Application club avec accès aux réservations, aux analytics et aux outils de communication.
+Cible :
+Sportifs
+Besoins Principaux (avec exemples et fonctionnalités)
+Besoins secondaires (avec opportunité)
+Attentes Transversales (avec solution GYM)
+Recherche simplifiée de coachs :
+Filtres avancés (ex. : “Coach de football, à La Rochelle, Tarif < 50€ par séance, note > 4,5 / 5”), et carte interactive des coachs disponibles.
+Participation à des défis et jeux concours :
+Module “défis” avec classements (ex. : Top 10 des membres les plus actifs ce mois-ci”), et récompenses offertes (ex : “1 séance offerte pour 10 séances complétées”).
+Simplicité :
+Réservation en 3 clics (ex. : “Choisissez un coach - Sélectionnez un créneau - Payez en ligne”), avec confirmation instantanée.
+Consultation des profils détaillés :
+Fiches coach avec une présentation, certifications (ex. : DEJEPS métier de la forme) , avis vérifiés (ex. : Super coach, très à l’écoute !”)
+Accès à des ressources :
+Bibliothèque de contenus (ex. : guide nutrition pour la course à pied”),
+Sécurité
+Paiement sécurisé avec option de paiement en plusieurs fois (ex. : 3x sans frais”), et vérification des identités des coachs.
+Réservation rapide :
+Calendrier intéractif avec disponibilités en temps réel (ex. : “Mardi 10h - 12h”) et option de réservation récurrente (ex. : “Tous les lundis à 18h”).
+Flexibilité :
+Option “Séance à domicile” ou “En salle”, avec géolocalisation des coachs disponibles près de chez soi.
+Support :
+Assistance par chat intégré (ex. : “Besoin d’aide pour annuler une séance ?”) et FAQ détaillée.
+Suivi des progrès :
+Tableau de bord personnel avec graphiques (ex. : “Poids : -3kg en 2 mois”), historique des séances et feedbacks du coach (ex. : “Bonne progression sur les squats !”).
+Transparence :
+Affichage des tarifs TTC (ex. : “50 €/ séance, paiement sécurisé”), et politique d’annulation claire (ex. : Remboursable jusqu’à 24h avant”).
+Rappels et feedbacks :
+Notifications automatiques (ex. : “Votre séance est demain à 14h !”) et système de feedback post-séance (ex. : “Notez votre séance : 1 à 5 étoiles “).
+Mobilité :
+Application mobile avec accès au calendrier, aux messages du coach, et aux défis communautaires.
+Besoins
+Communs
+Besoins Principaux (avec exemples et fonctionnalités)
+Besoins secondaires (avec opportunité)
+Attentes Transversales (avec solution GYM)
+Besoins
+Communs
+Interface intuitive :
+Design épuré avec onboarding guidé (ex. : Bienvenue ! Voici comment réserver votre première séance”).
+Personnalisation :
+Paramètre ajustable (ex. : “Préférences de notification : email/SMS”).
+Formation continue :
+Accès à des modules e-learning (ex. : optimisez vos séances avec des techniques de motivation”).
+Besoins
+Communs
+Tarifs transparents :
+Affichage clair des prix (ex. : Abonnement premium 19.99€/mois, commission : 20% sur les ventes de contenus).
+Outils mobiles :
+Applications iOS/Android avec synchronisation hors ligne.
+Communauté engagée :
+Espaces d’échange (ex. : forum “Nutrition”) et évènements virtuels (ex. : lives avec des athlètes).
+📊 Etude de marché
+🌎 Marché global du sport et du coaching individuel
+Un secteur en pleine expansion :
+Le marché global du sport, et plus particulièrement celui du coaching individuel, connaît une croissance soutenue depuis plusieurs années, portée par une prise de conscience accrue des bienfaits de l’activité physique, des évolutions sociétales (télétravail, flexibilité des horaires) et une demande croissante de personnalisation. En 2025, le marché mondial du fitness et du coaching individuel est estimé à plus de 100 milliards de dollars, avec une croissance annuelle de 8 à 10%. En Europe, ce marché représente environ 30 milliards d’euros, dont 5 milliards rien qu’en France, ou le coaching individuel occupe une place centrale.
+Le coaching individuel, qu’il soit dispensé en salle de sport, à domicile ou en extérieur, représente environ 40% de ce marché en France, soit 2 milliards d’euros. Cette part importante s’explique par une demande forte pour des séances sur mesure, adaptées aux objectifs spécifiques de chaque sportif (perte de poids, préparation à une compétition, rééducation, bien-être). Contrairement aux séances collectives, le coach individuel offre une personnalisation poussée, un suivi rigoureux et une relation privilégiée entre le coach et le sportif, des atouts majeurs qui justifient son succès.
+Les moteurs de croissance du marché :
+Plusieurs facteurs expliquent cette dynamique :
+La prise de conscience des bienfaits du sport sur la santé
+Les études scientifiques et les campagnes de santé publique (ex. : “Bougez pour votre santé” en France) ont sensibilisé la population aux bienfaits de l’activité physique, tant sur le plan physique que mental. Par exemple, selon l’OMS, 1 adulte sur 4 ne pratique pas assez d’activité physique, ce qui pousse les gouvernements et assurances à encourager le sport via des subventions ou des remboursements partiels (ex. : certaines mutuelles remboursent jusqu’à 100€ /an pour des séances de coaching).
+L’évolution des modes de vie et des attentes
+Le télétravail et les horaires flexibles ont modifié les habitudes : les sportifs recherchent des séances adaptées à leurs contraintes (ex. : tôt le matin, le midi ou en soirée).
+La recherche de sens et de bien-être post pandémie a accru la demande pour des activités personnalisées, loin des salles de sport surpeuplées. Chiffre clé : 65% des Français déclarent privilégier les séances en présentiel pour le contact humain et la motivation (source : IFOP, 2024).
+La professionnalisation du secteur. Les coachs sont de plus en plus diplômés (BPJEPS, DEUST, licences STAPS) et spécialisés (rééducation, nutrition, préparation mentale), ce qui renforce la crédibilité du secteur. Les clubs de sport intègrent davantage de coachs freelances pour élargir leur offre, créant un écosystème hybride (salle + extérieur + domicile). Par exemple, le nombre de coachs indépendants a augmenté de 25% depuis 2020 (source : UNSA Sport).
+L’influence des réseaux sociaux et des influenceurs. Les plateformes comme Instagram ou TikTok ont démocratisé le coaching en mettant en avant des success stories (transformations physiques, défis sportifs). Les coachs utilisent ces canaux pour se faire connaître, mais peinent à monétiser leur audience sans outil dédié.  Chiffre clé : 70% des coachs utilisent les réseaux sociaux pour trouver des clients, mais seulement 30% parviennent à en vivre (source : Fédération Française de Fitness).
+Segmentation du marché du coaching individuel en France
+Segment
+Taille (2025)
+Croissance annuelle
+Tendances clés
+Coaching en salle
+1.2 milliard d’euros
++7%
+Intégration de coachs freelances, demande pour des séances “privées” dans les clubs.
+Coaching à domicile
+500 millions d’euros
++12%
+Flexibilité horaire, demande des séniors et des parents.
+Coaching en extérieur
+300 millions d’euros
++15%
+Séances en parcs, bootcamps, demande post-confinement.
+Coaching spécialisé
+200 millions d’euros
++20%
+Rééducation, préparation mentale, coaching pour sportifs de haut niveau.
+Coaching en ligne
+100 millions d’euros
++5%
+Complément aux séances en présentiel (programmes, suivi), mais pas de substitution
+Les attentes des consommateurs en 2025
+Les sportifs et les coachs ont des attentes précises qui façonnent le marché :
+Pour les sportifs :
+Personnalisation : 80% des clients recherchent des programmes adaptés à leurs objectifs (perte de poids, performance, bien-être).
+Flexibilité : Possibilité de réserver des séances à la carte (sans abonnement) ou en forfait (ex. : 10 séances)
+Transparence : Accès aux profils détaillés des coachs (diplômés, avis, spécialisations) avant de choisir.
+Suivi : Outils pour mesurer leurs progrès (poids, performances) et recevoir des feedbacks réguliers.
+Pour les coachs :
+Visibilité : 60% des coachs indépendants citent le manque de clients comme leur principal défi
+Outils de gestion : Besoin de solutions pour automatiser les réservations, les paiements et le suivi client.
+Monétisation : Possibilité de vendre des contenus complémentaires (programme PDF, vidéos) pour diversifier leurs revenus.
+Sécurité : Protection des données clients et des paiements (normes PCI-DSS).
+Pour les clubs :
+Réduire le taux d’attrition (40% par an) via des outils communautaires.
+Collaboration : avec des coachs externes pour élargir leur offre sans alourdir leur gestion.
+Fidélisation : Intégration de coachs freelances :
+Diversification : Proposer des forfaits hybrides (salle + extérieur + en ligne) pour attirer plus de membres.
+Les défis du marché
+Malgré sa croissance, le secteur du coaching individuel fait face à plusieurs défis :
+La concurrence accrue :
+Le nombre de coachs a augmenté de 25% depuis 2020, ce qui rend le marché plus saturé. Les plateformes low-cost (ex. : séances à 20€/h) tirent les prix vers le bas, mais au détriment de la qualité.
+Le manque d’outils adaptés :
+70% des coachs utilisent des outils non spécialisés (Excel, WhatsApp) pour gérer leur activité, ce qui génère des erreurs et une perte de temps. Les clubs manquent aussi de solutions intégrées pour gérer à la fois leurs membres, leurs coachs internes et externes et leurs évènements.
+La méfiance envers les plateformes :
+40% des coachs et sportifs ne font pas confiance aux plateformes digitales (INSEE, 2023), craignant le manque de transparence sur les tarifs et commissions ainsi que la sécurité des paiements et des données personnelles. Une plateforme comme GetYourMentor, avec des paiements sécurisés (Stripe) et une transparence totale, peut lever ces freins.
+La réglementation et les assurances :
+Les coachs doivent être diplômés pour exercer légalement, ce qui limite l’entrée de nouveaux acteurs non qualifiés. Les assurances responsabilité civile sont obligatoires, mais coûteuses pour les indépendants (environ 500€ par an).
+Les perspectives d’évolution du marché
+A l’horizon 2030, plusieurs tendances devraient renforcer le marché du coaching individuel
+L’hybridation des modèles :
+Les coachs et les clubs combinent de plus en plus présentiel et digital (séance en salle et programme en ligne).
+L’intégration de la technologie :
+De nouveaux outils seront utilisés, comme des capteurs connectés (montres, bracelets) pour suivre les performances en temps réel. L’intelligence artificielle permettra aussi de personnaliser les programmes (ex. : ajustement automatique des exercices en fonction des progrès).
+La montée en gamme :
+Les sportifs seront prêts à payer plus cher pour des services premium (coaching holistique, suivi nutritionnel, préparation mentale). Le coaching haut de gamme devrait croître de 15% par an d’ici 2030 (source : McKinsey).
+L’expansion géographique :
+Le modèle du coaching individuel, aujourd’hui concentré dans les grandes villes, devrait se développer dans les zones périurbaines et rurales, grâce à des plateformes facilitant la mise en relation.
+💥 Tendances et innovations du secteur
+Le secteur du coaching sportif, traditionnellement ancré dans des pratiques physiques et relationnelles, connaît une métamorphose profonde sous l’effet conjugué des évolutions technologiques, des nouvelles attentes des consommateurs et des innovations organisationnelles. Ces transformations, loin de remettre en cause le modèle en présentiel, le renforcent en y intégrant des outils digitaux, des approches scientifiques et des modèles économiques hybrides.
+L’hybridation des modèles : le meilleur des deux mondes
+Le coaching sportif ne se limite plus à des séances physiques traditionnelles. Il s’enrichit désormais d’une dimension digitale complémentaire, créant un modèle hybride qui combine les avantages du contact humain et ceux de la technologie. Cette hybridation se manifeste de plusieurs manières :
+Programmes en ligne complémentaires :
+Les coachs proposent désormais des programmes digitaux (vidéo, PDF, application mobile) en complément des séances en présentiel. Par exemple, un coach peut offrir un programme de 8 semaines pour la préparation d’un marathon, incluant des séances en présentiel pour la technique et des vidéos en ligne pour les exercices à domicile. Selon une étude de Les Mills (2024), 60% des sportifs utilisant ce modèle hybride déclarent une meilleure progression que ceux qui ne suivent que des séances en présentiel.
+Suivi à distance entre les séances :
+Les outils de suivi digital permettent aux coachs de monitorer les progrès de leurs clients entre les séances. Par exemple, un coach peut recevoir les données de fréquence cardiaque ou de nombre de pas de son client via une montre connectée, et ajuster le programme en conséquence. Cette approche renforce l’engagement des sportifs, avec un taux de rétention 30% plus élevé que les méthodes traditionnelles (source : Deloitte Sport, 2023).
+Communautés virtuelles :
+Les clubs et les coachs créent des espaces communautaires en ligne (groupe Facebook, forum dédiés, applications) ou les membres peuvent échanger, partager leur progrès et participer à des défis. Ces communautés renforcent la motivation et créent un sentiment d’appartenance, réduisant ainsi le taux d’abandon. Par exemple, un club peut organiser un défi “30 jours de sport” ou les membres partagent leurs performances via une application dédiée.
+La personnalisation poussée : au-delà du “one-size-fits-all”
+Les sportifs ne veulent plus de programmes génériques. Ils recherchent une expérience sur mesure, adaptée à leurs objectifs spécifiques, leur niveau, leur emploi du temps et même leur état psychologique.
+Cette tendance vers la personnalisation se traduit par plusieurs innovations :
+Les évolutions initiales approfondies : les coachs utilisent désormais des questionnaires détaillés pour évaluer les besoins de leurs clients avant de concevoir un programme. Ces évaluations incluent des tests physiques mais aussi des questionnaires sur les habitudes de vie.
+Les programmes dynamiques : grâce à l’intelligence artificielle et aux données collectées (capteurs etc…), les programmes peuvent être ajustés en temps réel. Selon McKinsey (2024), les programmes dynamiques augmentent la satisfaction client de 40%.
+Le coaching holistique :
+Les coachs intègrent de plus en plus des dimensions complémentaires à l'entraînement physique, comme la nutrition, la préparation mentale ou même la gestion du stress.
+Cette approche globale répond à une demande croissante. 70% des sportifs déclarent rechercher un accompagnement qui va au-delà du simple entraînement physique (Ifop, 2024).
+L’intégration des technologies : quand le digital sert le présentiel
+Contrairement aux idées reçues, le digital ne concurrence pas le coaching en présentiel. Il le renforce. Les innovations technologiques permettent d’optimiser l’expérience en présentiel, de mieux suivre le progrès et d’améliorer la relation coach-client. Voici les principales avancées :
+Le Wearables et capteurs connectés : les montres, les bracelets et même les capteurs de mouvement (comme ceux intégrés dans les vêtements) permettent de mesurer en temps réel des données clés : fréquence cardiaque, calories brûlées, qualité du sommeil, etc. Ces données sont ensuite partagées avec le coach, qui peut ajuster le programme en conséquence.
+Les applications dédiées : les applications comme GYM (mais aussi des concurrents comme TrainME ou Ownsport) permettent aux coachs de gérer leurs réservations, de suivre les paiements et de communiquer avec leurs clients via une messagerie intégrée. Pour les sportifs, ces applications offrent un accès simplifié aux plannings des coachs, aux historiques de séances et aux feedbacks. Selon Statista (2024), 85% des coachs utilisant une application dédiée déclarent gagner au moins 20% de temps sur la gestion administrative.
+Réalité augmentée (RA) et vidéo : certaines plateformes commencent à intégrer la réalité augmentée pour corriger les mouvements en temps réel. Cette technologie, encore émergente, pourrait révolutionner l’apprentissage des mouvements techniques.
+Chatbots et IA conversationnelle : les chatbots permettent de répondre instantanément aux questions des clients. Ils peuvent aussi envoyer des rappels avant les séances ou proposer des conseils personnalisés en fonction des objectifs du client. Selon Gartner (2023), 30% des interactions clients dans le secteur du sport seront gérées par des chatbots d’ici 2027.
+Les nouveaux modèles économiques : diversifier les revenus
+Le secteur du coaching sportif évolue également sur le plan économique, avec l’émergence de modèles hybride qui permettent aux coachs et aux clubs de diversifier leurs sources de revenus :
+Par des abonnements et des forfaits, plutôt que de facturer à la séance, ces modèles assurent un revenu récurrent et fidélisent la clientèle.
+Selon PricewaterhouseCoopers (2023), les coachs utilisant des abonnements voient leur chiffre d’affaires augmenter de 25% en moyenne. Les coachs monétisent aussi leur expertise en vendant des programmes en ligne ou des formations. Le marché des contenus sportifs digitaux représente 1.2 milliard d’euros en Europe (Statista, 2024), avec une croissance annuelle de 15%.
+Les coachs et clubs peuvent développer des partenariats avec des marques ou des influenceurs pour organiser des événements exclusifs ou promouvoir des produits. Ces collaborations permettent de toucher un public plus large et de générer des revenus supplémentaires. A l’avenir, les plateformes pourraient monétiser les données anonymisées (avec consentement) collectées via les wearables et les applications. Par exemple, ces données pourraient être vendues à des assureurs (pour des programmes de prévention) ou à des marques de nutrition (pour des études sur les habitudes alimentaires des sportifs).
+L’émergence de niches spécialisées
+Le marché du coaching se segmente de plus en plus, avec l’apparition de niches spécialisées répondant à des besoins très ciblés :
+Le coaching pour les séniors, la demande pour des programmes adaptés au sénior (mobilité, prévention des chutes, renforcement musculaire doux) explose. Selon Silver Economy (2024), ce segment croît de 20% par an en Europe.
+Le coaching prénatal et postnatal permet aux femmes enceintes ou jeunes mamans, de trouver des programmes sécurisés afin de rester actives. Les coachs spécialisés dans ce domaine proposent des séances adaptées (ex. : yoga prénatal, rééducation périnéale) et des contenus digitaux (ex. : “Guide de la remise en forme post-accouchement).
+La santé mentale est devenue une priorité. Les coachs intègrent désormais des techniques de préparation mentale (visualisation, gestion du stress) ou des séances de médiation en complément de l'entraînement physique. Ce marché représente 500 millions d’euros en France (Xerfi, 2024).
+Les athlètes (amateurs ou professionnels) recherchent aussi des programmes ultra-personnalisés, incluant des analyses biomécaniques, des suivis nutritionnels et des préparations mentales. Les coachs spécialisés dans ce domaine facturent des tarifs premium (100-200 €/séance).
+Les entreprises intègrent, elles, de plus en plus le coaching sportif dans leur programme de bien-être au travail.
+L’importance de la communauté et de l’engagement
+Les sportifs ne recherchent plus seulement un coach : ils veulent faire partie d’une communauté. Cette tendance se traduit par plusieurs innovations :
+Groupes de pratique :
+Les coachs organisent des séances collectives en présentiel (ex. : bootcamps en parc, cours de yoga en plein air) ou des groupes en ligne (via WhatsApp ou des forums dédiés) ou les membres peuvent échanger, se motiver et partager leur progrès. Ces groupes renforcent l’engagement : selon Les Mills (2024), les sportifs participant à des séances collectives ont un taux de rétention de 35% plus élevé que ceux qui s'entraînent seuls.
+Défis et gamification :
+Les plateformes intègrent des systèmes de récompenses (badges, classements, cadeaux) pour motiver les sportifs. Par exemple, un coach peut lancer un défi “30 jours de sport” ou les participants gagnent une séance gratuite s’ils atteignent leur objectif. La gamification augmente l’engagement de 40% (Deloitte, 2023)
+Évènements exclusifs :
+Les clubs et les coachs organisent des évènements spéciaux (ex. : stage, thématique de séance) pour fidéliser leur communauté. Ces évènements créent un sentiment d’appartenance et génèrent des revenus supplémentaires.
+La durabilité et l’éco-responsabilité : une tendance émergente
+Les sportifs et coachs sont de plus en plus sensibles aux enjeux environnementaux. Cette prise de conscience se traduit par :
+Le coaching en extérieur : les séances en parcs, forêts ou plages se multiplient, réduisant l’empreinte carbone liée aux déplacements en salle. Selon ADEME (2024), 30% des coachs proposent désormais des séances en plein air, contre 15% en 2020.
+Matériel éco-responsable : Les coachs et les clubs privilégient des équipements durables (tapis en liège, haltères recyclés) et des partenariats avec des marques éthiques.
+Déplacements doux : les coachs incitent leurs clients à se rendre aux séances à vélo ou à pied, et certains proposent même des séances “zéro carbone” (ex. : cours de yoga en forêt avec matériel biodégradable)
+🌀 Analyse concurrentielle
+Les plateformes de réservation de séance en présentiel :
+Ces plateformes permettent aux utilisateurs de trouver et réserver des séances de coaching en présentiel, mais elles se limitent souvent à la mise en relation sans offrir d’outils de gestion, de suivi ou de monétisation des contenus. Leur modèle repose principalement sur des commissions élevées (jusqu’à 30%), ce qui réduit la rentabilité pour les coachs. Par exemple, Ownsport, leader en France, prend une commission de 25% sur chaque séance réservée, sans proposer d’outils pour fidéliser les clients ou vendre des contenus complémentaires.
+Les concurrents
+Les plateformes de ventes de contenus sportifs (ex. : Udemy, Patreon, Koofers) :
+Ces acteurs permettent aux coachs de vendre des programmes en ligne (vidéos, PDF, formations), mais ils ne gèrent pas les séances en présentiel. Leurs commissions sont également très élevées (jusqu’à 50% pour Udemy), et ils ne proposent pas d’outils pour gérer les réservations ou les paiements en présentiel. Par exemple, un coach utilisant Udemy pour vendre un programme devra combiner plusieurs outils (un pour les réservations, un pour la gestion des paiements, un pour la communication), ce qui complexifie sa gestion et réduit son efficacité.
+Les solutions de gestion pour les clubs (ex. : Mindbody, Glov) :
+Ces logiciels sont conçus pour aider les clubs et les salles de sport à gérer leurs membres, leurs réservations et leurs paiements. Cependant, ils ne s’adressent pas aux coachs indépendants et n’intègrent pas de fonctionnalités pour la vente de contenus ou la mise en relation avec des sportifs. De plus, leur coût est souvent prohibitif pour les petits clubs ou les coachs indépendants.
+Les réseaux sociaux et les solutions “bricolées” (ex. Instagram, WhatsApp, Excel) : Beaucoup de coachs utilisent encore des solutions non dédiées pour gérer leur activité : réservation via WhatsApp, paiement en liquide ou via PayPal, suivi des clients sur Excel. Ces méthodes sont chronophages, peu sécurisées et peu professionnelles, ce qui limitent leur capacité à se développer et à fidéliser leur clientèle
+💡 Opportunités de positionnement stratégique
+Le marché du coaching sportif offre des opportunités stratégiques majeures pour une plateforme comme GetYourMentor, grâce à une combinaison unique de besoins non satisfaits, de tendances structurelles et d’un positionnement différenciant clairement identifiable. L’analyse des dynamiques sectorielles révèle que GYM peut capitaliser sur plusieurs leviers clés pour s’imposer comme un acteur incontournable, tout en générant des revenus récurrents et scalables, un argument central pour tout investisseur ou banquier.
+La fragmentation actuelle du marché constitue une opportunité significative, car aucun acteur ne propose aujourd’hui une solution intégrée répondant simultanément aux besoins des coachs, des clubs, et des sportifs. Les plateformes existantes, comme Ownsport ou TrainMe, se concentrent soit sur la mise en relation, soit sur la gestion administrative, mais aucune ne combine réservations, paiements, vente de contenus, suivi des progrès et outils communautaires en un seul endroit. Cette lacune permet à GetYourMentor de se positionner comme la première plateforme tout-en-un, répondant à une demande latente pour une solution simple, sécurisée et complète.
+Le modèle économique hybride de GYM, associant abonnements, commissions sur les séances et ventes de contenus, présente un potentiel de rentabilité élevé avec des flux de revenus diversifiés. Contrairement aux concurrents qui dépendent uniquement des commissions sur les réservations (jusqu’à 25% pour Ownsport) ou des ventes de contenus (jusqu’à 50% pour Udemy), GYM propose des commissions réduites, ce qui la rend beaucoup plus attractive pour les coachs et les clubs. Ce modèle permet non seulement d’attirer une base d’utilisateurs solide, mais aussi de fidéliser les clients grâce à des outils d’engagement communautaire et de suivi personnalisé, réduisant ainsi le taux d’attrition, un enjeu majeur dans le secteur
+La croissance du marché du coaching individuel, estimée à 8 - 10% par an en Europe, est portée par une prise de conscience accrue des bienfaits du sport, une demande croissante de personnalisation et une professionnalisation des coachs. Ces tendances structurelles offrent à GYM un terrain fertile pour se développer d’autant plus que le secteur reste peu digitalisé malgré son dynamisme.. Les coachs indépendants, qui représentent plus de 50% , doivent  encore utiliser des outils non dédiés (Excel, WhatsApp) pour gérer leur activité, ce qui limite leur efficacité et leur capacité à se développer. GYM répond directement à ce besoin en leur offrant une solution professionnelle, sécurisée et optimisée, leur permettant de se concentrer sur leur cœur de métier.
+L’approche communautaire et engagement intégrée à GYM constitue un autre levier stratégique majeur. Les sportifs recherchent de plus en plus des expériences collectives et des outils de motivation, comme en témoignent les succès des plateformes Strava ou Nike Training club. En intégrant des défis, des groupes de discussion et des systèmes de récompense, GYM peut fidéliser ses utilisateurs et créer un écosystème vertueux où chaque acteur (coach, sportif, club) trouve une valeur ajoutée. Cette dimension communautaire, absente chez la plupart des concurrents, permet de différencier GYM et de renforcer son positionnement sur un marché où l'engagement est un facteur clé du succès.
+Le positionnement hybride de GYM, combinant présentiel et digital, est un atout stratégique dans un secteur où les deux modèles sont souvent perçus comme concurrents. En réalité, ils sont complémentaires : les séances en présentiel restent indispensables pour le contact humain et la motivation, tandis que les outils digitaux (suivi des progrès, contenus en ligne, communautés) enrichissent l’expérience et permettent un accompagnement continu. Cette complémentarité est un argument fort pour convaincre les coachs et les clubs d’adopter GYM, car elle offre une solution globale sans les obliger à choisir entre présentiel et digital.
+Enfin, la scalabilité du modèle de GYM est un atout majeur. La plateforme peut s’étendre géographiquement sans coûts proportionnels élevés, car elle repose sur une infrastructure digitale déjà en place. Une fois le modèle validé en France, GYM pourra se déployer en Europe, ou le marché du coaching est tout aussi dynamique, avec des besoins similaires en termes de gestion, de visibilité et d’engagement. Cette capacité à scaler rapidement tout en maintenant des coûts maîtrisés est un gage de rentabilité à long terme et de résilience face aux aléas économiques.
+💻 Notre solution
+⚡ Présentation de la plateforme GYM
+La plateforme GYM se positionne comme la première solution tout-en-un dédiée au coaching sportif, conçue pour répondre aux besoins spécifiques des coachs, des clubs et des sportifs dans un écosystème jusqu’alors fragmenté et peu optimisé. Contrairement aux solutions existantes, qui se limitent soit à la mise en relation, soit à la gestion administrative, soit à la vente de contenus, GYM intègre l’ensemble de ces fonctionnalités en une seule plateforme intuitive, sécurisée et performante, offrant ainsi une expérience fluide et complète à tous ses utilisateurs. Une plateforme conçue pour simplifier et optimiser le coaching individuel.
+GetYourMentor a été pensé pour révolutionner la consommation du sport, l'entraînement des sportifs et l’organisation de l'entraînement des sportifs en clubs, en combinant technologie, simplicité et efficacité. La plateforme permet aux coachs et aux clubs de centraliser leur activité - réservations, paiements, suivis sportifs, vente de contenus - tout en leur offrant des outils pour les fidéliser mais aussi, pour les clubs, d’y intégrer leurs coachs ainsi que des coachs freelances de manière transparente. Pour les sportifs, GYM facilite la recherche et la réservation de séances, tout en proposant un suivi personnalisé et des évènements communautaires pour rester motivé.
+🧠 Fonctionnalités principales (réservation, messagerie, clubs, suivi du sportif, vente de contenus etc.)
+La plateforme GYM se distingue par son ensemble de fonctionnalités intégrées, conçues pour répondre aux besoins spécifiques des coachs, des clubs et des sportifs. Chaque outil a été pensé pour simplifier la gestion, améliorer l’expérience utilisateur et maximiser l’engagement, tout en garantissant sécurité, flexibilité et performance.
+Un système de réservation intelligent
+GYM propose un module de réservation optimisé pour les séances, offrant une expérience fluide tant pour les coachs que pour les sportifs.
+Calendrier interactif
+Les coachs disposent d’un calendrier synchronisé avec leurs agendas personnels (Google Calendar, Outlook), leur permettant de gérer leurs disponibilités en temps réel. Ils peuvent définir des créneaux récurrents ou des séances ponctuelles, avec la possibilité de bloquer des plages horaires pour des évènements personnels.
+Réservation ultra rapide
+Les sportifs peuvent réserver une séance en quelques secondes via l’application ou le site web, avec une confirmation instantanée par email et SMS. Le système affiche les disponibilités en temps réel, évitant les doubles réservations
+Rappels automatiques
+Des notifications (email, SMS, push) sont envoyées aux coachs et aux sportifs 24h avant la séance, réduisant ainsi le taux d’absentéisme. Les sportifs reçoivent également un rappel 1h avant le début de la séance, avec l’adresse et les coordonnées du coach.
+Gestion des annulations : Les sportifs peuvent annuler ou reporter une séance directement depuis leur espace personnel, sous réserve des conditions définies.
+Paiement intégré
+La réservation inclut un paiement sécurisé via Stripe, avec plusieurs options (carte bancaire, virement, paiement en plusieurs fois). Les coachs reçoivent les fonds instantanément ou sous 48h (en fonction de leur abonnement) sans avoir à gérer les transactions manuellement.
+Messagerie instantanée et notifications
+GetYourMentor intègre un système de messagerie interne pour faciliter la communication entre coachs/clubs et sportifs, tout en évitant les échanges dispersés (WhatsApp, SMS, emails).
+Messagerie instantanée
+Les utilisateurs peuvent échanger en temps réel via un chat intégré, avec des conversations historiques. Les coachs peuvent ainsi répondre aux questions, envoyer des conseils personnalisés ou partager des documents.
+Notification push
+Les utilisateurs reçoivent des alertes pour de nouveaux messages, les confirmations de réservations, les rappels de séance ou la prévision de nouveaux événements
+Modèles de messages
+Les coachs ont accès à des Template prédéfinis (ex. : “Merci pour votre réservation ! Voici ce qu’il faut prévoir pour la séance) pour gagner du temps et maintenir une communication professionnelle.
+Filtre et recherche
+La messagerie permet de trier les conversations par client, par date ou par sujet, et inclut une fonction de recherche pour retrouver rapidement un échange.
+Création et vente de contenus digitaux
+GYM permet aux coachs de monétiser leur expertise en créant et vendant des contenus digitaux (programmes d'entraînement, vidéos, ebooks), directement depuis la plateforme.
+Gestion des contenus
+Les coachs peuvent déposer et supprimer les contenus créés via PDF, Vidéo, photo ou audio
+Gestion des abonnements
+Ils peuvent aussi fixer le prix de l’abonnement mensuel pour accéder à du contenu exclusif
+Suivi des ventes
+Un tableau de bord permet aux coachs de suivre leurs ventes, revenus et téléchargement avec des statistiques détaillées (ex. : “Votre programme a été acheté 50 fois ce mois-ci”)
+Packs et forfaits personnalisés
+Pour répondre aux besoins variés des sportifs, GYM propose un système de packs et forfaits permettant aux coachs de diversifier leur offre et d’augmenter leurs revenus.
+Création de packs
+Les coachs peuvent regrouper plusieurs séances ou contenu dans un pack (ex. : “10 séances + 1 programme PDF pour 350€”).
+Forfaits récurrents
+Les coachs et les clubs peuvent proposer des abonnements (ex. : “4 séances/mois pour 150€”) avec un paiement automatique chaque mois. Cela fidéliser les sportifs qui bénéficieront d’un tarif avantageux en s’engageant sur la durée
+Offres promotionnelles :
+Ils pourront aussi lancer des promotions (ex. : 20% sur le premier pack”) ou des codes de réduction pour attirer de nouveaux clients. GYM fournira des modèles de campagnes (emails, post réseaux sociaux) pour promouvoir ces offres.
+Gestion des renouvellements
+Le système renouvelle automatiquement les abonnements, avec un rappel 3 jours avant le prélèvement. Les sportifs peuvent résilier à tout moment depuis leur espace.
+Organisation d’évènement et défis communautaires
+La plateforme intègre des outils pour créer des évènements (ateliers, stages) et des défis communautaires, renforçant ainsi l’engagement et la fidélisation.
+Création d'événements
+Les coachs et les clubs peuvent organiser des événements en présentiel ou en ligne (ex. : “Atelier nutrition”), avec une page dédiée (description, date, lieu, tarif, inscription en ligne, paiement sécurisé, liste de participants et rappels automatiques)
+Défis communautaires
+GYM créera des défis avec une récompense pour le gagnant (ex. : 7 jours de sports - réalisez un coaching par jour pendant une semaine et tentez de gagner un voyage vol + hôtel inclus à Madrid)
+Espaces communautaires
+GYM propose des groupes de discussion (ex. “communauté fitness seniors) ou les membres peuvent échanger, partager leurs progrès et se motiver via “Discord” notamment
+Live et webinaires
+Les coachs peuvent organiser des séances en direct (via ZOOM ou YouTube) ou des Q&A pour interagir avec leur communauté
+Tableau de bord analytique et suivi des performances
+GYM fournit aux coachs et aux clubs un tableau de bord complet pour suivre leur activité, leurs revenus et l’engagement de leurs clients.
+Suivi des réservations
+Visualisation des séances à venir, annulées ou terminées, avec des filtres par période, client ou type de séance.
+Analyse des revenus
+Graphiques et statistiques détaillées sur les revenus par mois, par client, ou par type de service (séances, contenus, évènements).
+Suivi des progrès des sportifs
+Les coachs peuvent enregistrer les performances de leurs clients (poids, mesures, records) et générer des rapports personnalisés
+Taux d’engagement
+Mesure de la fréquence des séances, de la participation aux évènements et de l’activité sur la plateforme (ex. : “Votre taux de rétention est de 85% ce trimestre”).
+Profil utilisateur et système de notation
+GetYourMentor met en avant la transparence et la confiance grâce à des profils détaillés et un système de notation.
+Profil coach
+Chaque coach dispose d’une page personnelle avec : photo et description de son parcours, sa certification et ses diplômes, ses avis et sa note (laissés par les sportifs), un portfolio (photos, vidéos de séances, témoignages).
+Profil sportif
+Les sportifs peuvent personnaliser leur profil avec leurs objectifs, leurs préférences et leur historique de séances.
+Système de notation
+Après chaque séance, les sportifs sont invités à noter leur coach (1 à 5 étoiles) et à laisser un commentaire.
+👤 Offre communautaire & espace Création de contenu
+L’offre communautaire de GYM s’appuie sur une stratégie intelligente d’intégration des réseaux sociaux existants, notamment Instagram et Discord, pour créer un écosystème engageant autour du coaching. Plutôt que de développer une communauté interne, GYM capitalise sur les plateformes déjà plébiscitées par les sportifs et les coachs, ce qui permet de réduire les coûts de développement tout en bénéficiant de l’audience et des fonctionnalités avancées de ces réseaux. Cette approche stratégique permet de fédérer une communauté active sans avoir à reconstruire un espace social à partir de zéro, tout en offrant une expérience utilisateur fluide et familière.
+L’intégration avec Instagram joue un rôle clé dans la visibilité et l’engagement des coachs et des sportifs. GYM permet aux coachs de synchroniser automatiquement leurs profils avec leur compte Instagram, ou ils peuvent partager des contenus inspirants et interagir directement avec leur audience. Les sportifs, quant à eux, peuvent suivre leur coach préféré sur Instagram, accéder à des stories exclusives et participer à des lives interactifs pour poser des questions ou recevoir des feedbacks en temps réel. Cette interaction permet de créer un lien continu entre les séances et l’engagement en ligne, renforçant ainsi la relation coach-sportif.
+Pour les échanges plus approfondis et la création de groupes thématiques, GYM utilisera Discord, une plateforme largement adoptée par la communauté sportive pour son caractère interactif et structuré. Ces espaces permettent aux sportifs de poser des questions, partager leurs progrès, échanger des conseils etc… L’un des atouts majeurs est la possibilité de créer des communautés fermées et modérées, ou les coachs peuvent contrôler l’accès (via des invitations) et garantir un environnement bienveillant.
+L’espace création de contenu de GetYourMentor reste quant à lui intégré directement à la plateforme, offrant aux coachs une vitrine professionnelle pour monétiser leur expertise. Ce module permet de stocker et vendre des programmes d'entraînement, des vidéos démonstratives, des guides nutritionnels ou des ebooks. Contrairement aux contenus partagés sur les réseaux sociaux, ces ressources sont hébergées sur GYM, ce qui permet aux coachs de monétiser leur savoir via une boutique en ligne sécurisée, avec une commission réduite à 20%. Les sportifs peuvent ainsi acheter et télécharger ces contenus directement depuis leur espace personnel, où ils retrouvent également leurs historiques de séance et leurs progrès.
+L’intégration entre les réseaux sociaux (Instagram, Discord) et l’espace création de contenu de GYM crée une synergie puissante qui bénéficie à tous les acteurs. Les coachs peuvent par exemple, promouvoir leurs programmes payants sur Instagram via des posts ou des stories, puis rediriger leurs followers vers leur page GYM pour l’achat. De même, ils peuvent partager des extraits gratuits de leurs contenus dans les groupes Discord pour susciter l’intérêt, avant de proposer l’achat de la version complète sur la plateforme. Cette approche permet de convertir l’engagement social en ventes, tout en offrant aux sportifs un accès à des ressources complémentaires qui enrichissent leur pratique.
+Pour les clubs, cette intégration offre une opportunité unique de fédérer leur communauté autour de leur marque. Ils peuvent créer un serveur Discord dédié à leurs membres, ou ils organisent des défis internes, partagent des contenus exclusifs. En parallèle, ils utilisent Instagram pour mettre en avant leurs coachs, partager des témoignages de membres et promouvoir leurs offres groupées. Cette combinaison permet aux clubs de renforcer leur image de marque tout en créant un lien direct et permanent avec leurs membres, bien au-delà des séances.
+L’utilisation des réseaux sociaux existants présente également un avantage économique et technique pour GYM. En s’appuyant sur des plateformes comme Instagram et Discord, déjà optimisées pour l’engagement communautaire, GYM évite les coûts élevés liés au développement et à la maintenance d’un espace social interne. Cela permet de concentrer les ressources sur l’amélioration des fonctionnalités clés de la plateforme, comme la gestion des réservations, les paiements sécurisés ou l’analyse des performances. De plus, cette stratégie profite de l’évolutivité naturelle de ces réseaux, qui ajoutent régulièrement de nouvelles fonctionnalités sans que GYM ait à les développer.
+Enfin, cette approche communautaire, combinée à l’espace création de contenu, positionne GYM comme bien plus qu’une simple plateforme de réservation. Elle fait un écosystème complet ou acteur - coach, club ou sportif - trouve les outils et le soutien nécessaires pour maximiser son engagement et ses résultats.
+🥇 Abonnement premium, Système de paiement & gestion des commissions
+La plateforme GYM a conçu un système de paiement innovant et équitable, adapté aux besoins des coachs, des clubs et des sportifs, tout en assurant la rentabilité de la plateforme. Ce modèle repose sur une répartition intelligente des commissions, une gestion automatisée des transactions et des avantages premium attractifs, permettant à GYM de se différencier clairement de ses concurrents.
+Modèle de commission pour les coachs non-premium
+Pour les coachs qui n’ont pas souscrit à l’abonnement premium, GYM applique un modèle de commission ou des frais à la hauteur de 15% seront retirés aux  coachs. Cette approche permet aux sportifs de ne pas payer de surplus mais aussi d’orienter les coachs vers un abonnement premium ce qui permettra de générer des revenus récurrents pour la plateforme.
+Abonnement premium : 19.99€/mois
+L’abonnement premium de GYM est conçu pour récompenser les coachs actifs en leur offrant des avantages exclusifs et une rentabilité accrue. Pour 19.99€/mois, les coachs premium bénéficient de :
+0% de commission sur les séances :
+Le coach garde 100% du prix de la séance (ex. : 40€ pour une séance à 40€)
+Visibilité accrue : mise en avant dans les résultats de recherche + Badge premium sur leur profil pour renforcer leur crédibilité.
+Outil exclusif : Template pour les réseaux sociaux (posts, stories, emails).
+Création de contenu : Vente additionnelle de contenu (PDF, vidéo, ebooks etc…). + abonnement mensuel des sportifs au contenu exclusif du coach
+Support prioritaire : Réponse sous 6 heures (vs. 24h pour les non-premiums).
+Tableau de bord avancé : taux de remplissage, séances les plus demandées (par jour / par heure), suivi des revenus (séances, contenus abonnements), détail par source (ex. : 60% séances, 30% contenus, 10% abonnements), comparaison mois/ année précédente (ex. : +15% vs. Mars 2025), économie réalisée grâce au premium (ex. : “Vous avez économisé 200€ ce mois-ci”), taux de rétention (ex. : “80% de vos clients reviennent”)
+Facture
+Relance par SMS
+Ventes de contenus et possibilité de s'abonner à leur contenu (comission 20%) :
+Pour les programmes, vidéos et ebooks vendus via la création de contenu, GYM applique une commission de 20% (pour tous les coachs, premium ou non). Ce taux est bien inférieur à celui des concurrents comme Udemy (50%), ce qui en fait une option attractive pour les coachs. Exemple : Un coach vend un programme à 100€, il perçoit 80€, GYM garde 20€.
+Gestion automatisée des paiements
+GYM s’appuie sur Stripe, une solution de paiement sécurisée et conforme aux normes PCI-DSS, pour garantir :
+Paiements instantanés : les fonds sont transférés sur le compte du coach sous 48h.
+Sécurité renforcée : Chiffrement des données et protection contre les fraudes.
+Conformité RGPD : Respect des réglementations européennes sur la protection des données.
+Pour les sportifs : Paiement en clic (carte bancaire, virement SEPA) et reçus automatiques envoyées par email après
+Gestion des litiges et remboursements
+GYM a mis en place un système transparent pour gérer les annulations et les litiges :
+Politique d’annulation : annulation jusqu’à 48h la séance (sans frais)
+Passé ce délai, le sportif est redevable du montant total (sauf accord du coach).
+Processus de remboursement :
+Processus de remboursement : les remboursements sont automatisés sous 48h en cas d’annulation dans les délais. Entre 48h et 24h, le remboursement sera de 50%. Et en cas de demande à moins de 24h, le remboursement sera refusé.
+En cas de litige, GYM examine les preuves et prend une décision sous 72h.
+📢 Stratégie marketing & commerciale
+🚨 Go-To-Market : stratégie de lancement
+La stratégie de lancement de GetYourMentor repose sur une approche méthodique et structurée, conçue pour maximiser l’adoption de la plateforme par les coachs, clubs, les salles de musculation et les sportifs, tout en assurant une croissance rapide et durable. Cette stratégie s’articule autour de plusieurs axes clés, incluant une segmentation précise du marché, une proposition de valeur différenciée, des canaux de distribution optimisés, ainsi qu’une communication ciblée et impactante. L’objectif est de créer une dynamique initiale forte, capable de générer un effet d'entraînement et de positionner GYM comme la référence incontournable dans le domaine du coaching sportif digitalisé.
+La première étape de cette stratégie consiste en une analyse approfondie des segments de marché à cibler en priorité. Les coachs indépendants représentent un segment clé, car ils sont en quête constante d’outils pour optimiser leur visibilité, leur gestion administrative et leurs revenus. Les clubs et associations sportives, qui emploient des coachs salariés, bénévoles ou externes, constituent un autre segment stratégique, car ils recherchent des solutions pour rationaliser leurs opérations et monétiser leurs activités. Les salles de musculations, souvent en partenariat avec des coachs externes, sont également un public cible important pour gérer leurs services de coaching et fidéliser leur clientèle. Enfin, les sportifs, qu’ils soient débutants ou confirmés, recherchent des solutions accessibles, personnalisées et de qualité pour atteindre leurs objectifs. En identifiant ces segments avec précision, GYM peut adapter sa proposition de valeur et ses canaux de communication pour répondre aux attentes spécifiques de chaque groupe.
+La proposition de valeur de GYM se distingue par son approche hybride, qui combine des revenus récurrents pour la plateforme avec des avantages concrets pour les utilisateurs. Pour les coachs, la valeur réside dans l’accès à des outils exclusifs, une visibilité accrue et une réduction significative des commissions sur les séances et les ventes de contenu. Pour les clubs et les salles de musculation, GYM offre une solution centralisée pour gérer les coachs, qu’ils soient internes ou externes, tout en monétisant leurs activités grâce à des partenariats avantageux. Pour les sportifs, la plateforme propose un accès simplifié à des coachs qualifiés, des programmes personnalisés et des contenus exclusifs. Cette proposition de valeur, à la fois claire et différenciée, permet à GYM de se positionner comme une solution unique et indispensable sur le marché du coaching sportif.
+Les canaux de distribution jouent un rôle crucial dans la stratégie de lancement de GYM. Une approche multicanale est privilégiée pour toucher efficacement chaque segment de marché. Le site web de GYM, optimisé pour le référencement naturel et payant, servira de vitrine principale pour attirer les coachs, les clubs et les sportifs. Les réseaux sociaux, seront utilisés pour cibler les coachs et les clubs via des campagnes publicitaires ciblées et du contenu engageant. Les partenariats avec des fédérations sportives, des salles de musculation et des influenceurs du secteur permettront d’élargir la portée de GYM et de crédibiliser la plateforme auprès des utilisateurs potentiels. Enfin, des événements locaux, tels que des ateliers et des démonstrations, seront organisés pour créer un contact direct avec les coachs et les clubs, et pour sensibiliser les sportifs aux avantages de la plateforme.
+La stratégie de communication de GYM est conçue pour être à la fois percutante et ciblée. Une campagne de lancement sera mise en place pour générer un buzz initial autour de la plateforme. Cette campagne inclura des publicités en ligne, des articles de blog, des témoignages de coachs et de clubs pilotes, ainsi que des offres promotionnelles pour les premiers utilisateurs. Une attention particulière sera accordée à la mise en avant des avantages concrets de GYM, tels que l’absence des commissions pour les coachs premium, les outils exclusifs et la simplicité d’utilisation de la plateforme. Les réseaux sociaux seront utilisés pour partager les succès stories, des tutoriels et des contenus éducatifs afin de créer une communauté engagée autour de GYM. Enfin, des relations presse seront établies pour obtenir une couverture médiatique et renforcer la crédibilité de la plateforme.
+Le pricing joue un rôle clé dans la stratégie de lancement de GYM. Les tarifs ont été conçus pour être compétitifs tout en offrant une valeur ajoutée significative. L’abonnement premium à 19.99€ par mois est positionné comme un investissement rentable pour les coachs, grâce à l’absence de commission sur les séances et les ventes de contenu. Les commissions de 15% sur les séances des coachs non-premium et des clubs sont alignées sur les standards du marché, tout en restant inférieures à celles de nombreux concurrents. Les prix des contenus et des abonnements sont fixés par les coachs, avec une retenue de 20% pour GYM, ce qui permet de générer des revenus récurrents tout en laissant une grande liberté aux coachs. Cette stratégie tarifaire permet de maximiser l’attractivité de la plateforme tout en assurant sa rentabilité.
+Le recrutement des premiers utilisateurs est une étape critique du lancement. Une stratégie de recrutement proactive sera mise en place pour attirer les coachs, les clubs et les salles de musculation. Des offres de lancement attractives, telles qu’un mois d’abonnement premium gratuit ou des réductions de commissions seront proposées pour inciter les premiers utilisateurs à s’inscrire. Un programme de parrainage sera également mis en place, offrant des avantages aux coachs et aux clubs qui recommandent la plateforme à leurs pairs. Des partenariats avec les fédérations sportives et des salles de musculation permettent de toucher un large réseau de coachs et des clubs dès le lancement.
+La fidélisation des utilisateurs est un autre pilier de la stratégie de lancement de GYM. Des programmes de fidélité seront mis en place pour récompenser les coachs, les clubs et les sportifs les plus actifs. Ces programmes pourront inclure des réductions d’abonnements, des outils supplémentaires ou une visibilité accrue sur la plateforme via les réseaux sociaux. Un support client réactif et personnalisé sera également proposé pour répondre aux besoins des utilisateurs et résoudre rapidement les éventuels problèmes. Enfin, des mises à jour régulières de la plateforme, incluant de nouvelles fonctionnalités et des améliorations basées sur les retours des utilisateurs, permettent de maintenir un haut niveau de satisfaction et d’engagement.
+La mesure des performances est essentielle pour ajuster et optimiser la stratégie de lancement de GYM. Des indicateurs clés de performance (KPI) seront définis pour évaluer l’efficacité des différentes actions mises en place. Le nombre d’inscriptions de coachs, de clubs et de sportifs, ainsi que le taux de conversion en abonnement premium, seront suivis de près pour mesurer l’adoption de la plateforme. Le chiffre d’affaires généré par chaque segment de marché, ainsi que la rentabilité globale, permettront d’évaluer la performance financière de GYM. Des enquêtes de satisfaction seront régulièrement menées auprès des utilisateurs pour identifier les points forts et les axes d’amélioration de la plateforme.
+🛒 Acquisition des coachs, clubs et joueurs
+L’acquisition des différents acteurs du secteur sportif pour la plateforme GetYourMentor, nécessite une approche segmentée et adaptée à chaque typologie d’utilisateurs, afin de créer un écosystème équilibré et auto-alimenté. Cette stratégie repose sur compréhension fine des motivations spécifiques à chaque groupe cible, ainsi que sur des leviers d’acquisition adaptés à leurs besoins et comportements.
+Pour les coachs, qui représentent le socle de l’écosystème, l’approche se concentre sur la démonstration concrète des gains financiers et opérationnels qui peuvent tirer de la plateforme. L’argument central repose sur la possibilité de conserver l’intégralité de leurs revenus sur les ventes de contenu, combinée à une réduction significative des commissions sur les séances pour ceux optant pour l’abonnement premium. Une campagne de recrutement initial sera menée via des canaux digitaux ciblés (réseaux sociaux, forums spécialisés) et des partenariats avec des fédérations sportives, complétée par des webinaires démonstratifs mettant en avant les fonctionnalités clés de la plateforme. Un programme de parrainage incitatif sera mis en place, offrant des mois d'abonnement gratuits aux coachs qui recommandent la plateforme à leurs pairs, créant ainsi un effet viral dans la communauté des professionnels du sport.
+Les clubs et associations sportives, qui emploient des coachs salariés, bénévoles ou externes, nécessitent une approche plus institutionnelle que GYM peut leur apporter, notamment en termes de gestion centralisée des plannings, de monétisation des activités et de communication avec les membres. Des présentations sur mesure seront organisées pour les responsables de clubs, mettant en avant des études de cas concrets montrant comment des structures similaires ont optimisé leur gestion grâce à la plateforme. Des offres groupées seront proposées pour les clubs affiliant plusieurs coachs premium.
+Les salles de musculation, souvent en quête de solutions pour diversifier leurs revenus et fidéliser leur clientèle, seront approchées via une stratégie mettant en avant la complémentarité entre leurs services existants et l’offre de coaching personnalisé disponible sur GYM. Des partenariats seront proposés pour intégrer des coachs affiliés aux salles dans l’écosystème GYM, leur offrant ainsi une visibilité accrue tout en permettant aux salles de monétiser des services supplémentaires.
+L’acquisition des sportifs, bien que secondaire dans la phase initiale, sera préparée dès le lancement via une stratégie de contenu visant à créer une communauté engagée. Des témoignages de coachs et de sportifs satisfaits seront diffusés sur les réseaux sociaux, accompagnés de contenus éducatifs montrant comment la plateforme peut aider à atteindre des objectifs sportifs spécifiques. Des partenariats avec des sportifs professionnels, des influenceurs fitness permettront de toucher un public plus large, tandis que des offres de lancement attractives (comme des séances gratuites pour les premiers inscrits) créeront un effet d’appel initial.
+Une approche multicanale sera déployée pour toucher efficacement chaque segment. Les réseaux sociaux jouent un rôle central, avec des campagnes ciblées sur LinkedIn pour les coachs professionnels, Instagram pour les sportifs, les coachs et les clubs, et Facebook pour les clubs et les salles. Des partenariats avec des médias spécialisés et des fédérations sportives permettront d’élargir la portée de la plateforme. Enfin des évènements locaux (ateliers, démonstrations) seront organisés pour créer des interactions directes avec les utilisateurs potentiels.
+🧲 Fidélisation et rétention utilisateurs
+La fidélisation et la rétention des utilisateurs sur la plateforme GYM ne se limitent pas aux traditionnels programmes de récompenses ou aux simples rappels par email, mais s’articulent autour d’une approche systémique et innovante, intégrant des mécanismes psychologiques, sociaux et technologiques conçus pour créer une expérience utilisateur profondément engageante et personnalisée. Cette stratégie repose sur la compréhension que la fidélité ne se construit pas uniquement par des incitations financières, mais aussi par la création d’un sentiment d’appartenance à une communauté dynamique, par l’offre d’une valeur ajoutée constamment renouvelée, et par l’intégration de mécanismes de gamification qui transforme l’utilisation de la plateforme en une expérience à la fois gratifiante et socialement valorisante.
+Pour les coachs, qui constituent le cœur de l’écosystème, la fidélisation passe par la mise en place d’un système de progression continue, ou chaque interaction avec la plateforme est conçue pour renforcer leur sentiment de compétence et d’accomplissement. Cela inclut non seulement des outils analytiques avancés leur permettant de suivre leur progression en termes de revenus, de satisfaction client ou de visibilité, mais aussi un système de badges et de niveaux qui récompensent leur engagement et leur expertise. Un coach qui atteint un certain nombre de séances dispensées ou de contenu vendus pourrait se voir attribuer un badge “expert” visible sur son profil et mis en avant dans les résultats de recherche, ce qui renforce non seulement son statut au sein de la communauté, mais augmente aussi sa visibilité auprès des sportifs. De plus, des webinaires exclusifs animés par des experts reconnus dans leur domaine seront organisés régulièrement, offrant aux coachs premium des opportunités de développement professionnel continu, tout en créant un sentiment d’exclusivité et de valeur ajoutée.
+Les clubs et les salles de musculation, qui représentent un segment clé pour la scalabilité de la plateforme, bénéficieront d’un système de fidélisation basé sur la démonstration tangible de la valeur économique que GYM leur apporte. Cela passe par la fourniture de rapports détaillés et personnalisés montrant l’impact de la plateforme sur leurs revenus, leur taux de rétention de membres et leur efficacité opérationnelle. Un tableau de bord interactif leur permettra de visualiser en temps réel les bénéfices concrets de leur affiliation à GYM, comme l’augmentation du nombre de séances réservées ou la diversification de leurs sources de revenus grâce aux ventes de contenu. En outre, un programme “club ambassadeurs” sera mis en place, ou les structures les plus actives se verront offrir des avancées de gestion ou une visibilité accrue dans les résultats de recherche, en échange de leur participation à des études ou à des témoignages promotionnels. Cette approche, non seulement, renforce leur engagement, mais transforme aussi ces clubs en véritables ambassadeurs de la marque, créant ainsi un cercle vertueux de recommandations et d’adoptions.
+Pour les sportifs, la fidélisation repose sur la création d’une expérience utilisateur immersive et personnalisée, où chaque interaction avec la plateforme est conçue pour renforcer leur motivation et leur sentiment de progression. Un système de suivi des objectifs sportifs, intégré directement dans l’application, permettra aux utilisateurs de visualiser leurs progrès en temps réel, avec des notifications personnalisées célébrant leurs réussites et les encourageant à persévérer. Des défis communautaires, ou les sportifs peuvent participer à des compétitions amicales avec d’autres membres de la plateforme, seront organisés, créant ainsi un sentiment d’appartenance à une communauté soudée et motivante. De plus, un système de recommandations intelligentes, basé sur les préférences et les objectifs de chaque utilisateur, proposera des coachs, des programmes et des contenus parfaitement adaptés à leurs besoins, augmentant ainsi la pertinence et la valeur perçue de la plateforme.
+Cette stratégie de fidélisation réside dans l’intégration de mécanismes de gamification avancés, qui l’utilisation de GYM en expérience ludique et gratifiante. Un système de point d’expérience (XP) sera attribué aux utilisateurs pour chaque action réalisée sur la plateforme, qu’il s’agisse de réserver une séance, de compléter un programme, de laisser un avis ou de partager du contenu. Ces points pourront être échangés contre des récompenses tangibles, comme des séances gratuites, des réductions sur des abonnements premium, ou des accès exclusifs à des contenus haut de gamme. De plus, un classement dynamique sera affiché permettant aux utilisateurs de voir leur position par rapport à d’autres membres de la communauté, ce qui stimule une saine compétition et encourage une utilisation régulière de la plateforme. Pour les coachs, ce système de gamification inclura également des défis professionnels, comme l’atteinte d’un certain nombre de séances dispensées ou de contenus vendus dans un délai donné, avec des récompenses sous forme de visibilité accrue ou de matériel offert.
+Un autre aspect innovant de cette stratégie consiste en la création d’un écosystème communautaire ou les interactions entre les différents acteurs sont encouragées et facilitées. Des espaces de discussion thématique, modérés et animés par des experts, permettront aux coachs, aux clubs et aux sportifs d’échanger des conseils, des bonnes pratiques et des retours d’expérience, créant ainsi un réseau de soutien mutuel qui renforce l’engagement de chacun. Des évènements virtuels, comme des lives Q&A avec des coachs renommés ou des ateliers interactifs sur des thèmes spécifiques seront organisés régulièrement pour maintenir l’engagement de la communauté et offrir une valeur ajoutée constante. Ces évènements ne se limiteront pas à un simple format passif, intégreront des éléments interactifs, comme des quizz, des sondages en temps-réel ou des sessions de questions-réponses pour maximiser l’implication des participants.
+La rétention des utilisateurs sera également renforcée par un système de feedback continu et d’amélioration interactive de la plateforme. Des enquêtes de satisfaction régulières, combinées à des analyses comportementales, permettront d’identifier les points de frictions et les opportunités d’amélioration, assurant ainsi que la plateforme évolue constamment pour répondre aux besoins changeants de ses utilisateurs. Un programme bêta-test sera mis en place, permettant aux utilisateurs les plus engagés de tester en avant-première les nouvelles fonctionnalités et de contribuer à leur amélioration, créant ainsi un sentiment de cocréation et de propriété collective. De plus, un système de suggestions et de votes sera intégré, ou les utilisateurs pourront proposer des idées d’amélioration et voter pour celles qu’ils souhaitent voir implantées en priorité, renforçant ainsi leur sentiment d’être écoutés et valorisés.
+Enfin, pour garantir une rétention optimale, un système de support client proactif et personnalisé sera mis en place. Contrairement aux approches réactives traditionnelles, ou le support intervient uniquement en cas de problème, GYM adoptera une approche proactive ou des conseillers dédiés prendront régulièrement contact avec les utilisateurs pour s’enquérir de leur satisfaction, leur proposer des conseils personnalisés, ou les informer des nouvelles fonctionnalités pertinentes pour leur profil. Ce suivi personnalisé sera complété par un système de notifications intelligentes qui enverra des messages ciblés en fonction du comportement de l’utilisateur, comme des rappels pour compléter un programme en cours, des suggestions de nouveaux contenus en fonction de leurs progrès, ou des invitations à participer à des événements communautaires adaptés à leurs centres d'intérêts.
+📜 Plan opérationnel
+💻 Roadmap produit (MVP, V1, V2…)
+La roadmap produit de GYM a été conçue pour assurer un déploiement progressif et stratégique des fonctionnalités, en alignant chaque étape de développement sur les besoins prioritaires des utilisateurs tout en garantissant une scalabilité optimale pour la plateforme. Cette feuille de route, structurée en trois phases majeures : la Minimum Viable Product (MVP), la version 1 (V1), et la Version 2 (V2). Elles reflètent une approche itérative et centrée sur l’utilisateur ou chaque version apporte des améliorations significatives tout en s’appuyant sur les retours terrain pour affiner l’expérience globale. L’objectif est non seulement de lancer une plateforme fonctionnelle dès le MVP, mais aussi d’en faire un écosystème complet et évolutif, capable de s’adapter aux attentes changeantes d’un marché dynamique comme celui du coaching sportif.
+Le MVP (Minimum Viable Product), prévu pour le lancement initial, se concentrera sur les fonctionnalités essentielles permettant de valider le concept auprès des premiers utilisateurs tout en générant des revenus immédiats pour assurer la viabilité financière de la plateforme. Cette version inclura un système de création de profils pour les coachs et les clubs, avec des options de personnalisation limitées mais suffisantes pour mettre en avant leurs compétences, leurs spécialisations et leurs disponibilités, ainsi qu’un moteur de recherche et de réservation de séances, permettant aux sportifs de trouver et de réserver des créneaux en quelques clics. Un système de paiement sécurisé et intégré, compatible avec les principaux moyens de paiement, sera également implémenté pour faciliter les transactions, tandis qu’un tableau de bord basique permettra aux coachs, aux clubs de suivre leurs réservations, leurs revenus et leurs évaluations. Enfin, une fonctionnalité de messagerie instantanée sera incluse pour permettre les échanges entre coachs et sportifs, ainsi qu’un système de notation et d’avis pour établir une première couche de confiance entre les utilisateurs. Bien que minimaliste, ce MVP sera conçu pour être suffisamment robuste et intuitif pour répondre aux besoins fondamentaux des utilisateurs, tout en collectant des données précieuses pour orienter les développements futurs.
+La Version 1 (V1), prévue pour être déployée dans les six mois suivant le lancement du MVP, marquera une évolution significative en introduisant des fonctionnalités avancées qui enrichiront l’expérience utilisateur et renforcent l’engagement sur la plateforme. Parmi les atouts majeurs, un système d’abonnement premium sera mis en place, offrant aux coachs et aux clubs des outils exclusifs tels qu’un générateur de programmes d'entraînement personnalisés, des Template de communication marketing, et un accès prioritaire à des webinaires et formations continues animés par des experts du secteurs. Cette version intégrera également une marketplace de contenus, ou les coachs pourront vendre leurs programmes, vidéos, et ebooks directement via la plateforme, avec un système de gestion des droits et des revenus entièrement automatisés. Pour les sportifs, la V1 propose des fonctionnalités de suivi des progrès permettant de visualiser leurs performances, leurs objectifs et leurs historiques de séances ainsi qu’un système de recommandations intelligentes, suggérant des coachs, des programmes ou des contenus en fonction de leurs préférences et de leurs résultats. Une intégration avec des applications tierces populaires, comme les trackers de fitness ou les calendriers, sera également développée pour faciliter l’intégration de GYM dans le quotidien des utilisateurs. Enfin, des fonctionnalités communautaires, comme des forums de discussion thématiques et des défis sportifs collaboratifs seront introduites pour renforcer le sentiment d’appartenance et d’engagement au sein de la plateforme.
+La Version 2 (V2), prévue pour la deuxième année d’exploitation, représentera une évolution majeure vers une plateforme entièrement intégrée et intelligente, capable de s’adapter dynamiquement aux besoins de ses utilisateurs tout en exploitant les données pour offrir une expérience toujours plus personnalisée. Cette version marquera l’introduction de fonctionnalités basées sur l’intelligence artificielle, comme un assistant virtuel capable de proposer des programmes d'entraînement sur mesure en fonction des objectifs, du niveau et des préférences de chaque sportif, ou encore un système de Matching avancé, utilisant des algorithmes prédictifs pour suggérer les meilleurs coachs en fonction des profils et des historiques des utilisateurs. La V2 intégrera également des outils de gestion avancés pour les clubs et les salles de musculation, comme un système de gestion des membres et des abonnements, des rapports analytiques détaillés sur les performances et les revenus, et des fonctionnalités de marketing automatisé pour promouvoir leur service. Pour les coachs, cette version offrira des outils de création de contenu encore plus puissant, comme un éditeur de vidéos intégré avec des Template professionnels ou un système de gestion des droits numériques pour protéger et monétiser leurs créations. Du côté des sportifs la V2 introduira des fonctionnalités sociales avancées, comme la possibilité de créer ou de rejoindre des groupes d'entraînement virtuels, de partager leurs progrès sur les réseaux sociaux directement depuis la plateforme, ou encore de participer à des événements en direct comme des séances de coaching collective ou des Q&A avec des experts. Enfin cette version marquera le début d’une expansion internationale, avec des fonctionnalités de localisation et de traduction automatisées, ainsi qu’une adaptation aux spécificités réglementaires et culturelles des nouveaux marchés ciblés.
+Chaque étape de cette roadmap a été conçue pour répondre à des objectifs précis, tout en s’appuyant sur les retours des utilisateurs et les données d’usage pour affiner et prioriser les développements.  Le MVP permettra de valider le concept et d’attirer les premiers utilisateurs, tout en générant les revenus nécessaires pour financer les développements futurs. La V1, en enrichissant l’expérience utilisateur avec des fonctionnalités premium et communautaires, vise à renforcer l’engagement et la fidélisation, tout en diversifiant les sources de revenus. La V2, avec ses fonctionnalités intelligentes et son expansion internationale, positionne GYM comme une plateforme de référence dans le domaine du coaching sportif, capable de s’adapter aux besoins évolutifs d’un marché en constante mutation.
+👥 Équipe projet et rôles des associés
+L’équipe fondatrice de GYM repose sur une combinaison unique de compétences sportives, éducatives, entrepreneuriales et managériales, ou chaque associé apporte une expertise distincte mais complémentaire, permettant ainsi de couvrir l’ensemble des dimensions stratégiques, opérationnelles et relationnelles nécessaires au succès de la plateforme. Cette synergie entre des profils variés, allant de l’éducation et du sport de haut niveau à l’entrepreneuriat et à la gestion de structures sportives, constitue un atout majeur pour le développement de GetYourMentor, en alliant vision innovante à une exécution rigoureuse et pragmatique.
+SECK Madison, à l’origine du projet, incarne la vision stratégique et sociale de GYM, s'appuyant sur son parcours à la fois académique et sportif pour concevoir une plateforme qui répond aux besoins concrets des coachs, des clubs et des sportifs. Son expérience en tant qu’assistant d’éducation, combinée à sa formation en sciences de l’éducation et en gestion des ressources humaines, lui confère une compréhension approfondie des dynamiques humaines et organisationnelles, essentielle pour structurer une communauté engagée et fidélisée. Son passé de joueur de basketball, ou il a développé une sensibilité aiguë aux enjeux de la performance, de la cohésion d’équipe et de la gestion des talents, lui permet d’anticiper les attentes des utilisateurs sportifs et de concevoir des fonctionnalités qui répondent à leurs besoins en matière de suivi, de motivation et de progression. Dans le cadre de GYM, Madison endosse le rôle de Directeur Général et visionnaire, en charge de définir la stratégie globale de la plateforme, de superviser son développement produit, et d’assurer que la mission social et éducative de GYM - démocratiser l’accès à un coaching de qualité tout en valorisant le travail des professionnels du sport - reste au cœur de chaque décision. Son leadership se caractérise par une approche à la fois humaine et ambitieuse, ou l’innovation technologique est toujours mise au service d’une expérience utilisateur inclusive et performante.
+FORDANT Steven, cofondateur de GYM, apporte à l’équipe une expertise inestimable dans le domaine du sport de haut niveau et de la formation des jeunes talents, acquise au cours de sa carrière de joueur puis de directeur du centre de formation de l’AS Niort Basket-ball. Son diplôme du DEF Basketball (Diplôme d'Entraîneur Fédéral), couplé à son expérience terrain dans la gestion d’une structure sportive, en fait un atout clé pour comprendre les enjeux spécifiques des clubs et des coachs, ainsi que pour concevoir des outils adaptés à leurs besoins opérationnels et pédagogiques. Dans le projet GYM, Steven occupe le rôle de Directeur Sportif et des Partenariats, ou il est responsable de développer et de maintenir les relations avec les clubs, les fédérations sportives et les institutions liées au sport. Son réseau étendu dans le milieu du Basketball et du sport en général, ainsi que sa connaissance intime des attentes des entraîneurs et des athlètes, lui permettent de négocier des partenariats stratégiques et d’assurer que la plateforme répond aux standards professionnels exigés par les structures sportives. Son approche pragmatique et son sens aigu du relationnel font de lui un acteur clé pour ancrer GYM dans le paysage sportif, en en faisant une solution crédible et adoptée par les professionnels du secteur.
+📌 Recrutement des commerciaux et stratégie terrain
+La stratégie de recrutement des forces commerciales de GYM, ainsi que la mise en œuvre d’une approche terrain efficace, représentent des piliers essentiels pour assurer une adoption rapide et massive de la plateforme auprès des coachs, des clubs, des salles de musculation et des sportifs. Cette démarche s’articule autour d’un modèle hybride, combinant le recrutement de profils commerciaux expérimentés et la formation d’une équipe terrain dynamique, capable de s’adapter aux spécificités de chaque segment cible tout en incarnant les valeurs de jeunesse, de professionnalisme et d’innovation qui définissent l’identité de GYM.
+Le recrutement de commerciaux s’appuiera sur une stratégie de chasse ciblée, visant à attirer des profils aux compétences complémentaires, capables de couvrir l’ensemble des segments de marché identifiés. Pour les coachs indépendants et les petites structures sportives, des commerciaux spécialisés dans la vente de solution ou de service digitaux aux professionnels seront recrutés, avec une attention particulière portée sur leur capacité à comprendre les enjeux spécifiques du secteur sportif. Ces profils devront allier un sens aigu du relationnel à une maîtrise des arguments techniques et économiques afin de convaincre les coachs des avantages concrets de GYM. Pour les clubs et salles de musculation, des commerciaux expérimentés dans la vente B2B, idéalement issus du secteur sportif ou ayant travaillé avec des structures similaires, seront privilégiés.
+La stratégie terrain sera déployée en complément des efforts digitaux, avec une approche géolocalisée pour maximiser l’impact des zones à fort potentiel. Les commerciaux seront organisés en équipe régionale, chacune responsable d’un secteur géographique précis, avec pour mission de rencontrer physiquement les coachs, les clubs et les salles de musculation. Ces rencontres prendront la forme de démonstrations en direct des fonctionnalités de la plateforme, d'ateliers pratiques sur l’utilisation des outils GYM, ou encore de présentations personnalisées adaptées aux besoins spécifiques de chaque structure.
+Pour maximiser l’efficacité de cette stratégie terrain, un système de suivi et d’analyse des performances sera mis en place, permettant de mesurer en temps réel l’impact des actions commerciales. Des indicateurs clés, tels que le nombre de rendez-vous, le taux de conversion, ou encore le chiffre d'affaires généré par zone géographique, seront suivis de près pour ajuster les approches et optimiser les ressources. Les retours terrain, collectés systématiquement après chaque interaction, alimentent une base de données centrale qui servira à affiner les arguments commerciaux et à identifier les besoins émergents des utilisateurs.
+💼 Modèle économique & projections financières
+Structure de revenus (abonnements, commissions, événements…)
+La structure de revenus de GYM repose sur 4 piliers, conçus pour diversifier les sources de revenus, fidéliser les utilisateurs et maximiser la rentabilité tout en restant alignés sur les besoins des coachs, clubs et sportifs. Chaque flux de revenus est optimisé pour être scalable, répétitif et ajouter de la valeur.
+Source de revenus
+Modèle
+Cible principale
+Mécanisme de génération
+Potentiel de croissance
+Abonnement premium
+Revenus récurrents (MRR)
+Coachs, clubs, salles de musculation
+Abonnement mensuel (19.99€) avec outils exclusifs
+Élevé (fidélisation + outils indispensables)
+Commissions sur séances
+Revenus transactionnels
+Coachs non-premium
+15% de commission sur chaque séance (30€ moyenne).
+Moyen (dépend du volume de séances)
+Ventes de contenu
+Revenus ponctuels (commission 20%)
+Coachs premium
+Vente de programmes/vidéos (30€ en moyenne) avec 20% de commission
+Très élevé (scalable, sans coût marginal)
+Abonnements aux contenus
+Revenus récurrents (MRR)
+Sportif
+Abonnement mensuel (8.99€) pour accès à une bibliothèque de contenus (20% pour GYM)
+Élevé,(effet réseau + fidélisation)
+Hypothèse et projection sur 5 ans
+Hypothèses clés :
+Paramètre
+Pessimiste
+Nombre de coach (Année 1)
+400
+Ratio coachs premium
+60% (240)
+Nombre de clubs (Année 1)
+75
+Croissance annuelle coachs
++17,5%
+Croissance annuelle clubs
++20%
+Prix moyen séance
+30€
+Prix abonnement premium Coach
+19.99€
+Prix abonnement premium Club
+29.99€
+Prix moyen par contenu
+30€
+Ventes contenu par coach par mois
+3.5
+Abonnés contenu par coach
+5
+Projection des revenus (2025-2028)
+Revenus Abonnements (Coachs + Clubs)
+Année
+Coach
+Club
+Total
+1
+57 571,20€
+26 991,00€
+84 562.20€
+2
+67 646,16€
+32 389,20€
+100 035.36€
+3
+79 484,24€
+38 867,04€
+118 351.28€
+Revenus Commissions sur Séances
+(15% de commission - 4 séances par mois par coach - moyenne à 30€)
+Année
+Nombre de Coachs non-premium
+Total
+1
+160
+34 560,00 €
+2
+188
+40 608,00 €
+3
+221
+47 714,40 €
+Revenus Ventes de Contenu
+(20% de commission sur les ventes - prix moyen 30€)
+Année
+Nombre de Coachs premium
+Total
+1
+240
+60 480,00 €
+2
+282
+71 064,00 €
+3
+331
+83 500,20 €
+Revenus Abonnements Contenu
+(20% sur les abonnements - 8.99€ par mois - nombre d’abonné)
+Année
+Nombre de Coachs premium
+Total
+1
+240
+25 891,20 €
+2
+282
+30 422,16 €
+3
+331
+35 746,04 €
+Total des Revenus par Année
+Année
+TOTAL
+1
+171 244,50 €
+2
+201 774,60 €
+3
+237 759,93 €
+🏗️ Charges prévisionnelles et rentabilité
+⚙️ Charges Opérationnelles (Identiques pour les 3 scénarios)
+Poste de charge
+Année 1 (€)
+Année 2 (€)
+Année 3 (€)
+DÉVELOPPEMENT
+Développement plateforme (MVP, V1, V2)
+21 900€
+0€
+10 000€
+Maintenance & Support technique
+0€
+3 500€
+3 500€
+Infrastructure & Hébergement
+2 000€
+2 350€
+2 761€
+COMMERCIAL & MARKETING
+Marketing digital (Google Ads, Meta, LinkedIn)
+20 000€
+23 500€
+27 613€
+Événements & Partenariats
+5 000€
+5 875€
+6 903€
+ADMINISTRATIF & JURIDIQUE
+Juridique & Conformité RGPD
+4 000€
+1 500€
+1 500€
+Comptabilité & Expertise comptable
+0€
+1 500€
+1 500€
+Assurance RC Pro & Responsabilité civile
+1 800€
+2 100€
+2 400€
+OUTILS & SERVICES EXTERNES
+API & Services tiers (Google Maps, analytics)
+2 000€
+2 350€
+2 761
+Outils SaaS (Slack, Monday, Notion, etc.)
+1 200€
+1 410€
+1 657€
+Serveurs & Backup
+750€
+881€
+1 035€
+COMMUNICATION & RESSOURCES HUMAINES
+Stagiaire (600€/mois × 12 mois)
+7 200€
+7 200€
+7 200€
+IMPRÉVU & CONTINGENCES (5%)
+3 248€
+2 433€
+3 267€
+TOTAL CHARGES (hors Stripe)
+69 098€
+51 100€
+68 597€
+📉 Charges Stripe (Variable selon utilisateurs actifs)
+Année
+Coachs
+Clubs
+Total Actifs
+Stripe Annuel (€)
+1
+400
+75
+475
+11 400€
+2
+470
+90
+560
+13 440€
+3
+552
+108
+660
+15 840€
+Calcul : (Coachs + Clubs) × 2€/mois × 12 mois
+TOTAL CHARGES (Opérationnelles + Stripe)
+Élément
+Année 1 (€)
+Année 2 (€)
+Année 3 (€)
+Charges opérationnelles
+69 098€
+51 100€
+68 597€
+Charges Stripe
+11 400€
+13 440€
+15 840€
+TOTAL CHARGES
+80 498€
+64 440€
+84 437€
+Prévisionnel
+Élément
+Année 1 (€)
+Année 2 (€)
+Année 3 (€)
+REVENUS
+171245
+201 776
+237 762
+CHARGES EXTERNES
+53650
+57 408
+66 473
+Charges de personnel
+7 200
+7 200
+7 200
+Total Charges d’exploitation
+61 050
+65 605
+74 673
+Résultat d’exploitation
+110 195
+136 171
+163 088
+Charge financière
+2 199
+1 748
+1279
+Résultat courant
+107 996
+134 423
+161 810
+Impôt sur les bénéfices
+22 749
+29 356
+36 203
+Résultat de l'exercice
+85 247
+105 067
+125 607
+🏦 Besoins de financement
+La plateforme que nous avons conçu, nécessite un investissement initial, d’un montant de 75 000€.  Cet investissement se répartit entre trois piliers essentiels : la technologie, la conformité légale, le marketing & la communication ainsi que la trésorerie de fonctionnement.
+Structure de SAS recommandée :
+Élément
+Montant (€)
+BESOINS DE FINANCEMENT
+Développement plateforme (MVP + V1)
+21 900
+Infrastructure & Serveurs (setup)
+2 000
+Juridique, RGPD, incorporation
+4 000
+Marketing de lancement
+25 000
+Trésorerie de fonctionnement (3 mois)
+22 100
+TOTAL BESOIN
+75 000 €
+SOURCES DE FINANCEMENT RECOMMANDÉES
+Apports personnels des 2 associés
+15 000 € (25%)
+Emprunt bancaire (sur 5 ans, taux 4.5%)
+60 000 € (78%)
+TOTAL FINANCE
+75 000 €
+Plan de remboursement (Emprunt 60 000 € sur 5 ans)
+Année
+Capital remboursé (€)
+Intérêts (€)
+Annuité (€)
+Solde restant (€)
+1
+12 000
+2 700
+14 700
+48 000
+2
+12 000
+2 160
+14 160
+36 000
+3
+12 000
+1620
+13 620
+24 000
+4
+12 000
+1 080
+13 080
+12 000
+5
+12 000
+545
+12 545
+0
+TOTAL
+60000
+8 105
+68 105
+📢 Stratégie de croissance
+🌎 Expansion nationale puis internationale
+Pour l’expansion nationale, nous concentrons nos efforts sur les régions où le potentiel sportif est le plus élevé, comme l’Île-de-France, Auvergne-Rhône-Alpes, ou la région PACA. L’objectif est d’y recruter massivement des coachs et clubs en nouant des partenariats stratégiques approfondis avec les fédérations sportives nationales et régionales. Ces fédérations bénéficient d’un espace personnalisé sur notre plateforme, avec des offres exclusives pour leurs membres : tarifs préférentiels, accès à des contenus et fonctionnalités premium, certifications digitales coconstruites, et programmes de formation adaptés. En retour, elles deviennent des ambassadeurs clés qui recommandent activement GetYourMentor à leurs réseaux, assurant ainsi une croissance organique forte et crédible.
+Nous organiserons également des événements conjoints, physiques et digitaux, tels que des challenges sportifs connectés et webinaires, favorisant l’engagement et l’animation d’une communauté fédérée autour de la plateforme. Par ailleurs, nous co-créons un observatoire des pratiques sportives qui, grâce à l’analyse des données anonymisées collectées, apporte aux fédérations des décisions éclairées et des pistes d’actions efficaces.
+Côté acquisition, une campagne multicanale combinant marketing digital localiser, influenceurs régionaux, et un programme de parrainage dynamique permettra de maximiser notre visibilité et recruter rapidement un volume critique d’utilisateurs actifs. La fidélisation sera garantie par l’intégration d’outils de gamification, un support personnalisé, et une plateforme évolutive répondant en continu aux attentes des coachs et clubs.
+Pour l’expansion internationale, nous privilégierons une approche progressive, en commençant par des pays européens culturellement et linguistiquement proches, comme l’Allemagne, l’Espagne et l’Italie. Cette phase implique une localisation complète — langue, contenus, offres — ainsi qu’une adaptation aux spécificités réglementaires et sportives de chaque marché. Nous envisageons des partenariats locaux équivalents avec les fédérations étrangères pour reproduire la dynamique acquise en France.
+Nous maintiendrons une infrastructure cloud robuste et scalable assurant la performance et la conformité réglementaire (notamment RGPD) sur tous les marchés. Un suivi analytique précis des indicateurs clés par pays permettra d’ajuster en temps réel la stratégie marketing, commerciale, et produit, focalisant les ressources sur les zones à fort potentiel de retour sur investissement.
+🗓️ Déploiement multisport & partenariats élargis
+L’ouverture de GYM se concentrera initialement sur quatre catégories sportives stratégiques : le football, le basketball, les métiers de la forme (fitness, musculation, crossfit), et les sports de combat (boxe, MMA, taekwondo), afin de capitaliser sur des marchés porteurs tout en exploitant les expertises internes de l’équipe fondatrice, notamment celles de FORDANT Steven, SECK Madison dans le basketball et le football et d’Antoni Brineau dans les sports de combat. Cette approche ciblée permettra de structurer une offre cohérente et spécialisée dès le lancement, tout en préparant une expansion progressive vers d’autres disciplines une fois la plateforme stabilisée et les processus opérationnels optimisés, garantissant ainsi une expérience utilisateur de qualité et une crédibilité immédiate dans ces segments clés.
+Pour le football, qui représente le sport le plus populaire en France avec plus de 2 millions de licenciés, GYM développera des fonctionnalités dédiées aux entraîneurs et aux joueurs telles que des Template de séances d'entraînement spécifiques (par poste ou par âge) et des modules de suivi des performances physiques adaptés aux exigences du football moderne. La plateforme intégrera un système de gestion de joueurs permettant aux coachs de suivre les progrès individuels, de planifier des séances techniques ou tactiques et de partager des feedbacks en temps réel avec les joueurs, tout en proposant des contenus éducatifs sur les dernières tendances en matière de préparation physique ou de récupération. Ces outils seront conçus en collaboration avec des entraîneurs diplômés et des préparateurs physiques professionnels pour garantir leur pertinence et leur efficacité, tout en répondant aux besoins spécifiques des clubs amateurs et des académies de formation.
+Dans le basketball, ou FORDANT Steven apporte une expertise directe en tant que directeur de centre de formation, GYM mettra en avant des programmes d'entraînement spécialisés pour les joueurs de tous niveaux, de débutant aux athlètes de haut niveau, avec un focus particulier sur les compétences techniques et la préparation physique adaptée aux exigences du basketball. La plateforme propose également, pour les coachs, des outils de gestion des sportifs et de planification, permettant de suivre les performances des joueurs sur le long terme et d’adapter les programmes en fonction des objectifs. Ces fonctionnalités seront promues via des partenariats avec des clubs de basket locaux et régionaux, ainsi qu’avec la Fédération Française de Basketball, afin de toucher un large public de coachs et de joueurs.
+Les métiers de la forme, qui incluent le fitness, la musculation et le CrossFit, représenteront un pilier central de l’offre GYM, en ciblant à la fois les coachs indépendants et les salles de sport. Pour cette catégorie, la plateforme propose des outils de suivi des progrès (mesures corporelles, performances…). Les coachs et les salles de sport pourront vendre leurs programmes directement sur la plateforme (via leur page de contenus) et les salles de sport d’un système de gestion permettant de monétiser des séances de coaching via GYM. Des partenariats avec des chaînes comme Basic-Fit ou Fitness Park seront prioritaires pour accélérer l’adoption, avec des offres groupées pour leurs membres.
+Les sports de combat, ou BRINEAU Antoni apporte une légitimité forte grâce à son expérience en boxe anglaise et en MMA, seront un atout différenciant pour GYM. La plateforme intégrera une base de modules d'entraînement technique, des plans de préparation physique adaptés aux combats et des outils de suivi des progrès (mesures corporelles, performance) ainsi que des outils de gestion des sparrings. Des partenariats avec des clubs de combats locaux et des fédérations seront établis pour recruter des coachs certifiés et promouvoir la plateforme auprès des pratiquants.
+Des collaborations avec des marques d’équipement pourront aussi permettre d’offrir des réductions exclusives aux utilisateurs de GYM, renforçant ainsi la valeur perçue pour les coachs mais aussi pour les sportifs créant un écosystème avantageux.
+Pour renforcer l’offre multisport, GetYourMentor développe des partenariats stratégiques avec des acteurs clés de chaque discipline. Avec les marques d’équipements sportifs, des réductions ou des accès privilégiés seront négociés pour les utilisateurs de GYM, créant ainsi un écosystème avantageux pour les coachs et les sportifs. Avec les fédérations, des accords de recommandation seront négociés, notamment pour le football et le basket-ball qui viennent de créer un diplôme d'entraîneur individuel, pour promouvoir GYM auprès de tous leurs licenciés. Tandis que des collaborations avec des clubs permettront d’intégrer la plateforme dans leurs programmes d'entraînement. Par exemple, un partenariat avec la fédération française de football pourrait inclure la promotion de GYM auprès de 2 millions de licenciés, tandis qu’un accord avec un club de ligue 2 offrira des séances de coaching exclusives via la plateforme.
+La stratégie de déploiement s’articulera en trois phases : une phase de lancement, ciblant coachs, et clubs et les quatres disciplines sportives, une phase de consolidation visant à fidéliser ces utilisateurs et à optimiser les fonctionnalités spécifiques, et une phase d’expansion progressive vers d’autres sports une fois la plateforme stabilisée. Durant la phase de lancement, des campagnes de communication ciblées seront mises en place pour chaque discipline, mettant en avant des coachs ambassadeurs et des témoignages de sportifs ayant bénéficié des programmes GYM. Des évènements locaux, comme des ateliers ou des démonstrations gratuites, seront organisés en collaboration avec des clubs et salles partenaires pour générer une adoption rapide.
+Pour garantir la qualité et la pertinence des contenus et outils proposés, GYM s’appuiera sur un comité d’experts composé de coachs certifiés, d’anciens athlètes, et de préparateurs physiques pour chaque discipline, chargé de valider les programmes et de former les nouveaux coachs à l’utilisation des outils spécifiques. Ce comité participe également à la création de contenu éducatif (webinaire, guides, articles) pour enrichir la bibliothèque de ressource disponible sur la plateforme, tout en assurant une veille permanente sur les innovations pédagogiques et technologiques dans chaque sport.
+Un système de suivi et d’analyse des performances par discipline sera aussi mis en place pour mesurer l’engagement des utilisateurs, le taux de conversion en abonnement premium et la rentabilité de chaque catégorie sportive. Ces données permettront d’ajuster les ressources et les efforts commerciaux en fonction des résultats, tout en identifiant les opportunités d’expansion vers de nouvelles disciplines. Cette approche data-driven assurera une croissance équilibrée et durable, tout en préparant le terrain pour une expansion future vers d’autres sports.
+🤖 Développement de fonctionnalités avancées
+Le développement de fonctionnalités avancées pour GYM représente une étape clé pour transformer la plateforme d’une simple solution de mise en relation entre coachs et sportifs et un écosystème intelligent et intégré, capable de répondre aux besoins spécifiques de chaque utilisateur tout en maximisant l’engagement, la rétention et les revenus. Ces fonctionnalités seront conçues pour automatiser les processus, personnaliser l’expérience utilisateur et créer une valeur ajoutée unique qui différencie GYM de ses concurrents, tout en s’appuyant sur les dernières avancées technologiques, comme l’intelligence artificielle, l’analyse de données en temps réel et les outils collaboratifs. L’objectif est de faire de GYM non seulement une plateforme de coaching, mais un compagnon indispensable pour les coachs, les clubs et les sportifs, en leur offrant des outils qui simplifient leur quotidien, améliorent leurs performances et optimisent leurs revenus.
+Pour commencer, GYM intégrera un système d’intelligence artificielle (IA) dédié à la personnalisation des programmes d’entraînement, capable d’analyser les données des utilisateurs (niveau, objectifs, historique de performances) pour générer des plans sur mesure, adaptés à chaque discipline sportive. Cette IA s’appuiera sur des algorithmes d’apprentissage automatique pour s’améliorer en continu, en analysant les retours des utilisateurs et les résultats obtenus, afin d’affiner ses recommandations. De plus, elle pourra suggérer des ajustements en temps réel en fonction des progrès ou des blocages rencontrés, transformant ainsi chaque séance en une expérience dynamique et adaptative.
+Une autre fonctionnalité avancée majeure sera l’analyse vidéo intelligente, permettant aux coachs et aux sportifs d’uploader des vidéos de leurs performances pour recevoir des feedbacks automatisés sur leur technique. Grâce à la vision par ordinateur et à des modèles d’IA entraînés sur des milliers d’heures de vidéos de sportifs professionnels, la plateforme pourra identifier des erreurs techniques et proposer des corrections précises, accompagnées de vidéos tutorielles ou d’exercices correctifs. Cette fonctionnalité sera particulièrement utile pour les sportifs ou la technique est cruciale, comme le football et le basketball et elle permettra aux coachs de gagner un temps précieux en automatisant une partie de leur travail d’analyse. Les utilisateurs pourront également comparer leurs vidéos avec celles de référence pour visualiser les écarts et les axes d’amélioration.
+GYM développe également un tableau de bord analytique avancé pour les coachs et les clubs, leur offrant une vue d’ensemble de leurs performances, de leurs revenus, et de l’engagement de leurs clients. Ce tableau de bord intégrera des indicateurs clés tels que le taux de rétention des sportifs, le nombre de séances réservées, les revenus générés par type de service (séance, contenu, abonnements) et des analyses prédictives pour anticiper les tendances ou les risques de désengagement. Les coachs pourront ainsi identifier leurs points forts et leurs axes d’amélioration, tandis que les clubs auront une vision claire sur l’impact de GYM sur leur activité, ce qui renforcera leur fidélité à la plateforme. Des alertes personnalisées seront également mises en place pour signaler des opportunités (ex. : un sportif inactif depuis plusieurs semaines) ou des risques (ex. : une baisse soudaine des réservations), permettant une action proactive.
+Pour renforcer l’aspect communautaire et collaboratif de la plateforme, GYM intégrera des fonctionnalités sociales avancées, telles que des groupes de discussion par discipline, des défis collectifs et des systèmes de classement pour motiver les utilisateurs. Les sportifs pourront partager leurs progrès, échanger des conseils et s’encourager mutuellement, tandis que les coachs pourront créer des communautés autour de leur expertise, organisant par exemple des séances de coaching collectives ou des Q&A en direct. Ces fonctionnalités sociales seront conçues pour augmenter l’engagement et la rétention, tout en créant un sentiment d’appartenance à une communauté soudée, ce qui est un facteur clé de fidélisation. De plus, des systèmes de récompense (badges, niveaux) seront mis en place pour valoriser les utilisateurs les plus actifs, qu’ils soient coachs ou sportifs.
+Une autre innovation majeure sera l'intégration d’un système intelligent, permettant aux coachs de gérer leurs plannings de manière optimale, en tenant compte de leurs disponibilités, de leurs préférences et des demandes des sportifs. Ce système inclura des fonctionnalités telles que la réservation automatique (avec confirmation instantanée pour les sportifs), la gestion des annulations, et des rappels automatiques pour réduire les absences. Pour les clubs, une intégration avec leurs propres systèmes de gestion sera proposée (ex. : Mindbody, TeamUp), permettant une synchronisation fluide des plannings et des paiements. Ce système sera proposé, permettant une synchronisation fluide des plannings et des paiements. Ce système sera également capable de suggérer des créneaux optimaux en fonction des habitudes des sportifs et des périodes de forte demande, maximisant ainsi le taux de remplissage des séances.
+Pour les clubs et salles de sport, GYM propose des fonctionnalités dédiées telles qu’un système de gestion des membres, permettant de suivre les abonnements, les présences et les performances des athlètes, ainsi qu’un module de communication interne pour faciliter les échanges entre les entraîneurs, les athlètes et les dirigeants. Les clubs pourront également utiliser la plateforme pour organiser des évènements (ex. : tournois, stages) et monétiser ces activités via GYM, avec des outils de promotion intégrés. Ces fonctionnalités seront conçues pour s’intégrer parfaitement aux processus existants des clubs, réduisant ainsi la charge administrative.

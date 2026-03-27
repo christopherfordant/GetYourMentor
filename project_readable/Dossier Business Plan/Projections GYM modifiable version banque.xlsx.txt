@@ -1,0 +1,147 @@
+# sheet1
+HYPOTHESES CLES
+Année 1 | Année 2 | Année 3 | Année 4 | Année 5
+Paramètre | Pessimiste | Réaliste | Optimiste | Pessimiste | Réaliste | Optimiste | Pessimiste | Réaliste | Optimiste | Pessimiste | Réaliste | Optimiste | Pessimiste | Réaliste | Optimiste
+Coachs TOTAL | 300.0 | 400 | 800.0 | 330 | 470 | 1120 | 363 | 552.25 | 1568 | 399.3 | 648.89375 | 2195.2 | 439.23 | 762.4501563 | 3073.28
+Coachs Premium | 180 | 240 | 480 | 198 | 282 | 672 | 217.8 | 331.35 | 940.8 | 239.58 | 389.33625 | 1317.12 | 263.538 | 457.4700938 | 1843.968
+Coach Non premium | 120 | 160 | 320 | 132 | 188 | 448 | 145.2 | 220.9 | 627.2 | 159.72 | 259.5575 | 878.08 | 175.692 | 304.9800625 | 1229.312
+Clubs TOTAL | 50.0 | 75 | 150.0 | 55 | 90 | 225 | 60.5 | 108 | 337.5 | 66.55 | 129.6 | 506.25 | 73.205 | 155.52 | 759.375
+Croissance coachs (%) | 0.1 | 0.175 | 0.4 | 0.1 | 0.175 | 0.4 | 0.1 | 0.175 | 0.4 | 0.1 | 0.175 | 0.4 | 0.1 | 0.175 | 0.4
+Croissance clubs (%) | 0.1 | 0.2 | 0.5 | 0.1 | 0.2 | 0.5 | 0.1 | 0.2 | 0.5 | 0.1 | 0.2 | 0.5 | 0.1 | 0.2 | 0.5
+Ratio premium (%) | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6 | 0.6
+Prix séance (€) | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0
+Prix abonnement Premium Coach (€) | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99 | 19.99
+Prix abonnement Club | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99 | 29.99
+Prix moyen contenu | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0 | 30.0
+Prix moyen abonnement contenu coach | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99 | 8.99
+Commission séances (%) | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15 | 0.15
+Commission ventes contenu (%) | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2
+Comission Abonnement coach | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2
+Nombre de réservation/coach/mois | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0 | 4.0
+Nombre ventes Contenu/coach/mois | 0.0 | 0.0 | 8.0 | 2.0 | 0 | 8.0 | 2.0 | 2.0 | 8.0 | 2.0 | 2 | 8.0 | 2.0 | 2 | 8.0
+Nombre d'abonné par coach | 0.0 | 0.0 | 20.0 | 0.0 | 0 | 20.0 | 0.0 | 5.0 | 20.0 | 0.0 | 5 | 20.0 | 0.0 | 5 | 20.0
+
+# sheet2
+CHARGES OPERATIONNELLES
+Poste | Année 1 | Année 2 | Année 3 | Année 4 | Année 5
+Développement plateforme | 21900.0 | 11000.0 | 0.0
+Maintenance technique | 4200.0 | 4200.0 | 4200.0
+SupaBase | 300.0 | 300.0 | 300.0 | 300.0 | 300.0
+Vercel (hébergement frontend) | 240.0 | 240.0 | 240.0 | 240.0 | 240.0
+BREVO (mailing, notifications) | 108.0 | 108.0 | 108.0 | 108.0 | 108.0
+Nom de domaine | 7.0 | 7.0 | 7.0 | 7.0 | 7.0
+Marketing / Communication | 20000.0 | 23500 | 27612.5 | 32444.6875 | 38122.50781
+Événements Partenariats | 5000.0 | 5875 | 6903.125 | 8111.171875 | 9530.626953
+Juridique RGPD | 4000.0 | 1500.0 | 1500.0 | 1500.0 | 1500.0
+Comptabilité | 2000.0 | 1500.0 | 1500.0 | 1500.0 | 1500.0
+Assurance | 1800.0 | 2100.0 | 2400.0 | 2700.0 | 3000.0
+Contingences (5%) | 2960 | 2498.75 | 2220.78125 | 2327.792969 | 2697.656738
+Taux de croissance des charges 25% (hors dev, compta, juriste,stagiaire) | 0.175 | 0.175 | 0.175 | 0.175 | 0.175
+TOTAL CHARGES | 62515.175 | 52828.925 | 46991.58125 | 49238.82734 | 57005.9665
+Maintenance technique = débeugage, entretiens, MAJ
+Infrastructure = hébergement, serveur, base de données
+API service = google API + stockage vidéo, photos, pdf, Carte d'identité etc.. COÛT = 0.02 ct / giga - ref =10GO / coach + rappel notif
+Serveur backup = copie de secours des données et de la plateforme
+Contingence = Réserve en cas de problème
+
+# sheet3
+SCENARIO PESSIMISTE - Croissance: Coachs +10%, Clubs +10%
+Année 1 | Année 2 | Année 3 | Année 4 | Année 5
+REVENUS
+Commission séances / an | 25920 | 28512 | 31363.2 | 34499.52 | 37949.472
+Abonnement coachs premium / an | 43178.4 | 47496.24 | 52245.864 | 57470.4504 | 63217.49544
+Abonnement clubs premium / an | 17994 | 19793.4 | 21772.74 | 23950.014 | 26345.0154
+Ventes contenu / an | 0 | 28512 | 31363.2 | 34499.52 | 37949.472
+Abonnement contenu / an | 0 | 0 | 0 | 0 | 0
+TOTAL REVENUS par mois TTC | 6048.083333 | 8632.891667 | 9496.180833 | 10445.79892 | 11490.37881
+TOTAL REVENUS par année TTC (TVA 20%) | 72577 | 103594.7 | 113954.17 | 125349.587 | 137884.5457
+CHARGES
+Charges opérationnelles | 62515.175 | 52828.925 | 46991.58125 | 49238.82734 | 57005.9665
+Charges Stripe (2€/user) | 11400 | 13440 | 15846 | 18683.85 | 22031.28375
+TOTAL CHARGES | 73915.175 | 66268.925 | 62837.58125 | 67922.67734 | 79037.25025
+EBITDA | -1338.175 | 37325.775 | 51116.58875 | 57426.90966 | 58847.29545
+Marge EBITDA (%) | -1.843800378 | 36.03058361 | 44.8571463 | 45.81340157 | 42.67867378
+Amortissements | 1500.0 | 2000.0 | 2500.0 | 3000.0 | 3500.0
+EBIT | -2838.175 | 48765.775 | 64462.58875 | 73110.75966 | 77378.5792
+Remboursement crédit bancaire | 0.0 | 14700 | 14160 | 13620 | 13080
+Résultat avant impôt | -2838.175 | 20625.775 | 34456.58875 | 40806.90966 | 42267.29545
+Impôt (25%) | -709.54375 | 5156.44375 | 8614.147187 | 10201.72741 | 10566.82386
+RESULTAT NET | -2128.63125 | 25782.21875 | 43070.73594 | 30605.18224 | 31700.47158
+Marge nette (%) | -2.932928132 | 24.88758474 | 37.79654219 | 24.41586205 | 22.99059073
+Montant emprunté | 60000.0
+Taux d'emprunt | 0.045
+Nombre d'année de remboursement | 5.0
+Année | Capital remboursé (€) | Intérêts (%) | Intérêts (€) | Annuité | Solde restant
+1.0 | 12000 | 0.045 | 2700 | 14700 | 48000
+2.0 | 12000 | 0.045 | 2160 | 14160 | 36000
+3.0 | 12000 | 0.045 | 1620 | 13620 | 24000
+4.0 | 12000.0 | 0.045 | 1080 | 13080 | 12000
+5.0 | 12000.0 | 0.045 | 540 | 12540 | 0
+
+# sheet4
+SCENARIO REALISTE - Croissance: Coachs +25%, Clubs +30%
+Année 1 | Année 2 | Année 3 | Année 4 | Année 5
+REVENUS
+Commission séances / an | 34560 | 40608 | 47714.4 | 56064.42 | 65875.6935
+Abonnement coachs premium / an | 57571.2 | 67646.16 | 79484.238 | 93393.97965 | 109737.9261
+Abonnement clubs premium / an | 26991 | 32389.2 | 38867.04 | 46640.448 | 55968.5376
+Ventes contenu / an | 0 | 0 | 47714.4 | 56064.42 | 65875.6935
+Abonnement contenu / an | 0 | 0 | 35746.038 | 42001.59465 | 49351.87371
+TOTAL REVENUS par mois | 8272.375 | 9766.9 | 17328.2025 | 20428.11544 | 24084.00864
+TOTAL REVENUS par année TTC (TVA 20%) | 99268.5 | 117202.8 | 207938.43 | 245137.3853 | 289008.1037
+CHARGES
+Charges opérationnelles | 62515.175 | 52828.925 | 46991.58125 | 49238.82734 | 57005.9665
+Charges Stripe (2€/user) | 11400 | 13440 | 15846 | 18683.85 | 22031.28375
+TOTAL CHARGES | 73915.175 | 66268.925 | 62837.58125 | 67922.67734 | 79037.25025
+EBITDA | 25353.325 | 50933.875 | 145100.8488 | 177214.7079 | 209970.8534
+Marge EBITDA (%) | 25.54015121 | 43.45789947 | 69.78067919 | 72.29199566 | 72.65223734
+Amortissements | 1500.0 | 2000.0 | 2500.0 | 3000.0 | 3500.0
+EBIT | 23853.325 | 62373.875 | 158446.8488 | 192898.5579 | 228502.1372
+Remboursement crédit bancaire | 0.0 | 14700 | 14160 | 13620 | 13080
+Résultat avant impôt | 23853.325 | 34233.875 | 128440.8488 | 160594.7079 | 193390.8534
+Impôt (25%) | 5963.33125 | 8558.46875 | 32110.21219 | 40148.67698 | 48347.71335
+RESULTAT NET | 17889.99375 | 25675.40625 | 96330.63656 | 120446.0309 | 145043.1401
+Marge nette (%) | 18.02182339 | 21.90681985 | 46.32651913 | 49.13409303 | 50.18653049
+Montant emprunté | 60000.0
+Taux d'emprunt | 0.045
+Nombre d'année de remboursement | 5.0
+Année | Capital remboursé (€) | Intérêts (%) | Intérêts (€) | Annuité | Solde restant
+1.0 | 12000 | 0.045 | 2700 | 14700 | 48000
+2.0 | 12000 | 0.045 | 2160 | 14160 | 36000
+3.0 | 12000 | 0.045 | 1620 | 13620 | 24000
+4.0 | 12000.0 | 0.045 | 1080 | 13080 | 12000
+5.0 | 12000.0 | 0.045 | 540 | 12540 | 0
+
+# sheet5
+SCENARIO OPTIMISTE - Croissance: Coachs +40%, Clubs +50%
+Année 1 | Année 2 | Année 3 | Année 4 | Année 5
+REVENUS
+Commission séances / an | 69120 | 96768 | 135475.2 | 189665.28 | 265531.392
+Abonnement coachs premium / an | 115142.4 | 161199.36 | 225679.104 | 315950.7456 | 442331.0438
+Abonnement clubs premium / an | 53982 | 80973 | 121459.5 | 182189.25 | 273283.875
+Ventes contenu / an | 276480 | 387072 | 541900.8 | 758661.12 | 1062125.568
+Abonnement contenu / an | 207129.6 | 289981.44 | 405974.016 | 568363.6224 | 795709.0714
+TOTAL REVENUS par mois TTC | 50128.75 | 70555.125 | 99339.4875 | 139918.7513 | 197151.4549
+TOTAL REVENUS par année TTC (TVA 20%) | 601545 | 846661.5 | 1192073.85 | 1679025.015 | 2365817.459
+CHARGES
+Charges opérationnelles | 62515.175 | 52828.925 | 46991.58125 | 49238.82734 | 57005.9665
+Charges Stripe (2€/user) | 11400 | 13440 | 15846 | 18683.85 | 22031.28375
+TOTAL CHARGES | 73915.175 | 66268.925 | 62837.58125 | 67922.67734 | 79037.25025
+EBITDA | 527629.825 | 780392.575 | 1129236.269 | 1611102.338 | 2286780.208
+Marge EBITDA (%) | 87.71244462 | 92.17291385 | 94.72871742 | 95.95463577 | 96.65919913
+Amortissements | 1500.0 | 2000.0 | 2500.0 | 3000.0 | 3500.0
+EBIT | 526129.825 | 791832.575 | 1142582.269 | 1626786.188 | 2305311.492
+Intérêts financiers | 0.0 | 14700 | 14160 | 13620 | 13080
+Résultat avant impôt | 526129.825 | 763692.575 | 1112576.269 | 1594482.338 | 2270200.208
+Impôt (25%) | 131532.4563 | 190923.1438 | 278144.0672 | 398620.5844 | 567550.0521
+RESULTAT NET | 394597.3688 | 572769.4313 | 834432.2016 | 1195861.753 | 1702650.156
+Marge nette (%) | 65.59731504 | 67.65034565 | 69.99836475 | 71.2235817 | 71.96878821
+Montant emprunté | 60000.0
+Taux d'emprunt | 0.045
+Nombre d'année de remboursement | 5.0
+Année | Capital remboursé (€) | Intérêts (%) | Intérêts (€) | Annuité | Solde restant
+1.0 | 12000 | 0.045 | 2700 | 14700 | 48000
+2.0 | 12000 | 0.045 | 2160 | 14160 | 36000
+3.0 | 12000 | 0.045 | 1620 | 13620 | 24000
+4.0 | 12000.0 | 0.045 | 1080 | 13080 | 12000
+5.0 | 12000.0 | 0.045 | 540 | 12540 | 0

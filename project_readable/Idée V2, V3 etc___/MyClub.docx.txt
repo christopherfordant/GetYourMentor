@@ -1,0 +1,137 @@
+MY CLUB
+Objectif global de la fonctionnalité
+Donner aux coachs Premium la possibilité de créer leur propre “club virtuel” sur la plateforme, dans lequel ils rassemblent des coachs, des joueurs, organisent des événements et développent leur communauté.
+FONCTIONNALITÉS PRINCIPALES – CLUB PRIVÉ PREMIUM
+1. Création d’un Club personnalisé
+Le coach Premium peut créer son propre espace :
+Nom du club
+Description / slogan
+Photo de profil ou logo
+Visibilité du club : publique ou sur invitation uniquement
+Objectif : lui permettre de créer une identité autour de sa communauté, comme un mini-brand personnel.
+2. Gestion des membres du club
+Le coach peut :
+↪ Accepter ou refuser des joueurs (avec filtre si nécessaire), inviter des joueurs ou des coachs à rejoindre son club :
+1. Système d’adhésion par demande (opt-in manuel)
+Fonctionnement : Le joueur voit un bouton "Rejoindre le club" sur la page publique du coach. Il envoie une demande d’adhésion (peut être accompagnée d’un petit message ou formulaire). Le coach valide ou refuse manuellement la demande.
+2. Invitation manuelle avec validation par le joueur
+Fonctionnement : Le coach peut inviter un joueur spécifique à rejoindre son club (à partir d’une séance passée, ou via email/nom). Le joueur reçoit une notification ou un mail → il peut accepter ou refuser l’invitation.
+Avantages :
+Le coach peut construire sa communauté activement
+Tu gardes un processus respectueux et sécurisé
+Le joueur a toujours le dernier mot
+3. Accès conditionné (par activité ou événements)
+Fonctionnement :
+Un joueur n’est éligible au club que s’il a : réservé au moins 1 séance avec le coach, participé à un événement organisé par lui. Ensuite, il débloque le droit d’envoyer une demande d’adhésion => IMPORTANT
+Avantages :
+Le club devient une récompense pour les joueurs actifs
+Cela incite à réserver et à participer
+Tu garantis une base de membres engagés, pas juste curieux
+Incite les coach à passer premium
+↪  Voir la liste des membres actifs et leur statut (Coach premium, joueur, etc.)
+Objectif : donner au coach le contrôle total de sa communauté
+↪  Organisation d’événements internes
+Dans son club, le coach peut : créer des séances communes, à thème ou non / stages / tournois / Challenge sur X jours / séance récupération / session test / live spécial ou contenu interactif / séance découverte etc…  choisir la date - l'heure - le lieu (présentiel/visio) - le tarif, Limiter le nombre de places, Rendre l’événement gratuit ou payant, Spécifier s’il est réservé aux membres du club ou ouvert à tous
+Objectif : favoriser l’engagement, l’activité régulière et la valeur ajoutée du club
+↪  Espace de discussion & d’échange
+Un espace communautaire intégré au club : Chat général, Notifications pour les nouveaux événements / actualités, Possibilité de partager des photos, vidéos, documents
+Objectif : créer du lien humain et de la fidélité à la communauté du coach
+↪  Multi-coaching (co-coachs)
+Le coach peut inviter d’autres coachs Premium à animer son club avec lui :
+Co-animation de séances
+Planification partagée
+Possibilité de laisser un co-coach gérer les membres en son absence
+Objectif : structurer un crew de coachs et renforcer l’aspect collaboratif
+↪  Espace “contenu” réservé aux membres
+Le coach peut publier :
+Des programmes téléchargeables (PDF, vidéo, lien privé)
+Des conseils, routines, plans d’entraînement
+Des annonces “réservées aux membres”
+Objectif : augmenter la valeur perçue du club pour les joueurs → justifier l'abonnement ou la fidélité
+↪  Statistiques & Suivi du club
+Le coach voit dans son interface :
+Nombre de membres
+Taux de participation aux événements
+Nombre de nouveaux membres par mois
+Évaluations / commentaires sur les séances
+Objectif : professionnaliser l’usage et aider les coachs à piloter leur croissance
+↪  Mise en avant des clubs les plus actifs
+Sur la page d’accueil de la plateforme (ou section “Explorer les clubs”) :
+Classement des clubs actifs
+Badges “Top club”, “Club recommandé”, “Club populaire”
+Possibilité pour un joueur de suivre ou postuler à un club
+Objectif : stimuler la compétition positive entre coachs, générer plus de visibilité et d’interactions
+LES BENEFICES pour le coach Premium et pour les joueurs :
+Identité de marque personnelle, Rejoindre un crew, un univers,
+Gestion de sa communauté, Accès à des événements exclusifs,
+Outils de communication interne,  Proximité avec le coach,
+Création de valeur + visibilité Contenu réservé et suivi régulier
++ de fidélité, + de ventes Motivation collective + accompagnement
+Les coachs Premium auront plus de pouvoir pour animer, fidéliser et structurer leur coaching.
+Les joueurs auront plus qu’un simple rendez-vous : un vrai cadre de progression communautaire.
+Myclub permettra de  préparer une montée en puissance naturelle et de fidéliser nos clients.
+Un coach qui vend 1 séance = bien.
+Un coach qui a 20 joueurs dans son club + 3 événements/mois + 2 co-coachs = il ne quittera jamais la plateforme.
+C’est exactement ce que font les géants (Superprof, LinkedIn, Substack) :
+> D’abord attirer avec une offre simple, puis leur donner les outils pour créer ton propre business dans leur écosystème.
+Augmentation de  la valeur perçue du Premium (sans casser le modèle de base)
+Aujourd’hui, Premium c’est :
+Visibilité boostée
+Tableau de bord
+Paiement instantané
+Pas de commission
+Demain, avec l’offre Club, c’est :  Une plateforme dans la plateforme.
+Un coach Premium peut :
+Créer une “marque” autour de lui
+Rassembler des sportifs
+Multipliez ses interactions et ses revenus indirects
+4. Création d’une “vraie valeur communautaire et collaborative”
+Aujourd’hui, beaucoup de plateformes sont "froides" : je clique, je réserve, c’est terminé.
+L' idée rend GYM plus vivant, plus humain, plus social.
+C’est là où est la difference. Nous lui ajoutons une dimension communautaire et stratégique que 95 % de nos concurrents n’ont pas.
+LES RISQUES
+1. Complexification de l’expérience utilisateur
+Problème :
+> Ajouter une fonctionnalité “club” pourrait rendre la plateforme plus complexe à comprendre pour les nouveaux utilisateurs.
+Solution :
+Intégrer une navigation très claire (ex. : "Tu veux réserver un coach ou rejoindre un club ?")
+Proposer des tutos, messages-guides ou onboarding simplifié pour les coachs qui veulent créer leur club.
+Laisser cette fonctionnalité réservée aux coachs Premium uniquement, donc à ceux qui sont déjà à l’aise avec la plateforme.
+2. Rythme d’adoption lent par les coachs
+Problème :
+> Certains coachs risquent de ne pas savoir comment utiliser la fonctionnalité ou ne pas en voir l’intérêt au début.
+Solution :
+Créer des modèles de clubs pré-remplis, avec des idées d’événements, de messages types, etc.
+Proposer des tutos vidéo ou des webinaires "Comment créer et animer ton club".
+Lancer la fonctionnalité avec une promo exclusive : 1 mois gratuit si le coach crée un club et fait un événement.
+3. Risque de clubs “fantômes” ou inactifs
+Problème :
+> Des coachs pourraient créer des clubs… sans jamais les animer.
+Cela pourrait nuire à l’image de la plateforme si trop de clubs paraissent vides ou inactifs.
+Solution :
+Ajouter un système de badge “actif / inactif” sur les clubs (selon le nombre d’événements récents ou de membres actifs).
+Mettre en avant uniquement les clubs actifs ou bien notés dans les suggestions.
+Archiver automatiquement un club inactif après X mois sans événements.
+4. Charge de modération (contenu / comportement)
+Problème :
+> Si tu ouvres des espaces communautaires (messagerie, salons), tu peux avoir du spam, des abus, ou des discours déplacés.
+Solution :
+Mettre en place une charte de comportement à accepter avant de créer un club.
+Proposer un système de signalement rapide + modération simplifiée (même automatique au début).
+Prévoir un rôle d’administrateur pour les co-coachs, avec des droits limités, pour ne pas tout centraliser sur vous.
+5. Développement technique plus lourd
+Problème :
+> Créer une vraie structure de clubs (membres, contenu, messagerie, événements, rôles…) va demander du temps de dev, de tests et de budget.
+Solution :
+Lancer la fonctionnalité en plusieurs étapes (MVP) :
+1. Phase 1 : créer un club + inviter des membres + créer événements
+2. Phase 2 : messagerie, contenu partagé, stats
+3. Phase 3 : modules avancés, co-coachs, monétisation interne
+Cela permet de valider l’intérêt étape par étape, et de ne pas alourdir le dev d’entrée de jeu.
+En résumé — principaux risques :
+Risque  Solution simple
+Trop complexe pour débutants Interface claire + tutoriels progressifs
+Coachs peu actifs Modèles pré-remplis + incentives
+Clubs inactifs Badges + archivage auto + classement
+Modération Charte + outils de signalement
+Dev lourd MVP par étapes (fonction après fonction)

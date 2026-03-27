@@ -1,0 +1,65 @@
+﻿[
+    {
+        "category":  "football",
+        "slug":  "football-coach-rain",
+        "source_page":  "https://pixabay.com/photos/search/football%20coach/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2020/08/29/12/57/coach-5526993_1280.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\football\\football-coach-rain.jpg"
+    },
+    {
+        "category":  "football",
+        "slug":  "football-youth-coach",
+        "source_page":  "https://pixabay.com/photos/search/football%20coach/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2018/01/16/19/19/coach-3086648_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\football\\football-youth-coach.jpg"
+    },
+    {
+        "category":  "football",
+        "slug":  "football-field-mentor",
+        "source_page":  "https://pixabay.com/photos/search/football%20coach/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2016/06/24/00/34/coach-1476463_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\football\\football-field-mentor.jpg"
+    },
+    {
+        "category":  "basketball",
+        "slug":  "basketball-training-athlete",
+        "source_page":  "https://pixabay.com/images/search/basketball%20training/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2022/04/15/22/30/man-7135324_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\basketball\\basketball-training-athlete.jpg"
+    },
+    {
+        "category":  "basketball",
+        "slug":  "basketball-shooting-court",
+        "source_page":  "https://pixabay.com/images/search/playing%20basketball/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2016/11/29/12/17/action-1869428_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\basketball\\basketball-shooting-court.jpg"
+    },
+    {
+        "category":  "fitness",
+        "slug":  "fitness-bench-trainer",
+        "source_page":  "https://pixabay.com/photos/search/personal%20training/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2017/04/25/20/18/woman-2260736_1280.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\fitness\\fitness-bench-trainer.jpg"
+    },
+    {
+        "category":  "fitness",
+        "slug":  "fitness-coach-plank",
+        "source_page":  "https://pixabay.com/photos/search/personal%20training/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2016/03/31/03/23/fitness-1291997_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\fitness\\fitness-coach-plank.jpg"
+    },
+    {
+        "category":  "combat",
+        "slug":  "combat-muay-thai-kick",
+        "source_page":  "https://pixabay.com/photos/search/boxing%20training/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2022/02/22/12/52/muay-thai-7028717_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\combat\\combat-muay-thai-kick.jpg"
+    },
+    {
+        "category":  "combat",
+        "slug":  "combat-boxer-portrait",
+        "source_page":  "https://pixabay.com/photos/search/boxing%20training/",
+        "cdn_url":  "https://cdn.pixabay.com/photo/2018/09/06/23/36/boxer-3659610_640.jpg",
+        "file":  "c:\\Users\\cashe\\Documents\\GetYourMentor\\design_assets\\content_library\\combat\\combat-boxer-portrait.jpg"
+    }
+]

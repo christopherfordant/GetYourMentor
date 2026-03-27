@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Home Prototype</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav" aria-label="Sports">
+          <a class="sport-link" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-backdrop"></div>
+          <div class="hero-overlay"></div>
+
+          <div class="hero-content">
+            <p class="eyebrow">Coaching sportif premium</p>
+            <h1 id="hero-title">Réservez votre coach</h1>
+            <p class="hero-copy">Simple • Immédiat • 24h/24</p>
+
+            <form class="search-card" data-home-search-form>
+              <label class="field">
+                <span class="field-label">Que cherchez-vous ?</span>
+                <input
+                  class="field-input"
+                  type="text"
+                  data-home-sport-input
+                  placeholder="Nom du coach, sport..."
+                />
+              </label>
+
+              <label class="field">
+                <span class="field-label">Où</span>
+                <input class="field-input" type="text" data-home-city-input placeholder="Adresse, ville" />
+              </label>
+
+              <button class="search-button" type="submit">Rechercher</button>
+            </form>
+
+            <div class="search-preview-layer" aria-hidden="true" data-home-search-preview>
+              <div class="search-preview-shell">
+                <span class="search-preview-badge">Apercu de la recherche</span>
+                <div class="search-preview-frame">
+                  <img
+                    class="search-preview-image"
+                    src="../design_assets/info_resa_accueil.jpeg"
+                    alt="Apercu de la page de recherche avec filtres, resultats et carte"
+                  />
+                </div>
+                <p class="search-preview-copy">On prepare les coachs disponibles, les filtres et la carte autour de votre recherche.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="how-it-works" aria-labelledby="how-title">
+          <div class="section-heading">
+            <h2 id="how-title">Comment ça marche ?</h2>
+          </div>
+
+          <div class="how-grid">
+            <article class="step-card">
+              <div class="step-head">
+                <span class="step-number">1</span>
+                <h3>Trouvez votre coach</h3>
+              </div>
+              <div class="mini-screen mini-screen-profile">
+                <div class="card-carousel-window">
+                  <div class="card-carousel-track carousel-track-6">
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-1"></div>
+                      <h4 class="mini-name">Thomas Dubois</h4>
+                      <p class="mini-meta">Football • Paris</p>
+                      <p class="mini-detail">Spécialiste préparation match • 12 ans d'expérience</p>
+                      <span class="mini-pill">50€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="football" data-city="Paris" data-coach="Thomas Dubois">Voir le profil</button>
+                    </div>
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-2"></div>
+                      <h4 class="mini-name">Sarah Benali</h4>
+                      <p class="mini-meta">Basketball • Lyon</p>
+                      <p class="mini-detail">Technique individuelle • Séances intensives</p>
+                      <span class="mini-pill">65€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="basketball" data-city="Lyon" data-coach="Sarah Benali">Découvrir le coach</button>
+                    </div>
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-3"></div>
+                      <h4 class="mini-name">Julien Morel</h4>
+                      <p class="mini-meta">Métiers de la forme • Lille</p>
+                      <p class="mini-detail">Remise en forme • Coaching progressif</p>
+                      <span class="mini-pill">42€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="metiers-de-la-forme" data-city="Lille" data-coach="Julien Morel">Voir ses séances</button>
+                    </div>
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-4"></div>
+                      <h4 class="mini-name">Ines Caron</h4>
+                      <p class="mini-meta">Sports de combat • Marseille</p>
+                      <p class="mini-detail">Self-défense • Conditionnement physique</p>
+                      <span class="mini-pill">70€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="sports-de-combat" data-city="Marseille" data-coach="Ines Caron">Réserver ce coach</button>
+                    </div>
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-5"></div>
+                      <h4 class="mini-name">Mehdi Rahal</h4>
+                      <p class="mini-meta">Football • Bordeaux</p>
+                      <p class="mini-detail">Travail d'appuis • Explosivité • Mental</p>
+                      <span class="mini-pill">58€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="football" data-city="Bordeaux" data-coach="Mehdi Rahal">Voir son agenda</button>
+                    </div>
+                    <div class="card-slide profile-slide">
+                      <div class="profile-avatar avatar-face-6"></div>
+                      <h4 class="mini-name">Camille Perrot</h4>
+                      <p class="mini-meta">Métiers de la forme • Nice</p>
+                      <p class="mini-detail">Pilates, mobilité et renforcement doux</p>
+                      <span class="mini-pill">54€ / séance</span>
+                      <button class="mini-cta dark" type="button" data-home-profile-link data-sport="metiers-de-la-forme" data-city="Nice" data-coach="Camille Perrot">Choisir cette coach</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-head">
+                <span class="step-number">2</span>
+                <h3>Proposez vos créneaux</h3>
+              </div>
+              <div class="mini-screen mini-screen-slots">
+                <div class="card-carousel-window">
+                  <div class="card-carousel-track carousel-track-4">
+                    <div class="card-slide slots-slide">
+                      <p class="mini-caption">Choisissez jusqu'à 3 créneaux</p>
+                      <div class="slot-visual slot-visual-1"></div>
+                      <div class="slots-row">
+                        <button class="mini-slot selected" type="button">10:30</button>
+                        <button class="mini-slot" type="button">15:00</button>
+                      </div>
+                      <p class="mini-selection">1 créneau sélectionné</p>
+                      <button class="mini-cta muted" type="button" data-home-slot-link data-sport="football" data-city="Paris" data-coach="Thomas Dubois" data-service="Seance technique individuelle" data-duration="30min" data-price="35 EUR">Proposer mes créneaux</button>
+                    </div>
+                    <div class="card-slide slots-slide">
+                      <p class="mini-caption">Sélectionnez un créneau prioritaire</p>
+                      <div class="slot-visual slot-visual-2"></div>
+                      <div class="slots-row">
+                        <button class="mini-slot selected" type="button">08:00</button>
+                        <button class="mini-slot" type="button">18:30</button>
+                      </div>
+                      <p class="mini-selection">2 créneaux sélectionnés</p>
+                      <button class="mini-cta muted" type="button" data-home-slot-link data-sport="basketball" data-city="Lyon" data-coach="Sarah Benali" data-service="Shooting et mecanique" data-duration="30min" data-price="35 EUR">Envoyer mes disponibilités</button>
+                    </div>
+                    <div class="card-slide slots-slide">
+                      <p class="mini-caption">Ajoutez un créneau de secours</p>
+                      <div class="slot-visual slot-visual-3"></div>
+                      <div class="slots-row">
+                        <button class="mini-slot selected" type="button">12:15</button>
+                        <button class="mini-slot" type="button">19:00</button>
+                      </div>
+                      <p class="mini-selection">3 créneaux sélectionnés</p>
+                      <button class="mini-cta muted" type="button" data-home-slot-link data-sport="metiers-de-la-forme" data-city="Lille" data-coach="Julien Morel" data-service="Coaching remise en forme" data-duration="30min" data-price="35 EUR">Valider ma sélection</button>
+                    </div>
+                    <div class="card-slide slots-slide">
+                      <p class="mini-caption">Validez vos disponibilités</p>
+                      <div class="slot-visual slot-visual-4"></div>
+                      <div class="slots-row">
+                        <button class="mini-slot selected" type="button">09:45</button>
+                        <button class="mini-slot" type="button">17:15</button>
+                      </div>
+                      <p class="mini-selection">Prêt à envoyer</p>
+                      <button class="mini-cta muted" type="button" data-home-slot-link data-sport="sports-de-combat" data-city="Marseille" data-coach="Ines Caron" data-service="Cours prive boxe" data-duration="45min" data-price="55 EUR">Continuer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="step-card">
+              <div class="step-head">
+                <span class="step-number">3</span>
+                <h3>Confirmez et payez</h3>
+              </div>
+              <div class="mini-screen mini-screen-payment">
+                <div class="card-carousel-window">
+                  <div class="card-carousel-track carousel-track-4">
+                    <div class="card-slide payment-slide">
+                      <div class="payment-visual payment-visual-1"></div>
+                      <span class="payment-line-strong">Thomas Dubois · Football</span>
+                      <span class="payment-row">Mer. 26 Mars · 14:00</span>
+                      <span class="payment-row">Séance 1h30 · Paris</span>
+                      <div class="payment-total">
+                        <span>Total</span>
+                        <strong>62€</strong>
+                      </div>
+                      <button class="mini-cta dark" type="button" data-home-payment-link data-city="Paris" data-coach="Thomas Dubois" data-service="Seance technique individuelle" data-duration="30min" data-price="62 EUR" data-slot="14:00" data-mentor="Thomas Dubois">Payer maintenant</button>
+                    </div>
+                    <div class="card-slide payment-slide">
+                      <div class="payment-visual payment-visual-2"></div>
+                      <span class="payment-line-strong">Sarah Benali · Basketball</span>
+                      <span class="payment-row">Jeu. 28 Mars · 18:30</span>
+                      <span class="payment-row">Séance 1h00 · Lyon</span>
+                      <div class="payment-total">
+                        <span>Total</span>
+                        <strong>74€</strong>
+                      </div>
+                      <button class="mini-cta dark" type="button" data-home-payment-link data-city="Lyon" data-coach="Sarah Benali" data-service="Session intensite" data-duration="50min" data-price="74 EUR" data-slot="18:30" data-mentor="Sarah Benali">Confirmer et payer</button>
+                    </div>
+                    <div class="card-slide payment-slide">
+                      <div class="payment-visual payment-visual-3"></div>
+                      <span class="payment-line-strong">Julien Morel · Métiers de la forme</span>
+                      <span class="payment-row">Ven. 29 Mars · 08:00</span>
+                      <span class="payment-row">Séance 45 min · Lille</span>
+                      <div class="payment-total">
+                        <span>Total</span>
+                        <strong>48€</strong>
+                      </div>
+                      <button class="mini-cta dark" type="button" data-home-payment-link data-city="Lille" data-coach="Julien Morel" data-service="Coaching remise en forme" data-duration="45min" data-price="48 EUR" data-slot="08:00" data-mentor="Julien Morel">Régler la séance</button>
+                    </div>
+                    <div class="card-slide payment-slide">
+                      <div class="payment-visual payment-visual-4"></div>
+                      <span class="payment-line-strong">Ines Caron · Sports de combat</span>
+                      <span class="payment-row">Sam. 30 Mars · 12:15</span>
+                      <span class="payment-row">Séance 1h15 · Marseille</span>
+                      <div class="payment-total">
+                        <span>Total</span>
+                        <strong>79€</strong>
+                      </div>
+                      <button class="mini-cta dark" type="button" data-home-payment-link data-city="Marseille" data-coach="Ines Caron" data-service="Self-defense premium" data-duration="50min" data-price="79 EUR" data-slot="12:15" data-mentor="Ines Caron">Finaliser la réservation</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="metrics-section">
+          <div class="metrics-grid">
+            <div class="metric">
+              <strong>500+</strong>
+              <span>Coachs certifiés</span>
+            </div>
+            <div class="metric">
+              <strong>10K+</strong>
+              <span>Réservations</span>
+            </div>
+            <div class="metric">
+              <strong>4.9/5</strong>
+              <span>Note moyenne</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="booking-insights" id="coach-space" aria-labelledby="insights-title">
+          <h2 id="insights-title">Optimisez la prise de rendez-vous coaching en ligne</h2>
+
+          <div class="insights-grid">
+            <article class="insight-card">
+              <strong>+ 50%</strong>
+              <p>de fréquence sur les réservations de séances prises en ligne</p>
+            </article>
+
+            <article class="insight-card">
+              <strong>4x</strong>
+              <p>moins d'oublis avec les rappels automatiques des séances</p>
+            </article>
+
+            <article class="insight-card insight-card-feature">
+              <strong>50%</strong>
+              <p>des réservations prises en dehors des horaires d'ouverture</p>
+              <a class="coach-cta-button insight-button" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+            </article>
+
+            <article class="insight-card">
+              <strong>+50 000</strong>
+              <p>séances et demandes de coaching gérées sur la plateforme</p>
+            </article>
+
+            <article class="insight-card">
+              <strong>5 RDV</strong>
+              <p>réservés toutes les secondes sur les créneaux les plus demandés</p>
+            </article>
+
+            <article class="insight-card">
+              <strong>> 5 millions €</strong>
+              <p>de réservations sportives générées pour les coachs partenaires</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="recruit-section" aria-labelledby="recruit-title">
+          <div class="recruit-media"></div>
+          <div class="recruit-copy">
+            <p class="section-kicker">PROFESSIONNEL</p>
+            <h2 id="recruit-title">
+              GetYourMentor recherche des profils partout en France pour digitaliser le coaching sportif
+            </h2>
+            <p class="recruit-signature">Équipe GetYourMentor</p>
+            <a class="coach-cta-button" href="#coach-space">Découvrir nos offres</a>
+          </div>
+        </section>
+
+        <section class="locales-section" aria-labelledby="locales-title">
+          <h2 id="locales-title">Trouvez votre coach sportif partout en France</h2>
+
+          <div class="locales-grid">
+            <article class="locale-column">
+              <h3>Football</h3>
+              <p>Nos coachs football populaires en France</p>
+              <a href="./recherche-coachs.html?sport=football">Bordeaux</a>
+              <a href="./recherche-coachs.html?sport=football">Lille</a>
+              <a href="./recherche-coachs.html?sport=football">Lyon</a>
+              <a href="./recherche-coachs.html?sport=football">Marseille</a>
+              <a href="./recherche-coachs.html?sport=football">Montpellier</a>
+              <a href="./recherche-coachs.html?sport=football">Nantes</a>
+              <a href="./recherche-coachs.html?sport=football">Nice</a>
+              <a href="./recherche-coachs.html?sport=football">Paris</a>
+              <a href="./recherche-coachs.html?sport=football">Strasbourg</a>
+              <a href="./recherche-coachs.html?sport=football">Toulouse</a>
+            </article>
+
+            <article class="locale-column">
+              <h3>Basketball</h3>
+              <p>Nos coachs basketball populaires en France</p>
+              <a href="./recherche-coachs.html?sport=basketball">Bordeaux</a>
+              <a href="./recherche-coachs.html?sport=basketball">Lille</a>
+              <a href="./recherche-coachs.html?sport=basketball">Lyon</a>
+              <a href="./recherche-coachs.html?sport=basketball">Marseille</a>
+              <a href="./recherche-coachs.html?sport=basketball">Montpellier</a>
+              <a href="./recherche-coachs.html?sport=basketball">Nantes</a>
+              <a href="./recherche-coachs.html?sport=basketball">Nice</a>
+              <a href="./recherche-coachs.html?sport=basketball">Paris</a>
+              <a href="./recherche-coachs.html?sport=basketball">Strasbourg</a>
+              <a href="./recherche-coachs.html?sport=basketball">Toulouse</a>
+            </article>
+
+            <article class="locale-column">
+              <h3>Metiers de la forme</h3>
+              <p>Nos coachs forme populaires en France</p>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Bordeaux</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Lille</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Lyon</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Marseille</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Montpellier</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Nantes</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Nice</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Paris</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Strasbourg</a>
+              <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Toulouse</a>
+            </article>
+
+            <article class="locale-column">
+              <h3>Sports de combat</h3>
+              <p>Nos coachs combat populaires en France</p>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Bordeaux</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Lille</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Lyon</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Marseille</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Montpellier</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Nantes</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Nice</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Paris</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Strasbourg</a>
+              <a href="./recherche-coachs.html?sport=sports-de-combat">Toulouse</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="faq-section" aria-labelledby="faq-title">
+          <p class="section-kicker">FAQ</p>
+          <h2 id="faq-title">Les questions fréquentes</h2>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Qu'est-ce que GetYourMentor ?</summary>
+              <p>GetYourMentor est une plateforme qui aide les sportifs à trouver un coach, envoyer une demande de réservation et payer seulement après validation du coach.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Comment réserver une séance sur GetYourMentor ?</summary>
+              <p>Vous choisissez un coach, une séance, puis vous proposez un à trois créneaux. Le coach accepte ou refuse avant toute étape de paiement.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Est-ce que je dois payer en ligne sur GetYourMentor ?</summary>
+              <p>Oui, mais uniquement une fois que le coach a validé votre demande. Aucun paiement n'est déclenché avant acceptation.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Comment gérer mes demandes et mes réservations ?</summary>
+              <p>Depuis votre espace compte, vous pouvez consulter vos demandes envoyées, vos validations, vos réservations confirmées et vos informations de paiement.</p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Comment devenir coach partenaire sur GetYourMentor ?</summary>
+              <p>Vous pouvez rejoindre le réseau en créant votre compte professionnel puis en complétant votre profil, vos sports, vos disponibilités et vos conditions de séance.</p>
+            </details>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+          <a href="#cgv">CGV</a>
+          <a href="#cgu">CGU</a>
+          <a href="#privacy">Politique de confidentialité</a>
+          <a href="#legal">Mentions légales</a>
+        </nav>
+        <small>© 2026 GetYourMentor. Tous droits réservés.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Profils de coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell coach-profile-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link brand-name-dark" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav sports-nav-dark" aria-label="Sports">
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="coach-directory-page" data-coach-directory-page>
+        <section class="coach-directory-toolbar">
+          <form class="coach-directory-search" aria-label="Recherche coach" data-directory-form>
+            <label class="directory-field">
+              <span>Sport</span>
+              <input type="text" data-directory-sport-input value="Metiers de la forme" />
+            </label>
+            <label class="directory-field">
+              <span>Ville</span>
+              <input type="text" data-directory-city-input value="Marseille" />
+            </label>
+            <label class="directory-field">
+              <span>Disponibilité</span>
+              <input type="text" value="À tout moment" data-directory-availability-input />
+            </label>
+            <button class="directory-search-button" type="submit" aria-label="Rechercher">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M20 20 15.5 15.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </button>
+          </form>
+
+          <div class="directory-chip-row" aria-label="Filtres">
+            <button class="directory-chip directory-chip-filter" type="button">Filtres</button>
+            <button class="directory-chip directory-chip-secondary" type="button">Trier par :</button>
+            <button class="directory-chip directory-chip-secondary" type="button">Avis :</button>
+          </div>
+        </section>
+
+        <section class="coach-directory-content">
+          <div class="coach-directory-list">
+            <header class="directory-heading">
+              <h1 data-directory-title>Sélectionnez un coach de la forme</h1>
+              <p data-directory-subtitle>Les meilleurs coachs à proximité de Marseille : réservation en ligne</p>
+            </header>
+
+            <div class="coach-results" data-coach-results></div>
+          </div>
+
+          <aside class="coach-directory-map" aria-label="Carte des coachs">
+            <div class="coach-map-panel">
+              <div class="coach-map-grid"></div>
+              <div class="coach-map-water"></div>
+              <span class="map-pin map-pin-1"></span>
+              <span class="map-pin map-pin-2"></span>
+              <span class="map-pin map-pin-3"></span>
+              <span class="map-pin map-pin-4"></span>
+              <span class="map-pin map-pin-5"></span>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+          <a href="./accueil.html#faq-title">CGV</a>
+          <a href="./accueil.html#faq-title">CGU</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialité</a>
+          <a href="./accueil.html#faq-title">Mentions légales</a>
+        </nav>
+        <small>© 2026 GetYourMentor. Tous droits réservés.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

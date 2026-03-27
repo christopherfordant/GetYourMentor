@@ -1,0 +1,34 @@
+Préparation Pitch Jury IMM
+Partie 1 : Présentation
+Bonjour à vous,
+Je m’appelle SECK Madison, j’ai 31ans, je suis assistant d’éducation dans un collège en réseau d’éducation prioritaire à Vitrolles. J’ai  été joueur de  Basketball durant 22 ans, j’ai fait 3 ans en centre de formation et j’ai été joueur semi-professionnel durant 6 ans. J’ai aussi coaché durant 3 ans. Et cela fait donc maintenant 2 ans que je travaille sur un projet que l’on a nommé GetYourMentor.
+Quand je dis “on”, je parle de mon frère FORDANT Steven qui a 39ans,  vit à Niort, et c’est le directeur technique du club de l’AS Niort basketball, assistant coach en N2
+Partie 2 : Le Projet
+Mon projet est simple : créer une plateforme digitale réunissant les professionnels du sport : les coachs, les clubs et les salles de sport pour les mettre en relation avec des sportifs, des pratiquants pour de l'entraînement individuel ou par petit groupe
+Notre plateforme ?? Elle va :
+gérer et organiser le planning des séances, elle va faciliter la communication entre les professionnels et les pratiquants et sécuriser les paiements.
+Elle a un double objectif  :
+d’apporter de la visibilité aux professionnels, de leur servir de vitrine ou ils pourront mettre en avant leur activité et leur expertise
+et permettre aux sportifs d e réserver rapidement une séance avec un coach qui leurs convient
+Le modèle économique, lui, est simple : les coachs ont la possibilité de se créer un profil gratuitement, pas de barrière à l'entrée mais à chaque réservation, la plateforme retirera 15% de commissions aux coachs. Ils ont aussi une autre possibilité, payer un abonnement premium qui leur donnera des avantages :
+0% de commission
+visibilité boosté
+monétisation de leur expertise par de la création et de la vente de contenu.
+tableau de bord avancé
+templates pour les réseaux sociaux
+Support prioritaire
+Les clubs et salles de sport, bénificieront, eux, d’un abonnement unique à 29.99€,  qui comprendra l’affiliation de 2 coachs uniquement. Si ils veulent rajouter des coachs, ils devront payer, 3.99€ par coach supplémentaire.
+Par rapport à la création et vente de contenu, les sportifs auront la possibilité de s’abonner aux coachs, à un prix fixé par le coach. La plateforme fixera 20% de commissions par abonné. Et à chaque vente de contenu (programme, vidéo) la commission sera aussi de 20%.
+D'où m'est venu l’idée ?
+Pour vous expliquer,  je coachais à Allauch, et plusieurs jeunes sont venu me voir afin de me demander si je pouvais leur faire une séance d'entraînement individuel. Je leur ai répondu que “non” je n’en faisais pas et à force que la demande se multiplie, je suis donc allé faire des recherches sur internet. La recherche fut plus compliquée que prévu : superprof, site de cours particulier, orienté plutôt sur l’école et il fallait payer 38euros pour avoir accès, seulement, au numéro de téléphone ET ownsport, qui ne me permet pas de réserver directement une séance.
+Dans la foulée, j'ai appelé mon frère pour lui parler de mon idée, et il s’est très vite projeté : les clubs, qui disposent de gymnase, de créneaux, d'entraîneurs diplômés semblaient etre un professionnel qui pourrait etre interessé, car ils percoivent moins de subvention de la part des mairies et on des difficultés à trouver des sponsors. Cela leurs permettraient de créer ou developper un nouveau revenu.
+J’ai ainsi contacté deux amis qui étaient partant au début, nous avons fait des ateliers : définir la cible, étudier les differents cas d’usage, et travailler sur notre positionnement. Malheuresement, ils n’étaient pas trop investi et les reunions se sont trop espacer. J’ai donc du stopper notre collaboration. J’ai décidé de prendre les choses en mains et nous avons travaillé sur ce que nous voulons être :
+une plateforme professionnel, avec des coachs diplômés et qui devront déposer obligatoirement leur pièce d’identité afin de garantir un maximum de sécurité
+dans un premier temps, pour le football, le basketball, les métiers de la forme (musculation, fitness, préparation physique, crossfit) et les sports de combat (mma, boxe anglaise, pieds-poings, judo, taekwondo)
+facile à utiliser, très clair, un design épuré
+Un outil pour les professionnels du sport (visibilité, emploi du temps, messagerie, système de paiement)
+et de l’autre côté, pour les sportifs, une plateforme qui servira à réserver rapidement une séance de sport, avec un coach qui répondra à la demande avec un suivi après séance..
+GYM permettra aussi de les accompagner sur la communication digitale et la structuration de leur activité en leur proposant des templates de contenu digital et une méthode afin de lancer leur activité.
+GYM, s’est un projet qui aura un impact à l'échelle National, et possiblement à l’internationnal, car aucune solution comme la nôtre existe. Et au dela de ça, nous voulons aussi avoir un réel impact localement. Développer les revenus des clubs, qui à Marseille, on trop souvent peu ou pas de sponsor, mettre en lumière tout ses coachs qui ont des qualités, de l’expertise et souvent méconnus. Mais aussi, donner cette opportunité aux Marseillais/Marseillaise de pouvoir faire du sport, tout en étant guidés par un professionnel, qui saura individualiser la séance afin de satisfaire la demande du ou de la pratiquant(e).
+Et enfin, Marseille, connue et reconnue pour être une terre de football et un des meilleurs bassins de la formation Française, nous proposons une réel, (pour tous ses joueurs, tous ses projets “M’bappe”), solution de trouver le coach qui leur convient afin de maximiser leur potentiel.
+Trafic Manager :

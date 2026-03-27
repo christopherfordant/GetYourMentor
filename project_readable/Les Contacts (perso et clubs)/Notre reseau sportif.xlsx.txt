@@ -1,0 +1,263 @@
+# sheet1
+Madison
+Clubs
+BC Canaille (cassis)
+Cahors Sauzet Basket
+Bc Allauch
+Personne / page RS environs 1000 followers ou +
+elfoxiitoo
+steven_oboy
+kamelabassi
+lebaronhaussmann
+abdoulaye loum
+moustapha fall
+tete_seven
+haessik
+fady93
+broziniii
+donatien G
+yedji
+Noah Goudou-Sinah
+Goduine Koyalipou
+Année | Coachs inscrits | Clubs inscrits
+1 | 500 | 100
+2 | 2 000 | 500
+3 | 5 000 | 1 500
+4 | 10 000 | 3 000
+5 | 18 000 | 5 000
+
+# sheet2
+Nombre | Nom | Réponse | Fait ? | Nombre | Nom | Réponse | Fait ?
+1.0 | king_keba_144 | 1.0 | https://www.facebook.com/fabien.cathely.1
+2.0 | baikoua | 2.0 | https://www.facebook.com/profile.php?id=100086982460117
+3.0 | nesh.fourtado | 3.0 | https://www.facebook.com/nils.poulard
+4.0 | asniortbasket | 4.0 | https://www.facebook.com/sylvain.rosnet
+5.0 | michael.toti | 5.0 | https://www.facebook.com/geoffrey.diancourtjames
+6.0 | jilowmopao | 6.0 | https://www.facebook.com/baikbaide
+7.0 | mxns_di | 7.0 | https://www.facebook.com/michael.bur.9
+8.0 | malo_barberrrrr | 8.0 | https://www.facebook.com/gethevibe
+9.0 | coachandme | 9.0 | https://www.facebook.com/christelle.brechet.92
+10.0 | fk_padre | 10.0 | https://www.facebook.com/math.math79.prouteau
+11.0 | aaron_nk | 11.0 | https://www.facebook.com/profile.php?id=100009927796592
+12.0 | amosie.sinae | 12.0 | https://www.facebook.com/max.ludivion
+13.0 | goduine_koyalipou | 13.0 | https://www.facebook.com/wilfried.gantswa.1
+14.0 | wafabrunsdon | 14.0 | https://www.facebook.com/dimitry.coiffe
+15.0 | mepaget5 | 15.0 | https://www.facebook.com/eyobo.yedji
+16.0 | 16.0 | https://www.facebook.com/hichamfekkak45
+17.0 | 17.0 | https://www.facebook.com/todjeaffo
+18.0 | https://www.facebook.com/alexandre.correia.1232
+19.0 | https://www.facebook.com/louis.iglesias.16
+20.0 | https://www.facebook.com/jdalmat
+21.0 | https://www.facebook.com/charly.azpi
+22.0 | https://www.facebook.com/mike.toti.3
+23.0 | https://www.facebook.com/mehdi.godicheau
+24.0 | https://www.facebook.com/rudy.fordant.9
+25.0 | https://www.facebook.com/maxence.baviere
+26.0 | https://www.facebook.com/jennifer.lecoroller
+27.0 | https://www.facebook.com/daniel.defreitas.10
+28.0 | https://www.facebook.com/cedric.gomez.121
+29.0 | https://www.facebook.com/profile.php?id=100017781341239
+30.0 | https://www.facebook.com/paul.gabilly
+31.0 | https://www.facebook.com/SCBasket
+32.0 | https://www.facebook.com/nesh.fourtadosilva
+33.0 | https://www.facebook.com/rodolph.sarrieau
+34.0 | https://www.facebook.com/lahaye.tristan
+35.0 | https://www.facebook.com/bastien.darrieutort
+36.0 | https://www.facebook.com/stella.galat.1
+37.0 | https://www.facebook.com/ridwan.rabah
+38.0 | https://www.facebook.com/kevin.rengeard.9
+39.0 | https://www.facebook.com/anthony.rengeard.9
+40.0 | https://www.facebook.com/wfordant
+41.0 | https://www.facebook.com/lazonze
+42.0 | https://www.facebook.com/profile.php?id=100010371552100
+43.0 | https://www.facebook.com/antoine.auriault.31
+44.0 | https://www.facebook.com/latifalatifa34
+45.0 | https://www.facebook.com/profile.php?id=100074897751327
+46.0 | https://www.facebook.com/thibaud.merceron
+47.0 | https://www.facebook.com/ludo.gin
+48.0 | https://www.facebook.com/idris.macouangou
+49.0 | https://www.facebook.com/alex.lavaud.1
+50.0 | https://www.facebook.com/leo.sansot
+51.0 | https://www.facebook.com/wafa.kohlanta
+52.0 | https://www.facebook.com/christophe.sigiscar
+53.0 | https://www.facebook.com/salvador.gallardo
+54.0 | https://www.facebook.com/profile.php?id=100004986529121
+55.0 | https://www.facebook.com/ylena.txr
+56.0 | https://www.facebook.com/LanseNarcisse
+57.0 | https://www.facebook.com/thibaultbenabid
+58.0 | https://www.facebook.com/audrey.guerineau
+59.0 | https://www.facebook.com/jb.babin16
+60.0 | https://www.facebook.com/thomas.nogier.7
+61.0 | https://www.facebook.com/zita.ballo
+62.0 | https://www.facebook.com/isaac.denver.79
+63.0 | https://www.facebook.com/profile.php?id=100013024894357
+64.0 | https://www.facebook.com/jilowbraco
+65.0 | https://www.facebook.com/david.zonenberg
+66.0 | https://www.facebook.com/eddy.goncalves.14
+67.0 | https://www.facebook.com/mark.latif.3
+68.0 | https://www.facebook.com/profile.php?id=100059867633207
+69.0 | https://www.facebook.com/mallory.boutet
+70.0 | https://www.facebook.com/profile.php?id=100080809807125
+71.0 | https://www.facebook.com/profile.php?id=100068775728925
+72.0 | https://www.facebook.com/marvin.fordant
+73.0 | https://www.facebook.com/profile.php?id=100063705450336
+74.0 | https://www.facebook.com/benny.bordin.3
+75.0 | https://www.facebook.com/simon.sterling.9212
+76.0 | https://www.facebook.com/clemence.letutour
+77.0 | https://www.facebook.com/michael.koyalipou.77
+78.0 | https://www.facebook.com/profile.php?id=100021801640065
+79.0 | https://www.facebook.com/bordeaux.basketacademy
+80.0 | https://www.facebook.com/profile.php?id=100017531765587
+81.0 | https://www.facebook.com/macoumba.loum.714
+82.0 | https://www.facebook.com/mael.legodais.9
+83.0 | https://www.facebook.com/corentin.moniz
+84.0 | https://www.facebook.com/gege.buibui
+85.0 | https://www.facebook.com/arthur.gabilly
+86.0 | https://www.facebook.com/papaalioune.seydi
+87.0 | https://www.facebook.com/corentinmamene
+88.0 | https://www.facebook.com/andy.fordant
+89.0 | https://www.facebook.com/profile.php?id=100010013742455
+90.0 | https://www.facebook.com/sacha.mercier.9809
+91.0 | https://www.facebook.com/profile.php?id=100009702000699
+92.0 | https://www.facebook.com/profile.php?id=100009554761900
+93.0 | https://www.facebook.com/profile.php?id=100008284301296
+94.0 | https://www.facebook.com/olivieraudrey.goubandlegue
+95.0 | https://www.facebook.com/profile.php?id=100008060087082
+96.0 | https://www.facebook.com/olivier.calvet.58
+97.0 | https://www.facebook.com/irvinktb
+98.0 | https://www.facebook.com/paul.guiberteau
+99.0 | https://www.facebook.com/tomdec2003
+100.0 | https://www.facebook.com/adrien.leroux.90
+101.0 | https://www.facebook.com/fadiala.keita.737
+102.0 | https://www.facebook.com/ruben.lafon
+103.0 | https://www.facebook.com/profile.php?id=100006313217099
+104.0 | https://www.facebook.com/sarah.briaud.1
+105.0 | https://www.facebook.com/profile.php?id=100005978345401
+106.0 | https://www.facebook.com/soufiene.guebellaoui
+107.0 | https://www.facebook.com/orelsb.heros
+108.0 | https://www.facebook.com/profile.php?id=100005750790028
+109.0 | https://www.facebook.com/lamine.amine.3979
+110.0 | https://www.facebook.com/stevens.barclais
+111.0 | https://www.facebook.com/kenny.kanga.5
+112.0 | https://www.facebook.com/philippe.papi.1
+113.0 | https://www.facebook.com/corentin.sauzeau.5
+114.0 | https://www.facebook.com/yaniis.djel
+115.0 | https://www.facebook.com/profile.php?id=100004283293099
+116.0 | https://www.facebook.com/benjamin.landri
+117.0 | https://www.facebook.com/antoine.gautier.3139
+118.0 | https://www.facebook.com/yvan.dovy
+119.0 | https://www.facebook.com/TontonDamn
+120.0 | https://www.facebook.com/profile.php?id=100003506300378
+121.0 | https://www.facebook.com/kilian.melin
+122.0 | https://www.facebook.com/francois.courtinat.7
+123.0 | https://www.facebook.com/bastien.broche
+124.0 | https://www.facebook.com/elyess.rollin
+125.0 | https://www.facebook.com/mansour.diouf.12
+126.0 | https://www.facebook.com/thomas.prezeau.3
+127.0 | https://www.facebook.com/isaia.yam
+128.0 | https://www.facebook.com/S.Fordant
+129.0 | https://www.facebook.com/kentinou.litalien
+130.0 | https://www.facebook.com/kenji.nago
+131.0 | https://www.facebook.com/arthur.ruiz55
+132.0 | https://www.facebook.com/fletutour
+133.0 | https://www.facebook.com/bebou180219
+134.0 | https://www.facebook.com/zoe.chamlong
+135.0 | https://www.facebook.com/yannboteko
+136.0 | https://www.facebook.com/gyrrescarrioll.bout
+137.0 | https://www.facebook.com/philippe.aradas
+138.0 | https://www.facebook.com/emilien.petit.5
+139.0 | https://www.facebook.com/leon.mvumbi
+140.0 | https://www.facebook.com/stephen.fordant
+141.0 | https://www.facebook.com/abe.valentine
+142.0 | https://www.facebook.com/kendryck.fordant
+143.0 | https://www.facebook.com/Baptistepoir0n
+144.0 | https://www.facebook.com/sacha.chamlong
+145.0 | https://www.facebook.com/Tristan.Chauvin5
+146.0 | https://www.facebook.com/enzo.vanderlinden
+147.0 | https://www.facebook.com/alan.paquentin
+148.0 | https://www.facebook.com/cedric.bertorelle
+149.0 | https://www.facebook.com/nathan.sansault
+150.0 | https://www.facebook.com/Uriel.Kims
+151.0 | https://www.facebook.com/jakylass
+152.0 | https://www.facebook.com/aurel.kanto
+153.0 | https://www.facebook.com/thomas.contreau
+154.0 | https://www.facebook.com/fred.valcy
+155.0 | https://www.facebook.com/Derrick.Cheikh
+156.0 | https://www.facebook.com/franck.fragnaud
+157.0 | https://www.facebook.com/lonie.poussin
+158.0 | https://www.facebook.com/pierre.cortial.3
+159.0 | https://www.facebook.com/sliimy.junior
+160.0 | https://www.facebook.com/valentin.sissoko
+161.0 | https://www.facebook.com/bertrand.leeman
+162.0 | https://www.facebook.com/adnane.odouala
+163.0 | https://www.facebook.com/leorawane.guisse
+164.0 | https://www.facebook.com/valentin.jouanneau
+165.0 | https://www.facebook.com/kingdjamihawk
+166.0 | https://www.facebook.com/IBOUG88
+167.0 | https://www.facebook.com/ptipimousse17
+168.0 | https://www.facebook.com/guillaume.billeau
+169.0 | https://www.facebook.com/profile.php?id=61550696227053
+170.0 | https://www.facebook.com/profile.php?id=61550273301383
+171.0 | https://www.facebook.com/michel.gomis2
+172.0 | https://www.facebook.com/christopher.berdalou
+173.0 | https://www.facebook.com/mik.jrodo
+174.0 | https://www.facebook.com/fabien.ryckeboer
+175.0 | https://www.facebook.com/bennouara
+176.0 | https://www.facebook.com/sy.mrhn
+177.0 | https://www.facebook.com/nathanael.foulon
+178.0 | https://www.facebook.com/florian.ouedraogo
+179.0 | https://www.facebook.com/johan.quint1
+180.0 | https://www.facebook.com/romain.sansault
+181.0 | https://www.facebook.com/matthieuleroy.elisebobin
+182.0 | https://www.facebook.com/picpic44530
+183.0 | https://www.facebook.com/yanis.taya
+184.0 | https://www.facebook.com/charly.rey.18
+185.0 | https://www.facebook.com/maxime.clanchier
+186.0 | https://www.facebook.com/camille.leloup.5
+187.0 | https://www.facebook.com/TTPROD
+188.0 | https://www.facebook.com/joe.Mamba.B
+189.0 | https://www.facebook.com/romain.roux.758
+190.0 | https://www.facebook.com/valentin.baudu.9
+191.0 | https://www.facebook.com/kevin.contreau
+192.0 | https://www.facebook.com/simon.leprado
+193.0 | https://www.facebook.com/micheljacques.diouf
+194.0 | https://www.facebook.com/mathieutess
+195.0 | https://www.facebook.com/eddine.foulon
+196.0 | https://www.facebook.com/alexandreoulai
+197.0 | https://www.facebook.com/vi.trystan
+198.0 | https://www.facebook.com/5Lyw4lk3R
+199.0 | https://www.facebook.com/romain.lecomte.14
+200.0 | https://www.facebook.com/loic.alphonso
+201.0 | https://www.facebook.com/quentin.digout.3
+202.0 | https://www.facebook.com/errol.renversez
+203.0 | https://www.facebook.com/maxime.natearchibald
+204.0 | https://www.facebook.com/lawrence.poilly
+205.0 | https://www.facebook.com/charlotte.dufayard
+206.0 | https://www.facebook.com/geoff.guillard.7
+207.0 | https://www.facebook.com/hellody.titekitty
+208.0 | https://www.facebook.com/anais.guichard.18
+209.0 | https://www.facebook.com/guillaume.alex
+210.0 | https://www.facebook.com/revueltaf
+211.0 | https://www.facebook.com/pierre.vandenberghe.39
+212.0 | https://www.facebook.com/jalil.bahjja
+213.0 | https://www.facebook.com/starbuck.koffi
+214.0 | https://www.facebook.com/bballstate
+215.0 | https://www.facebook.com/ynoussa.sawadogo
+216.0 | https://www.facebook.com/sim.guila
+217.0 | https://www.facebook.com/charlotte.brion.52
+218.0 | https://www.facebook.com/mickael.cattet
+219.0 | https://www.facebook.com/clemence.cault
+220.0 | https://www.facebook.com/O.carl
+221.0 | https://www.facebook.com/Florentin.Gauthier
+222.0 | https://www.facebook.com/tashindadanseuse
+223.0 | https://www.facebook.com/severine.nebie
+224.0 | https://www.facebook.com/Thibusdedah
+225.0 | https://www.facebook.com/isma.yameogo.79
+226.0 | https://www.facebook.com/dimitri.pontif
+227.0 | https://www.facebook.com/a9dol
+228.0 | https://www.facebook.com/raphael.pascault
+229.0 | https://www.facebook.com/tony.match
+230.0 | https://www.facebook.com/mardochee.jean.1
+231.0 | Jeff Catherine
+
+# sheet3

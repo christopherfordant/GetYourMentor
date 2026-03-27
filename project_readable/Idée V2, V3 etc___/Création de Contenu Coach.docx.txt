@@ -1,0 +1,56 @@
+🚀 Nouvelle offre : GYM Creator
+GYM Creator est un module innovant intégré à la plateforme GYM. Il permet aux coachs de devenir de véritables créateurs de contenu premium et aux sportifs d’accéder à des ressources exclusives, sous forme d’abonnements ou d’achats ponctuels.
+C’est un modèle inspiré des plateformes de créateurs (Patreon, MYM, OnlyFans), mais 100% dédié au sport, au coaching et à la performance.
+1. Fonctionnalités pour les coachs
+🔹 Création de contenu multi-format
+Vidéos exclusives (séances filmées, techniques, analyses de performance).
+Programmes PDF téléchargeables (nutrition, musculation, plans d’entraînement).
+Capsules audio (motivation, préparation mentale).
+Posts écrits ou newsletters privées (astuces, méthodologie, retours d’expérience).
+🔹 Abonnements mensuels
+Chaque coach définit son prix (ex : 5€, 10€, 20€ / mois).
+Les abonnés accèdent à tout le contenu exclusif du coach.
+Possibilité de créer plusieurs niveaux d’abonnement (bronze, silver, gold) avec des avantages différents.
+🔹 Vente à l’unité
+Les coachs peuvent vendre un programme ou une vidéo spécifique (ex : “Programme summer body – 20€” ou “Analyse vidéo shooting – 10€” ).
+Les sportifs paient une seule fois sans abonnement.
+🔹 Événements live & masterclass
+Organisation de sessions vidéo en direct :
+Q&A avec les abonnés,
+Masterclass sur un sujet précis,
+Entraînements collectifs à distance.
+🔹 Espace privé communautaire
+Chat ou messagerie réservée aux abonnés du coach.
+Création d’un vrai “fan club sportif” autour du coach.
+2. Fonctionnalités pour les sportifs
+🔸 Accès exclusif : contenu unique non disponible ailleurs (vs YouTube ou Instagram). 🔸 Interaction directe : poser des questions, échanger avec le coach et la communauté. 🔸 Flexibilité d’accès : choisir entre abonnement ou achat ponctuel. 🔸 Suivi personnalisé : possibilité de demander des contenus adaptés à leurs besoins.
+3. Modèle économique
+💰 Monétisation pour les coachs
+Les coachs génèrent des revenus récurrents via leurs abonnés.
+Plus ils publient du contenu de qualité, plus leur communauté grandit.
+💰 Revenus pour GYM
+Commission de 10 à 15% sur chaque transaction (abonnement ou achat ponctuel).
+Paiements gérés via Stripe Connect pour la sécurité et la répartition automatique entre coach et GYM.
+💰 Exemple concret :
+Un coach fixe un abonnement à 10€/mois.
+Il obtient 100 abonnés → 1 000€/mois.
+Avec une commission de 15%, GYM perçoit 150€/mois de ce coach.
+Si 200 coachs utilisent GYM Creator avec la même moyenne → 30 000€/mois de revenus pour GYM.
+4. Avantages stratégiques
+✅ Pour les coachs
+Nouvelle source de revenus (indépendamment des séances physiques).
+Fidélisation de leur communauté (les abonnés reviennent chaque mois).
+Valorisation de leur image : ils deviennent de véritables influenceurs sportifs.
+✅ Pour les sportifs
+Accès à un contenu premium, ciblé et de qualité.
+Relation de proximité avec leurs coachs préférés.
+Flexibilité : abonnement ou achat ponctuel.
+✅ Pour GYM
+Diversification du business model (pas seulement abonnements coachs/clubs).
+Différenciation forte face à la concurrence (aucune plateforme de sport n’intègre ce modèle).
+Création d’un écosystème complet : séances physiques + clubs virtuels + contenus premium.
+5. Différenciateurs de GYM Creator
+Contrairement à YouTube, TikTok ou Instagram → les coachs monétisent directement leur contenu sans dépendre d’algorithmes.
+Contrairement à Patreon/MYM → c’est une plateforme spécialisée sport, avec une audience qualifiée (sportifs en recherche de progression).
+Contrairement à Superprof/Planity → GYM ne propose pas seulement la réservation, mais un univers complet autour du coach (contenu + communauté + entraînements).
+⚡ En résumé, GYM Creator est la brique qui transforme GYM en un écosystème unique et complet, capable de générer des revenus récurrents pour les coachs et pour la plateforme, tout en fidélisant les sportifs.

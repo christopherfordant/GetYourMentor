@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Choix coach et créneau</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell reservation-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link brand-name-dark" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav sports-nav-dark" aria-label="Sports">
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="reservation-page reservation-page-wide" data-reservation-multi-page>
+        <section class="reservation-header">
+          <h1 data-multi-name>Studio Form Marseille</h1>
+          <div class="reservation-address" data-multi-address>10 Rue du Sport, 13002 Marseille</div>
+          <div class="reservation-meta" data-multi-meta>4.9 (284 avis) • Coaching premium</div>
+        </section>
+
+        <section class="reservation-step">
+          <h2><span>1.</span> Séance sélectionnée</h2>
+          <div class="reservation-selection-panel">
+            <div class="reservation-selection-top">
+              <div class="reservation-selection-copy">
+                <strong data-multi-service>Coaching remise en forme</strong>
+                <div data-multi-service-meta>45min • 48 €</div>
+              </div>
+              <a class="reservation-remove" href="./reserver-seance.html" data-multi-remove>Supprimer</a>
+            </div>
+
+            <div class="reservation-coach-choice">
+              <p>Choisir avec qui ?</p>
+              <div class="reservation-coach-grid" data-multi-coaches></div>
+            </div>
+          </div>
+
+          <button class="reservation-add-button" type="button" data-multi-add>+ Ajouter une séance à la suite</button>
+        </section>
+
+        <section class="reservation-step">
+          <h2><span>2.</span> Choix de la date & heure</h2>
+          <div class="reservation-calendar-card">
+            <div class="reservation-calendar-head">
+              <button class="calendar-arrow" type="button" aria-label="Semaine précédente" data-calendar-prev>‹</button>
+              <div class="reservation-days" data-multi-days></div>
+              <button class="calendar-arrow" type="button" aria-label="Semaine suivante" data-calendar-next>›</button>
+            </div>
+            <div class="reservation-slots-grid" data-multi-slots-grid></div>
+          </div>
+          <div class="reservation-cta-row">
+            <a class="reservation-confirm-button" href="./recapitulatif-reservation.html" data-multi-confirm>Réserver mon créneau</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">GETYOURMENTOR</div>
+        <p>Trouvez votre coach sportif en quelques clics</p>
+        <nav class="footer-links" aria-label="Liens légaux">
+          <a href="./accueil.html#faq-title">CGV</a>
+          <a href="./accueil.html#faq-title">CGU</a>
+          <a href="./accueil.html#faq-title">Politique de confidentialité</a>
+          <a href="./accueil.html#faq-title">Mentions légales</a>
+        </nav>
+        <small>© 2026 GetYourMentor. Tous droits réservés.</small>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+Quelques chiffres :
+Les coachs :
+Indicateur
+Valeur approximative
+Taille du marché coaching (France)
+~750 M€
+Croissance annuelle
+~10-12 %
+Coach professionnels actifs
+~15 000
+Part coaching individuel
+~87 %
+Tarif séance individuel
+35 €–120 €+
+Revenu moyen coach
+~45 000–50 000 €/an
+Nombre de coachs actifs en France
+Coaching sportif spécifique
+Une source spécialisée indique ~5 229 « personal trainers » (coach sportif) répertoriés en octobre 2025. Rentech Digital
+👉 Conclusion mixte : Le nombre de coach sportifs indépendants est estimé entre 5 000 et 6 000 (base actualisée locale), tandis que le coaching (tous domaines) compte environ 15 000 professionnels actifs.
+D’autres sources plus larges mentionnaient auparavant entre 20 000 et 25 000 coachs sportifs, majoritairement indépendants (données autour de 2020). France Travail
+→ Ce chiffre est une estimation plus ancienne et très large, qui inclut probablement des coachs sans présence web ni structure formelle.
+📍 En pratique, le nombre réel se situe probablement entre ~5 000 et ~20 000 coachs sportifs actifs aujourd’hui, selon les définitions (présence web vs exercice réel)
+Par coach
+Une enquête auprès de coachs professionnels montre :
+Plus de 50 % des coachs dispensent entre 50 et 200 heures de coaching par an. CoachingWays France
+Environ 23 % dispensent plus de 500 heures par an. CoachingWays France
+👉 En combinant ces données, si 15 000 coachs font ~100 à 200 séances/an chacun, on peut estimer :
+Total annuel approximatif de séances : ~1,5 à 3 millions de séances (chiffre indicatif, pas officiel).
+Moyen 13 000 coachs sportifs actif :
+1% d’abonné : 130 coachs abonnés
+Les clubs :
+Élément
+Basketball
+Football
+Clubs affiliés
+~3 800 🇫🇷
+~11 700-12 000 🇫🇷
+Licenciés / licences
+~725 000-766 000 🇫🇷
+~2 300 000+ 🇫🇷
+Sport
+Clubs amateurs affiliés
+Salariés (associatif, amateur)
+Football
+~12 000 clubs amateurs 🇫🇷 FFF
+~3 500 salariés déclarés dans 1 000 clubs employeurs (encadrement sportif majoritaire) Ressources Sportives
+Basketball
+~3 883 clubs 🇫🇷 LinkedIn
+Estimation quelques centaines à ~2 000 salariés en associations (pas de chiffre public direct)
+16000 clubs de (football-basketball)
+1% d’abonné : 160 clubs abonnés
+Les salle de musculation/fitness
+Coaching individuel en salle : pratiques et profils
+Même si on ne dispose pas d’un chiffre officiel consolidé du nombre total de séances de coaching en salle en France, plusieurs éléments du marché permettent de l’estimer :
+📌 Répartition des séances
+La majorité des séances de coaching individuel sont réalisées en salle ou au sein de gyms / clubs de fitnessplutôt qu’à domicile ou en visio — selon les tendances internationales du personal training. Gitnux
+L’offre de coaching personnalisé en salle (suivi régulier, analyse de la technique, planification d’entraînement) représente souvent une forte part (≈70 %) du coaching en présentiel dans les clubs et centres. Gitnux
+👥 Clients et durée typiques
+Dans d’autres marchés, un coach gère en moyenne 15 à 25 clients actifs à un moment donné, ce qui peut servir de repère pour estimer l’activité des coachs en salle (présentiel). fitness-n-health.com
+Les clients qui font appel à un coach ont souvent 10 à 15 séances par cycle d’entraînement, selon études de marché international. Gitnux
+💶 4. Tarifs et revenus indicatifs
+Bien que les données publiées spécifiques à la salle ne soient pas centralisées, les tarifs usuels constatés pour des séances individuelles de coaching en salle en France sont :
+≈40 € à 120 € par séance (1 h) selon la ville, la notoriété du coach et le type d’accompagnement. Reddit
+👉 Avec ce type de tarification, si un coach en salle fait en moyenne 10 à 15 séances/mois par client, le CA généré peut être significatif (pack de séances + fidélisation).
+Nombre de salles indépendantes en France (2025)
+🇫🇷 Nombre total de salles de sport (fitness / musculation)
+On recense environ 3 967 salles de type gym / salle de sport en France à la mi‑2025. Rentech Digital
+🇫🇷 Salles indépendantes (hors branches de grandes enseignes/franchises)
+Parmi ces 3 967 salles, environ 3 017 (≈76 %) sont des exploitations à propriétaire unique, c’est‑à‑dire indépendantes, non rattachées à une chaîne ou grande marque. Rentech Digital
+📌 Cela signifie que :
+~3 000 salles indépendantes existent en France,
+~950 salles (≈24 %) appartiennent à des réseaux / franchises (ex. Basic‑Fit, Fitness Park, Keep Cool, etc.). Rentech Digital
+👉 En résumé, plus des trois quarts des salles de sport en France sont des structures indépendantes, locales ou autonomes, et non liées aux grandes chaînes.
+3000 salles independants
+1% d’abonnés : 30 salles abonnées
+130 coachs 19,99 €
+160 clubs abonnés 29,99 €
+30 salles abonnés 29,99 €
+= ((130*19,99)+(160*29,99)+(30*29,99))*12
+= 99 561,60 €
