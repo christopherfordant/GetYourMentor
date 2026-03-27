@@ -215,8 +215,8 @@ const directoryDictionary = {
     getTitle: () => "Slectionnez un coach de football",
     getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Thomas Dubois", address: `5 Rue du Stade, ${city}`, meta: "4.9 (33 avis)  Premium", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
-      { name: "Mehdi Rahal", address: `7 Avenue des Appuis, ${city}`, meta: "4.8 (19 avis)  Intensif", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
+      { name: "Thomas Dubois", address: `5 Rue du Stade, ${city}`, meta: "4.9 (33 avis)  Technique / Tactique / U16", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
+      { name: "Mehdi Rahal", address: `7 Avenue des Appuis, ${city}`, meta: "4.8 (19 avis)  Performance / Retour blessure", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
     ],
   },
   basketball: {
@@ -225,8 +225,8 @@ const directoryDictionary = {
     getTitle: () => "Slectionnez un coach de basketball",
     getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Sarah Benali", address: `12 Rue des Arceaux, ${city}`, meta: "5.0 (21 avis)  Elite", morning: ["Jeu. 26"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
-      { name: "Nolan Vasseur", address: `18 Quai Central, ${city}`, meta: "4.7 (12 avis)  Junior / Pro", morning: ["Ven. 27"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
+      { name: "Sarah Benali", address: `12 Rue des Arceaux, ${city}`, meta: "5.0 (21 avis)  Shooting / Dfense / U18", morning: ["Jeu. 26"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
+      { name: "Nolan Vasseur", address: `18 Quai Central, ${city}`, meta: "4.7 (12 avis)  Junior / Pro / Analyse vido", morning: ["Ven. 27"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
     ],
   },
   "metiers-de-la-forme": {
@@ -235,9 +235,9 @@ const directoryDictionary = {
     getTitle: () => "Slectionnez un coach de la forme",
     getSubtitle: (city) => `Les meilleurs coachs et studios aux alentours de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Studio Form Marseille", address: `5 Rue de la Forme, ${city}`, meta: "5 (33 avis)  Premium", morning: ["Jeu. 26"], afternoon: ["Jeu. 26"], cta: "Prendre RDV" },
-      { name: "Kenza Training Club", address: `7 Rue de la Rpublique, ${city}`, meta: "4.9 (189 avis)  Club", morning: ["Ven. 27"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
-      { name: "Pulse Mobility", address: `22 Place du Centre, ${city}`, meta: "4.8 (41 avis)  Mobilit", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
+      { name: "Studio Form Marseille", address: `5 Rue de la Forme, ${city}`, meta: "5 (33 avis)  Individuel / Small group", morning: ["Jeu. 26"], afternoon: ["Jeu. 26"], cta: "Prendre RDV" },
+      { name: "Kenza Training Club", address: `7 Rue de la Rpublique, ${city}`, meta: "4.9 (189 avis)  Club / Transformation", morning: ["Ven. 27"], afternoon: ["Sam. 28"], cta: "Prendre RDV" },
+      { name: "Pulse Mobility", address: `22 Place du Centre, ${city}`, meta: "4.8 (41 avis)  Visio / Mobilit", morning: ["Lun. 30"], afternoon: ["Mar. 31"], cta: "Voir le coach" },
     ],
   },
   "sports-de-combat": {
@@ -246,8 +246,8 @@ const directoryDictionary = {
     getTitle: () => "Slectionnez un coach de sports de combat",
     getSubtitle: (city) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
     getCoaches: (city) => [
-      { name: "Ines Caron Fight Club", address: `4 Boulevard Arena, ${city}`, meta: "4.9 (26 avis)  Performance", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
-      { name: "Combat Lab", address: `14 Rue des Champions, ${city}`, meta: "4.8 (17 avis)  Club", morning: ["Sam. 28"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
+      { name: "Ines Caron Fight Club", address: `4 Boulevard Arena, ${city}`, meta: "4.9 (26 avis)  Boxe / Self-dfense / Dbuta", morning: ["Jeu. 26"], afternoon: ["Ven. 27"], cta: "Prendre RDV" },
+      { name: "Combat Lab", address: `14 Rue des Champions, ${city}`, meta: "4.8 (17 avis)  MMA / Cardio boxing / Confirm", morning: ["Sam. 28"], afternoon: ["Lun. 30"], cta: "Voir le coach" },
     ],
   },
 };
@@ -347,49 +347,57 @@ const bookingDictionary = {
   football: {
     category: "Football - Coaching individuel",
     info: [
-      { title: "Avant votre sance", subtitle: "Objectifs, poste et niveau actuel", more: "Le coach prpare la sance selon votre profil et vos axes de progression.", duration: "15min" },
+      { title: "Avant votre sance", subtitle: "Objectif, poste et niveau actuel", more: "Choisissez un axe clair : technique, tactique, performance, reprise ou retour blessure.", duration: "15min" },
       { title: "Organisation du rendez-vous", subtitle: "Lieu, matriel et confirmation", more: "La sance est confirme aprs validation du crneau et du terrain.", duration: "10min" },
+      { title: "Formats disponibles", subtitle: "Individuel, duo, visio", more: "Selon le coach, la sance peut tre organise sur terrain, en centre indoor ou en suivi distance.", duration: "3min" },
       { title: "Conditions de rservation", subtitle: "Annulation et reprogrammation", more: "Toute rservation valide bloque un crneau ddi du coach.", duration: "2min" },
     ],
     services: [
-      { title: "Sance technique individuelle", subtitle: "1 joueur - appuis, conduite, lecture du jeu", more: "Travail cibl sur vos points forts et vos axes de progression.", duration: "30min", price: "35 " },
-      { title: "Sance intensit match", subtitle: "Explosivit, prise d'information et finition", more: "Format premium avec retour personnalis du coach en fin de sance.", duration: "45min", price: "55 " },
+      { title: "Sance technique individuelle", subtitle: "Individuel - appuis, conduite, lecture du jeu", more: "Travail cibl sur vos points forts et vos axes de progression.", duration: "30min", price: "35 ", objective: "Technique", format: "Individuel", packageLabel: "U16 / adultes" },
+      { title: "Sance intensit match", subtitle: "Individuel - explosivit, finition, prise d'information", more: "Format premium avec retour personnalis du coach en fin de sance.", duration: "45min", price: "55 ", objective: "Performance", format: "Individuel", packageLabel: "Ados / confirm" },
+      { title: "Pack progression 5 sances", subtitle: "5 sances de 45min - technique, tactique et suivi", more: "Tarif total du pack : 240 EUR, soit 48 EUR par sance pour progresser sur plusieurs semaines.", duration: "5 x 45min", price: "240 EUR le pack", objective: "Progression", format: "Pack 5 sances", packageLabel: "48 EUR / sance" },
     ],
   },
   basketball: {
     category: "Basketball - Dveloppement joueur",
     info: [
-      { title: "Bilan de dpart", subtitle: "Poste, niveau et attentes", more: "Les fondamentaux  travailler sont identifis avant le rendez-vous.", duration: "15min" },
+      { title: "Bilan de dpart", subtitle: "Poste, niveau et attentes", more: "Le coach cadre votre objectif : shooting, dribble, dfense, lecture du jeu ou dtection.", duration: "15min" },
       { title: "Infos de sance", subtitle: "Terrain, quipement et accs", more: "Le coach confirme la disponibilit du terrain et le matriel utile.", duration: "10min" },
+      { title: "Formats disponibles", subtitle: "Individuel, analyse vido, suivi distance", more: "Le parcours peut mlanger sance terrain et retour vido pour les joueurs qui veulent aller plus loin.", duration: "3min" },
       { title: "Politique de rservation", subtitle: "Annulation et acompte", more: "Annulation possible jusqu' 24h avant selon le crneau choisi.", duration: "2min" },
     ],
     services: [
-      { title: "Shooting et mcanique", subtitle: "Gestuelle, rythme et constance", more: "Sance cible pour gagner en rgularit et en confiance au tir.", duration: "30min", price: "35 " },
-      { title: "Session intensit", subtitle: "Enchanements, lecture et cardio", more: "Pour des joueurs ambitieux qui veulent franchir un cap rapidement.", duration: "50min", price: "60 " },
+      { title: "Shooting et mcanique", subtitle: "Individuel - gestuelle, rythme et constance", more: "Sance cible pour gagner en rgularit et en confiance au tir.", duration: "30min", price: "35 ", objective: "Shooting", format: "Individuel", packageLabel: "U18 / seniors" },
+      { title: "Session intensit", subtitle: "Individuel - enchanements, lecture et cardio", more: "Pour des joueurs ambitieux qui veulent franchir un cap rapidement.", duration: "50min", price: "60 ", objective: "Performance", format: "Individuel", packageLabel: "Junior / Pro" },
+      { title: "Pack analyse vido + terrain", subtitle: "3 sances terrain et 2 retours vido", more: "Tarif total du pack : 230 EUR pour structurer la progression avec analyse dtaille du jeu.", duration: "5 sessions", price: "230 EUR le pack", objective: "Analyse / progression", format: "Pack hybride", packageLabel: "46 EUR / session" },
     ],
   },
   "metiers-de-la-forme": {
     category: "Forme - Coaching premium",
     info: [
-      { title: "Avant votre sance", subtitle: "Objectif forme, niveau et contraintes", more: "Le coach adapte la sance  votre niveau, votre nergie du moment et votre objectif.", duration: "15min" },
+      { title: "Avant votre sance", subtitle: "Objectif forme, niveau et contraintes", more: "Choisissez un objectif clair : remise en forme, bien-tre, reprise, perte de poids ou performance.", duration: "15min" },
       { title: "Infos pratiques", subtitle: "Horaires flexibles et accs", more: "La rservation en ligne est valide aprs confirmation du coach et du lieu de sance.", duration: "10min" },
+      { title: "Formats disponibles", subtitle: "Individuel, small group, visio", more: "Selon le coach, la sance peut se faire en studio, en salle, en extrieur, domicile ou distance.", duration: "3min" },
       { title: "Conditions de rservation", subtitle: "Report et annulation", more: "En cas d'empchement, le crneau peut tre reprogramm selon les disponibilits.", duration: "2min" },
       { title: "Sances week-end", subtitle: "Sous rserve de disponibilit", more: "Certaines sances du dimanche ncessitent une validation pralable du coach.", duration: "1min" },
     ],
     services: [
-      { title: "Coaching remise en forme", subtitle: "Renforcement, cardio doux et mobilit", more: "Une sance claire, progressive et premium pour reprendre ou relancer votre routine.", duration: "30min", price: "35 " },
-      { title: "Coaching transformation", subtitle: "Condition physique, intensit et suivi", more: "Format plus complet pour celles et ceux qui veulent une vraie monte en charge.", duration: "45min", price: "48 " },
+      { title: "Coaching remise en forme", subtitle: "Individuel - salle / domicile - objectif reprise", more: "Une sance claire, progressive et premium pour reprendre ou relancer votre routine.", duration: "30min", price: "35 ", objective: "Remise en forme", format: "Individuel", packageLabel: "Sance simple" },
+      { title: "Coaching transformation", subtitle: "Individuel - studio / extrieur - objectif performance", more: "Format plus complet pour celles et ceux qui veulent une vraie monte en charge.", duration: "45min", price: "48 ", objective: "Performance", format: "Individuel", packageLabel: "Sance simple" },
+      { title: "Pack transformation 5 sances", subtitle: "5 sances de 45min - individuel ou small group", more: "Tarif total du pack : 210 EUR, soit 42 EUR par sance pour installer une routine et suivre votre progression.", duration: "5 x 45min", price: "210 EUR le pack", objective: "Transformation", format: "Pack 5 sances", packageLabel: "42 EUR / sance" },
     ],
   },
   "sports-de-combat": {
     category: "Combat - Sance premium",
     info: [
-      { title: "Avant votre sance", subtitle: "Objectif, niveau et discipline", more: "Le coach dfinit le format selon votre pratique et votre exprience.", duration: "10min" },
+      { title: "Avant votre sance", subtitle: "Objectif, niveau et discipline", more: "Le coach adapte la sance selon votre pratique : dbutant, remise en forme, self-dfense ou comptition.", duration: "10min" },
+      { title: "Formats disponibles", subtitle: "Solo, duo, mini-groupe", more: "Selon le coach, la sance peut se faire en individuel, deux ou en petit groupe.", duration: "3min" },
       { title: "Rgles de scurit", subtitle: "Matriel obligatoire", more: "Gants, protge-tibias ou protections peuvent tre fournis sur demande.", duration: "5min" },
     ],
     services: [
-      { title: "Cours priv boxe", subtitle: "Technique, cardio et garde", more: "Une session premium, progressive et structure.", duration: "45min", price: "55 " },
-      { title: "Self-defense premium", subtitle: "Mouvements utiles et confiance", more: "Parfait pour une progression concrte, rassurante et lisible.", duration: "50min", price: "60 " },
+      { title: "Cours priv boxe", subtitle: "Solo - technique, cardio et garde", more: "Une session premium, progressive et structure.", duration: "45min", price: "55 ", objective: "Technique", format: "Solo", packageLabel: "Dbutant / intermdiaire" },
+      { title: "Self-defense premium", subtitle: "Solo ou duo - mouvements utiles et confiance", more: "Parfait pour une progression concrte, rassurante et lisible.", duration: "50min", price: "60 ", objective: "Confiance / self-dfense", format: "Solo / duo", packageLabel: "Adultes" },
+      { title: "Pack combat 4 sances", subtitle: "4 sances de 50min - boxe, cardio boxing ou MMA", more: "Tarif total du pack : 220 EUR, soit 55 EUR par sance pour une routine plus rgulire.", duration: "4 x 50min", price: "220 EUR le pack", objective: "Progression", format: "Pack 4 sances", packageLabel: "55 EUR / sance" },
     ],
   },
 };
@@ -500,6 +508,9 @@ if (bookingPage) {
                 service: item.title,
                 duration: item.duration,
                 price: item.price,
+                objective: item.objective || "",
+                format: item.format || "",
+                package: item.packageLabel || "",
               })}">Choisir</a>
             </div>
           </article>
@@ -600,6 +611,9 @@ if (reservationMultiPage) {
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
   const price = params.get("price") || "35 ";
+  const objective = params.get("objective") || "";
+  const format = params.get("format") || "";
+  const packageLabel = params.get("package") || "";
   let selectedSlot = params.get("slot") || "10:00";
   let selectedMentor = params.get("mentor") || "Sans prfrence";
   let weekIndex = 0;
@@ -630,7 +644,7 @@ if (reservationMultiPage) {
   if (addressNode) addressNode.textContent = `10 Rue du Sport, ${city}`;
   if (metaNode) metaNode.textContent = "4.9 (423 avis)  Coaching premium";
   if (serviceNode) serviceNode.textContent = service;
-  if (serviceMetaNode) serviceMetaNode.textContent = `${duration}  ${price}`;
+  if (serviceMetaNode) serviceMetaNode.textContent = [duration, price, format, objective, packageLabel].filter(Boolean).join("  ");
 
   const updateConfirmHref = () => {
     if (!confirmNode) return;
@@ -641,6 +655,9 @@ if (reservationMultiPage) {
       service,
       duration,
       price,
+      objective,
+      format,
+      package: packageLabel,
       slot: selectedSlot,
       mentor: selectedMentor,
     });
@@ -748,6 +765,9 @@ if (recapPage) {
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
   const price = params.get("price") || "35 ";
+  const objective = params.get("objective") || "";
+  const format = params.get("format") || "";
+  const packageLabel = params.get("package") || "";
   const slot = params.get("slot") || "10:00";
   const mentor = params.get("mentor") || "Coach confirm";
   const nameNode = document.querySelector("[data-recap-name]");
@@ -770,8 +790,9 @@ if (recapPage) {
         <div class="recap-service-copy">
           <strong>${service}</strong>
           <div>${duration}  ${price}  avec ${mentor}</div>
+          ${sport === "metiers-de-la-forme" ? `<div>${[format, objective, packageLabel].filter(Boolean).join("  ")}</div>` : ""}
         </div>
-        <a class="recap-link" href="${buildPath("./choix-coach-creneau.html", { sport, city, coach, service, duration, price, slot, mentor })}">Supprimer</a>
+        <a class="recap-link" href="${buildPath("./choix-coach-creneau.html", { sport, city, coach, service, duration, price, objective, format, package: packageLabel, slot, mentor })}">Supprimer</a>
       </article>
       <article class="recap-service-card">
         <div class="recap-service-copy">
@@ -783,7 +804,7 @@ if (recapPage) {
     `;
   }
 
-  editNode?.setAttribute("href", buildPath("./choix-coach-creneau.html", { sport, city, coach, service, duration, price, slot, mentor }));
+  editNode?.setAttribute("href", buildPath("./choix-coach-creneau.html", { sport, city, coach, service, duration, price, objective, format, package: packageLabel, slot, mentor }));
 
   const accountRedirect = buildPath("./compte.html", {
     redirect: "paiement",
@@ -793,6 +814,9 @@ if (recapPage) {
     service,
     duration,
     price,
+    objective,
+    format,
+    package: packageLabel,
     slot,
     mentor,
   });
@@ -820,7 +844,14 @@ if (accountPage) {
   const form = document.querySelector("[data-account-form]");
   const forgotNode = document.querySelector("[data-account-forgot]");
   const signupNode = document.querySelector("[data-account-signup]");
+  const authShell = document.querySelector("[data-account-auth-shell]");
+  const dashboardNode = document.querySelector("[data-account-dashboard]");
+  const titleNode = document.querySelector("[data-account-title]");
+  const subtitleNode = document.querySelector("[data-account-subtitle]");
+  const dashboardNameNode = document.querySelector("[data-account-dashboard-name]");
   const redirect = params.get("redirect");
+  const mode = params.get("mode");
+  const isCoachMode = mode === "coach";
   const paymentTarget = buildPath("./paiement.html", {
     sport: params.get("sport"),
     city: params.get("city"),
@@ -833,10 +864,29 @@ if (accountPage) {
     connected: "1",
   });
 
+  const coachName = params.get("coach") || "Steven Fordant";
+
+  if (isCoachMode) {
+    if (titleNode) titleNode.textContent = "Accedez a votre espace coach";
+    if (subtitleNode) subtitleNode.textContent = "Planning, notifications, paiements et avis reunis dans une meme interface V1.";
+  }
+
+  if (dashboardNameNode) {
+    dashboardNameNode.textContent = coachName;
+  }
+
   const setStatus = (message) => {
     if (!statusNode) return;
     statusNode.hidden = false;
     statusNode.textContent = message;
+  };
+
+  const revealDashboard = (message) => {
+    setStatus(message);
+    authShell?.setAttribute("hidden", "");
+    dashboardNode?.removeAttribute("hidden");
+    if (titleNode) titleNode.textContent = "Votre espace coach est pret";
+    if (subtitleNode) subtitleNode.textContent = "Retrouvez vos demandes, votre planning, vos paiements et vos avis dans une seule vue.";
   };
 
   form?.addEventListener("submit", (event) => {
@@ -844,6 +894,11 @@ if (accountPage) {
 
     if (redirect === "paiement") {
       window.location.href = paymentTarget;
+      return;
+    }
+
+    if (isCoachMode) {
+      revealDashboard("Connexion simulee. Le tableau de bord coach GetYourMentor est maintenant disponible.");
       return;
     }
 
@@ -856,6 +911,11 @@ if (accountPage) {
       return;
     }
 
+    if (isCoachMode) {
+      revealDashboard("Creation de compte simulee. Votre espace coach est configure pour la V1.");
+      return;
+    }
+
     setStatus("Cration de compte simule. Votre profil est prt pour rserver une prochaine sance.");
   });
 
@@ -864,6 +924,10 @@ if (accountPage) {
     setStatus("Un lien de rinitialisation serait envoy  votre adresse e-mail dans la version finale.");
     document.querySelector("#account-email")?.focus();
   });
+
+  if (isCoachMode && params.get("connected") === "1" && redirect !== "paiement") {
+    revealDashboard("Connexion detectee. Vous retrouvez directement votre espace coach.");
+  }
 }
 
 if (paymentPage) {
@@ -873,6 +937,9 @@ if (paymentPage) {
   const service = params.get("service") || "Coaching remise en forme";
   const duration = params.get("duration") || "30min";
   const price = params.get("price") || "35 ";
+  const objective = params.get("objective") || "";
+  const format = params.get("format") || "";
+  const packageLabel = params.get("package") || "";
   const slot = params.get("slot") || "10:00";
   const mentor = params.get("mentor") || "Coach confirm";
   const methodButtons = document.querySelectorAll(".payment-method");
@@ -882,7 +949,7 @@ if (paymentPage) {
 
   document.querySelector("[data-payment-name]")?.replaceChildren(`${coach} - ${city}`);
   document.querySelector("[data-payment-service]")?.replaceChildren(service);
-  document.querySelector("[data-payment-duration]")?.replaceChildren(duration);
+  document.querySelector("[data-payment-duration]")?.replaceChildren([duration, format, objective, packageLabel].filter(Boolean).join("  "));
   document.querySelector("[data-payment-datetime]")?.replaceChildren(`Vendredi 27 mars 2026  ${slot}`);
   document.querySelector("[data-payment-price]")?.replaceChildren(price);
   document.querySelector("[data-payment-mentor]")?.replaceChildren(mentor);

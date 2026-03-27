@@ -43,9 +43,11 @@
       <main class="account-page" data-account-page>
         <section class="account-panel">
           <div class="auth-card">
-            <h1>Vous avez d&eacute;j&agrave; utilis&eacute; GetYourMentor ?</h1>
+            <h1 data-account-title>Vous avez d&eacute;j&agrave; utilis&eacute; GetYourMentor ?</h1>
+            <p class="auth-subtitle" data-account-subtitle>Connectez-vous pour reprendre votre r&eacute;servation ou acc&eacute;der &agrave; votre espace.</p>
             <p class="auth-status-message" data-account-status hidden></p>
 
+            <div data-account-auth-shell>
             <form class="auth-form" data-account-form>
               <label class="auth-field">
                 <span>Email</span>
@@ -131,6 +133,134 @@
               <h2>Nouveau sur GetYourMentor ?</h2>
               <button class="auth-secondary" type="button" data-account-signup>Cr&eacute;er mon compte</button>
             </div>
+            </div>
+
+            <section class="account-dashboard" data-account-dashboard hidden>
+              <div class="account-summary-card">
+                <div class="account-summary-head">
+                  <div>
+                    <p class="account-summary-label">Espace coach</p>
+                    <h2 data-account-dashboard-name>Steven Fordant</h2>
+                    <p class="account-summary-copy">Coach v&eacute;rifi&eacute;, planning synchronis&eacute; et suivi des demandes en direct.</p>
+                  </div>
+                  <div class="account-summary-badge">Profil compl&eacute;t&eacute; &agrave; 86%</div>
+                </div>
+
+                <div class="account-summary-metrics">
+                  <div>
+                    <strong>3</strong>
+                    <span>notifications &agrave; traiter</span>
+                  </div>
+                  <div>
+                    <strong>2</strong>
+                    <span>s&eacute;ances aujourd&apos;hui</span>
+                  </div>
+                  <div>
+                    <strong>4,9</strong>
+                    <span>note moyenne</span>
+                  </div>
+                  <div>
+                    <strong>184 EUR</strong>
+                    <span>versements en attente</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="account-dashboard-grid">
+                <article class="account-dashboard-card">
+                  <div class="account-dashboard-card-head">
+                    <h3>Notifications</h3>
+                    <span>Priorit&eacute;s</span>
+                  </div>
+                  <div class="account-dashboard-list">
+                    <div>
+                      <strong>Nouvelle demande &agrave; valider</strong>
+                      <span>S&eacute;ance individuelle - vendredi 27 mars &agrave; 18:30</span>
+                    </div>
+                    <div>
+                      <strong>Paiement confirm&eacute;</strong>
+                      <span>Session shooting basket - 74 EUR</span>
+                    </div>
+                    <div>
+                      <strong>Nouveau commentaire re&ccedil;u</strong>
+                      <span>&quot;Coach tr&egrave;s clair et tr&egrave;s pro.&quot;</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="account-dashboard-card">
+                  <div class="account-dashboard-card-head">
+                    <h3>Planning du jour</h3>
+                    <span>Vendredi</span>
+                  </div>
+                  <div class="account-dashboard-schedule">
+                    <div>
+                      <strong>10:00</strong>
+                      <span>Thomas R. - s&eacute;ance technique</span>
+                    </div>
+                    <div>
+                      <strong>14:30</strong>
+                      <span>Sarah M. - bilan express</span>
+                    </div>
+                    <div>
+                      <strong>18:30</strong>
+                      <span>Demande en attente de validation</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="account-dashboard-card">
+                  <div class="account-dashboard-card-head">
+                    <h3>Paiements</h3>
+                    <span>V1</span>
+                  </div>
+                  <div class="account-dashboard-finance">
+                    <div>
+                      <span>Versement hebdo</span>
+                      <strong>184 EUR</strong>
+                    </div>
+                    <div>
+                      <span>RIB v&eacute;rifi&eacute;</span>
+                      <strong>Oui</strong>
+                    </div>
+                    <div>
+                      <span>Factures g&eacute;n&eacute;r&eacute;es</span>
+                      <strong>12</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="account-dashboard-card">
+                  <div class="account-dashboard-card-head">
+                    <h3>Avis &amp; statistiques</h3>
+                    <span>Planity-like</span>
+                  </div>
+                  <div class="account-dashboard-reviews">
+                    <div class="account-review-score">4,9</div>
+                    <div class="account-review-copy">
+                      <strong>284 avis</strong>
+                      <span>38 visites du profil cette semaine</span>
+                      <span>16 demandes de r&eacute;servation re&ccedil;ues ce mois-ci</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="account-dashboard-card account-dashboard-card-wide">
+                  <div class="account-dashboard-card-head">
+                    <h3>Profil coach &agrave; finaliser</h3>
+                    <span>MVP</span>
+                  </div>
+                  <div class="account-dashboard-checklist">
+                    <span>Dipl&ocirc;mes import&eacute;s</span>
+                    <span>Disciplines enseign&eacute;es</span>
+                    <span>Zone d&apos;intervention</span>
+                    <span>Politique d&apos;annulation</span>
+                    <span>Moyens de paiement</span>
+                    <span>Avis visibles sur le profil</span>
+                  </div>
+                </article>
+              </div>
+            </section>
           </div>
         </section>
 
