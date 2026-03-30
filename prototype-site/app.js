@@ -407,23 +407,110 @@ const bookingProfileDictionary = {
     followers: "22 joueurs suivis",
     specialty: "Specialite football",
     bio: "Bonjour, je m'appelle Bryce et je partage une experience de terrain fondee sur l'exigence, la lecture du jeu et la repetition utile. Mon objectif est d'aider chaque joueur a progresser avec plus de clarte, de confiance et de regularite.",
+    reviews: "284 avis verifies",
+    qualification: "Coach premium football",
+    diploma: "BEF / UEFA B",
   },
   basketball: {
     followers: "18 joueurs suivis",
     specialty: "Specialite basketball",
     bio: "Bonjour, je m'appelle Sarah et j'accompagne les joueurs qui veulent gagner en mecanique, en rythme et en constance. Chaque seance est construite pour transformer rapidement les automatismes en vrai niveau de jeu.",
+    reviews: "192 avis verifies",
+    qualification: "Coach premium basketball",
+    diploma: "CQP Technicien sportif",
   },
   "metiers-de-la-forme": {
     followers: "31 clients suivis",
     specialty: "Specialite remise en forme",
     bio: "Bonjour, je m'appelle Julien et je propose un accompagnement premium pour reprendre, accelerer ou structurer votre routine. Le cadre est progressif, lisible et adapte a votre energie comme a vos objectifs.",
+    reviews: "318 avis verifies",
+    qualification: "Coach premium forme",
+    diploma: "BPJEPS Activites de la forme",
   },
   "sports-de-combat": {
     followers: "16 athletes suivis",
     specialty: "Specialite sports de combat",
+    reviews: "167 avis verifies",
+    qualification: "Coach premium combat",
+    diploma: "Diplome federale / BPJEPS",
     bio: "Bonjour, je m'appelle Ines et je conçois des sessions precises pour travailler technique, garde, placement et confiance. L'idee est d'allier intensite, securite et progression concrete a chaque rendez-vous.",
   },
 };
+
+const bookingGeoDictionary = {
+  football: {
+    department: "Bouches-du-Rhone",
+    address: "Complexe du Prado, 9e arrondissement, Marseille",
+    x: "70%",
+    y: "76%",
+  },
+  basketball: {
+    department: "Rhone",
+    address: "12 Rue des Arceaux, Lyon 7e",
+    x: "56%",
+    y: "54%",
+  },
+  "metiers-de-la-forme": {
+    department: "Bouches-du-Rhone",
+    address: "5 Rue de la Forme, Marseille",
+    x: "70%",
+    y: "76%",
+  },
+  "sports-de-combat": {
+    department: "Bouches-du-Rhone",
+    address: "4 Boulevard Arena, Marseille",
+    x: "70%",
+    y: "76%",
+  },
+};
+
+const bookingVisualDictionary = {
+  football: {
+    hero:
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/football/football-field-mentor.jpg") center 18% / cover no-repeat',
+    photo:
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/football/football-youth-coach.jpg") center 18% / cover no-repeat',
+  },
+  basketball: {
+    hero:
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 14% / cover no-repeat',
+    photo:
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/basketball/basketball-shooting-court.jpg") center 24% / cover no-repeat',
+  },
+  "metiers-de-la-forme": {
+    hero:
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.12), rgba(14, 18, 28, 0.08)), url("../design_assets/sports_sources/fitness.jpg") center 10% / cover no-repeat',
+    photo:
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 8% / cover no-repeat',
+  },
+  "sports-de-combat": {
+    hero:
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 18% / cover no-repeat',
+    photo:
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/combat/combat-boxer-portrait.jpg") center 16% / cover no-repeat',
+  },
+};
+
+const weekSets = [
+  [
+    { day: "jeudi", date: "26 mars", slots: ["10:00", "11:00", "11:30", "12:00", "13:30"] },
+    { day: "vendredi", date: "27 mars", slots: ["10:00", "10:30", "11:00", "13:30", "14:00"] },
+    { day: "samedi", date: "28 mars", slots: ["10:00", "17:30", "18:00"] },
+    { day: "dimanche", date: "29 mars", slots: [] },
+    { day: "lundi", date: "30 mars", slots: [] },
+    { day: "mardi", date: "31 mars", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
+    { day: "mercredi", date: "01 avr.", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
+  ],
+  [
+    { day: "jeudi", date: "02 avr.", slots: ["09:30", "10:30", "11:30", "12:30"] },
+    { day: "vendredi", date: "03 avr.", slots: ["10:00", "11:00", "16:00"] },
+    { day: "samedi", date: "04 avr.", slots: ["09:00", "10:00", "11:00"] },
+    { day: "dimanche", date: "05 avr.", slots: ["09:30", "10:30"] },
+    { day: "lundi", date: "06 avr.", slots: [] },
+    { day: "mardi", date: "07 avr.", slots: ["10:00", "12:00", "14:00"] },
+    { day: "mercredi", date: "08 avr.", slots: ["09:30", "10:30", "11:30"] },
+  ],
+];
 
 if (bookingPage) {
   const params = new URLSearchParams(window.location.search);
@@ -445,16 +532,51 @@ if (bookingPage) {
   const bioNode = document.querySelector("[data-booking-bio]");
   const shortNameNode = document.querySelector("[data-booking-short-name]");
   const scoreLargeNode = document.querySelector("[data-booking-score-large]");
+  const scoreCopyNode = document.querySelector("[data-booking-score-copy]");
+  const scoreFollowersNode = document.querySelector("[data-booking-score-followers]");
+  const qualificationNode = document.querySelector("[data-booking-qualification]");
+  const diplomaNode = document.querySelector("[data-booking-diploma]");
+  const profileQualificationNode = document.querySelector("[data-booking-profile-qualification]");
+  const profileDiplomaNode = document.querySelector("[data-booking-profile-diploma]");
+  const galleryMainNode = document.querySelector("[data-booking-gallery-main]");
+  const profilePhotoNode = document.querySelector("[data-booking-profile-photo]");
   const infoList = document.querySelector("[data-booking-info-list]");
   const serviceList = document.querySelector("[data-booking-service-list]");
   const ratingBody = document.querySelector("[data-rating-body]");
   const bookingTabs = document.querySelectorAll("[data-booking-tab]");
+  const bookingTabsBar = document.querySelector(".booking-tabs-profile");
+  const bookingTabsSpacer = document.querySelector("[data-booking-tabs-spacer]");
   const bookingGhostButtons = document.querySelectorAll("[data-booking-nav]");
   const bookingPanes = document.querySelectorAll("[data-booking-pane]");
+  const bookingPageShell = document.querySelector(".booking-page");
+  const bookingPaneSide = document.querySelector(".booking-pane-side");
+  const bookingFloatingCard = document.querySelector(".booking-score-panel-side");
+  const bookingFloatingSpacer = document.querySelector("[data-booking-score-spacer]");
   const ratingTabs = document.querySelectorAll("[data-rating-tab]");
   const contentUnlockButton = document.querySelector("[data-content-unlock]");
   const contentFeed = document.querySelector("[data-content-feed]");
   const contentLockNote = document.querySelector("[data-content-lock-note]");
+  const bookingDaysNode = document.querySelector("[data-booking-days]");
+  const bookingSlotsGrid = document.querySelector("[data-booking-slots-grid]");
+  const bookingPrevButton = document.querySelector("[data-booking-calendar-prev]");
+  const bookingNextButton = document.querySelector("[data-booking-calendar-next]");
+  const bookingConfirmNode = document.querySelector("[data-booking-confirm]");
+  const geoHoverNodes = document.querySelectorAll("[data-booking-geo-hover]");
+  const geoDepartmentNode = document.querySelector("[data-booking-geo-department]");
+  const geoLabelNode = document.querySelector("[data-booking-geo-label]");
+  const geoCopyNode = document.querySelector("[data-booking-geo-copy]");
+  const geoHighlightNode = document.querySelector("[data-booking-geo-highlight]");
+  const currentGeo = bookingGeoDictionary[sportSlug] || bookingGeoDictionary["metiers-de-la-forme"];
+  const currentVisual = bookingVisualDictionary[sportSlug] || bookingVisualDictionary["metiers-de-la-forme"];
+  const bookingSectionTargets = {
+    apropos: "#booking-apropos-section",
+    planning: "#booking-planning-section",
+    contenus: "#booking-contenus-section",
+  };
+  let bookingWeekIndex = 0;
+  let bookingSelectedSlot = params.get("slot") || weekSets[0][0].slots[0] || "10:00";
+  const bookingSelectedService =
+    currentBooking.services.find((item) => item.title === params.get("service")) || currentBooking.services[0];
 
   if (nameNode) nameNode.textContent = coach;
   if (addressNode) addressNode.textContent = `9e arrondissement, ${city}`;
@@ -469,6 +591,103 @@ if (bookingPage) {
   if (bioNode) bioNode.textContent = currentProfile.bio;
   if (shortNameNode) shortNameNode.textContent = coach.split(" ").slice(-1)[0] || coach;
   if (scoreLargeNode) scoreLargeNode.textContent = "5 / 5";
+  if (scoreCopyNode) scoreCopyNode.textContent = currentProfile.reviews;
+  if (scoreFollowersNode) scoreFollowersNode.textContent = currentProfile.followers;
+  if (qualificationNode) qualificationNode.textContent = currentProfile.qualification;
+  if (diplomaNode) diplomaNode.textContent = currentProfile.diploma;
+  if (profileQualificationNode) profileQualificationNode.textContent = currentProfile.qualification;
+  if (profileDiplomaNode) profileDiplomaNode.textContent = currentProfile.diploma;
+  if (geoDepartmentNode) geoDepartmentNode.textContent = currentGeo.department;
+  if (geoLabelNode) geoLabelNode.textContent = currentGeo.department;
+  if (galleryMainNode) galleryMainNode.style.background = currentVisual.hero;
+  if (profilePhotoNode) profilePhotoNode.style.background = currentVisual.photo;
+
+  const setGeoState = (isActive) => {
+    if (geoHighlightNode) {
+      geoHighlightNode.classList.toggle("is-active", isActive);
+      geoHighlightNode.style.left = currentGeo.x;
+      geoHighlightNode.style.top = currentGeo.y;
+    }
+
+    if (geoLabelNode) {
+      geoLabelNode.textContent = isActive ? currentGeo.address : currentGeo.department;
+    }
+
+    if (geoCopyNode) {
+      geoCopyNode.textContent = isActive
+        ? `Adresse affichee : ${currentGeo.address}`
+        : "Survolez le profil du coach pour afficher sa zone et son adresse.";
+    }
+  };
+
+  const scrollToBookingSection = (value) => {
+    const selector = bookingSectionTargets[value] || bookingSectionTargets.apropos;
+    document.querySelector(selector)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const updateBookingConfirmHref = () => {
+    if (!bookingConfirmNode || !bookingSelectedService) return;
+
+    bookingConfirmNode.href = buildPath("./recapitulatif-reservation.html", {
+      sport: sportSlug,
+      city,
+      coach,
+      service: bookingSelectedService.title,
+      duration: bookingSelectedService.duration,
+      price: bookingSelectedService.price,
+      objective: bookingSelectedService.objective || "",
+      format: bookingSelectedService.format || "",
+      package: bookingSelectedService.packageLabel || "",
+      slot: bookingSelectedSlot,
+      mentor: coach,
+    });
+  };
+
+  const renderBookingWeek = () => {
+    const currentWeek = weekSets[bookingWeekIndex];
+
+    if (bookingDaysNode) {
+      bookingDaysNode.innerHTML = currentWeek
+        .map(
+          (item) => `
+            <div class="reservation-day">
+              <strong>${item.day}</strong>
+              <span>${item.date}</span>
+            </div>
+          `
+        )
+        .join("");
+    }
+
+    if (bookingSlotsGrid) {
+      bookingSlotsGrid.innerHTML = currentWeek
+        .map(
+          (item) => `
+            <div class="reservation-slot-column">
+              ${
+                item.slots.length
+                  ? item.slots
+                      .map(
+                        (slot) =>
+                          `<button class="reservation-slot ${slot === bookingSelectedSlot ? "is-selected" : ""}" type="button" data-booking-slot="${slot}">${slot}</button>`
+                      )
+                      .join("")
+                  : '<button class="reservation-slot" type="button" disabled>-</button>'
+              }
+            </div>
+          `
+        )
+        .join("");
+
+      bookingSlotsGrid.querySelectorAll("[data-booking-slot]").forEach((button) => {
+        button.addEventListener("click", () => {
+          bookingSelectedSlot = button.dataset.bookingSlot || bookingSelectedSlot;
+          renderBookingWeek();
+          updateBookingConfirmHref();
+        });
+      });
+    }
+  };
 
   if (infoList) {
     infoList.innerHTML = currentBooking.info
@@ -519,6 +738,13 @@ if (bookingPage) {
       .join("");
   }
 
+  geoHoverNodes.forEach((node) => {
+    node.addEventListener("mouseenter", () => setGeoState(true));
+    node.addEventListener("mouseleave", () => setGeoState(false));
+    node.addEventListener("focusin", () => setGeoState(true));
+    node.addEventListener("focusout", () => setGeoState(false));
+  });
+
   const setActiveBookingTab = (value) => {
     bookingTabs.forEach((tab) => {
       tab.classList.toggle("is-active", tab.dataset.bookingTab === value);
@@ -533,13 +759,176 @@ if (bookingPage) {
     button.addEventListener("click", () => {
       const target = button.dataset.bookingNav || "planning";
       setActiveBookingTab(target);
-      document.querySelector(`[data-booking-pane="${target}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollToBookingSection(target);
     });
   });
 
   bookingTabs.forEach((tab) => {
-    tab.addEventListener("click", () => setActiveBookingTab(tab.dataset.bookingTab || "apropos"));
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.bookingTab || "apropos";
+      setActiveBookingTab(target);
+      scrollToBookingSection(target);
+    });
   });
+
+  renderBookingWeek();
+  updateBookingConfirmHref();
+
+  bookingPrevButton?.addEventListener("click", () => {
+    bookingWeekIndex = bookingWeekIndex === 0 ? weekSets.length - 1 : bookingWeekIndex - 1;
+    renderBookingWeek();
+  });
+
+  bookingNextButton?.addEventListener("click", () => {
+    bookingWeekIndex = (bookingWeekIndex + 1) % weekSets.length;
+    renderBookingWeek();
+  });
+
+  const syncBookingTabsBar = () => {
+    if (!bookingTabsBar || !topbar || !bookingTabsSpacer || !bookingPageShell) return;
+
+    const desktop = window.innerWidth > 900;
+
+    if (!desktop) {
+      bookingTabsBar.style.position = "";
+      bookingTabsBar.style.top = "";
+      bookingTabsBar.style.left = "";
+      bookingTabsBar.style.width = "";
+      bookingTabsBar.style.zIndex = "";
+      bookingTabsSpacer.style.display = "none";
+      bookingTabsSpacer.style.height = "0px";
+      return;
+    }
+
+    const headerOffset = topbar.getBoundingClientRect().height + 22;
+    const footer = document.querySelector(".site-footer");
+
+    bookingTabsBar.style.position = "static";
+    bookingTabsBar.style.top = "";
+    bookingTabsBar.style.left = "";
+    bookingTabsBar.style.width = "";
+    bookingTabsBar.style.zIndex = "";
+    bookingTabsSpacer.style.display = "none";
+    bookingTabsSpacer.style.height = "0px";
+
+    const pageRect = bookingPageShell.getBoundingClientRect();
+    const tabsRect = bookingTabsBar.getBoundingClientRect();
+    const footerRect = footer?.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const pageTop = scrollY + pageRect.top;
+    const tabsTop = scrollY + tabsRect.top;
+    const footerBottom = footerRect ? scrollY + footerRect.bottom : Number.POSITIVE_INFINITY;
+    const tabsHeight = bookingTabsBar.offsetHeight;
+    const start = tabsTop - headerOffset;
+    const stop = footerBottom - window.innerHeight;
+
+    if (scrollY <= start) {
+      return;
+    }
+
+    bookingTabsSpacer.style.display = "block";
+    bookingTabsSpacer.style.height = `${tabsHeight}px`;
+
+    if (scrollY >= stop) {
+      bookingTabsBar.style.position = "absolute";
+      bookingTabsBar.style.top = `${Math.max(0, stop + headerOffset - pageTop)}px`;
+      bookingTabsBar.style.left = `${Math.round(tabsRect.left - pageRect.left)}px`;
+      bookingTabsBar.style.width = `${Math.round(tabsRect.width)}px`;
+      bookingTabsBar.style.zIndex = "18";
+      return;
+    }
+
+    bookingTabsBar.style.position = "fixed";
+    bookingTabsBar.style.top = `${Math.round(headerOffset)}px`;
+    bookingTabsBar.style.left = `${Math.round(tabsRect.left)}px`;
+    bookingTabsBar.style.width = `${Math.round(tabsRect.width)}px`;
+    bookingTabsBar.style.zIndex = "18";
+  };
+
+  const syncBookingFloatingCard = () => {
+    if (!bookingPaneSide || !bookingFloatingCard || !bookingFloatingSpacer || !topbar) return;
+
+    const desktop = window.innerWidth > 900;
+
+    if (!desktop) {
+      bookingPaneSide.style.position = "static";
+      bookingPaneSide.style.minHeight = "";
+      bookingFloatingCard.style.position = "static";
+      bookingFloatingCard.style.top = "";
+      bookingFloatingCard.style.left = "";
+      bookingFloatingCard.style.width = "";
+      bookingFloatingCard.style.zIndex = "";
+      bookingFloatingCard.classList.remove("is-floating");
+      bookingFloatingSpacer.style.display = "none";
+      bookingFloatingSpacer.style.height = "0px";
+      return;
+    }
+
+    const headerOffset = topbar.getBoundingClientRect().height + 22;
+    bookingPaneSide.style.position = "relative";
+    bookingPaneSide.style.minHeight = "";
+    bookingFloatingCard.style.position = "static";
+    bookingFloatingCard.style.top = "";
+    bookingFloatingCard.style.left = "";
+    bookingFloatingCard.style.width = "";
+    bookingFloatingCard.style.zIndex = "";
+    bookingFloatingCard.classList.remove("is-floating");
+    bookingFloatingSpacer.style.display = "none";
+    bookingFloatingSpacer.style.height = "0px";
+
+    let floatingTop = headerOffset;
+    if (bookingTabsBar) {
+      const tabsRect = bookingTabsBar.getBoundingClientRect();
+      const tabsStickyThreshold = headerOffset + 4;
+      if (tabsRect.top <= tabsStickyThreshold) {
+        floatingTop = Math.max(headerOffset, tabsRect.bottom + 14);
+      }
+    }
+
+    const paneRect = bookingPaneSide.getBoundingClientRect();
+    const cardHeight = bookingFloatingCard.offsetHeight;
+    const footer = document.querySelector(".site-footer");
+    const footerRect = footer?.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const paneTop = scrollY + paneRect.top;
+    const footerBottom = footerRect ? scrollY + footerRect.bottom : Number.POSITIVE_INFINITY;
+    const start = paneTop - floatingTop;
+    const stop = footerBottom - window.innerHeight;
+
+    if (scrollY <= start) {
+      return;
+    }
+
+    bookingPaneSide.style.minHeight = `${cardHeight}px`;
+    bookingFloatingSpacer.style.display = "block";
+    bookingFloatingSpacer.style.height = `${cardHeight + 18}px`;
+
+    if (scrollY >= stop) {
+      bookingFloatingCard.style.position = "absolute";
+      bookingFloatingCard.style.top = `${Math.max(0, stop + floatingTop - paneTop)}px`;
+      bookingFloatingCard.style.left = "0";
+      bookingFloatingCard.style.width = "100%";
+      bookingFloatingCard.style.zIndex = "6";
+      bookingFloatingCard.classList.add("is-floating");
+      return;
+    }
+
+    bookingFloatingCard.style.position = "fixed";
+    bookingFloatingCard.style.top = `${Math.round(floatingTop)}px`;
+    bookingFloatingCard.style.left = `${Math.round(paneRect.left)}px`;
+    bookingFloatingCard.style.width = `${Math.round(paneRect.width)}px`;
+    bookingFloatingCard.style.zIndex = "12";
+    bookingFloatingCard.classList.add("is-floating");
+  };
+
+  const syncBookingStickyLayout = () => {
+    syncBookingTabsBar();
+    syncBookingFloatingCard();
+  };
+
+  syncBookingStickyLayout();
+  window.addEventListener("scroll", syncBookingStickyLayout, { passive: true });
+  window.addEventListener("resize", syncBookingStickyLayout);
 
   contentUnlockButton?.addEventListener("click", () => {
     contentFeed?.classList.remove("is-locked");
@@ -581,27 +970,6 @@ if (bookingPage) {
     });
   });
 }
-
-const weekSets = [
-  [
-    { day: "jeudi", date: "26 mars", slots: ["10:00", "11:00", "11:30", "12:00", "13:30"] },
-    { day: "vendredi", date: "27 mars", slots: ["10:00", "10:30", "11:00", "13:30", "14:00"] },
-    { day: "samedi", date: "28 mars", slots: ["10:00", "17:30", "18:00"] },
-    { day: "dimanche", date: "29 mars", slots: [] },
-    { day: "lundi", date: "30 mars", slots: [] },
-    { day: "mardi", date: "31 mars", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
-    { day: "mercredi", date: "01 avr.", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
-  ],
-  [
-    { day: "jeudi", date: "02 avr.", slots: ["09:30", "10:30", "11:30", "12:30"] },
-    { day: "vendredi", date: "03 avr.", slots: ["10:00", "11:00", "16:00"] },
-    { day: "samedi", date: "04 avr.", slots: ["09:00", "10:00", "11:00"] },
-    { day: "dimanche", date: "05 avr.", slots: ["09:30", "10:30"] },
-    { day: "lundi", date: "06 avr.", slots: [] },
-    { day: "mardi", date: "07 avr.", slots: ["10:00", "12:00", "14:00"] },
-    { day: "mercredi", date: "08 avr.", slots: ["09:30", "10:30", "11:30"] },
-  ],
-];
 
 if (reservationMultiPage) {
   const params = new URLSearchParams(window.location.search);

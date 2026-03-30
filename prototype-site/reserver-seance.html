@@ -47,8 +47,7 @@
               <h1 data-booking-name>Jackson Bryce</h1>
             </div>
 
-            <div class="booking-profile-meta">
-              <div class="booking-followers-pill" data-booking-followers>22 joueurs suivis</div>
+            <div class="booking-profile-meta" data-booking-geo-hover>
               <div class="booking-address" data-booking-address>9e arrondissement, Marseille</div>
               <div class="booking-meta" data-booking-meta>Coach premium - Specialite football</div>
             </div>
@@ -59,16 +58,11 @@
               <button class="booking-gallery-arrow booking-gallery-arrow-left" type="button" aria-label="Image precedente">
                 &lsaquo;
               </button>
-              <div class="booking-gallery-main"></div>
+              <div class="booking-gallery-main" data-booking-gallery-main></div>
               <button class="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
                 &rsaquo;
               </button>
             </div>
-
-            <aside class="booking-score-panel">
-              <p class="booking-score-label">Note :</p>
-              <div class="booking-score-display" data-booking-score-large>5 / 5</div>
-            </aside>
           </div>
 
           <div class="booking-profile-lead">
@@ -76,17 +70,18 @@
               <strong data-booking-heading>Prenez votre rendez-vous avec Jackson Bryce</strong>
               <p>Sans frais de reservation - 24h/24 - paiement en ligne - confirmation immediate</p>
             </div>
-            <button class="booking-primary-action" type="button" data-booking-nav="planning">Planning</button>
+            <button class="booking-primary-action" type="button" data-booking-nav="planning">Reserver</button>
           </div>
 
-          <nav class="booking-tabs booking-tabs-profile" aria-label="Sections du profil">
-            <button class="booking-tab is-active" type="button" data-booking-tab="apropos">A propos</button>
-            <button class="booking-tab" type="button" data-booking-tab="planning">Planning</button>
-            <button class="booking-tab" type="button" data-booking-tab="contenus">Contenus</button>
-          </nav>
-        </section>
+            <nav class="booking-tabs booking-tabs-profile" aria-label="Sections du profil">
+              <button class="booking-tab is-active" type="button" data-booking-tab="apropos">A propos</button>
+              <button class="booking-tab" type="button" data-booking-tab="planning">Planning</button>
+              <button class="booking-tab" type="button" data-booking-tab="contenus">Contenus</button>
+            </nav>
+            <div class="booking-tabs-spacer" data-booking-tabs-spacer aria-hidden="true"></div>
+          </section>
 
-        <section class="booking-pane is-active" data-booking-pane="apropos">
+        <section class="booking-pane is-active" data-booking-pane="apropos" id="booking-apropos-section">
           <div class="booking-pane-grid">
             <div class="booking-pane-main">
               <article class="booking-story-card">
@@ -95,85 +90,181 @@
                   Bonjour, je m'appelle Bryce et je partage une experience de terrain construite avec exigence,
                   pedagogie et gout du detail.
                 </p>
+                <p>
+                  L'approche reste volontairement simple : comprendre vite votre besoin, cadrer une seance
+                  utile, puis vous faire repartir avec des reperes clairs. Le but n'est pas de surcharger la
+                  session, mais d'installer un vrai rythme de progression que vous pouvez tenir dans la duree.
+                </p>
+                <p>
+                  Selon votre niveau, la seance peut etre plus technique, plus physique ou davantage orientee
+                  prise de confiance. Chaque detail est pense pour garder une sensation premium, lisible et
+                  credible du debut a la fin.
+                </p>
               </article>
 
               <article class="booking-story-card">
                 <h3>La seance</h3>
-                <div class="booking-story-lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                <p>
+                  Chaque rendez-vous est pense pour rester simple, lisible et efficace. On commence par un
+                  point rapide sur votre niveau, votre energie du jour et votre objectif principal, puis on
+                  construit une seance claire avec des exercices vraiment utiles.
+                </p>
+                <div class="booking-story-points">
+                  <div class="booking-story-point">
+                    <strong>Avant la seance</strong>
+                    <span>Brief rapide, objectif du jour, adaptation au niveau et au contexte.</span>
+                  </div>
+                  <div class="booking-story-point">
+                    <strong>Pendant la seance</strong>
+                    <span>Exercices corriges, rythme progressif, feedback direct et concret.</span>
+                  </div>
+                  <div class="booking-story-point">
+                    <strong>Apres la seance</strong>
+                    <span>Mini bilan, points forts, axes de progression et recommandation suivante.</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="booking-story-card">
+                <h3>Infos pratiques</h3>
+                <p>
+                  Tout est organise pour que la reservation reste fluide : choix du creneau, confirmation,
+                  preparation et rappel des conditions. Vous savez donc tres vite comment la seance va se
+                  derouler et ce que vous devez prevoir avant d'arriver.
+                </p>
+                <div class="booking-practical-grid">
+                  <div class="booking-practical-item">
+                    <span>Format</span>
+                    <strong>Individuel, duo ou visio selon le coach</strong>
+                  </div>
+                  <div class="booking-practical-item">
+                    <span>Confirmation</span>
+                    <strong>Validation immediate du creneau choisi</strong>
+                  </div>
+                  <div class="booking-practical-item">
+                    <span>Paiement</span>
+                    <strong>Reservation securisee en ligne</strong>
+                  </div>
+                  <div class="booking-practical-item">
+                    <span>Annulation</span>
+                    <strong>Report possible selon les disponibilites</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="booking-story-card">
+                <h3>Ce que vous allez travailler</h3>
+                <p>
+                  Le contenu de la seance s'adapte a votre objectif du moment. On peut etre sur une logique de
+                  progression technique, de reprise, de performance ou simplement de remise en confiance avec un
+                  cadre clair et rassurant.
+                </p>
+                <div class="booking-story-columns">
+                  <div class="booking-story-check">
+                    <strong>Axes possibles</strong>
+                    <span>Technique, rythme, coordination, intensite, lecture du jeu ou execution.</span>
+                  </div>
+                  <div class="booking-story-check">
+                    <strong>Adaptation</strong>
+                    <span>Le coach ajuste le contenu selon votre niveau, votre energie et vos disponibilites.</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="booking-story-card">
+                <h3>Suivi et progression</h3>
+                <p>
+                  L'interet de la plateforme n'est pas seulement de reserver une fois. La page est aussi pensee
+                  pour montrer qu'il peut y avoir une suite logique : recommandations, prochaine seance, et
+                  visibilite sur votre progression si vous continuez avec le meme coach.
+                </p>
+                <div class="booking-story-sequence">
+                  <div class="booking-story-sequence-item">
+                    <span>01</span>
+                    <strong>Observation du niveau et du besoin reel</strong>
+                  </div>
+                  <div class="booking-story-sequence-item">
+                    <span>02</span>
+                    <strong>Seance cadre avec exercices utiles et retours directs</strong>
+                  </div>
+                  <div class="booking-story-sequence-item">
+                    <span>03</span>
+                    <strong>Prochaine etape recommandee pour garder une progression claire</strong>
+                  </div>
                 </div>
               </article>
             </div>
 
             <aside class="booking-pane-side">
-              <section class="booking-rating-card booking-rating-card-profile">
-                <div class="booking-rating-tabs">
-                  <button class="is-active" type="button" data-rating-tab="global">Note</button>
-                  <button type="button" data-rating-tab="reviews">Avis</button>
+              <section class="booking-score-panel booking-score-panel-side">
+                <p class="booking-score-label">Note :</p>
+                <div class="booking-score-display" data-booking-score-large>5 / 5</div>
+                <p class="booking-score-meta" data-booking-score-copy>284 avis verifies</p>
+                <div class="booking-score-breakdown">
+                  <div>Accompagnement <strong>5 / 5</strong></div>
+                  <div>Pedagogie <strong>5 / 5</strong></div>
+                  <div>Qualite terrain <strong>5 / 5</strong></div>
                 </div>
-                <div class="booking-rating-body" data-rating-body>
-                  <div class="booking-rating-score">5</div>
-                  <div class="booking-rating-lines">
-                    <div>Accompagnement <strong>5 / 5</strong></div>
-                    <div>Pedagogie <strong>5 / 5</strong></div>
-                    <div>Qualite terrain <strong>5 / 5</strong></div>
-                    <p>Des retours tres positifs sur la clarte et l'intensite des seances.</p>
+                <div class="booking-score-facts">
+                  <div class="booking-score-fact">
+                    <span>Clients suivis</span>
+                    <strong data-booking-score-followers>22</strong>
+                  </div>
+                  <div class="booking-score-fact">
+                    <span>Qualification</span>
+                    <strong data-booking-qualification>Coach premium</strong>
+                  </div>
+                  <div class="booking-score-fact">
+                    <span>Diplome</span>
+                    <strong data-booking-diploma>BPJEPS</strong>
                   </div>
                 </div>
               </section>
+              <div class="booking-score-spacer" data-booking-score-spacer aria-hidden="true"></div>
 
-              <section class="booking-profile-summary">
-                <span class="booking-summary-tag" data-booking-specialty>Specialite football</span>
-                <strong data-booking-followers-secondary>22 joueurs suivis</strong>
-                <div class="booking-profile-avatar-card"></div>
+              <section class="booking-geo-card" aria-label="Zone geographique du coach">
+                <div class="booking-geo-head">
+                  <strong>Zone geographique</strong>
+                  <span data-booking-geo-department>Bouches-du-Rhone</span>
+                </div>
+                <div class="booking-geo-map">
+                  <div class="booking-geo-shape booking-geo-shape-1"></div>
+                  <div class="booking-geo-shape booking-geo-shape-2"></div>
+                  <div class="booking-geo-shape booking-geo-shape-3"></div>
+                  <div class="booking-geo-shape booking-geo-shape-4"></div>
+                  <div class="booking-geo-shape booking-geo-shape-5"></div>
+                  <div class="booking-geo-highlight" data-booking-geo-highlight></div>
+                  <div class="booking-geo-label" data-booking-geo-label>Adresse du coach</div>
+                </div>
+                <p class="booking-geo-copy" data-booking-geo-copy>Survolez le profil du coach pour afficher sa zone et son adresse.</p>
               </section>
             </aside>
           </div>
         </section>
 
-        <section class="booking-pane" data-booking-pane="planning" id="booking-services">
-          <div class="booking-content">
-            <div class="booking-main-column">
-              <header class="booking-section-head">
-                <h2>Planning de reservation</h2>
-                <p>Choisissez la seance qui correspond le mieux a votre objectif et a votre disponibilite.</p>
-              </header>
+        <section class="booking-pane" data-booking-pane="planning" id="booking-planning-section">
+          <div class="booking-planning-shell">
+            <header class="booking-section-head booking-section-head-planning">
+              <h2>Date et heure</h2>
+              <p>Choisissez directement votre cr&eacute;neau disponible.</p>
+            </header>
 
-              <div class="booking-service-block">
-                <h3>Choix de la seance</h3>
+            <div class="reservation-calendar-card booking-calendar-card">
+              <div class="reservation-calendar-head">
+                <button class="calendar-arrow" type="button" aria-label="Semaine precedente" data-booking-calendar-prev>&lsaquo;</button>
+                <div class="reservation-days" data-booking-days></div>
+                <button class="calendar-arrow" type="button" aria-label="Semaine suivante" data-booking-calendar-next>&rsaquo;</button>
               </div>
-
-              <section class="booking-card-stack">
-                <h4>Informations</h4>
-                <div class="booking-info-list" data-booking-info-list></div>
-              </section>
-
-              <section class="booking-card-stack">
-                <h4 data-booking-category>Football - Coaching individuel</h4>
-                <div class="booking-service-list" data-booking-service-list></div>
-              </section>
+              <div class="reservation-slots-grid" data-booking-slots-grid></div>
             </div>
 
-            <aside class="booking-side-column">
-              <section class="booking-hours-card">
-                <h4>Horaires d'ouverture</h4>
-                <div class="booking-hours-list">
-                  <div><span>Lundi</span><strong>10:00 - 19:00</strong></div>
-                  <div><span>Mardi</span><strong>10:00 - 19:00</strong></div>
-                  <div><span>Mercredi</span><strong>10:00 - 19:00</strong></div>
-                  <div><span>Jeudi</span><strong>10:00 - 20:00</strong></div>
-                  <div><span>Vendredi</span><strong>10:00 - 19:00</strong></div>
-                  <div><span>Samedi</span><strong>09:30 - 18:30</strong></div>
-                  <div><span>Dimanche</span><strong>09:00 - 19:00</strong></div>
-                </div>
-              </section>
-            </aside>
+            <div class="reservation-cta-row booking-cta-row">
+              <a class="reservation-confirm-button" href="./recapitulatif-reservation.html" data-booking-confirm>R&eacute;server mon cr&eacute;neau</a>
+            </div>
           </div>
         </section>
 
-        <section class="booking-pane" data-booking-pane="contenus">
+        <section class="booking-pane" data-booking-pane="contenus" id="booking-contenus-section">
           <section class="booking-content-social" data-content-lock-root>
             <div class="booking-content-profile">
               <div class="booking-content-cover"></div>
