@@ -548,10 +548,14 @@ if (bookingPage) {
   const bookingTabsSpacer = document.querySelector("[data-booking-tabs-spacer]");
   const bookingGhostButtons = document.querySelectorAll("[data-booking-nav]");
   const bookingPanes = document.querySelectorAll("[data-booking-pane]");
+  const bookingAproposPane = document.querySelector('[data-booking-pane="apropos"]');
   const bookingPageShell = document.querySelector(".booking-page");
   const bookingPaneSide = document.querySelector(".booking-pane-side");
   const bookingFloatingCard = document.querySelector(".booking-score-panel-side");
   const bookingFloatingSpacer = document.querySelector("[data-booking-score-spacer]");
+  const bookingGeoCard = document.querySelector(".booking-geo-card");
+  const bookingGeoSpacer = document.querySelector("[data-booking-geo-spacer]");
+  const bookingGeoMap = document.querySelector(".booking-geo-map");
   const ratingTabs = document.querySelectorAll("[data-rating-tab]");
   const contentUnlockButton = document.querySelector("[data-content-unlock]");
   const contentFeed = document.querySelector("[data-content-feed]");
@@ -759,6 +763,8 @@ if (bookingPage) {
     button.addEventListener("click", () => {
       const target = button.dataset.bookingNav || "planning";
       setActiveBookingTab(target);
+      syncBookingStickyLayout();
+      requestAnimationFrame(syncBookingStickyLayout);
       scrollToBookingSection(target);
     });
   });
@@ -767,6 +773,8 @@ if (bookingPage) {
     tab.addEventListener("click", () => {
       const target = tab.dataset.bookingTab || "apropos";
       setActiveBookingTab(target);
+      syncBookingStickyLayout();
+      requestAnimationFrame(syncBookingStickyLayout);
       scrollToBookingSection(target);
     });
   });
@@ -800,7 +808,7 @@ if (bookingPage) {
       return;
     }
 
-    const headerOffset = topbar.getBoundingClientRect().height + 22;
+    const headerOffset = topbar.getBoundingClientRect().height + 10;
     const footer = document.querySelector(".site-footer");
 
     bookingTabsBar.style.position = "static";
@@ -848,9 +856,10 @@ if (bookingPage) {
   const syncBookingFloatingCard = () => {
     if (!bookingPaneSide || !bookingFloatingCard || !bookingFloatingSpacer || !topbar) return;
 
+    const aproposActive = bookingAproposPane?.classList.contains("is-active");
     const desktop = window.innerWidth > 900;
 
-    if (!desktop) {
+    if (!desktop || !aproposActive) {
       bookingPaneSide.style.position = "static";
       bookingPaneSide.style.minHeight = "";
       bookingFloatingCard.style.position = "static";
@@ -864,7 +873,7 @@ if (bookingPage) {
       return;
     }
 
-    const headerOffset = topbar.getBoundingClientRect().height + 22;
+    const headerOffset = topbar.getBoundingClientRect().height + 10;
     bookingPaneSide.style.position = "relative";
     bookingPaneSide.style.minHeight = "";
     bookingFloatingCard.style.position = "static";
@@ -881,31 +890,43 @@ if (bookingPage) {
       const tabsRect = bookingTabsBar.getBoundingClientRect();
       const tabsStickyThreshold = headerOffset + 4;
       if (tabsRect.top <= tabsStickyThreshold) {
-        floatingTop = Math.max(headerOffset, tabsRect.bottom + 14);
+        floatingTop = Math.max(headerOffset, tabsRect.bottom + 8);
       }
     }
 
     const paneRect = bookingPaneSide.getBoundingClientRect();
     const cardHeight = bookingFloatingCard.offsetHeight;
+    const geoHeight = bookingGeoCard?.offsetHeight || 0;
     const footer = document.querySelector(".site-footer");
     const footerRect = footer?.getBoundingClientRect();
     const scrollY = window.scrollY;
     const paneTop = scrollY + paneRect.top;
-    const footerBottom = footerRect ? scrollY + footerRect.bottom : Number.POSITIVE_INFINITY;
+    const footerTop = footerRect ? scrollY + footerRect.top : Number.POSITIVE_INFINITY;
     const start = paneTop - floatingTop;
-    const stop = footerBottom - window.innerHeight;
+    const stop = footerTop - floatingTop - cardHeight - geoHeight - 24;
+    const footerVisible = Boolean(footerRect && footerRect.top <= window.innerHeight);
 
     if (scrollY <= start) {
       return;
     }
 
-    bookingPaneSide.style.minHeight = `${cardHeight}px`;
+    bookingPaneSide.style.minHeight = `${cardHeight + geoHeight + 6}px`;
     bookingFloatingSpacer.style.display = "block";
-    bookingFloatingSpacer.style.height = `${cardHeight + 18}px`;
+    bookingFloatingSpacer.style.height = `${cardHeight + 8}px`;
+
+    if (footerVisible) {
+      bookingFloatingCard.style.position = "fixed";
+      bookingFloatingCard.style.top = `${Math.round(floatingTop)}px`;
+      bookingFloatingCard.style.left = `${Math.round(paneRect.left)}px`;
+      bookingFloatingCard.style.width = `${Math.round(paneRect.width)}px`;
+      bookingFloatingCard.style.zIndex = "12";
+      bookingFloatingCard.classList.add("is-floating");
+      return;
+    }
 
     if (scrollY >= stop) {
       bookingFloatingCard.style.position = "absolute";
-      bookingFloatingCard.style.top = `${Math.max(0, stop + floatingTop - paneTop)}px`;
+      bookingFloatingCard.style.top = `${Math.max(0, stop - paneTop)}px`;
       bookingFloatingCard.style.left = "0";
       bookingFloatingCard.style.width = "100%";
       bookingFloatingCard.style.zIndex = "6";
@@ -921,9 +942,74 @@ if (bookingPage) {
     bookingFloatingCard.classList.add("is-floating");
   };
 
+  const syncBookingGeoCard = () => {
+    if (!bookingPaneSide || !bookingGeoCard || !bookingGeoSpacer || !topbar) return;
+
+    const aproposActive = bookingAproposPane?.classList.contains("is-active");
+    const desktop = window.innerWidth > 900;
+
+    if (!desktop || !aproposActive) {
+      bookingGeoCard.style.position = "static";
+      bookingGeoCard.style.top = "";
+      bookingGeoCard.style.left = "";
+      bookingGeoCard.style.width = "";
+      bookingGeoCard.style.zIndex = "";
+      if (bookingGeoMap) bookingGeoMap.style.minHeight = "";
+      bookingGeoSpacer.style.display = "none";
+      bookingGeoSpacer.style.height = "0px";
+      return;
+    }
+
+    bookingGeoCard.style.position = "static";
+    bookingGeoCard.style.top = "";
+    bookingGeoCard.style.left = "";
+    bookingGeoCard.style.width = "";
+    bookingGeoCard.style.zIndex = "";
+    if (bookingGeoMap) bookingGeoMap.style.minHeight = "";
+    bookingGeoSpacer.style.display = "none";
+    bookingGeoSpacer.style.height = "0px";
+    const headerOffset = topbar.getBoundingClientRect().height + 10;
+    const paneRect = bookingPaneSide.getBoundingClientRect();
+    const noteRect = bookingFloatingCard?.getBoundingClientRect();
+    const geoRect = bookingGeoCard.getBoundingClientRect();
+    const footer = document.querySelector(".site-footer");
+    const footerRect = footer?.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const paneTop = scrollY + paneRect.top;
+    const geoHeight = bookingGeoCard.offsetHeight;
+    const geoTop = scrollY + geoRect.top;
+    const footerTop = footerRect ? scrollY + footerRect.top : Number.POSITIVE_INFINITY;
+    const noteBottomViewport = noteRect ? noteRect.bottom : headerOffset;
+    const floatingTop = Math.max(headerOffset, noteBottomViewport + 8);
+    const start = geoTop - floatingTop;
+    const stop = footerTop - floatingTop - geoHeight - 12;
+    if (scrollY <= start) {
+      return;
+    }
+
+    bookingGeoSpacer.style.display = "block";
+    bookingGeoSpacer.style.height = `${geoHeight + 2}px`;
+
+    if (scrollY >= stop) {
+      bookingGeoCard.style.position = "absolute";
+      bookingGeoCard.style.top = `${Math.max(0, stop - paneTop)}px`;
+      bookingGeoCard.style.left = "0";
+      bookingGeoCard.style.width = "100%";
+      bookingGeoCard.style.zIndex = "5";
+      return;
+    }
+
+    bookingGeoCard.style.position = "fixed";
+    bookingGeoCard.style.top = `${Math.round(floatingTop)}px`;
+    bookingGeoCard.style.left = `${Math.round(paneRect.left)}px`;
+    bookingGeoCard.style.width = `${Math.round(paneRect.width)}px`;
+    bookingGeoCard.style.zIndex = "9";
+  };
+
   const syncBookingStickyLayout = () => {
     syncBookingTabsBar();
     syncBookingFloatingCard();
+    syncBookingGeoCard();
   };
 
   syncBookingStickyLayout();
@@ -1210,16 +1296,34 @@ if (accountPage) {
   const params = new URLSearchParams(window.location.search);
   const statusNode = document.querySelector("[data-account-status]");
   const form = document.querySelector("[data-account-form]");
+  const createForm = document.querySelector("[data-account-create-form]");
   const forgotNode = document.querySelector("[data-account-forgot]");
   const signupNode = document.querySelector("[data-account-signup]");
   const authShell = document.querySelector("[data-account-auth-shell]");
-  const dashboardNode = document.querySelector("[data-account-dashboard]");
+  const dashboardNodes = document.querySelectorAll("[data-account-dashboard]");
   const titleNode = document.querySelector("[data-account-title]");
   const subtitleNode = document.querySelector("[data-account-subtitle]");
   const dashboardNameNode = document.querySelector("[data-account-dashboard-name]");
+  const stepNodes = document.querySelectorAll("[data-account-step]");
+  const backButtons = document.querySelectorAll("[data-account-back]");
+  const roleButtons = document.querySelectorAll("[data-account-role]");
+  const nextSessionNameNode = document.querySelector("[data-coach-next-name]");
+  const nextSessionAgeNode = document.querySelector("[data-coach-next-age]");
+  const nextSessionClubNode = document.querySelector("[data-coach-next-club]");
+  const nextSessionObjectiveNode = document.querySelector("[data-coach-next-objective]");
+  const nextSessionLocationNode = document.querySelector("[data-coach-next-location]");
+  const nextSessionSlotNode = document.querySelector("[data-coach-next-slot]");
+  const nextSessionDateNode = document.querySelector("[data-coach-next-date]");
+  const nextSessionLinkNode = document.querySelector("[data-coach-next-link]");
+  const nextSessionTrigger = document.querySelector("[data-coach-next-trigger]");
+  const coachPreviewNameNode = document.querySelector("[data-coach-preview-name]");
+  const coachDisplayToggle = document.querySelector("[data-coach-display-toggle]");
+  const coachDisplayMenu = document.querySelector("[data-coach-display-menu]");
+  const coachDisplayInputs = document.querySelectorAll("[data-coach-display-target]");
   const redirect = params.get("redirect");
   const mode = params.get("mode");
   const isCoachMode = mode === "coach";
+  const isClubMode = mode === "club";
   const paymentTarget = buildPath("./paiement.html", {
     sport: params.get("sport"),
     city: params.get("city"),
@@ -1233,15 +1337,59 @@ if (accountPage) {
   });
 
   const coachName = params.get("coach") || "Steven Fordant";
-
-  if (isCoachMode) {
-    if (titleNode) titleNode.textContent = "Accedez a votre espace coach";
-    if (subtitleNode) subtitleNode.textContent = "Planning, notifications, paiements et avis reunis dans une meme interface V1.";
-  }
+  const upcomingSessions = [
+    {
+      name: "Vazquez Eliott",
+      age: "19 ans",
+      club: "Sans club",
+      objective: "Objectif : perfectionnement dribble",
+      location: "Lieu : Gymnase de la Paix",
+      slot: "18h - 19h",
+      date: "05/04",
+      href: "./reserver-seance.html?sport=basketball&city=Lyon&coach=Steven%20Fordant",
+    },
+    {
+      name: "Fordant Christopher",
+      age: "22 ans",
+      club: "Club Horizon",
+      objective: "Objectif : reprise et coordination",
+      location: "Lieu : Stade des Docks",
+      slot: "19h - 20h",
+      date: "06/04",
+      href: "./reserver-seance.html?sport=football&city=Marseille&coach=Steven%20Fordant",
+    },
+    {
+      name: "Seck Madison",
+      age: "24 ans",
+      club: "Sans club",
+      objective: "Objectif : gainage et remise en forme",
+      location: "Lieu : Studio Centre Ville",
+      slot: "20h - 21h",
+      date: "07/04",
+      href: "./reserver-seance.html?sport=metiers-de-la-forme&city=Lille&coach=Steven%20Fordant",
+    },
+  ];
+  let upcomingSessionIndex = 0;
 
   if (dashboardNameNode) {
     dashboardNameNode.textContent = coachName;
   }
+  if (coachPreviewNameNode) {
+    coachPreviewNameNode.textContent = coachName;
+  }
+
+  const renderUpcomingSession = () => {
+    const currentSession = upcomingSessions[upcomingSessionIndex];
+    if (!currentSession) return;
+    if (nextSessionNameNode) nextSessionNameNode.textContent = currentSession.name;
+    if (nextSessionAgeNode) nextSessionAgeNode.textContent = currentSession.age;
+    if (nextSessionClubNode) nextSessionClubNode.textContent = currentSession.club;
+    if (nextSessionObjectiveNode) nextSessionObjectiveNode.textContent = currentSession.objective;
+    if (nextSessionLocationNode) nextSessionLocationNode.textContent = currentSession.location;
+    if (nextSessionSlotNode) nextSessionSlotNode.textContent = currentSession.slot;
+    if (nextSessionDateNode) nextSessionDateNode.textContent = currentSession.date;
+    if (nextSessionLinkNode) nextSessionLinkNode.setAttribute("href", currentSession.href);
+  };
 
   const setStatus = (message) => {
     if (!statusNode) return;
@@ -1249,13 +1397,93 @@ if (accountPage) {
     statusNode.textContent = message;
   };
 
-  const revealDashboard = (message) => {
-    setStatus(message);
-    authShell?.setAttribute("hidden", "");
-    dashboardNode?.removeAttribute("hidden");
-    if (titleNode) titleNode.textContent = "Votre espace coach est pret";
-    if (subtitleNode) subtitleNode.textContent = "Retrouvez vos demandes, votre planning, vos paiements et vos avis dans une seule vue.";
+  const setStep = (stepName) => {
+    stepNodes.forEach((node) => {
+      const shouldShow = node.dataset.accountStep === stepName;
+      node.hidden = !shouldShow;
+      node.classList.toggle("is-active", shouldShow);
+    });
   };
+
+  const setCoachDisplayMenuOpen = (open) => {
+    if (!coachDisplayToggle || !coachDisplayMenu) return;
+    coachDisplayToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    coachDisplayMenu.hidden = !open;
+  };
+
+  const syncCoachDisplayBlocks = () => {
+    coachDisplayInputs.forEach((input) => {
+      const target = input.dataset.coachDisplayTarget;
+      if (!target) return;
+      document.querySelectorAll(`[data-coach-display-block="${target}"]`).forEach((node) => {
+        node.hidden = !input.checked;
+      });
+    });
+  };
+
+  const revealDashboard = (message) => {
+    accountPage.classList.add("is-coach-mode");
+    if (statusNode) {
+      statusNode.hidden = true;
+      statusNode.textContent = "";
+    }
+    setStep("signin");
+    authShell?.setAttribute("hidden", "");
+    dashboardNodes.forEach((node) => {
+      const shouldShow = node.dataset.accountDashboard === (isClubMode ? "club" : "coach");
+      node.hidden = !shouldShow;
+    });
+    if (titleNode) {
+      titleNode.hidden = true;
+    }
+    if (subtitleNode) {
+      subtitleNode.hidden = true;
+    }
+    coachDisplayToggle?.removeAttribute("hidden");
+    syncCoachDisplayBlocks();
+  };
+
+  coachDisplayToggle?.addEventListener("click", () => {
+    const isOpen = coachDisplayToggle.getAttribute("aria-expanded") === "true";
+    setCoachDisplayMenuOpen(!isOpen);
+  });
+
+  coachDisplayInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      syncCoachDisplayBlocks();
+    });
+  });
+
+  backButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setStep(button.dataset.accountBack || "signin");
+    });
+  });
+
+  roleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const role = button.dataset.accountRole;
+      if (role === "club") {
+        window.location.href = buildPath("./inscription-club.html", { source: "compte" });
+        return;
+      }
+
+      setStep("create");
+    });
+  });
+
+  nextSessionTrigger?.addEventListener("click", () => {
+    upcomingSessionIndex = (upcomingSessionIndex + 1) % upcomingSessions.length;
+    renderUpcomingSession();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!coachDisplayToggle || !coachDisplayMenu) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (coachDisplayToggle.contains(target) || coachDisplayMenu.contains(target)) return;
+    setCoachDisplayMenuOpen(false);
+  });
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -1270,6 +1498,11 @@ if (accountPage) {
       return;
     }
 
+    if (isClubMode) {
+      revealDashboard("Connexion simulee. Le tableau de bord club GetYourMentor est maintenant disponible.");
+      return;
+    }
+
     setStatus("Connexion simule. Vous pouvez maintenant reprendre votre rservation ou naviguer dans le site.");
   });
 
@@ -1278,13 +1511,12 @@ if (accountPage) {
       window.location.href = paymentTarget;
       return;
     }
+    setStep("create");
+  });
 
-    if (isCoachMode) {
-      revealDashboard("Creation de compte simulee. Votre espace coach est configure pour la V1.");
-      return;
-    }
-
-    setStatus("Cration de compte simule. Votre profil est prt pour rserver une prochaine sance.");
+  createForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    setStep("role");
   });
 
   forgotNode?.addEventListener("click", (event) => {
@@ -1293,9 +1525,11 @@ if (accountPage) {
     document.querySelector("#account-email")?.focus();
   });
 
-  if (isCoachMode && params.get("connected") === "1" && redirect !== "paiement") {
-    revealDashboard("Connexion detectee. Vous retrouvez directement votre espace coach.");
+  if ((isCoachMode || isClubMode) && params.get("connected") === "1" && redirect !== "paiement") {
+    revealDashboard(isClubMode ? "Connexion detectee. Vous retrouvez directement votre espace club." : "Connexion detectee. Vous retrouvez directement votre espace coach.");
   }
+
+  renderUpcomingSession();
 }
 
 if (paymentPage) {

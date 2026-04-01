@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GetYourMentor - Inscription club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell club-signup-shell">
+      <header class="topbar topbar-light">
+        <div class="brand-lockup">
+          <a class="brand-name brand-link" href="./accueil.html">GetYourMentor</a>
+        </div>
+
+        <nav class="sports-nav" aria-label="Sports">
+          <a class="sport-link" href="./recherche-coachs.html?sport=football">Football</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=basketball">Basketball</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=metiers-de-la-forme">Metiers de la forme</a>
+          <a class="sport-link" href="./recherche-coachs.html?sport=sports-de-combat">Sports de combat</a>
+        </nav>
+
+        <div class="topbar-actions">
+          <a class="account-button" href="./compte.html">
+            <span class="account-button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span>Mon compte</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="club-signup-page">
+        <section class="club-signup-visual" aria-label="Identite GYM">
+          <div class="club-signup-logo-frame">
+            <img src="../design_assets/logo-getyourmentor-signup.png" alt="Logo GYM GetYourMentor" />
+          </div>
+        </section>
+
+        <section class="club-signup-form-panel">
+          <div class="club-signup-form-card">
+            <div class="club-signup-grid">
+              <label class="auth-field">
+                <span>* Nom du club / structure</span>
+                <input type="text" placeholder="Nom du club / structure" />
+              </label>
+
+              <label class="auth-field">
+                <span>* Nom du responsable</span>
+                <input type="text" placeholder="Nom du responsable" />
+              </label>
+
+              <label class="auth-field club-signup-grid-wide">
+                <span>* Adresse mail</span>
+                <input type="email" placeholder="Adresse mail" />
+              </label>
+
+              <label class="auth-field">
+                <span>Numero de telephone</span>
+                <input type="tel" placeholder="Numero de telephone" />
+              </label>
+            </div>
+
+            <label class="auth-field club-signup-upload">
+              <span>Logo du club / structure</span>
+              <div class="club-signup-dropzone">Deposez un fichier</div>
+            </label>
+
+            <label class="auth-field club-signup-upload">
+              <span>Piece d&apos;identite</span>
+              <div class="club-signup-dropzone">Fournir un document telechargeable</div>
+            </label>
+
+            <label class="auth-field">
+              <span>Iban</span>
+              <input class="club-signup-iban" type="text" placeholder="FR76" value="FR76" />
+            </label>
+
+            <div class="club-signup-actions">
+              <a class="auth-primary club-signup-submit" href="./compte.html?mode=club&amp;connected=1">Affiliez des coachs</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

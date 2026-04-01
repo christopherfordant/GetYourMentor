@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -2294,6 +2298,7 @@ button {
 .booking-profile-hero {
   display: grid;
   gap: 28px;
+  min-height: calc(100svh - 122px);
 }
 
 .booking-profile-top {
@@ -2333,7 +2338,7 @@ button {
 }
 
 .booking-gallery-profile .booking-gallery-main {
-  min-height: 460px;
+  min-height: 400px;
   border-radius: 24px;
 }
 
@@ -2366,12 +2371,12 @@ button {
   background: #fff;
   border: 1px solid rgba(221, 225, 232, 0.95);
   box-shadow: var(--shadow-soft);
-  padding: 20px;
+  padding: 12px;
   display: grid;
   align-content: start;
   justify-items: start;
   text-align: left;
-  gap: 14px;
+  gap: 6px;
   max-width: 250px;
 }
 
@@ -2384,19 +2389,23 @@ button {
   display: none;
 }
 
+.booking-geo-spacer {
+  display: none;
+}
+
 .booking-score-panel-side.is-floating {
   z-index: 12;
 }
 
 .booking-score-label {
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: -0.03em;
 }
 
 .booking-score-display {
   margin-top: 0;
-  font-size: clamp(58px, 6vw, 88px);
+  font-size: clamp(38px, 4.2vw, 60px);
   line-height: 0.9;
   letter-spacing: -0.08em;
   font-weight: 500;
@@ -2405,16 +2414,16 @@ button {
 .booking-score-meta {
   margin: -4px 0 0;
   color: var(--ink-soft);
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .booking-score-breakdown {
   display: grid;
-  gap: 6px;
+  gap: 2px;
   width: 100%;
   color: var(--ink-soft);
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: 11px;
+  line-height: 1.22;
 }
 
 .booking-score-breakdown div {
@@ -2425,34 +2434,34 @@ button {
 
 .booking-score-breakdown strong {
   color: var(--ink);
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .booking-score-facts {
   display: grid;
-  gap: 10px;
+  gap: 5px;
   width: 100%;
 }
 
 .booking-score-fact {
   display: grid;
-  gap: 4px;
-  padding: 10px 12px;
-  border-radius: 16px;
+  gap: 2px;
+  padding: 6px 10px;
+  border-radius: 14px;
   background: #f5f6f8;
 }
 
 .booking-score-fact span {
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .booking-score-fact strong {
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .booking-profile-lead {
@@ -2480,6 +2489,7 @@ button {
   position: relative;
   z-index: 18;
   gap: 0;
+  margin-top: auto;
   padding-bottom: 0;
   border-bottom: 0;
   overflow: hidden;
@@ -2495,16 +2505,16 @@ button {
 
 .booking-tabs-profile .booking-tab {
   flex: 1;
-  min-height: 88px;
+  min-height: 58px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(221, 225, 232, 0.95);
   background: #fff;
-  font-size: clamp(24px, 3vw, 40px);
+  font-size: clamp(18px, 2.2vw, 28px);
   letter-spacing: -0.04em;
   color: var(--ink);
-  padding: 0 24px;
+  padding: 0 16px;
 }
 
 .booking-tabs-profile .booking-tab + .booking-tab {
@@ -2519,7 +2529,7 @@ button {
 
 .booking-pane {
   display: none;
-  margin-top: 24px;
+  margin-top: 12px;
   scroll-margin-top: 214px;
 }
 
@@ -2564,14 +2574,11 @@ button {
 
 .booking-pane-side {
   display: grid;
-  gap: 18px;
+  gap: 12px;
   align-self: stretch;
   align-content: start;
   position: relative;
-}
-
-.booking-geo-card {
-  margin-top: 0;
+  margin-top: -398px;
 }
 
 .booking-story-points {
@@ -2728,9 +2735,9 @@ button {
   border: 1px solid rgba(221, 225, 232, 0.95);
   background: #fff;
   box-shadow: var(--shadow-soft);
-  padding: 20px;
+  padding: 12px;
   display: grid;
-  gap: 14px;
+  gap: 8px;
 }
 
 .booking-geo-head {
@@ -2741,18 +2748,23 @@ button {
 }
 
 .booking-geo-head strong {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .booking-geo-head span {
   color: var(--ink-soft);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
+}
+
+.booking-geo-body {
+  display: grid;
+  gap: 8px;
 }
 
 .booking-geo-map {
   position: relative;
-  min-height: 190px;
+  min-height: 200px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(221, 225, 232, 0.95);
@@ -2824,8 +2836,8 @@ button {
 .booking-geo-copy {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .booking-content-social {
@@ -3668,22 +3680,51 @@ button {
 }
 
 .account-page {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1fr);
-  min-height: 620px;
+  display: block;
+  min-height: 100vh;
   padding-top: 88px;
+  background:
+    linear-gradient(180deg, rgba(250, 248, 244, 0.78), rgba(250, 248, 244, 0.92)),
+    url("../design_assets/hero_accueil_whatsapp.jpeg") center 28% / cover no-repeat;
 }
 
 .account-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 72px 40px 88px;
-  background: #fbfaf7;
+  min-height: calc(100vh - 88px);
+  padding: 56px 40px 88px;
+  background: transparent;
 }
 
 .auth-card {
   width: min(100%, 420px);
+  padding: 34px 34px 32px;
+  border: 1px solid rgba(217, 221, 228, 0.94);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 28px 80px rgba(19, 31, 49, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.auth-card-compact {
+  width: min(100%, 420px);
+}
+
+.auth-card-wide {
+  width: min(100%, 860px);
+}
+
+.account-auth-stage {
+  width: min(100%, 1020px);
+  display: grid;
+  place-items: center;
+}
+
+.auth-modal-step {
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 .auth-card h1,
@@ -3835,6 +3876,80 @@ button {
   gap: 14px;
   margin: 28px 0;
   color: var(--ink-soft);
+}
+
+.auth-pill-button {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--footer);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-pill-button-light {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid #d9dde4;
+  box-shadow: none;
+}
+
+.auth-role-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.auth-role-card {
+  min-height: 230px;
+  padding: 24px;
+  border: 1px solid #d9dde4;
+  border-radius: 22px;
+  background: #fff;
+  text-align: left;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  box-shadow: var(--shadow-soft);
+}
+
+.auth-role-card strong {
+  font-weight: 700;
+}
+
+.auth-role-card-detail {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.auth-role-separator {
+  align-self: center;
+  color: var(--ink-soft);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.auth-step-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-inline-button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .auth-divider::before,
@@ -4064,30 +4179,430 @@ button {
   font-weight: 700;
 }
 
-.account-visual {
+.account-page.is-coach-mode {
+  background: #fbfaf7;
+}
+
+.account-page.is-coach-mode .account-panel {
+  align-items: flex-start;
+  justify-content: stretch;
+  padding: 36px 28px 64px;
+}
+
+.account-page.is-coach-mode .auth-card {
+  width: min(100%, 1380px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.account-topbar-menu {
   position: relative;
-  overflow: hidden;
-  min-height: 620px;
-  background: #ece8e1;
+  display: grid;
+  justify-items: end;
+  gap: 6px;
 }
 
-.account-visual-image,
-.account-visual-overlay {
+.account-display-toggle {
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 42, 58, 0.12);
+  background: #fff;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.account-display-toggle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.account-display-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.account-display-menu {
   position: absolute;
-  inset: 0;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 220px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(221, 225, 232, 0.95);
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 8px;
+  z-index: 35;
 }
 
-.account-visual-image {
-  background-image: url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg");
-  background-size: cover;
-  background-position: center 18%;
-  transform: scale(1.03);
+.account-display-menu label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
-.account-visual-overlay {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.08)),
-    linear-gradient(120deg, rgba(12, 20, 30, 0.08), rgba(12, 20, 30, 0.02));
+.coach-home {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr) minmax(250px, 0.9fr) minmax(260px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.coach-home-sidebar {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.coach-home-focus {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  align-content: start;
+  align-items: start;
+}
+
+.coach-home-planning,
+.coach-home-next-session,
+.coach-home-rating,
+.coach-home-revenue,
+.coach-home-messages {
+  border: 1px solid #d9dde4;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.coach-home-next-session {
+  border-color: rgba(17, 24, 39, 0.96);
+  background: #111827;
+  color: #fff;
+}
+
+.coach-home-next-session .coach-home-card-head span,
+.coach-home-next-session .coach-home-next-copy span {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.coach-home-next-session .coach-home-inline-link {
+  background: #fff;
+  color: #111827;
+}
+
+.coach-home-nav-main {
+  width: 100%;
+  min-height: 54px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  padding: 0 0 10px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  border-bottom: 1px solid #d9dde4;
+}
+
+.coach-home-nav-main.is-active {
+  color: var(--ink);
+}
+
+.coach-home-nav-group,
+.coach-home-nav-footer {
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.coach-home-nav-heading {
+  padding-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coach-home-nav-group a,
+.coach-home-nav-footer a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.coach-home-nav-footer a:last-child {
+  margin-top: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid #d9dde4;
+  background: #f7f8fb;
+  font-weight: 700;
+}
+
+.coach-home-planning,
+.coach-home-next-session,
+.coach-home-rating,
+.coach-home-revenue,
+.coach-home-messages {
+  padding: 18px;
+}
+
+.coach-home-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.coach-home-card-head h3 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.coach-home-card-head span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.coach-home-next-head-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coach-home-next-arrow {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coach-home-day-switch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.coach-home-day-switch button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: #f2f4f7;
+  color: var(--ink);
+  font-size: 22px;
+}
+
+.coach-home-day-switch strong {
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.coach-home-schedule,
+.coach-home-message-list {
+  display: grid;
+  gap: 12px;
+}
+
+.coach-home-schedule article,
+.coach-home-message-list article {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 5px;
+}
+
+.coach-home-schedule strong,
+.coach-home-message-list strong {
+  font-size: 15px;
+}
+
+.coach-home-schedule span,
+.coach-home-message-list span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.coach-home-schedule a,
+.coach-home-inline-link {
+  width: fit-content;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--footer);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.coach-home-next-copy {
+  display: grid;
+  gap: 5px;
+}
+
+.coach-home-next-copy--plain {
+  min-height: 228px;
+  align-content: start;
+}
+
+.coach-home-next-copy strong {
+  font-size: 17px;
+}
+
+.coach-home-next-copy span {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.coach-home-mini-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: -2px -2px 18px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #d9dde4;
+}
+
+.coach-home-mini-tabs span {
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.coach-home-mini-tabs .is-active {
+  background: #f2f4f7;
+  color: var(--ink);
+}
+
+.coach-home-rating-score,
+.coach-home-revenue-amount {
+  font-size: clamp(42px, 4.6vw, 60px);
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+  margin-bottom: 12px;
+}
+
+.coach-home-rating p,
+.coach-home-revenue p {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.coach-home-profile-preview {
+  display: grid;
+  gap: 16px;
+}
+
+.coach-home-profile-preview-head {
+  display: grid;
+  gap: 6px;
+}
+
+.coach-home-profile-preview-head strong {
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.coach-home-profile-preview-head span,
+.coach-home-profile-preview-copy {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.coach-home-profile-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.coach-home-profile-preview-grid div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 6px;
+}
+
+.coach-home-profile-preview-grid span {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.coach-home-profile-preview-grid strong {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.coach-home-inline-link {
+  margin-top: 16px;
+}
+
+.coach-home-inline-link--ghost {
+  background: #f2f4f7;
+  color: var(--ink);
+}
+
+.coach-home-standalone-cta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.coach-home-inline-link-prominent {
+  min-height: 46px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+[data-coach-display-block][hidden] {
+  display: none !important;
 }
 
 .account-footer {
@@ -4155,6 +4670,172 @@ button {
   color: rgba(255, 255, 255, 0.62);
 }
 
+.club-signup-shell {
+  min-height: 100vh;
+  background: #f7f5f0;
+}
+
+.club-signup-page {
+  min-height: calc(100vh - 88px);
+  padding-top: 88px;
+  display: grid;
+  grid-template-columns: minmax(340px, 0.92fr) minmax(0, 1.08fr);
+}
+
+.club-signup-visual,
+.club-signup-form-panel {
+  min-height: calc(100vh - 88px);
+}
+
+.club-signup-visual {
+  display: grid;
+  place-items: center;
+  padding: 56px 48px;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, #111111, #181818);
+  border-right: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+.club-signup-logo-frame {
+  width: min(100%, 500px);
+  display: grid;
+  place-items: center;
+}
+
+.club-signup-logo-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.club-signup-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44px 44px 56px;
+  background: #f7f5f0;
+}
+
+.club-signup-form-card {
+  width: min(100%, 700px);
+  display: grid;
+  gap: 20px;
+}
+
+.club-signup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px;
+}
+
+.club-signup-grid-wide {
+  grid-column: 1 / 2;
+}
+
+.club-signup-upload {
+  margin-bottom: 0;
+}
+
+.club-signup-dropzone {
+  min-height: 136px;
+  border-radius: 18px;
+  border: 2px dashed #cfd5df;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.club-signup-iban {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.club-signup-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.club-signup-submit {
+  width: fit-content;
+  min-width: 280px;
+  padding: 0 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.club-home-summary-card,
+.club-home-profile-preview {
+  border: 1px solid #d9dde4;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+}
+
+.club-home-profile-preview {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 250, 248, 0.98));
+}
+
+.club-home-preview-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.club-home-preview-badges span {
+  min-height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #24314a;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.club-home-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.club-home-stat-grid div {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #f7f8fb;
+  display: grid;
+  gap: 6px;
+}
+
+.club-home-stat-grid span {
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.club-home-stat-grid strong {
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.club-home-preview-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
   @media (max-width: 1160px) {
   .topbar {
       grid-template-columns: 1fr;
@@ -4174,16 +4855,25 @@ button {
     flex-wrap: wrap;
   }
 
-  .account-page {
+  .account-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .club-signup-page {
     grid-template-columns: 1fr;
   }
 
-  .account-visual {
-    min-height: 420px;
+  .club-signup-visual,
+  .club-signup-form-panel {
+    min-height: auto;
   }
 
-  .account-footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .club-signup-visual {
+    padding: 40px 24px;
+  }
+
+  .club-signup-form-panel {
+    padding: 40px 24px 56px;
   }
 
   .sport-search-card {
@@ -4327,6 +5017,7 @@ button {
   .booking-pane-side {
     position: static;
     top: auto;
+    margin-top: 0;
   }
 
   .booking-score-panel-side {
@@ -4338,6 +5029,89 @@ button {
 
   .booking-geo-card {
     margin-top: 0;
+  }
+
+  .booking-profile-page {
+    width: 100%;
+  }
+
+  .booking-profile-hero {
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .booking-profile-top {
+    display: grid;
+    gap: 14px;
+  }
+
+  .booking-profile-meta {
+    justify-content: flex-start;
+  }
+
+  .booking-profile-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-gallery-profile .booking-gallery-main {
+    min-height: 320px;
+  }
+
+  .booking-gallery-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+  }
+
+  .booking-profile-lead {
+    display: grid;
+    justify-content: stretch;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 14px;
+  }
+
+  .booking-profile-lead .booking-primary-action {
+    width: 100%;
+  }
+
+  .booking-tabs-profile {
+    margin-top: 0;
+    border-radius: 22px;
+  }
+
+  .booking-tabs-profile .booking-tab {
+    min-height: 52px;
+    padding: 0 12px;
+    font-size: clamp(16px, 3vw, 22px);
+  }
+
+  .booking-pane {
+    margin-top: 12px;
+    scroll-margin-top: 140px;
+  }
+
+  .booking-pane-main {
+    gap: 18px;
+  }
+
+  .booking-story-card {
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .booking-story-card h2,
+  .booking-story-card h3 {
+    font-size: 24px;
+  }
+
+  .booking-story-card p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .booking-geo-map {
+    min-height: 180px;
   }
 
   .profile-avatar {
@@ -4355,6 +5129,14 @@ button {
     padding: 40px 24px;
   }
 
+  .auth-role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-role-separator {
+    justify-self: center;
+  }
+
   .account-summary-head,
   .account-dashboard-card-head {
     display: grid;
@@ -4363,6 +5145,22 @@ button {
   .account-summary-metrics,
   .account-dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .account-page.is-coach-mode .account-panel {
+    padding: 28px 16px 48px;
+  }
+
+  .club-signup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-home {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-home-nav-footer a:last-child {
+    width: 100%;
   }
 
   .account-footer-grid {
@@ -4535,6 +5333,120 @@ button {
     padding: 0 16px;
   }
 
+  .booking-page {
+    padding: 84px 12px 32px;
+  }
+
+  .booking-profile-hero {
+    gap: 18px;
+  }
+
+  .booking-profile-top {
+    gap: 10px;
+  }
+
+  .booking-profile-meta {
+    display: grid;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .booking-gallery-profile .booking-gallery-main {
+    min-height: 240px;
+    border-radius: 20px;
+  }
+
+  .booking-gallery-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+  }
+
+  .booking-gallery-arrow-left {
+    left: 12px;
+  }
+
+  .booking-gallery-arrow-right {
+    right: 12px;
+  }
+
+  .booking-profile-lead {
+    gap: 12px;
+    padding-bottom: 12px;
+  }
+
+  .booking-profile-lead strong {
+    font-size: clamp(24px, 8vw, 30px);
+  }
+
+  .booking-profile-lead p {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .booking-tabs-profile {
+    border-radius: 18px;
+  }
+
+  .booking-tabs-profile .booking-tab {
+    min-height: 46px;
+    padding: 0 8px;
+    font-size: clamp(15px, 4.5vw, 18px);
+  }
+
+  .booking-pane {
+    margin-top: 10px;
+    scroll-margin-top: 120px;
+  }
+
+  .booking-story-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .booking-story-card h2,
+  .booking-story-card h3 {
+    font-size: 22px;
+  }
+
+  .booking-story-card p {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .booking-story-point,
+  .booking-practical-item,
+  .booking-story-check,
+  .booking-story-sequence-item {
+    padding: 14px;
+  }
+
+  .booking-score-panel-side,
+  .booking-geo-card {
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .booking-score-display {
+    font-size: clamp(34px, 12vw, 48px);
+  }
+
+  .booking-score-breakdown div {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+
+  .booking-geo-map {
+    min-height: 160px;
+    border-radius: 18px;
+  }
+
+  .booking-calendar-card {
+    padding: 16px;
+  }
+
   .hero {
       min-height: 100vh;
       height: 100vh;
@@ -4593,11 +5505,16 @@ button {
   }
 
   .account-panel {
-    padding: 28px 16px;
+    min-height: auto;
+    padding: 28px 16px 48px;
   }
 
-  .auth-card {
+  .auth-card,
+  .auth-card-compact,
+  .auth-card-wide {
     width: 100%;
+    padding: 24px 20px;
+    border-radius: 22px;
   }
 
   .auth-card h1 {
@@ -4612,15 +5529,58 @@ button {
     font-size: 24px;
   }
 
-  .account-visual {
-    min-height: 320px;
-  }
-
   .account-footer {
     padding: 36px 16px 24px;
   }
 
   .account-footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-display-toggle {
+    min-height: 26px;
+    padding: 0 9px;
+    font-size: 11px;
+  }
+
+  .account-display-menu {
+    min-width: 200px;
+    left: auto;
+    right: 0;
+  }
+
+  .coach-home {
+    gap: 14px;
+  }
+
+  .coach-home-planning,
+  .coach-home-next-session,
+  .coach-home-messages,
+  .coach-home-nav-group,
+  .coach-home-nav-footer {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .coach-home-nav-main {
+    min-height: 48px;
+    font-size: 17px;
+  }
+
+  .club-signup-dropzone {
+    min-height: 110px;
+    font-size: 20px;
+  }
+
+  .coach-home-day-switch strong {
+    font-size: clamp(36px, 12vw, 48px);
+  }
+
+  .coach-home-profile-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .club-home-stat-grid {
     grid-template-columns: 1fr;
   }
 

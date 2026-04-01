@@ -28,246 +28,476 @@
 
         <div class="topbar-actions">
           <a class="topbar-link" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
-          <a class="account-button" href="./compte.html" aria-current="page">
-            <span class="account-button-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
-                <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <div class="account-topbar-menu">
+            <a class="account-button" href="./compte.html" aria-current="page">
+              <span class="account-button-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+                  <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span>Mon compte</span>
+            </a>
+            <button class="account-display-toggle" type="button" data-coach-display-toggle hidden aria-expanded="false" aria-controls="coach-display-menu">
+              <span>Choisir l'accueil</span>
+              <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-            </span>
-            <span>Mon compte</span>
-          </a>
+            </button>
+              <div class="account-display-menu" id="coach-display-menu" data-coach-display-menu hidden>
+                <label><input type="checkbox" data-coach-display-target="next-session" checked /> Prochaines s&eacute;ances</label>
+                <label><input type="checkbox" data-coach-display-target="rating" checked /> Ma note / Mes avis</label>
+                <label><input type="checkbox" data-coach-display-target="revenue" checked /> Revenus ce mois-ci</label>
+              </div>
+          </div>
         </div>
       </header>
 
       <main class="account-page" data-account-page>
         <section class="account-panel">
-          <div class="auth-card">
-            <h1 data-account-title>Vous avez d&eacute;j&agrave; utilis&eacute; GetYourMentor ?</h1>
-            <p class="auth-subtitle" data-account-subtitle>Connectez-vous pour reprendre votre r&eacute;servation ou acc&eacute;der &agrave; votre espace.</p>
-            <p class="auth-status-message" data-account-status hidden></p>
+          <div class="account-auth-stage" data-account-auth-shell>
+            <div class="auth-modal-step is-active" data-account-step="signin">
+              <div class="auth-card auth-card-compact">
+                <h1 data-account-title>S&apos;identifier</h1>
+                <p class="auth-subtitle" data-account-subtitle>Connectez-vous pour retrouver votre espace ou poursuivre votre inscription.</p>
+                <p class="auth-status-message" data-account-status hidden></p>
 
-            <div data-account-auth-shell>
-            <form class="auth-form" data-account-form>
-              <label class="auth-field">
-                <span>Email</span>
-                <input id="account-email" type="email" placeholder="Email" />
-              </label>
+                <form class="auth-form" data-account-form>
+                  <label class="auth-field">
+                    <span>Identifiant</span>
+                    <input id="account-email" type="email" placeholder="Adresse mail" />
+                  </label>
 
-              <label class="auth-field">
-                <span>Mot de passe</span>
-                <div class="password-field">
-                  <input
-                    id="account-password"
-                    type="password"
-                    placeholder="Mot de passe"
-                  />
-                  <button
-                    class="password-toggle"
-                    type="button"
-                    aria-controls="account-password"
-                    aria-label="Afficher le mot de passe"
-                    aria-pressed="false"
-                  >
-                    <span class="eye-open" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <path
-                          d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <circle
-                          cx="12"
-                          cy="12"
-                          r="3"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                        />
-                      </svg>
-                    </span>
-                    <span class="eye-closed" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <path
-                          d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                        <circle
-                          cx="12"
-                          cy="12"
-                          r="3"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                        />
-                        <path
-                          d="M4 4 20 20"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.8"
-                          stroke-linecap="round"
-                        />
-                      </svg>
-                    </span>
+                  <label class="auth-field">
+                    <span>Mot de passe</span>
+                    <div class="password-field">
+                      <input id="account-password" type="password" placeholder="Mot de passe" />
+                      <button
+                        class="password-toggle"
+                        type="button"
+                        aria-controls="account-password"
+                        aria-label="Afficher le mot de passe"
+                        aria-pressed="false"
+                      >
+                        <span class="eye-open" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+                          </svg>
+                        </span>
+                        <span class="eye-closed" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+                            <path d="M4 4 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
+                  </label>
+
+                  <a class="auth-link" href="./compte.html" data-account-forgot>Mot de passe oubli&eacute; ?</a>
+                  <button class="auth-primary" type="submit" data-account-login>Se connecter</button>
+                </form>
+
+                <button class="auth-pill-button" type="button">Se connecter avec Gmail</button>
+                <button class="auth-pill-button auth-pill-button-light" type="button" data-account-signup>Nouveau ? Inscription</button>
+              </div>
+            </div>
+
+            <div class="auth-modal-step" data-account-step="role" hidden>
+              <div class="auth-card auth-card-wide">
+                <h1>Vous &ecirc;tes :</h1>
+                <div class="auth-role-grid">
+                  <button class="auth-role-card" type="button" data-account-role="sportif">
+                    <strong>Un(e) sportif(ve)</strong>
+                  </button>
+                  <div class="auth-role-separator">ou</div>
+                  <button class="auth-role-card" type="button" data-account-role="coach">
+                    <strong>Un(e) coach</strong>
+                  </button>
+                  <div class="auth-role-separator">ou</div>
+                  <button class="auth-role-card auth-role-card-detail" type="button" data-account-role="club">
+                    <strong>Association sportive<br />Club<br />Structure</strong>
                   </button>
                 </div>
-              </label>
-
-              <a class="auth-link" href="./compte.html" data-account-forgot>Mot de passe oubli&eacute; ?</a>
-
-              <button class="auth-primary" type="submit" data-account-login>Se connecter</button>
-            </form>
-
-            <div class="auth-divider" aria-hidden="true">
-              <span>ou</span>
-            </div>
-
-            <div class="signup-block">
-              <h2>Nouveau sur GetYourMentor ?</h2>
-              <button class="auth-secondary" type="button" data-account-signup>Cr&eacute;er mon compte</button>
-            </div>
-            </div>
-
-            <section class="account-dashboard" data-account-dashboard hidden>
-              <div class="account-summary-card">
-                <div class="account-summary-head">
-                  <div>
-                    <p class="account-summary-label">Espace coach</p>
-                    <h2 data-account-dashboard-name>Steven Fordant</h2>
-                    <p class="account-summary-copy">Coach v&eacute;rifi&eacute;, planning synchronis&eacute; et suivi des demandes en direct.</p>
-                  </div>
-                  <div class="account-summary-badge">Profil compl&eacute;t&eacute; &agrave; 86%</div>
-                </div>
-
-                <div class="account-summary-metrics">
-                  <div>
-                    <strong>3</strong>
-                    <span>notifications &agrave; traiter</span>
-                  </div>
-                  <div>
-                    <strong>2</strong>
-                    <span>s&eacute;ances aujourd&apos;hui</span>
-                  </div>
-                  <div>
-                    <strong>4,9</strong>
-                    <span>note moyenne</span>
-                  </div>
-                  <div>
-                    <strong>184 EUR</strong>
-                    <span>versements en attente</span>
-                  </div>
+                <div class="auth-step-actions">
+                  <button class="auth-inline-button" type="button" data-account-back="signin">Retour</button>
                 </div>
               </div>
+            </div>
 
-              <div class="account-dashboard-grid">
-                <article class="account-dashboard-card">
-                  <div class="account-dashboard-card-head">
-                    <h3>Notifications</h3>
-                    <span>Priorit&eacute;s</span>
-                  </div>
-                  <div class="account-dashboard-list">
-                    <div>
-                      <strong>Nouvelle demande &agrave; valider</strong>
-                      <span>S&eacute;ance individuelle - vendredi 27 mars &agrave; 18:30</span>
-                    </div>
-                    <div>
-                      <strong>Paiement confirm&eacute;</strong>
-                      <span>Session shooting basket - 74 EUR</span>
-                    </div>
-                    <div>
-                      <strong>Nouveau commentaire re&ccedil;u</strong>
-                      <span>&quot;Coach tr&egrave;s clair et tr&egrave;s pro.&quot;</span>
-                    </div>
-                  </div>
+            <div class="auth-modal-step" data-account-step="create" hidden>
+              <div class="auth-card auth-card-compact">
+                <h1>Renseignez votre adresse mail :</h1>
+                <form class="auth-form" data-account-create-form>
+                  <label class="auth-field">
+                    <span>Adresse mail</span>
+                    <input type="email" placeholder="Adresse mail" />
+                  </label>
+                  <label class="auth-field">
+                    <span>Confirmation de l&apos;adresse mail</span>
+                    <input type="email" placeholder="Confirmez l&apos;adresse mail" />
+                  </label>
+                  <label class="auth-field">
+                    <span>Cr&eacute;ez votre mot de passe</span>
+                    <input type="password" placeholder="Mot de passe" />
+                  </label>
+                  <label class="auth-field">
+                    <span>Confirmez votre mot de passe</span>
+                    <input type="password" placeholder="Confirmation du mot de passe" />
+                  </label>
+                  <button class="auth-primary" type="submit">Continuer</button>
+                </form>
+                <button class="auth-pill-button" type="button">Connectez-vous avec Google</button>
+                <div class="auth-step-actions">
+                  <button class="auth-inline-button" type="button" data-account-back="signin">Retour</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="account-dashboard coach-home" data-account-dashboard="coach" hidden>
+              <aside class="coach-home-sidebar">
+                <button class="coach-home-nav-main is-active" type="button">Accueil</button>
+                <div class="coach-home-nav-group">
+                  <div class="coach-home-nav-heading">Organisation</div>
+                  <a href="#coach-planning" data-coach-nav-item="planning">Planning</a>
+                  <a href="#coach-messages" data-coach-nav-item="messagerie">Messagerie</a>
+                  <a href="#coach-contents" data-coach-nav-item="contenus">Mes contenus</a>
+                  <a href="#coach-templates" data-coach-nav-item="templates">Mes templates</a>
+                  <a href="#coach-athletes" data-coach-nav-item="sportifs">Mes sportifs</a>
+                </div>
+
+                <div class="coach-home-nav-group">
+                  <div class="coach-home-nav-heading">Mes donn&eacute;es</div>
+                  <a href="#coach-dashboard" data-coach-nav-item="tableau">Tableau de bord</a>
+                  <a href="#coach-payments" data-coach-nav-item="paiements">Mes paiements</a>
+                  <a href="#coach-rib" data-coach-nav-item="rib">Mon RIB</a>
+                  <a href="#coach-subscription" data-coach-nav-item="abonnement">Mon abonnement</a>
+                  <a href="#coach-bills" data-coach-nav-item="factures">Mes factures</a>
+                </div>
+
+                <div class="coach-home-nav-footer">
+                  <a href="#coach-invitations" data-coach-nav-item="invitation">Invitation</a>
+                  <a href="#coach-help" data-coach-nav-item="aides">Conseils et aides</a>
+                  <a href="./accueil.html">D&eacute;connexion</a>
+                </div>
+              </aside>
+
+              <section class="coach-home-planning account-dashboard-card" id="coach-planning">
+                <div class="coach-home-card-head">
+                  <h3>Mon planning</h3>
+                  <span>Aujourd&apos;hui</span>
+                </div>
+                <div class="coach-home-day-switch">
+                  <button type="button" aria-label="Jour pr&eacute;c&eacute;dent">&lsaquo;</button>
+                  <strong>Aujourd&apos;hui</strong>
+                  <button type="button" aria-label="Jour suivant">&rsaquo;</button>
+                </div>
+                <div class="coach-home-schedule">
+                  <article>
+                    <strong>18h - 19h</strong>
+                    <span>Vazquez Eliott</span>
+                    <a href="./reserver-seance.html?sport=football&amp;city=Marseille&amp;coach=Steven%20Fordant">Voir fiche</a>
+                  </article>
+                  <article>
+                    <strong>19h - 20h</strong>
+                    <span>Fordant Christopher</span>
+                    <a href="./reserver-seance.html?sport=metiers-de-la-forme&amp;city=Lille&amp;coach=Steven%20Fordant">Voir fiche</a>
+                  </article>
+                  <article>
+                    <strong>20h - 21h</strong>
+                    <span>Creneau disponible</span>
+                    <a href="./reserver-seance.html?sport=football&amp;city=Paris&amp;coach=Steven%20Fordant">Ouvrir</a>
+                  </article>
+                  <article>
+                    <strong>21h - 22h</strong>
+                    <span>Fordant S&eacute;lyan</span>
+                    <a href="./reserver-seance.html?sport=football&amp;city=Lyon&amp;coach=Steven%20Fordant">Voir fiche</a>
+                  </article>
+                </div>
+          </section>
+
+          <section class="account-dashboard coach-home club-home" data-account-dashboard="club" hidden>
+            <aside class="coach-home-sidebar club-home-sidebar">
+              <button class="coach-home-nav-main is-active" type="button">Accueil</button>
+              <div class="coach-home-nav-group">
+                <div class="coach-home-nav-heading">Organisation</div>
+                <a href="#club-planning">Planning du club</a>
+                <a href="#club-messages">Messagerie</a>
+                <a href="#club-coaches">Mes coachs affili&eacute;s</a>
+                <a href="#club-contents">Mes contenus</a>
+                <a href="#club-templates">Mes templates</a>
+              </div>
+
+              <div class="coach-home-nav-group">
+                <div class="coach-home-nav-heading">Mes donn&eacute;es</div>
+                <a href="#club-overview">Tableau de bord</a>
+                <a href="#club-payments">Mes paiements</a>
+                <a href="#club-rib">Mon RIB</a>
+                <a href="#club-subscription">Mon abonnement</a>
+                <a href="#club-bills">Mes factures</a>
+              </div>
+
+              <div class="coach-home-nav-footer">
+                <a href="#club-help">Conseils et aides</a>
+                <a href="./accueil.html">D&eacute;connexion</a>
+              </div>
+            </aside>
+
+            <section class="coach-home-planning account-dashboard-card club-home-planning" id="club-planning">
+              <div class="coach-home-card-head">
+                <h3>Planning du club</h3>
+                <span>Aujourd&apos;hui</span>
+              </div>
+              <div class="coach-home-day-switch">
+                <button type="button" aria-label="Jour pr&eacute;c&eacute;dent">&lsaquo;</button>
+                <strong>Aujourd&apos;hui</strong>
+                <button type="button" aria-label="Jour suivant">&rsaquo;</button>
+              </div>
+              <div class="coach-home-schedule">
+                <article>
+                  <strong>18h - 19h</strong>
+                  <span>Steven Fordant - groupe U17</span>
+                  <a href="./reserver-seance.html?sport=football&amp;city=Marseille&amp;coach=Steven%20Fordant">Voir fiche</a>
                 </article>
-
-                <article class="account-dashboard-card">
-                  <div class="account-dashboard-card-head">
-                    <h3>Planning du jour</h3>
-                    <span>Vendredi</span>
-                  </div>
-                  <div class="account-dashboard-schedule">
-                    <div>
-                      <strong>10:00</strong>
-                      <span>Thomas R. - s&eacute;ance technique</span>
-                    </div>
-                    <div>
-                      <strong>14:30</strong>
-                      <span>Sarah M. - bilan express</span>
-                    </div>
-                    <div>
-                      <strong>18:30</strong>
-                      <span>Demande en attente de validation</span>
-                    </div>
-                  </div>
+                <article>
+                  <strong>19h - 20h</strong>
+                  <span>Kenza Training - s&eacute;ance cardio</span>
+                  <a href="./reserver-seance.html?sport=metiers-de-la-forme&amp;city=Lille&amp;coach=Kenza%20Training%20Club">Voir fiche</a>
                 </article>
-
-                <article class="account-dashboard-card">
-                  <div class="account-dashboard-card-head">
-                    <h3>Paiements</h3>
-                    <span>V1</span>
-                  </div>
-                  <div class="account-dashboard-finance">
-                    <div>
-                      <span>Versement hebdo</span>
-                      <strong>184 EUR</strong>
-                    </div>
-                    <div>
-                      <span>RIB v&eacute;rifi&eacute;</span>
-                      <strong>Oui</strong>
-                    </div>
-                    <div>
-                      <span>Factures g&eacute;n&eacute;r&eacute;es</span>
-                      <strong>12</strong>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="account-dashboard-card">
-                  <div class="account-dashboard-card-head">
-                    <h3>Avis &amp; statistiques</h3>
-                    <span>Planity-like</span>
-                  </div>
-                  <div class="account-dashboard-reviews">
-                    <div class="account-review-score">4,9</div>
-                    <div class="account-review-copy">
-                      <strong>284 avis</strong>
-                      <span>38 visites du profil cette semaine</span>
-                      <span>16 demandes de r&eacute;servation re&ccedil;ues ce mois-ci</span>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="account-dashboard-card account-dashboard-card-wide">
-                  <div class="account-dashboard-card-head">
-                    <h3>Profil coach &agrave; finaliser</h3>
-                    <span>MVP</span>
-                  </div>
-                  <div class="account-dashboard-checklist">
-                    <span>Dipl&ocirc;mes import&eacute;s</span>
-                    <span>Disciplines enseign&eacute;es</span>
-                    <span>Zone d&apos;intervention</span>
-                    <span>Politique d&apos;annulation</span>
-                    <span>Moyens de paiement</span>
-                    <span>Avis visibles sur le profil</span>
-                  </div>
+                <article>
+                  <strong>20h - 21h</strong>
+                  <span>Cr&eacute;neau libre pour un nouveau coach</span>
+                  <a href="./inscription-club.html?source=compte">G&eacute;rer</a>
                 </article>
               </div>
             </section>
+
+            <div class="coach-home-focus club-home-focus">
+              <article class="account-dashboard-card coach-home-next-session club-home-next-session" id="club-overview" data-coach-display-block="next-session">
+                <div class="coach-home-card-head">
+                  <h3>Prochaines s&eacute;ances</h3>
+                  <div class="coach-home-next-head-actions">
+                    <span>05/04</span>
+                    <button class="coach-home-next-arrow" type="button" aria-label="S&eacute;ance suivante">&rsaquo;</button>
+                  </div>
+                </div>
+                <div class="coach-home-next-copy coach-home-next-copy--plain">
+                  <strong>Steven Fordant</strong>
+                  <span>Football - groupe U17</span>
+                  <span>Responsable : Christopher Fordant</span>
+                  <span>Lieu : Complexe sportif Marseille Est</span>
+                  <span>18h - 19h</span>
+                </div>
+                <a class="coach-home-inline-link" href="./reserver-seance.html?sport=football&amp;city=Marseille&amp;coach=Steven%20Fordant">Voir la s&eacute;ance</a>
+              </article>
+
+              <article class="account-dashboard-card club-home-summary-card" data-coach-display-block="rating">
+                <div class="coach-home-card-head">
+                  <h3>Mes coachs affili&eacute;s</h3>
+                  <span>4 actifs</span>
+                </div>
+                <div class="club-home-stat-grid">
+                  <div>
+                    <span>Coachs actifs</span>
+                    <strong>4</strong>
+                  </div>
+                  <div>
+                    <span>S&eacute;ances ce mois</span>
+                    <strong>28</strong>
+                  </div>
+                  <div>
+                    <span>Structures suivies</span>
+                    <strong>2</strong>
+                  </div>
+                  <div>
+                    <span>Taux d&apos;occupation</span>
+                    <strong>81%</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="account-dashboard-card coach-home-revenue club-home-revenue" id="club-payments" data-coach-display-block="revenue">
+                <div class="coach-home-card-head">
+                  <h3>Revenus du club</h3>
+                  <span>Mars</span>
+                </div>
+                <div class="coach-home-revenue-amount">2 450 EUR</div>
+                <p>Montant valid&eacute; sur les s&eacute;ances factur&eacute;es, les coachs affili&eacute;s et les encaissements confirm&eacute;s du mois.</p>
+              </article>
+
+              <article class="account-dashboard-card club-home-profile-preview">
+                <div class="coach-home-card-head">
+                  <h3>Aper&ccedil;u de la structure</h3>
+                  <span>Vue publique</span>
+                </div>
+                <div class="coach-home-profile-preview-head">
+                  <strong>Club Horizon Marseille</strong>
+                  <span>Football, pr&eacute;paration physique, accompagnement jeune</span>
+                </div>
+                <div class="club-home-preview-badges">
+                  <span>4 coachs certifi&eacute;s</span>
+                  <span>7 cr&eacute;neaux cette semaine</span>
+                  <span>D&egrave;s 29 EUR</span>
+                </div>
+                <div class="coach-home-profile-preview-grid">
+                  <div>
+                    <span>Disciplines</span>
+                    <strong>Football, pr&eacute;pa physique, reprise</strong>
+                  </div>
+                  <div>
+                    <span>Formats</span>
+                    <strong>Individuel, petits groupes, stages</strong>
+                  </div>
+                  <div>
+                    <span>Lieu</span>
+                    <strong>Marseille Est, acc&egrave;s facile et parking</strong>
+                  </div>
+                  <div>
+                    <span>Rythme</span>
+                    <strong>Cours chaque semaine et planning visible</strong>
+                  </div>
+                </div>
+                <p class="coach-home-profile-preview-copy">
+                  Comme sur les sites de forme, l&apos;id&eacute;e est de montrer tout de suite ce qu&apos;on pratique, avec qui, &agrave; quel rythme et &agrave; partir de quel niveau de prix.
+                </p>
+                <div class="club-home-preview-actions">
+                  <a class="coach-home-inline-link" href="./recherche-coachs.html?sport=football&amp;city=Marseille">Voir le club en ligne</a>
+                  <a class="coach-home-inline-link coach-home-inline-link--ghost" href="./recherche-coachs.html?sport=football&amp;city=Marseille">Voir les coachs affili&eacute;s</a>
+                </div>
+              </article>
+            </div>
+
+            <section class="account-dashboard-card coach-home-messages club-home-messages" id="club-messages">
+              <div class="coach-home-card-head">
+                <h3>Messagerie</h3>
+                <span>5 conversations</span>
+              </div>
+              <div class="coach-home-message-list">
+                <article>
+                  <strong>Steven Fordant</strong>
+                  <span>Demande de validation pour le cr&eacute;neau U17 de jeudi soir.</span>
+                </article>
+                <article>
+                  <strong>Madison Seck</strong>
+                  <span>Question sur l&apos;affiliation d&apos;un nouveau coach pour la structure.</span>
+                </article>
+                <article>
+                  <strong>Parent - Eliott Vazquez</strong>
+                  <span>Besoin d&apos;informations sur les s&eacute;ances et les disponibilit&eacute;s du club.</span>
+                </article>
+                <article>
+                  <strong>Christopher Fordant</strong>
+                  <span>Suivi du paiement de mars et ajustement du RIB de la structure.</span>
+                </article>
+              </div>
+            </section>
+          </section>
+
+              <div class="coach-home-focus">
+                <article class="account-dashboard-card coach-home-next-session" id="coach-dashboard" data-coach-display-block="next-session">
+                  <div class="coach-home-card-head">
+                    <h3>Prochaines s&eacute;ances</h3>
+                    <div class="coach-home-next-head-actions">
+                      <span data-coach-next-date>05/04</span>
+                      <button class="coach-home-next-arrow" type="button" data-coach-next-trigger aria-label="S&eacute;ance suivante">&rsaquo;</button>
+                    </div>
+                  </div>
+                  <div class="coach-home-next-copy coach-home-next-copy--plain">
+                    <strong data-coach-next-name>Vazquez Eliott</strong>
+                    <span data-coach-next-age>19 ans</span>
+                    <span data-coach-next-club>Sans club</span>
+                    <span data-coach-next-objective>Objectif : perfectionnement dribble</span>
+                    <span data-coach-next-location>Lieu : Gymnase de la Paix</span>
+                    <span data-coach-next-slot>18h - 19h</span>
+                  </div>
+                  <a class="coach-home-inline-link" data-coach-next-link href="./reserver-seance.html?sport=basketball&amp;city=Lyon&amp;coach=Steven%20Fordant">Voir fiche sportive</a>
+                </article>
+
+                <article class="account-dashboard-card coach-home-rating" data-coach-display-block="rating">
+                  <div class="coach-home-mini-tabs">
+                    <span class="is-active">Ma note</span>
+                    <span>Mes avis</span>
+                  </div>
+                  <div class="coach-home-rating-score">4,1 / 5</div>
+                  <p>Note globale sur la p&eacute;dagogie, la qualit&eacute; de suivi et la clart&eacute; des s&eacute;ances.</p>
+                </article>
+
+                <article class="account-dashboard-card coach-home-revenue" id="coach-payments" data-coach-display-block="revenue">
+                  <div class="coach-home-card-head">
+                    <h3>Revenus ce mois-ci</h3>
+                    <span>Mars</span>
+                  </div>
+                  <div class="coach-home-revenue-amount">450 EUR</div>
+                  <p>Montant valid&eacute; sur les r&eacute;servations confirm&eacute;es et les s&eacute;ances r&eacute;alis&eacute;es.</p>
+                </article>
+
+                <article class="account-dashboard-card coach-home-profile-preview" data-coach-display-block="profile-preview">
+                  <div class="coach-home-card-head">
+                    <h3>Aper&ccedil;u de mon profil</h3>
+                    <span>Vue &eacute;l&egrave;ve</span>
+                  </div>
+                  <div class="coach-home-profile-preview-head">
+                    <strong data-coach-preview-name>Steven Fordant</strong>
+                    <span>Coach v&eacute;rifi&eacute; - remise en forme</span>
+                  </div>
+                  <div class="coach-home-profile-preview-grid">
+                    <div>
+                      <span>Zone</span>
+                      <strong>Lille centre</strong>
+                    </div>
+                    <div>
+                      <span>Formats</span>
+                      <strong>Individuel, duo, visio</strong>
+                    </div>
+                    <div>
+                      <span>Tarif d&apos;appel</span>
+                      <strong>39 EUR / s&eacute;ance</strong>
+                    </div>
+                    <div>
+                      <span>Disponibilit&eacute;</span>
+                      <strong>Prochain cr&eacute;neau : jeudi 18h</strong>
+                    </div>
+                  </div>
+                  <p class="coach-home-profile-preview-copy">
+                    L&apos;&eacute;l&egrave;ve voit ici les informations essentielles avant de cliquer : zone, formats de s&eacute;ance, premier prix, disponibilit&eacute; et niveau de confiance.
+                  </p>
+                </article>
+
+                <div class="coach-home-standalone-cta">
+                  <a class="coach-home-inline-link coach-home-inline-link--ghost coach-home-inline-link-prominent" href="./reserver-seance.html?sport=metiers-de-la-forme&amp;city=Lille&amp;coach=Steven%20Fordant">Voir mon profil en ligne</a>
+                </div>
+              </div>
+
+              <section class="account-dashboard-card coach-home-messages" id="coach-messages">
+                <div class="coach-home-card-head">
+                  <h3>Messagerie</h3>
+                  <span>4 conversations</span>
+                </div>
+                <div class="coach-home-message-list">
+                  <article>
+                    <strong>Fordant Steven</strong>
+                    <span>Question sur la prochaine s&eacute;ance et la disponibilit&eacute; du terrain.</span>
+                  </article>
+                  <article>
+                    <strong>Fordant Christopher</strong>
+                    <span>Demande d&apos;ajustement d&apos;horaire pour la session de demain.</span>
+                  </article>
+                  <article>
+                    <strong>Vazquez Eliott</strong>
+                    <span>Confirmation de pr&eacute;sence et besoin de conseils avant la s&eacute;ance.</span>
+                  </article>
+                  <article>
+                    <strong>Seck Madison</strong>
+                    <span>Retour sur les contenus premium et demande d&apos;acc&egrave;s au planning.</span>
+                  </article>
+                </div>
+              </section>
+            </section>
           </div>
         </section>
-
-        <aside class="account-visual" aria-label="Visuel premium coaching">
-          <div class="account-visual-image"></div>
-          <div class="account-visual-overlay"></div>
-        </aside>
       </main>
 
       <footer class="account-footer">
