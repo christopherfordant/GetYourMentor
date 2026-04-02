@@ -131,6 +131,43 @@ Priorite absolue :
 - proteger la qualite du design
 - eviter toute derive hors perimetre
 
+## 1.4 Regle de migration vers Next.js
+
+La migration du prototype HTML vers `React / Next.js` doit se faire **progressivement**.
+
+Regles obligatoires :
+
+- le dossier `prototype-site` reste la reference tant qu'une page Next n'est pas validee
+- aucune migration globale d'un coup
+- une seule page migree a la fois
+- verification de l'equivalence visuelle, metier et navigation avant de passer a la suivante
+- la migration suit un fichier de pilotage dedie : `MIGRATION_NEXT_GYM.md`
+
+Ordre recommande :
+
+1. `accueil`
+2. `recherche coachs`
+3. `selection coachs`
+4. `reserver seance`
+5. `choix coach creneau`
+6. `recapitulatif reservation`
+7. `compte`
+8. `paiement`
+9. `inscription club`
+
+Regle de securite :
+
+- si une migration risque de melanger trop de logique UI, donnees et navigation
+- ou si une page contient trop de comportements en meme temps
+
+alors il faut decouper encore :
+
+- structure
+- styles
+- donnees
+- interactions
+- navigation
+
 ## 2. Probleme a resoudre
 
 ### Pour les coachs
