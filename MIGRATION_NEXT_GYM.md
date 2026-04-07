@@ -55,4 +55,5 @@ alors la priorite reste :
 
 - Base Next.js creee : `oui`
 - Migration de page commencee : `oui`
-- Page en cours : `accueil.html`
+- Pages migrees : `accueil.html`, `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`
+- Page en cours : `compte.html`
