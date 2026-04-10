@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 
 type AccueilLegacyPageProps = {
   legacyStyles: string;
@@ -32,39 +33,26 @@ const inferSportSlug = (value = "") => {
   return "football";
 };
 
-const buildPath = (page: string, paramsObject: Record<string, string>) => {
-  const search = new URLSearchParams();
-
-  Object.entries(paramsObject).forEach(([key, value]) => {
-    if (`${value}`.trim() !== "") {
-      search.set(key, value);
-    }
-  });
-
-  const query = search.toString();
-  return query ? `${page}?${query}` : page;
-};
-
 function HomeHeader({ isScrolled }: { isScrolled: boolean }) {
   return (
     <header className={`topbar${isScrolled ? " is-scrolled" : ""}`}>
       <div className="brand-lockup">
-        <a className="brand-name brand-link" href="./accueil.html">
+        <a className="brand-name brand-link" href={nextRoutes.home}>
           GetYourMentor
         </a>
       </div>
 
       <nav className="sports-nav" aria-label="Sports">
-        <a className="sport-link" href="./recherche-coachs.html?sport=football">
+        <a className="sport-link" href={`${nextRoutes.search}?sport=football`}>
           Football
         </a>
-        <a className="sport-link" href="./recherche-coachs.html?sport=basketball">
+        <a className="sport-link" href={`${nextRoutes.search}?sport=basketball`}>
           Basketball
         </a>
-        <a className="sport-link" href="./recherche-coachs.html?sport=metiers-de-la-forme">
+        <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
           Metiers de la forme
         </a>
-        <a className="sport-link" href="./recherche-coachs.html?sport=sports-de-combat">
+        <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
         </a>
       </nav>
@@ -73,7 +61,7 @@ function HomeHeader({ isScrolled }: { isScrolled: boolean }) {
         <a className="topbar-link" href="./devenir-partenaire.html">
           Je suis un professionnel du sport
         </a>
-        <a className="account-button" href="./compte.html">
+        <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -196,7 +184,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href = "./reserver-seance.html?sport=football&city=Paris&coach=Thomas%20Dubois";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "football", city: "Paris", coach: "Thomas Dubois" });
                     }}
                   >
                     Voir le profil
@@ -212,7 +200,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href = "./reserver-seance.html?sport=basketball&city=Lyon&coach=Sarah%20Benali";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "basketball", city: "Lyon", coach: "Sarah Benali" });
                     }}
                   >
                     Decouvrir le coach
@@ -228,8 +216,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./reserver-seance.html?sport=metiers-de-la-forme&city=Lille&coach=Julien%20Morel";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: "Julien Morel" });
                     }}
                   >
                     Voir ses seances
@@ -245,8 +232,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./reserver-seance.html?sport=sports-de-combat&city=Marseille&coach=Ines%20Caron";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "sports-de-combat", city: "Marseille", coach: "Ines Caron" });
                     }}
                   >
                     Reserver ce coach
@@ -262,7 +248,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href = "./reserver-seance.html?sport=football&city=Bordeaux&coach=Mehdi%20Rahal";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "football", city: "Bordeaux", coach: "Mehdi Rahal" });
                     }}
                   >
                     Voir son agenda
@@ -278,8 +264,7 @@ function HomeHowItWorks() {
                     className="mini-cta dark"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./reserver-seance.html?sport=metiers-de-la-forme&city=Nice&coach=Camille%20Perrot";
+                      window.location.href = buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Nice", coach: "Camille Perrot" });
                     }}
                   >
                     Choisir cette coach
@@ -314,8 +299,7 @@ function HomeHowItWorks() {
                     className="mini-cta muted"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./choix-coach-creneau.html?sport=football&city=Paris&coach=Thomas%20Dubois&service=Seance%20technique%20individuelle&duration=30min&price=35%20EUR";
+                      window.location.href = buildNextPath(nextRoutes.slot, { sport: "football", city: "Paris", coach: "Thomas Dubois", service: "Seance technique individuelle", duration: "30min", price: "35 EUR" });
                     }}
                   >
                     Proposer mes creneaux
@@ -337,8 +321,7 @@ function HomeHowItWorks() {
                     className="mini-cta muted"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./choix-coach-creneau.html?sport=basketball&city=Lyon&coach=Sarah%20Benali&service=Shooting%20et%20mecanique&duration=30min&price=35%20EUR";
+                      window.location.href = buildNextPath(nextRoutes.slot, { sport: "basketball", city: "Lyon", coach: "Sarah Benali", service: "Shooting et mecanique", duration: "30min", price: "35 EUR" });
                     }}
                   >
                     Envoyer mes disponibilites
@@ -360,8 +343,7 @@ function HomeHowItWorks() {
                     className="mini-cta muted"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./choix-coach-creneau.html?sport=metiers-de-la-forme&city=Lille&coach=Julien%20Morel&service=Coaching%20remise%20en%20forme&duration=30min&price=35%20EUR";
+                      window.location.href = buildNextPath(nextRoutes.slot, { sport: "metiers-de-la-forme", city: "Lille", coach: "Julien Morel", service: "Coaching remise en forme", duration: "30min", price: "35 EUR" });
                     }}
                   >
                     Valider ma selection
@@ -383,8 +365,7 @@ function HomeHowItWorks() {
                     className="mini-cta muted"
                     type="button"
                     onClick={() => {
-                      window.location.href =
-                        "./choix-coach-creneau.html?sport=sports-de-combat&city=Marseille&coach=Ines%20Caron&service=Cours%20prive%20boxe&duration=45min&price=55%20EUR";
+                      window.location.href = buildNextPath(nextRoutes.slot, { sport: "sports-de-combat", city: "Marseille", coach: "Ines Caron", service: "Cours prive boxe", duration: "45min", price: "55 EUR" });
                     }}
                   >
                     Continuer
@@ -417,7 +398,7 @@ function HomeHowItWorks() {
                     type="button"
                     onClick={() => {
                       window.location.href =
-                        "./paiement.html?city=Paris&coach=Thomas%20Dubois&service=Seance%20technique%20individuelle&duration=30min&price=62%20EUR&slot=14:00&mentor=Thomas%20Dubois&connected=1";
+                        "/paiement?city=Paris&coach=Thomas%20Dubois&service=Seance%20technique%20individuelle&duration=30min&price=62%20EUR&slot=14:00&mentor=Thomas%20Dubois&connected=1";
                     }}
                   >
                     Payer maintenant
@@ -437,7 +418,7 @@ function HomeHowItWorks() {
                     type="button"
                     onClick={() => {
                       window.location.href =
-                        "./paiement.html?city=Lyon&coach=Sarah%20Benali&service=Session%20intensite&duration=50min&price=74%20EUR&slot=18:30&mentor=Sarah%20Benali&connected=1";
+                        "/paiement?city=Lyon&coach=Sarah%20Benali&service=Session%20intensite&duration=50min&price=74%20EUR&slot=18:30&mentor=Sarah%20Benali&connected=1";
                     }}
                   >
                     Confirmer et payer
@@ -457,7 +438,7 @@ function HomeHowItWorks() {
                     type="button"
                     onClick={() => {
                       window.location.href =
-                        "./paiement.html?city=Lille&coach=Julien%20Morel&service=Coaching%20remise%20en%20forme&duration=45min&price=48%20EUR&slot=08:00&mentor=Julien%20Morel&connected=1";
+                        "/paiement?city=Lille&coach=Julien%20Morel&service=Coaching%20remise%20en%20forme&duration=45min&price=48%20EUR&slot=08:00&mentor=Julien%20Morel&connected=1";
                     }}
                   >
                     Regler la seance
@@ -477,7 +458,7 @@ function HomeHowItWorks() {
                     type="button"
                     onClick={() => {
                       window.location.href =
-                        "./paiement.html?city=Marseille&coach=Ines%20Caron&service=Self-defense%20premium&duration=50min&price=79%20EUR&slot=12:15&mentor=Ines%20Caron&connected=1";
+                        "/paiement?city=Marseille&coach=Ines%20Caron&service=Self-defense%20premium&duration=50min&price=79%20EUR&slot=12:15&mentor=Ines%20Caron&connected=1";
                     }}
                   >
                     Finaliser la reservation
@@ -740,11 +721,11 @@ export function AccueilLegacyPage({ legacyStyles }: AccueilLegacyPageProps) {
       const city = cityValue.trim();
 
       if (city) {
-        window.location.href = buildPath("./selection-coachs.html", { sport: sportSlug, city });
+        window.location.href = buildNextPath(nextRoutes.directory, { sport: sportSlug, city });
         return;
       }
 
-      window.location.href = buildPath("./recherche-coachs.html", { sport: sportSlug });
+      window.location.href = buildNextPath(nextRoutes.search, { sport: sportSlug });
     }, 700);
   };
 

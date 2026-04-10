@@ -1,45 +1,33 @@
 "use client";
 
 import { useMemo } from "react";
+import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 
 type RecapitulatifReservationLegacyPageProps = {
   legacyStyles: string;
   params: Record<string, string | undefined>;
 };
 
-const buildPath = (page: string, paramsObject: Record<string, string | undefined>) => {
-  const search = new URLSearchParams();
-
-  Object.entries(paramsObject).forEach(([key, value]) => {
-    if (value !== undefined && value !== null && `${value}`.trim() !== "") {
-      search.set(key, value);
-    }
-  });
-
-  const query = search.toString();
-  return query ? `${page}?${query}` : page;
-};
-
 function RecapHeader() {
   return (
     <header className="topbar topbar-light">
       <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href="./accueil.html">
+        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
           GetYourMentor
         </a>
       </div>
 
       <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
           Football
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
           Basketball
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
           Metiers de la forme
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
         </a>
       </nav>
@@ -48,7 +36,7 @@ function RecapHeader() {
         <a className="topbar-link topbar-link-dark" href="./devenir-partenaire.html">
           Je suis un professionnel du sport
         </a>
-        <a className="account-button" href="./compte.html">
+        <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -115,7 +103,7 @@ function RecapServicesSection({
   slot: string;
   mentor: string;
 }) {
-  const removeHref = buildPath("./choix-coach-creneau.html", {
+  const removeHref = buildNextPath(nextRoutes.slot, {
     sport,
     city,
     coach,
@@ -129,7 +117,7 @@ function RecapServicesSection({
     mentor,
   });
 
-  const modifyHref = buildPath("./reserver-seance.html", {
+  const modifyHref = buildNextPath(nextRoutes.coach, {
     sport,
     city,
     coach,
@@ -256,7 +244,7 @@ export function RecapitulatifReservationLegacyPage({
 
   const editHref = useMemo(
     () =>
-      buildPath("./choix-coach-creneau.html", {
+      buildNextPath(nextRoutes.slot, {
         sport,
         city,
         coach,
@@ -274,7 +262,7 @@ export function RecapitulatifReservationLegacyPage({
 
   const accountRedirect = useMemo(
     () =>
-      buildPath("./compte.html", {
+      buildNextPath(nextRoutes.account, {
         redirect: "paiement",
         sport,
         city,
