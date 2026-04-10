@@ -55,5 +55,35 @@ alors la priorite reste :
 
 - Base Next.js creee : `oui`
 - Migration de page commencee : `oui`
-- Pages migrees : `accueil.html`, `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
-- Page en cours : `aucune`
+- Pages construites dans Next.js : `accueil.html`, `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
+- Pages marquees `Valide` dans le tableau de migration : `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
+- Page encore a valider visuellement : `accueil.html`
+- Page en cours : `accueil.html`
+
+## Routes Next.js a verifier
+
+- `/` depuis `prototype-site/accueil.html`
+- `/recherche` depuis `prototype-site/recherche-coachs.html`
+- `/coachs` depuis `prototype-site/selection-coachs.html`
+- `/coach` depuis `prototype-site/reserver-seance.html`
+- `/creneau` depuis `prototype-site/choix-coach-creneau.html`
+- `/recapitulatif` depuis `prototype-site/recapitulatif-reservation.html`
+- `/compte` depuis `prototype-site/compte.html`
+- `/paiement` depuis `prototype-site/paiement.html`
+- `/inscription-club` depuis `prototype-site/inscription-club.html`
+
+## Verification technique
+
+- Dernier build Next.js connu : `OK`
+- Commande : `cd gym-next && npm.cmd run build`
+
+## Prochaine mission stricte
+
+Valider uniquement la home Next.js (`/`) contre `prototype-site/accueil.html`.
+
+Ne pas passer a une autre refonte tant que :
+
+- la structure HTML d'origine est respectee
+- les classes CSS d'origine sont conservees
+- le rendu visuel est equivalent au prototype
+- les liens principaux de la home renvoient vers les routes Next.js logiques
