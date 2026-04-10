@@ -597,9 +597,21 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   const notePaneRef = useRef<HTMLElement | null>(null);
   const noteCardRef = useRef<HTMLElement | null>(null);
   const galleryMainRef = useRef<HTMLDivElement | null>(null);
+  const hasMountedRef = useRef(false);
 
   useEffect(() => {
     const onScroll = () => {
+      const isCompactLayout = window.matchMedia("(max-width: 900px)").matches;
+
+      if (isCompactLayout) {
+        setTabsFixed(false);
+        setNoteFixed(false);
+        setTabsInlineStyle(undefined);
+        setNoteInlineStyle(undefined);
+        setNotePaneStyle(undefined);
+        return;
+      }
+
       const scrollY = window.scrollY;
       const headerOffset = 78;
       const shouldDockTabsToBottom = scrollY <= 8;
@@ -641,7 +653,8 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
         const paneTop = scrollY + paneRect.top;
         const footerTop = footerRect ? scrollY + footerRect.top : Number.POSITIVE_INFINITY;
         const galleryHeight = Math.round(galleryRect.height);
-        const liftAmount = Math.max(0, Math.round(paneRect.top - galleryRect.top));
+        const currentMarginTop = Number.parseFloat(window.getComputedStyle(notePaneRef.current).marginTop) || 0;
+        const alignedMarginTop = Math.round(currentMarginTop - Math.max(0, paneRect.top - galleryRect.top));
         const floatingTop = Math.max(headerOffset - 14, 24);
         const stop = footerTop - floatingTop - galleryHeight - 24;
 
@@ -674,7 +687,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
         } else {
           setNotePaneStyle({
             minHeight: `${galleryHeight}px`,
-            marginTop: `-${liftAmount}px`,
+            marginTop: `${alignedMarginTop}px`,
           });
           setNoteInlineStyle({
             minHeight: `${galleryHeight}px`,
@@ -698,6 +711,11 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   }, [activeTab]);
 
   useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
     const targets = {
       apropos: "booking-apropos-section",
       planning: "booking-planning-section",
