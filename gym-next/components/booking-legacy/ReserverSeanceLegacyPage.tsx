@@ -2,6 +2,7 @@
 
 import type { CSSProperties, RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 
 type ReserverSeanceLegacyPageProps = {
   legacyStyles: string;
@@ -93,22 +94,22 @@ function BookingHeader() {
   return (
     <header className="topbar topbar-light">
       <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href="./accueil.html">
+        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
           GetYourMentor
         </a>
       </div>
 
       <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
           Football
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
           Basketball
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
           Metiers de la forme
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
         </a>
       </nav>
@@ -117,7 +118,7 @@ function BookingHeader() {
         <a className="topbar-link topbar-link-dark" href="./devenir-partenaire.html">
           Je suis un professionnel du sport
         </a>
-        <a className="account-button" href="./compte.html">
+        <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -403,6 +404,7 @@ function BookingPlanningPane({
   isActive,
   weekIndex,
   selectedSlot,
+  confirmHref,
   onPrevWeek,
   onNextWeek,
   onSelectSlot,
@@ -410,6 +412,7 @@ function BookingPlanningPane({
   isActive: boolean;
   weekIndex: number;
   selectedSlot: string;
+  confirmHref: string;
   onPrevWeek: () => void;
   onNextWeek: () => void;
   onSelectSlot: (slot: string) => void;
@@ -467,7 +470,7 @@ function BookingPlanningPane({
         </div>
 
         <div className="reservation-cta-row booking-cta-row">
-          <a className="reservation-confirm-button" href="./recapitulatif-reservation.html" data-booking-confirm>
+          <a className="reservation-confirm-button" href={confirmHref} data-booking-confirm>
             Reserver mon creneau
           </a>
         </div>
@@ -568,9 +571,22 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   const city = params.city || "Paris";
   const profile = bookingProfileDictionary[sportSlug];
   const visual = bookingVisualDictionary[sportSlug];
+  const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
+  const confirmHref = useMemo(
+    () =>
+      buildNextPath(nextRoutes.recap, {
+        sport: sportSlug,
+        city,
+        coach,
+        service: "Coaching remise en forme",
+        duration: "45min",
+        price: "48 EUR",
+        slot: selectedSlot,
+      }),
+    [sportSlug, city, coach, selectedSlot],
+  );
   const [activeTab, setActiveTab] = useState<"apropos" | "planning" | "contenus">("apropos");
   const [weekIndex, setWeekIndex] = useState(0);
-  const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
   const [tabsFixed, setTabsFixed] = useState(false);
   const [noteFixed, setNoteFixed] = useState(false);
   const [tabsInlineStyle, setTabsInlineStyle] = useState<CSSProperties | undefined>(undefined);
@@ -723,6 +739,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
             isActive={activeTab === "planning"}
             weekIndex={weekIndex}
             selectedSlot={selectedSlot}
+            confirmHref={confirmHref}
             onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weekSets.length - 1 : current - 1))}
             onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
             onSelectSlot={setSelectedSlot}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 
 type ChoixCoachCreneauLegacyPageProps = {
   legacyStyles: string;
@@ -42,39 +43,26 @@ const coaches = [
   { id: "S", name: "Sabine" },
 ];
 
-const buildPath = (page: string, paramsObject: Record<string, string>) => {
-  const search = new URLSearchParams();
-
-  Object.entries(paramsObject).forEach(([key, value]) => {
-    if (`${value}`.trim() !== "") {
-      search.set(key, value);
-    }
-  });
-
-  const query = search.toString();
-  return query ? `${page}?${query}` : page;
-};
-
 function ReservationHeader() {
   return (
     <header className="topbar topbar-light">
       <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href="./accueil.html">
+        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
           GetYourMentor
         </a>
       </div>
 
       <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=football">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
           Football
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=basketball">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
           Basketball
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=metiers-de-la-forme">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
           Metiers de la forme
         </a>
-        <a className="sport-link sport-link-dark" href="./recherche-coachs.html?sport=sports-de-combat">
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
         </a>
       </nav>
@@ -83,7 +71,7 @@ function ReservationHeader() {
         <a className="topbar-link topbar-link-dark" href="./devenir-partenaire.html">
           Je suis un professionnel du sport
         </a>
-        <a className="account-button" href="./compte.html">
+        <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
               <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -147,7 +135,7 @@ function ReservationSelectedStep({
           </div>
           <a
             className="reservation-remove"
-            href="./reserver-seance.html"
+            href={nextRoutes.coach}
             data-multi-remove
             onClick={(event) => {
               event.preventDefault();
@@ -295,7 +283,7 @@ export function ChoixCoachCreneauLegacyPage({
 
   const confirmHref = useMemo(
     () =>
-      buildPath("./recapitulatif-reservation.html", {
+      buildNextPath(nextRoutes.recap, {
         sport,
         city,
         coach,
@@ -313,7 +301,7 @@ export function ChoixCoachCreneauLegacyPage({
 
   const backToCoachHref = useMemo(
     () =>
-      buildPath("./reserver-seance.html", {
+      buildNextPath(nextRoutes.coach, {
         sport,
         city,
         coach,
