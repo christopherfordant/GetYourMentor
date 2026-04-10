@@ -80,10 +80,14 @@ alors la priorite reste :
 - Les occurrences `.html` restantes sont uniquement les chemins source documentes dans `gym-next/lib/migration-pages.ts`
 - Derniere verification des parametres metier du tunnel de reservation : `OK`
 - Parametres suivis : `sport`, `city`, `coach`, `service`, `duration`, `price`, `objective`, `format`, `package`, `slot`, `mentor`
+- Dernier smoke test HTTP Next.js : `OK` le `2026-04-10`
+- Routes testees en HTTP 200 : `/`, `/recherche`, `/coachs`, `/coach`, `/creneau`, `/recapitulatif`, `/compte`, `/paiement`
+- Derniere verification du contenu metier tunnel : `OK`
+- Note compte : le CTA d'inscription valide est `Nouveau ? Inscription`, pas `Creer mon compte`
 
 ## Prochaine mission stricte
 
-Tester manuellement dans le navigateur les parcours Next.js principaux.
+Tester visuellement dans le navigateur les parcours Next.js principaux en desktop et mobile.
 
 Ne pas passer a une autre refonte tant que :
 
