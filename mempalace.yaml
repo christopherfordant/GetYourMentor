@@ -1,0 +1,140 @@
+wing: getyourmentor
+rooms:
+- name: analyse_concurrents
+  description: Files from Analyse concurrents/
+  keywords:
+  - analyse_concurrents
+  - analyse concurrents
+- name: ateliers
+  description: Files from Ateliers/
+  keywords:
+  - ateliers
+  - ateliers
+- name: branding
+  description: Files from Branding/
+  keywords:
+  - branding
+  - branding
+- name: design_assets
+  description: Files from design_assets/
+  keywords:
+  - design_assets
+  - design_assets
+- name: devis
+  description: Files from Devis/
+  keywords:
+  - devis
+  - devis
+- name: documentation
+  description: Files from docs/
+  keywords:
+  - documentation
+  - docs
+- name: dossier_banque
+  description: Files from Dossier Banque/
+  keywords:
+  - dossier_banque
+  - dossier banque
+- name: dossier_business_plan
+  description: Files from Dossier Business Plan/
+  keywords:
+  - dossier_business_plan
+  - dossier business plan
+- name: financement
+  description: Files from Financement/
+  keywords:
+  - financement
+  - financement
+- name: "fonctionnalit\xE9"
+  description: "Files from Fonctionnalit\xE9/"
+  keywords:
+  - "fonctionnalit\xE9"
+  - "fonctionnalit\xE9"
+- name: gym_next
+  description: Files from gym-next/
+  keywords:
+  - gym_next
+  - gym-next
+- name: "id\xE9e_v2,_v3_etc___"
+  description: "Files from Id\xE9e V2, V3 etc___/"
+  keywords:
+  - "id\xE9e_v2,_v3_etc___"
+  - "id\xE9e v2, v3 etc___"
+- name: les_commerciaux
+  description: Files from Les commerciaux/
+  keywords:
+  - les_commerciaux
+  - les commerciaux
+- name: les_contacts_(perso_et_clubs)
+  description: Files from Les Contacts (perso et clubs)/
+  keywords:
+  - les_contacts_(perso_et_clubs)
+  - les contacts (perso et clubs)
+- name: montage_planity
+  description: Files from montage_planity/
+  keywords:
+  - montage_planity
+  - montage_planity
+- name: objectifs___planification___plan_d_action
+  description: Files from Objectifs - Planification - Plan d_action/
+  keywords:
+  - objectifs___planification___plan_d_action
+  - objectifs - planification - plan d_action
+- name: parcours_utilisateur_(user_flow)
+  description: Files from Parcours Utilisateur (user flow)/
+  keywords:
+  - parcours_utilisateur_(user_flow)
+  - parcours utilisateur (user flow)
+- name: pitch_deck
+  description: Files from Pitch Deck/
+  keywords:
+  - pitch_deck
+  - pitch deck
+- name: project_readable
+  description: Files from project_readable/
+  keywords:
+  - project_readable
+  - project_readable
+- name: projet_et_organisation_gym_
+  description: Files from Projet et Organisation GYM_/
+  keywords:
+  - projet_et_organisation_gym_
+  - projet et organisation gym_
+- name: prototype_site
+  description: Files from prototype-site/
+  keywords:
+  - prototype_site
+  - prototype-site
+- name: scripts
+  description: Files from scripts/
+  keywords:
+  - scripts
+  - scripts
+- name: sondage
+  description: Files from Sondage/
+  keywords:
+  - sondage
+  - sondage
+- name: "strat\xE9gie"
+  description: "Files from Strat\xE9gie/"
+  keywords:
+  - "strat\xE9gie"
+  - "strat\xE9gie"
+- name: frontend
+  description: Files from components/
+  keywords:
+  - frontend
+  - components
+- name: design
+  description: Files from assets/
+  keywords:
+  - design
+  - assets
+- name: testing
+  description: Files from tests/
+  keywords:
+  - testing
+  - tests
+- name: general
+  description: Files that don't fit other rooms
+  keywords: []
