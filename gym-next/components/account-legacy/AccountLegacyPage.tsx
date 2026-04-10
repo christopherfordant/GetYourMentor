@@ -57,7 +57,7 @@ function AccountHeader() {
         <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
       </nav>
       <div className="topbar-actions">
-        <a className="topbar-link" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+        <a className="topbar-link" href={`${nextRoutes.account}?mode=coach`}>Je suis un professionnel du sport</a>
         <div className="account-topbar-menu">
           <a className="account-button" href={nextRoutes.account} aria-current="page">
             <span className="account-button-icon" aria-hidden="true">
@@ -229,7 +229,7 @@ function AccountFooter() {
     <footer className="account-footer">
       <div className="account-footer-grid">
         <div className="account-footer-brand"><div className="footer-brand">GETYOURMENTOR</div><div className="account-socials" aria-label="Réseaux sociaux"><a href="#instagram" aria-label="Instagram">IG</a><a href="#facebook" aria-label="Facebook">FB</a></div></div>
-        <div className="account-footer-column"><h3>À propos de GetYourMentor</h3><a href="./devenir-partenaire.html">Je suis un professionnel du sport</a><a href="./devenir-partenaire.html">Rejoignez-nous</a><a href={`${nextRoutes.home}#faq-title`}>CGU</a><a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialité</a><a href={`${nextRoutes.home}#faq-title`}>Gestion des cookies</a><a href={`${nextRoutes.home}#faq-title`}>Accessibilité</a></div>
+        <div className="account-footer-column"><h3>À propos de GetYourMentor</h3><a href={`${nextRoutes.account}?mode=coach`}>Je suis un professionnel du sport</a><a href={`${nextRoutes.account}?mode=coach`}>Rejoignez-nous</a><a href={`${nextRoutes.home}#faq-title`}>CGU</a><a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialité</a><a href={`${nextRoutes.home}#faq-title`}>Gestion des cookies</a><a href={`${nextRoutes.home}#faq-title`}>Accessibilité</a></div>
         <div className="account-footer-column"><h3>Trouvez votre coach</h3><a href={`${nextRoutes.search}?sport=football`}>Football</a><a href={`${nextRoutes.search}?sport=basketball`}>Basketball</a><a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a><a href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a><a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Coaching en visio</a><a href={`${nextRoutes.search}?sport=football`}>Coaching en présentiel</a></div>
         <div className="account-footer-column"><h3>Recherches fréquentes</h3><a href={`${nextRoutes.directory}?sport=football&city=Paris`}>Coach sportif Paris</a><a href={`${nextRoutes.directory}?sport=metiers-de-la-forme&city=Marseille`}>Coach sportif Marseille</a><a href={`${nextRoutes.directory}?sport=basketball&city=Lyon`}>Coach sportif Lyon</a><a href={`${nextRoutes.directory}?sport=metiers-de-la-forme&city=Lille`}>Coach fitness Lille</a></div>
       </div>

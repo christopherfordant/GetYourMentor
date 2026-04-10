@@ -189,7 +189,7 @@ function DirectoryHeader() {
       </nav>
 
       <div className="topbar-actions">
-        <a className="topbar-link topbar-link-dark" href="./devenir-partenaire.html">
+        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
           Je suis un professionnel du sport
         </a>
         <a className="account-button" href={nextRoutes.account}>
@@ -408,10 +408,10 @@ function DirectoryFooter() {
       <div className="footer-brand">GETYOURMENTOR</div>
       <p>Trouvez votre coach sportif en quelques clics</p>
       <nav className="footer-links" aria-label="Liens l&eacute;gaux">
-        <a href="./accueil.html#faq-title">CGV</a>
-        <a href="./accueil.html#faq-title">CGU</a>
-        <a href="./accueil.html#faq-title">Politique de confidentialit&eacute;</a>
-        <a href="./accueil.html#faq-title">Mentions l&eacute;gales</a>
+        <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
+        <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
+        <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialit&eacute;</a>
+        <a href={`${nextRoutes.home}#faq-title`}>Mentions l&eacute;gales</a>
       </nav>
       <small>&copy; 2026 GetYourMentor. Tous droits r&eacute;serv&eacute;s.</small>
     </footer>

@@ -23,7 +23,7 @@ function PaymentHeader() {
       </nav>
 
       <div className="topbar-actions">
-        <a className="topbar-link topbar-link-dark" href="./devenir-partenaire.html">Je suis un professionnel du sport</a>
+        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>Je suis un professionnel du sport</a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
