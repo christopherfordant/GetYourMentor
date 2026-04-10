@@ -56,9 +56,9 @@ alors la priorite reste :
 - Base Next.js creee : `oui`
 - Migration de page commencee : `oui`
 - Pages construites dans Next.js : `accueil.html`, `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
-- Pages marquees `Valide` dans le tableau de migration : `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
-- Page encore a valider visuellement : `accueil.html`
-- Page en cours : `accueil.html`
+- Pages marquees `Valide` dans le tableau de migration : `accueil.html`, `recherche-coachs.html`, `selection-coachs.html`, `reserver-seance.html`, `choix-coach-creneau.html`, `recapitulatif-reservation.html`, `compte.html`, `paiement.html`, `inscription-club.html`
+- Page encore a valider visuellement : `aucune`
+- Page en cours : `aucune`
 
 ## Routes Next.js a verifier
 
@@ -79,11 +79,11 @@ alors la priorite reste :
 
 ## Prochaine mission stricte
 
-Valider uniquement la home Next.js (`/`) contre `prototype-site/accueil.html`.
+Verifier les parcours internes Next.js entre les pages migrees.
 
 Ne pas passer a une autre refonte tant que :
 
-- la structure HTML d'origine est respectee
-- les classes CSS d'origine sont conservees
-- le rendu visuel est equivalent au prototype
-- les liens principaux de la home renvoient vers les routes Next.js logiques
+- les liens principaux ne renvoient plus vers des `.html` inutiles
+- les parametres metier passent correctement d'une page a l'autre
+- les pages compte, paiement et reservation restent accessibles depuis les CTA
+- le build Next.js reste vert

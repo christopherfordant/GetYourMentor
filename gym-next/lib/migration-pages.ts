@@ -12,7 +12,7 @@ export const migrationPages: MigrationPage[] = [
     label: "Accueil",
     source: "prototype-site/accueil.html",
     route: "/",
-    status: "En cours",
+    status: "Valide",
   },
   {
     id: "recherche",
