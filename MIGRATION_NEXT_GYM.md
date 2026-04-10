@@ -76,14 +76,15 @@ alors la priorite reste :
 
 - Dernier build Next.js connu : `OK`
 - Commande : `cd gym-next && npm.cmd run build`
+- Derniere verification des liens `.html` utilisateurs : `OK`
+- Les occurrences `.html` restantes sont uniquement les chemins source documentes dans `gym-next/lib/migration-pages.ts`
 
 ## Prochaine mission stricte
 
-Verifier les parcours internes Next.js entre les pages migrees.
+Verifier les parametres metier du tunnel de reservation Next.js.
 
 Ne pas passer a une autre refonte tant que :
 
-- les liens principaux ne renvoient plus vers des `.html` inutiles
 - les parametres metier passent correctement d'une page a l'autre
 - les pages compte, paiement et reservation restent accessibles depuis les CTA
 - le build Next.js reste vert
