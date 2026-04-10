@@ -168,6 +168,32 @@ alors il faut decouper encore :
 - interactions
 - navigation
 
+## 1.5 Regle de memoire MemPalace
+
+MemPalace est configure comme memoire locale du projet pour retrouver rapidement :
+
+- les arbitrages du document maitre
+- les regles de migration Next.js
+- les decisions prises sur le prototype HTML
+- les informations utiles dispersees dans les documents du projet
+
+Regle de travail :
+
+- avant de reprendre une mission ancienne ou une logique metier deja discutee, interroger MemPalace
+- si une demande risque de faire oublier un contexte valide, interroger MemPalace avant de modifier
+- ne jamais indexer le dossier `mempalace/` lui-meme comme contenu projet
+- garder la memoire locale hors Git : `.mempalace/`, `.mempalace-exec/`, `.mempalace-home/`, `.mempalace-runtime/`
+
+Commande de reference depuis la racine du projet :
+
+```powershell
+scripts\mempalace.cmd status
+scripts\mempalace.cmd search "migration Next.js compte paiement inscription club" --results 3
+scripts\mempalace.cmd mine . --agent codex
+```
+
+Si une recherche MemPalace contredit une reponse improvisee, la recherche MemPalace passe en priorite.
+
 ## 2. Probleme a resoudre
 
 ### Pour les coachs

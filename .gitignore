@@ -1,0 +1,10 @@
+.mempalace/
+.mempalace-home/
+.mempalace-runtime/
+.mempalace-exec/
+mempalace/
+mempalace/.venv/
+mempalace/.pip-tmp/
+.netlify/
+prototype_site_GYM.zip
+tmp_menu_accueil_profil_coach.jpg
