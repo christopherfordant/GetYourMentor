@@ -84,10 +84,13 @@ alors la priorite reste :
 - Routes testees en HTTP 200 : `/`, `/recherche`, `/coachs`, `/coach`, `/creneau`, `/recapitulatif`, `/compte`, `/paiement`
 - Derniere verification du contenu metier tunnel : `OK`
 - Note compte : le CTA d'inscription valide est `Nouveau ? Inscription`, pas `Creer mon compte`
+- Derniere verification visuelle automatisee : `partielle` le `2026-04-10`
+- Correction issue de la verification visuelle : `/coach` ne declenche plus l'ancre `A propos` au chargement, la carte note reste desktop et les effets sticky sont desactives en layout compact
+- Artefacts locaux non commit : `docs/next-visual-validation/`
 
 ## Prochaine mission stricte
 
-Tester visuellement dans le navigateur les parcours Next.js principaux en desktop et mobile.
+Tester visuellement dans un vrai navigateur les parcours Next.js principaux en desktop et mobile, en priorite le header responsive de `/coach`.
 
 Ne pas passer a une autre refonte tant que :
 

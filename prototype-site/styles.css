@@ -5325,11 +5325,27 @@ button {
 
   .sports-nav {
     gap: 12px;
+    max-width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
   .sport-link,
   .topbar-link {
     font-size: 12px;
+  }
+
+  .topbar-link {
+    display: none;
   }
 
   .account-button {
@@ -5338,7 +5354,7 @@ button {
   }
 
   .booking-page {
-    padding: 84px 12px 32px;
+    padding: 172px 12px 32px;
   }
 
   .booking-profile-hero {
@@ -5381,6 +5397,7 @@ button {
 
   .booking-profile-lead strong {
     font-size: clamp(24px, 8vw, 30px);
+    overflow-wrap: anywhere;
   }
 
   .booking-profile-lead p {
