@@ -78,13 +78,18 @@ alors la priorite reste :
 - Commande : `cd gym-next && npm.cmd run build`
 - Derniere verification des liens `.html` utilisateurs : `OK`
 - Les occurrences `.html` restantes sont uniquement les chemins source documentes dans `gym-next/lib/migration-pages.ts`
+- Derniere verification des parametres metier du tunnel de reservation : `OK`
+- Parametres suivis : `sport`, `city`, `coach`, `service`, `duration`, `price`, `objective`, `format`, `package`, `slot`, `mentor`
 
 ## Prochaine mission stricte
 
-Verifier les parametres metier du tunnel de reservation Next.js.
+Tester manuellement dans le navigateur les parcours Next.js principaux.
 
 Ne pas passer a une autre refonte tant que :
 
-- les parametres metier passent correctement d'une page a l'autre
-- les pages compte, paiement et reservation restent accessibles depuis les CTA
+- la recherche depuis la home ouvre bien `/coachs`
+- une carte coach ouvre bien `/coach`
+- une demande de reservation arrive bien sur `/recapitulatif`
+- le recapitulatif vers connexion arrive bien sur `/compte?redirect=paiement`
+- apres connexion, le paiement conserve les informations de reservation
 - le build Next.js reste vert

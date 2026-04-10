@@ -582,6 +582,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
         duration: "45min",
         price: "48 EUR",
         slot: selectedSlot,
+        mentor: coach,
       }),
     [sportSlug, city, coach, selectedSlot],
   );
