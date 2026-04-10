@@ -58,7 +58,7 @@ function HomeHeader({ isScrolled }: { isScrolled: boolean }) {
       </nav>
 
       <div className="topbar-actions">
-        <a className="topbar-link" href="./devenir-partenaire.html">
+        <a className="topbar-link" href={`${nextRoutes.account}?mode=coach`}>
           Je suis un professionnel du sport
         </a>
         <a className="account-button" href={nextRoutes.account}>
@@ -98,8 +98,8 @@ function HomeHero({
 
       <div className="hero-content">
         <p className="eyebrow">Coaching sportif premium</p>
-        <h1 id="hero-title">Reservez votre coach</h1>
-        <p className="hero-copy">Simple • Immediat • 24h/24</p>
+        <h1 id="hero-title">Réservez votre coach</h1>
+        <p className="hero-copy">Simple • Immédiat • 24h/24</p>
 
         <form
           className="search-card"
@@ -122,7 +122,7 @@ function HomeHero({
           </label>
 
           <label className="field">
-            <span className="field-label">Ou</span>
+            <span className="field-label">Où</span>
             <input
               className="field-input"
               type="text"
@@ -140,16 +140,16 @@ function HomeHero({
 
         <div className="search-preview-layer" aria-hidden="true" data-home-search-preview>
           <div className="search-preview-shell">
-            <span className="search-preview-badge">Apercu de la recherche</span>
+            <span className="search-preview-badge">Aperçu de la recherche</span>
             <div className="search-preview-frame">
               <img
                 className="search-preview-image"
                 src="/design_assets/info_resa_accueil.jpeg"
-                alt="Apercu de la page de recherche avec filtres, resultats et carte"
+                alt="Aperçu de la page de recherche avec filtres, résultats et carte"
               />
             </div>
             <p className="search-preview-copy">
-              On prepare les coachs disponibles, les filtres et la carte autour de votre recherche.
+              On prépare les coachs disponibles, les filtres et la carte autour de votre recherche.
             </p>
           </div>
         </div>
@@ -162,7 +162,7 @@ function HomeHowItWorks() {
   return (
     <section className="how-it-works" aria-labelledby="how-title">
       <div className="section-heading">
-        <h2 id="how-title">Comment ca marche ?</h2>
+        <h2 id="how-title">Comment ça marche ?</h2>
       </div>
 
       <div className="how-grid">
@@ -178,8 +178,8 @@ function HomeHowItWorks() {
                   <div className="profile-avatar avatar-face-1"></div>
                   <h4 className="mini-name">Thomas Dubois</h4>
                   <p className="mini-meta">Football • Paris</p>
-                  <p className="mini-detail">Specialiste preparation match • 12 ans d'experience</p>
-                  <span className="mini-pill">50EUR / seance</span>
+                  <p className="mini-detail">Spécialiste préparation match • 12 ans d'expérience</p>
+                  <span className="mini-pill">50€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -194,8 +194,8 @@ function HomeHowItWorks() {
                   <div className="profile-avatar avatar-face-2"></div>
                   <h4 className="mini-name">Sarah Benali</h4>
                   <p className="mini-meta">Basketball • Lyon</p>
-                  <p className="mini-detail">Technique individuelle • Seances intensives</p>
-                  <span className="mini-pill">65EUR / seance</span>
+                  <p className="mini-detail">Technique individuelle • Séances intensives</p>
+                  <span className="mini-pill">65€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -203,15 +203,15 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.coach, { sport: "basketball", city: "Lyon", coach: "Sarah Benali" });
                     }}
                   >
-                    Decouvrir le coach
+                    Découvrir le coach
                   </button>
                 </div>
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-3"></div>
                   <h4 className="mini-name">Julien Morel</h4>
-                  <p className="mini-meta">Metiers de la forme • Lille</p>
+                  <p className="mini-meta">Métiers de la forme • Lille</p>
                   <p className="mini-detail">Remise en forme • Coaching progressif</p>
-                  <span className="mini-pill">42EUR / seance</span>
+                  <span className="mini-pill">42€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -219,15 +219,15 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: "Julien Morel" });
                     }}
                   >
-                    Voir ses seances
+                    Voir ses séances
                   </button>
                 </div>
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-4"></div>
                   <h4 className="mini-name">Ines Caron</h4>
                   <p className="mini-meta">Sports de combat • Marseille</p>
-                  <p className="mini-detail">Self-defense • Conditionnement physique</p>
-                  <span className="mini-pill">70EUR / seance</span>
+                  <p className="mini-detail">Self-défense • Conditionnement physique</p>
+                  <span className="mini-pill">70€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -235,15 +235,15 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.coach, { sport: "sports-de-combat", city: "Marseille", coach: "Ines Caron" });
                     }}
                   >
-                    Reserver ce coach
+                    Réserver ce coach
                   </button>
                 </div>
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-5"></div>
                   <h4 className="mini-name">Mehdi Rahal</h4>
                   <p className="mini-meta">Football • Bordeaux</p>
-                  <p className="mini-detail">Travail d'appuis • Explosivite • Mental</p>
-                  <span className="mini-pill">58EUR / seance</span>
+                  <p className="mini-detail">Travail d'appuis • Explosivité • Mental</p>
+                  <span className="mini-pill">58€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -257,9 +257,9 @@ function HomeHowItWorks() {
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-6"></div>
                   <h4 className="mini-name">Camille Perrot</h4>
-                  <p className="mini-meta">Metiers de la forme • Nice</p>
-                  <p className="mini-detail">Pilates, mobilite et renforcement doux</p>
-                  <span className="mini-pill">54EUR / seance</span>
+                  <p className="mini-meta">Métiers de la forme • Nice</p>
+                  <p className="mini-detail">Pilates, mobilité et renforcement doux</p>
+                  <span className="mini-pill">54€ / séance</span>
                   <button
                     className="mini-cta dark"
                     type="button"
@@ -278,13 +278,13 @@ function HomeHowItWorks() {
         <article className="step-card">
           <div className="step-head">
             <span className="step-number">2</span>
-            <h3>Proposez vos creneaux</h3>
+            <h3>Proposez vos créneaux</h3>
           </div>
           <div className="mini-screen mini-screen-slots">
             <div className="card-carousel-window">
               <div className="card-carousel-track carousel-track-4">
                 <div className="card-slide slots-slide">
-                  <p className="mini-caption">Choisissez jusqu'a 3 creneaux</p>
+                  <p className="mini-caption">Choisissez jusqu'à 3 créneaux</p>
                   <div className="slot-visual slot-visual-1"></div>
                   <div className="slots-row">
                     <button className="mini-slot selected" type="button">
@@ -294,7 +294,7 @@ function HomeHowItWorks() {
                       15:00
                     </button>
                   </div>
-                  <p className="mini-selection">1 creneau selectionne</p>
+                  <p className="mini-selection">1 créneau sélectionné</p>
                   <button
                     className="mini-cta muted"
                     type="button"
@@ -302,11 +302,11 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.slot, { sport: "football", city: "Paris", coach: "Thomas Dubois", service: "Seance technique individuelle", duration: "30min", price: "35 EUR" });
                     }}
                   >
-                    Proposer mes creneaux
+                    Proposer mes créneaux
                   </button>
                 </div>
                 <div className="card-slide slots-slide">
-                  <p className="mini-caption">Selectionnez un creneau prioritaire</p>
+                  <p className="mini-caption">Sélectionnez un créneau prioritaire</p>
                   <div className="slot-visual slot-visual-2"></div>
                   <div className="slots-row">
                     <button className="mini-slot selected" type="button">
@@ -316,7 +316,7 @@ function HomeHowItWorks() {
                       18:30
                     </button>
                   </div>
-                  <p className="mini-selection">2 creneaux selectionnes</p>
+                  <p className="mini-selection">2 créneaux sélectionnés</p>
                   <button
                     className="mini-cta muted"
                     type="button"
@@ -324,11 +324,11 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.slot, { sport: "basketball", city: "Lyon", coach: "Sarah Benali", service: "Shooting et mecanique", duration: "30min", price: "35 EUR" });
                     }}
                   >
-                    Envoyer mes disponibilites
+                    Envoyer mes disponibilités
                   </button>
                 </div>
                 <div className="card-slide slots-slide">
-                  <p className="mini-caption">Ajoutez un creneau de secours</p>
+                  <p className="mini-caption">Ajoutez un créneau de secours</p>
                   <div className="slot-visual slot-visual-3"></div>
                   <div className="slots-row">
                     <button className="mini-slot selected" type="button">
@@ -338,7 +338,7 @@ function HomeHowItWorks() {
                       19:00
                     </button>
                   </div>
-                  <p className="mini-selection">3 creneaux selectionnes</p>
+                  <p className="mini-selection">3 créneaux sélectionnés</p>
                   <button
                     className="mini-cta muted"
                     type="button"
@@ -346,11 +346,11 @@ function HomeHowItWorks() {
                       window.location.href = buildNextPath(nextRoutes.slot, { sport: "metiers-de-la-forme", city: "Lille", coach: "Julien Morel", service: "Coaching remise en forme", duration: "30min", price: "35 EUR" });
                     }}
                   >
-                    Valider ma selection
+                    Valider ma sélection
                   </button>
                 </div>
                 <div className="card-slide slots-slide">
-                  <p className="mini-caption">Validez vos disponibilites</p>
+                  <p className="mini-caption">Validez vos disponibilités</p>
                   <div className="slot-visual slot-visual-4"></div>
                   <div className="slots-row">
                     <button className="mini-slot selected" type="button">
@@ -360,7 +360,7 @@ function HomeHowItWorks() {
                       17:15
                     </button>
                   </div>
-                  <p className="mini-selection">Pret a envoyer</p>
+                  <p className="mini-selection">Prêt à envoyer</p>
                   <button
                     className="mini-cta muted"
                     type="button"
@@ -388,10 +388,10 @@ function HomeHowItWorks() {
                   <div className="payment-visual payment-visual-1"></div>
                   <span className="payment-line-strong">Thomas Dubois · Football</span>
                   <span className="payment-row">Mer. 26 Mars · 14:00</span>
-                  <span className="payment-row">Seance 1h30 · Paris</span>
+                  <span className="payment-row">Séance 1h30 · Paris</span>
                   <div className="payment-total">
                     <span>Total</span>
-                    <strong>62EUR</strong>
+                    <strong>62€</strong>
                   </div>
                   <button
                     className="mini-cta dark"
@@ -408,10 +408,10 @@ function HomeHowItWorks() {
                   <div className="payment-visual payment-visual-2"></div>
                   <span className="payment-line-strong">Sarah Benali · Basketball</span>
                   <span className="payment-row">Jeu. 28 Mars · 18:30</span>
-                  <span className="payment-row">Seance 1h00 · Lyon</span>
+                  <span className="payment-row">Séance 1h00 · Lyon</span>
                   <div className="payment-total">
                     <span>Total</span>
-                    <strong>74EUR</strong>
+                    <strong>74€</strong>
                   </div>
                   <button
                     className="mini-cta dark"
@@ -426,12 +426,12 @@ function HomeHowItWorks() {
                 </div>
                 <div className="card-slide payment-slide">
                   <div className="payment-visual payment-visual-3"></div>
-                  <span className="payment-line-strong">Julien Morel · Metiers de la forme</span>
+                  <span className="payment-line-strong">Julien Morel · Métiers de la forme</span>
                   <span className="payment-row">Ven. 29 Mars · 08:00</span>
-                  <span className="payment-row">Seance 45 min · Lille</span>
+                  <span className="payment-row">Séance 45 min · Lille</span>
                   <div className="payment-total">
                     <span>Total</span>
-                    <strong>48EUR</strong>
+                    <strong>48€</strong>
                   </div>
                   <button
                     className="mini-cta dark"
@@ -441,17 +441,17 @@ function HomeHowItWorks() {
                         "/paiement?city=Lille&coach=Julien%20Morel&service=Coaching%20remise%20en%20forme&duration=45min&price=48%20EUR&slot=08:00&mentor=Julien%20Morel&connected=1";
                     }}
                   >
-                    Regler la seance
+                    Régler la séance
                   </button>
                 </div>
                 <div className="card-slide payment-slide">
                   <div className="payment-visual payment-visual-4"></div>
                   <span className="payment-line-strong">Ines Caron · Sports de combat</span>
                   <span className="payment-row">Sam. 30 Mars · 12:15</span>
-                  <span className="payment-row">Seance 1h15 · Marseille</span>
+                  <span className="payment-row">Séance 1h15 · Marseille</span>
                   <div className="payment-total">
                     <span>Total</span>
-                    <strong>79EUR</strong>
+                    <strong>79€</strong>
                   </div>
                   <button
                     className="mini-cta dark"
@@ -461,7 +461,7 @@ function HomeHowItWorks() {
                         "/paiement?city=Marseille&coach=Ines%20Caron&service=Self-defense%20premium&duration=50min&price=79%20EUR&slot=12:15&mentor=Ines%20Caron&connected=1";
                     }}
                   >
-                    Finaliser la reservation
+                    Finaliser la réservation
                   </button>
                 </div>
               </div>
@@ -479,11 +479,11 @@ function HomeMetrics() {
       <div className="metrics-grid">
         <div className="metric">
           <strong>500+</strong>
-          <span>Coachs certifies</span>
+          <span>Coachs certifiés</span>
         </div>
         <div className="metric">
           <strong>10K+</strong>
-          <span>Reservations</span>
+          <span>Réservations</span>
         </div>
         <div className="metric">
           <strong>4.9/5</strong>
@@ -502,35 +502,35 @@ function HomeInsights() {
       <div className="insights-grid">
         <article className="insight-card">
           <strong>+ 50%</strong>
-          <p>de frequence sur les reservations de seances prises en ligne</p>
+          <p>de fréquence sur les réservations de séances prises en ligne</p>
         </article>
 
         <article className="insight-card">
           <strong>4x</strong>
-          <p>moins d'oublis avec les rappels automatiques des seances</p>
+          <p>moins d'oublis avec les rappels automatiques des séances</p>
         </article>
 
         <article className="insight-card insight-card-feature">
           <strong>50%</strong>
-          <p>des reservations prises en dehors des horaires d'ouverture</p>
-          <a className="coach-cta-button insight-button" href="./devenir-partenaire.html">
+          <p>des réservations prises en dehors des horaires d'ouverture</p>
+          <a className="coach-cta-button insight-button" href={`${nextRoutes.account}?mode=coach`}>
             Je suis un professionnel du sport
           </a>
         </article>
 
         <article className="insight-card">
           <strong>+50 000</strong>
-          <p>seances et demandes de coaching gerees sur la plateforme</p>
+          <p>séances et demandes de coaching gérées sur la plateforme</p>
         </article>
 
         <article className="insight-card">
           <strong>5 RDV</strong>
-          <p>reserves toutes les secondes sur les creneaux les plus demandes</p>
+          <p>réservés toutes les secondes sur les créneaux les plus demandés</p>
         </article>
 
         <article className="insight-card">
-          <strong>&gt; 5 millions EUR</strong>
-          <p>de reservations sportives generees pour les coachs partenaires</p>
+          <strong>&gt; 5 millions €</strong>
+          <p>de réservations sportives générées pour les coachs partenaires</p>
         </article>
       </div>
     </section>
@@ -546,9 +546,9 @@ function HomeRecruit() {
         <h2 id="recruit-title">
           GetYourMentor recherche des profils partout en France pour digitaliser le coaching sportif
         </h2>
-        <p className="recruit-signature">Equipe GetYourMentor</p>
+        <p className="recruit-signature">Équipe GetYourMentor</p>
         <a className="coach-cta-button" href="#coach-space">
-          Decouvrir nos offres
+          Découvrir nos offres
         </a>
       </div>
     </section>
@@ -564,61 +564,61 @@ function HomeLocales() {
         <article className="locale-column">
           <h3>Football</h3>
           <p>Nos coachs football populaires en France</p>
-          <a href="./recherche-coachs.html?sport=football">Bordeaux</a>
-          <a href="./recherche-coachs.html?sport=football">Lille</a>
-          <a href="./recherche-coachs.html?sport=football">Lyon</a>
-          <a href="./recherche-coachs.html?sport=football">Marseille</a>
-          <a href="./recherche-coachs.html?sport=football">Montpellier</a>
-          <a href="./recherche-coachs.html?sport=football">Nantes</a>
-          <a href="./recherche-coachs.html?sport=football">Nice</a>
-          <a href="./recherche-coachs.html?sport=football">Paris</a>
-          <a href="./recherche-coachs.html?sport=football">Strasbourg</a>
-          <a href="./recherche-coachs.html?sport=football">Toulouse</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Bordeaux</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Lille</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Lyon</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Marseille</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Montpellier</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Nantes</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Nice</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Paris</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Strasbourg</a>
+          <a href={`${nextRoutes.search}?sport=football`}>Toulouse</a>
         </article>
 
         <article className="locale-column">
           <h3>Basketball</h3>
           <p>Nos coachs basketball populaires en France</p>
-          <a href="./recherche-coachs.html?sport=basketball">Bordeaux</a>
-          <a href="./recherche-coachs.html?sport=basketball">Lille</a>
-          <a href="./recherche-coachs.html?sport=basketball">Lyon</a>
-          <a href="./recherche-coachs.html?sport=basketball">Marseille</a>
-          <a href="./recherche-coachs.html?sport=basketball">Montpellier</a>
-          <a href="./recherche-coachs.html?sport=basketball">Nantes</a>
-          <a href="./recherche-coachs.html?sport=basketball">Nice</a>
-          <a href="./recherche-coachs.html?sport=basketball">Paris</a>
-          <a href="./recherche-coachs.html?sport=basketball">Strasbourg</a>
-          <a href="./recherche-coachs.html?sport=basketball">Toulouse</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Bordeaux</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Lille</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Lyon</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Marseille</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Montpellier</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Nantes</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Nice</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Paris</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Strasbourg</a>
+          <a href={`${nextRoutes.search}?sport=basketball`}>Toulouse</a>
         </article>
 
         <article className="locale-column">
-          <h3>Metiers de la forme</h3>
+          <h3>Métiers de la forme</h3>
           <p>Nos coachs forme populaires en France</p>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Bordeaux</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Lille</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Lyon</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Marseille</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Montpellier</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Nantes</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Nice</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Paris</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Strasbourg</a>
-          <a href="./recherche-coachs.html?sport=metiers-de-la-forme">Toulouse</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Bordeaux</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Lille</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Lyon</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Marseille</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Montpellier</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Nantes</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Nice</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Paris</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Strasbourg</a>
+          <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Toulouse</a>
         </article>
 
         <article className="locale-column">
           <h3>Sports de combat</h3>
           <p>Nos coachs combat populaires en France</p>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Bordeaux</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Lille</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Lyon</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Marseille</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Montpellier</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Nantes</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Nice</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Paris</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Strasbourg</a>
-          <a href="./recherche-coachs.html?sport=sports-de-combat">Toulouse</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Bordeaux</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Lille</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Lyon</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Marseille</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Montpellier</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Nantes</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Nice</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Paris</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Strasbourg</a>
+          <a href={`${nextRoutes.search}?sport=sports-de-combat`}>Toulouse</a>
         </article>
       </div>
     </section>
@@ -629,46 +629,46 @@ function HomeFaq() {
   return (
     <section className="faq-section" aria-labelledby="faq-title">
       <p className="section-kicker">FAQ</p>
-      <h2 id="faq-title">Les questions frequentes</h2>
+      <h2 id="faq-title">Les questions fréquentes</h2>
 
       <div className="faq-list">
         <details className="faq-item">
           <summary>Qu'est-ce que GetYourMentor ?</summary>
           <p>
-            GetYourMentor est une plateforme qui aide les sportifs a trouver un coach, envoyer une demande de
-            reservation et payer seulement apres validation du coach.
+            GetYourMentor est une plateforme qui aide les sportifs à trouver un coach, envoyer une demande de
+            réservation et payer seulement après validation du coach.
           </p>
         </details>
 
         <details className="faq-item">
-          <summary>Comment reserver une seance sur GetYourMentor ?</summary>
+          <summary>Comment réserver une séance sur GetYourMentor ?</summary>
           <p>
-            Vous choisissez un coach, une seance, puis vous proposez un a trois creneaux. Le coach accepte ou
-            refuse avant toute etape de paiement.
+            Vous choisissez un coach, une séance, puis vous proposez un à trois créneaux. Le coach accepte ou
+            refuse avant toute étape de paiement.
           </p>
         </details>
 
         <details className="faq-item">
           <summary>Est-ce que je dois payer en ligne sur GetYourMentor ?</summary>
           <p>
-            Oui, mais uniquement une fois que le coach a valide votre demande. Aucun paiement n'est declenche
+            Oui, mais uniquement une fois que le coach a validé votre demande. Aucun paiement n'est déclenché
             avant acceptation.
           </p>
         </details>
 
         <details className="faq-item">
-          <summary>Comment gerer mes demandes et mes reservations ?</summary>
+          <summary>Comment gérer mes demandes et mes réservations ?</summary>
           <p>
-            Depuis votre espace compte, vous pouvez consulter vos demandes envoyees, vos validations, vos
-            reservations confirmees et vos informations de paiement.
+            Depuis votre espace compte, vous pouvez consulter vos demandes envoyées, vos validations, vos
+            réservations confirmées et vos informations de paiement.
           </p>
         </details>
 
         <details className="faq-item">
           <summary>Comment devenir coach partenaire sur GetYourMentor ?</summary>
           <p>
-            Vous pouvez rejoindre le reseau en creant votre compte professionnel puis en completant votre profil,
-            vos sports, vos disponibilites et vos conditions de seance.
+            Vous pouvez rejoindre le réseau en créant votre compte professionnel puis en complétant votre profil,
+            vos sports, vos disponibilités et vos conditions de séance.
           </p>
         </details>
       </div>
@@ -681,13 +681,13 @@ function HomeFooter() {
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
       <p>Trouvez votre coach sportif en quelques clics</p>
-      <nav className="footer-links" aria-label="Liens legaux">
+      <nav className="footer-links" aria-label="Liens légaux">
         <a href="#cgv">CGV</a>
         <a href="#cgu">CGU</a>
-        <a href="#privacy">Politique de confidentialite</a>
-        <a href="#legal">Mentions legales</a>
+        <a href="#privacy">Politique de confidentialité</a>
+        <a href="#legal">Mentions légales</a>
       </nav>
-      <small>© 2026 GetYourMentor. Tous droits reserves.</small>
+      <small>© 2026 GetYourMentor. Tous droits réservés.</small>
     </footer>
   );
 }
