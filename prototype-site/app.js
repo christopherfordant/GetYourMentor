@@ -885,14 +885,7 @@ if (bookingPage) {
     bookingFloatingSpacer.style.display = "none";
     bookingFloatingSpacer.style.height = "0px";
 
-    let floatingTop = headerOffset;
-    if (bookingTabsBar) {
-      const tabsRect = bookingTabsBar.getBoundingClientRect();
-      const tabsStickyThreshold = headerOffset + 4;
-      if (tabsRect.top <= tabsStickyThreshold) {
-        floatingTop = Math.max(headerOffset, tabsRect.bottom + 8);
-      }
-    }
+    const floatingTop = headerOffset;
 
     const paneRect = bookingPaneSide.getBoundingClientRect();
     const cardHeight = bookingFloatingCard.offsetHeight;
@@ -904,8 +897,6 @@ if (bookingPage) {
     const footerTop = footerRect ? scrollY + footerRect.top : Number.POSITIVE_INFINITY;
     const start = paneTop - floatingTop;
     const stop = footerTop - floatingTop - cardHeight - geoHeight - 24;
-    const footerVisible = Boolean(footerRect && footerRect.top <= window.innerHeight);
-
     if (scrollY <= start) {
       return;
     }
@@ -914,22 +905,12 @@ if (bookingPage) {
     bookingFloatingSpacer.style.display = "block";
     bookingFloatingSpacer.style.height = `${cardHeight + 8}px`;
 
-    if (footerVisible) {
-      bookingFloatingCard.style.position = "fixed";
-      bookingFloatingCard.style.top = `${Math.round(floatingTop)}px`;
-      bookingFloatingCard.style.left = `${Math.round(paneRect.left)}px`;
-      bookingFloatingCard.style.width = `${Math.round(paneRect.width)}px`;
-      bookingFloatingCard.style.zIndex = "12";
-      bookingFloatingCard.classList.add("is-floating");
-      return;
-    }
-
     if (scrollY >= stop) {
       bookingFloatingCard.style.position = "absolute";
       bookingFloatingCard.style.top = `${Math.max(0, stop - paneTop)}px`;
       bookingFloatingCard.style.left = "0";
       bookingFloatingCard.style.width = "100%";
-      bookingFloatingCard.style.zIndex = "6";
+      bookingFloatingCard.style.zIndex = "20";
       bookingFloatingCard.classList.add("is-floating");
       return;
     }
@@ -938,7 +919,7 @@ if (bookingPage) {
     bookingFloatingCard.style.top = `${Math.round(floatingTop)}px`;
     bookingFloatingCard.style.left = `${Math.round(paneRect.left)}px`;
     bookingFloatingCard.style.width = `${Math.round(paneRect.width)}px`;
-    bookingFloatingCard.style.zIndex = "12";
+    bookingFloatingCard.style.zIndex = "20";
     bookingFloatingCard.classList.add("is-floating");
   };
 
