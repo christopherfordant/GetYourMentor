@@ -43,7 +43,8 @@
     "governance/ai/CYCLE_002_FICHE_COACH_GYM.md",
     "governance/ai/CYCLE_003_CRENEAU_GYM.md",
     "governance/ai/CYCLE_004_RECAPITULATIF_GYM.md",
-    "governance/ai/CYCLE_005_PAIEMENT_GYM.md"
+    "governance/ai/CYCLE_005_PAIEMENT_GYM.md",
+    "governance/ai/CYCLE_006_TUNNEL_TRANSVERSE_GYM.md"
   ],
   "role_files": [
     "governance/roles/README_CTO.md",

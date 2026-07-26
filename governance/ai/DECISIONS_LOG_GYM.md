@@ -51,3 +51,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la priorite MVP est de permettre une validation finale claire, pas d'ajouter de nouvelles logiques de paiement
 - Impact : la page de paiement conserve sa structure validee, avec un recap plus net avant confirmation
 - Sources : `prototype-site/paiement.html`, `governance/TRACEABILITY_MATRIX_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
+
+## 2026-07-26 - Arbitrage du cycle transverse du tunnel
+
+- Decision : imposer `/creneau` comme etape obligatoire entre `/coach` et `/recapitulatif`
+- Pourquoi : la story `US-SPORTIF-05` exige un vrai choix de creneau avant le recapitulatif
+- Impact : le tunnel MVP de reference est maintenant ferme et ordonne de bout en bout
+- Sources : `governance/USER_STORIES_MVP_GYM.md`, `governance/TRACEABILITY_MATRIX_GYM.md`, `gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx`

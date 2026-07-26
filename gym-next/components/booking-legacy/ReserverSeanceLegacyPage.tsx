@@ -574,7 +574,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
   const confirmHref = useMemo(
     () =>
-      buildNextPath(nextRoutes.recap, {
+      buildNextPath(nextRoutes.slot, {
         sport: sportSlug,
         city,
         coach,
