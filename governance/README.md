@@ -55,6 +55,7 @@ Le dossier `ai/` contient aussi la memoire locale de production :
 - `CYCLE_009_INSCRIPTION_CLUB_GYM.md`
 - `CYCLE_010_SHELL_NEXT_QA_GYM.md`
 - `CYCLE_011_QA_PLAYWRIGHT_GYM.md`
+- `CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md`
 
 Ces fichiers servent de RAG local humain pour conserver l'ordre des phases, les decisions, les priorites et le contexte persistant entre les conversations.
 
