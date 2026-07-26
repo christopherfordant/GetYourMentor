@@ -44,3 +44,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la priorite est de confirmer proprement la reservation avant identification, pas d'ouvrir une logique panier ou multi-etapes plus lourde
 - Impact : le recapitulatif reste simple, plus net visuellement, et conserve sa sortie vers `/compte` puis `/paiement`
 - Sources : `prototype-site/recapitulatif-reservation.html`, `governance/USER_STORIES_MVP_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
+
+## 2026-07-26 - Arbitrage du cycle paiement
+
+- Decision : renforcer uniquement la lisibilite du recap final sans changer la structure de la page paiement
+- Pourquoi : la priorite MVP est de permettre une validation finale claire, pas d'ajouter de nouvelles logiques de paiement
+- Impact : la page de paiement conserve sa structure validee, avec un recap plus net avant confirmation
+- Sources : `prototype-site/paiement.html`, `governance/TRACEABILITY_MATRIX_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
