@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26 21:32:13",
+  "generated_at": "2026-07-26 21:37:44",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -141,20 +141,25 @@
       "mtime": 1785094317,
       "size": 1088
     },
+    "governance/ai/CYCLE_009_INSCRIPTION_CLUB_GYM.md": {
+      "sha1": "9af5b8f504a854ff8d3029566456023da17d4c7e",
+      "mtime": 1785094648,
+      "size": 814
+    },
     "governance/ai/DECISIONS_LOG_GYM.md": {
-      "sha1": "50231814ed0dc5dbd6a2c3bb4b858a1a0b50d32c",
-      "mtime": 1785094313,
-      "size": 5358
+      "sha1": "af53cac4557fc988912f085199a6729d05084fc5",
+      "mtime": 1785094645,
+      "size": 5963
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "d1e046f1750ea7d61405b2e56b967bddb3ab2d68",
-      "mtime": 1785094233,
-      "size": 15761
+      "sha1": "246662dab0d44ce17305d2704bef73c768eae96d",
+      "mtime": 1785094594,
+      "size": 15937
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "c68c19e787b1949874b5423eabff7b7b52726a09",
-      "mtime": 1785094233,
-      "size": 3066
+      "sha1": "41231558cd5f5837a77ceb7c7e44a181e1b0c3bc",
+      "mtime": 1785094594,
+      "size": 3143
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
@@ -177,9 +182,9 @@
       "size": 751
     },
     "governance/fil_rouge_manifest.json": {
-      "sha1": "084a8a56ab981811ee44ed3be71ce7d0ec63be74",
-      "mtime": 1785094315,
-      "size": 2919
+      "sha1": "b17cd8c911acf636c4a1dfd134ba8fe78f7438a9",
+      "mtime": 1785094646,
+      "size": 2974
     },
     "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
       "sha1": "b2ae0dda326c8956ec3ebfbe62d5a0026a0b9cfe",
@@ -217,9 +222,9 @@
       "size": 568
     },
     "governance/README.md": {
-      "sha1": "64863f81e76604da6770c408531a81dc2d9fcf42",
-      "mtime": 1785094311,
-      "size": 2493
+      "sha1": "defe765d0c0ac5c025595595ec830b3b393edae7",
+      "mtime": 1785094644,
+      "size": 2531
     },
     "governance/roles/README_CTO.md": {
       "sha1": "5f58caa68a6ed627a549ba6dc2cd6086504aecf6",
@@ -332,9 +337,9 @@
       "size": 30423
     },
     "gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx": {
-      "sha1": "d1a4d5679067e7d70972c5356209ad83d78957e5",
-      "mtime": 1775573738,
-      "size": 3878
+      "sha1": "74fe5140f27aa282ec9d286d1b65e9fd5c42192d",
+      "mtime": 1785094641,
+      "size": 3890
     },
     "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": {
       "sha1": "1bc1eac7f121868a77f4375853e4329ff8d78521",

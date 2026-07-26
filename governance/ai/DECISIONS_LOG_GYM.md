@@ -72,3 +72,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : cette route gere a la fois l'identification, les redirections vers `/paiement`, les entrees coach et club, et plusieurs textes corrodes nuisaient a la credibilite du parcours
 - Impact : les libelles critiques du compte, du dashboard coach et du dashboard club redeviennent lisibles sans modifier la structure de reference
 - Sources : `prototype-site/compte.html`, `prototype-site/inscription-club.html`, `governance/USER_STORIES_MVP_GYM.md`, `gym-next/components/account-legacy/AccountLegacyPage.tsx`
+
+## 2026-07-26 - Arbitrage du cycle inscription club
+
+- Decision : finaliser uniquement les libelles de surface de `/inscription-club` sans changer le parcours
+- Pourquoi : la page etait deja fidele a sa structure prototype, il restait surtout des accents et libelles de confort a remettre au propre
+- Impact : la page club gagne en clarte immediate tout en conservant exactement la meme logique de passage vers `/compte?mode=club&connected=1`
+- Sources : `prototype-site/inscription-club.html`, `governance/USER_STORIES_MVP_GYM.md`, `gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx`
