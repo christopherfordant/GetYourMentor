@@ -1,6 +1,6 @@
 # Rapport de supervision Fil Rouge GYM
 
-- Date d'execution : 2026-07-26 21:23:05
+- Date d'execution : 2026-07-26 21:32:13
 - Racine : `C:\Users\cashe\Documents\GetYourMentor`
 
 ## Resultat
@@ -38,6 +38,7 @@ STATUT : CONFORME
 - OK fichier present : `governance/ai/CYCLE_005_PAIEMENT_GYM.md`
 - OK fichier present : `governance/ai/CYCLE_006_TUNNEL_TRANSVERSE_GYM.md`
 - OK fichier present : `governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_008_COMPTE_BIFURCATIONS_GYM.md`
 - OK source referencee : `DOCUMENT_MAITRE_GYM.md`
 - OK source referencee : `Bussiness Plan.pdf`
 - OK source referencee : `GetYourMentor MVP_V1 - Fonctionnalités générales.pdf`
@@ -56,17 +57,14 @@ STATUT : CONFORME
 ## Changements detectes depuis le dernier passage
 
 - Ajoutes :
-  - `governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md`
+  - `governance/ai/CYCLE_008_COMPTE_BIFURCATIONS_GYM.md`
 - Modifies :
   - `governance/README.md`
   - `governance/ai/DECISIONS_LOG_GYM.md`
   - `governance/ai/fil_rouge_state.json`
   - `governance/ai/last_supervision_report.md`
   - `governance/fil_rouge_manifest.json`
-  - `gym-next/app/recherche/page.tsx`
-  - `gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx`
-  - `gym-next/components/home-legacy/AccueilLegacyPage.tsx`
-  - `gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx`
+  - `gym-next/components/account-legacy/AccountLegacyPage.tsx`
 
 ## Alertes
 
