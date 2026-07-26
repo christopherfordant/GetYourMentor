@@ -2301,6 +2301,252 @@ button {
   min-height: calc(100svh - 156px);
 }
 
+/* Mission 1 UI polish: funnel pages only, no business-logic changes */
+.topbar {
+  backdrop-filter: blur(14px);
+}
+
+.hero-backdrop {
+  transform: scale(1.03);
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(8, 12, 20, 0.36) 0%, rgba(8, 12, 20, 0.12) 18%, rgba(8, 12, 20, 0.34) 100%),
+    linear-gradient(90deg, rgba(255, 244, 223, 0.08), rgba(255, 255, 255, 0));
+}
+
+.hero-content {
+  isolation: isolate;
+}
+
+.search-card {
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.search-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 30px 72px rgba(15, 23, 42, 0.24);
+  border-color: rgba(111, 120, 255, 0.28);
+}
+
+.field-input::placeholder,
+.sport-search-field input::placeholder,
+.directory-field input::placeholder {
+  color: #9aa3af;
+}
+
+.sport-page-shell,
+.coach-profile-shell,
+.booking-profile-shell {
+  background:
+    radial-gradient(circle at top left, rgba(111, 120, 255, 0.06), transparent 22%),
+    linear-gradient(180deg, #fbfbf9 0%, #f4f5f7 100%);
+}
+
+.sport-hero {
+  padding: 44px 0 96px;
+}
+
+.sport-search-card {
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.09);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
+}
+
+.sport-search-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 56px rgba(15, 23, 42, 0.12);
+  border-color: rgba(111, 120, 255, 0.3);
+}
+
+.sport-search-field {
+  min-height: 76px;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, #f8f9fb 0%, #f2f4f7 100%);
+}
+
+.sport-kicker {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+.sport-city-card {
+  position: relative;
+  height: 100%;
+  border-radius: 24px;
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+}
+
+.sport-city-card:hover,
+.sport-city-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 54px rgba(15, 23, 42, 0.14);
+}
+
+.sport-city-media {
+  height: 250px;
+}
+
+.sport-city-copy {
+  padding: 18px 18px 20px;
+}
+
+.sport-city-copy p {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sport-city-copy h2 {
+  font-size: 22px;
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.coach-directory-search {
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.directory-chip {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.directory-chip:hover,
+.directory-chip:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  border-color: rgba(111, 120, 255, 0.28);
+}
+
+.coach-result-card {
+  padding: 20px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), #ffffff);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.coach-result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 52px rgba(15, 23, 42, 0.12);
+  border-color: rgba(111, 120, 255, 0.28);
+}
+
+.coach-result-media {
+  border-radius: 22px;
+}
+
+.coach-result-body {
+  gap: 14px;
+}
+
+.coach-day-card {
+  padding: 13px 13px 11px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f8fafc 0%, #f2f5f8 100%);
+}
+
+.coach-result-footer {
+  margin-top: 8px;
+}
+
+.coach-book-button {
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.16);
+}
+
+.coach-directory-map {
+  top: 112px;
+}
+
+.coach-map-panel {
+  min-height: 760px;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+}
+
+.booking-profile-hero {
+  gap: 24px;
+}
+
+.booking-gallery-profile .booking-gallery-main {
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.14);
+}
+
+.booking-score-panel {
+  padding: 16px;
+  gap: 8px;
+  box-shadow: 0 22px 56px rgba(15, 23, 42, 0.1);
+}
+
+.booking-score-display {
+  font-weight: 600;
+}
+
+.booking-score-meta {
+  margin: -2px 0 0;
+  font-size: 13px;
+}
+
+.booking-score-fact {
+  gap: 3px;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #f6f7f9 0%, #f1f3f6 100%);
+}
+
+.booking-profile-lead {
+  padding-bottom: 20px;
+}
+
+.booking-tabs-profile {
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.08);
+}
+
+.booking-tabs-profile .booking-tab {
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease;
+}
+
+.booking-pane-grid {
+  gap: 28px;
+}
+
+.booking-story-card {
+  padding: 30px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.booking-story-card h2,
+.booking-story-card h3 {
+  font-size: 30px;
+}
+
+.booking-story-card p {
+  font-size: 17px;
+  line-height: 1.74;
+}
+
 .booking-profile-top {
   display: flex;
   justify-content: space-between;
