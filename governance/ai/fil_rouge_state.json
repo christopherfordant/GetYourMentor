@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26 22:08:39",
+  "generated_at": "2026-07-26 22:28:41",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -151,20 +151,25 @@
       "mtime": 1785096500,
       "size": 1291
     },
+    "governance/ai/CYCLE_011_QA_PLAYWRIGHT_GYM.md": {
+      "sha1": "111e7d144f062e3ce41de5c67c990066779ec5f5",
+      "mtime": 1785097547,
+      "size": 755
+    },
     "governance/ai/DECISIONS_LOG_GYM.md": {
-      "sha1": "af658fe8d2a6dea389073d338f056b137d4b3f40",
-      "mtime": 1785096497,
-      "size": 6645
+      "sha1": "28739bab3dbe584a613675e9759395b2cd9949c2",
+      "mtime": 1785097551,
+      "size": 7097
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "288f773e0901307b793f7b68d77c32b5cc527888",
-      "mtime": 1785096513,
-      "size": 16279
+      "sha1": "a70bd5edd8d31408a9ada749a08037d2e22f8f2b",
+      "mtime": 1785097601,
+      "size": 16448
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "2dc2309a894b2c63e27bdb585b42c395bbbabb38",
-      "mtime": 1785096513,
-      "size": 3590
+      "sha1": "a00e045580d00b460cbdf47be8a4877be8e4a75b",
+      "mtime": 1785097601,
+      "size": 3536
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
@@ -187,9 +192,9 @@
       "size": 751
     },
     "governance/fil_rouge_manifest.json": {
-      "sha1": "5a1e4754347e19094255d1bf622ebb9ae305f239",
-      "mtime": 1785096498,
-      "size": 3026
+      "sha1": "10bc261f5beed637f70028d5caf39b096c3a2d31",
+      "mtime": 1785097553,
+      "size": 3078
     },
     "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
       "sha1": "b2ae0dda326c8956ec3ebfbe62d5a0026a0b9cfe",
@@ -227,9 +232,9 @@
       "size": 568
     },
     "governance/README.md": {
-      "sha1": "c15aa22b4731671629cdf2c61fd31484be01c55e",
-      "mtime": 1785096496,
-      "size": 2566
+      "sha1": "f298e129df40b3bd2abc90fe1fd6b67875ef5d0b",
+      "mtime": 1785097549,
+      "size": 2601
     },
     "governance/roles/README_CTO.md": {
       "sha1": "5f58caa68a6ed627a549ba6dc2cd6086504aecf6",
