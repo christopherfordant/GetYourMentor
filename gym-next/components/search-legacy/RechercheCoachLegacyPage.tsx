@@ -6,28 +6,29 @@ import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 type RechercheCoachLegacyPageProps = {
   legacyStyles: string;
   sport?: string;
+  city?: string;
 };
 
 const sportDictionary = {
   football: {
     name: "Football",
     search: "Coachs de football",
-    title: "Rserver en ligne un coach de football",
+    title: "Réserver en ligne un coach de football",
   },
   basketball: {
     name: "Basketball",
     search: "Coachs de basketball",
-    title: "Rserver en ligne un coach de basketball",
+    title: "Réserver en ligne un coach de basketball",
   },
   "metiers-de-la-forme": {
-    name: "Mtiers de la forme",
-    search: "Coachs mtiers de la forme",
-    title: "Rserver en ligne un coach mtiers de la forme",
+    name: "Métiers de la forme",
+    search: "Coachs métiers de la forme",
+    title: "Réserver en ligne un coach métiers de la forme",
   },
   "sports-de-combat": {
     name: "Sports de combat",
     search: "Coachs sports de combat",
-    title: "Rserver en ligne un coach de sports de combat",
+    title: "Réserver en ligne un coach de sports de combat",
   },
 } as const;
 
@@ -122,12 +123,14 @@ function RechercheHeader() {
 function RechercheHeroSection({
   title,
   initialQuery,
+  initialCity,
 }: {
   title: string;
   initialQuery: string;
+  initialCity: string;
 }) {
   const [queryValue, setQueryValue] = useState(initialQuery);
-  const [cityValue, setCityValue] = useState("Paris");
+  const [cityValue, setCityValue] = useState(initialCity);
 
   return (
     <section className="sport-hero">
@@ -202,7 +205,7 @@ function RechercheResultsSection({
           <div className="sport-city-media"></div>
           <div className="sport-city-copy">
             <p>Decouvrez nos</p>
-            <h2>Coachs de {sportName} a Paris</h2>
+            <h2>Coachs de {sportName} - Paris</h2>
           </div>
         </article>
 
@@ -223,7 +226,7 @@ function RechercheResultsSection({
           <div className="sport-city-media"></div>
           <div className="sport-city-copy">
             <p>Decouvrez nos</p>
-            <h2>Coachs de {sportName} a Lyon</h2>
+            <h2>Coachs de {sportName} - Lyon</h2>
           </div>
         </article>
 
@@ -244,7 +247,7 @@ function RechercheResultsSection({
           <div className="sport-city-media"></div>
           <div className="sport-city-copy">
             <p>Decouvrez nos</p>
-            <h2>Coachs de {sportName} a Marseille</h2>
+            <h2>Coachs de {sportName} - Marseille</h2>
           </div>
         </article>
 
@@ -326,7 +329,7 @@ function RechercheFooter() {
         <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialite</a>
         <a href={`${nextRoutes.home}#faq-title`}>Mentions legales</a>
       </nav>
-      <small>© 2026 GetYourMentor. Tous droits reserves.</small>
+      <small>&copy; 2026 GetYourMentor. Tous droits reserves.</small>
     </footer>
   );
 }
@@ -334,6 +337,7 @@ function RechercheFooter() {
 export function RechercheCoachLegacyPage({
   legacyStyles,
   sport,
+  city,
 }: RechercheCoachLegacyPageProps) {
   const sportSlug = useMemo(() => {
     if (sport && sport in sportDictionary) {
@@ -344,6 +348,7 @@ export function RechercheCoachLegacyPage({
   }, [sport]);
 
   const currentSport = sportDictionary[sportSlug];
+  const cityValue = city || "Paris";
 
   return (
     <>
@@ -351,7 +356,11 @@ export function RechercheCoachLegacyPage({
       <div className="site-shell sport-page-shell">
         <RechercheHeader />
         <main className="sport-page" data-sport-page data-sport-theme={sportSlug}>
-          <RechercheHeroSection title={currentSport.title} initialQuery={currentSport.search} />
+          <RechercheHeroSection
+            title={currentSport.title}
+            initialQuery={currentSport.search}
+            initialCity={cityValue}
+          />
           <RechercheResultsSection sportSlug={sportSlug} sportName={currentSport.name} />
         </main>
         <RechercheFooter />

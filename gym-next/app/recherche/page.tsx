@@ -15,6 +15,8 @@ export default async function RecherchePage({ searchParams }: RecherchePageProps
 
   const sportParam = params.sport;
   const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
+  const cityParam = params.city;
+  const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
 
-  return <RechercheCoachLegacyPage legacyStyles={legacyStyles} sport={sport} />;
+  return <RechercheCoachLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} />;
 }

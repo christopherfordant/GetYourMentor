@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26 20:50:27",
+  "generated_at": "2026-07-26 21:23:05",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -116,20 +116,40 @@
       "mtime": 1785091628,
       "size": 3924
     },
+    "governance/ai/CYCLE_004_RECAPITULATIF_GYM.md": {
+      "sha1": "fdbb71c358d0fb889c5db0505758a99363ff85a5",
+      "mtime": 1785092572,
+      "size": 3890
+    },
+    "governance/ai/CYCLE_005_PAIEMENT_GYM.md": {
+      "sha1": "931153941e25e7628eedc2bf9c21a21a7b73e61b",
+      "mtime": 1785092731,
+      "size": 3865
+    },
+    "governance/ai/CYCLE_006_TUNNEL_TRANSVERSE_GYM.md": {
+      "sha1": "11560cbdee01f348c841864582fc4c6e122204fc",
+      "mtime": 1785093145,
+      "size": 4336
+    },
+    "governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md": {
+      "sha1": "07efa7d2e9261c98d6eb6ecab7179b28b5a46dec",
+      "mtime": 1785093772,
+      "size": 1416
+    },
     "governance/ai/DECISIONS_LOG_GYM.md": {
-      "sha1": "1f00ba305408dcf6ec1d46ea7bc702e419579a99",
-      "mtime": 1785091630,
-      "size": 2363
+      "sha1": "bbc6af17a542c6712835c2b6a9f3abd02d97ff54",
+      "mtime": 1785093769,
+      "size": 4698
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "bc366807588286e0a13667464eea59892cbbbebe",
-      "mtime": 1785091706,
-      "size": 15084
+      "sha1": "42c3f753dd09609b8aebcab7999731b7d5c5ad49",
+      "mtime": 1785093752,
+      "size": 15593
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "4eb1a1e346370c8e15f33e1dddfd86f9712396c4",
-      "mtime": 1785091706,
-      "size": 2785
+      "sha1": "488e6c9fe3b606f21f7b94ccc7415f0149e7a62f",
+      "mtime": 1785093752,
+      "size": 2997
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
@@ -152,9 +172,9 @@
       "size": 751
     },
     "governance/fil_rouge_manifest.json": {
-      "sha1": "9166d611a46678bf14503e38f70de79d034c4bd3",
-      "mtime": 1785091633,
-      "size": 2656
+      "sha1": "e59916fae77266d58a76d53b1cd3ee192bb1cf68",
+      "mtime": 1785093770,
+      "size": 2861
     },
     "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
       "sha1": "b2ae0dda326c8956ec3ebfbe62d5a0026a0b9cfe",
@@ -192,9 +212,9 @@
       "size": 568
     },
     "governance/README.md": {
-      "sha1": "92d3d9e2a51b263d277aedcbd80d3749d43e9ecf",
-      "mtime": 1785091632,
-      "size": 2315
+      "sha1": "717873894254ca563da12cfe40246b5442abfcab",
+      "mtime": 1785093767,
+      "size": 2452
     },
     "governance/roles/README_CTO.md": {
       "sha1": "5f58caa68a6ed627a549ba6dc2cd6086504aecf6",
@@ -292,9 +312,9 @@
       "size": 886
     },
     "gym-next/app/recherche/page.tsx": {
-      "sha1": "d90d311a93ecab72efcc67aa6abb559c31753e85",
-      "mtime": 1775162249,
-      "size": 784
+      "sha1": "298a7ebb0aa4555a230ecc385ea6bcacd80556b8",
+      "mtime": 1785093763,
+      "size": 897
     },
     "gym-next/components/account-legacy/AccountLegacyPage.tsx": {
       "sha1": "cb49d391620c8508842edc05f7ac78610edd560d",
@@ -302,9 +322,9 @@
       "size": 27296
     },
     "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": {
-      "sha1": "12a58c024ff5e3952592af608aaef9f58eff4e6f",
-      "mtime": 1785065654,
-      "size": 30424
+      "sha1": "77399036f645e587a40c39042f168a2842e09b30",
+      "mtime": 1785093143,
+      "size": 30423
     },
     "gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx": {
       "sha1": "d1a4d5679067e7d70972c5356209ad83d78957e5",
@@ -312,9 +332,9 @@
       "size": 3878
     },
     "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": {
-      "sha1": "a0320884d381db701e1060adc74ec545fca5c43e",
-      "mtime": 1776070390,
-      "size": 14054
+      "sha1": "1bc1eac7f121868a77f4375853e4329ff8d78521",
+      "mtime": 1785093765,
+      "size": 14096
     },
     "gym-next/components/home/home-data.ts": {
       "sha1": "c2f5f77b36d8932319a343f18c838088f34ee0e2",
@@ -332,9 +352,9 @@
       "size": 15519
     },
     "gym-next/components/home-legacy/AccueilLegacyPage.tsx": {
-      "sha1": "1cdd446dc4eeda86f75569ce3c3f60eea67b5eaa",
-      "mtime": 1785082736,
-      "size": 31758
+      "sha1": "19899b4ec3497d862d54a189bd970d4440bf653c",
+      "mtime": 1785093761,
+      "size": 31632
     },
     "gym-next/components/InternalNavigationEnhancer.tsx": {
       "sha1": "af5f8f7fb5f313d681472e1e5cff80fa8bf94146",
@@ -342,9 +362,9 @@
       "size": 1326
     },
     "gym-next/components/payment-legacy/PaiementLegacyPage.tsx": {
-      "sha1": "60b4bd22e11bbc578a1bae1e5d7a90b3d7691069",
-      "mtime": 1785065827,
-      "size": 9474
+      "sha1": "d412201640fa7f475622e76dc24a6117f3832fb7",
+      "mtime": 1785092729,
+      "size": 9478
     },
     "gym-next/components/reservation-legacy/ChoixCoachCreneauLegacyPage.tsx": {
       "sha1": "df296682b8e04c1e3822ea82ffed23d0fd5ea219",
@@ -352,14 +372,14 @@
       "size": 11363
     },
     "gym-next/components/reservation-legacy/RecapitulatifReservationLegacyPage.tsx": {
-      "sha1": "5eda8627344b1092d5a831b34103d76c3ad1d69f",
-      "mtime": 1785065656,
+      "sha1": "0d78af559390411464af8ff50cb646cafdeff4b0",
+      "mtime": 1785092569,
       "size": 8484
     },
     "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx": {
-      "sha1": "da711f6dded3256fda26d8c3d026e7ca976fe10c",
-      "mtime": 1785065825,
-      "size": 11274
+      "sha1": "71c0a167c4ee022a854e7735c4ea5aad0e7dfa52",
+      "mtime": 1785093759,
+      "size": 11448
     },
     "gym-next/lib/migration-pages.ts": {
       "sha1": "d3bd1627b9c365651f18ec4b6a45949a941ea3e6",

@@ -21,9 +21,9 @@ type CoachEntry = {
 const directoryDictionary = {
   football: {
     name: "Football",
-    chips: ["Coach individuel", "Prparation match", "Centre indoor"],
-    getTitle: () => "Slectionnez un coach de football",
-    getSubtitle: (city: string) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
+    chips: ["Coach individuel", "Préparation match", "Centre indoor"],
+    getTitle: () => "Sélectionnez un coach de football",
+    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
         name: "Thomas Dubois",
@@ -45,14 +45,14 @@ const directoryDictionary = {
   },
   basketball: {
     name: "Basketball",
-    chips: ["Shooting", "Dfense", "Condition physique"],
-    getTitle: () => "Slectionnez un coach de basketball",
-    getSubtitle: (city: string) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
+    chips: ["Shooting", "Défense", "Condition physique"],
+    getTitle: () => "Sélectionnez un coach de basketball",
+    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
         name: "Sarah Benali",
         address: `12 Rue des Arceaux, ${city}`,
-        meta: "5.0 (21 avis)  Shooting / Dfense / U18",
+        meta: "5.0 (21 avis)  Shooting / Défense / U18",
         morning: ["Jeu. 26"],
         afternoon: ["Sam. 28"],
         cta: "Prendre RDV",
@@ -60,7 +60,7 @@ const directoryDictionary = {
       {
         name: "Nolan Vasseur",
         address: `18 Quai Central, ${city}`,
-        meta: "4.7 (12 avis)  Junior / Pro / Analyse vido",
+        meta: "4.7 (12 avis)  Junior / Pro / Analyse vidéo",
         morning: ["Ven. 27"],
         afternoon: ["Lun. 30"],
         cta: "Voir le coach",
@@ -68,11 +68,11 @@ const directoryDictionary = {
     ],
   },
   "metiers-de-la-forme": {
-    name: "Mtiers de la forme",
+    name: "Métiers de la forme",
     chips: ["Coach individuel", "Salle premium", "Programme forme"],
-    getTitle: () => "Slectionnez un coach de la forme",
+    getTitle: () => "Sélectionnez un coach de la forme",
     getSubtitle: (city: string) =>
-      `Les meilleurs coachs et studios aux alentours de ${city} : rservation en ligne`,
+      `Les meilleurs coachs et studios aux alentours de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
         name: "Studio Form Marseille",
@@ -84,7 +84,7 @@ const directoryDictionary = {
       },
       {
         name: "Kenza Training Club",
-        address: `7 Rue de la Rpublique, ${city}`,
+        address: `7 Rue de la République, ${city}`,
         meta: "4.9 (189 avis)  Club / Transformation",
         morning: ["Ven. 27"],
         afternoon: ["Sam. 28"],
@@ -93,7 +93,7 @@ const directoryDictionary = {
       {
         name: "Pulse Mobility",
         address: `22 Place du Centre, ${city}`,
-        meta: "4.8 (41 avis)  Visio / Mobilit",
+        meta: "4.8 (41 avis)  Visio / Mobilité",
         morning: ["Lun. 30"],
         afternoon: ["Mar. 31"],
         cta: "Voir le coach",
@@ -102,14 +102,14 @@ const directoryDictionary = {
   },
   "sports-de-combat": {
     name: "Sports de combat",
-    chips: ["Boxe", "MMA", "Self-dfense"],
-    getTitle: () => "Slectionnez un coach de sports de combat",
-    getSubtitle: (city: string) => `Les meilleurs coachs  proximit de ${city} : rservation en ligne`,
+    chips: ["Boxe", "MMA", "Self-défense"],
+    getTitle: () => "Sélectionnez un coach de sports de combat",
+    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
         name: "Ines Caron Fight Club",
         address: `4 Boulevard Arena, ${city}`,
-        meta: "4.9 (26 avis)  Boxe / Self-dfense / Dbuta",
+        meta: "4.9 (26 avis)  Boxe / Self-défense / Débuta",
         morning: ["Jeu. 26"],
         afternoon: ["Ven. 27"],
         cta: "Prendre RDV",
@@ -117,7 +117,7 @@ const directoryDictionary = {
       {
         name: "Combat Lab",
         address: `14 Rue des Champions, ${city}`,
-        meta: "4.8 (17 avis)  MMA / Cardio boxing / Confirm",
+        meta: "4.8 (17 avis)  MMA / Cardio boxing / Confirmé",
         morning: ["Sam. 28"],
         afternoon: ["Lun. 30"],
         cta: "Voir le coach",

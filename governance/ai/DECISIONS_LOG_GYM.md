@@ -58,3 +58,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la story `US-SPORTIF-05` exige un vrai choix de creneau avant le recapitulatif
 - Impact : le tunnel MVP de reference est maintenant ferme et ordonne de bout en bout
 - Sources : `governance/USER_STORIES_MVP_GYM.md`, `governance/TRACEABILITY_MATRIX_GYM.md`, `gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx`
+
+## 2026-07-26 - Arbitrage du cycle haut de funnel
+
+- Decision : imposer le passage `/ -> /recherche -> /coachs -> /coach` lorsque l'utilisateur part de la home
+- Pourquoi : la home ne doit pas court-circuiter l'etape de recherche, qui fait partie de la comprehension du catalogue et de la logique metier MVP
+- Impact : la recherche depuis l'accueil envoie desormais vers `/recherche` avec les parametres utiles, et les pages de recherche / annuaire retrouvent des libelles lisibles
+- Sources : `governance/USER_STORIES_MVP_GYM.md`, `governance/TRACEABILITY_MATRIX_GYM.md`, `gym-next/components/home-legacy/AccueilLegacyPage.tsx`, `gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx`, `gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx`
