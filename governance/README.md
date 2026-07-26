@@ -51,6 +51,7 @@ Le dossier `ai/` contient aussi la memoire locale de production :
 - `CYCLE_005_PAIEMENT_GYM.md`
 - `CYCLE_006_TUNNEL_TRANSVERSE_GYM.md`
 - `CYCLE_007_HAUT_FUNNEL_GYM.md`
+- `CYCLE_008_COMPTE_BIFURCATIONS_GYM.md`
 
 Ces fichiers servent de RAG local humain pour conserver l'ordre des phases, les decisions, les priorites et le contexte persistant entre les conversations.
 

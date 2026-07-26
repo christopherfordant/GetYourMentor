@@ -65,3 +65,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la home ne doit pas court-circuiter l'etape de recherche, qui fait partie de la comprehension du catalogue et de la logique metier MVP
 - Impact : la recherche depuis l'accueil envoie desormais vers `/recherche` avec les parametres utiles, et les pages de recherche / annuaire retrouvent des libelles lisibles
 - Sources : `governance/USER_STORIES_MVP_GYM.md`, `governance/TRACEABILITY_MATRIX_GYM.md`, `gym-next/components/home-legacy/AccueilLegacyPage.tsx`, `gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx`, `gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx`
+
+## 2026-07-26 - Arbitrage du cycle compte et bifurcations
+
+- Decision : stabiliser la page `/compte` avant toute nouvelle extension de dashboard
+- Pourquoi : cette route gere a la fois l'identification, les redirections vers `/paiement`, les entrees coach et club, et plusieurs textes corrodes nuisaient a la credibilite du parcours
+- Impact : les libelles critiques du compte, du dashboard coach et du dashboard club redeviennent lisibles sans modifier la structure de reference
+- Sources : `prototype-site/compte.html`, `prototype-site/inscription-club.html`, `governance/USER_STORIES_MVP_GYM.md`, `gym-next/components/account-legacy/AccountLegacyPage.tsx`
