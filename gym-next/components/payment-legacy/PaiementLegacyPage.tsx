@@ -141,7 +141,7 @@ function PaymentSide({
   success: boolean;
   onSubmit: () => void;
 }) {
-  const summaryDuration = [duration, format, objective, packageLabel].filter(Boolean).join("  ");
+  const summaryDuration = [duration, format, objective, packageLabel].filter(Boolean).join(" • ");
 
   return (
     <aside className="payment-side">
@@ -162,7 +162,7 @@ function PaymentSide({
         </div>
         <div className="payment-summary-line">
           <span>Date</span>
-          <strong>{`Vendredi 27 mars 2026  ${slot}`}</strong>
+          <strong>{`Vendredi 27 mars 2026 a ${slot}`}</strong>
         </div>
         <div className="payment-summary-line">
           <span>Coach retenu</span>
