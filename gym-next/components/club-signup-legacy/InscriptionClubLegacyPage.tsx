@@ -38,7 +38,7 @@ function ClubSignupHeader() {
 
 function ClubSignupVisual() {
   return (
-    <section className="club-signup-visual" aria-label="Identite GYM">
+    <section className="club-signup-visual" aria-label="Identité GYM">
       <div className="club-signup-logo-frame">
         <img src="/design_assets/logo-getyourmentor-signup.png" alt="Logo GYM GetYourMentor" />
       </div>
@@ -67,19 +67,19 @@ function ClubSignupForm() {
           </label>
 
           <label className="auth-field">
-            <span>Numero de telephone</span>
-            <input type="tel" placeholder="Numero de telephone" />
+            <span>Numéro de téléphone</span>
+            <input type="tel" placeholder="Numéro de téléphone" />
           </label>
         </div>
 
         <label className="auth-field club-signup-upload">
           <span>Logo du club / structure</span>
-          <div className="club-signup-dropzone">Deposez un fichier</div>
+          <div className="club-signup-dropzone">Déposez un fichier</div>
         </label>
 
         <label className="auth-field club-signup-upload">
-          <span>Piece d&apos;identite</span>
-          <div className="club-signup-dropzone">Fournir un document telechargeable</div>
+          <span>Pièce d&apos;identité</span>
+          <div className="club-signup-dropzone">Fournir un document téléchargeable</div>
         </label>
 
         <label className="auth-field">
