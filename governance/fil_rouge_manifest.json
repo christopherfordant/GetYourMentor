@@ -1,0 +1,94 @@
+{
+  "generated_from": "DOCUMENT_MAITRE_GYM.md",
+  "source_priority": [
+    "DOCUMENT_MAITRE_GYM.md",
+    "Bussiness Plan.pdf",
+    "GetYourMentor MVP_V1 - Fonctionnalités générales.pdf",
+    "Copie de Devis DEV - GetYourMentor.pdf",
+    "MVP_ECRANS_GYM.md",
+    "ARCHITECTURE_MEMOIRE_GYM.md"
+  ],
+  "source_socle": [
+    "DESIGN_SYSTEM_GYM.md",
+    "MIGRATION_NEXT_GYM.md",
+    "RESPONSIVE_LAYOUT_GYM.md",
+    "CARTOGRAPHIE_GLOBALE_GYM.md",
+    "SOURCES_PRIORITAIRES_2026_03_19.md",
+    "project_readable/INDEX.md"
+  ],
+  "required_files": [
+    "governance/README.md",
+    "governance/FIL_ROUGE_OPERATOIRE_GYM.md",
+    "governance/USER_STORIES_MVP_GYM.md",
+    "governance/TRACEABILITY_MATRIX_GYM.md",
+    "governance/roles/README_CTO.md",
+    "governance/roles/README_DESIGN.md",
+    "governance/roles/README_PRODUCT.md",
+    "governance/roles/README_DEVOPS.md",
+    "governance/roles/README_QA.md",
+    "governance/roles/README_SEO.md",
+    "governance/prompts/PROMPT_CTO_GYM.md",
+    "governance/prompts/PROMPT_DESIGN_GYM.md",
+    "governance/prompts/PROMPT_PRODUCT_GYM.md",
+    "governance/prompts/PROMPT_DEVOPS_GYM.md",
+    "governance/prompts/PROMPT_QA_GYM.md",
+    "governance/prompts/PROMPT_SEO_GYM.md",
+    "governance/ai/ARCHITECTURE_IA_RAG_GYM.md",
+    "governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md",
+    "governance/ai/PHASES_EXECUTION_GYM.md",
+    "governance/ai/CONTEXT_RAG_GYM.md",
+    "governance/ai/DECISIONS_LOG_GYM.md",
+    "governance/ai/CYCLE_001_ORCHESTRATION_GYM.md",
+    "governance/ai/MVP_ROUTE_CONTROL_GYM.md",
+    "governance/ai/CYCLE_002_FICHE_COACH_GYM.md",
+    "governance/ai/CYCLE_003_CRENEAU_GYM.md"
+  ],
+  "role_files": [
+    "governance/roles/README_CTO.md",
+    "governance/roles/README_DESIGN.md",
+    "governance/roles/README_PRODUCT.md",
+    "governance/roles/README_DEVOPS.md",
+    "governance/roles/README_QA.md",
+    "governance/roles/README_SEO.md"
+  ],
+  "user_story_files": [
+    "governance/USER_STORIES_MVP_GYM.md",
+    "governance/TRACEABILITY_MATRIX_GYM.md"
+  ],
+  "sensitive_paths": [
+    "gym-next/app",
+    "gym-next/components",
+    "gym-next/lib",
+    "prototype-site",
+    "docs/prototype-site",
+    "governance"
+  ],
+  "watch_extensions": [
+    ".ts",
+    ".tsx",
+    ".js",
+    ".jsx",
+    ".css",
+    ".html",
+    ".md",
+    ".json",
+    ".sql"
+  ],
+  "governance_paths": [
+    "governance"
+  ],
+  "required_terms": [
+    "document maitre",
+    "fil rouge",
+    "MVP",
+    "reservation"
+  ],
+  "mojibake_markers": [
+    "r?serv",
+    "cr?neau",
+    "S?ances",
+    "D?couvrez"
+  ],
+  "report_path": "governance/ai/last_supervision_report.md",
+  "state_path": "governance/ai/fil_rouge_state.json"
+}
