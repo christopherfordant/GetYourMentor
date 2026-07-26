@@ -93,3 +93,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : l'automatisation ne doit pas continuer a verifier un comportement obsolete contredit par le cycle 007
 - Impact : les tests de parcours critique suivent maintenant le passage `/ -> /recherche -> /coachs`
 - Sources : `governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md`, `gym-next/tests/business-flow.spec.ts`
+
+## 2026-07-26 - Arbitrage du cycle audit visuel Playwright
+
+- Decision : valider visuellement en desktop et mobile les routes critiques deja migrees sans ouvrir de refonte supplementaire
+- Pourquoi : il fallait confirmer que les pages-clés restent lisibles et chargeables apres les cycles de stabilisation metier et de shell Next
+- Impact : l'audit visuel Playwright passe sur 14 verifications et les captures locales peuvent servir de base de comparaison pour les prochains cycles UI
+- Sources : `gym-next/tests/visual-audit.spec.ts`, `gym-next/scripts/run-playwright-audit.cjs`, `gym-next/playwright-artifacts/`
