@@ -102,9 +102,7 @@ function ReservationMainHeader({
     <section className="reservation-header">
       <h1 data-multi-name>{coach}</h1>
       <div className="reservation-address" data-multi-address>{`10 Rue du Sport, ${city}`}</div>
-      <div className="reservation-meta" data-multi-meta>
-        4.9 (423 avis)  Coaching premium
-      </div>
+      <div className="reservation-meta" data-multi-meta>4.9 (423 avis) • Coaching premium</div>
     </section>
   );
 }
@@ -115,12 +113,14 @@ function ReservationSelectedStep({
   selectedMentor,
   onMentorChange,
   onBackToCoach,
+  backToCoachHref,
 }: {
   service: string;
   serviceMeta: string;
   selectedMentor: string;
   onMentorChange: (mentor: string) => void;
   onBackToCoach: () => void;
+  backToCoachHref: string;
 }) {
   return (
     <section className="reservation-step">
@@ -135,7 +135,7 @@ function ReservationSelectedStep({
           </div>
           <a
             className="reservation-remove"
-            href={nextRoutes.coach}
+            href={backToCoachHref}
             data-multi-remove
             onClick={(event) => {
               event.preventDefault();
@@ -322,6 +322,7 @@ export function ChoixCoachCreneauLegacyPage({
             serviceMeta={serviceMeta}
             selectedMentor={selectedMentor}
             onMentorChange={setSelectedMentor}
+            backToCoachHref={backToCoachHref}
             onBackToCoach={() => {
               window.location.href = backToCoachHref;
             }}

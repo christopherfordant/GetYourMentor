@@ -1,0 +1,465 @@
+{
+  "generated_at": "2026-07-26 20:50:27",
+  "files": {
+    "docs/prototype-site/accueil.html": {
+      "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
+      "mtime": 1775148459,
+      "size": 26318
+    },
+    "docs/prototype-site/app.js": {
+      "sha1": "771e54eec95a96fd5a283d67abd75c3beeed36bf",
+      "mtime": 1775150480,
+      "size": 69915
+    },
+    "docs/prototype-site/choix-coach-creneau.html": {
+      "sha1": "f372eef778273db3f8eb6aaa10c48f67b9278946",
+      "mtime": 1775148459,
+      "size": 4981
+    },
+    "docs/prototype-site/coach-profil.html": {
+      "sha1": "3ee0cb747a10484da78a81c4faa8299bc2fdb919",
+      "mtime": 1775148459,
+      "size": 370
+    },
+    "docs/prototype-site/compte.html": {
+      "sha1": "be2e65cf00208b4d8d6418a2953468a13e211a4e",
+      "mtime": 1775148459,
+      "size": 29960
+    },
+    "docs/prototype-site/devenir-partenaire.html": {
+      "sha1": "1a5cea29077afdb26c5af05437e26f1eac0353b3",
+      "mtime": 1775148459,
+      "size": 4202
+    },
+    "docs/prototype-site/index.html": {
+      "sha1": "7fa80bf878876e8d4d3b7d350307a5445da71397",
+      "mtime": 1775148459,
+      "size": 293
+    },
+    "docs/prototype-site/inscription-club.html": {
+      "sha1": "b3b85793574137053ef423e4d81d6ab55af78d6b",
+      "mtime": 1775148459,
+      "size": 4071
+    },
+    "docs/prototype-site/mon-compte.html": {
+      "sha1": "b0a82fc37fa0d3e7ed9ab13500ed3f498ec725c2",
+      "mtime": 1775148459,
+      "size": 291
+    },
+    "docs/prototype-site/paiement.html": {
+      "sha1": "1b64ab0e35e681c6e41a5ee633cc50ffb9000387",
+      "mtime": 1775148459,
+      "size": 7677
+    },
+    "docs/prototype-site/recapitulatif-reservation.html": {
+      "sha1": "4db5c886932567cf60ddca12a25ff5c66fdce258",
+      "mtime": 1775148459,
+      "size": 4617
+    },
+    "docs/prototype-site/recherche-coachs.html": {
+      "sha1": "e35b86d68b9b6e51b0f8367e931a4e6295fa470d",
+      "mtime": 1775148459,
+      "size": 5577
+    },
+    "docs/prototype-site/rendez-vous.html": {
+      "sha1": "ab7353b14f38beea387c3498001cd0da9c9ce86e",
+      "mtime": 1775148459,
+      "size": 368
+    },
+    "docs/prototype-site/reservation-recapitulatif.html": {
+      "sha1": "e0f8274886c6d1ca3c8a343c302ae04fe5b5d283",
+      "mtime": 1775148459,
+      "size": 388
+    },
+    "docs/prototype-site/reserver-seance.html": {
+      "sha1": "e9686df7cfdf9baa1532c05a764e30592b9030e9",
+      "mtime": 1775148459,
+      "size": 15864
+    },
+    "docs/prototype-site/selection-coachs.html": {
+      "sha1": "da7c458ab78de4d9897803cc60652176a41f357c",
+      "mtime": 1775148459,
+      "size": 5485
+    },
+    "docs/prototype-site/sport.html": {
+      "sha1": "101f110f549d17c4435d489159a3e1c8b741e474",
+      "mtime": 1775148459,
+      "size": 370
+    },
+    "docs/prototype-site/styles.css": {
+      "sha1": "7ae3e09f0afcdf6940dc75d69f4871c206bce173",
+      "mtime": 1775152932,
+      "size": 109468
+    },
+    "governance/ai/ARCHITECTURE_IA_RAG_GYM.md": {
+      "sha1": "c8f42363d06ce9c007c2dfdaf67cdbda641a2377",
+      "mtime": 1785058461,
+      "size": 3947
+    },
+    "governance/ai/CONTEXT_RAG_GYM.md": {
+      "sha1": "5330ee564224646f49fbbc9ebc5bc1c7b283f140",
+      "mtime": 1785090339,
+      "size": 2643
+    },
+    "governance/ai/CYCLE_001_ORCHESTRATION_GYM.md": {
+      "sha1": "874224493f51de28b13145c36f70594a230eda11",
+      "mtime": 1785090342,
+      "size": 4732
+    },
+    "governance/ai/CYCLE_002_FICHE_COACH_GYM.md": {
+      "sha1": "92f26928956c62b58880be6ffa8009f44c42365f",
+      "mtime": 1785090956,
+      "size": 4730
+    },
+    "governance/ai/CYCLE_003_CRENEAU_GYM.md": {
+      "sha1": "8edcbe5404582c683cf68adba2a5496f04de352c",
+      "mtime": 1785091628,
+      "size": 3924
+    },
+    "governance/ai/DECISIONS_LOG_GYM.md": {
+      "sha1": "1f00ba305408dcf6ec1d46ea7bc702e419579a99",
+      "mtime": 1785091630,
+      "size": 2363
+    },
+    "governance/ai/fil_rouge_state.json": {
+      "sha1": "bc366807588286e0a13667464eea59892cbbbebe",
+      "mtime": 1785091706,
+      "size": 15084
+    },
+    "governance/ai/last_supervision_report.md": {
+      "sha1": "4eb1a1e346370c8e15f33e1dddfd86f9712396c4",
+      "mtime": 1785091706,
+      "size": 2785
+    },
+    "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
+      "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
+      "mtime": 1785090387,
+      "size": 2883
+    },
+    "governance/ai/PHASES_EXECUTION_GYM.md": {
+      "sha1": "fab7d931f6ac4d3116de69daa74effdd981036bd",
+      "mtime": 1785090336,
+      "size": 2139
+    },
+    "governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md": {
+      "sha1": "a7cdaff376a0b7610dda65af42701052e2c3f97c",
+      "mtime": 1785059641,
+      "size": 1320
+    },
+    "governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md": {
+      "sha1": "e544b4c6ddf4769dfae09adfb0161e38f12c6c54",
+      "mtime": 1785058463,
+      "size": 751
+    },
+    "governance/fil_rouge_manifest.json": {
+      "sha1": "9166d611a46678bf14503e38f70de79d034c4bd3",
+      "mtime": 1785091633,
+      "size": 2656
+    },
+    "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
+      "sha1": "b2ae0dda326c8956ec3ebfbe62d5a0026a0b9cfe",
+      "mtime": 1785058438,
+      "size": 1456
+    },
+    "governance/prompts/PROMPT_CTO_GYM.md": {
+      "sha1": "fa3dcce8c5caea444171044a121c98985a8b2519",
+      "mtime": 1785058451,
+      "size": 647
+    },
+    "governance/prompts/PROMPT_DESIGN_GYM.md": {
+      "sha1": "883d6d741a47380250654ab9e2a9e606ec65b25a",
+      "mtime": 1785058453,
+      "size": 549
+    },
+    "governance/prompts/PROMPT_DEVOPS_GYM.md": {
+      "sha1": "5d628b6e8e2a1d4a51193c536c40a4fb7c5eb291",
+      "mtime": 1785058456,
+      "size": 510
+    },
+    "governance/prompts/PROMPT_PRODUCT_GYM.md": {
+      "sha1": "9fbc43de068ad968e8d53f7b533dbae2a3ff6f7f",
+      "mtime": 1785058454,
+      "size": 521
+    },
+    "governance/prompts/PROMPT_QA_GYM.md": {
+      "sha1": "d918068f193c25b316c603757a47387d27622745",
+      "mtime": 1785058457,
+      "size": 572
+    },
+    "governance/prompts/PROMPT_SEO_GYM.md": {
+      "sha1": "143be78bdf2889ed4a1985f9cdf06580f3b34892",
+      "mtime": 1785058459,
+      "size": 568
+    },
+    "governance/README.md": {
+      "sha1": "92d3d9e2a51b263d277aedcbd80d3749d43e9ecf",
+      "mtime": 1785091632,
+      "size": 2315
+    },
+    "governance/roles/README_CTO.md": {
+      "sha1": "5f58caa68a6ed627a549ba6dc2cd6086504aecf6",
+      "mtime": 1785058501,
+      "size": 1295
+    },
+    "governance/roles/README_DESIGN.md": {
+      "sha1": "2ed77e67bed205d20e7b3225cdc69f2d066adb19",
+      "mtime": 1785058503,
+      "size": 1153
+    },
+    "governance/roles/README_DEVOPS.md": {
+      "sha1": "10ebb6b8aea05296e6fbf9387513680468e7be25",
+      "mtime": 1785058506,
+      "size": 1175
+    },
+    "governance/roles/README_PRODUCT.md": {
+      "sha1": "243630f4cc8a3780c75b6173e38691cf43a15c28",
+      "mtime": 1785058504,
+      "size": 1113
+    },
+    "governance/roles/README_QA.md": {
+      "sha1": "511300bd7425d7a10601c34eeb1295e97894e381",
+      "mtime": 1785058507,
+      "size": 1016
+    },
+    "governance/roles/README_SEO.md": {
+      "sha1": "983c2fae304401af7a18c96a3046b5304f89b29b",
+      "mtime": 1785058509,
+      "size": 1072
+    },
+    "governance/TRACEABILITY_MATRIX_GYM.md": {
+      "sha1": "bfda0186fbfe47f94aa2b876fa744057041cd55c",
+      "mtime": 1785089316,
+      "size": 2106
+    },
+    "governance/USER_STORIES_MVP_GYM.md": {
+      "sha1": "5a4451257c339c232ff3e7302188bc4405304bf4",
+      "mtime": 1785089315,
+      "size": 2911
+    },
+    "gym-next/app/coach/page.tsx": {
+      "sha1": "911f31c37069975e545e4a4e900116e19c747d19",
+      "mtime": 1775163750,
+      "size": 828
+    },
+    "gym-next/app/coachs/page.tsx": {
+      "sha1": "5472c53198fe34359a1dd3404760f61b26a7ab8b",
+      "mtime": 1775162984,
+      "size": 895
+    },
+    "gym-next/app/compte/page.tsx": {
+      "sha1": "4a7945807036e935d3c1a1f9c51c7fb6a00d63bf",
+      "mtime": 1775573001,
+      "size": 810
+    },
+    "gym-next/app/creneau/page.tsx": {
+      "sha1": "c0b1237e26097c21ad2fe70b5f0c7923c0d08684",
+      "mtime": 1776070390,
+      "size": 847
+    },
+    "gym-next/app/globals.css": {
+      "sha1": "d78e73d5bbb2761e6ad2b63cce30d43d0ef148c1",
+      "mtime": 1775159348,
+      "size": 523
+    },
+    "gym-next/app/inscription-club/page.tsx": {
+      "sha1": "2f4ccfa385e6044939449cf101a1ee8c739ff2e6",
+      "mtime": 1775573492,
+      "size": 865
+    },
+    "gym-next/app/layout.tsx": {
+      "sha1": "e92c7b941e09b0987a89ecce34d1d2c3a8861dcd",
+      "mtime": 1776070177,
+      "size": 727
+    },
+    "gym-next/app/legacy-prototype.css": {
+      "sha1": "3bf3d5cdd99545dc7632325edcf16416ded40df3",
+      "mtime": 1776068179,
+      "size": 109620
+    },
+    "gym-next/app/page.tsx": {
+      "sha1": "04ddf8c76bcffcb2c13184527363681a7b2460e8",
+      "mtime": 1775161315,
+      "size": 451
+    },
+    "gym-next/app/paiement/page.tsx": {
+      "sha1": "b67e410400052100c469a20cbdb7a87aebf44990",
+      "mtime": 1775573492,
+      "size": 819
+    },
+    "gym-next/app/recapitulatif/page.tsx": {
+      "sha1": "fa36b09e85dde9b8360fa81b9639e1d0b2ea0f0f",
+      "mtime": 1775570576,
+      "size": 886
+    },
+    "gym-next/app/recherche/page.tsx": {
+      "sha1": "d90d311a93ecab72efcc67aa6abb559c31753e85",
+      "mtime": 1775162249,
+      "size": 784
+    },
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": {
+      "sha1": "cb49d391620c8508842edc05f7ac78610edd560d",
+      "mtime": 1785083408,
+      "size": 27296
+    },
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": {
+      "sha1": "12a58c024ff5e3952592af608aaef9f58eff4e6f",
+      "mtime": 1785065654,
+      "size": 30424
+    },
+    "gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx": {
+      "sha1": "d1a4d5679067e7d70972c5356209ad83d78957e5",
+      "mtime": 1775573738,
+      "size": 3878
+    },
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": {
+      "sha1": "a0320884d381db701e1060adc74ec545fca5c43e",
+      "mtime": 1776070390,
+      "size": 14054
+    },
+    "gym-next/components/home/home-data.ts": {
+      "sha1": "c2f5f77b36d8932319a343f18c838088f34ee0e2",
+      "mtime": 1785065463,
+      "size": 5790
+    },
+    "gym-next/components/home/home.module.css": {
+      "sha1": "8d08aee89f61016fe8242e37b78a53c96e98368c",
+      "mtime": 1775159320,
+      "size": 12005
+    },
+    "gym-next/components/home/HomePageClient.tsx": {
+      "sha1": "718bec6e1f3a93cd58df86973fc563d0c0cc1384",
+      "mtime": 1785065465,
+      "size": 15519
+    },
+    "gym-next/components/home-legacy/AccueilLegacyPage.tsx": {
+      "sha1": "1cdd446dc4eeda86f75569ce3c3f60eea67b5eaa",
+      "mtime": 1785082736,
+      "size": 31758
+    },
+    "gym-next/components/InternalNavigationEnhancer.tsx": {
+      "sha1": "af5f8f7fb5f313d681472e1e5cff80fa8bf94146",
+      "mtime": 1776068102,
+      "size": 1326
+    },
+    "gym-next/components/payment-legacy/PaiementLegacyPage.tsx": {
+      "sha1": "60b4bd22e11bbc578a1bae1e5d7a90b3d7691069",
+      "mtime": 1785065827,
+      "size": 9474
+    },
+    "gym-next/components/reservation-legacy/ChoixCoachCreneauLegacyPage.tsx": {
+      "sha1": "df296682b8e04c1e3822ea82ffed23d0fd5ea219",
+      "mtime": 1785091626,
+      "size": 11363
+    },
+    "gym-next/components/reservation-legacy/RecapitulatifReservationLegacyPage.tsx": {
+      "sha1": "5eda8627344b1092d5a831b34103d76c3ad1d69f",
+      "mtime": 1785065656,
+      "size": 8484
+    },
+    "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx": {
+      "sha1": "da711f6dded3256fda26d8c3d026e7ca976fe10c",
+      "mtime": 1785065825,
+      "size": 11274
+    },
+    "gym-next/lib/migration-pages.ts": {
+      "sha1": "d3bd1627b9c365651f18ec4b6a45949a941ea3e6",
+      "mtime": 1785065426,
+      "size": 1602
+    },
+    "gym-next/lib/next-routes.ts": {
+      "sha1": "f6c35610844299ee9c423aa2c0c158d35748aef6",
+      "mtime": 1785065423,
+      "size": 657
+    },
+    "prototype-site/accueil.html": {
+      "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
+      "mtime": 1775148459,
+      "size": 26318
+    },
+    "prototype-site/app.js": {
+      "sha1": "771e54eec95a96fd5a283d67abd75c3beeed36bf",
+      "mtime": 1775150480,
+      "size": 69915
+    },
+    "prototype-site/choix-coach-creneau.html": {
+      "sha1": "f372eef778273db3f8eb6aaa10c48f67b9278946",
+      "mtime": 1775148459,
+      "size": 4981
+    },
+    "prototype-site/coach-profil.html": {
+      "sha1": "3ee0cb747a10484da78a81c4faa8299bc2fdb919",
+      "mtime": 1775148459,
+      "size": 370
+    },
+    "prototype-site/compte.html": {
+      "sha1": "be2e65cf00208b4d8d6418a2953468a13e211a4e",
+      "mtime": 1775148459,
+      "size": 29960
+    },
+    "prototype-site/devenir-partenaire.html": {
+      "sha1": "1a5cea29077afdb26c5af05437e26f1eac0353b3",
+      "mtime": 1775148459,
+      "size": 4202
+    },
+    "prototype-site/index.html": {
+      "sha1": "7fa80bf878876e8d4d3b7d350307a5445da71397",
+      "mtime": 1775148459,
+      "size": 293
+    },
+    "prototype-site/inscription-club.html": {
+      "sha1": "b3b85793574137053ef423e4d81d6ab55af78d6b",
+      "mtime": 1775148459,
+      "size": 4071
+    },
+    "prototype-site/mon-compte.html": {
+      "sha1": "b0a82fc37fa0d3e7ed9ab13500ed3f498ec725c2",
+      "mtime": 1775148459,
+      "size": 291
+    },
+    "prototype-site/paiement.html": {
+      "sha1": "1b64ab0e35e681c6e41a5ee633cc50ffb9000387",
+      "mtime": 1775148459,
+      "size": 7677
+    },
+    "prototype-site/recapitulatif-reservation.html": {
+      "sha1": "4db5c886932567cf60ddca12a25ff5c66fdce258",
+      "mtime": 1775148459,
+      "size": 4617
+    },
+    "prototype-site/recherche-coachs.html": {
+      "sha1": "e35b86d68b9b6e51b0f8367e931a4e6295fa470d",
+      "mtime": 1775148459,
+      "size": 5577
+    },
+    "prototype-site/rendez-vous.html": {
+      "sha1": "ab7353b14f38beea387c3498001cd0da9c9ce86e",
+      "mtime": 1775148459,
+      "size": 368
+    },
+    "prototype-site/reservation-recapitulatif.html": {
+      "sha1": "e0f8274886c6d1ca3c8a343c302ae04fe5b5d283",
+      "mtime": 1775148459,
+      "size": 388
+    },
+    "prototype-site/reserver-seance.html": {
+      "sha1": "e9686df7cfdf9baa1532c05a764e30592b9030e9",
+      "mtime": 1775148459,
+      "size": 15864
+    },
+    "prototype-site/selection-coachs.html": {
+      "sha1": "da7c458ab78de4d9897803cc60652176a41f357c",
+      "mtime": 1775148459,
+      "size": 5485
+    },
+    "prototype-site/sport.html": {
+      "sha1": "101f110f549d17c4435d489159a3e1c8b741e474",
+      "mtime": 1775148459,
+      "size": 370
+    },
+    "prototype-site/styles.css": {
+      "sha1": "4a7d59926c96e537195330c5d36041c08764dad8",
+      "mtime": 1775825546,
+      "size": 109744
+    }
+  }
+}
