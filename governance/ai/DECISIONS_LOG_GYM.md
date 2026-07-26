@@ -37,3 +37,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la priorite reste la continuite du tunnel sportif et la lisibilite immediate des controles critiques
 - Impact : le lien `Supprimer` garde un fallback contextuel, et le calendrier retrouve des controles credibles
 - Sources : `prototype-site/choix-coach-creneau.html`, `governance/USER_STORIES_MVP_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
+
+## 2026-07-26 - Arbitrage du cycle recapitulatif
+
+- Decision : ameliorer uniquement la lisibilite du recapitulatif sans changer sa structure ni sa logique de routing
+- Pourquoi : la priorite est de confirmer proprement la reservation avant identification, pas d'ouvrir une logique panier ou multi-etapes plus lourde
+- Impact : le recapitulatif reste simple, plus net visuellement, et conserve sa sortie vers `/compte` puis `/paiement`
+- Sources : `prototype-site/recapitulatif-reservation.html`, `governance/USER_STORIES_MVP_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`

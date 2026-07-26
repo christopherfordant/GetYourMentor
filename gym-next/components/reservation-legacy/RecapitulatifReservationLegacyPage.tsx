@@ -67,9 +67,7 @@ function RecapMainHeader({
     <section className="recap-header">
       <h1 data-recap-name>{coach}</h1>
       <div className="recap-address" data-recap-address>{`10 Rue du Sport, ${city}`}</div>
-      <div className="recap-meta" data-recap-meta>
-        4.9 (284 avis)  Coaching premium
-      </div>
+      <div className="recap-meta" data-recap-meta>4.9 (284 avis) • Coaching premium</div>
       <div className="recap-header-visual" aria-hidden="true">
         <div className="recap-header-shot recap-header-shot-main"></div>
         <div className="recap-header-shot recap-header-shot-side"></div>
@@ -132,9 +130,9 @@ function RecapServicesSection({
         <article className="recap-service-card">
           <div className="recap-service-copy">
             <strong>{service}</strong>
-            <div>{`${duration}  ${price}  avec ${mentor}`}</div>
+            <div>{`${duration} • ${price} • avec ${mentor}`}</div>
             {sport === "metiers-de-la-forme" ? (
-              <div>{[format, objective, packageLabel].filter(Boolean).join("  ")}</div>
+              <div>{[format, objective, packageLabel].filter(Boolean).join(" • ")}</div>
             ) : null}
           </div>
           <a className="recap-link" href={removeHref}>
@@ -144,7 +142,7 @@ function RecapServicesSection({
         <article className="recap-service-card">
           <div className="recap-service-copy">
             <strong>Bilan express avant seance</strong>
-            <div>10min  inclus dans votre reservation</div>
+            <div>10min • inclus dans votre reservation</div>
           </div>
           <a className="recap-link" href={modifyHref}>
             Modifier
@@ -168,7 +166,7 @@ function RecapDatetimeSection({
         <span>2.</span> Date et heure selectionnees
       </h2>
       <div className="recap-date-card">
-        <div data-recap-datetime>{`Vendredi 27 mars 2026  ${slot}`}</div>
+        <div data-recap-datetime>{`Vendredi 27 mars 2026 a ${slot}`}</div>
         <a href={editHref} className="recap-link" data-recap-edit>
           Modifier
         </a>
