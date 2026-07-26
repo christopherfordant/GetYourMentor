@@ -41,7 +41,8 @@
     "governance/ai/CYCLE_001_ORCHESTRATION_GYM.md",
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md",
     "governance/ai/CYCLE_002_FICHE_COACH_GYM.md",
-    "governance/ai/CYCLE_003_CRENEAU_GYM.md"
+    "governance/ai/CYCLE_003_CRENEAU_GYM.md",
+    "governance/ai/CYCLE_004_RECAPITULATIF_GYM.md"
   ],
   "role_files": [
     "governance/roles/README_CTO.md",
