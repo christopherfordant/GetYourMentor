@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26 21:37:44",
+  "generated_at": "2026-07-26 22:08:39",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -146,20 +146,25 @@
       "mtime": 1785094648,
       "size": 814
     },
+    "governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md": {
+      "sha1": "222cf7a50c8ae71751f7251df2361a33392fc890",
+      "mtime": 1785096500,
+      "size": 1291
+    },
     "governance/ai/DECISIONS_LOG_GYM.md": {
-      "sha1": "af53cac4557fc988912f085199a6729d05084fc5",
-      "mtime": 1785094645,
-      "size": 5963
+      "sha1": "af658fe8d2a6dea389073d338f056b137d4b3f40",
+      "mtime": 1785096497,
+      "size": 6645
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "246662dab0d44ce17305d2704bef73c768eae96d",
-      "mtime": 1785094594,
-      "size": 15937
+      "sha1": "288f773e0901307b793f7b68d77c32b5cc527888",
+      "mtime": 1785096513,
+      "size": 16279
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "41231558cd5f5837a77ceb7c7e44a181e1b0c3bc",
-      "mtime": 1785094594,
-      "size": 3143
+      "sha1": "2dc2309a894b2c63e27bdb585b42c395bbbabb38",
+      "mtime": 1785096513,
+      "size": 3590
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
@@ -182,9 +187,9 @@
       "size": 751
     },
     "governance/fil_rouge_manifest.json": {
-      "sha1": "b17cd8c911acf636c4a1dfd134ba8fe78f7438a9",
-      "mtime": 1785094646,
-      "size": 2974
+      "sha1": "5a1e4754347e19094255d1bf622ebb9ae305f239",
+      "mtime": 1785096498,
+      "size": 3026
     },
     "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
       "sha1": "b2ae0dda326c8956ec3ebfbe62d5a0026a0b9cfe",
@@ -222,9 +227,9 @@
       "size": 568
     },
     "governance/README.md": {
-      "sha1": "defe765d0c0ac5c025595595ec830b3b393edae7",
-      "mtime": 1785094644,
-      "size": 2531
+      "sha1": "c15aa22b4731671629cdf2c61fd31484be01c55e",
+      "mtime": 1785096496,
+      "size": 2566
     },
     "governance/roles/README_CTO.md": {
       "sha1": "5f58caa68a6ed627a549ba6dc2cd6086504aecf6",
@@ -297,9 +302,9 @@
       "size": 865
     },
     "gym-next/app/layout.tsx": {
-      "sha1": "e92c7b941e09b0987a89ecce34d1d2c3a8861dcd",
-      "mtime": 1776070177,
-      "size": 727
+      "sha1": "294a0d7c9221f1140cd4972436bf4c3602daa9c3",
+      "mtime": 1785096405,
+      "size": 738
     },
     "gym-next/app/legacy-prototype.css": {
       "sha1": "3bf3d5cdd99545dc7632325edcf16416ded40df3",
@@ -347,9 +352,9 @@
       "size": 14096
     },
     "gym-next/components/home/home-data.ts": {
-      "sha1": "c2f5f77b36d8932319a343f18c838088f34ee0e2",
-      "mtime": 1785065463,
-      "size": 5790
+      "sha1": "96d4d1f3ba1922fcf380426391ce73f7872cc47d",
+      "mtime": 1785096398,
+      "size": 5869
     },
     "gym-next/components/home/home.module.css": {
       "sha1": "8d08aee89f61016fe8242e37b78a53c96e98368c",
@@ -357,9 +362,9 @@
       "size": 12005
     },
     "gym-next/components/home/HomePageClient.tsx": {
-      "sha1": "718bec6e1f3a93cd58df86973fc563d0c0cc1384",
-      "mtime": 1785065465,
-      "size": 15519
+      "sha1": "044efc23accc6df921969719a8f60f64562599e8",
+      "mtime": 1785096403,
+      "size": 15999
     },
     "gym-next/components/home-legacy/AccueilLegacyPage.tsx": {
       "sha1": "19899b4ec3497d862d54a189bd970d4440bf653c",

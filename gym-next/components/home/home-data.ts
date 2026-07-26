@@ -7,71 +7,71 @@ export type SportSlug =
 export const sportLinks: Array<{ label: string; slug: SportSlug }> = [
   { label: "Football", slug: "football" },
   { label: "Basketball", slug: "basketball" },
-  { label: "Metiers de la forme", slug: "metiers-de-la-forme" },
+  { label: "Métiers de la forme", slug: "metiers-de-la-forme" },
   { label: "Sports de combat", slug: "sports-de-combat" },
 ];
 
 export const profileSlides = [
   {
     name: "Thomas Dubois",
-    meta: "Football • Paris",
-    detail: "Specialiste preparation match • 12 ans d'experience",
-    price: "50 EUR / seance",
+    meta: "Football - Paris",
+    detail: "Spécialiste préparation match - 12 ans d'expérience",
+    price: "50 EUR / séance",
     cta: "Voir le profil",
     image: "/design_assets/content_library/football/football-field-mentor.jpg",
   },
   {
     name: "Sarah Benali",
-    meta: "Basketball • Lyon",
-    detail: "Technique individuelle • Seances intensives",
-    price: "65 EUR / seance",
-    cta: "Decouvrir le coach",
+    meta: "Basketball - Lyon",
+    detail: "Technique individuelle - Séances intensives",
+    price: "65 EUR / séance",
+    cta: "Découvrir le coach",
     image: "/design_assets/content_library/basketball/basketball-training-athlete.jpg",
   },
   {
     name: "Julien Morel",
-    meta: "Metiers de la forme • Lille",
-    detail: "Remise en forme • Coaching progressif",
-    price: "42 EUR / seance",
-    cta: "Voir ses seances",
+    meta: "Métiers de la forme - Lille",
+    detail: "Remise en forme - Coaching progressif",
+    price: "42 EUR / séance",
+    cta: "Voir ses séances",
     image: "/design_assets/content_library/fitness/fitness-bench-trainer.jpg",
   },
   {
     name: "Ines Caron",
-    meta: "Sports de combat • Marseille",
-    detail: "Self-defense • Conditionnement physique",
-    price: "70 EUR / seance",
-    cta: "Reserver ce coach",
+    meta: "Sports de combat - Marseille",
+    detail: "Self-defense - Conditionnement physique",
+    price: "70 EUR / séance",
+    cta: "Réserver ce coach",
     image: "/design_assets/content_library/combat/combat-boxer-portrait.jpg",
   },
 ];
 
 export const slotSlides = [
   {
-    title: "Choisissez jusqu'a 3 creneaux",
+    title: "Choisissez jusqu'à 3 créneaux",
     visual: "/design_assets/info_resa_accueil.jpeg",
-    selection: "1 creneau selectionne",
-    cta: "Proposer mes creneaux",
+    selection: "1 créneau sélectionné",
+    cta: "Proposer mes créneaux",
     slots: ["10:30", "15:00"],
   },
   {
-    title: "Selectionnez un creneau prioritaire",
+    title: "Sélectionnez un créneau prioritaire",
     visual: "/design_assets/content_library/basketball/basketball-shooting-court.jpg",
-    selection: "2 creneaux selectionnes",
-    cta: "Envoyer mes disponibilites",
+    selection: "2 créneaux sélectionnés",
+    cta: "Envoyer mes disponibilités",
     slots: ["08:00", "18:30"],
   },
   {
-    title: "Ajoutez un creneau de secours",
+    title: "Ajoutez un créneau de secours",
     visual: "/design_assets/content_library/fitness/fitness-coach-plank.jpg",
-    selection: "3 creneaux selectionnes",
-    cta: "Valider ma selection",
+    selection: "3 créneaux sélectionnés",
+    cta: "Valider ma sélection",
     slots: ["12:15", "19:00"],
   },
   {
-    title: "Validez vos disponibilites",
+    title: "Validez vos disponibilités",
     visual: "/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
-    selection: "Pret a envoyer",
+    selection: "Prêt à envoyer",
     cta: "Continuer",
     slots: ["09:45", "17:15"],
   },
@@ -79,48 +79,48 @@ export const slotSlides = [
 
 export const paymentSlides = [
   {
-    title: "Thomas Dubois • Football",
-    date: "Mer. 26 Mars • 14:00",
-    detail: "Seance 1h30 • Paris",
+    title: "Thomas Dubois - Football",
+    date: "Mer. 26 mars - 14:00",
+    detail: "Séance 1h30 - Paris",
     total: "62 EUR",
   },
   {
-    title: "Sarah Benali • Basketball",
-    date: "Jeu. 28 Mars • 18:30",
-    detail: "Seance 1h00 • Lyon",
+    title: "Sarah Benali - Basketball",
+    date: "Jeu. 28 mars - 18:30",
+    detail: "Séance 1h00 - Lyon",
     total: "74 EUR",
   },
   {
-    title: "Julien Morel • Metiers de la forme",
-    date: "Ven. 29 Mars • 08:00",
-    detail: "Seance 45 min • Lille",
+    title: "Julien Morel - Métiers de la forme",
+    date: "Ven. 29 mars - 08:00",
+    detail: "Séance 45 min - Lille",
     total: "48 EUR",
   },
   {
-    title: "Ines Caron • Sports de combat",
-    date: "Sam. 30 Mars • 12:15",
-    detail: "Seance 1h15 • Marseille",
+    title: "Ines Caron - Sports de combat",
+    date: "Sam. 30 mars - 12:15",
+    detail: "Séance 1h15 - Marseille",
     total: "79 EUR",
   },
 ];
 
 export const metrics = [
-  { value: "500+", label: "Coachs certifies" },
-  { value: "10K+", label: "Reservations" },
+  { value: "500+", label: "Coachs certifiés" },
+  { value: "10K+", label: "Réservations" },
   { value: "4.9/5", label: "Note moyenne" },
 ];
 
 export const insights = [
-  { value: "+ 50%", copy: "de frequence sur les reservations de seances prises en ligne" },
-  { value: "4x", copy: "moins d'oublis avec les rappels automatiques des seances" },
+  { value: "+ 50%", copy: "de fréquence sur les réservations de séances prises en ligne" },
+  { value: "4x", copy: "moins d'oublis avec les rappels automatiques des séances" },
   {
     value: "50%",
-    copy: "des reservations prises en dehors des horaires d'ouverture",
+    copy: "des réservations prises en dehors des horaires d'ouverture",
     featured: true,
   },
-  { value: "+50 000", copy: "seances et demandes de coaching gerees sur la plateforme" },
-  { value: "5 RDV", copy: "reserves toutes les secondes sur les creneaux les plus demandes" },
-  { value: "> 5 millions EUR", copy: "de reservations sportives generees pour les coachs partenaires" },
+  { value: "+50 000", copy: "séances et demandes de coaching gérées sur la plateforme" },
+  { value: "5 RDV", copy: "réservés toutes les secondes sur les créneaux les plus demandés" },
+  { value: "> 5 millions EUR", copy: "de réservations sportives générées pour les coachs partenaires" },
 ];
 
 export const localeColumns = [
@@ -135,7 +135,7 @@ export const localeColumns = [
     slug: "basketball" as SportSlug,
   },
   {
-    title: "Metiers de la forme",
+    title: "Métiers de la forme",
     copy: "Nos coachs forme populaires en France",
     slug: "metiers-de-la-forme" as SportSlug,
   },
@@ -163,26 +163,26 @@ export const faqItems = [
   {
     question: "Qu'est-ce que GetYourMentor ?",
     answer:
-      "GetYourMentor est une plateforme qui aide les sportifs a trouver un coach, envoyer une demande de reservation et payer seulement apres validation du coach.",
+      "GetYourMentor est une plateforme qui aide les sportifs à trouver un coach, envoyer une demande de réservation et payer seulement après validation du coach.",
   },
   {
-    question: "Comment reserver une seance sur GetYourMentor ?",
+    question: "Comment réserver une séance sur GetYourMentor ?",
     answer:
-      "Vous choisissez un coach, une seance, puis vous proposez un a trois creneaux. Le coach accepte ou refuse avant toute etape de paiement.",
+      "Vous choisissez un coach, une séance, puis vous proposez un à trois créneaux. Le coach accepte ou refuse avant toute étape de paiement.",
   },
   {
     question: "Est-ce que je dois payer en ligne sur GetYourMentor ?",
     answer:
-      "Oui, mais uniquement une fois que le coach a valide votre demande. Aucun paiement n'est declenche avant acceptation.",
+      "Oui, mais uniquement une fois que le coach a validé votre demande. Aucun paiement n'est déclenché avant acceptation.",
   },
   {
-    question: "Comment gerer mes demandes et mes reservations ?",
+    question: "Comment gérer mes demandes et mes réservations ?",
     answer:
-      "Depuis votre espace compte, vous pouvez consulter vos demandes envoyees, vos validations, vos reservations confirmees et vos informations de paiement.",
+      "Depuis votre espace compte, vous pouvez consulter vos demandes envoyées, vos validations, vos réservations confirmées et vos informations de paiement.",
   },
   {
     question: "Comment devenir coach partenaire sur GetYourMentor ?",
     answer:
-      "Vous pouvez rejoindre le reseau en creant votre compte professionnel puis en completant votre profil, vos sports, vos disponibilites et vos conditions de seance.",
+      "Vous pouvez rejoindre le réseau en créant votre compte professionnel puis en complétant votre profil, vos sports, vos disponibilités et vos conditions de séance.",
   },
 ];
