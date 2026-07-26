@@ -94,7 +94,7 @@ Tester visuellement dans un vrai navigateur les parcours Next.js principaux en d
 
 Ne pas passer a une autre refonte tant que :
 
-- la recherche depuis la home ouvre bien `/coachs`
+- la recherche depuis la home ouvre bien `/recherche`
 - une carte coach ouvre bien `/coach`
 - une demande de reservation arrive bien sur `/recapitulatif`
 - le recapitulatif vers connexion arrive bien sur `/compte?redirect=paiement`

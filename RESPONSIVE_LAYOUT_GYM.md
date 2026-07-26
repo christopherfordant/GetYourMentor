@@ -176,9 +176,8 @@ Les onglets doivent :
 
 - marges laterales identiques
 - cartes alignees sur la grille
-- hauteurs visuelles cohérentes
-- rayons cohérents
+- hauteurs visuelles coherentes
+- rayons coherents
 - boutons a la meme hauteur
 - textes bien centres ou bien alignes selon le contexte
 - comportement mobile lisible sans zoom
-

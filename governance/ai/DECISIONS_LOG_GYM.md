@@ -79,3 +79,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : la page etait deja fidele a sa structure prototype, il restait surtout des accents et libelles de confort a remettre au propre
 - Impact : la page club gagne en clarte immediate tout en conservant exactement la meme logique de passage vers `/compte?mode=club&connected=1`
 - Sources : `prototype-site/inscription-club.html`, `governance/USER_STORIES_MVP_GYM.md`, `gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx`
+
+## 2026-07-26 - Arbitrage du cycle shell Next et QA transverse
+
+- Decision : remettre le shell Next non legacy en conformite avec les routes MVP valides
+- Pourquoi : meme s'il n'est pas la page active principale aujourd'hui, il ne doit pas reintroduire des routes brouillon ou une logique obsolete lors d'une future bascule
+- Impact : les CTA du shell Next pointent de nouveau vers `/recherche`, `/coach` et `/creneau` avec des parametres metier coherents ; la metadata et la documentation transverse sont alignees
+- Sources : `gym-next/components/home/HomePageClient.tsx`, `gym-next/components/home/home-data.ts`, `MIGRATION_NEXT_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`

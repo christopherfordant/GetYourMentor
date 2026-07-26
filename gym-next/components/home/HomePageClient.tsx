@@ -48,10 +48,7 @@ function StepDots({ count, activeIndex }: { count: number; activeIndex: number }
   return (
     <div className={styles.dots} aria-hidden="true">
       {Array.from({ length: count }).map((_, index) => (
-        <span
-          key={index}
-          className={index === activeIndex ? styles.dotActive : styles.dot}
-        />
+        <span key={index} className={index === activeIndex ? styles.dotActive : styles.dot} />
       ))}
     </div>
   );
@@ -60,7 +57,6 @@ function StepDots({ count, activeIndex }: { count: number; activeIndex: number }
 export function HomePageClient() {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isPreviewing, setIsPreviewing] = useState(false);
   const [sportInput, setSportInput] = useState("");
   const [cityInput, setCityInput] = useState("");
   const [profileIndex, setProfileIndex] = useState(0);
@@ -77,21 +73,16 @@ export function HomePageClient() {
   const activeProfile = profileSlides[profileIndex];
   const activeSlot = slotSlides[slotIndex];
   const activePayment = paymentSlides[paymentIndex];
+  const activeCity = activeProfile.meta.split(" - ")[1] || "Paris";
 
   const searchTarget = useMemo(() => {
     const sport = inferSportSlug(sportInput || activeProfile.meta);
     const city = cityInput.trim();
-    return city
-      ? `/coachs?sport=${sport}&city=${encodeURIComponent(city)}`
-      : `/recherche?sport=${sport}`;
+    return city ? `/recherche?sport=${sport}&city=${encodeURIComponent(city)}` : `/recherche?sport=${sport}`;
   }, [activeProfile.meta, cityInput, sportInput]);
 
   const handleSearch = () => {
-    if (isPreviewing) return;
-    setIsPreviewing(true);
-    window.setTimeout(() => {
-      router.push(searchTarget);
-    }, 700);
+    router.push(searchTarget);
   };
 
   return (
@@ -148,8 +139,8 @@ export function HomePageClient() {
 
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Coaching sportif premium</p>
-            <h1 className={styles.heroTitle}>Reservez votre coach</h1>
-            <p className={styles.heroCopy}>Simple • Immediat • 24h/24</p>
+            <h1 className={styles.heroTitle}>Réservez votre coach</h1>
+            <p className={styles.heroCopy}>Simple - Immédiat - 24h/24</p>
 
             <div className={styles.searchCard}>
               <label className={styles.field}>
@@ -178,29 +169,12 @@ export function HomePageClient() {
                 Rechercher
               </button>
             </div>
-
-            <div className={`${styles.searchPreviewLayer} ${isPreviewing ? styles.previewVisible : ""}`}>
-              <div className={styles.searchPreviewShell}>
-                <span className={styles.previewBadge}>Apercu de la recherche</span>
-                <div className={styles.previewFrame}>
-                  <Image
-                    src="/design_assets/info_resa_accueil.jpeg"
-                    alt="Apercu de la page de recherche avec filtres, resultats et carte"
-                    fill
-                    className={styles.previewImage}
-                  />
-                </div>
-                <p className={styles.previewCopy}>
-                  On prepare les coachs disponibles, les filtres et la carte autour de votre recherche.
-                </p>
-              </div>
-            </div>
           </div>
         </section>
 
         <section className={styles.section}>
           <div className={styles.sectionHeading}>
-            <h2>Comment ca marche ?</h2>
+            <h2>Comment ça marche ?</h2>
           </div>
 
           <div className={styles.howGrid}>
@@ -221,7 +195,11 @@ export function HomePageClient() {
                   <button
                     className={styles.darkButton}
                     type="button"
-                    onClick={() => router.push(`/coach/slug-provisoire?sport=${inferSportSlug(activeProfile.meta)}`)}
+                    onClick={() =>
+                      router.push(
+                        `/coach?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`,
+                      )
+                    }
                   >
                     {activeProfile.cta}
                   </button>
@@ -249,7 +227,7 @@ export function HomePageClient() {
             <article className={styles.stepCard}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>2</span>
-                <h3>Proposez vos creneaux</h3>
+                <h3>Proposez vos créneaux</h3>
               </div>
               <div className={styles.miniScreen}>
                 <p className={styles.slideCaption}>{activeSlot.title}</p>
@@ -264,7 +242,15 @@ export function HomePageClient() {
                   ))}
                 </div>
                 <p className={styles.slotSelection}>{activeSlot.selection}</p>
-                <button className={styles.softButton} type="button" onClick={() => router.push("/reservation/creneau")}>
+                <button
+                  className={styles.softButton}
+                  type="button"
+                  onClick={() =>
+                    router.push(
+                      `/creneau?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`,
+                    )
+                  }
+                >
                   {activeSlot.cta}
                 </button>
                 <div className={styles.stepActions}>
@@ -372,11 +358,11 @@ export function HomePageClient() {
             <p className={styles.sectionKicker}>Professionnel</p>
             <h2>GetYourMentor recherche des profils partout en France pour digitaliser le coaching sportif</h2>
             <p>
-              Une vitrine claire, un tunnel de reservation lisible, et une gestion du parcours qui reste premium
-              pour les eleves comme pour les coachs.
+              Une vitrine claire, un tunnel de réservation lisible, et une gestion du parcours qui reste premium
+              pour les élèves comme pour les coachs.
             </p>
             <Link href="/compte" className={styles.darkButtonLink}>
-              Decouvrir nos offres
+              Découvrir nos offres
             </Link>
           </div>
         </section>
@@ -404,7 +390,7 @@ export function HomePageClient() {
 
         <section className={styles.faqSection}>
           <p className={styles.sectionKicker}>FAQ</p>
-          <h2>Les questions frequentes</h2>
+          <h2>Les questions fréquentes</h2>
           <div className={styles.faqList}>
             {faqItems.map((item) => (
               <details key={item.question} className={styles.faqItem}>
@@ -422,10 +408,10 @@ export function HomePageClient() {
         <nav className={styles.footerLinks} aria-label="Liens legaux">
           <a href="#cgv">CGV</a>
           <a href="#cgu">CGU</a>
-          <a href="#privacy">Politique de confidentialite</a>
-          <a href="#legal">Mentions legales</a>
+          <a href="#privacy">Politique de confidentialité</a>
+          <a href="#legal">Mentions légales</a>
         </nav>
-        <small>© 2026 GetYourMentor. Tous droits reserves.</small>
+        <small>&copy; 2026 GetYourMentor. Tous droits réservés.</small>
       </footer>
     </div>
   );
