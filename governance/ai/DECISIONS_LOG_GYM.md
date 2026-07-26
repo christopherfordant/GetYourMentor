@@ -86,3 +86,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : meme s'il n'est pas la page active principale aujourd'hui, il ne doit pas reintroduire des routes brouillon ou une logique obsolete lors d'une future bascule
 - Impact : les CTA du shell Next pointent de nouveau vers `/recherche`, `/coach` et `/creneau` avec des parametres metier coherents ; la metadata et la documentation transverse sont alignees
 - Sources : `gym-next/components/home/HomePageClient.tsx`, `gym-next/components/home/home-data.ts`, `MIGRATION_NEXT_GYM.md`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
+
+## 2026-07-26 - Arbitrage du cycle QA Playwright
+
+- Decision : recalibrer les tests Playwright sur le flux metier MVP actuellement valide
+- Pourquoi : l'automatisation ne doit pas continuer a verifier un comportement obsolete contredit par le cycle 007
+- Impact : les tests de parcours critique suivent maintenant le passage `/ -> /recherche -> /coachs`
+- Sources : `governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md`, `gym-next/tests/business-flow.spec.ts`

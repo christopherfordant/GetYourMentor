@@ -48,7 +48,8 @@
     "governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md",
     "governance/ai/CYCLE_008_COMPTE_BIFURCATIONS_GYM.md",
     "governance/ai/CYCLE_009_INSCRIPTION_CLUB_GYM.md",
-    "governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md"
+    "governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md",
+    "governance/ai/CYCLE_011_QA_PLAYWRIGHT_GYM.md"
   ],
   "role_files": [
     "governance/roles/README_CTO.md",
