@@ -100,3 +100,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : il fallait confirmer que les pages-clés restent lisibles et chargeables apres les cycles de stabilisation metier et de shell Next
 - Impact : l'audit visuel Playwright passe sur 14 verifications et les captures locales peuvent servir de base de comparaison pour les prochains cycles UI
 - Sources : `gym-next/tests/visual-audit.spec.ts`, `gym-next/scripts/run-playwright-audit.cjs`, `gym-next/playwright-artifacts/`
+
+## 2026-07-29 - Gate fil rouge avant push et hygiene des artefacts locaux
+
+- Decision : imposer un controle fil rouge avant chaque push et ignorer les artefacts locaux d'audit / supervision
+- Pourquoi : proteger le document maitre, eviter les pushes hors cadre MVP et garder l'historique Git propre
+- Impact : le script `scripts/pre_push_fil_rouge_check.ps1` devient le passage obligatoire avant push ; les dossiers `gym-next/playwright-artifacts/`, `gym-next/playwright-report/`, `gym-next/test-results/` et le log `governance/ai/supervisor_loop.log` ne doivent plus polluer les prochains commits
+- Sources : `DOCUMENT_MAITRE_GYM.md`, `governance/FIL_ROUGE_OPERATOIRE_GYM.md`, `scripts/fil_rouge_supervisor.py`, `scripts/pre_push_fil_rouge_check.ps1`

@@ -10,3 +10,7 @@ prototype_site_GYM.zip
 tmp_menu_accueil_profil_coach.jpg
 .tmp-edge-profile/
 docs/next-visual-validation/
+gym-next/playwright-artifacts/
+gym-next/playwright-report/
+gym-next/test-results/
+governance/ai/supervisor_loop.log

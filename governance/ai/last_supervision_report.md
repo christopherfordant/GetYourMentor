@@ -1,6 +1,6 @@
 # Rapport de supervision Fil Rouge GYM
 
-- Date d'execution : 2026-07-30 00:49:50
+- Date d'execution : 2026-07-30 01:35:45
 - Racine : `C:\Users\cashe\Documents\GetYourMentor`
 
 ## Resultat
@@ -61,8 +61,10 @@ STATUT : CONFORME
 ## Changements detectes depuis le dernier passage
 
 - Modifies :
+  - `governance/ai/DECISIONS_LOG_GYM.md`
   - `governance/ai/fil_rouge_state.json`
   - `governance/ai/last_supervision_report.md`
+  - `governance/roles/README_DEVOPS.md`
 
 ## Alertes
 
