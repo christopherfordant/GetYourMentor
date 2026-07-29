@@ -309,7 +309,7 @@ button {
 
 .hero-backdrop {
   z-index: 0;
-  background-image: url("../design_assets/hero_accueil_whatsapp.jpeg");
+  background-image: url("/design_assets/hero_accueil_whatsapp.jpeg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -647,32 +647,32 @@ button {
 }
 
 .avatar-face-1 {
-  background-image: url("../design_assets/content_library/football/football-youth-coach.jpg");
+  background-image: url("/design_assets/content_library/football/football-youth-coach.jpg");
   background-position: center 28%;
 }
 
 .avatar-face-2 {
-  background-image: url("../design_assets/content_library/basketball/basketball-training-athlete.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-training-athlete.jpg");
   background-position: center 18%;
 }
 
 .avatar-face-3 {
-  background-image: url("../design_assets/content_library/football/football-coach-rain.jpg");
+  background-image: url("/design_assets/content_library/football/football-coach-rain.jpg");
   background-position: center 34%;
 }
 
 .avatar-face-4 {
-  background-image: url("../design_assets/content_library/basketball/basketball-shooting-court.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-shooting-court.jpg");
   background-position: center 30%;
 }
 
 .avatar-face-5 {
-  background-image: url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg");
   background-position: center 18%;
 }
 
 .avatar-face-6 {
-  background-image: url("../design_assets/content_library/combat/combat-boxer-portrait.jpg");
+  background-image: url("/design_assets/content_library/combat/combat-boxer-portrait.jpg");
   background-position: center 20%;
 }
 
@@ -790,42 +790,42 @@ button {
 }
 
 .slot-visual-1 {
-  background-image: url("../design_assets/content_library/football/football-field-mentor.jpg");
+  background-image: url("/design_assets/content_library/football/football-field-mentor.jpg");
   background-position: center 24%;
 }
 
 .slot-visual-2 {
-  background-image: url("../design_assets/content_library/basketball/basketball-training-athlete.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-training-athlete.jpg");
   background-position: center 20%;
 }
 
 .slot-visual-3 {
-  background-image: url("../design_assets/content_library/fitness/fitness-coach-plank.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-coach-plank.jpg");
   background-position: center 34%;
 }
 
 .slot-visual-4 {
-  background-image: url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg");
+  background-image: url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg");
   background-position: center 26%;
 }
 
 .payment-visual-1 {
-  background-image: url("../design_assets/content_library/football/football-youth-coach.jpg");
+  background-image: url("/design_assets/content_library/football/football-youth-coach.jpg");
   background-position: center 22%;
 }
 
 .payment-visual-2 {
-  background-image: url("../design_assets/content_library/basketball/basketball-shooting-court.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-shooting-court.jpg");
   background-position: center 34%;
 }
 
 .payment-visual-3 {
-  background-image: url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg");
   background-position: center 18%;
 }
 
 .payment-visual-4 {
-  background-image: url("../design_assets/content_library/combat/combat-boxer-portrait.jpg");
+  background-image: url("/design_assets/content_library/combat/combat-boxer-portrait.jpg");
   background-position: center 18%;
 }
 
@@ -1054,32 +1054,32 @@ button {
 }
 
 .insight-card:nth-child(1)::before {
-  background-image: url("../design_assets/content_library/football/football-youth-coach.jpg");
+  background-image: url("/design_assets/content_library/football/football-youth-coach.jpg");
   background-position: center 24%;
 }
 
 .insight-card:nth-child(2)::before {
-  background-image: url("../design_assets/content_library/basketball/basketball-shooting-court.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-shooting-court.jpg");
   background-position: center 38%;
 }
 
 .insight-card:nth-child(3)::before {
-  background-image: url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg");
   background-position: center 18%;
 }
 
 .insight-card:nth-child(4)::before {
-  background-image: url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg");
+  background-image: url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg");
   background-position: center 26%;
 }
 
 .insight-card:nth-child(5)::before {
-  background-image: url("../design_assets/content_library/fitness/fitness-coach-plank.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-coach-plank.jpg");
   background-position: center 36%;
 }
 
 .insight-card:nth-child(6)::before {
-  background-image: url("../design_assets/content_library/football/football-coach-rain.jpg");
+  background-image: url("/design_assets/content_library/football/football-coach-rain.jpg");
   background-position: center 34%;
 }
 
@@ -1125,7 +1125,7 @@ button {
   border-radius: 22px;
   background:
     linear-gradient(180deg, rgba(20, 24, 33, 0.08), rgba(20, 24, 33, 0.08)),
-    url("../design_assets/hero_accueil_whatsapp.jpeg") center/cover no-repeat;
+    url("/design_assets/hero_accueil_whatsapp.jpeg") center/cover no-repeat;
   box-shadow: var(--shadow-soft);
 }
 
@@ -1377,7 +1377,7 @@ button {
 .sport-page[data-sport-theme="football"] .city-nice .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="football"] .city-lyon .sport-city-media,
@@ -1385,7 +1385,7 @@ button {
 .sport-page[data-sport-theme="football"] .city-lille .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/football/football-field-mentor.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-field-mentor.jpg") center 28% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="basketball"] .city-paris .sport-city-media,
@@ -1393,7 +1393,7 @@ button {
 .sport-page[data-sport-theme="basketball"] .city-nice .sport-city-media {
   background:
     linear-gradient(180deg, rgba(10, 16, 24, 0.18), rgba(10, 16, 24, 0.18)),
-    url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="basketball"] .city-lyon .sport-city-media,
@@ -1401,7 +1401,7 @@ button {
 .sport-page[data-sport-theme="basketball"] .city-lille .sport-city-media {
   background:
     linear-gradient(180deg, rgba(10, 16, 24, 0.18), rgba(10, 16, 24, 0.18)),
-    url("../design_assets/content_library/basketball/basketball-shooting-court.jpg") center 40% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-shooting-court.jpg") center 40% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="metiers-de-la-forme"] .city-paris .sport-city-media,
@@ -1409,7 +1409,7 @@ button {
 .sport-page[data-sport-theme="metiers-de-la-forme"] .city-nice .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="metiers-de-la-forme"] .city-lyon .sport-city-media,
@@ -1417,7 +1417,7 @@ button {
 .sport-page[data-sport-theme="metiers-de-la-forme"] .city-lille .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 36% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-coach-plank.jpg") center 36% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="sports-de-combat"] .city-paris .sport-city-media,
@@ -1425,7 +1425,7 @@ button {
 .sport-page[data-sport-theme="sports-de-combat"] .city-lille .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.22)),
-    url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 26% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 26% / cover no-repeat;
 }
 
 .sport-page[data-sport-theme="sports-de-combat"] .city-lyon .sport-city-media,
@@ -1433,7 +1433,7 @@ button {
 .sport-page[data-sport-theme="sports-de-combat"] .city-nice .sport-city-media {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.22)),
-    url("../design_assets/content_library/combat/combat-boxer-portrait.jpg") center 22% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-boxer-portrait.jpg") center 22% / cover no-repeat;
 }
 
 .sport-city-copy {
@@ -1592,19 +1592,19 @@ button {
 .partner-media-1 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
 }
 
 .partner-media-2 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
 }
 
 .partner-media-3 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
 }
 
 .partner-options {
@@ -1831,52 +1831,52 @@ button {
 .coach-result-media--football-3 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
 }
 
 .coach-result-media--football-2 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/football/football-field-mentor.jpg") center 30% / cover no-repeat;
+    url("/design_assets/content_library/football/football-field-mentor.jpg") center 30% / cover no-repeat;
 }
 
 .coach-result-media--basketball-1,
 .coach-result-media--basketball-3 {
   background:
     linear-gradient(180deg, rgba(10, 16, 24, 0.16), rgba(10, 16, 24, 0.20)),
-    url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
 }
 
 .coach-result-media--basketball-2 {
   background:
     linear-gradient(180deg, rgba(10, 16, 24, 0.16), rgba(10, 16, 24, 0.20)),
-    url("../design_assets/content_library/basketball/basketball-shooting-court.jpg") center 40% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-shooting-court.jpg") center 40% / cover no-repeat;
 }
 
 .coach-result-media--metiers-de-la-forme-1,
 .coach-result-media--metiers-de-la-forme-3 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
 }
 
 .coach-result-media--metiers-de-la-forme-2 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.16), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 36% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-coach-plank.jpg") center 36% / cover no-repeat;
 }
 
 .coach-result-media--sports-de-combat-1,
 .coach-result-media--sports-de-combat-3 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.22)),
-    url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
 }
 
 .coach-result-media--sports-de-combat-2 {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.18), rgba(8, 14, 22, 0.22)),
-    url("../design_assets/content_library/combat/combat-boxer-portrait.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-boxer-portrait.jpg") center 18% / cover no-repeat;
 }
 
 .coach-result-body {
@@ -2111,7 +2111,7 @@ button {
   min-height: 390px;
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 22% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 22% / cover no-repeat;
 }
 
 .booking-gallery-side {
@@ -2137,25 +2137,25 @@ button {
 .thumb-1 {
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.16), rgba(14, 18, 28, 0.08)),
-    url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 34% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-coach-plank.jpg") center 34% / cover no-repeat;
 }
 
 .thumb-2 {
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.10), rgba(14, 18, 28, 0.08)),
-    url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-training-athlete.jpg") center 20% / cover no-repeat;
 }
 
 .thumb-3 {
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.10), rgba(14, 18, 28, 0.08)),
-    url("../design_assets/content_library/football/football-field-mentor.jpg") center 26% / cover no-repeat;
+    url("/design_assets/content_library/football/football-field-mentor.jpg") center 26% / cover no-repeat;
 }
 
 .thumb-4 {
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.12), rgba(14, 18, 28, 0.10)),
-    url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
 }
 
 .booking-tabs {
@@ -2891,7 +2891,7 @@ button {
   border-radius: 18px;
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.28)),
-    url("../design_assets/content_library/football/football-field-mentor.jpg") center 24% / cover no-repeat;
+    url("/design_assets/content_library/football/football-field-mentor.jpg") center 24% / cover no-repeat;
 }
 
 .booking-content-avatar {
@@ -2903,7 +2903,7 @@ button {
   border: 4px solid #0f1720;
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.04), rgba(8, 14, 22, 0.04)),
-    url("../design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
 }
 
 .booking-content-profile-copy {
@@ -2994,27 +2994,27 @@ button {
 }
 
 .booking-content-tile-1 {
-  background-image: url("../design_assets/content_library/football/football-field-mentor.jpg");
+  background-image: url("/design_assets/content_library/football/football-field-mentor.jpg");
 }
 
 .booking-content-tile-2 {
-  background-image: url("../design_assets/content_library/football/football-youth-coach.jpg");
+  background-image: url("/design_assets/content_library/football/football-youth-coach.jpg");
 }
 
 .booking-content-tile-3 {
-  background-image: url("../design_assets/content_library/basketball/basketball-training-athlete.jpg");
+  background-image: url("/design_assets/content_library/basketball/basketball-training-athlete.jpg");
 }
 
 .booking-content-tile-4 {
-  background-image: url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg");
 }
 
 .booking-content-tile-5 {
-  background-image: url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg");
+  background-image: url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg");
 }
 
 .booking-content-tile-6 {
-  background-image: url("../design_assets/content_library/fitness/fitness-coach-plank.jpg");
+  background-image: url("/design_assets/content_library/fitness/fitness-coach-plank.jpg");
 }
 
 .reservation-shell {
@@ -3309,13 +3309,13 @@ button {
 .recap-header-shot-main {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 34% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-coach-plank.jpg") center 34% / cover no-repeat;
 }
 
 .recap-header-shot-side {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.18)),
-    url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/basketball/basketball-training-athlete.jpg") center 18% / cover no-repeat;
 }
 
 .recap-step {
@@ -3372,19 +3372,19 @@ button {
 .recap-service-card::before {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.96)),
-    url("../design_assets/content_library/football/football-field-mentor.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-field-mentor.jpg") center 28% / cover no-repeat;
 }
 
 .recap-service-card:nth-child(2)::before {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.96)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
 }
 
 .recap-date-card::before {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)),
-    url("../design_assets/content_library/combat/combat-boxer-portrait.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-boxer-portrait.jpg") center 18% / cover no-repeat;
 }
 
 .recap-service-card > *,
@@ -3499,13 +3499,13 @@ button {
 .payment-intro-shot-main {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
+    url("/design_assets/content_library/fitness/fitness-bench-trainer.jpg") center 18% / cover no-repeat;
 }
 
 .payment-intro-shot-secondary {
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
+    url("/design_assets/content_library/football/football-youth-coach.jpg") center 28% / cover no-repeat;
 }
 
 .payment-intro-badge {
@@ -3541,7 +3541,7 @@ button {
   border-radius: 16px;
   background:
     linear-gradient(180deg, rgba(8, 14, 22, 0.14), rgba(8, 14, 22, 0.20)),
-    url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
+    url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 24% / cover no-repeat;
 }
 
 .payment-card,
@@ -3715,7 +3715,7 @@ button {
   padding-top: 88px;
   background:
     linear-gradient(180deg, rgba(250, 248, 244, 0.78), rgba(250, 248, 244, 0.92)),
-    url("../design_assets/hero_accueil_whatsapp.jpeg") center 28% / cover no-repeat;
+    url("/design_assets/hero_accueil_whatsapp.jpeg") center 28% / cover no-repeat;
 }
 
 .account-panel {
@@ -5356,11 +5356,27 @@ button {
 
   .sports-nav {
     gap: 12px;
+    max-width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
   }
 
   .sport-link,
   .topbar-link {
     font-size: 12px;
+  }
+
+  .topbar-link {
+    display: none;
   }
 
   .account-button {
@@ -5369,7 +5385,7 @@ button {
   }
 
   .booking-page {
-    padding: 84px 12px 32px;
+    padding: 172px 12px 32px;
   }
 
   .booking-profile-hero {
@@ -5416,6 +5432,7 @@ button {
 
   .booking-profile-lead strong {
     font-size: clamp(24px, 8vw, 30px);
+    overflow-wrap: anywhere;
   }
 
   .booking-profile-lead p {
@@ -5627,3 +5644,4 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
