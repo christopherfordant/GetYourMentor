@@ -47,3 +47,5 @@ Garantir la coherence globale du projet entre vision, architecture, priorites pr
 - la migration reste-t-elle progressive
 - l'impact sur les autres roles est-il documente
 - le MVP et la reservation restent-ils intacts
+- avant chaque push, le superviseur fil rouge a-t-il ete relance
+- le rapport `governance/ai/last_supervision_report.md` est-il bien `CONFORME`

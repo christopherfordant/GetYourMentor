@@ -59,3 +59,17 @@ Toujours preferer :
 - fil rouge > demande isolee
 - qualite percue > accumulation de fonctions
 - source prioritaire > historique contradictoire
+
+## Controle avant push
+
+Avant chaque push Git :
+
+- reprendre `DOCUMENT_MAITRE_GYM.md`
+- reprendre ce fichier `FIL_ROUGE_OPERATOIRE_GYM.md`
+- lancer `scripts/pre_push_fil_rouge_check.ps1`
+- verifier que le rapport reste `CONFORME`
+
+Regle stricte :
+
+- pas de push si une modification importante du code n'est pas reliee au MVP, au tunnel de reservation, a la migration progressive Next.js ou a une mise a jour de gouvernance coherente
+- pas de push si une derive V2/V3 ou une complexite club non MVP est detectee
