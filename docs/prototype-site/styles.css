@@ -2330,17 +2330,31 @@ button {
 
 .booking-profile-showcase {
   display: block;
-  max-width: 860px;
+  width: 100%;
+}
+
+.booking-profile-showcase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 332px;
+  gap: 24px;
+  align-items: stretch;
 }
 
 .booking-gallery-profile {
   position: relative;
+  display: grid;
   grid-template-columns: 1fr;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 356px;
 }
 
 .booking-gallery-profile .booking-gallery-main {
   min-height: 356px;
+  height: 100%;
   border-radius: 24px;
+  border: 1px solid rgba(221, 225, 232, 0.95);
+  box-shadow: none;
 }
 
 .booking-gallery-arrow {
@@ -2385,8 +2399,14 @@ button {
   max-width: none;
   width: 100%;
   min-height: 356px;
-  height: 356px;
+  height: 100%;
   align-content: space-between;
+  border: 1px solid rgba(221, 225, 232, 0.95);
+  border-radius: 24px;
+  box-shadow: none;
+  position: sticky;
+  top: 92px;
+  z-index: 24;
 }
 
 .booking-score-spacer {
@@ -2398,7 +2418,14 @@ button {
 }
 
 .booking-score-panel-side.is-floating {
+  top: auto;
   z-index: 12;
+}
+
+.booking-profile-score-wrap {
+  display: flex;
+  align-items: stretch;
+  min-height: 356px;
 }
 
 .booking-score-label {
@@ -2543,14 +2570,18 @@ button {
 
 .booking-pane-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.24fr) 332px;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: stretch;
 }
 
 .booking-pane-main {
   display: grid;
   gap: 22px;
+}
+
+.booking-pane-main-wide {
+  max-width: none;
 }
 
 .booking-story-card {
@@ -2577,12 +2608,7 @@ button {
 }
 
 .booking-pane-side {
-  display: grid;
-  gap: 12px;
-  align-self: stretch;
-  align-content: start;
-  position: relative;
-  margin-top: -392px;
+  display: none;
 }
 
 .booking-story-points {
@@ -5019,16 +5045,16 @@ button {
   }
 
   .booking-pane-side {
-    position: static;
-    top: auto;
-    margin-top: 0;
+    display: none;
   }
 
   .booking-score-panel-side {
-    position: static;
-    top: auto;
+    position: sticky;
+    top: 88px;
     right: auto;
     width: 100%;
+    min-height: auto;
+    height: auto;
   }
 
   .booking-geo-card {
@@ -5055,6 +5081,11 @@ button {
 
   .booking-profile-showcase-grid {
     grid-template-columns: 1fr;
+  }
+
+  .booking-profile-score-wrap {
+    order: -1;
+    min-height: auto;
   }
 
   .booking-gallery-profile .booking-gallery-main {
@@ -5358,6 +5389,10 @@ button {
   .booking-gallery-profile .booking-gallery-main {
     min-height: 240px;
     border-radius: 20px;
+  }
+
+  .booking-profile-score-wrap {
+    min-height: auto;
   }
 
   .booking-gallery-arrow {

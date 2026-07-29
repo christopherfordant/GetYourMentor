@@ -138,6 +138,43 @@ function BookingHeader() {
   );
 }
 
+function BookingScorePanel({
+  profile,
+}: {
+  profile: (typeof bookingProfileDictionary)[keyof typeof bookingProfileDictionary];
+}) {
+  return (
+    <section className="booking-score-panel booking-score-panel-side">
+      <p className="booking-score-label">Note :</p>
+      <div className="booking-score-display" data-booking-score-large>
+        5 / 5
+      </div>
+      <p className="booking-score-meta" data-booking-score-copy>
+        {profile.reviews}
+      </p>
+      <div className="booking-score-breakdown">
+        <div>Accompagnement <strong>5 / 5</strong></div>
+        <div>Pedagogie <strong>5 / 5</strong></div>
+        <div>Qualite terrain <strong>5 / 5</strong></div>
+      </div>
+      <div className="booking-score-facts">
+        <div className="booking-score-fact">
+          <span>Joueurs suivis</span>
+          <strong data-booking-score-followers>{profile.followers}</strong>
+        </div>
+        <div className="booking-score-fact">
+          <span>Qualification</span>
+          <strong data-booking-qualification>{profile.qualification}</strong>
+        </div>
+        <div className="booking-score-fact">
+          <span>Diplome</span>
+          <strong data-booking-diploma>{profile.diploma}</strong>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function BookingHeroSection({
   coach,
   city,
@@ -177,19 +214,25 @@ function BookingHeroSection({
       </div>
 
       <div className="booking-profile-showcase">
-        <div className="booking-gallery booking-gallery-profile">
-          <button className="booking-gallery-arrow booking-gallery-arrow-left" type="button" aria-label="Image precedente">
+        <div className="booking-profile-showcase-grid">
+          <div className="booking-gallery booking-gallery-profile">
+            <button className="booking-gallery-arrow booking-gallery-arrow-left" type="button" aria-label="Image precedente">
             ‹
-          </button>
-          <div
-            ref={galleryMainRef}
-            className="booking-gallery-main"
-            data-booking-gallery-main
-            style={{ background: heroBackground }}
-          ></div>
-          <button className="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
+            </button>
+            <div
+              ref={galleryMainRef}
+              className="booking-gallery-main"
+              data-booking-gallery-main
+              style={{ background: heroBackground }}
+            ></div>
+            <button className="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
             ›
-          </button>
+            </button>
+          </div>
+
+          <aside className="booking-profile-score-wrap">
+            <BookingScorePanel profile={profile} />
+          </aside>
         </div>
       </div>
 
@@ -243,25 +286,15 @@ function BookingAProposPane({
   coach,
   profile,
   isActive,
-  noteFixed,
-  notePaneRef,
-  noteCardRef,
-  notePaneStyle,
-  noteInlineStyle,
 }: {
   coach: string;
   profile: (typeof bookingProfileDictionary)[keyof typeof bookingProfileDictionary];
   isActive: boolean;
-  noteFixed: boolean;
-  notePaneRef: RefObject<HTMLElement | null>;
-  noteCardRef: RefObject<HTMLElement | null>;
-  notePaneStyle?: CSSProperties;
-  noteInlineStyle?: CSSProperties;
 }) {
   return (
     <section className={`booking-pane${isActive ? " is-active" : ""}`} data-booking-pane="apropos" id="booking-apropos-section">
       <div className="booking-pane-grid">
-        <div className="booking-pane-main">
+        <div className="booking-pane-main booking-pane-main-wide">
           <article className="booking-story-card">
             <h2>
               A propos de <span data-booking-short-name>{coach.split(" ").slice(-1)[0] || coach}</span>
@@ -360,41 +393,6 @@ function BookingAProposPane({
           </article>
         </div>
 
-        <aside className="booking-pane-side" ref={notePaneRef} style={notePaneStyle}>
-          <section
-            ref={noteCardRef}
-            className={`booking-score-panel booking-score-panel-side${noteFixed ? " is-floating" : ""}`}
-            style={noteInlineStyle}
-          >
-            <p className="booking-score-label">Note :</p>
-            <div className="booking-score-display" data-booking-score-large>
-              5 / 5
-            </div>
-            <p className="booking-score-meta" data-booking-score-copy>
-              {profile.reviews}
-            </p>
-            <div className="booking-score-breakdown">
-              <div>Accompagnement <strong>5 / 5</strong></div>
-              <div>Pedagogie <strong>5 / 5</strong></div>
-              <div>Qualite terrain <strong>5 / 5</strong></div>
-            </div>
-            <div className="booking-score-facts">
-              <div className="booking-score-fact">
-                <span>Joueurs suivis</span>
-                <strong data-booking-score-followers>{profile.followers}</strong>
-              </div>
-              <div className="booking-score-fact">
-                <span>Qualification</span>
-                <strong data-booking-qualification>{profile.qualification}</strong>
-              </div>
-              <div className="booking-score-fact">
-                <span>Diplome</span>
-                <strong data-booking-diploma>{profile.diploma}</strong>
-              </div>
-            </div>
-          </section>
-          <div className="booking-score-spacer" data-booking-score-spacer aria-hidden="true"></div>
-        </aside>
       </div>
     </section>
   );
@@ -589,13 +587,8 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   const [activeTab, setActiveTab] = useState<"apropos" | "planning" | "contenus">("apropos");
   const [weekIndex, setWeekIndex] = useState(0);
   const [tabsFixed, setTabsFixed] = useState(false);
-  const [noteFixed, setNoteFixed] = useState(false);
   const [tabsInlineStyle, setTabsInlineStyle] = useState<CSSProperties | undefined>(undefined);
-  const [noteInlineStyle, setNoteInlineStyle] = useState<CSSProperties | undefined>(undefined);
-  const [notePaneStyle, setNotePaneStyle] = useState<CSSProperties | undefined>(undefined);
   const tabsRef = useRef<HTMLElement | null>(null);
-  const notePaneRef = useRef<HTMLElement | null>(null);
-  const noteCardRef = useRef<HTMLElement | null>(null);
   const galleryMainRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 
@@ -605,19 +598,16 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
 
       if (isCompactLayout) {
         setTabsFixed(false);
-        setNoteFixed(false);
         setTabsInlineStyle(undefined);
-        setNoteInlineStyle(undefined);
-        setNotePaneStyle(undefined);
         return;
       }
 
       const scrollY = window.scrollY;
       const headerOffset = 78;
+      let tabsSafeTop = Math.max(headerOffset - 14, 24);
       const shouldDockTabsToBottom = scrollY <= 8;
       const shouldFixTabs = scrollY > 8;
       setTabsFixed(shouldDockTabsToBottom || shouldFixTabs);
-      setNoteFixed(activeTab === "apropos" && scrollY > 8);
 
       if (tabsRef.current) {
         const rect = tabsRef.current.getBoundingClientRect();
@@ -632,6 +622,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
             zIndex: 18,
           });
         } else if (shouldFixTabs) {
+          tabsSafeTop = headerOffset + Math.round(rect.height) + 14;
           setTabsInlineStyle({
             position: "fixed",
             top: `${headerOffset}px`,
@@ -643,60 +634,6 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
         } else {
           setTabsInlineStyle(undefined);
         }
-      }
-
-      if (activeTab === "apropos" && notePaneRef.current && noteCardRef.current && galleryMainRef.current) {
-        const paneRect = notePaneRef.current.getBoundingClientRect();
-        const galleryRect = galleryMainRef.current.getBoundingClientRect();
-        const footer = document.querySelector(".site-footer");
-        const footerRect = footer?.getBoundingClientRect();
-        const paneTop = scrollY + paneRect.top;
-        const footerTop = footerRect ? scrollY + footerRect.top : Number.POSITIVE_INFINITY;
-        const galleryHeight = Math.round(galleryRect.height);
-        const currentMarginTop = Number.parseFloat(window.getComputedStyle(notePaneRef.current).marginTop) || 0;
-        const alignedMarginTop = Math.round(currentMarginTop - Math.max(0, paneRect.top - galleryRect.top));
-        const floatingTop = Math.max(headerOffset - 14, 24);
-        const stop = footerTop - floatingTop - galleryHeight - 24;
-
-        if (scrollY > 8) {
-          setNotePaneStyle({
-            minHeight: `${galleryHeight}px`,
-          });
-
-          if (scrollY >= stop) {
-            setNoteInlineStyle({
-              position: "absolute",
-              top: `${Math.max(0, stop - paneTop)}px`,
-              left: "0",
-              width: "100%",
-              minHeight: `${galleryHeight}px`,
-              height: `${galleryHeight}px`,
-              zIndex: 20,
-            });
-          } else {
-            setNoteInlineStyle({
-              position: "fixed",
-              top: `${floatingTop}px`,
-              left: `${Math.round(paneRect.left)}px`,
-              width: `${Math.round(paneRect.width)}px`,
-              minHeight: `${galleryHeight}px`,
-              height: `${galleryHeight}px`,
-              zIndex: 20,
-            });
-          }
-        } else {
-          setNotePaneStyle({
-            minHeight: `${galleryHeight}px`,
-            marginTop: `${alignedMarginTop}px`,
-          });
-          setNoteInlineStyle({
-            minHeight: `${galleryHeight}px`,
-            height: `${galleryHeight}px`,
-          });
-        }
-      } else {
-        setNoteInlineStyle(undefined);
-        setNotePaneStyle(undefined);
       }
     };
 
@@ -748,11 +685,6 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
             coach={coach}
             profile={profile}
             isActive={activeTab === "apropos"}
-            noteFixed={noteFixed}
-            notePaneRef={notePaneRef}
-            noteCardRef={noteCardRef}
-            notePaneStyle={notePaneStyle}
-            noteInlineStyle={noteInlineStyle}
           />
           <BookingPlanningPane
             isActive={activeTab === "planning"}

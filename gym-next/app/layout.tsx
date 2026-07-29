@@ -1,8 +1,14 @@
-import "./globals.css";
-import "./legacy-prototype.css";
 import type { Metadata } from "next";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { Manrope } from "next/font/google";
 import { InternalNavigationEnhancer } from "@/components/InternalNavigationEnhancer";
+
+const inlineGlobalStyles = readFileSync(path.join(process.cwd(), "app", "globals.css"), "utf8");
+const inlineLegacyStyles = readFileSync(
+  path.join(process.cwd(), "app", "legacy-prototype.css"),
+  "utf8",
+);
 
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
@@ -21,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <style dangerouslySetInnerHTML={{ __html: `${inlineGlobalStyles}\n${inlineLegacyStyles}` }} />
+      </head>
       <body className={manrope.variable}>
         <InternalNavigationEnhancer />
         {children}

@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pw:audit": "node scripts/run-playwright-audit.cjs",
+    "pw:business": "playwright test tests/business-flow.spec.ts",
+    "pw:headed": "node scripts/run-playwright-audit.cjs --headed",
+    "pw:codegen": "playwright codegen http://127.0.0.1:3001"
   },
   "dependencies": {
     "next": "15.3.0",
@@ -14,6 +18,7 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.0",
     "@types/node": "22.14.1",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
