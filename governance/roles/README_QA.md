@@ -45,3 +45,5 @@ Le role QA controle la conformite au document maitre sur les parcours MVP.
 
 - le flux trouver > reserver > payer est-il intact
 - les pages critiques restent-elles lisibles et credibles
+- `npm.cmd run pw:business` passe-t-il encore en desktop et mobile
+- les routes `/coach`, `/creneau`, `/recapitulatif` et `/compte` gardent-elles leur chainage MVP
