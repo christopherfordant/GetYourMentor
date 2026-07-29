@@ -107,3 +107,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : proteger le document maitre, eviter les pushes hors cadre MVP et garder l'historique Git propre
 - Impact : le script `scripts/pre_push_fil_rouge_check.ps1` devient le passage obligatoire avant push ; les dossiers `gym-next/playwright-artifacts/`, `gym-next/playwright-report/`, `gym-next/test-results/` et le log `governance/ai/supervisor_loop.log` ne doivent plus polluer les prochains commits
 - Sources : `DOCUMENT_MAITRE_GYM.md`, `governance/FIL_ROUGE_OPERATOIRE_GYM.md`, `scripts/fil_rouge_supervisor.py`, `scripts/pre_push_fil_rouge_check.ps1`
+
+## 2026-07-29 - Validation du tunnel metier Playwright
+
+- Decision : considerer le tunnel MVP sportif comme valide fonctionnellement apres execution Playwright metier complete
+- Pourquoi : il fallait confirmer que les routes critiques chainent encore correctement apres les cycles de migration, d'audit visuel et de gouvernance
+- Impact : le flux `home -> recherche -> coachs -> coach -> creneau -> recapitulatif -> compte` passe maintenant en desktop et mobile avec `10 / 10` tests OK
+- Sources : `gym-next/tests/business-flow.spec.ts`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`, `governance/ai/CYCLE_013_VALIDATION_TUNNEL_METIER_GYM.md`
