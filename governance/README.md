@@ -66,6 +66,19 @@ Ces fichiers servent de RAG local humain pour conserver l'ordre des phases, les 
 - toute decision importante doit pouvoir etre rattachee a un role, un document source et un impact
 - toute evolution importante doit etre repercutee dans les README concernes
 
+## Gate avant push
+
+Avant chaque push, il faut verifier explicitement que les changements ne s'ecartent pas du document maitre et du fil rouge operatoire.
+
+Verification minimale obligatoire :
+
+1. relire `DOCUMENT_MAITRE_GYM.md`
+2. relire `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
+3. executer `scripts/pre_push_fil_rouge_check.ps1`
+4. ne pousser que si le rapport retourne `STATUT : CONFORME`
+
+Si le rapport remonte une alerte, le push doit etre suspendu jusqu'au recadrage documentaire ou technique.
+
 ## Limite honnete du superviseur
 
 Le superviseur peut :
