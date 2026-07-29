@@ -44,3 +44,5 @@ Le role DevOps doit rester aligne avec le document maitre et les besoins du MVP.
 - le script ou pipeline aide-t-il le produit reel
 - reste-t-on proportionne au stade MVP
 - l'impact sur la reservation et le tunnel critique reste-t-il neutre ou positif
+- les artefacts locaux de test et les logs de boucle sont-ils exclus des pushes par defaut
+- le controle `scripts/pre_push_fil_rouge_check.ps1` est-il passe avant push
