@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30 01:35:45",
+  "generated_at": "2026-07-30 02:00:47",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -161,20 +161,30 @@
       "mtime": 1785098424,
       "size": 1133
     },
+    "governance/ai/CYCLE_013_VALIDATION_TUNNEL_METIER_GYM.md": {
+      "sha1": "3fc7490fb174f84224a8908318d56bdfd587e738",
+      "mtime": 1785368477,
+      "size": 1130
+    },
+    "governance/ai/CYCLE_014_SEO_METADATA_GYM.md": {
+      "sha1": "c48ade6c3fa77e066d6398620831e146ef4dff0a",
+      "mtime": 1785369630,
+      "size": 1553
+    },
     "governance/ai/DECISIONS_LOG_GYM.md": {
-      "sha1": "0470be55bc12c8bb538dfdd5fd3cfdfb0cf7a22a",
-      "mtime": 1785368132,
-      "size": 8466
+      "sha1": "2050544718fcbf7294eaf3e48f941ab3a191ee3a",
+      "mtime": 1785369633,
+      "size": 9837
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "ea8645bd8687f7cd9369d3cd1aff298541ad4980",
-      "mtime": 1785365390,
-      "size": 16629
+      "sha1": "667c29795d21b6b8c27b37793b515c780a08a175",
+      "mtime": 1785368494,
+      "size": 16810
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "ffe4d00bace75573b4a2d2896bacb9f99120d2f9",
-      "mtime": 1785365390,
-      "size": 3440
+      "sha1": "ac0defd1d936b25b3746a35993484c17557a4b40",
+      "mtime": 1785368494,
+      "size": 3595
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
@@ -262,14 +272,14 @@
       "size": 1113
     },
     "governance/roles/README_QA.md": {
-      "sha1": "511300bd7425d7a10601c34eeb1295e97894e381",
-      "mtime": 1785058507,
-      "size": 1016
+      "sha1": "d2ecc800ea0c171625aa3eb3be3dfac6b1aeb88c",
+      "mtime": 1785368479,
+      "size": 1180
     },
     "governance/roles/README_SEO.md": {
-      "sha1": "983c2fae304401af7a18c96a3046b5304f89b29b",
-      "mtime": 1785058509,
-      "size": 1072
+      "sha1": "b4c8e717d51d96337dca94c8e239c72b57e27bd5",
+      "mtime": 1785369632,
+      "size": 1238
     },
     "governance/TRACEABILITY_MATRIX_GYM.md": {
       "sha1": "bfda0186fbfe47f94aa2b876fa744057041cd55c",
@@ -282,24 +292,24 @@
       "size": 2911
     },
     "gym-next/app/coach/page.tsx": {
-      "sha1": "911f31c37069975e545e4a4e900116e19c747d19",
-      "mtime": 1775163750,
-      "size": 828
+      "sha1": "8ff1425ea719ebee5633e78cde1792b855fc8345",
+      "mtime": 1785369185,
+      "size": 1945
     },
     "gym-next/app/coachs/page.tsx": {
-      "sha1": "5472c53198fe34359a1dd3404760f61b26a7ab8b",
-      "mtime": 1775162984,
-      "size": 895
+      "sha1": "9e09c74ab16c9688888f7e49db53f139f9c54994",
+      "mtime": 1785369183,
+      "size": 1870
     },
     "gym-next/app/compte/page.tsx": {
-      "sha1": "4a7945807036e935d3c1a1f9c51c7fb6a00d63bf",
-      "mtime": 1775573001,
-      "size": 810
+      "sha1": "7cc841d359d7fa2abba5ee9298d20eda8385cb48",
+      "mtime": 1785369189,
+      "size": 1543
     },
     "gym-next/app/creneau/page.tsx": {
-      "sha1": "c0b1237e26097c21ad2fe70b5f0c7923c0d08684",
-      "mtime": 1776070390,
-      "size": 847
+      "sha1": "fb19f19c8cdf1fdeba323af6fb35784b64641a5d",
+      "mtime": 1785369186,
+      "size": 1729
     },
     "gym-next/app/globals.css": {
       "sha1": "d78e73d5bbb2761e6ad2b63cce30d43d0ef148c1",
@@ -307,14 +317,14 @@
       "size": 523
     },
     "gym-next/app/inscription-club/page.tsx": {
-      "sha1": "2f4ccfa385e6044939449cf101a1ee8c739ff2e6",
-      "mtime": 1775573492,
-      "size": 865
+      "sha1": "0930c460c0bd130e82cee563975a047e3f79860b",
+      "mtime": 1785369191,
+      "size": 1276
     },
     "gym-next/app/layout.tsx": {
-      "sha1": "9b3f92991848d9078a6287ae1ed9b66494d44669",
-      "mtime": 1785103926,
-      "size": 1092
+      "sha1": "32141e664be5fdedecb86a29371727bcb2d67306",
+      "mtime": 1785369110,
+      "size": 1147
     },
     "gym-next/app/legacy-prototype.css": {
       "sha1": "be30c15a0092da35d87e25f486fabcf9a85f1912",
@@ -322,24 +332,24 @@
       "size": 110184
     },
     "gym-next/app/page.tsx": {
-      "sha1": "04ddf8c76bcffcb2c13184527363681a7b2460e8",
-      "mtime": 1775161315,
-      "size": 451
+      "sha1": "2ad6be80e710aba517c3e56636b30f87d8118793",
+      "mtime": 1785369180,
+      "size": 766
     },
     "gym-next/app/paiement/page.tsx": {
-      "sha1": "b67e410400052100c469a20cbdb7a87aebf44990",
-      "mtime": 1775573492,
-      "size": 819
+      "sha1": "7abb9aeec3483c9071a2723dc81f0991e27e890d",
+      "mtime": 1785369190,
+      "size": 1687
     },
     "gym-next/app/recapitulatif/page.tsx": {
-      "sha1": "fa36b09e85dde9b8360fa81b9639e1d0b2ea0f0f",
-      "mtime": 1775570576,
-      "size": 886
+      "sha1": "e715ae519c828989a070a8c7a62184b83e1b7c70",
+      "mtime": 1785369187,
+      "size": 1795
     },
     "gym-next/app/recherche/page.tsx": {
-      "sha1": "298a7ebb0aa4555a230ecc385ea6bcacd80556b8",
-      "mtime": 1785093763,
-      "size": 897
+      "sha1": "8342a42a29185849adf09d53033fd42eb1401abd",
+      "mtime": 1785369182,
+      "size": 1891
     },
     "gym-next/components/account-legacy/AccountLegacyPage.tsx": {
       "sha1": "5bc1ffa32a74424c909d7da1f5c180dcbdddf311",
@@ -415,6 +425,11 @@
       "sha1": "f6c35610844299ee9c423aa2c0c158d35748aef6",
       "mtime": 1785065423,
       "size": 657
+    },
+    "gym-next/lib/seo.ts": {
+      "sha1": "6995c0ee7e62bdc55ed99c42dda6e5449b0eb81e",
+      "mtime": 1785368964,
+      "size": 1468
     },
     "prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",

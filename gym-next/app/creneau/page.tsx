@@ -1,10 +1,32 @@
+import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { ChoixCoachCreneauLegacyPage } from "@/components/reservation-legacy/ChoixCoachCreneauLegacyPage";
+import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type CreneauPageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
+
+export async function generateMetadata({ searchParams }: CreneauPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const coachParam = params.coach;
+  const sportParam = params.sport;
+  const cityParam = params.city;
+  const coach = Array.isArray(coachParam) ? coachParam[0] : coachParam;
+  const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
+  const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
+
+  return {
+    ...buildPageMetadata({
+      title: coach ? `Choix du creneau - ${coach}` : "Choix du creneau",
+      description: "Choisissez un creneau disponible avant de confirmer votre reservation sur GetYourMentor.",
+    }),
+    alternates: {
+      canonical: buildCanonical("/creneau", { sport, city, coach }),
+    },
+  };
+}
 
 export default async function CreneauPage({ searchParams }: CreneauPageProps) {
   const params = await searchParams;
