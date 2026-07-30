@@ -46,3 +46,5 @@ Le role SEO doit rester aligne avec le document maitre, le MVP et la logique de 
 
 - chaque page aide-t-elle un utilisateur reel
 - chaque page peut-elle etre comprise, trouvee et parcourue facilement
+- les titres, descriptions et URLs canoniques sont-ils distinctifs sur les routes MVP critiques
+- la couche SEO preserve-t-elle integralement le tunnel metier valide

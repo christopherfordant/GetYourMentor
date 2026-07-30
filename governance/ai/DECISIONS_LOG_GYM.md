@@ -114,3 +114,10 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : il fallait confirmer que les routes critiques chainent encore correctement apres les cycles de migration, d'audit visuel et de gouvernance
 - Impact : le flux `home -> recherche -> coachs -> coach -> creneau -> recapitulatif -> compte` passe maintenant en desktop et mobile avec `10 / 10` tests OK
 - Sources : `gym-next/tests/business-flow.spec.ts`, `governance/ai/MVP_ROUTE_CONTROL_GYM.md`, `governance/ai/CYCLE_013_VALIDATION_TUNNEL_METIER_GYM.md`
+
+## 2026-07-29 - Renforcement SEO technique des routes MVP migrees
+
+- Decision : ajouter des metadata utiles et distinctives sur les routes Next.js critiques sans toucher au design ni a la logique de reservation
+- Pourquoi : il fallait rendre les pages MVP plus trouvables et plus propres semantiquement sans casser la parite prototype / Next
+- Impact : les pages home, recherche, annuaire, fiche coach, creneau, recapitulatif, compte, paiement et inscription club ont maintenant une couche SEO route par route ; le build Next est valide et le tunnel metier reste `10 / 10` apres la passe SEO
+- Sources : `gym-next/lib/seo.ts`, `gym-next/app/layout.tsx`, `gym-next/app/coach/page.tsx`, `governance/ai/CYCLE_014_SEO_METADATA_GYM.md`

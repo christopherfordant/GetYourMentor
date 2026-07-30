@@ -1,6 +1,6 @@
 # Rapport de supervision Fil Rouge GYM
 
-- Date d'execution : 2026-07-30 01:35:45
+- Date d'execution : 2026-07-30 02:00:47
 - Racine : `C:\Users\cashe\Documents\GetYourMentor`
 
 ## Resultat
@@ -56,15 +56,28 @@ STATUT : CONFORME
 - OK source referencee : `SOURCES_PRIORITAIRES_2026_03_19.md`
 - OK source referencee : `project_readable/INDEX.md`
 - OK aucun marqueur de texte corrompu detecte dans les zones sensibles
-- OK aucune modification code sensible non reliee a la gouvernance sur ce cycle
+- OK modifications code sensibles accompagnees de mises a jour de gouvernance
 
 ## Changements detectes depuis le dernier passage
 
+- Ajoutes :
+  - `governance/ai/CYCLE_014_SEO_METADATA_GYM.md`
+  - `gym-next/lib/seo.ts`
 - Modifies :
   - `governance/ai/DECISIONS_LOG_GYM.md`
   - `governance/ai/fil_rouge_state.json`
   - `governance/ai/last_supervision_report.md`
-  - `governance/roles/README_DEVOPS.md`
+  - `governance/roles/README_SEO.md`
+  - `gym-next/app/coach/page.tsx`
+  - `gym-next/app/coachs/page.tsx`
+  - `gym-next/app/compte/page.tsx`
+  - `gym-next/app/creneau/page.tsx`
+  - `gym-next/app/inscription-club/page.tsx`
+  - `gym-next/app/layout.tsx`
+  - `gym-next/app/page.tsx`
+  - `gym-next/app/paiement/page.tsx`
+  - `gym-next/app/recapitulatif/page.tsx`
+  - `gym-next/app/recherche/page.tsx`
 
 ## Alertes
 

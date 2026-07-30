@@ -1,10 +1,34 @@
+import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { AccountLegacyPage } from "@/components/account-legacy/AccountLegacyPage";
+import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type ComptePageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
+
+export async function generateMetadata({ searchParams }: ComptePageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const modeParam = params.mode;
+  const mode = Array.isArray(modeParam) ? modeParam[0] : modeParam;
+  const title =
+    mode === "coach"
+      ? "Compte coach"
+      : mode === "club"
+        ? "Compte club"
+        : "Mon compte";
+
+  return {
+    ...buildPageMetadata({
+      title,
+      description: "Connectez-vous ou accedez a votre espace GetYourMentor selon votre profil sportif, coach ou club.",
+    }),
+    alternates: {
+      canonical: buildCanonical("/compte", { mode }),
+    },
+  };
+}
 
 export default async function ComptePage({ searchParams }: ComptePageProps) {
   const params = await searchParams;

@@ -16,8 +16,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "GetYourMentor",
-  description: "Trouvez et réservez votre coach sportif en ligne sur GetYourMentor.",
+  title: {
+    default: "GetYourMentor",
+    template: "%s | GetYourMentor",
+  },
+  description: "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.",
 };
 
 export default function RootLayout({

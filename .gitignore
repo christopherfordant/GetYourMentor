@@ -14,3 +14,4 @@ gym-next/playwright-artifacts/
 gym-next/playwright-report/
 gym-next/test-results/
 governance/ai/supervisor_loop.log
+gym-next/debug.log
