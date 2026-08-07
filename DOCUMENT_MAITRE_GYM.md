@@ -194,6 +194,44 @@ scripts\mempalace.cmd mine . --agent codex
 
 Si une recherche MemPalace contredit une reponse improvisee, la recherche MemPalace passe en priorite.
 
+## 1.6 Regle de validations groupees systeme / terminal
+
+Le projet doit aussi permettre des **actions groupees de validation** realisees manuellement par l'utilisateur lorsqu'il y a beaucoup d'operations a enchainer.
+
+Definition :
+
+- une action groupee = un lot court d'actions coherentes faites a la main dans le systeme ou le terminal
+- exemple : lancer plusieurs verifications, relancer un build, verifier des pages, faire une serie de commandes Git non destructives, confirmer un comportement sur plusieurs ecrans
+
+Regle de fonctionnement :
+
+- il ne faut pas interrompre inutilement le flux pour valider chaque micro-action separement
+- quand plusieurs validations vont dans le meme sens, elles peuvent etre regroupees en une seule passe
+- ces validations groupees doivent rester reliees au meme objectif produit, technique ou documentaire
+- objectif operatoire : viser environ `1 validation manuelle par heure` maximum quand l'environnement technique le permet
+- si cet objectif n'est pas atteignable sur une phase donnee, il faut quand meme chercher a reduire le nombre de validations au strict minimum utile
+
+Obligation apres chaque action groupee :
+
+- relire `DOCUMENT_MAITRE_GYM.md`
+- relire `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
+- faire relire ce cadre par le superviseur
+- verifier explicitement que le lot d'actions realise ne cree pas de derive par rapport au fil rouge
+
+Le superviseur doit donc :
+
+- se recaler apres chaque lot d'actions validees a la main
+- considerer toute action groupee comme un point de controle formel
+- refuser la poursuite aveugle si le lot d'actions fait apparaitre une divergence de priorite, de logique metier ou de perimetre MVP
+
+But de cette regle :
+
+- gerer un grand volume d'actions sans perdre le contexte
+- proteger la coherence du projet quand beaucoup de validations manuelles s'enchainent
+- forcer un recentrage regulier sur le document maitre
+- garder le projet lisible, meme dans les phases de production rapides
+- permettre une automatisation longue du projet avec une intervention humaine rare, groupee et explicite
+
 ## 2. Probleme a resoudre
 
 ### Pour les coachs
