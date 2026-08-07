@@ -1,6 +1,6 @@
 # Rapport de supervision Fil Rouge GYM
 
-- Date d'execution : 2026-07-30 02:00:47
+- Date d'execution : 2026-08-08 01:52:47
 - Racine : `C:\Users\cashe\Documents\GetYourMentor`
 
 ## Resultat
@@ -26,6 +26,7 @@ STATUT : CONFORME
 - OK fichier present : `governance/prompts/PROMPT_QA_GYM.md`
 - OK fichier present : `governance/prompts/PROMPT_SEO_GYM.md`
 - OK fichier present : `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`
+- OK fichier present : `governance/ai/MODE_AUTO_PROJET_GYM.md`
 - OK fichier present : `governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md`
 - OK fichier present : `governance/ai/PHASES_EXECUTION_GYM.md`
 - OK fichier present : `governance/ai/CONTEXT_RAG_GYM.md`
@@ -56,28 +57,23 @@ STATUT : CONFORME
 - OK source referencee : `SOURCES_PRIORITAIRES_2026_03_19.md`
 - OK source referencee : `project_readable/INDEX.md`
 - OK aucun marqueur de texte corrompu detecte dans les zones sensibles
-- OK modifications code sensibles accompagnees de mises a jour de gouvernance
+- OK aucune modification code sensible non reliee a la gouvernance sur ce cycle
 
 ## Changements detectes depuis le dernier passage
 
 - Ajoutes :
-  - `governance/ai/CYCLE_014_SEO_METADATA_GYM.md`
-  - `gym-next/lib/seo.ts`
+  - `governance/ai/LOT_AUTO_GIT_CHECKPOINT_GYM.md`
+  - `governance/ai/ORCHESTRATEUR_LOTS_GYM.md`
+  - `governance/ai/auto_git_checkpoint_journal.md`
+  - `governance/ai/auto_orchestrator_journal.md`
 - Modifies :
-  - `governance/ai/DECISIONS_LOG_GYM.md`
+  - `governance/README.md`
+  - `governance/ai/MODE_AUTO_PROJET_GYM.md`
+  - `governance/ai/auto_mode_journal.md`
+  - `governance/ai/auto_mode_state.json`
+  - `governance/ai/auto_visual_audit_journal.md`
   - `governance/ai/fil_rouge_state.json`
   - `governance/ai/last_supervision_report.md`
-  - `governance/roles/README_SEO.md`
-  - `gym-next/app/coach/page.tsx`
-  - `gym-next/app/coachs/page.tsx`
-  - `gym-next/app/compte/page.tsx`
-  - `gym-next/app/creneau/page.tsx`
-  - `gym-next/app/inscription-club/page.tsx`
-  - `gym-next/app/layout.tsx`
-  - `gym-next/app/page.tsx`
-  - `gym-next/app/paiement/page.tsx`
-  - `gym-next/app/recapitulatif/page.tsx`
-  - `gym-next/app/recherche/page.tsx`
 
 ## Alertes
 

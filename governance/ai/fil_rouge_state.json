@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30 02:00:47",
+  "generated_at": "2026-08-08 01:52:47",
   "files": {
     "docs/prototype-site/accueil.html": {
       "sha1": "b38184b12a66aab08a1127d5ac628d3f6b8271fa",
@@ -96,6 +96,36 @@
       "mtime": 1785058461,
       "size": 3947
     },
+    "governance/ai/auto_build_supervision_journal.md": {
+      "sha1": "562f6831333d5ee182f60bfd76deb1309e050d61",
+      "mtime": 1786134402,
+      "size": 2145
+    },
+    "governance/ai/auto_git_checkpoint_journal.md": {
+      "sha1": "9047beba493880662ef92c9290f1e91df9122ddc",
+      "mtime": 1786145989,
+      "size": 2072
+    },
+    "governance/ai/auto_mode_journal.md": {
+      "sha1": "262557bec0462bc9b4f9c473be85638a7ab48dd1",
+      "mtime": 1786145989,
+      "size": 9228
+    },
+    "governance/ai/auto_mode_state.json": {
+      "sha1": "8fd542568ce5a9d70e4b951624c9a99f9df9dcda",
+      "mtime": 1786146764,
+      "size": 4840
+    },
+    "governance/ai/auto_orchestrator_journal.md": {
+      "sha1": "82502ac6773a4f44aeca7ab672a4884bd8a5b740",
+      "mtime": 1786146765,
+      "size": 714
+    },
+    "governance/ai/auto_visual_audit_journal.md": {
+      "sha1": "2f68dc0034be571480aaa11bb23a2b6585ad341e",
+      "mtime": 1786134975,
+      "size": 4398
+    },
     "governance/ai/CONTEXT_RAG_GYM.md": {
       "sha1": "5330ee564224646f49fbbc9ebc5bc1c7b283f140",
       "mtime": 1785090339,
@@ -177,19 +207,44 @@
       "size": 9837
     },
     "governance/ai/fil_rouge_state.json": {
-      "sha1": "667c29795d21b6b8c27b37793b515c780a08a175",
-      "mtime": 1785368494,
-      "size": 16810
+      "sha1": "20c335447a53653ee6c13c0e45bf915dbc6472e6",
+      "mtime": 1786134923,
+      "size": 18294
     },
     "governance/ai/last_supervision_report.md": {
-      "sha1": "ac0defd1d936b25b3746a35993484c17557a4b40",
-      "mtime": 1785368494,
-      "size": 3595
+      "sha1": "3ed7e3eeb6b9213984686d52ad44650baf36af28",
+      "mtime": 1786134923,
+      "size": 3588
+    },
+    "governance/ai/LOT_AUTO_AUDIT_VISUEL_GYM.md": {
+      "sha1": "541b21db5221d8a6224310eed3a1bf8bb4fb5758",
+      "mtime": 1786134595,
+      "size": 1068
+    },
+    "governance/ai/LOT_AUTO_BUILD_SUPERVISION_GYM.md": {
+      "sha1": "751cc761912c5c4b33e3f95f0ef111ef7902bb31",
+      "mtime": 1786134281,
+      "size": 923
+    },
+    "governance/ai/LOT_AUTO_GIT_CHECKPOINT_GYM.md": {
+      "sha1": "5c8e5f77a218d108527f0f172421c2bc7681d7d3",
+      "mtime": 1786145973,
+      "size": 1036
+    },
+    "governance/ai/MODE_AUTO_PROJET_GYM.md": {
+      "sha1": "56f36a00b72af90abc6a8c09a6f819b732bb0ff9",
+      "mtime": 1786146479,
+      "size": 3163
     },
     "governance/ai/MVP_ROUTE_CONTROL_GYM.md": {
       "sha1": "8020674927628552adf7a77353d701c0de48f5ac",
       "mtime": 1785090387,
       "size": 2883
+    },
+    "governance/ai/ORCHESTRATEUR_LOTS_GYM.md": {
+      "sha1": "e6709df6fc8c2fb44179213d4de6e14232e226a4",
+      "mtime": 1786146477,
+      "size": 1471
     },
     "governance/ai/PHASES_EXECUTION_GYM.md": {
       "sha1": "fab7d931f6ac4d3116de69daa74effdd981036bd",
@@ -202,19 +257,19 @@
       "size": 1320
     },
     "governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md": {
-      "sha1": "e544b4c6ddf4769dfae09adfb0161e38f12c6c54",
-      "mtime": 1785058463,
-      "size": 751
+      "sha1": "499c63e10492bce9ac2274b8a7618ef180d3131b",
+      "mtime": 1786133401,
+      "size": 1272
     },
     "governance/fil_rouge_manifest.json": {
-      "sha1": "39d2f0646ee310196c9513d6d1839b4a8634a1f5",
-      "mtime": 1785098421,
-      "size": 3140
+      "sha1": "9c83af8d0614087e605489889b2e146cffea5093",
+      "mtime": 1786133878,
+      "size": 3185
     },
     "governance/FIL_ROUGE_OPERATOIRE_GYM.md": {
-      "sha1": "4cc55d8cbb0463d1ae10127eb89988bd10b24b03",
-      "mtime": 1785365325,
-      "size": 1968
+      "sha1": "53e08dfc8d36a63024806fd5df8bc1941b87e0bc",
+      "mtime": 1786133399,
+      "size": 2979
     },
     "governance/prompts/PROMPT_CTO_GYM.md": {
       "sha1": "fa3dcce8c5caea444171044a121c98985a8b2519",
@@ -247,9 +302,9 @@
       "size": 568
     },
     "governance/README.md": {
-      "sha1": "7cbcb5fcbfedce2a810864481959480d8e302e59",
-      "mtime": 1785365323,
-      "size": 3146
+      "sha1": "50ae54b7b89d2d0df52a018b19eb5a3804d4c27e",
+      "mtime": 1786146480,
+      "size": 3959
     },
     "governance/roles/README_CTO.md": {
       "sha1": "1faab09e1ec30b8051802c0d95b424de846811ed",

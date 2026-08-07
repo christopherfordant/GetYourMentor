@@ -56,8 +56,34 @@ Le dossier `ai/` contient aussi la memoire locale de production :
 - `CYCLE_010_SHELL_NEXT_QA_GYM.md`
 - `CYCLE_011_QA_PLAYWRIGHT_GYM.md`
 - `CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md`
+- `MODE_AUTO_PROJET_GYM.md`
+- `auto_mode_state.json`
 
 Ces fichiers servent de RAG local humain pour conserver l'ordre des phases, les decisions, les priorites et le contexte persistant entre les conversations.
+
+## Mode auto projet
+
+Le projet dispose maintenant d'un socle `mode auto` pour les cycles repetitifs de gouvernance.
+
+Pieces principales :
+
+- `governance/ai/MODE_AUTO_PROJET_GYM.md`
+- `governance/ai/auto_mode_state.json`
+- `scripts/run_auto_project_cycle.ps1`
+- `scripts/start_auto_project_loop.ps1`
+- `scripts/read_auto_project_state.ps1`
+- `scripts/run_auto_build_supervision_lot.ps1`
+- `scripts/run_auto_visual_audit_lot.ps1`
+- `scripts/run_auto_orchestrator.ps1`
+- `scripts/start_auto_orchestrator_loop.ps1`
+- `scripts/run_auto_git_checkpoint_lot.ps1`
+- `scripts/start_auto_night_run.ps1`
+
+But :
+
+- relancer un cycle de controle sans perdre le fil rouge
+- garder une memoire durable entre les reprises
+- reduire le nombre de validations manuelles inutiles
 
 ## Regle de travail
 

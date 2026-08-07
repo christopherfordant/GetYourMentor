@@ -73,3 +73,25 @@ Regle stricte :
 
 - pas de push si une modification importante du code n'est pas reliee au MVP, au tunnel de reservation, a la migration progressive Next.js ou a une mise a jour de gouvernance coherente
 - pas de push si une derive V2/V3 ou une complexite club non MVP est detectee
+
+## Validations groupees
+
+Quand l'utilisateur doit faire beaucoup d'actions manuelles dans le systeme ou le terminal, il est autorise de les faire par **lots coherents** plutot qu'une par une.
+
+Cadre obligatoire :
+
+- un lot = un seul objectif clair
+- pas de melange entre plusieurs sujets metier sans relecture intermediaire
+- apres chaque lot, relecture obligatoire de `DOCUMENT_MAITRE_GYM.md`
+- apres chaque lot, relecture obligatoire de ce fil rouge
+- apres chaque lot, verification superviseur avant de continuer
+- objectif d'exploitation : tendre vers `1 validation manuelle par heure` maximum quand la couche systeme et les outils le permettent
+- tout ce qui peut etre automatise sans contourner un consentement protege doit l'etre
+
+Signal d'arret :
+
+- si un lot cree une ambiguite
+- si un lot touche plusieurs zones du produit sans justification unique
+- si un lot risque de casser le MVP, la migration Next.js ou les liens metier
+
+alors on arrete le flux, on recadre, puis on repart sur un nouveau lot.
