@@ -1,0 +1,762 @@
+/* GetYourMentor 2026 visual system: discovery and directory surfaces */
+
+.sport-page-shell,
+.coach-profile-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 0, rgba(184, 210, 255, 0.28), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+.sport-page-shell .topbar,
+.coach-profile-shell .topbar {
+  position: sticky;
+  padding: 13px 34px;
+  background: rgba(248, 250, 252, 0.84);
+  border-bottom: 1px solid rgba(31, 42, 58, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(18px);
+}
+
+.sport-page-shell .brand-name,
+.coach-profile-shell .brand-name {
+  color: #172033;
+  font-size: 19px;
+}
+
+.sport-page-shell .sport-link,
+.coach-profile-shell .sport-link {
+  color: #617087;
+  font-size: 13px;
+  text-shadow: none;
+}
+
+.sport-page-shell .sport-link::after,
+.coach-profile-shell .sport-link::after {
+  background: #e26b47;
+}
+
+.sport-page-shell .topbar-link,
+.coach-profile-shell .topbar-link {
+  min-height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 13px;
+  box-shadow: none;
+}
+
+.sport-page-shell .account-button,
+.coach-profile-shell .account-button {
+  min-height: 42px;
+  border-radius: 13px;
+  background: #172033;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+.sport-page {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  padding: 68px 24px 96px;
+}
+
+.sport-hero {
+  width: min(100%, 1140px);
+  margin: 0 auto;
+  padding: 46px 0 74px;
+  text-align: left;
+}
+
+.sport-title {
+  max-width: 760px;
+  margin: 0;
+  color: #172033;
+  font-size: clamp(44px, 6vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.075em;
+}
+
+.sport-title::before {
+  content: "TROUVER · COMPARER · RÉSERVER";
+  display: block;
+  margin-bottom: 18px;
+  color: #e26b47;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.sport-search-card {
+  width: min(100%, 980px);
+  margin: 36px 0 0;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(31, 42, 58, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.sport-search-field {
+  min-height: 68px;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 15px;
+  background: #f3f6fa;
+}
+
+.sport-search-field span {
+  color: #738096;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sport-search-field input {
+  font-size: 15px;
+}
+
+.sport-search-card .search-button {
+  min-height: 68px;
+  min-width: 150px;
+  border-radius: 16px;
+  background: #172033;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.sport-results {
+  width: min(100%, 1140px);
+}
+
+.sport-kicker {
+  margin: 0 0 20px;
+  color: #738096;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sport-card-grid {
+  gap: 16px;
+}
+
+.sport-city-card {
+  min-height: 230px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.sport-city-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.17);
+}
+
+.sport-city-copy {
+  padding: 22px;
+}
+
+.sport-city-copy h2 {
+  max-width: 220px;
+  font-size: 23px;
+  letter-spacing: -0.05em;
+}
+
+.coach-directory-page {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  padding: 44px 24px 72px;
+}
+
+.coach-directory-toolbar,
+.coach-directory-content {
+  width: 100%;
+}
+
+.coach-directory-search {
+  padding: 7px;
+  border-radius: 20px;
+  border-color: rgba(31, 42, 58, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.directory-field {
+  padding: 13px 17px;
+}
+
+.directory-field span {
+  color: #738096;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.directory-field input {
+  font-size: 14px;
+}
+
+.directory-search-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #172033;
+}
+
+.directory-chip-row {
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.directory-chip {
+  min-height: 38px;
+  padding: 0 14px;
+  border-color: rgba(31, 42, 58, 0.1);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+  font-size: 12px;
+}
+
+.directory-chip-filter {
+  background: #172033;
+  color: #fff;
+  border-color: #172033;
+}
+
+.coach-directory-content {
+  margin-top: 30px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 22px;
+}
+
+.directory-heading h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  letter-spacing: -0.065em;
+}
+
+.directory-heading p {
+  color: #738096;
+  font-size: 14px;
+}
+
+.coach-results {
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.coach-result-card {
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px;
+  border-color: rgba(31, 42, 58, 0.09);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.coach-result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(15, 23, 42, 0.12);
+}
+
+.coach-result-media {
+  min-height: 196px;
+  border-radius: 17px;
+}
+
+.coach-result-top h2 {
+  font-size: 21px;
+}
+
+.coach-result-address,
+.coach-result-meta {
+  color: #738096;
+  font-size: 13px;
+}
+
+.coach-day-card {
+  min-width: 92px;
+  padding: 10px;
+  border: 0;
+  border-radius: 13px;
+  background: #f1f5f9;
+}
+
+.coach-day-period {
+  min-height: 24px;
+  padding: 0 8px;
+  border: 0;
+  background: #fff;
+  font-size: 10px;
+}
+
+.coach-book-button {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #172033;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.coach-directory-map {
+  top: 92px;
+}
+
+.coach-map-panel {
+  min-height: 660px;
+  border: 1px solid rgba(31, 42, 58, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 900px) {
+  .sport-page-shell .topbar,
+  .coach-profile-shell .topbar {
+    padding: 12px 16px;
+  }
+
+  .sport-page {
+    padding: 42px 16px 64px;
+  }
+
+  .sport-hero {
+    padding: 28px 0 52px;
+  }
+
+  .sport-title {
+    font-size: clamp(42px, 13vw, 64px);
+  }
+
+  .sport-search-card,
+  .coach-directory-search {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .sport-search-card .search-button {
+    width: 100%;
+  }
+
+  .coach-directory-page {
+    padding: 30px 16px 56px;
+  }
+
+  .coach-directory-content {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-directory-map {
+    display: none;
+  }
+
+  .coach-result-card {
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .coach-result-media {
+    min-height: 150px;
+  }
+
+  .coach-result-footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .coach-book-button {
+    justify-content: center;
+  }
+}
+
+/* Le formulaire club doit rester contenu dans la largeur d'un téléphone. */
+html,
+body {
+  min-height: 100%;
+  background: #0b1020 !important;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+@media (max-width: 900px) {
+  .club-signup-page,
+  .club-signup-visual,
+  .club-signup-form-panel,
+  .club-signup-form-card,
+  .club-signup-grid,
+  .club-signup-logo-frame {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .club-signup-page { width: 100%; overflow-x: hidden; }
+  .club-signup-visual,
+  .club-signup-form-panel { width: 100%; }
+  .club-signup-form-card { width: 100%; }
+  .club-signup-logo-frame img { max-width: 100%; height: auto; }
+  .club-signup-form-card .auth-field,
+  .club-signup-form-card .auth-field input,
+  .club-signup-form-card .auth-field select,
+  .club-signup-form-card .club-signup-dropzone {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Cohérence produit : les écrans secondaires reprennent l'identité d'une app sportive. */
+.sport-page-shell,
+.coach-profile-shell,
+.account-shell,
+.payment-shell,
+.recap-shell,
+.reservation-shell {
+  color: #f6f8fb;
+  background: #0b1020;
+}
+
+.sport-page-shell .site-header,
+.coach-profile-shell .site-header,
+.account-shell .topbar,
+.payment-shell .topbar,
+.recap-shell .topbar,
+.reservation-shell .topbar {
+  background: rgba(11, 16, 32, 0.92);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.sport-page-shell h1,
+.sport-page-shell h2,
+.sport-page-shell h3,
+.coach-profile-shell h1,
+.coach-profile-shell h2,
+.coach-profile-shell h3,
+.account-shell h1,
+.account-shell h2,
+.payment-shell h1,
+.payment-shell h2,
+.recap-shell h1,
+.recap-shell h2,
+.reservation-shell h1,
+.reservation-shell h2 {
+  color: #f6f8fb;
+}
+
+.sport-page-shell p,
+.coach-profile-shell p,
+.account-shell p,
+.payment-shell p,
+.recap-shell p,
+.reservation-shell p {
+  color: #9da9c2;
+}
+
+.sport-search-card,
+.coach-directory-toolbar,
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.auth-card,
+.payment-card,
+.payment-summary-card,
+.recap-service-card,
+.recap-date-card,
+.recap-auth-card,
+.reservation-selection-panel,
+.reservation-calendar-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #151d32;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22);
+}
+
+.sport-search-card input,
+.sport-search-card select,
+.coach-directory-toolbar input,
+.coach-directory-toolbar select,
+.auth-field input,
+.auth-field select,
+.payment-field input,
+.reservation-selection-panel input {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: #1d2840;
+  color: #f6f8fb;
+}
+
+.sport-search-card .search-button,
+.coach-book-button,
+.auth-primary,
+.payment-submit,
+.reservation-confirm-button,
+.recap-dark-button {
+  background: #d7f36b;
+  color: #111827;
+  box-shadow: none;
+}
+
+.sport-search-card .search-button:hover,
+.coach-book-button:hover,
+.auth-primary:hover,
+.payment-submit:hover,
+.reservation-confirm-button:hover,
+.recap-dark-button:hover {
+  background: #ecff9a;
+}
+
+.coach-result-card.is-featured,
+.coach-result-card:hover,
+.reservation-slot.is-selected,
+.reservation-coach-option.is-active,
+.payment-method.is-active {
+  border-color: #d7f36b;
+  background: #202d42;
+}
+
+.coach-directory-map { filter: saturate(0.55) brightness(0.72); border-color: rgba(255,255,255,0.1); }
+
+@media (max-width: 900px) {
+  .sport-page-shell,
+  .coach-profile-shell,
+  .account-shell,
+  .payment-shell,
+  .recap-shell,
+  .reservation-shell { padding-bottom: 74px; }
+  .sport-page-shell .site-header,
+  .coach-profile-shell .site-header { padding: 14px 16px; }
+}
+
+/* Conversion and account surfaces */
+.account-shell,
+.payment-shell,
+.recap-shell,
+.reservation-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 90% 0, rgba(225, 235, 255, 0.72), transparent 30%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+.account-shell .topbar,
+.payment-shell .topbar,
+.recap-shell .topbar,
+.reservation-shell .topbar {
+  position: sticky;
+  padding: 13px 34px;
+  background: rgba(248, 250, 252, 0.86);
+  border-bottom: 1px solid rgba(31, 42, 58, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(18px);
+}
+
+.account-shell .brand-name,
+.payment-shell .brand-name,
+.recap-shell .brand-name,
+.reservation-shell .brand-name {
+  color: #172033;
+  font-size: 19px;
+}
+
+.account-shell .sport-link,
+.payment-shell .sport-link,
+.recap-shell .sport-link,
+.reservation-shell .sport-link {
+  color: #617087;
+  font-size: 13px;
+  text-shadow: none;
+}
+
+.account-shell .topbar-link,
+.payment-shell .topbar-link,
+.recap-shell .topbar-link,
+.reservation-shell .topbar-link {
+  min-height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 13px;
+  box-shadow: none;
+}
+
+.account-shell .account-button,
+.payment-shell .account-button,
+.recap-shell .account-button,
+.reservation-shell .account-button {
+  min-height: 42px;
+  border-radius: 13px;
+  background: #172033;
+  box-shadow: none;
+  font-size: 13px;
+}
+
+.account-page,
+.payment-page,
+.recap-page,
+.reservation-page {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 52px 24px 80px;
+}
+
+.account-auth-stage {
+  min-height: 620px;
+  padding: 28px;
+  border: 1px solid rgba(31, 42, 58, 0.1);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.auth-card {
+  border: 1px solid rgba(31, 42, 58, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card h1,
+.auth-card h2 {
+  color: #172033;
+  letter-spacing: -0.06em;
+}
+
+.auth-field input,
+.auth-field select {
+  min-height: 50px;
+  border: 1px solid rgba(31, 42, 58, 0.13);
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #172033;
+}
+
+.auth-primary,
+.auth-role-card.is-selected,
+.recap-dark-button,
+.reservation-confirm-button,
+.payment-submit {
+  border-radius: 14px;
+  background: #172033;
+  box-shadow: none;
+}
+
+.auth-primary:hover,
+.recap-dark-button:hover,
+.reservation-confirm-button:hover,
+.payment-submit:hover {
+  background: #e26b47;
+}
+
+.payment-page,
+.recap-page,
+.reservation-page {
+  padding-top: 58px;
+}
+
+.payment-intro h1,
+.recap-header h1,
+.reservation-header h1 {
+  color: #172033;
+  font-size: clamp(38px, 5vw, 66px);
+  letter-spacing: -0.075em;
+}
+
+.payment-card,
+.payment-summary-card,
+.payment-success-card,
+.recap-service-card,
+.recap-date-card,
+.recap-auth-card,
+.reservation-selection-panel,
+.reservation-calendar-card {
+  border: 1px solid rgba(31, 42, 58, 0.09);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+}
+
+.payment-method {
+  border-radius: 14px;
+  border-color: rgba(31, 42, 58, 0.1);
+  background: #f6f8fb;
+}
+
+.payment-method.is-active {
+  border-color: #e26b47;
+  background: #fff5f1;
+  color: #a8472c;
+}
+
+.payment-field input,
+.reservation-selection-panel input {
+  border: 1px solid rgba(31, 42, 58, 0.13);
+  border-radius: 13px;
+  background: #f8fafc;
+}
+
+.payment-success-card {
+  border-color: rgba(73, 183, 123, 0.25);
+  background: #f1fbf5;
+}
+
+.recap-step h2,
+.reservation-step h2 {
+  color: #172033;
+  letter-spacing: -0.055em;
+}
+
+.recap-outline-button,
+.recap-link,
+.reservation-add-button {
+  border-radius: 13px;
+}
+
+.reservation-day,
+.reservation-slot,
+.reservation-coach-option {
+  border-radius: 14px;
+  border-color: rgba(31, 42, 58, 0.11);
+  background: #f8fafc;
+}
+
+.reservation-slot.is-selected,
+.reservation-coach-option.is-active {
+  border-color: #e26b47;
+  background: #fff5f1;
+  color: #a8472c;
+}
+
+@media (max-width: 900px) {
+  .account-shell .topbar,
+  .payment-shell .topbar,
+  .recap-shell .topbar,
+  .reservation-shell .topbar {
+    padding: 12px 16px;
+  }
+
+  .account-page,
+  .payment-page,
+  .recap-page,
+  .reservation-page {
+    padding: 30px 16px 58px;
+  }
+
+  .account-auth-stage {
+    min-height: 0;
+    padding: 16px;
+    border-radius: 22px;
+  }
+}

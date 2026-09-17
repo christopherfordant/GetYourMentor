@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 import styles from "./home.module.css";
 import {
   faqItems,
@@ -103,6 +104,7 @@ export function HomePageClient() {
         </nav>
 
         <div className={styles.topbarActions}>
+          <LanguageSelector />
           <Link href="/compte" className={styles.topbarLink}>
             Je suis un professionnel du sport
           </Link>
@@ -138,35 +140,37 @@ export function HomePageClient() {
           <div className={styles.heroOverlay} />
 
           <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Coaching sportif premium</p>
-            <h1 className={styles.heroTitle}>Réservez votre coach</h1>
-            <p className={styles.heroCopy}>Simple - Immédiat - 24h/24</p>
+            <p className={styles.eyebrow}>Coaching qui te ressemble</p>
+            <h1 className={styles.heroTitle}>Bouge. Progresse. Recommence.</h1>
+            <p className={styles.heroCopy}>Trouve le bon accompagnement, réserve une session et garde le rythme.</p>
 
             <div className={styles.searchCard}>
               <label className={styles.field}>
-                <span className={styles.fieldLabel}>Que cherchez-vous ?</span>
+                <span className={styles.fieldLabel}>Quel sport ?</span>
                 <input
                   className={styles.fieldInput}
                   type="text"
-                  placeholder="Nom du coach, sport..."
+                  data-home-sport-input
+                  placeholder="Football, fitness..."
                   value={sportInput}
                   onChange={(event) => setSportInput(event.target.value)}
                 />
               </label>
 
               <label className={styles.field}>
-                <span className={styles.fieldLabel}>Ou</span>
+                <span className={styles.fieldLabel}>Où t’entraîner ?</span>
                 <input
                   className={styles.fieldInput}
                   type="text"
-                  placeholder="Adresse, ville"
+                  data-home-city-input
+                  placeholder="Ville ou visio"
                   value={cityInput}
                   onChange={(event) => setCityInput(event.target.value)}
                 />
               </label>
 
               <button className={styles.searchButton} type="button" onClick={handleSearch}>
-                Rechercher
+                Trouver un coach
               </button>
             </div>
           </div>
@@ -174,14 +178,14 @@ export function HomePageClient() {
 
         <section className={styles.section}>
           <div className={styles.sectionHeading}>
-            <h2>Comment ça marche ?</h2>
+            <h2>Ton parcours, sans friction</h2>
           </div>
 
           <div className={styles.howGrid}>
             <article className={styles.stepCard}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>1</span>
-                <h3>Trouvez votre coach</h3>
+                <h3>Choisis ton coach</h3>
               </div>
               <div className={styles.miniScreen}>
                 <div className={styles.slideMedia}>
@@ -227,7 +231,7 @@ export function HomePageClient() {
             <article className={styles.stepCard}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>2</span>
-                <h3>Proposez vos créneaux</h3>
+                <h3>Bloque tes créneaux</h3>
               </div>
               <div className={styles.miniScreen}>
                 <p className={styles.slideCaption}>{activeSlot.title}</p>
@@ -276,7 +280,7 @@ export function HomePageClient() {
             <article className={styles.stepCard}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>3</span>
-                <h3>Confirmez et payez</h3>
+                <h3>Valide ta session</h3>
               </div>
               <div className={styles.miniScreen}>
                 <div className={styles.paymentVisual} />
@@ -413,6 +417,13 @@ export function HomePageClient() {
         </nav>
         <small>&copy; 2026 GetYourMentor. Tous droits réservés.</small>
       </footer>
+
+      <nav className={styles.mobileNav} aria-label="Navigation principale">
+        <Link href="/" className={styles.mobileNavItemActive}><span aria-hidden="true">⌂</span><span>Accueil</span></Link>
+        <Link href="/recherche?sport=football" className={styles.mobileNavItem}><span aria-hidden="true">⌕</span><span>Explorer</span></Link>
+        <Link href="/creneau" className={styles.mobileNavItem}><span aria-hidden="true">◷</span><span>Sessions</span></Link>
+        <Link href="/compte" className={styles.mobileNavItem}><span aria-hidden="true">◯</span><span>Profil</span></Link>
+      </nav>
     </div>
   );
 }

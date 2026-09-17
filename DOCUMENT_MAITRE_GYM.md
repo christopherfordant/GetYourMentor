@@ -58,22 +58,24 @@ Ces 4 sports sont les seuls visibles dans :
 - les tags de discipline
 - les ecrans de maquette
 
-## 1.1 Direction visuelle
+## 1.1 Direction visuelle et experience produit
 
-La direction visuelle du site doit etre clairement **"Planity-like"** dans son esprit produit. Cela veut dire :
+GetYourMentor ne doit pas reprendre les codes d'une plateforme de beaute, d'un annuaire de rendez-vous ou d'une marque existante. La direction de reference est celle d'une **application de coaching sportif mobile-first**, adaptee au web responsive : energie, progression, confiance et passage a l'action.
 
-- une interface premium, sombre et rassurante
-- une home orientee recherche et prise de rendez-vous
-- des fiches coachs tres lisibles avec photo, informations clefs, tarifs et disponibilites
-- une presentation simple des prestations ou types de seances
-- des appels a l'action visibles et repetes : reserver, contacter, creer un compte
-- une experience mobile tres soignee, avec navigation fluide et rapide
-- un parcours de recherche jusqu'au paiement construit `fenetre par fenetre`
-- une progression ecran par ecran avec une seule decision principale a chaque etape
+Principes de design :
 
-Le but n'est pas de copier a l'identique, mais d'adopter la meme logique d'usage : **recherche simple, confiance, reservation rapide, friction minimale**, avec un **theme sombre premium** et des accents orange plus sportifs.
+- une interface sombre, lumineuse et sportive, avec des surfaces bleu nuit, un accent vert performance et des touches orange pour les actions actives
+- une home qui parle d'objectif, de rythme et de progression avant de parler de rendez-vous
+- des cartes de coachs vivantes : photo, discipline, niveau, ville ou visio, disponibilites et preuve de confiance
+- une navigation mobile persistante et lisible, completee par une navigation web simple sur desktop
+- une information hierarchisee avec des contrastes conformes : texte principal tres clair, texte secondaire bleute, fonds suffisamment distincts
+- des animations courtes et utiles : apparition douce, elevation au survol, transitions d'etat, sans mouvement obligatoire
+- une seule decision principale par ecran : explorer, choisir un coach, proposer des creneaux, attendre la validation, puis payer
+- des CTA qui decrivent l'action sportive : `Trouver un coach`, `Voir le profil`, `Proposer mes creneaux`, `Payer ma session`
 
-Un module `Contenu premium` peut etre montre dans la maquette comme extension de la fiche coach, avec inspiration de la logique de contenus reserves visible sur MYM, mais adapte au coaching sportif : apercus publics, contenus premium floutes, deblocage simple, sans casser la priorite du booking.
+La plateforme doit rester reconnaissable par son univers propre : elle aide un sportif a **commencer, progresser et rester regulier**, et aide un coach a organiser ses demandes, ses disponibilites et ses paiements. Aucun texte, composant ou ecran ne doit etre copie d'une autre plateforme.
+
+Un module `Contenu premium` peut etre montre plus tard comme extension de la fiche coach, mais il reste secondaire face au coaching, a la reservation et au suivi de progression.
 
 ## 1.2 Validation visuelle et produit
 
@@ -85,7 +87,7 @@ Cette maquette a pour but de valider :
 - la charte graphique
 - la logique des ecrans
 - les fonctionnalites MVP vraiment visibles
-- la coherence de l'experience "Planity-like"
+- la coherence de l'experience mobile de coaching sportif
 
 L'objectif n'est pas de maquetter tout le produit au debut, mais de produire un prototype court, lisible et convaincant, utile pour :
 
@@ -452,13 +454,13 @@ Ces decisions doivent etre considerees comme prioritaires :
 1. GYM commence comme un site web responsive.
 2. Le MVP reste volontairement simple et centre sur coach + sportif.
 3. Le club entre dans le MVP en mode leger, pas en gestion avancee.
-4. Le style produit du site sera tres "Planity-like" dans sa clarte et sa logique de reservation.
+4. La direction visuelle est propre a GetYourMentor : une application web responsive de coaching sportif, mobile-first, sombre, dynamique et orientee progression.
 5. La reservation du MVP fonctionne en demande de reservation validee par le coach, pas en agenda instantane complexe.
 6. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.
 7. Les fonctions V2/V3 restent hors lancement.
 8. L'interface du MVP est en francais par defaut avec selecteur de langue.
 9. Le MVP ne montre que 4 sports : `football`, `basketball`, `fitness`, `sports de combat`.
-10. La direction visuelle de la maquette MVP est en theme sombre premium avec accent orange.
+10. La direction visuelle de la maquette MVP utilise un theme bleu nuit, un accent vert performance et un accent orange pour les etats actifs.
 11. L'application peut traduire automatiquement l'interface selon la langue disponible de l'utilisateur, avec changement manuel possible.
 12. La maquette doit montrer explicitement le paiement apres acceptation du coach et un premier module de fidelite.
 13. L'equipe se donne une verite unique dans ce document maitre.
