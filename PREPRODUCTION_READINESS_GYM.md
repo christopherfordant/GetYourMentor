@@ -31,7 +31,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Concurrence des créneaux | PASS code / À valider Supabase | Une contrainte unique `(coach_id, slot)` dans `gym_reservation_slot_claims` protège les créations concurrentes après application du schéma ; les conflits sont renvoyés en `409`. |
 | SEO technique de base | PASS | Métadonnées, `/robots.txt` et `/sitemap.xml` ajoutés et servis par l’application. |
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
-| Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` détecte l’absence des secrets Supabase, Stripe, Resend et de l’URL HTTPS. |
+| Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` rejette l’absence, les placeholders, les URLs non HTTPS et les formats de clés Stripe/Resend incorrects ; les secrets réels restent à renseigner. |
 | Tunnel sans données réelles | PASS code / À valider préproduction | En mode production sans Supabase ou sans coach vérifié, `/creneau`, `/recapitulatif` et `/paiement` affichent un état indisponible et ne présentent pas les valeurs de démonstration. |
 | Paiement réel | BLOCKED | Le MVP reste en mode local tant qu’un compte Stripe, une clé serveur et un webhook ne sont pas configurés. |
 | Emails transactionnels | BLOCKED | Resend et une adresse d’expédition vérifiée sont nécessaires. |
