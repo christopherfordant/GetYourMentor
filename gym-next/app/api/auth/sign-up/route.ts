@@ -3,7 +3,7 @@ import { signUp, type UserRole } from "@/lib/auth";
 import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
-  const limit = rateLimit(request, "auth-sign-up", 20, 60_000);
+  const limit = rateLimit(request, "auth-sign-up", 60, 60_000);
   if (!limit.allowed) return NextResponse.json({ error: "Trop de tentatives, réessayez plus tard" }, { status: 429, headers: { "Retry-After": String(limit.retryAfter) } });
   if (bodyExceedsLimit(request, 16 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);

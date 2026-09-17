@@ -37,7 +37,7 @@ test("le formulaire club refuse les types de fichiers non autorisés", async ({ 
 
 test("les inscriptions sont limitées par adresse client", async ({ request }) => {
   let lastStatus = 0;
-  for (let attempt = 0; attempt < 21; attempt += 1) {
+  for (let attempt = 0; attempt < 61; attempt += 1) {
     const response = await request.post("/api/auth/sign-up", {
       data: {},
       headers: { "x-forwarded-for": "rate-limit-test-client" },
