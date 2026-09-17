@@ -9,5 +9,5 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  return <HomePageClient />;
+  return <HomePageClient allowDemoFallback={process.env.GETYOURMENTOR_ALLOW_DEMO === "true"} />;
 }
