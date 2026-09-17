@@ -3,8 +3,9 @@ import { requireRole } from "@/lib/auth";
 import { payReservation } from "@/lib/reservations";
 import { createCheckoutSession } from "@/lib/payments";
 import { getReservation } from "@/lib/reservations";
+import { isReservationClaimTokenValid } from "@/lib/reservation-claims";
 
-export async function POST(_request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const session = await requireRole("sportif");
   if (!session) {
     return NextResponse.json({ error: "Connexion sportif requise pour payer" }, { status: 401 });
@@ -14,6 +15,9 @@ export async function POST(_request: Request, { params }: { params: Promise<{ id
     const current = await getReservation(reservationId);
     if (!current) return NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
     if (current.ownerEmail && current.ownerEmail !== session.email) return NextResponse.json({ error: "Cette réservation appartient à un autre compte" }, { status: 403 });
+    if (!current.ownerEmail && !isReservationClaimTokenValid(current.id, request.headers.get("x-reservation-claim-token"))) {
+      return NextResponse.json({ error: "Reservation claim token required" }, { status: 403 });
+    }
     const checkout = await createCheckoutSession({ ...current, ownerEmail: current.ownerEmail ?? session.email });
     if (checkout) return NextResponse.json({ data: { ...checkout, provider: "stripe", status: "pending" } });
     const reservation = await payReservation(reservationId, session.email);

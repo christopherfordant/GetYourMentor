@@ -28,7 +28,7 @@ test("un avis est possible uniquement après paiement", async ({ request }, test
   expect(accepted.status()).toBe(200);
   const payer = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const payerCookie = payer.headers()["set-cookie"].split(";")[0];
-  const paid = await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie } });
+  const paid = await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie, "x-reservation-claim-token": reservation.claimToken } });
   expect(paid.status()).toBe(200);
 
   const review = await request.post("/api/reviews", {
@@ -57,7 +57,7 @@ test("un sportif ne peut pas noter la réservation payée d'un autre compte", as
   const coach = await request.post("/api/auth/sign-in", { data: { email: "coach@example.com", password: "demo-password", role: "coach" } });
   const coachCookie = coach.headers()["set-cookie"].split(";")[0];
   await request.patch(`/api/reservations/${reservation.id}`, { data: { status: "accepted" }, headers: { Cookie: coachCookie } });
-  await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: ownerCookie } });
+  await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: ownerCookie, "x-reservation-claim-token": reservation.claimToken } });
   const other = await request.post("/api/auth/sign-in", { data: { email: "another-sportif@example.com", password: "demo-password", role: "sportif" } });
   const otherCookie = other.headers()["set-cookie"].split(";")[0];
   const review = await request.post("/api/reviews", { data: { reservationId: reservation.id, rating: 5, comment: "Usurpation" }, headers: { Cookie: otherCookie } });

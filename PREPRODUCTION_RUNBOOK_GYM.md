@@ -79,6 +79,12 @@ La limitation de fréquence applicative est un premier garde-fou par processus. 
 
 Avant d’ouvrir la préproduction, vérifier aussi l’existence de `public.gym_reservation_slot_claims` et l’unicité de `(coach_id, slot)`. Deux créations simultanées sur un même coach et un même créneau doivent produire une seule réponse acceptée et une réponse `409`.
 
+Pour une demande créée avant connexion, conserver le `claimToken` renvoyé par
+`POST /api/reservations` dans le parcours de navigation jusqu’au paiement. Les
+lectures détaillées et le paiement exigent ce jeton tant que la demande n’a pas
+encore de propriétaire ; ne jamais le journaliser. Après un Checkout Stripe,
+vérifier que l’email du client est rattaché à la réservation par le webhook.
+
 ## 3. Configurer les services externes
 
 ### Stripe

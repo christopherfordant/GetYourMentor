@@ -13,7 +13,7 @@ test("l’espace sportif affiche la progression fidélité", async ({ page, requ
     await request.patch(`/api/reservations/${reservation.id}`, { headers: { Cookie: coachCookie }, data: { status: "accepted" } });
     const payer = await request.post("/api/auth/sign-in", { data: { email: athleteEmail, password: "demo-password", role: "sportif" } });
     const payerCookie = payer.headers()["set-cookie"].split(";")[0];
-    await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie } });
+    await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie, "x-reservation-claim-token": reservation.claimToken } });
   }
 
   await page.goto("/compte", { waitUntil: "networkidle" });

@@ -26,7 +26,7 @@ test("le parcours crée une demande avant tout paiement", async ({ request }, te
 
   const payerBefore = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const payerBeforeCookie = payerBefore.headers()["set-cookie"].split(";")[0];
-  const paymentBeforeAcceptance = await request.post(`/api/reservations/${result.data.id}/payment`, { headers: { Cookie: payerBeforeCookie } });
+  const paymentBeforeAcceptance = await request.post(`/api/reservations/${result.data.id}/payment`, { headers: { Cookie: payerBeforeCookie, "x-reservation-claim-token": result.data.claimToken } });
   expect(paymentBeforeAcceptance.status()).toBe(409);
 
   const signIn = await request.post("/api/auth/sign-in", {
@@ -46,7 +46,9 @@ test("le parcours crée une demande avant tout paiement", async ({ request }, te
 
   const payer = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const payerCookie = payer.headers()["set-cookie"].split(";")[0];
-  const paid = await request.post(`/api/reservations/${result.data.id}/payment`, { headers: { Cookie: payerCookie } });
+  const missingClaim = await request.post(`/api/reservations/${result.data.id}/payment`, { headers: { Cookie: payerCookie } });
+  expect(missingClaim.status()).toBe(403);
+  const paid = await request.post(`/api/reservations/${result.data.id}/payment`, { headers: { Cookie: payerCookie, "x-reservation-claim-token": result.data.claimToken } });
   expect(paid.status()).toBe(200);
   expect((await paid.json()).data.status).toBe("paid");
 });
@@ -69,7 +71,7 @@ test("le remboursement suit la fenêtre d’annulation", async ({ request }) => 
     expect(accepted.status()).toBe(200);
     const payer = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
     const payerCookie = payer.headers()["set-cookie"].split(";")[0];
-    const paid = await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie } });
+    const paid = await request.post(`/api/reservations/${reservation.id}/payment`, { headers: { Cookie: payerCookie, "x-reservation-claim-token": reservation.claimToken } });
     expect(paid.status()).toBe(200);
     return { id: reservation.id, payerCookie };
   }

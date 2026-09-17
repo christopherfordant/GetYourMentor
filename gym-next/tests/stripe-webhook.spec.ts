@@ -13,7 +13,7 @@ test("le webhook Stripe signé confirme une réservation", async ({ request }, t
   const accepted = await request.patch(`/api/reservations/${reservation.id}`, { data: { status: "accepted" }, headers: { Cookie: coachCookie } });
   expect(accepted.status()).toBe(200);
 
-  const payload = JSON.stringify({ type: "checkout.session.completed", data: { object: { metadata: { reservation_id: reservation.id } } } });
+  const payload = JSON.stringify({ type: "checkout.session.completed", data: { object: { customer_details: { email: "sportif@example.com" }, metadata: { reservation_id: reservation.id } } } });
   const timestamp = Math.floor(Date.now() / 1000);
   const signature = createHmac("sha256", "test-webhook-secret").update(`${timestamp}.${payload}`).digest("hex");
   const webhook = await request.post("/api/webhooks/stripe", {

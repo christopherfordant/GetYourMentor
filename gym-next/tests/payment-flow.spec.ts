@@ -13,7 +13,7 @@ test("le paiement est verrouillé avant acceptation puis confirmé après", asyn
   expect(created.status()).toBe(201);
   const reservation = (await created.json()).data;
 
-  const paymentUrl = `/paiement?coach=Steven%20Fordant&city=Marseille&service=Coaching%20basketball&duration=1%20heure&price=35&slot=18:00&reservationId=${reservation.id}`;
+  const paymentUrl = `/paiement?coach=Steven%20Fordant&city=Marseille&service=Coaching%20basketball&duration=1%20heure&price=35&slot=18:00&reservationId=${reservation.id}&claimToken=${reservation.claimToken}`;
   await page.goto("/compte", { waitUntil: "networkidle" });
   await page.locator("#account-email").fill("sportif@example.com");
   await page.locator("#account-password").fill("demo-password");
