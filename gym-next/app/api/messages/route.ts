@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
   try {
     const coach = await getCoach(body.recipientName.trim());
-    if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+    if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
     const message = await createMessage({
       id: `message-${Date.now()}`,
       senderEmail: session.email,

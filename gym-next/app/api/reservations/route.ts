@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     ? Array.from(new Set(body.slots.filter((slot: unknown): slot is string => typeof slot === "string")))
     : [];
 
-  if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+  if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
   if (
     textExceedsLimit(body?.coachId, 128) ||
     textExceedsLimit(body?.service, 256) ||
@@ -69,6 +69,9 @@ export async function GET(request: Request) {
     const requestedCoach = new URL(request.url).searchParams.get("coachId") ?? undefined;
     const requestedProfile = requestedCoach ? await getCoach(requestedCoach) : null;
     if (requestedCoach && !requestedProfile) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+    if (requestedProfile && !requestedProfile.verified && (!session || (session.role !== "admin" && !(session.role === "coach" && session.coachId === requestedProfile.id)))) {
+      return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
+    }
 
     // Le planning public ne doit exposer que les créneaux déjà pris, jamais les données de réservation.
     if (!session && requestedProfile) {

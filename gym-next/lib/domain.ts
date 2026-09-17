@@ -118,6 +118,7 @@ export function coachIdForName(name: string) {
 export function filterCoaches({ sport, city }: { sport?: string; city?: string }) {
   const canonicalSport = canonicalSportSlug(sport);
   return coachProfiles.filter((coach) => {
+    if (!coach.verified) return false;
     const sportMatches = !canonicalSport || coach.sport === canonicalSport;
     const cityMatches = !city || coach.city.toLowerCase() === city.toLowerCase();
     return sportMatches && cityMatches;
