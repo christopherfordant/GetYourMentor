@@ -433,6 +433,190 @@
   .reservation-confirm-button { transition: none; transform: none !important; }
 }
 
+/* Harmonisation complète des pages secondaires : les anciennes surfaces blanches ne doivent plus remonter. */
+.site-shell.sport-page-shell,
+.site-shell.coach-profile-shell,
+.site-shell.booking-shell,
+.site-shell.account-shell,
+.site-shell.payment-shell,
+.site-shell.recap-shell,
+.site-shell.reservation-shell,
+.site-shell.club-signup-shell,
+.sport-page,
+.coach-directory-page,
+.booking-page,
+.account-page,
+.payment-page,
+.recap-page,
+.reservation-page,
+.club-signup-page {
+  background: #0b1020 !important;
+  color: #f6f8fb;
+}
+
+.site-shell .topbar.topbar-light,
+.site-shell .topbar,
+.site-shell.account-shell .topbar,
+.site-shell.payment-shell .topbar,
+.site-shell.recap-shell .topbar,
+.site-shell.reservation-shell .topbar {
+  background: rgba(11, 16, 32, 0.96) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(18px);
+}
+
+.site-shell .topbar-light .brand-name,
+.site-shell .topbar-light .brand-link,
+.site-shell .topbar-light .sport-link,
+.site-shell .topbar-light .topbar-link,
+.site-shell .topbar .brand-name,
+.site-shell .topbar .sport-link,
+.site-shell .topbar .topbar-link {
+  color: #f6f8fb !important;
+}
+
+.site-shell .topbar-light .topbar-link,
+.site-shell .topbar .topbar-link {
+  background: #151d32 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sport-hero,
+.sport-results,
+.coach-directory-content,
+.booking-main,
+.reservation-main,
+.payment-main,
+.account-panel,
+.account-auth-stage {
+  color: #f6f8fb;
+}
+
+.sport-title,
+.sport-kicker,
+.coach-directory-page h1,
+.coach-directory-page h2,
+.booking-page h1,
+.booking-page h2,
+.reservation-page h1,
+.reservation-page h2,
+.payment-page h1,
+.payment-page h2,
+.account-page h1,
+.account-page h2,
+.account-page h3 {
+  color: #f6f8fb !important;
+}
+
+.sport-city-card,
+.coach-directory-toolbar,
+.coach-result-card,
+.coach-directory-map,
+.booking-card,
+.booking-contact-card,
+.reservation-card,
+.payment-card,
+.payment-summary-card,
+.auth-card,
+.account-dashboard-card,
+.account-panel,
+.club-signup-form-card {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: #151d32 !important;
+  color: #f6f8fb;
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.24) !important;
+}
+
+.sport-city-copy,
+.coach-result-body,
+.coach-result-footer,
+.booking-card p,
+.reservation-card p,
+.payment-card p,
+.account-dashboard-card p,
+.auth-subtitle,
+.auth-field span,
+.coach-result-address,
+.coach-result-meta {
+  color: #aebbd1 !important;
+}
+
+.sport-city-copy h2,
+.coach-result-top h3,
+.coach-result-card h2,
+.booking-card h2,
+.reservation-card h2,
+.payment-card h2,
+.account-dashboard-card h2,
+.auth-card h1,
+.auth-card h2 {
+  color: #ffffff !important;
+}
+
+.sport-search-field input,
+.directory-field input,
+.directory-field select,
+.auth-field input,
+.auth-field select,
+.booking-field input,
+.payment-field input,
+.reservation-field input {
+  border-color: rgba(255, 255, 255, 0.13) !important;
+  background: #202d42 !important;
+  color: #ffffff !important;
+}
+
+.sport-search-field input::placeholder,
+.directory-field input::placeholder,
+.auth-field input::placeholder { color: #91a0b9 !important; }
+
+.sport-search-card,
+.coach-directory-search,
+.booking-contact-form,
+.payment-form,
+.reservation-form {
+  background: #151d32 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sport-search-field,
+.directory-field,
+.auth-modal-step,
+.account-auth-stage {
+  background: #151d32 !important;
+  color: #f6f8fb;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.auth-link,
+.auth-inline-button,
+.auth-pill-button-light,
+.coach-home-inline-link {
+  color: #d7f36b !important;
+}
+
+.auth-pill-button-light,
+.auth-inline-button {
+  background: #202d42 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.auth-primary,
+.payment-submit,
+.reservation-confirm-button,
+.booking-contact-submit {
+  background: #d7f36b !important;
+  color: #111827 !important;
+}
+
+.sport-city-card:hover,
+.coach-result-card:hover,
+.booking-card:hover,
+.account-dashboard-card:hover {
+  border-color: rgba(215, 243, 107, 0.4) !important;
+}
+
 /* Le formulaire club doit rester contenu dans la largeur d'un téléphone. */
 html,
 body {
