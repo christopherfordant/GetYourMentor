@@ -13,7 +13,7 @@ test("le parcours crée une demande avant tout paiement", async ({ request }, te
       coachId: data[0].id,
       service: "Coaching individuel",
       duration: "1 heure",
-      price: data[0].priceFrom,
+      price: 0,
       slots,
     },
   });
@@ -22,6 +22,7 @@ test("le parcours crée une demande avant tout paiement", async ({ request }, te
   const result = await reservation.json();
   expect(result.data.status).toBe("requested");
   expect(result.data.slots).toHaveLength(2);
+  expect(result.data.price).toBe(data[0].priceFrom);
 
   const payerBefore = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const payerBeforeCookie = payerBefore.headers()["set-cookie"].split(";")[0];
