@@ -1,4 +1,5 @@
 import type { Reservation } from "@/lib/domain";
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 type CheckoutResult = { checkoutUrl: string; sessionId: string };
 
@@ -6,7 +7,9 @@ function stripeConfig() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const provider = process.env.PAYMENT_PROVIDER ?? "local";
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
-  return provider === "stripe" && secretKey ? { secretKey, appUrl: appUrl.replace(/\/$/, "") } : null;
+  if (provider === "stripe" && secretKey) return { secretKey, appUrl: appUrl.replace(/\/$/, "") };
+  assertDemoFallbackAllowed("Stripe");
+  return null;
 }
 
 export async function createCheckoutSession(reservation: Reservation): Promise<CheckoutResult | null> {

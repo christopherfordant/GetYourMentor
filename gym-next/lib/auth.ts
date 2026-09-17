@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { randomUUID } from "node:crypto";
 import { coachIdForName, createCoachProfile, findCoach } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
 type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
@@ -18,7 +19,9 @@ function isUserRole(value: unknown): value is UserRole {
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_ANON_KEY;
-  return url && key ? { url: url.replace(/\/$/, ""), key } : null;
+  if (url && key) return { url: url.replace(/\/$/, ""), key };
+  assertDemoFallbackAllowed("Supabase Auth");
+  return null;
 }
 
 export async function signIn(email: string, password: string, role: Session["role"]) {

@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type ClubLead = {
   id: string;
@@ -16,6 +17,7 @@ export type ClubLead = {
 const clubLeads: ClubLead[] = [];
 
 export function createClubLead(input: Omit<ClubLead, "id" | "createdAt" | "status">) {
+  assertDemoFallbackAllowed("Persistance des demandes club");
   const lead: ClubLead = {
     ...input,
     id: randomUUID(),
