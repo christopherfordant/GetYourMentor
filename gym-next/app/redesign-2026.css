@@ -450,6 +450,86 @@
   background: #203252 !important;
 }
 
+/* Les écrans secondaires restent dans le même univers que la carte de contact.
+   La home conserve son traitement visuel propre. */
+.sport-page-shell,
+.coach-profile-shell,
+.booking-shell,
+.account-shell,
+.payment-shell,
+.recap-shell,
+.reservation-shell,
+.club-signup-shell,
+.sport-page,
+.coach-directory-page,
+.booking-page,
+.account-page,
+.payment-page,
+.recap-page,
+.reservation-page,
+.club-signup-page {
+  background: #080e1d !important;
+  color: #f6f8fb !important;
+}
+
+.sport-page-shell .booking-contact-card,
+.booking-shell .booking-contact-card,
+.booking-page .booking-contact-card {
+  border-color: #2d4161 !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(53, 79, 126, 0.28), transparent 42%),
+    #111a2d !important;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28) !important;
+}
+
+.booking-contact-eyebrow,
+.booking-contact-secure,
+.booking-contact-form-meta {
+  color: #b9c7dd !important;
+}
+
+.booking-contact-eyebrow { color: #d7f36b !important; }
+
+.booking-contact-secure,
+.booking-contact-prompts button {
+  border-color: #3a5277 !important;
+  background: #182640 !important;
+  color: #f6f8fb !important;
+}
+
+.booking-contact-title-row h3 { color: #ffffff !important; }
+.booking-contact-title-row p { color: #b9c7dd !important; }
+
+.booking-contact-prompts button:hover {
+  border-color: #d7f36b !important;
+  background: #203252 !important;
+  color: #ffffff !important;
+}
+
+.booking-contact-field > span { color: #d7f36b !important; }
+
+.booking-contact-field textarea {
+  border-color: #3a5277 !important;
+  background: #182640 !important;
+  color: #ffffff !important;
+}
+
+.booking-contact-field textarea::placeholder { color: #9eafca !important; }
+
+.booking-contact-field textarea:focus {
+  border-color: #d7f36b !important;
+  box-shadow: 0 0 0 4px rgba(215, 243, 107, 0.14) !important;
+}
+
+.booking-contact-success {
+  border-color: rgba(73, 183, 123, 0.35) !important;
+  background: #112c29 !important;
+}
+
+.booking-contact-success strong { color: #b9f2c8 !important; }
+.booking-contact-success p,
+.booking-contact-success small { color: #a9cdb5 !important; }
+
 /* Même langage cinétique sur les écrans de recherche et de réservation. */
 .coach-result-card,
 .coach-profile-card,
@@ -1171,3 +1251,131 @@ body {
     border-radius: 22px;
   }
 }
+
+/* Final palette override: this block stays last so legacy light styles cannot
+   reintroduce white or grey surfaces on secondary screens. */
+.sport-page-shell,
+.coach-profile-shell,
+.booking-shell,
+.account-shell,
+.payment-shell,
+.recap-shell,
+.reservation-shell,
+.club-signup-shell,
+.sport-page,
+.coach-directory-page,
+.booking-page,
+.account-page,
+.payment-page,
+.recap-page,
+.reservation-page,
+.club-signup-page {
+  background: #080e1d !important;
+  color: #f6f8fb !important;
+}
+
+.sport-search-card,
+.coach-directory-toolbar,
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.booking-card,
+.booking-contact-card,
+.reservation-card,
+.payment-card,
+.payment-summary-card,
+.auth-card,
+.account-dashboard-card,
+.account-panel,
+.account-auth-stage,
+.reservation-selection-panel,
+.reservation-calendar-card,
+.club-signup-form-card {
+  background: #111a2d !important;
+}
+
+.sport-search-field,
+.directory-field,
+.field,
+.auth-field,
+.booking-field,
+.payment-field,
+.reservation-field,
+.sport-search-card input,
+.sport-search-card select,
+.coach-directory-toolbar input,
+.coach-directory-toolbar select,
+.payment-method,
+.reservation-day,
+.reservation-slot,
+.reservation-coach-option,
+.directory-chip,
+.directory-chip-secondary,
+.directory-chip-filter,
+.slotButton,
+.slotSelected {
+  background: #182640 !important;
+}
+
+.coach-result-card.is-featured,
+.coach-result-card:hover,
+.reservation-slot.is-selected,
+.reservation-coach-option.is-active,
+.payment-method.is-active {
+  background: #203252 !important;
+}
+
+.booking-contact-card {
+  border-color: #2d4161 !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(53, 79, 126, 0.28), transparent 42%),
+    #111a2d !important;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28) !important;
+}
+
+.booking-contact-eyebrow,
+.booking-contact-secure,
+.booking-contact-form-meta {
+  color: #b9c7dd !important;
+}
+
+.booking-contact-eyebrow,
+.booking-contact-field > span { color: #d7f36b !important; }
+
+.booking-contact-secure,
+.booking-contact-prompts button {
+  border-color: #3a5277 !important;
+  background: #182640 !important;
+  color: #f6f8fb !important;
+}
+
+.booking-contact-title-row h3 { color: #ffffff !important; }
+.booking-contact-title-row p { color: #b9c7dd !important; }
+
+.booking-contact-prompts button:hover {
+  border-color: #d7f36b !important;
+  background: #203252 !important;
+  color: #ffffff !important;
+}
+
+.booking-contact-field textarea {
+  border-color: #3a5277 !important;
+  background: #182640 !important;
+  color: #ffffff !important;
+}
+
+.booking-contact-field textarea::placeholder { color: #9eafca !important; }
+
+.booking-contact-field textarea:focus {
+  border-color: #d7f36b !important;
+  box-shadow: 0 0 0 4px rgba(215, 243, 107, 0.14) !important;
+}
+
+.booking-contact-success {
+  border-color: rgba(73, 183, 123, 0.35) !important;
+  background: #112c29 !important;
+}
+
+.booking-contact-success strong { color: #b9f2c8 !important; }
+.booking-contact-success p,
+.booking-contact-success small { color: #a9cdb5 !important; }
