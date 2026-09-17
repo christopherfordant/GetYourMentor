@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { ChoixCoachCreneauLegacyPage } from "@/components/reservation-legacy/ChoixCoachCreneauLegacyPage";
+import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
+import { getBookingGate } from "@/lib/booking-gates";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type CreneauPageProps = {
@@ -38,6 +40,11 @@ export default async function CreneauPage({ searchParams }: CreneauPageProps) {
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
+
+  const gate = await getBookingGate(normalizedParams.coach);
+  if (gate.mode === "unavailable") {
+    return <ProductionUnavailable title="Créneau indisponible" description="Ce calendrier sera affiché dès qu’un coach vérifié et ses disponibilités réelles seront configurés." />;
+  }
 
   return <ChoixCoachCreneauLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
 }
