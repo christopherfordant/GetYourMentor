@@ -30,4 +30,12 @@ test("le webhook Stripe signé confirme une réservation", async ({ request }, t
   const payerCookie = payer.headers()["set-cookie"].split(";")[0];
   const updated = await request.get(`/api/reservations/${reservation.id}`, { headers: { Cookie: payerCookie } });
   expect((await updated.json()).data.status).toBe("paid");
+
+  const malformedPayload = "not-json";
+  const malformedSignature = createHmac("sha256", "test-webhook-secret").update(`${timestamp}.${malformedPayload}`).digest("hex");
+  const malformedWebhook = await request.post("/api/webhooks/stripe", {
+    data: malformedPayload,
+    headers: { "Content-Type": "application/json", "stripe-signature": `t=${timestamp},v1=${malformedSignature}` },
+  });
+  expect(malformedWebhook.status()).toBe(400);
 });

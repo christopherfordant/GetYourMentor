@@ -22,10 +22,15 @@ export async function POST(request: Request) {
   const rawBody = await request.text();
   if (!validSignature(rawBody, signature, secret)) return NextResponse.json({ error: "Signature Stripe invalide" }, { status: 400 });
 
-  const event = JSON.parse(rawBody) as { type?: string; data?: { object?: { metadata?: { reservation_id?: string } } } };
+  let event: { type?: string; data?: { object?: { metadata?: { reservation_id?: string } } } };
+  try {
+    event = JSON.parse(rawBody) as typeof event;
+  } catch {
+    return NextResponse.json({ error: "Payload Stripe invalide" }, { status: 400 });
+  }
   if (event.type === "checkout.session.completed") {
     const reservationId = event.data?.object?.metadata?.reservation_id;
-    if (reservationId) await payReservation(reservationId);
+    if (typeof reservationId === "string" && reservationId.length <= 128) await payReservation(reservationId);
   }
   return NextResponse.json({ received: true });
 }
