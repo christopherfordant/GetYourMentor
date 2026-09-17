@@ -257,8 +257,9 @@ export function RecapitulatifReservationLegacyPage({
         slot,
         mentor,
         reservationId: params.reservationId,
+        claimToken: params.claimToken,
       }),
-    [coach, city, duration, format, objective, packageLabel, params.reservationId, price, slot, mentor, service, sport],
+    [coach, city, duration, format, objective, packageLabel, params.claimToken, params.reservationId, price, slot, mentor, service, sport],
   );
 
   const accountRedirect = useMemo(
@@ -276,8 +277,9 @@ export function RecapitulatifReservationLegacyPage({
         package: packageLabel,
         slot,
         mentor,
+        claimToken: params.claimToken,
       }),
-    [coach, city, duration, format, objective, packageLabel, price, slot, mentor, service, sport],
+    [coach, city, duration, format, objective, packageLabel, params.claimToken, price, slot, mentor, service, sport],
   );
 
   return (

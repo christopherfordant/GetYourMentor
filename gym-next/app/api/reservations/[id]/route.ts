@@ -1,16 +1,21 @@
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
 import { getReservation, transitionReservation } from "@/lib/reservations";
+import { isReservationClaimTokenValid } from "@/lib/reservation-claims";
 
 type Params = { params: Promise<{ id: string }> };
 
-export async function GET(_request: Request, { params }: Params) {
+export async function GET(request: Request, { params }: Params) {
   try {
     const session = await currentSession();
     if (!session) return NextResponse.json({ error: "Connexion requise" }, { status: 401 });
     const reservation = await getReservation((await params).id);
+    const claimToken = new URL(request.url).searchParams.get("claimToken");
     if (reservation && session.role === "sportif" && reservation.ownerEmail && reservation.ownerEmail !== session.email) {
       return NextResponse.json({ error: "Cette réservation appartient à un autre compte" }, { status: 403 });
+    }
+    if (reservation && session.role === "sportif" && !reservation.ownerEmail && !isReservationClaimTokenValid(reservation.id, claimToken)) {
+      return NextResponse.json({ error: "Reservation claim token required" }, { status: 403 });
     }
     if (reservation && session.role === "coach" && reservation.coachId !== session.coachId) {
       return NextResponse.json({ error: "Cette réservation appartient à un autre coach" }, { status: 403 });

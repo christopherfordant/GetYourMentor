@@ -869,6 +869,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
         slot: params.slot,
         mentor: params.mentor,
         reservationId: params.reservationId,
+        claimToken: params.claimToken,
         connected: "1",
       }),
     [params],

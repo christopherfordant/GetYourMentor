@@ -240,6 +240,7 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
   const slot = params.slot || "10:00";
   const mentor = params.mentor || "Coach confirme";
   const reservationId = params.reservationId || "";
+  const claimToken = params.claimToken || "";
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [success, setSuccess] = useState(false);
   const [reservationStatus, setReservationStatus] = useState("");
@@ -252,7 +253,7 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
       return;
     }
 
-    fetch(`/api/reservations/${reservationId}`)
+    fetch(`/api/reservations/${reservationId}?claimToken=${encodeURIComponent(claimToken)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Réservation introuvable."))))
       .then((payload) => {
         setReservationStatus(payload.data.status);
@@ -260,14 +261,14 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
         if (payload.data.status === "paid") setSuccess(true);
       })
       .catch((error) => setPaymentError(error instanceof Error ? error.message : "Réservation introuvable."));
-  }, [reservationId]);
+  }, [claimToken, reservationId]);
 
   useEffect(() => {
     if (!reservationId || params.payment !== "success") return;
     let attempts = 0;
     const interval = window.setInterval(async () => {
       attempts += 1;
-      const response = await fetch(`/api/reservations/${reservationId}`);
+      const response = await fetch(`/api/reservations/${reservationId}?claimToken=${encodeURIComponent(claimToken)}`);
       if (!response.ok) return;
       const payload = await response.json();
       setReservationStatus(payload.data.status);
@@ -278,7 +279,7 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
       }
     }, 2000);
     return () => window.clearInterval(interval);
-  }, [params.payment, reservationId]);
+  }, [claimToken, params.payment, reservationId]);
 
   useEffect(() => {
     if (params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
@@ -287,7 +288,10 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
   async function handlePayment() {
     if (!reservationId) return;
     setPaymentError("");
-    const response = await fetch(`/api/reservations/${reservationId}/payment`, { method: "POST" });
+    const response = await fetch(`/api/reservations/${reservationId}/payment`, {
+      method: "POST",
+      headers: claimToken ? { "x-reservation-claim-token": claimToken } : undefined,
+    });
     const payload = await response.json();
     if (!response.ok) {
       setPaymentError(payload.error ?? "Paiement impossible.");

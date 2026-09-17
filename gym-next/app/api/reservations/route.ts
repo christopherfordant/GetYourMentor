@@ -4,6 +4,7 @@ import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
 import { createReservation, hasSlotConflict, listReservations, ReservationSlotConflictError } from "@/lib/reservations";
 import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
+import { reservationClaimToken } from "@/lib/reservation-claims";
 
 export async function POST(request: Request) {
   const limit = rateLimit(request, "reservation-create", 60, 60_000);
@@ -58,7 +59,8 @@ export async function POST(request: Request) {
 
   try {
     const saved = await createReservation(reservation);
-    return NextResponse.json({ data: saved }, { status: 201 });
+    const claimToken = saved.ownerEmail ? undefined : reservationClaimToken(saved.id);
+    return NextResponse.json({ data: { ...saved, ...(claimToken ? { claimToken } : {}) } }, { status: 201 });
   } catch (error) {
     const status = error instanceof ReservationSlotConflictError ? 409 : 502;
     return NextResponse.json({ error: error instanceof Error ? error.message : "Erreur de persistance" }, { status });

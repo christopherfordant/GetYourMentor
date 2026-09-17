@@ -381,7 +381,8 @@ export function ChoixCoachCreneauLegacyPage({
         package: packageLabel,
         slot: selectedSlot,
         mentor: selectedMentor,
-        reservationId: payload.data.id,
+         reservationId: payload.data.id,
+         claimToken: payload.data.claimToken,
       });
     } catch (requestError) {
       setError(requestError instanceof Error ? requestError.message : "La demande n'a pas pu être envoyée.");
