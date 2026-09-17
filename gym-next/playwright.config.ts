@@ -3,6 +3,10 @@ import { defineConfig, devices } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   timeout: 60_000,
+  // Le mode de démonstration partage un store mémoire entre les scénarios.
+  // Un worker unique évite les collisions artificielles ; la production réelle
+  // sera validée séparément contre Supabase.
+  workers: 1,
   expect: {
     timeout: 10_000,
   },
