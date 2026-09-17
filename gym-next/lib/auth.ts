@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID } from "node:crypto";
-import { coachIdForName, createCoachProfile, findCoach } from "@/lib/domain";
+import { coachIdForName, coachProfiles, createCoachProfile } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
@@ -114,7 +114,8 @@ export async function signIn(email: string, password: string, role: Session["rol
   const sessionId = encodeSession({ email, role: resolvedRole, coachId });
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, sessionId, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: SESSION_MAX_AGE, path: "/" });
-  return { email, role: resolvedRole, coachId, coachName: coachId ? findCoach(coachId).name : undefined };
+  const coachName = coachId ? coachProfiles.find((coach) => coach.id === coachId)?.name : undefined;
+  return { email, role: resolvedRole, coachId, coachName };
 }
 
 export async function signUp(email: string, password: string, role: UserRole, profile?: SignupProfile) {
