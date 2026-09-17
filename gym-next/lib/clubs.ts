@@ -97,6 +97,33 @@ export async function getClubLeadDocumentSignedUrl(id: string, kind: ClubDocumen
   return payload.signedURL.startsWith("http") ? payload.signedURL : `${config.url}/storage/v1${payload.signedURL.startsWith("/") ? payload.signedURL : `/${payload.signedURL}`}`;
 }
 
+export async function deleteClubLeadDocument(id: string, kind: ClubDocumentKind) {
+  const config = storageConfig();
+  if (!config) return false;
+  const column = kind === "logo" ? "logo_storage_path" : "identity_storage_path";
+  const leadResponse = await fetch(`${config.url}/rest/v1/gym_club_leads?id=eq.${encodeURIComponent(id)}&select=${column}&limit=1`, {
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+    cache: "no-store",
+  });
+  if (!leadResponse.ok) throw new Error(`Supabase club lead error (${leadResponse.status})`);
+  const [row] = (await leadResponse.json()) as Record<string, unknown>[];
+  const objectPath = typeof row?.[column] === "string" ? row[column] as string : "";
+  if (!objectPath) return false;
+  const deleteResponse = await fetch(`${config.url}/storage/v1/object/${encodeURIComponent(config.bucket)}`, {
+    method: "DELETE",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ prefixes: [objectPath] }),
+  });
+  if (!deleteResponse.ok) throw new Error(`Supabase club document deletion error (${deleteResponse.status})`);
+  const clearResponse = await fetch(`${config.url}/rest/v1/gym_club_leads?id=eq.${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ [column]: null }),
+  });
+  if (!clearResponse.ok) throw new Error(`Supabase club lead update error (${clearResponse.status})`);
+  return true;
+}
+
 function fromRow(row: Record<string, unknown>): ClubLead {
   const status = row.status === "contacted" || row.status === "closed" ? row.status : "pending";
   return {
