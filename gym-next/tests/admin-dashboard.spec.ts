@@ -23,6 +23,10 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
   await coach.getByRole("button", { name: "Retirer la vérification", exact: true }).click();
   await expect(coach.locator("[data-admin-coach-status]")).toHaveText("À vérifier");
   await expect(page.locator("[data-admin-verified]")).toHaveText("2");
+  expect((await request.get("/api/coaches/steven-fordant")).status()).toBe(404);
+  expect((await request.post("/api/reservations", {
+    data: { coachId: "steven-fordant", service: "Profil non vérifié", duration: "1 heure", slots: ["2027-01-05 10:00"] },
+  })).status()).toBe(404);
   await expect(page.locator("[data-admin-reservation-list]")).toBeVisible();
   await page.locator("[data-admin-reservation-search]").fill("Admin demo reservation");
   await expect(page.locator("[data-admin-reservation-list] [data-admin-reservation]").first()).toBeVisible();
