@@ -1,4 +1,5 @@
 import type { Reservation } from "@/lib/domain";
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 type ConfirmationResult = { status: "sent" | "queued" | "skipped"; id?: string };
 
@@ -7,7 +8,9 @@ const localConfirmations: Array<{ id: string; email: string; reservationId: stri
 function resendConfig() {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL;
-  return apiKey && from ? { apiKey, from } : null;
+  if (apiKey && from) return { apiKey, from };
+  assertDemoFallbackAllowed("Resend");
+  return null;
 }
 
 export async function sendReservationConfirmation(reservation: Reservation): Promise<ConfirmationResult> {

@@ -20,6 +20,7 @@ jobs:
     env:
       PAYMENT_PROVIDER: local
       STRIPE_WEBHOOK_SECRET: test-webhook-secret
+      GETYOURMENTOR_ALLOW_DEMO: true
 
     steps:
       - name: Checkout

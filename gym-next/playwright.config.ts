@@ -23,6 +23,7 @@ export default defineConfig({
     env: {
       STRIPE_WEBHOOK_SECRET: "test-webhook-secret",
       PAYMENT_PROVIDER: "local",
+      GETYOURMENTOR_ALLOW_DEMO: "true",
     },
   },
   projects: [

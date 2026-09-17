@@ -7,12 +7,16 @@ export type Review = {
   createdAt: string;
 };
 
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
+
 const memoryReviews: Review[] = [];
 
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  return url && key ? { url: url.replace(/\/$/, ""), key } : null;
+  if (url && key) return { url: url.replace(/\/$/, ""), key };
+  assertDemoFallbackAllowed("Supabase Reviews");
+  return null;
 }
 
 export async function createReview(review: Review) {

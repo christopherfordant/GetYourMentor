@@ -1,9 +1,12 @@
 import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
+import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  return url && key ? { url: url.replace(/\/$/, ""), key } : null;
+  if (url && key) return { url: url.replace(/\/$/, ""), key };
+  assertDemoFallbackAllowed("Supabase Coaches");
+  return null;
 }
 
 function fromRow(row: Record<string, unknown>): CoachProfile {
