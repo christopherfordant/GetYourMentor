@@ -9,7 +9,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Build Next.js production | PASS | `npm.cmd run build` passe et génère 23 routes. |
 | Parcours fonctionnels Playwright | PASS | 72 tests réussis, incluant API, réservation, paiement, comptes, coach, admin et responsive. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
-| Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, build et Playwright sur chaque push/PR ciblé. |
+| Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, build et Playwright ; run GitHub vérifié avec succès sur `1291595`. |
 | SEO technique de base | PASS | Métadonnées, `/robots.txt` et `/sitemap.xml` ajoutés et servis par l’application. |
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
 | Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` détecte l’absence des secrets Supabase, Stripe, Resend et de l’URL HTTPS. |
