@@ -121,6 +121,13 @@ Les champs `checks` doivent tous être à `true`. Si la réponse est `503` avec 
 - Responsive : mobile 360/390 px, tablette 768 px, desktop 1440 px.
 - Observabilité : logs d’erreur, santé, webhook, email, rollback documenté.
 
+## Smoke test production sans secrets
+
+Après le build, exécuter `npm.cmd run check:production-safety`. Ce smoke test
+démarre le bundle avec des variables vides et vérifie que l’application reste
+fermée sans services réels : santé `503`, tunnel de réservation indisponible et
+catalogue sans coach de démonstration.
+
 ## 6. Rollback
 
 Avant toute migration ou activation de service : conserver le commit déployé, la sauvegarde Supabase et la configuration de l’environnement. En cas d’échec, revenir au dernier commit validé par la CI, désactiver le webhook de préproduction si nécessaire et restaurer uniquement après diagnostic.

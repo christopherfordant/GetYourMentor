@@ -13,6 +13,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local ne sont autorisés qu’avec `GETYOURMENTOR_ALLOW_DEMO=true`; le run CI du garde-fou `bbb13bb` est vert. |
 | Endpoint de santé | PASS | `/api/health` ne renvoie aucun secret et distingue le mode démo d’une configuration production dégradée. |
 | Échec fermé sans secrets | PASS | Runtime vérifié : sans configuration réelle ni flag démo, `/api/health` répond `503 degraded` avec tous les contrôles à `false`. |
+| Smoke test production sans secrets | PASS local / À revalider CI | `npm.cmd run check:production-safety` démarre le bundle production sans secrets, vérifie l’état dégradé, les routes de réservation indisponibles et l’absence de coach fictif dans le catalogue. |
 | Limites des entrées API | PASS | Limites de taille JSON/formulaire/webhook et bornes de champs ajoutées, avec test Playwright desktop/mobile. |
 | Limitation de fréquence | PASS code / À compléter hébergement | Une limitation par client protège les inscriptions, connexions, demandes club et créations de réservation, avec `429` et `Retry-After`. Le store est local au processus : un rate limiter partagé ou une protection edge reste requis en multi-instance. |
 | Protection d’origine | PASS | Les mutations API provenant d’une origine étrangère sont refusées en production réelle ; le webhook sans en-tête `Origin` reste recevable. |

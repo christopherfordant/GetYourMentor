@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "check:production-config": "node scripts/check-production-config.mjs",
+    "check:production-safety": "node scripts/production-safety-smoke.mjs",
     "pw:audit": "node scripts/run-playwright-audit.cjs",
     "pw:business": "playwright test tests/business-flow.spec.ts",
     "pw:headed": "node scripts/run-playwright-audit.cjs --headed",
