@@ -586,7 +586,19 @@ function CoachDashboard({
   );
 }
 
-function ClubDashboard() {
+function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
+  if (!allowDemoFallback) {
+    return (
+      <section className="account-dashboard club-home" data-account-dashboard="club">
+        <section className="account-dashboard-card" data-club-production-state>
+          <h1>Espace club</h1>
+          <p>Votre espace sera disponible après validation de votre demande d’affiliation et configuration de vos coachs.</p>
+          <a className="coach-home-inline-link" href={nextRoutes.clubSignup}>Préparer une demande club</a>
+        </section>
+      </section>
+    );
+  }
+
   return (
     <section className="account-dashboard coach-home club-home" data-account-dashboard="club">
       <aside className="coach-home-sidebar club-home-sidebar">
@@ -984,7 +996,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                 onNextSession={() => setSessionIndex((current) => (current + 1) % coachSessions.length)}
               />
             ) : null}
-            {dashboardMode === "club" ? <ClubDashboard /> : null}
+            {dashboardMode === "club" ? <ClubDashboard allowDemoFallback={allowDemoFallback} /> : null}
           </section>
         </main>
         <AccountFooter />
