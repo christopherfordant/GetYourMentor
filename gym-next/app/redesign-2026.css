@@ -530,6 +530,79 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+/* Profil coach : corrige les cartes legacy dont le fond blanc masquait les textes. */
+.booking-profile-page .booking-followers-pill,
+.booking-profile-page .booking-score-panel,
+.booking-profile-page .booking-story-card,
+.booking-profile-page .booking-info-item,
+.booking-profile-page .booking-service-item,
+.booking-profile-page .booking-rating-card,
+.booking-profile-page .booking-hours-card {
+  border-color: #2d4161 !important;
+  background: #111a2d !important;
+  color: #f6f8fb !important;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.22) !important;
+}
+
+.booking-profile-page .booking-profile-lead,
+.booking-profile-page .booking-tabs-profile .booking-tab,
+.booking-profile-page .booking-tabs-profile .booking-tab.is-active {
+  border-color: #2d4161 !important;
+  background: #111a2d !important;
+  color: #ffffff !important;
+}
+
+.booking-profile-page .booking-tabs-profile {
+  border: 1px solid #2d4161 !important;
+  background: #111a2d !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2) !important;
+}
+
+.booking-profile-page .booking-profile-meta,
+.booking-profile-page .booking-address,
+.booking-profile-page .booking-score-meta,
+.booking-profile-page .booking-story-card p,
+.booking-profile-page .booking-story-point span,
+.booking-profile-page .booking-story-check,
+.booking-profile-page .booking-score-breakdown {
+  color: #b9c7dd !important;
+}
+
+.booking-profile-page .booking-story-card h2,
+.booking-profile-page .booking-story-card h3,
+.booking-profile-page .booking-score-label,
+.booking-profile-page .booking-score-display,
+.booking-profile-page .booking-score-breakdown strong,
+.booking-profile-page .booking-score-fact strong,
+.booking-profile-page .booking-story-point strong,
+.booking-profile-page .booking-item-copy strong,
+.booking-profile-page .booking-item-side strong,
+.booking-profile-page .booking-section-head h2 {
+  color: #ffffff !important;
+}
+
+.booking-profile-page .booking-score-fact,
+.booking-profile-page .booking-practical-item,
+.booking-profile-page .booking-story-point,
+.booking-profile-page .booking-story-check,
+.booking-profile-page .booking-story-sequence-item {
+  border-color: #3a5277 !important;
+  background: #182640 !important;
+  color: #f6f8fb !important;
+}
+
+.booking-profile-page .booking-score-fact span,
+.booking-profile-page .booking-practical-item > span,
+.booking-profile-page .booking-story-point > strong {
+  color: #d7f36b !important;
+}
+
+.booking-profile-page .booking-primary-action,
+.booking-profile-page .booking-confirm-action {
+  background: #d7f36b !important;
+  color: #111827 !important;
+}
+
 /* Même langage cinétique sur les écrans de recherche et de réservation. */
 .coach-result-card,
 .coach-profile-card,
