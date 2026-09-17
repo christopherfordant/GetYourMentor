@@ -21,6 +21,11 @@
     transform 180ms ease;
 }
 
+.field { border: 1px solid #3a4b68; border-radius: 16px; background: #202d42; }
+.fieldLabel { color: var(--app-lime); }
+.fieldInput { background: transparent; border: 0; }
+.field:focus-within { border-color: var(--app-lime); box-shadow: 0 0 0 3px rgba(215, 243, 107, 0.14); }
+
 .topbarScrolled {
   padding: 12px 0;
 }

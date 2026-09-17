@@ -645,6 +645,75 @@
   outline-offset: -2px;
 }
 
+/* Composant champ unifié : le label et la valeur doivent toujours se détacher du fond. */
+.sport-search-field,
+.directory-field,
+.field,
+.auth-field,
+.booking-field,
+.payment-field,
+.reservation-field {
+  border: 1px solid #3a4b68 !important;
+  border-radius: 16px !important;
+  background: #202d42 !important;
+  color: #ffffff !important;
+}
+
+.sport-search-field > span,
+.directory-field > span,
+.field-label,
+.auth-field > span,
+.booking-field > span,
+.payment-field > span,
+.reservation-field > span {
+  color: #d7f36b !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.sport-search-field input,
+.directory-field input,
+.field input,
+.auth-field input,
+.auth-field select,
+.booking-field input,
+.payment-field input,
+.reservation-field input {
+  border: 0 !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.sport-search-field:focus-within,
+.directory-field:focus-within,
+.field:focus-within,
+.auth-field:focus-within,
+.booking-field:focus-within,
+.payment-field:focus-within,
+.reservation-field:focus-within {
+  border-color: #d7f36b !important;
+  box-shadow: 0 0 0 3px rgba(215, 243, 107, 0.14) !important;
+}
+
+.directory-chip,
+.directory-chip-secondary,
+.directory-chip-filter,
+.slotButton,
+.slotSelected {
+  border-color: #3a4b68 !important;
+  background: #202d42 !important;
+  color: #ffffff !important;
+}
+
+.directory-chip:hover,
+.directory-chip:focus-visible,
+.slotButton:hover,
+.slotSelected:hover {
+  border-color: #d7f36b !important;
+  color: #d7f36b !important;
+}
+
 .sport-city-card:hover,
 .coach-result-card:hover,
 .booking-card:hover,
