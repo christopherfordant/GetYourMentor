@@ -43,6 +43,8 @@ npm.cmd audit --omit=dev --audit-level=high
 
 Le contrôle de configuration doit réussir sans utiliser `GETYOURMENTOR_ALLOW_DEMO`.
 
+Avant d’ouvrir la préproduction, vérifier aussi l’existence de `public.gym_reservation_slot_claims` et l’unicité de `(coach_id, slot)`. Deux créations simultanées sur un même coach et un même créneau doivent produire une seule réponse acceptée et une réponse `409`.
+
 ## 3. Configurer les services externes
 
 ### Stripe
