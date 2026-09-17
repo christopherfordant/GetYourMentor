@@ -4,6 +4,7 @@ import { type Reservation } from "@/lib/domain";
 import { listCoaches } from "@/lib/coaches";
 import { listReservations } from "@/lib/reservations";
 import { listClubLeads, updateClubLeadStatus, type ClubLead } from "@/lib/clubs";
+import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function GET() {
   if (!(await requireRole("admin"))) return NextResponse.json({ error: "Connexion admin requise" }, { status: 401 });
@@ -38,9 +39,10 @@ export async function GET() {
 
 export async function PATCH(request: Request) {
   if (!(await requireRole("admin"))) return NextResponse.json({ error: "Connexion admin requise" }, { status: 401 });
+  if (bodyExceedsLimit(request, 8 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
   const status = body?.status;
-  if (typeof body?.clubLeadId !== "string" || (status !== "pending" && status !== "contacted" && status !== "closed")) {
+  if (typeof body?.clubLeadId !== "string" || textExceedsLimit(body.clubLeadId, 128) || (status !== "pending" && status !== "contacted" && status !== "closed")) {
     return NextResponse.json({ error: "Identifiant et statut de demande club requis" }, { status: 400 });
   }
   try {
