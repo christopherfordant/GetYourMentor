@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClubLead } from "@/lib/clubs";
-import { bodyExceedsLimit } from "@/lib/request-guards";
+import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
   if (bodyExceedsLimit(request, 6 * 1024 * 1024)) return NextResponse.json({ error: "Fichiers trop volumineux" }, { status: 413 });
@@ -15,6 +15,16 @@ export async function POST(request: Request) {
   const ibanLast4 = ibanInput.length >= 4 ? ibanInput.slice(-4) : undefined;
   const logo = form.get("logo");
   const identity = form.get("identity");
+  const fileNames = [logo, identity]
+    .filter((file): file is File => file instanceof File)
+    .map((file) => file.name);
+  if (
+    [clubName, managerName, email, phone, ibanInput, ...fileNames].some((value) =>
+      textExceedsLimit(value, 512),
+    )
+  ) {
+    return NextResponse.json({ error: "Données du formulaire trop longues" }, { status: 400 });
+  }
   if ([logo, identity].some((file) => file instanceof File && file.size > 5 * 1024 * 1024)) {
     return NextResponse.json({ error: "Fichier trop volumineux" }, { status: 413 });
   }
