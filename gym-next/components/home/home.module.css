@@ -960,3 +960,12 @@
   .miniScreen { overflow: visible; }
   .slideMedia, .slotVisual { min-height: 0; }
 }
+
+/* La home exploite mieux les écrans larges sans devenir étirée. */
+@media (min-width: 901px) {
+  .topbar,
+  .main,
+  .siteFooter {
+    width: min(1440px, calc(100% - 64px));
+  }
+}
