@@ -22,3 +22,15 @@ test("le formulaire club borne aussi chaque champ multipart", async ({ request }
   });
   expect(response.status()).toBe(400);
 });
+
+test("le formulaire club refuse les types de fichiers non autorisés", async ({ request }) => {
+  const response = await request.post("/api/clubs/leads", {
+    multipart: {
+      clubName: "Club test",
+      managerName: "Camille Martin",
+      email: "club@example.com",
+      identity: { name: "identite.txt", mimeType: "text/plain", buffer: Buffer.from("identity") },
+    },
+  });
+  expect(response.status()).toBe(400);
+});

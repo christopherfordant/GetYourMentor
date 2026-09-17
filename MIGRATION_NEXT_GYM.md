@@ -84,15 +84,15 @@ alors la priorite reste :
 - Routes testees en HTTP 200 : `/`, `/recherche`, `/coachs`, `/coach`, `/creneau`, `/recapitulatif`, `/compte`, `/paiement`
 - Derniere verification du contenu metier tunnel : `OK`
 - Note compte : le CTA d'inscription valide est `Nouveau ? Inscription`, pas `Creer mon compte`
-- Derniere verification visuelle et fonctionnelle automatisee : `OK` le `2026-09-17` via Playwright desktop et mobile (43/43 par projet, 86 au total)
+- Derniere verification visuelle et fonctionnelle automatisee : `OK` le `2026-09-18` via Playwright desktop et mobile (44/44 par projet, 88 au total, mono-worker)
 - Correction issue de la verification visuelle : `/coach` ne declenche plus l'ancre `A propos` au chargement, la carte note reste desktop et les effets sticky sont desactives en layout compact
 - Artefacts locaux non commit : `docs/next-visual-validation/`
 
 ## Verification fonctionnelle actuelle
 
 - `npm.cmd run build` : OK
-- Playwright `desktop-chromium` : 43/43
-- Playwright `mobile-chromium` : 43/43
+- Playwright `desktop-chromium` : 44/44
+- Playwright `mobile-chromium` : 44/44
 - Parcours couvert : recherche, fiches coach, disponibilités, réservation, acceptation coach, paiement local, Checkout Stripe optionnel, webhook signé, avis, fidélité, contact, inscription club et administration.
 - Persistance optionnelle : profils coach, réservations, messages et avis via Supabase avec repli mémoire local pour les démonstrations.
 - Sécurité applicative : rôles API contrôlés côté serveur, propriétaire de réservation vérifié pour paiement/annulation/avis, signature Stripe vérifiée pour le webhook.
@@ -107,7 +107,7 @@ La migration MVP et sa vérification écran par écran sont terminées :
 - le récapitulatif vers connexion arrive sur `/compte?redirect=paiement`
 - après connexion, le paiement conserve les informations de réservation
 - le build Next.js est vert
-- les 86 tests Playwright desktop/mobile sont verts en local ; la CI distante reste à revalider séparément
+- les 88 tests Playwright desktop/mobile sont verts en local ; la CI distante reste à revalider séparément
 
 La prochaine étape relève de la mise en production : renseigner les secrets Supabase, Stripe et Resend, puis effectuer une recette avec des comptes et données réelles.
 
