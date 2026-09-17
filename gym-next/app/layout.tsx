@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { Manrope } from "next/font/google";
@@ -9,6 +9,10 @@ const inlineLegacyStyles = readFileSync(
   path.join(process.cwd(), "app", "legacy-prototype.css"),
   "utf8",
 );
+const inlineRedesignStyles = readFileSync(
+  path.join(process.cwd(), "app", "redesign-2026.css"),
+  "utf8",
+);
 
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
@@ -16,11 +20,22 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001"),
   title: {
     default: "GetYourMentor",
     template: "%s | GetYourMentor",
   },
   description: "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.",
+  applicationName: "GetYourMentor",
+  alternates: {
+    canonical: "/",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b1020",
 };
 
 export default function RootLayout({
@@ -31,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <style dangerouslySetInnerHTML={{ __html: `${inlineGlobalStyles}\n${inlineLegacyStyles}` }} />
+        <style dangerouslySetInnerHTML={{ __html: `${inlineGlobalStyles}\n${inlineLegacyStyles}\n${inlineRedesignStyles}` }} />
       </head>
       <body className={manrope.variable}>
         <InternalNavigationEnhancer />
