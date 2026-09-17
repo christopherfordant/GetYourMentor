@@ -148,6 +148,17 @@ test("un coach ne peut pas modifier le profil d'un autre coach", async ({ reques
   expect(result.status()).toBe(403);
 });
 
+test("les réservations publiques sont limitées aux créneaux occupés", async ({ request }) => {
+  const publicAll = await request.get("/api/reservations");
+  expect(publicAll.status()).toBe(401);
+
+  const publicAvailability = await request.get("/api/reservations?coachId=steven-fordant");
+  expect(publicAvailability.status()).toBe(200);
+  const payload = await publicAvailability.json();
+  expect(payload.data).toEqual(expect.any(Array));
+  expect(payload.data.every((item: Record<string, unknown>) => "slots" in item && "status" in item && !("ownerEmail" in item))).toBeTruthy();
+});
+
 test("un sportif peut déplacer une réservation acceptée vers un créneau libre", async ({ request }, testInfo) => {
   const sourceSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 10:00" : "2026-12-19 10:00";
   const targetSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 11:00" : "2026-12-19 11:00";
