@@ -17,6 +17,16 @@ function isUserRole(value: unknown): value is UserRole {
   return value === "sportif" || value === "coach" || value === "club" || value === "admin";
 }
 
+function supabaseRole(profile: Record<string, unknown>) {
+  const metadata = profile?.app_metadata as Record<string, unknown> | undefined;
+  return isUserRole(metadata?.role) ? metadata.role : "sportif";
+}
+
+function supabaseCoachId(profile: Record<string, unknown>) {
+  const metadata = profile?.app_metadata as Record<string, unknown> | undefined;
+  return typeof metadata?.coach_id === "string" ? metadata.coach_id : undefined;
+}
+
 function sessionKey() {
   const secret = process.env.SESSION_SECRET;
   if (secret && secret.length >= 32) return createHash("sha256").update(secret).digest();
@@ -88,8 +98,8 @@ export async function signIn(email: string, password: string, role: Session["rol
     });
     if (!profileResponse.ok) throw new Error("Profil utilisateur indisponible");
     const profile = await profileResponse.json();
-    resolvedRole = isUserRole(profile?.user_metadata?.role) ? profile.user_metadata.role : "sportif";
-    coachId = typeof profile?.user_metadata?.coach_id === "string" ? profile.user_metadata.coach_id : undefined;
+    resolvedRole = supabaseRole(profile);
+    coachId = supabaseCoachId(profile);
   } else if (!email || !password) {
     throw new Error("Identifiant et mot de passe requis");
   } else if (localUsers.has(email)) {
@@ -118,9 +128,22 @@ export async function signUp(email: string, password: string, role: UserRole, pr
     const response = await fetch(`${config.url}/auth/v1/signup`, {
       method: "POST",
       headers: { apikey: config.key, "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, data: { role, ...profile, ...(coachId ? { coach_id: coachId } : {}) } }),
+      body: JSON.stringify({ email, password, data: profile }),
     });
     if (!response.ok) throw new Error("Inscription impossible");
+    const signupPayload = await response.json();
+    const userId = typeof signupPayload?.user?.id === "string" ? signupPayload.user.id : undefined;
+    const adminKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (!userId || !adminKey) {
+      assertDemoFallbackAllowed("Supabase Auth role metadata");
+    } else {
+      const metadataResponse = await fetch(`${config.url}/auth/v1/admin/users/${encodeURIComponent(userId)}`, {
+        method: "PUT",
+        headers: { apikey: adminKey, Authorization: `Bearer ${adminKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ app_metadata: { role, ...(coachId ? { coach_id: coachId } : {}) } }),
+      });
+      if (!metadataResponse.ok) throw new Error("Profil de rôle indisponible");
+    }
     if (coachId && profile) await createStoredCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`.trim() });
   } else {
     if (localUsers.has(email)) throw new Error("Cette adresse est déjà inscrite");
