@@ -13,6 +13,7 @@ test("le catalogue visible respecte les quatre sports du MVP", async ({ page, re
 
   const coaches = await request.get("/api/coaches?sport=metiers-de-la-forme");
   expect(coaches.ok()).toBeTruthy();
-  const profiles = await coaches.json();
+  const payload = await coaches.json();
+  const profiles = payload.data;
   expect(profiles.every((profile: { sport: string }) => profile.sport === "fitness")).toBeTruthy();
 });
