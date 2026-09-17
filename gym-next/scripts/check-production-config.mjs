@@ -12,22 +12,28 @@ const required = [
 
 const errors = [];
 
-for (const [name, label] of required) {
-  if (!process.env[name]?.trim()) errors.push(`${name} est requis (${label}).`);
+function looksLikePlaceholder(value) {
+  return /^(YOUR_|REPLACE_|CHANGE_ME|CHANGEME|<|\[)/i.test(value.trim());
 }
 
-const appUrl = process.env.NEXT_PUBLIC_APP_URL?.trim();
-if (appUrl) {
+function requireHttpsUrl(name, value) {
+  if (!value) return;
   try {
-    const parsed = new URL(appUrl);
-    if (parsed.protocol !== "https:") errors.push("NEXT_PUBLIC_APP_URL doit utiliser HTTPS en production.");
-    if (["localhost", "127.0.0.1"].includes(parsed.hostname)) {
-      errors.push("NEXT_PUBLIC_APP_URL ne doit pas pointer vers localhost en production.");
-    }
+    const parsed = new URL(value);
+    if (parsed.protocol !== "https:") errors.push(`${name} doit utiliser HTTPS en production.`);
+    if (["localhost", "127.0.0.1"].includes(parsed.hostname)) errors.push(`${name} ne doit pas pointer vers localhost en production.`);
   } catch {
-    errors.push("NEXT_PUBLIC_APP_URL doit être une URL valide.");
+    errors.push(`${name} doit être une URL valide.`);
   }
 }
+
+for (const [name, label] of required) {
+  if (!process.env[name]?.trim()) errors.push(`${name} est requis (${label}).`);
+  else if (looksLikePlaceholder(process.env[name])) errors.push(`${name} contient encore une valeur placeholder.`);
+}
+
+requireHttpsUrl("SUPABASE_URL", process.env.SUPABASE_URL?.trim());
+requireHttpsUrl("NEXT_PUBLIC_APP_URL", process.env.NEXT_PUBLIC_APP_URL?.trim());
 
 if (process.env.PAYMENT_PROVIDER !== "stripe") {
   errors.push('PAYMENT_PROVIDER doit être exactement "stripe" en production.');
@@ -39,6 +45,19 @@ if (process.env.SESSION_SECRET && process.env.SESSION_SECRET.length < 32) {
 
 if (process.env.SUPABASE_SERVICE_ROLE_KEY?.startsWith("NEXT_PUBLIC_")) {
   errors.push("SUPABASE_SERVICE_ROLE_KEY ne doit jamais être une variable publique.");
+}
+
+if (process.env.STRIPE_SECRET_KEY && !/^sk_(test|live)_/.test(process.env.STRIPE_SECRET_KEY)) {
+  errors.push("STRIPE_SECRET_KEY doit être une clé Stripe test ou live valide.");
+}
+if (process.env.STRIPE_WEBHOOK_SECRET && !/^whsec_/.test(process.env.STRIPE_WEBHOOK_SECRET)) {
+  errors.push("STRIPE_WEBHOOK_SECRET doit commencer par whsec_.");
+}
+if (process.env.RESEND_API_KEY && !/^re_/.test(process.env.RESEND_API_KEY)) {
+  errors.push("RESEND_API_KEY doit commencer par re_.");
+}
+if (process.env.RESEND_FROM_EMAIL && !/^\S+@\S+\.\S+$/.test(process.env.RESEND_FROM_EMAIL.replace(/^.*<|>.*$/g, "").trim())) {
+  errors.push("RESEND_FROM_EMAIL doit contenir une adresse email valide.");
 }
 
 if (errors.length) {
