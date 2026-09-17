@@ -35,6 +35,20 @@ export function AdminDashboard() {
     setOverview((current) => current ? { ...current, verifiedCoaches: current.coachList.filter((coach) => coach.id === id ? verified : coach.verified).length, coachList: current.coachList.map((coach) => coach.id === id ? { ...coach, verified } : coach) } : current);
   }
 
+  async function updateClubLeadStatus(id: string, status: string) {
+    const response = await fetch("/api/admin/overview", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ clubLeadId: id, status }),
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      setError(payload.error ?? "Mise à jour impossible");
+      return;
+    }
+    setOverview((current) => current ? { ...current, clubLeadList: current.clubLeadList.map((lead) => lead.id === id ? { ...lead, status: payload.data.status } : lead) } : current);
+  }
+
   useEffect(() => {
     fetch("/api/admin/overview")
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Accès admin refusé"))))
@@ -99,7 +113,14 @@ export function AdminDashboard() {
               <article key={lead.id} data-admin-club-lead={lead.id}>
                 <strong>{lead.clubName}</strong>
                 <span>{lead.managerName} · {lead.email}</span>
-                <span>Statut : {lead.status}</span>
+                <label>
+                  <span>Statut</span>
+                  <select data-admin-club-status value={lead.status} onChange={(event) => updateClubLeadStatus(lead.id, event.target.value)}>
+                    <option value="pending">À traiter</option>
+                    <option value="contacted">Contacté</option>
+                    <option value="closed">Clôturé</option>
+                  </select>
+                </label>
               </article>
             ))}
           </section>

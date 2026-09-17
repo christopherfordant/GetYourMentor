@@ -3,7 +3,7 @@ import { requireRole } from "@/lib/auth";
 import { type Reservation } from "@/lib/domain";
 import { listCoaches } from "@/lib/coaches";
 import { listReservations } from "@/lib/reservations";
-import { listClubLeads } from "@/lib/clubs";
+import { listClubLeads, updateClubLeadStatus, type ClubLead } from "@/lib/clubs";
 
 export async function GET() {
   if (!(await requireRole("admin"))) return NextResponse.json({ error: "Connexion admin requise" }, { status: 401 });
@@ -33,5 +33,20 @@ export async function GET() {
     } });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Vue admin indisponible" }, { status: 502 });
+  }
+}
+
+export async function PATCH(request: Request) {
+  if (!(await requireRole("admin"))) return NextResponse.json({ error: "Connexion admin requise" }, { status: 401 });
+  const body = await request.json().catch(() => null);
+  const status = body?.status;
+  if (typeof body?.clubLeadId !== "string" || (status !== "pending" && status !== "contacted" && status !== "closed")) {
+    return NextResponse.json({ error: "Identifiant et statut de demande club requis" }, { status: 400 });
+  }
+  try {
+    const lead = await updateClubLeadStatus(body.clubLeadId, status as ClubLead["status"]);
+    return lead ? NextResponse.json({ data: lead }) : NextResponse.json({ error: "Demande club introuvable" }, { status: 404 });
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Mise à jour impossible" }, { status: 502 });
   }
 }
