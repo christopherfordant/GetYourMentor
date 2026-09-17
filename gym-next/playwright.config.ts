@@ -15,6 +15,16 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
+  webServer: {
+    command: "npm.cmd run start -- --port 3001",
+    url: "http://127.0.0.1:3001/",
+    reuseExistingServer: true,
+    timeout: 120_000,
+    env: {
+      STRIPE_WEBHOOK_SECRET: "test-webhook-secret",
+      PAYMENT_PROVIDER: "local",
+    },
+  },
   projects: [
     {
       name: "desktop-chromium",

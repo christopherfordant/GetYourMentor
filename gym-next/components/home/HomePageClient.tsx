@@ -169,7 +169,7 @@ export function HomePageClient() {
                 />
               </label>
 
-              <button className={styles.searchButton} type="button" onClick={handleSearch}>
+              <button className={styles.searchButton} type="button" aria-label="Rechercher" onClick={handleSearch}>
                 Trouver un coach
               </button>
             </div>

@@ -10,7 +10,7 @@ test.describe("parcours metier principaux", () => {
 
     await page.waitForURL("**/recherche?sport=football&city=Paris");
     await expect(page).toHaveURL(/\/recherche\?sport=football&city=Paris$/);
-    await expect(page.locator("body")).toContainText("Réserver en ligne un coach de football");
+    await expect(page.locator("body")).toContainText("Trouver un coach de football qui te correspond");
 
     await page.getByText("Coachs de Football - Paris").click();
 
