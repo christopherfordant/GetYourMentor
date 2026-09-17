@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { AccountLegacyPage } from "@/components/account-legacy/AccountLegacyPage";
+import { currentSession } from "@/lib/auth";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type ComptePageProps = {
@@ -40,6 +41,11 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
+  const session = await currentSession();
+  if (session) {
+    normalizedParams.connected = "1";
+    if (!normalizedParams.mode && session.role !== "sportif") normalizedParams.mode = session.role;
+  }
 
   return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
 }

@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type InscriptionClubLegacyPageProps = {
   legacyStyles: string;
@@ -17,11 +19,12 @@ function ClubSignupHeader() {
       <nav className="sports-nav" aria-label="Sports">
         <a className="sport-link" href={`${nextRoutes.search}?sport=football`}>Football</a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=basketball`}>Basketball</a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Metiers de la forme</a>
+        <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
@@ -47,49 +50,67 @@ function ClubSignupVisual() {
 }
 
 function ClubSignupForm() {
+  const [status, setStatus] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
   return (
     <section className="club-signup-form-panel">
       <div className="club-signup-form-card">
+        <form
+          onSubmit={async (event) => {
+            event.preventDefault();
+            setSubmitting(true);
+            setStatus("");
+            const response = await fetch("/api/clubs/leads", { method: "POST", body: new FormData(event.currentTarget) });
+            const payload = await response.json();
+            setSubmitting(false);
+            setStatus(response.ok ? "Votre demande a bien été transmise. Notre équipe reviendra vers vous." : payload.error ?? "Demande impossible");
+          }}
+        >
         <div className="club-signup-grid">
           <label className="auth-field">
             <span>* Nom du club / structure</span>
-            <input type="text" placeholder="Nom du club / structure" />
+            <input name="clubName" type="text" placeholder="Nom du club / structure" required />
           </label>
 
           <label className="auth-field">
             <span>* Nom du responsable</span>
-            <input type="text" placeholder="Nom du responsable" />
+            <input name="managerName" type="text" placeholder="Nom du responsable" required />
           </label>
 
           <label className="auth-field club-signup-grid-wide">
             <span>* Adresse mail</span>
-            <input type="email" placeholder="Adresse mail" />
+            <input name="email" type="email" placeholder="Adresse mail" required />
           </label>
 
           <label className="auth-field">
             <span>Numéro de téléphone</span>
-            <input type="tel" placeholder="Numéro de téléphone" />
+            <input name="phone" type="tel" placeholder="Numéro de téléphone" />
           </label>
         </div>
 
         <label className="auth-field club-signup-upload">
           <span>Logo du club / structure</span>
-          <div className="club-signup-dropzone">Déposez un fichier</div>
+          <div className="club-signup-dropzone"><input name="logo" type="file" accept="image/*" /></div>
         </label>
 
         <label className="auth-field club-signup-upload">
           <span>Pièce d&apos;identité</span>
-          <div className="club-signup-dropzone">Fournir un document téléchargeable</div>
+          <div className="club-signup-dropzone"><input name="identity" type="file" accept="image/*,.pdf" /></div>
         </label>
 
         <label className="auth-field">
           <span>Iban</span>
-          <input className="club-signup-iban" type="text" placeholder="FR76" defaultValue="FR76" />
+          <input name="iban" className="club-signup-iban" type="text" placeholder="FR76" />
         </label>
 
-        <div className="club-signup-actions">
-          <a className="auth-primary club-signup-submit" href={`${nextRoutes.account}?mode=club&connected=1`}>Affiliez des coachs</a>
-        </div>
+          <p role="status" data-club-signup-status hidden={!status}>{status}</p>
+          <div className="club-signup-actions">
+            <button className="auth-primary club-signup-submit" type="submit" disabled={submitting}>
+              {submitting ? "Transmission..." : "Affiliez des coachs"}
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );

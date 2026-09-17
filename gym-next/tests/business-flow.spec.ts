@@ -39,12 +39,15 @@ test.describe("parcours metier principaux", () => {
     await expect(page).toHaveURL(/\/coach\?/);
   });
 
-  test("fiche coach vers creneau puis recapitulatif", async ({ page }) => {
+  test("fiche coach vers creneau puis recapitulatif", async ({ page }, testInfo) => {
     await page.goto(
       "/coach?sport=metiers-de-la-forme&city=Lyon&coach=Studio%20Form%20Marseille",
       { waitUntil: "networkidle" },
     );
 
+    await expect(page.locator("[data-booking-bio]")).toContainText("Séances personnalisées");
+    await expect(page.locator("[data-booking-disciplines]")).toContainText("Fitness");
+    await expect(page.locator("[data-booking-public-diplomas]")).toContainText("Certification fitness");
     await page.getByRole("button", { name: "Planning" }).click();
     await expect(page.locator('[data-booking-confirm]')).toBeVisible();
     await page.locator('[data-booking-confirm]').click();
@@ -52,7 +55,13 @@ test.describe("parcours metier principaux", () => {
     await page.waitForURL("**/creneau?**");
     await expect(page).toHaveURL(/\/creneau\?/);
     await expect(page.locator('[data-multi-confirm]')).toBeVisible();
+    const selectedSlot = testInfo.project.name === "mobile-chromium" ? "11:00" : "10:00";
+    await page.locator(`[data-slot="${selectedSlot}"][data-slot-booked="false"]`).first().click();
+    const reservationResponse = page.waitForResponse(
+      (response) => response.url().includes("/api/reservations") && response.request().method() === "POST",
+    );
     await page.locator('[data-multi-confirm]').click();
+    await expect((await reservationResponse).status()).toBe(201);
 
     await page.waitForURL("**/recapitulatif?**");
     await expect(page).toHaveURL(/\/recapitulatif\?/);
