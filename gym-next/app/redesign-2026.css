@@ -380,6 +380,76 @@
   }
 }
 
+/* Palette anti-fatigue : surfaces bleutées plus profondes, sans gris lumineux. */
+.site-shell,
+.sport-page-shell,
+.coach-profile-shell,
+.account-shell,
+.payment-shell,
+.recap-shell,
+.reservation-shell,
+.sport-page,
+.coach-directory-page,
+.booking-page,
+.account-page,
+.payment-page,
+.recap-page,
+.reservation-page,
+.club-signup-page {
+  background-color: #080e1d !important;
+}
+
+.sport-search-card,
+.coach-directory-toolbar,
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.booking-card,
+.booking-contact-card,
+.reservation-card,
+.payment-card,
+.payment-summary-card,
+.auth-card,
+.account-dashboard-card,
+.account-panel,
+.account-auth-stage,
+.reservation-selection-panel,
+.reservation-calendar-card,
+.club-signup-form-card {
+  background: #111a2d !important;
+}
+
+.sport-search-field,
+.directory-field,
+.field,
+.auth-field,
+.booking-field,
+.payment-field,
+.reservation-field,
+.sport-search-card input,
+.sport-search-card select,
+.coach-directory-toolbar input,
+.coach-directory-toolbar select,
+.payment-method,
+.reservation-day,
+.reservation-slot,
+.reservation-coach-option,
+.directory-chip,
+.directory-chip-secondary,
+.directory-chip-filter,
+.slotButton,
+.slotSelected {
+  background: #182640 !important;
+}
+
+.coach-result-card.is-featured,
+.coach-result-card:hover,
+.reservation-slot.is-selected,
+.reservation-coach-option.is-active,
+.payment-method.is-active {
+  background: #203252 !important;
+}
+
 /* Même langage cinétique sur les écrans de recherche et de réservation. */
 .coach-result-card,
 .coach-profile-card,
