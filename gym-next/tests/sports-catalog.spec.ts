@@ -11,7 +11,7 @@ test("le catalogue visible respecte les quatre sports du MVP", async ({ page }) 
   await page.goto("/recherche?sport=metiers-de-la-forme");
   await expect(page.locator("[data-sport-title]")).toContainText("coach fitness");
 
-  const coaches = await page.request.get("/api/coaches?sport=metiers-de-la-forme");
+  const coaches = await page.context().request.get("/api/coaches?sport=metiers-de-la-forme");
   expect(coaches.ok()).toBeTruthy();
   const profiles = await coaches.json();
   expect(profiles.every((profile: { sport: string }) => profile.sport === "fitness")).toBeTruthy();
