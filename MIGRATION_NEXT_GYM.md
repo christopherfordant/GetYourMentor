@@ -84,19 +84,47 @@ alors la priorite reste :
 - Routes testees en HTTP 200 : `/`, `/recherche`, `/coachs`, `/coach`, `/creneau`, `/recapitulatif`, `/compte`, `/paiement`
 - Derniere verification du contenu metier tunnel : `OK`
 - Note compte : le CTA d'inscription valide est `Nouveau ? Inscription`, pas `Creer mon compte`
-- Derniere verification visuelle automatisee : `partielle` le `2026-04-10`
+- Derniere verification visuelle et fonctionnelle automatisee : `OK` le `2026-09-17` via Playwright desktop et mobile (43/43 par projet, 86 au total)
 - Correction issue de la verification visuelle : `/coach` ne declenche plus l'ancre `A propos` au chargement, la carte note reste desktop et les effets sticky sont desactives en layout compact
 - Artefacts locaux non commit : `docs/next-visual-validation/`
 
-## Prochaine mission stricte
+## Verification fonctionnelle actuelle
 
-Tester visuellement dans un vrai navigateur les parcours Next.js principaux en desktop et mobile, en priorite le header responsive de `/coach`.
+- `npm.cmd run build` : OK
+- Playwright `desktop-chromium` : 43/43
+- Playwright `mobile-chromium` : 43/43
+- Parcours couvert : recherche, fiches coach, disponibilités, réservation, acceptation coach, paiement local, Checkout Stripe optionnel, webhook signé, avis, fidélité, contact, inscription club et administration.
+- Persistance optionnelle : profils coach, réservations, messages et avis via Supabase avec repli mémoire local pour les démonstrations.
+- Sécurité applicative : rôles API contrôlés côté serveur, propriétaire de réservation vérifié pour paiement/annulation/avis, signature Stripe vérifiée pour le webhook.
 
-Ne pas passer a une autre refonte tant que :
+## Etat de validation de la mission
 
-- la recherche depuis la home ouvre bien `/recherche`
-- une carte coach ouvre bien `/coach`
-- une demande de reservation arrive bien sur `/recapitulatif`
-- le recapitulatif vers connexion arrive bien sur `/compte?redirect=paiement`
-- apres connexion, le paiement conserve les informations de reservation
-- le build Next.js reste vert
+La migration MVP et sa vérification écran par écran sont terminées :
+
+- la recherche depuis la home ouvre `/recherche`
+- une carte coach ouvre `/coach`
+- une demande de réservation arrive sur `/recapitulatif`
+- le récapitulatif vers connexion arrive sur `/compte?redirect=paiement`
+- après connexion, le paiement conserve les informations de réservation
+- le build Next.js est vert
+- les 86 tests Playwright desktop/mobile sont verts en local ; la CI distante reste à revalider séparément
+
+La prochaine étape relève de la mise en production : renseigner les secrets Supabase, Stripe et Resend, puis effectuer une recette avec des comptes et données réelles.
+
+### Garde-fous de préproduction
+
+- Sans configuration Supabase et sans coach vérifié, `/creneau`, `/recapitulatif` et `/paiement` affichent un état indisponible au lieu de données de démonstration.
+- Le mode de démonstration est réservé aux tests et doit être activé explicitement par `GETYOURMENTOR_ALLOW_DEMO=true`.
+- Le contrôle `npm.cmd run check:production-config` reste bloquant tant que les secrets Supabase, Stripe, Resend, la clé de session et l'URL publique ne sont pas renseignés.
+- Les tests locaux ne remplacent pas la recette avec comptes réels, les règles RLS Supabase, la configuration du stockage des pièces jointes, les validations juridiques ou l'acceptation utilisateur.
+
+## Refonte visuelle 2026
+
+Une refonte globale a ensuite été appliquée pour sortir du style Planity-like :
+
+- nouvelle home éditoriale avec navigation en pills, hero immersif et recherche en glass panel ;
+- recherche et annuaire transformés en surfaces de découverte plus aérées, avec cartes coach modernisées et filtres compacts ;
+- fiche coach enrichie avec panneau de contact conversationnel, suggestions de questions et état de réponse ;
+- identité visuelle harmonisée sur connexion, compte, créneau, récapitulatif et paiement ;
+- accent corail, bleu nuit, surfaces translucides, rayons et états responsive cohérents ;
+- vérification finale après refonte : Playwright desktop/mobile `72/72`.
