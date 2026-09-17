@@ -85,3 +85,21 @@ export async function listClubLeads() {
   }
   return [...clubLeads];
 }
+
+export async function updateClubLeadStatus(id: string, status: ClubLead["status"]) {
+  const config = supabaseConfig();
+  if (config) {
+    const response = await fetch(`${config.url}/rest/v1/gym_club_leads?id=eq.${encodeURIComponent(id)}`, {
+      method: "PATCH",
+      headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify({ status }),
+    });
+    if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);
+    const [row] = (await response.json()) as Record<string, unknown>[];
+    return row ? fromRow(row) : null;
+  }
+  const lead = clubLeads.find((entry) => entry.id === id);
+  if (!lead) return null;
+  lead.status = status;
+  return { ...lead };
+}
