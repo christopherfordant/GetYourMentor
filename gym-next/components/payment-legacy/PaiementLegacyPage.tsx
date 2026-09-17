@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { ReviewForm } from "@/components/payment-legacy/ReviewForm";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type PaiementLegacyPageProps = {
   legacyStyles: string;
@@ -18,12 +20,13 @@ function PaymentHeader() {
       <nav className="sports-nav sports-nav-dark" aria-label="Sports">
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>Football</a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>Basketball</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Metiers de la forme</a>
+        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
       </nav>
 
       <div className="topbar-actions">
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>Je suis un professionnel du sport</a>
+        <LanguageSelector />
+        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>Je suis coach</a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
@@ -126,6 +129,11 @@ function PaymentSide({
   selectedMethod,
   success,
   onSubmit,
+  paymentReady,
+  paymentError,
+  reservationStatus,
+  reservationCode,
+  reservationId,
 }: {
   coach: string;
   city: string;
@@ -140,6 +148,11 @@ function PaymentSide({
   selectedMethod: string;
   success: boolean;
   onSubmit: () => void;
+  paymentReady: boolean;
+  paymentError: string;
+  reservationStatus: string;
+  reservationCode: string;
+  reservationId: string;
 }) {
   const summaryDuration = [duration, format, objective, packageLabel].filter(Boolean).join(" • ");
 
@@ -175,11 +188,15 @@ function PaymentSide({
         <button
           className="payment-submit"
           type="button"
+          disabled={!paymentReady || success}
           onClick={onSubmit}
         >
-          {success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : "Payer et confirmer"}
+          {success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : paymentReady ? "Payer et confirmer" : "Paiement indisponible"}
         </button>
-        <p className="payment-note">La confirmation finale est simulee dans cette maquette.</p>
+        <p className="payment-note" data-payment-status>
+          {paymentError || (reservationStatus === "requested" ? "En attente de validation par le coach." : reservationStatus === "accepted" ? "Demande acceptée : vous pouvez payer." : "Réservation introuvable.")}
+        </p>
+        {reservationCode ? <p data-payment-code>Code de réservation : {reservationCode}</p> : null}
       </section>
 
       <section className="payment-success-card" hidden={!success}>
@@ -189,6 +206,7 @@ function PaymentSide({
           <a className="payment-secondary-link" href={nextRoutes.home}>Retour a l&apos;accueil</a>
           <a className="payment-primary-link" href={nextRoutes.account}>Voir mon compte</a>
         </div>
+        {reservationId ? <ReviewForm reservationId={reservationId} /> : null}
       </section>
     </aside>
   );
@@ -198,7 +216,7 @@ function PaymentFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
@@ -221,8 +239,68 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
   const packageLabel = params.package || "";
   const slot = params.slot || "10:00";
   const mentor = params.mentor || "Coach confirme";
+  const reservationId = params.reservationId || "";
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [success, setSuccess] = useState(false);
+  const [reservationStatus, setReservationStatus] = useState("");
+  const [reservationCode, setReservationCode] = useState("");
+  const [paymentError, setPaymentError] = useState("");
+
+  useEffect(() => {
+    if (!reservationId) {
+      setPaymentError("Cette réservation ne possède pas encore d’identifiant.");
+      return;
+    }
+
+    fetch(`/api/reservations/${reservationId}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Réservation introuvable."))))
+      .then((payload) => {
+        setReservationStatus(payload.data.status);
+        setReservationCode(payload.data.reservationCode ?? "");
+        if (payload.data.status === "paid") setSuccess(true);
+      })
+      .catch((error) => setPaymentError(error instanceof Error ? error.message : "Réservation introuvable."));
+  }, [reservationId]);
+
+  useEffect(() => {
+    if (!reservationId || params.payment !== "success") return;
+    let attempts = 0;
+    const interval = window.setInterval(async () => {
+      attempts += 1;
+      const response = await fetch(`/api/reservations/${reservationId}`);
+      if (!response.ok) return;
+      const payload = await response.json();
+      setReservationStatus(payload.data.status);
+      setReservationCode(payload.data.reservationCode ?? "");
+      if (payload.data.status === "paid" || attempts >= 15) {
+        if (payload.data.status === "paid") setSuccess(true);
+        window.clearInterval(interval);
+      }
+    }, 2000);
+    return () => window.clearInterval(interval);
+  }, [params.payment, reservationId]);
+
+  useEffect(() => {
+    if (params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
+  }, [params.payment]);
+
+  async function handlePayment() {
+    if (!reservationId) return;
+    setPaymentError("");
+    const response = await fetch(`/api/reservations/${reservationId}/payment`, { method: "POST" });
+    const payload = await response.json();
+    if (!response.ok) {
+      setPaymentError(payload.error ?? "Paiement impossible.");
+      return;
+    }
+    if (payload.data.checkoutUrl) {
+      window.location.assign(payload.data.checkoutUrl);
+      return;
+    }
+    setReservationStatus(payload.data.status);
+    setReservationCode(payload.data.reservationCode ?? "");
+    setSuccess(true);
+  }
 
   return (
     <>
@@ -245,7 +323,12 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
             mentor={mentor}
             selectedMethod={selectedMethod}
             success={success}
-            onSubmit={() => setSuccess(true)}
+            onSubmit={handlePayment}
+            paymentReady={reservationStatus === "accepted" && !paymentError}
+            paymentError={paymentError}
+            reservationStatus={reservationStatus}
+            reservationCode={reservationCode}
+            reservationId={reservationId}
           />
         </main>
 

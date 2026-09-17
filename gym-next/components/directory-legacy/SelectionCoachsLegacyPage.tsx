@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type SelectionCoachsLegacyPageProps = {
   legacyStyles: string;
@@ -16,13 +17,43 @@ type CoachEntry = {
   morning: string[];
   afternoon: string[];
   cta: string;
+  gender?: "homme" | "femme";
+  practice?: "interieur" | "exterieur";
+  level?: "debutant" | "intermediaire" | "confirme";
+  format?: "presentiel" | "visio";
+  availability?: "morning" | "afternoon";
+  price?: number;
+  rating?: number;
+  verified?: boolean;
+};
+
+type DirectoryFilters = {
+  gender: "all" | CoachEntry["gender"];
+  practice: "all" | CoachEntry["practice"];
+  level: "all" | CoachEntry["level"];
+  format: "all" | CoachEntry["format"];
+  availability: "all" | NonNullable<CoachEntry["availability"]>;
+  budget: "all" | "under-40" | "40-60" | "over-60";
+  rating: "all" | "4" | "4.5";
+  verified: boolean;
+};
+
+const defaultDirectoryFilters: DirectoryFilters = {
+  gender: "all",
+  practice: "all",
+  level: "all",
+  format: "all",
+  availability: "all",
+  budget: "all",
+  rating: "all",
+  verified: false,
 };
 
 const directoryDictionary = {
   football: {
     name: "Football",
     chips: ["Coach individuel", "Préparation match", "Centre indoor"],
-    getTitle: () => "Sélectionnez un coach de football",
+    getTitle: () => "Trouve ton coach de football",
     getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
@@ -31,7 +62,7 @@ const directoryDictionary = {
         meta: "4.9 (33 avis)  Technique / Tactique / U16",
         morning: ["Jeu. 26"],
         afternoon: ["Ven. 27"],
-        cta: "Prendre RDV",
+        cta: "Voir le profil",
       },
       {
         name: "Mehdi Rahal",
@@ -46,7 +77,7 @@ const directoryDictionary = {
   basketball: {
     name: "Basketball",
     chips: ["Shooting", "Défense", "Condition physique"],
-    getTitle: () => "Sélectionnez un coach de basketball",
+    getTitle: () => "Trouve ton coach de basketball",
     getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
@@ -55,7 +86,7 @@ const directoryDictionary = {
         meta: "5.0 (21 avis)  Shooting / Défense / U18",
         morning: ["Jeu. 26"],
         afternoon: ["Sam. 28"],
-        cta: "Prendre RDV",
+        cta: "Voir le profil",
       },
       {
         name: "Nolan Vasseur",
@@ -68,9 +99,9 @@ const directoryDictionary = {
     ],
   },
   "metiers-de-la-forme": {
-    name: "Métiers de la forme",
+    name: "Fitness",
     chips: ["Coach individuel", "Salle premium", "Programme forme"],
-    getTitle: () => "Sélectionnez un coach de la forme",
+    getTitle: () => "Trouve ton coach fitness",
     getSubtitle: (city: string) =>
       `Les meilleurs coachs et studios aux alentours de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
@@ -80,7 +111,7 @@ const directoryDictionary = {
         meta: "5 (33 avis)  Individuel / Small group",
         morning: ["Jeu. 26"],
         afternoon: ["Jeu. 26"],
-        cta: "Prendre RDV",
+        cta: "Voir le profil",
       },
       {
         name: "Kenza Training Club",
@@ -88,7 +119,7 @@ const directoryDictionary = {
         meta: "4.9 (189 avis)  Club / Transformation",
         morning: ["Ven. 27"],
         afternoon: ["Sam. 28"],
-        cta: "Prendre RDV",
+        cta: "Voir le profil",
       },
       {
         name: "Pulse Mobility",
@@ -103,7 +134,7 @@ const directoryDictionary = {
   "sports-de-combat": {
     name: "Sports de combat",
     chips: ["Boxe", "MMA", "Self-défense"],
-    getTitle: () => "Sélectionnez un coach de sports de combat",
+    getTitle: () => "Trouve ton coach de sports de combat",
     getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
     getCoaches: (city: string): CoachEntry[] => [
       {
@@ -112,7 +143,7 @@ const directoryDictionary = {
         meta: "4.9 (26 avis)  Boxe / Self-défense / Débuta",
         morning: ["Jeu. 26"],
         afternoon: ["Ven. 27"],
-        cta: "Prendre RDV",
+        cta: "Voir le profil",
       },
       {
         name: "Combat Lab",
@@ -181,7 +212,7 @@ function DirectoryHeader() {
           Basketball
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -189,8 +220,9 @@ function DirectoryHeader() {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -215,12 +247,17 @@ function DirectoryHeader() {
 function DirectoryToolbar({
   sportLabel,
   city,
+  filters,
+  onFiltersChange,
 }: {
   sportLabel: string;
   city: string;
+  filters: DirectoryFilters;
+  onFiltersChange: (filters: DirectoryFilters) => void;
 }) {
   const [sportInput, setSportInput] = useState(sportLabel);
   const [cityInput, setCityInput] = useState(city);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
     <section className="coach-directory-toolbar">
@@ -234,7 +271,7 @@ function DirectoryToolbar({
         }}
       >
         <label className="directory-field">
-          <span>Sport</span>
+          <span>Discipline</span>
           <input
             type="text"
             data-directory-sport-input
@@ -243,7 +280,7 @@ function DirectoryToolbar({
           />
         </label>
         <label className="directory-field">
-          <span>Ville</span>
+          <span>Zone d’entraînement</span>
           <input
             type="text"
             data-directory-city-input
@@ -252,8 +289,8 @@ function DirectoryToolbar({
           />
         </label>
         <label className="directory-field">
-          <span>Disponibilit&eacute;</span>
-          <input type="text" value="&Agrave; tout moment" data-directory-availability-input readOnly />
+          <span>Quand t’entraîner ?</span>
+          <input type="text" value="Quand tu veux" data-directory-availability-input readOnly />
         </label>
         <button className="directory-search-button" type="submit" aria-label="Rechercher">
           <svg viewBox="0 0 24 24" focusable="false">
@@ -270,7 +307,7 @@ function DirectoryToolbar({
       </form>
 
       <div className="directory-chip-row" aria-label="Filtres">
-        <button className="directory-chip directory-chip-filter" type="button">
+        <button className="directory-chip directory-chip-filter" type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen}>
           Filtres
         </button>
         <button className="directory-chip directory-chip-secondary" type="button">
@@ -280,6 +317,73 @@ function DirectoryToolbar({
           Avis :
         </button>
       </div>
+      {filtersOpen ? (
+        <div className="directory-filter-panel" data-directory-filter-panel>
+          <label>
+            Genre
+            <select value={filters.gender} onChange={(event) => onFiltersChange({ ...filters, gender: event.target.value as DirectoryFilters["gender"] })}>
+              <option value="all">Tous</option>
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+            </select>
+          </label>
+          <label>
+            Lieu de pratique
+            <select value={filters.practice} onChange={(event) => onFiltersChange({ ...filters, practice: event.target.value as DirectoryFilters["practice"] })}>
+              <option value="all">Tous</option>
+              <option value="interieur">Intérieur</option>
+              <option value="exterieur">Extérieur</option>
+            </select>
+          </label>
+          <label>
+            Niveau
+            <select value={filters.level} onChange={(event) => onFiltersChange({ ...filters, level: event.target.value as DirectoryFilters["level"] })}>
+              <option value="all">Tous</option>
+              <option value="debutant">Débutant</option>
+              <option value="intermediaire">Intermédiaire</option>
+              <option value="confirme">Confirmé</option>
+            </select>
+          </label>
+          <label>
+            Format
+            <select value={filters.format} onChange={(event) => onFiltersChange({ ...filters, format: event.target.value as DirectoryFilters["format"] })}>
+              <option value="all">Tous</option>
+              <option value="presentiel">Présentiel</option>
+              <option value="visio">Visio</option>
+            </select>
+          </label>
+          <label>
+            Disponibilité
+            <select value={filters.availability} onChange={(event) => onFiltersChange({ ...filters, availability: event.target.value as DirectoryFilters["availability"] })}>
+              <option value="all">Toutes</option>
+              <option value="morning">Matin</option>
+              <option value="afternoon">Après-midi</option>
+            </select>
+          </label>
+          <label>
+            Budget
+            <select value={filters.budget} onChange={(event) => onFiltersChange({ ...filters, budget: event.target.value as DirectoryFilters["budget"] })}>
+              <option value="all">Tous</option>
+              <option value="under-40">Moins de 40 €</option>
+              <option value="40-60">40 à 60 €</option>
+              <option value="over-60">Plus de 60 €</option>
+            </select>
+          </label>
+          <label>
+            Note minimale
+            <select value={filters.rating} onChange={(event) => onFiltersChange({ ...filters, rating: event.target.value as DirectoryFilters["rating"] })}>
+              <option value="all">Toutes</option>
+              <option value="4">4+</option>
+              <option value="4.5">4,5+</option>
+            </select>
+          </label>
+          <label className="directory-filter-check">
+            <input type="checkbox" checked={filters.verified} onChange={(event) => onFiltersChange({ ...filters, verified: event.target.checked })} />
+            Coach vérifié
+          </label>
+          <button type="button" onClick={() => onFiltersChange(defaultDirectoryFilters)}>Réinitialiser</button>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -359,13 +463,30 @@ function DirectoryContent({
   title,
   subtitle,
   coaches,
+  filters,
 }: {
   sportSlug: string;
   city: string;
   title: string;
   subtitle: string;
   coaches: CoachEntry[];
+  filters: DirectoryFilters;
 }) {
+  const visibleCoaches = coaches.filter((coach) => {
+    if (filters.gender !== "all" && coach.gender !== filters.gender) return false;
+    if (filters.practice !== "all" && coach.practice !== filters.practice) return false;
+    if (filters.level !== "all" && coach.level !== filters.level) return false;
+    if (filters.format !== "all" && coach.format !== filters.format) return false;
+    if (filters.availability === "morning" && coach.morning.length === 0) return false;
+    if (filters.availability === "afternoon" && coach.afternoon.length === 0) return false;
+    if (filters.verified && !coach.verified) return false;
+    if (filters.rating !== "all" && (coach.rating ?? 0) < Number(filters.rating)) return false;
+    if (filters.budget === "under-40" && (coach.price ?? 0) >= 40) return false;
+    if (filters.budget === "40-60" && ((coach.price ?? 0) < 40 || (coach.price ?? 0) > 60)) return false;
+    if (filters.budget === "over-60" && (coach.price ?? 0) <= 60) return false;
+    return true;
+  });
+
   return (
     <section className="coach-directory-content">
       <div className="coach-directory-list">
@@ -375,7 +496,7 @@ function DirectoryContent({
         </header>
 
         <div className="coach-results" data-coach-results>
-          {coaches.map((coach, index) => (
+          {visibleCoaches.map((coach, index) => (
             <CoachResultCard
               key={`${coach.name}-${index}`}
               coach={coach}
@@ -384,6 +505,7 @@ function DirectoryContent({
               index={index}
             />
           ))}
+          {visibleCoaches.length === 0 ? <p data-directory-empty>Aucun coach ne correspond à ces filtres.</p> : null}
         </div>
       </div>
 
@@ -406,7 +528,7 @@ function DirectoryFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens l&eacute;gaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
@@ -433,6 +555,22 @@ export function SelectionCoachsLegacyPage({
 
   const currentDirectory = directoryDictionary[sportSlug];
   const cityValue = city || "Paris";
+  const [filters, setFilters] = useState<DirectoryFilters>(defaultDirectoryFilters);
+  const coaches = useMemo(
+    () =>
+      currentDirectory.getCoaches(cityValue).map<CoachEntry>((coach, index) => ({
+        ...coach,
+        gender: (index % 2 === 0 ? "femme" : "homme") as CoachEntry["gender"],
+        practice: (index % 2 === 0 ? "interieur" : "exterieur") as CoachEntry["practice"],
+        level: (index % 3 === 0 ? "debutant" : index % 3 === 1 ? "intermediaire" : "confirme") as CoachEntry["level"],
+        format: (index % 2 === 0 ? "presentiel" : "visio") as CoachEntry["format"],
+        availability: (index % 2 === 0 ? "morning" : "afternoon") as CoachEntry["availability"],
+        price: index === 0 ? 40 : 65,
+        rating: index === 0 ? 4.9 : 4.2,
+        verified: index === 0,
+      })),
+    [cityValue, currentDirectory],
+  );
 
   return (
     <>
@@ -440,13 +578,14 @@ export function SelectionCoachsLegacyPage({
       <div className="site-shell coach-profile-shell">
         <DirectoryHeader />
         <main className="coach-directory-page" data-coach-directory-page>
-          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} />
+          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} />
           <DirectoryContent
             sportSlug={sportSlug}
             city={cityValue}
             title={currentDirectory.getTitle()}
             subtitle={currentDirectory.getSubtitle(cityValue)}
-            coaches={currentDirectory.getCoaches(cityValue)}
+            coaches={coaches}
+            filters={filters}
           />
         </main>
         <DirectoryFooter />

@@ -106,7 +106,7 @@ export function HomePageClient() {
         <div className={styles.topbarActions}>
           <LanguageSelector />
           <Link href="/compte" className={styles.topbarLink}>
-            Je suis un professionnel du sport
+            Je suis coach
           </Link>
           <Link href="/compte" className={styles.accountButton}>
             <span className={styles.accountIcon} aria-hidden="true">
@@ -329,7 +329,7 @@ export function HomePageClient() {
 
         <section className={styles.section} id="coach-space">
           <div className={styles.sectionHeading}>
-            <h2>Optimisez la prise de rendez-vous coaching en ligne</h2>
+          <h2>Construis une routine que tu peux tenir</h2>
           </div>
           <div className={styles.insightsGrid}>
             {insights.map((item) => (
@@ -341,7 +341,7 @@ export function HomePageClient() {
                 <p>{item.copy}</p>
                 {item.featured ? (
                   <Link href="/compte" className={styles.insightButton}>
-                    Je suis un professionnel du sport
+                    Je suis coach
                   </Link>
                 ) : null}
               </article>
@@ -373,7 +373,7 @@ export function HomePageClient() {
 
         <section className={styles.section}>
           <div className={styles.sectionHeading}>
-            <h2>Trouvez votre coach sportif partout en France</h2>
+            <h2>Des coachs pour chaque façon de progresser</h2>
           </div>
           <div className={styles.localesGrid}>
             {localeColumns.map((column) => (
@@ -408,7 +408,7 @@ export function HomePageClient() {
 
       <footer className={styles.siteFooter}>
         <div className={styles.footerBrand}>GETYOURMENTOR</div>
-        <p>Trouvez votre coach sportif en quelques clics</p>
+        <p>Ton coaching, ton rythme, ta progression.</p>
         <nav className={styles.footerLinks} aria-label="Liens legaux">
           <a href="#cgv">CGV</a>
           <a href="#cgu">CGU</a>

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type RechercheCoachLegacyPageProps = {
   legacyStyles: string;
@@ -13,22 +14,22 @@ const sportDictionary = {
   football: {
     name: "Football",
     search: "Coachs de football",
-    title: "Réserver en ligne un coach de football",
+    title: "Trouver un coach de football qui te correspond",
   },
   basketball: {
     name: "Basketball",
     search: "Coachs de basketball",
-    title: "Réserver en ligne un coach de basketball",
+    title: "Trouver un coach de basketball qui te correspond",
   },
   "metiers-de-la-forme": {
-    name: "Métiers de la forme",
-    search: "Coachs métiers de la forme",
-    title: "Réserver en ligne un coach métiers de la forme",
+    name: "Fitness",
+    search: "Coachs fitness",
+    title: "Trouver un coach fitness qui te correspond",
   },
   "sports-de-combat": {
     name: "Sports de combat",
     search: "Coachs sports de combat",
-    title: "Réserver en ligne un coach de sports de combat",
+    title: "Trouver un coach de sports de combat qui te correspond",
   },
 } as const;
 
@@ -89,7 +90,7 @@ function RechercheHeader() {
           Basketball
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -97,8 +98,9 @@ function RechercheHeader() {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -147,19 +149,21 @@ function RechercheHeroSection({
         }}
       >
         <label className="sport-search-field">
-          <span>Que cherchez-vous ?</span>
+          <span>Quelle discipline ?</span>
           <input
             type="text"
             data-sport-query
+            placeholder="Football, fitness, boxe..."
             value={queryValue}
             onChange={(event) => setQueryValue(event.target.value)}
           />
         </label>
 
         <label className="sport-search-field">
-          <span>Ou</span>
+          <span>Où veux-tu t’entraîner ?</span>
           <input
             type="text"
+            placeholder="Ville, salle ou visio"
             value={cityValue}
             data-sport-city
             onChange={(event) => setCityValue(event.target.value)}
@@ -167,7 +171,7 @@ function RechercheHeroSection({
         </label>
 
         <button className="search-button" type="submit">
-          Rechercher
+          Explorer les coachs
         </button>
       </form>
     </section>
@@ -322,7 +326,7 @@ function RechercheFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>

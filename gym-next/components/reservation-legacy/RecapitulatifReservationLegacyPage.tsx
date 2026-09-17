@@ -2,6 +2,7 @@
 
 import { useMemo } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type RecapitulatifReservationLegacyPageProps = {
   legacyStyles: string;
@@ -25,7 +26,7 @@ function RecapHeader() {
           Basketball
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -33,8 +34,9 @@ function RecapHeader() {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -212,7 +214,7 @@ function RecapFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
@@ -254,8 +256,9 @@ export function RecapitulatifReservationLegacyPage({
         package: packageLabel,
         slot,
         mentor,
+        reservationId: params.reservationId,
       }),
-    [coach, city, duration, format, objective, packageLabel, price, slot, mentor, service, sport],
+    [coach, city, duration, format, objective, packageLabel, params.reservationId, price, slot, mentor, service, sport],
   );
 
   const accountRedirect = useMemo(
