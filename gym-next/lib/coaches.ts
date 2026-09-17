@@ -1,6 +1,13 @@
 import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
+export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4">;
+
+export function toPublicCoach(coach: CoachProfile): PublicCoachProfile {
+  const { bankAccountLast4: _bankAccountLast4, ...publicCoach } = coach;
+  return publicCoach;
+}
+
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;

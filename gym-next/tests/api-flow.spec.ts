@@ -159,6 +159,16 @@ test("les réservations publiques sont limitées aux créneaux occupés", async 
   expect(payload.data.every((item: Record<string, unknown>) => "slots" in item && "status" in item && !("ownerEmail" in item))).toBeTruthy();
 });
 
+test("les données bancaires ne sortent pas des endpoints coach publics", async ({ request }) => {
+  const list = await request.get("/api/coaches?sport=basketball&city=Marseille");
+  expect(list.status()).toBe(200);
+  expect((await list.json()).data.every((coach: Record<string, unknown>) => !("bankAccountLast4" in coach))).toBeTruthy();
+
+  const profile = await request.get("/api/coaches/steven-fordant");
+  expect(profile.status()).toBe(200);
+  expect((await profile.json()).data).not.toHaveProperty("bankAccountLast4");
+});
+
 test("un sportif peut déplacer une réservation acceptée vers un créneau libre", async ({ request }, testInfo) => {
   const sourceSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 10:00" : "2026-12-19 10:00";
   const targetSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 11:00" : "2026-12-19 11:00";

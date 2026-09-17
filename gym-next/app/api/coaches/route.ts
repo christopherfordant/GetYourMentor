@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { filterStoredCoaches } from "@/lib/coaches";
+import { filterStoredCoaches, toPublicCoach } from "@/lib/coaches";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -8,5 +8,5 @@ export async function GET(request: Request) {
     city: url.searchParams.get("city") ?? undefined,
   });
 
-  return NextResponse.json({ data });
+  return NextResponse.json({ data: data.map(toPublicCoach) });
 }
