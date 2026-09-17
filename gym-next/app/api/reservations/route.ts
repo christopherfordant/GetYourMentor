@@ -33,7 +33,8 @@ export async function POST(request: Request) {
     city: coach.city,
     service: body.service,
     duration: body.duration,
-    price: Number(body.price ?? coach.priceFrom),
+    // Le tarif est une donnée métier serveur : ne jamais faire confiance au montant envoyé par le navigateur.
+    price: coach.priceFrom,
     slots,
     status: "requested",
     createdAt: new Date().toISOString(),
