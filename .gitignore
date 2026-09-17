@@ -9,6 +9,15 @@ mempalace/.pip-tmp/
 prototype_site_GYM.zip
 tmp_menu_accueil_profil_coach.jpg
 .tmp-edge-profile/
+
+# Variables d’environnement locales : ne jamais versionner de secrets.
+.env
+.env.*
+!.env.example
+gym-next/.env
+gym-next/.env.*
+!gym-next/.env.example
+
 docs/next-visual-validation/
 gym-next/playwright-artifacts/
 gym-next/playwright-report/
