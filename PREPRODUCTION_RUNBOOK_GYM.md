@@ -7,8 +7,8 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 1. Créer un projet Supabase dédié à la préproduction, distinct d’une éventuelle production.
 2. Exécuter `SUPABASE_SCHEMA_GYM.sql` si le schéma mémoire de projet est nécessaire.
 3. Exécuter ensuite `SUPABASE_APP_SCHEMA_GYM.sql`.
-4. Vérifier l’existence des tables `public.gym_coaches`, `public.gym_reservations`, `public.gym_reviews` et `public.gym_messages`.
-5. Vérifier que la RLS est activée sur ces quatre tables.
+4. Vérifier l’existence des tables `public.gym_coaches`, `public.gym_reservations`, `public.gym_reviews`, `public.gym_messages` et `public.gym_reservation_slot_claims`.
+5. Vérifier que la RLS est activée sur ces cinq tables.
 6. Vérifier que l’accès direct anonyme ne permet aucune lecture ou écriture inattendue.
 
 Le MVP utilise actuellement des appels serveur avec la clé `SUPABASE_SERVICE_ROLE_KEY`. Cette clé ne doit jamais être envoyée au navigateur. Les tables ont la RLS activée et aucune politique client générique n’est ajoutée par le script : toute ouverture d’accès direct devra faire l’objet d’une conception et de tests RLS par rôle.
