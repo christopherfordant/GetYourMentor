@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Adresse mail invalide" }, { status: 400 });
   }
 
-  const lead = createClubLead({
+  const lead = await createClubLead({
     clubName,
     managerName,
     email,

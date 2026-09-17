@@ -126,3 +126,20 @@ create table if not exists public.gym_messages (
 );
 
 alter table public.gym_messages enable row level security;
+
+create table if not exists public.gym_club_leads (
+  id text primary key,
+  club_name text not null,
+  manager_name text not null,
+  email text not null,
+  phone text,
+  iban_last4 text check (iban_last4 is null or char_length(iban_last4) = 4),
+  logo_file_name text,
+  identity_file_name text,
+  status text not null default 'pending' check (status in ('pending', 'contacted', 'closed')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.gym_club_leads enable row level security;
+create index if not exists gym_club_leads_status_idx on public.gym_club_leads (status);
+create index if not exists gym_club_leads_created_at_idx on public.gym_club_leads (created_at desc);
