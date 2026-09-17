@@ -8,11 +8,12 @@ import { CoachProfileEditor } from "@/components/account-legacy/CoachProfileEdit
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
 import { AthleteDashboard } from "@/components/account-legacy/AthleteDashboard";
 import { AdminDashboard } from "@/components/account-legacy/AdminDashboard";
-import { findCoach, type Reservation } from "@/lib/domain";
+import { findCoach, type CoachProfile, type Reservation } from "@/lib/domain";
 
 type AccountLegacyPageProps = {
   legacyStyles: string;
   params: Record<string, string | undefined>;
+  allowDemoFallback?: boolean;
 };
 
 type StepName = "signin" | "role" | "create";
@@ -359,16 +360,29 @@ function AccountAuthShell({
 
 function CoachDashboard({
   coachName,
+  coachId,
+  allowDemoFallback,
   sessionIndex,
   onNextSession,
 }: {
   coachName: string;
+  coachId?: string;
+  allowDemoFallback: boolean;
   sessionIndex: number;
   onNextSession: () => void;
 }) {
-  const session = coachSessions[sessionIndex];
-  const coachProfile = findCoach(coachName);
+  const session = allowDemoFallback ? coachSessions[sessionIndex] : null;
+  const [coachProfile, setCoachProfile] = useState<CoachProfile | null>(() => allowDemoFallback ? findCoach(coachName) : null);
   const [reservations, setReservations] = useState<Reservation[]>([]);
+
+  useEffect(() => {
+    fetch(`/api/coaches/${encodeURIComponent(coachId ?? coachName)}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
+      .then((payload) => setCoachProfile(payload.data as CoachProfile))
+      .catch(() => {
+        if (!allowDemoFallback) setCoachProfile(null);
+      });
+  }, [allowDemoFallback, coachId, coachName]);
 
   useEffect(() => {
     fetch("/api/reservations")
@@ -376,6 +390,8 @@ function CoachDashboard({
       .then((payload) => setReservations((payload.data as Reservation[]).filter((reservation) => reservation.coachName.toLowerCase() === coachName.toLowerCase())))
       .catch(() => setReservations([]));
   }, [coachName]);
+
+  const nextReservation = reservations.find((reservation) => ["accepted", "paid"].includes(reservation.status)) ?? reservations[0];
 
   const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
   const acceptedCount = reservations.filter((reservation) => ["accepted", "paid"].includes(reservation.status)).length;
@@ -424,42 +440,42 @@ function CoachDashboard({
           </button>
         </div>
         <div className="coach-home-schedule">
-          <article>
-            <strong>18h - 19h</strong>
-            <span>Vazquez Eliott</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "football", city: "Marseille", coach: coachName })}>Voir fiche</a>
-          </article>
-          <article>
-            <strong>19h - 20h</strong>
-            <span>Fordant Christopher</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: coachName })}>Voir fiche</a>
-          </article>
-          <article>
-            <strong>20h - 21h</strong>
-            <span>Creneau disponible</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "football", city: "Paris", coach: coachName })}>Ouvrir</a>
-          </article>
-          <article>
-            <strong>21h - 22h</strong>
-            <span>Fordant Selyan</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "football", city: "Lyon", coach: coachName })}>Voir fiche</a>
-          </article>
+          {allowDemoFallback ? coachSessions.map((demoSession) => (
+            <article key={demoSession.name}>
+              <strong>{demoSession.slot}</strong>
+              <span>{demoSession.name}</span>
+              <a href={demoSession.href}>Voir fiche</a>
+            </article>
+          )) : reservations.length ? reservations.map((reservation) => (
+            <article key={reservation.id}>
+              <strong>{reservation.slots.join(" · ")}</strong>
+              <span>{reservation.service}</span>
+              <span>Statut : {reservation.status}</span>
+            </article>
+          )) : <p data-coach-schedule-empty>Aucune séance enregistrée.</p>}
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} />
-      <CoachProfileEditor
-        coachId={coachProfile.id}
-        specialty={coachProfile.specialty}
-        city={coachProfile.city}
-        priceFrom={coachProfile.priceFrom}
-        description={coachProfile.description}
-        disciplines={coachProfile.disciplines}
-        diplomas={coachProfile.diplomas}
-        sessionTypes={coachProfile.sessionTypes}
-        availability={coachProfile.availability}
-        photoUrl={coachProfile.photoUrl}
-        bankAccountLast4={coachProfile.bankAccountLast4}
-      />
+      {coachProfile ? (
+        <CoachProfileEditor
+          coachId={coachProfile.id}
+          specialty={coachProfile.specialty}
+          city={coachProfile.city}
+          priceFrom={coachProfile.priceFrom}
+          description={coachProfile.description}
+          disciplines={coachProfile.disciplines}
+          diplomas={coachProfile.diplomas}
+          sessionTypes={coachProfile.sessionTypes}
+          availability={coachProfile.availability}
+          photoUrl={coachProfile.photoUrl}
+          bankAccountLast4={coachProfile.bankAccountLast4}
+        />
+      ) : (
+        <section className="account-dashboard-card" data-coach-profile-unavailable>
+          <h3>Profil coach indisponible</h3>
+          <p>Votre profil sera affiché dès qu’il aura été créé et vérifié par l’administrateur.</p>
+        </section>
+      )}
       <MessageInbox recipientName={coachName} />
       <section className="account-dashboard-card coach-home-summary" data-coach-summary>
         <div className="coach-home-card-head">
@@ -477,31 +493,22 @@ function CoachDashboard({
           <div className="coach-home-card-head">
             <h3>Prochaines séances</h3>
             <div className="coach-home-next-head-actions">
-              <span>{session.date}</span>
-              <button className="coach-home-next-arrow" type="button" aria-label="Séance suivante" onClick={onNextSession}>
-                ›
-              </button>
+              <span>{session?.date ?? (nextReservation ? nextReservation.slots.join(" · ") : "À planifier")}</span>
+              {session ? <button className="coach-home-next-arrow" type="button" aria-label="Séance suivante" onClick={onNextSession}>›</button> : null}
             </div>
           </div>
           <div className="coach-home-next-copy coach-home-next-copy--plain">
-            <strong>{session.name}</strong>
-            <span>{session.age}</span>
-            <span>{session.club}</span>
-            <span>{session.objective}</span>
-            <span>{session.location}</span>
-            <span>{session.slot}</span>
+            {session ? <><strong>{session.name}</strong><span>{session.age}</span><span>{session.club}</span><span>{session.objective}</span><span>{session.location}</span><span>{session.slot}</span></> : nextReservation ? <><strong>{nextReservation.service}</strong><span>{nextReservation.duration}</span><span>{nextReservation.city}</span><span>Statut : {nextReservation.status}</span><span>{nextReservation.price} EUR</span></> : <p data-coach-next-empty>Aucune séance à venir.</p>}
           </div>
-          <a className="coach-home-inline-link" href={session.href}>
-            Voir fiche sportive
-          </a>
+          {session ? <a className="coach-home-inline-link" href={session.href}>Voir fiche sportive</a> : null}
         </article>
         <article className="account-dashboard-card coach-home-rating" data-coach-display-block="rating">
           <div className="coach-home-mini-tabs">
             <span className="is-active">Ma note</span>
             <span>Mes avis</span>
           </div>
-          <div className="coach-home-rating-score">4,1 / 5</div>
-          <p>Note globale sur la pédagogie, la qualité de suivi et la clarté des séances.</p>
+          <div className="coach-home-rating-score">{coachProfile ? `${coachProfile.rating.toFixed(1)} / 5` : "Non renseignée"}</div>
+          <p>{coachProfile ? `${coachProfile.reviewCount} avis vérifiés.` : "La note sera affichée après les premiers avis vérifiés."}</p>
         </article>
         <article className="account-dashboard-card coach-home-revenue" id="coach-payments" data-coach-display-block="revenue">
           <div className="coach-home-card-head">
@@ -517,25 +524,25 @@ function CoachDashboard({
             <span>Vue élève</span>
           </div>
           <div className="coach-home-profile-preview-head">
-            <strong>{coachName}</strong>
-            <span>Coach vérifié - remise en forme</span>
+            <strong>{coachProfile?.name ?? coachName}</strong>
+            <span>{coachProfile?.verified ? "Coach vérifié" : "Profil en attente de vérification"}</span>
           </div>
           <div className="coach-home-profile-preview-grid">
             <div>
               <span>Zone</span>
-              <strong>Lille centre</strong>
+              <strong>{coachProfile?.city ?? "À renseigner"}</strong>
             </div>
             <div>
               <span>Formats</span>
-              <strong>Individuel, duo, visio</strong>
+              <strong>{coachProfile?.sessionTypes ?? "À renseigner"}</strong>
             </div>
             <div>
               <span>Tarif d'appel</span>
-              <strong>39 EUR / séance</strong>
+              <strong>{coachProfile ? `${coachProfile.priceFrom} EUR / séance` : "À renseigner"}</strong>
             </div>
             <div>
               <span>Disponibilité</span>
-              <strong>Prochain créneau : jeudi 18h</strong>
+              <strong>{coachProfile?.availability ?? "À renseigner"}</strong>
             </div>
           </div>
           <p className="coach-home-profile-preview-copy">
@@ -551,7 +558,7 @@ function CoachDashboard({
           </a>
         </div>
       </div>
-      <section className="account-dashboard-card coach-home-messages" id="coach-messages">
+      {allowDemoFallback ? <section className="account-dashboard-card coach-home-messages" id="coach-messages">
         <div className="coach-home-card-head">
           <h3>Messagerie</h3>
           <span>4 conversations</span>
@@ -574,7 +581,7 @@ function CoachDashboard({
             <span>Retour sur les contenus premium et demande d'accès au planning.</span>
           </article>
         </div>
-      </section>
+      </section> : null}
     </section>
   );
 }
@@ -812,7 +819,7 @@ function AccountFooter() {
   );
 }
 
-export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPageProps) {
+export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = false }: AccountLegacyPageProps) {
   const mode = params.mode;
   const redirect = params.redirect;
   const isCoachMode = mode === "coach";
@@ -971,6 +978,8 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
             {dashboardMode === "coach" ? (
               <CoachDashboard
                 coachName={coachName}
+                coachId={params.coachId}
+                allowDemoFallback={allowDemoFallback}
                 sessionIndex={sessionIndex}
                 onNextSession={() => setSessionIndex((current) => (current + 1) % coachSessions.length)}
               />

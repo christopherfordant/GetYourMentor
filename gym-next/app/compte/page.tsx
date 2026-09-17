@@ -44,8 +44,9 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
   const session = await currentSession();
   if (session) {
     normalizedParams.connected = "1";
+    if (session.coachId) normalizedParams.coachId = session.coachId;
     if (!normalizedParams.mode && session.role !== "sportif") normalizedParams.mode = session.role;
   }
 
-  return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
+  return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} allowDemoFallback={process.env.GETYOURMENTOR_ALLOW_DEMO === "true"} />;
 }

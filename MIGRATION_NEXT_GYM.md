@@ -117,7 +117,7 @@ La prochaine étape relève de la mise en production : renseigner les secrets Su
 - Le mode de démonstration est réservé aux tests et doit être activé explicitement par `GETYOURMENTOR_ALLOW_DEMO=true`.
 - Le contrôle `npm.cmd run check:production-config` reste bloquant tant que les secrets Supabase, Stripe, Resend, la clé de session et l'URL publique ne sont pas renseignés.
 - Les tests locaux ne remplacent pas la recette avec comptes réels, les règles RLS Supabase, la configuration du stockage des pièces jointes, les validations juridiques ou l'acceptation utilisateur.
-- Le dashboard coach contient encore des blocs de démonstration statiques ; la migration d’écran est faite, mais la validation préproduction reste bloquée jusqu’à leur branchement sur les données persistées.
+- Le dashboard coach lit désormais les données métier via les APIs ; le dashboard club conserve encore des blocs de démonstration statiques. La validation préproduction reste bloquée jusqu’au branchement du dashboard club sur les données persistées.
 
 ## Refonte visuelle 2026
 
