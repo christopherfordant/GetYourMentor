@@ -10,6 +10,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Parcours fonctionnels Playwright | PASS | 72 tests réussis, incluant API, réservation, paiement, comptes, coach, admin et responsive. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, build et Playwright ; run GitHub vérifié avec succès sur `1291595`. |
+| Fallback démonstration explicite | PASS | Les fallbacks mémoire/local ne sont autorisés qu’avec `GETYOURMENTOR_ALLOW_DEMO=true`; le run CI du garde-fou `bbb13bb` est vert. |
 | SEO technique de base | PASS | Métadonnées, `/robots.txt` et `/sitemap.xml` ajoutés et servis par l’application. |
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
 | Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` détecte l’absence des secrets Supabase, Stripe, Resend et de l’URL HTTPS. |
@@ -22,7 +23,8 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 ## Limites connues du mode MVP
 
-- Sans Supabase, les comptes et sessions reposent sur un stockage local en mémoire : ce mode est adapté à la démonstration, pas à la production.
+- Le mode local mémoire est explicitement réservé à la démonstration (`GETYOURMENTOR_ALLOW_DEMO=true`) et n’est pas utilisable par inadvertance en production.
+- Sans Supabase, les comptes, sessions et données métier ne sont pas persistants.
 - Sans Stripe, le paiement réel n’est pas activé.
 - Sans Resend, les notifications ne sont pas envoyées réellement.
 - Les APIs publiques doivent encore être durcies avant exposition large : limitation de débit, journalisation, validation de taille des entrées et tests de charge ciblés.
