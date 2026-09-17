@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth";
-import { getCoach, updateCoach } from "@/lib/coaches";
+import { getCoach, toPublicCoach, updateCoach } from "@/lib/coaches";
 import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   const coach = await getCoach((await params).id);
-  return coach ? NextResponse.json({ data: coach }) : NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+  return coach ? NextResponse.json({ data: toPublicCoach(coach) }) : NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
 }
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
