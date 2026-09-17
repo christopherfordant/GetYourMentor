@@ -799,8 +799,16 @@
 .recruitSection { background: var(--app-panel); border-color: rgba(255,255,255,0.08); }
 .recruitCopy h2, .recruitCopy p { color: #fff; }
 .recruitCopy p { color: var(--app-muted); }
-.siteFooter { border-color: rgba(255,255,255,0.1); background: #080c17; color: var(--app-muted); }
+.siteFooter {
+  margin-bottom: 28px;
+  padding: 44px 24px 34px;
+  border: 1px solid #2d4161;
+  border-radius: 26px;
+  background: #111a2d;
+  color: #f6f8fb;
+}
 .footerBrand, .siteFooter small { color: #fff; }
+.footerLinks a { color: #b9c7dd; }
 .mobileNav { display: none; }
 
 @media (max-width: 900px) {
