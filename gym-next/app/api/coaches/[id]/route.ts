@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
-import { requireRole } from "@/lib/auth";
+import { currentSession, requireRole } from "@/lib/auth";
 import { getCoach, toPublicCoach, updateCoach } from "@/lib/coaches";
 import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   const coach = await getCoach((await params).id);
-  return coach ? NextResponse.json({ data: toPublicCoach(coach) }) : NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+  if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+  const session = await currentSession();
+  const isAuthorizedPrivateView = Boolean(
+    session && (session.role === "admin" || (session.role === "coach" && session.coachId === coach.id)),
+  );
+  return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
 }
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
