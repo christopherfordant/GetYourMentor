@@ -7,7 +7,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
 | Build Next.js production | PASS | `npm.cmd run build` passe et génère 25 routes, dont `/api/health` et `/api/auth/sign-out`. |
-| Parcours fonctionnels Playwright | PASS | 86 tests réussis, incluant API, réservation, paiement, comptes, coach, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide et responsive. |
+| Parcours fonctionnels Playwright | À confirmer CI | 44 tests sont définis pour chacun des deux projets (88 exécutions attendues), incluant API, réservation, paiement, comptes, coach, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié et responsive. Le dernier run vert documenté portait sur 86 exécutions avant l’ajout du contrôle multipart club. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, contrôle de configuration, build et Playwright ; run GitHub `35272360288` vérifié avec succès sur `cf0e0e5` (86 tests). |
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local ne sont autorisés qu’avec `GETYOURMENTOR_ALLOW_DEMO=true`; le run CI du garde-fou `bbb13bb` est vert. |
