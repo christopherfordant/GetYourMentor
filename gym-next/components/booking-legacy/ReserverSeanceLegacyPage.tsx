@@ -3,6 +3,9 @@
 import type { CSSProperties, RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { ContactCoachForm } from "@/components/booking-legacy/ContactCoachForm";
+import { findCoach, type CoachProfile } from "@/lib/domain";
 
 type ReserverSeanceLegacyPageProps = {
   legacyStyles: string;
@@ -49,6 +52,18 @@ const bookingProfileDictionary = {
     bio: "Bonjour, je m'appelle Ines et je conçois des sessions precises pour travailler technique, garde, placement et confiance. L'idee est d'allier intensite, securite et progression concrete a chaque rendez-vous.",
   },
 } as const;
+
+type BookingProfile = {
+  followers: string;
+  specialty: string;
+  bio: string;
+  reviews: string;
+  qualification: string;
+  diploma: string;
+  disciplines?: string;
+  sessionTypes?: string;
+  availability?: string;
+};
 
 const bookingVisualDictionary = {
   football: {
@@ -107,7 +122,7 @@ function BookingHeader() {
           Basketball
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -115,8 +130,9 @@ function BookingHeader() {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -141,7 +157,7 @@ function BookingHeader() {
 function BookingScorePanel({
   profile,
 }: {
-  profile: (typeof bookingProfileDictionary)[keyof typeof bookingProfileDictionary];
+  profile: BookingProfile;
 }) {
   return (
     <section className="booking-score-panel booking-score-panel-side">
@@ -189,7 +205,7 @@ function BookingHeroSection({
 }: {
   coach: string;
   city: string;
-  profile: (typeof bookingProfileDictionary)[keyof typeof bookingProfileDictionary];
+  profile: BookingProfile;
   heroBackground: string;
   activeTab: "apropos" | "planning" | "contenus";
   onTabChange: (value: "apropos" | "planning" | "contenus") => void;
@@ -238,8 +254,8 @@ function BookingHeroSection({
 
       <div className="booking-profile-lead">
         <div>
-          <strong data-booking-heading>{`Prenez votre rendez-vous avec ${coach}`}</strong>
-          <p>Sans frais de reservation - 24h/24 - paiement en ligne - confirmation immediate</p>
+          <strong data-booking-heading>{`Construis ta prochaine session avec ${coach}`}</strong>
+          <p>Choisis ton objectif, propose tes disponibilités et reçois la validation du coach.</p>
         </div>
         <button className="booking-primary-action" type="button" onClick={() => onTabChange("planning")}>
           Reserver
@@ -288,7 +304,7 @@ function BookingAProposPane({
   isActive,
 }: {
   coach: string;
-  profile: (typeof bookingProfileDictionary)[keyof typeof bookingProfileDictionary];
+  profile: BookingProfile;
   isActive: boolean;
 }) {
   return (
@@ -300,6 +316,24 @@ function BookingAProposPane({
               A propos de <span data-booking-short-name>{coach.split(" ").slice(-1)[0] || coach}</span>
             </h2>
             <p data-booking-bio>{profile.bio}</p>
+            <div className="booking-story-points">
+              <div className="booking-story-point">
+                <strong>Disciplines</strong>
+                <span data-booking-disciplines>{profile.disciplines ?? profile.specialty}</span>
+              </div>
+              <div className="booking-story-point">
+                <strong>Formats de séance</strong>
+                <span data-booking-session-types>{profile.sessionTypes ?? "Individuel, présentiel"}</span>
+              </div>
+              <div className="booking-story-point">
+                <strong>Diplômes</strong>
+                <span data-booking-public-diplomas>{profile.diploma}</span>
+              </div>
+              <div className="booking-story-point">
+                <strong>Disponibilités indicatives</strong>
+                <span data-booking-availability>{profile.availability ?? "Sur demande"}</span>
+              </div>
+            </div>
             <p>
               L'approche reste volontairement simple : comprendre vite votre besoin, cadrer une seance utile, puis vous faire repartir avec des reperes clairs. Le but n'est pas de surcharger la session, mais d'installer un vrai rythme de progression que vous pouvez tenir dans la duree.
             </p>
@@ -392,6 +426,8 @@ function BookingAProposPane({
             </div>
           </article>
         </div>
+
+        <ContactCoachForm coach={coach} />
 
       </div>
     </section>
@@ -544,7 +580,7 @@ function BookingFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
@@ -567,7 +603,28 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
 
   const coach = params.coach || "Studio Form Marseille";
   const city = params.city || "Paris";
-  const profile = bookingProfileDictionary[sportSlug];
+  const [coachData, setCoachData] = useState<CoachProfile>(() => findCoach(coach));
+  useEffect(() => {
+    let active = true;
+    fetch(`/api/coaches/${encodeURIComponent(coach)}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
+      .then((payload) => {
+        if (active && payload.data) setCoachData(payload.data as CoachProfile);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, [coach]);
+  const profile = {
+    ...bookingProfileDictionary[sportSlug],
+    specialty: coachData.specialty,
+    bio: coachData.description,
+    diploma: coachData.diplomas?.replace(/\s+—\s+à compléter$/i, "") || bookingProfileDictionary[sportSlug].diploma,
+    disciplines: coachData.disciplines,
+    sessionTypes: coachData.sessionTypes,
+    availability: coachData.availability,
+  };
   const visual = bookingVisualDictionary[sportSlug];
   const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
   const confirmHref = useMemo(

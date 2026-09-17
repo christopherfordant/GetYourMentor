@@ -1,7 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { CoachRequestsPanel } from "@/components/account-legacy/CoachRequestsPanel";
+import { CoachProfileEditor } from "@/components/account-legacy/CoachProfileEditor";
+import { MessageInbox } from "@/components/account-legacy/MessageInbox";
+import { AthleteDashboard } from "@/components/account-legacy/AthleteDashboard";
+import { AdminDashboard } from "@/components/account-legacy/AdminDashboard";
+import { findCoach, type Reservation } from "@/lib/domain";
 
 type AccountLegacyPageProps = {
   legacyStyles: string;
@@ -9,7 +16,7 @@ type AccountLegacyPageProps = {
 };
 
 type StepName = "signin" | "role" | "create";
-type DashboardMode = "coach" | "club" | null;
+type DashboardMode = "sportif" | "coach" | "club" | "admin" | null;
 
 const coachSessions = [
   {
@@ -60,15 +67,16 @@ function AccountHeader() {
           Basketball
         </a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
         </a>
       </nav>
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <div className="account-topbar-menu">
           <a className="account-button" href={nextRoutes.account} aria-current="page">
@@ -138,11 +146,20 @@ function AccountAuthShell({
   status: string;
   passwordVisible: boolean;
   onTogglePassword: () => void;
-  onSubmitSignIn: () => void;
+  onSubmitSignIn: (credentials: { email: string; password: string }) => void | Promise<void>;
   onOpenSignup: () => void;
   onBack: (step: StepName) => void;
-  onChooseRole: (role: "sportif" | "coach" | "club") => void;
-  onSubmitCreate: () => void;
+  onChooseRole: (role: "sportif" | "coach" | "club") => void | Promise<void>;
+  onSubmitCreate: (credentials: {
+    firstName: string;
+    lastName: string;
+    phone: string;
+    email: string;
+    emailConfirmation: string;
+    password: string;
+    passwordConfirmation: string;
+    termsAccepted: boolean;
+  }) => void | Promise<void>;
 }) {
   return (
     <div className="account-auth-stage" data-account-auth-shell>
@@ -160,17 +177,33 @@ function AccountAuthShell({
             data-account-form
             onSubmit={(event) => {
               event.preventDefault();
-              onSubmitSignIn();
+              const form = new FormData(event.currentTarget);
+              onSubmitSignIn({
+                email: String(form.get("email") ?? ""),
+                password: String(form.get("password") ?? ""),
+              });
             }}
           >
             <label className="auth-field">
+              <span>Prénom</span>
+              <input name="firstName" type="text" placeholder="Prénom" autoComplete="given-name" />
+            </label>
+            <label className="auth-field">
+              <span>Nom</span>
+              <input name="lastName" type="text" placeholder="Nom" autoComplete="family-name" />
+            </label>
+            <label className="auth-field">
+              <span>Téléphone</span>
+              <input name="phone" type="tel" placeholder="Téléphone" autoComplete="tel" />
+            </label>
+            <label className="auth-field">
               <span>Identifiant</span>
-              <input id="account-email" type="email" placeholder="Adresse mail" />
+              <input id="account-email" name="email" type="email" placeholder="Adresse mail" />
             </label>
             <label className="auth-field">
               <span>Mot de passe</span>
               <div className="password-field">
-                <input id="account-password" type={passwordVisible ? "text" : "password"} placeholder="Mot de passe" />
+                <input id="account-password" name="password" type={passwordVisible ? "text" : "password"} placeholder="Mot de passe" />
                 <button
                   className={`password-toggle${passwordVisible ? " is-visible" : ""}`}
                   type="button"
@@ -261,24 +294,50 @@ function AccountAuthShell({
             data-account-create-form
             onSubmit={(event) => {
               event.preventDefault();
-              onSubmitCreate();
+              const form = new FormData(event.currentTarget);
+              onSubmitCreate({
+                firstName: String(form.get("firstName") ?? ""),
+                lastName: String(form.get("lastName") ?? ""),
+                phone: String(form.get("phone") ?? ""),
+                email: String(form.get("email") ?? ""),
+                emailConfirmation: String(form.get("emailConfirmation") ?? ""),
+                password: String(form.get("password") ?? ""),
+                passwordConfirmation: String(form.get("passwordConfirmation") ?? ""),
+                termsAccepted: form.get("termsAccepted") === "on",
+              });
             }}
           >
             <label className="auth-field">
               <span>Adresse mail</span>
-              <input type="email" placeholder="Adresse mail" />
+              <input name="email" type="email" placeholder="Adresse mail" />
             </label>
             <label className="auth-field">
               <span>Confirmation de l'adresse mail</span>
-              <input type="email" placeholder="Confirmez l'adresse mail" />
+              <input name="emailConfirmation" type="email" placeholder="Confirmez l'adresse mail" />
             </label>
             <label className="auth-field">
               <span>Créez votre mot de passe</span>
-              <input type="password" placeholder="Mot de passe" />
+              <input name="password" type="password" placeholder="Mot de passe" />
             </label>
             <label className="auth-field">
               <span>Confirmez votre mot de passe</span>
-              <input type="password" placeholder="Confirmation du mot de passe" />
+              <input name="passwordConfirmation" type="password" placeholder="Confirmation du mot de passe" />
+            </label>
+            <label className="auth-field">
+              <span>Prénom</span>
+              <input name="firstName" type="text" placeholder="Prénom" autoComplete="given-name" />
+            </label>
+            <label className="auth-field">
+              <span>Nom</span>
+              <input name="lastName" type="text" placeholder="Nom" autoComplete="family-name" />
+            </label>
+            <label className="auth-field">
+              <span>Téléphone</span>
+              <input name="phone" type="tel" placeholder="Téléphone" autoComplete="tel" />
+            </label>
+            <label className="auth-checkbox">
+              <input name="termsAccepted" type="checkbox" />
+              <span>J’accepte les CGU et la politique de confidentialité.</span>
             </label>
             <button className="auth-primary" type="submit">
               Continuer
@@ -308,6 +367,19 @@ function CoachDashboard({
   onNextSession: () => void;
 }) {
   const session = coachSessions[sessionIndex];
+  const coachProfile = findCoach(coachName);
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+
+  useEffect(() => {
+    fetch("/api/reservations")
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Chargement impossible"))))
+      .then((payload) => setReservations((payload.data as Reservation[]).filter((reservation) => reservation.coachName.toLowerCase() === coachName.toLowerCase())))
+      .catch(() => setReservations([]));
+  }, [coachName]);
+
+  const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
+  const acceptedCount = reservations.filter((reservation) => ["accepted", "paid"].includes(reservation.status)).length;
+  const paidRevenue = reservations.filter((reservation) => reservation.status === "paid").reduce((total, reservation) => total + reservation.price, 0);
 
   return (
     <section className="account-dashboard coach-home" data-account-dashboard="coach">
@@ -374,6 +446,32 @@ function CoachDashboard({
           </article>
         </div>
       </section>
+      <CoachRequestsPanel coachName={coachName} />
+      <CoachProfileEditor
+        coachId={coachProfile.id}
+        specialty={coachProfile.specialty}
+        city={coachProfile.city}
+        priceFrom={coachProfile.priceFrom}
+        description={coachProfile.description}
+        disciplines={coachProfile.disciplines}
+        diplomas={coachProfile.diplomas}
+        sessionTypes={coachProfile.sessionTypes}
+        availability={coachProfile.availability}
+        photoUrl={coachProfile.photoUrl}
+        bankAccountLast4={coachProfile.bankAccountLast4}
+      />
+      <MessageInbox recipientName={coachName} />
+      <section className="account-dashboard-card coach-home-summary" data-coach-summary>
+        <div className="coach-home-card-head">
+          <h3>Mon activité</h3>
+          <span>Données actualisées</span>
+        </div>
+        <div className="coach-home-profile-preview-grid">
+          <div><span>Demandes à traiter</span><strong data-coach-request-count>{requestedCount}</strong></div>
+          <div><span>Réservations confirmées</span><strong data-coach-accepted-count>{acceptedCount}</strong></div>
+          <div><span>Paiements reçus</span><strong data-coach-paid-count>{paidRevenue} EUR</strong></div>
+        </div>
+      </section>
       <div className="coach-home-focus">
         <article className="account-dashboard-card coach-home-next-session" id="coach-dashboard" data-coach-display-block="next-session">
           <div className="coach-home-card-head">
@@ -410,8 +508,8 @@ function CoachDashboard({
             <h3>Revenus ce mois-ci</h3>
             <span>Mars</span>
           </div>
-          <div className="coach-home-revenue-amount">450 EUR</div>
-          <p>Montant validé sur les réservations confirmées et les séances réalisées.</p>
+          <div className="coach-home-revenue-amount">{paidRevenue} EUR</div>
+          <p>Montant calculé sur les réservations payées.</p>
         </article>
         <article className="account-dashboard-card coach-home-profile-preview" data-coach-display-block="profile-preview">
           <div className="coach-home-card-head">
@@ -685,7 +783,7 @@ function AccountFooter() {
         </div>
         <div className="account-footer-column">
           <h3>A propos de GetYourMentor</h3>
-          <a href={`${nextRoutes.account}?mode=coach`}>Je suis un professionnel du sport</a>
+          <a href={`${nextRoutes.account}?mode=coach`}>Je suis coach</a>
           <a href={`${nextRoutes.account}?mode=coach`}>Rejoignez-nous</a>
           <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
           <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialité</a>
@@ -719,13 +817,23 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
   const redirect = params.redirect;
   const isCoachMode = mode === "coach";
   const isClubMode = mode === "club";
+  const isAdminMode = mode === "admin";
   const [step, setStep] = useState<StepName>("signin");
   const [status, setStatus] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [authenticatedCoachName, setAuthenticatedCoachName] = useState("");
   const [dashboardMode, setDashboardMode] = useState<DashboardMode>(
-    params.connected === "1" && redirect !== "paiement" ? (isClubMode ? "club" : isCoachMode ? "coach" : null) : null,
+    params.connected === "1" && redirect !== "paiement" ? (isClubMode ? "club" : isCoachMode ? "coach" : isAdminMode ? "admin" : "sportif") : null,
   );
   const [sessionIndex, setSessionIndex] = useState(0);
+  const [pendingSignup, setPendingSignup] = useState<{
+    firstName: string;
+    lastName: string;
+    phone: string;
+    email: string;
+    password: string;
+    termsAccepted: boolean;
+  } | null>(null);
 
   const paymentTarget = useMemo(
     () =>
@@ -741,12 +849,13 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
         package: params.package,
         slot: params.slot,
         mentor: params.mentor,
+        reservationId: params.reservationId,
         connected: "1",
       }),
     [params],
   );
 
-  const coachName = params.coach || "Steven Fordant";
+  const coachName = params.coach || authenticatedCoachName || "Steven Fordant";
 
   const revealDashboard = (modeToShow: DashboardMode) => {
     if (!modeToShow) return;
@@ -757,7 +866,11 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
 
   return (
     <>
-      <style jsx global>{legacyStyles}</style>
+      <style jsx global>{`${legacyStyles}
+        [data-account-form] > .auth-field:nth-child(1),
+        [data-account-form] > .auth-field:nth-child(2),
+        [data-account-form] > .auth-field:nth-child(3) { display: none; }
+      `}</style>
       <div className="site-shell account-shell">
         <AccountHeader />
         <main className={`account-page${dashboardMode ? " is-coach-mode" : ""}`} data-account-page>
@@ -768,7 +881,18 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
                 status={status}
                 passwordVisible={passwordVisible}
                 onTogglePassword={() => setPasswordVisible((current) => !current)}
-                onSubmitSignIn={() => {
+                onSubmitSignIn={async ({ email, password }) => {
+                  const response = await fetch("/api/auth/sign-in", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password, role: isCoachMode ? "coach" : isClubMode ? "club" : isAdminMode ? "admin" : "sportif" }),
+                  });
+                  const payload = await response.json();
+                  if (!response.ok) {
+                    setStatus(payload.error ?? "Connexion impossible");
+                    return;
+                  }
+                  if (isCoachMode && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (redirect === "paiement") {
                     window.location.href = paymentTarget;
                     return;
@@ -781,7 +905,11 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
                     revealDashboard("club");
                     return;
                   }
-                  setStatus("Connexion simulee. Vous pouvez maintenant reprendre votre reservation ou naviguer dans le site.");
+                  if (isAdminMode) {
+                    revealDashboard("admin");
+                    return;
+                  }
+                  revealDashboard("sportif");
                 }}
                 onOpenSignup={() => {
                   if (redirect === "paiement") {
@@ -791,16 +919,55 @@ export function AccountLegacyPage({ legacyStyles, params }: AccountLegacyPagePro
                   setStep("create");
                 }}
                 onBack={setStep}
-                onChooseRole={(role) => {
+                onChooseRole={async (role) => {
                   if (role === "club") {
                     window.location.href = buildNextPath(nextRoutes.clubSignup, { source: "compte" });
                     return;
                   }
-                  setStep("create");
+                  if (!pendingSignup) {
+                    setStatus("Commencez par renseigner vos informations.");
+                    setStep("create");
+                    return;
+                  }
+                  const response = await fetch("/api/auth/sign-up", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ ...pendingSignup, role }),
+                  });
+                  const payload = await response.json();
+                  if (!response.ok) {
+                    setStatus(payload.error ?? "Inscription impossible");
+                    setStep("create");
+                    return;
+                  }
+                  if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
+                  revealDashboard(role);
                 }}
-                onSubmitCreate={() => setStep("role")}
+                onSubmitCreate={({ firstName, lastName, phone, email, emailConfirmation, password, passwordConfirmation, termsAccepted }) => {
+                  if (!firstName || !lastName || !phone) {
+                    setStatus("Prénom, nom et téléphone sont requis.");
+                    return;
+                  }
+                  if (!email || email !== emailConfirmation) {
+                    setStatus("Les adresses email doivent correspondre.");
+                    return;
+                  }
+                  if (!password || password !== passwordConfirmation) {
+                    setStatus("Les mots de passe doivent correspondre.");
+                    return;
+                  }
+                  if (!termsAccepted) {
+                    setStatus("Vous devez accepter les CGU pour continuer.");
+                    return;
+                  }
+                  setPendingSignup({ firstName, lastName, phone, email, password, termsAccepted });
+                  setStatus("");
+                  setStep("role");
+                }}
               />
             ) : null}
+            {dashboardMode === "sportif" ? <AthleteDashboard /> : null}
+            {dashboardMode === "admin" ? <AdminDashboard /> : null}
             {dashboardMode === "coach" ? (
               <CoachDashboard
                 coachName={coachName}

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type AccueilLegacyPageProps = {
   legacyStyles: string;
@@ -50,7 +51,7 @@ function HomeHeader({ isScrolled }: { isScrolled: boolean }) {
           Basketball
         </a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -58,8 +59,9 @@ function HomeHeader({ isScrolled }: { isScrolled: boolean }) {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -108,7 +110,7 @@ function HomeHero({
           }}
         >
           <label className="field">
-            <span className="field-label">Que cherchez-vous ?</span>
+            <span className="field-label">Quelle discipline ?</span>
             <input
               className="field-input"
               type="text"
@@ -132,7 +134,7 @@ function HomeHero({
           </label>
 
           <button className="search-button" type="submit">
-            Rechercher
+            Explorer les coachs
           </button>
         </form>
 
@@ -215,7 +217,7 @@ function HomeHowItWorks() {
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-3"></div>
                   <h4 className="mini-name">Julien Morel</h4>
-                  <p className="mini-meta">Metiers de la forme - Lille</p>
+                  <p className="mini-meta">Fitness - Lille</p>
                   <p className="mini-detail">Remise en forme - Coaching progressif</p>
                   <span className="mini-pill">42 EUR / seance</span>
                   <button
@@ -275,7 +277,7 @@ function HomeHowItWorks() {
                 <div className="card-slide profile-slide">
                   <div className="profile-avatar avatar-face-6"></div>
                   <h4 className="mini-name">Camille Perrot</h4>
-                  <p className="mini-meta">Metiers de la forme - Nice</p>
+                  <p className="mini-meta">Fitness - Nice</p>
                   <p className="mini-detail">Pilates, mobilite et renforcement doux</p>
                   <span className="mini-pill">54 EUR / seance</span>
                   <button
@@ -476,7 +478,7 @@ function HomeHowItWorks() {
                 </div>
                 <div className="card-slide payment-slide">
                   <div className="payment-visual payment-visual-3"></div>
-                  <span className="payment-line-strong">Julien Morel - Metiers de la forme</span>
+                  <span className="payment-line-strong">Julien Morel - Fitness</span>
                   <span className="payment-row">Ven. 29 mars - 08:00</span>
                   <span className="payment-row">Seance 45 min - Lille</span>
                   <div className="payment-total">
@@ -564,7 +566,7 @@ function HomeInsights() {
           <strong>50%</strong>
           <p>des reservations prises en dehors des horaires d'ouverture</p>
           <a className="coach-cta-button insight-button" href={`${nextRoutes.account}?mode=coach`}>
-            Je suis un professionnel du sport
+            Je suis coach
           </a>
         </article>
 
@@ -642,7 +644,7 @@ function HomeLocales() {
         </article>
 
         <article className="locale-column">
-          <h3>Metiers de la forme</h3>
+          <h3>Fitness</h3>
           <p>Nos coachs forme populaires en France</p>
           <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Bordeaux</a>
           <a href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Lille</a>
@@ -730,7 +732,7 @@ function HomeFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href="#cgv">CGV</a>
         <a href="#cgu">CGU</a>

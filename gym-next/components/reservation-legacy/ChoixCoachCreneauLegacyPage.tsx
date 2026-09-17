@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { LanguageSelector } from "@/components/common/LanguageSelector";
 
 type ChoixCoachCreneauLegacyPageProps = {
   legacyStyles: string;
@@ -60,7 +61,7 @@ function ReservationHeader() {
           Basketball
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Metiers de la forme
+          Fitness
         </a>
         <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
           Sports de combat
@@ -68,8 +69,9 @@ function ReservationHeader() {
       </nav>
 
       <div className="topbar-actions">
+        <LanguageSelector />
         <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis un professionnel du sport
+          Je suis coach
         </a>
         <a className="account-button" href={nextRoutes.account}>
           <span className="account-button-icon" aria-hidden="true">
@@ -180,6 +182,10 @@ function ReservationCalendarStep({
   onNextWeek,
   onSelectSlot,
   confirmHref,
+  onConfirm,
+  submitting,
+  error,
+  bookedSlots,
 }: {
   weekIndex: number;
   selectedSlot: string;
@@ -187,6 +193,10 @@ function ReservationCalendarStep({
   onNextWeek: () => void;
   onSelectSlot: (slot: string) => void;
   confirmHref: string;
+  onConfirm: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  submitting: boolean;
+  error: string;
+  bookedSlots: string[];
 }) {
   const currentWeek = weekSets[weekIndex];
 
@@ -219,12 +229,14 @@ function ReservationCalendarStep({
                 item.slots.map((slot) => (
                   <button
                     key={`${item.day}-${slot}`}
-                    className={`reservation-slot${slot === selectedSlot ? " is-selected" : ""}`}
+                    className={`reservation-slot${slot === selectedSlot ? " is-selected" : ""}${bookedSlots.includes(slot) ? " is-booked" : ""}`}
                     type="button"
                     data-slot={slot}
+                    data-slot-booked={bookedSlots.includes(slot) ? "true" : "false"}
+                    disabled={bookedSlots.includes(slot)}
                     onClick={() => onSelectSlot(slot)}
                   >
-                    {slot}
+                    {bookedSlots.includes(slot) ? `${slot} (pris)` : slot}
                   </button>
                 ))
               ) : (
@@ -237,10 +249,18 @@ function ReservationCalendarStep({
         </div>
       </div>
       <div className="reservation-cta-row">
-        <a className="reservation-confirm-button" href={confirmHref} data-multi-confirm>
-          Reserver mon creneau
+        <a
+          className="reservation-confirm-button"
+          href={confirmHref}
+          data-multi-confirm
+          aria-busy={submitting}
+          aria-disabled={!selectedSlot || bookedSlots.includes(selectedSlot)}
+          onClick={onConfirm}
+        >
+          {submitting ? "Envoi de la demande..." : "Reserver mon creneau"}
         </a>
       </div>
+      {error ? <p role="alert" className="reservation-error">{error}</p> : null}
     </section>
   );
 }
@@ -249,7 +269,7 @@ function ReservationFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Trouvez votre coach sportif en quelques clics</p>
+      <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
         <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
         <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
@@ -278,8 +298,24 @@ export function ChoixCoachCreneauLegacyPage({
   const [selectedSlot, setSelectedSlot] = useState(params.slot || "10:00");
   const [selectedMentor, setSelectedMentor] = useState(params.mentor || "Sans preference");
   const [weekIndex, setWeekIndex] = useState(0);
+  const [bookedSlots, setBookedSlots] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const serviceMeta = [duration, price, format, objective, packageLabel].filter(Boolean).join("  ");
+
+  useEffect(() => {
+    fetch(`/api/reservations?coachId=${encodeURIComponent(coach)}`)
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Disponibilités indisponibles"))))
+      .then((payload) => {
+        const slots = (payload.data as Array<{ status: string; slots: string[] }>)
+          .filter((item) => ["requested", "accepted", "paid"].includes(item.status))
+          .flatMap((item) => item.slots);
+        setBookedSlots(slots);
+        if (slots.includes(selectedSlot)) setSelectedSlot("");
+      })
+      .catch(() => setBookedSlots([]));
+  }, [coach, selectedSlot]);
 
   const confirmHref = useMemo(
     () =>
@@ -309,6 +345,50 @@ export function ChoixCoachCreneauLegacyPage({
     [coach, city, sport],
   );
 
+  async function handleConfirm(event: React.MouseEvent<HTMLAnchorElement>) {
+    event.preventDefault();
+    if (!selectedSlot || bookedSlots.includes(selectedSlot)) {
+      setError("Sélectionnez un créneau disponible.");
+      return;
+    }
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/reservations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          coachId: coach,
+          service,
+          duration,
+          price: Number(price.replace(/[^0-9.,]/g, "").replace(",", ".")) || undefined,
+          slots: [selectedSlot],
+        }),
+      });
+
+      if (!response.ok) throw new Error("La demande n'a pas pu être envoyée.");
+      const payload = await response.json();
+      window.location.href = buildNextPath(nextRoutes.recap, {
+        sport,
+        city,
+        coach,
+        service,
+        duration,
+        price,
+        objective,
+        format,
+        package: packageLabel,
+        slot: selectedSlot,
+        mentor: selectedMentor,
+        reservationId: payload.data.id,
+      });
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : "La demande n'a pas pu être envoyée.");
+      setSubmitting(false);
+    }
+  }
+
   return (
     <>
       <style jsx global>{legacyStyles}</style>
@@ -334,6 +414,10 @@ export function ChoixCoachCreneauLegacyPage({
             onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
             onSelectSlot={setSelectedSlot}
             confirmHref={confirmHref}
+            onConfirm={handleConfirm}
+            submitting={submitting}
+            error={error}
+            bookedSlots={bookedSlots}
           />
         </main>
 
