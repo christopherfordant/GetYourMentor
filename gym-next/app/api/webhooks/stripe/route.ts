@@ -1,0 +1,29 @@
+import { createHmac, timingSafeEqual } from "node:crypto";
+import { NextResponse } from "next/server";
+import { payReservation } from "@/lib/reservations";
+
+function validSignature(rawBody: string, signature: string, secret: string) {
+  const parts = Object.fromEntries(signature.split(",").map((part) => part.split("=", 2) as [string, string]));
+  if (!parts.t || !parts.v1) return false;
+  const timestamp = Number(parts.t);
+  if (!Number.isFinite(timestamp) || Math.abs(Date.now() / 1000 - timestamp) > 300) return false;
+  const expected = createHmac("sha256", secret).update(`${parts.t}.${rawBody}`).digest("hex");
+  const received = Buffer.from(parts.v1, "hex");
+  const expectedBuffer = Buffer.from(expected, "hex");
+  return received.length === expectedBuffer.length && timingSafeEqual(received, expectedBuffer);
+}
+
+export async function POST(request: Request) {
+  const secret = process.env.STRIPE_WEBHOOK_SECRET;
+  const signature = request.headers.get("stripe-signature");
+  if (!secret || !signature) return NextResponse.json({ error: "Webhook Stripe non configuré" }, { status: 503 });
+  const rawBody = await request.text();
+  if (!validSignature(rawBody, signature, secret)) return NextResponse.json({ error: "Signature Stripe invalide" }, { status: 400 });
+
+  const event = JSON.parse(rawBody) as { type?: string; data?: { object?: { metadata?: { reservation_id?: string } } } };
+  if (event.type === "checkout.session.completed") {
+    const reservationId = event.data?.object?.metadata?.reservation_id;
+    if (reservationId) await payReservation(reservationId);
+  }
+  return NextResponse.json({ received: true });
+}
