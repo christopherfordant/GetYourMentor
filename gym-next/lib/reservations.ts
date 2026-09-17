@@ -12,6 +12,38 @@ function supabaseConfig() {
   return null;
 }
 
+export class ReservationSlotConflictError extends Error {
+  constructor() {
+    super("Un des créneaux est déjà demandé ou réservé");
+    this.name = "ReservationSlotConflictError";
+  }
+}
+
+async function claimReservationSlots(config: { url: string; key: string }, reservationId: string, coachId: string, slots: string[]) {
+  if (!slots.length) return;
+  const response = await fetch(`${config.url}/rest/v1/gym_reservation_slot_claims`, {
+    method: "POST",
+    headers: {
+      apikey: config.key,
+      Authorization: `Bearer ${config.key}`,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(slots.map((slot) => ({ reservation_id: reservationId, coach_id: coachId, slot }))),
+  });
+  if (response.status === 409) throw new ReservationSlotConflictError();
+  if (!response.ok) throw new Error(`Supabase reservation slot error (${response.status})`);
+}
+
+async function releaseReservationSlots(config: { url: string; key: string }, reservationId: string, slots?: string[]) {
+  const slotFilter = slots?.length ? `&slot=in.(${slots.map((slot) => encodeURIComponent(slot)).join(",")})` : "";
+  const response = await fetch(`${config.url}/rest/v1/gym_reservation_slot_claims?reservation_id=eq.${encodeURIComponent(reservationId)}${slotFilter}`, {
+    method: "DELETE",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+  });
+  if (!response.ok) throw new Error(`Supabase reservation slot error (${response.status})`);
+}
+
 export async function hasSlotConflict(coachId: string, slots: string[], excludeId?: string) {
   const config = supabaseConfig();
   if (!config) {
@@ -67,11 +99,21 @@ export async function createReservation(reservation: Reservation) {
 
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
   const [saved] = await response.json();
-  return {
+  const savedReservation = {
     ...reservation,
     id: saved.id ?? reservation.id,
     createdAt: saved.created_at ?? reservation.createdAt,
   };
+  try {
+    await claimReservationSlots(config, savedReservation.id, savedReservation.coachId, savedReservation.slots);
+  } catch (error) {
+    await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(savedReservation.id)}`, {
+      method: "DELETE",
+      headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+    }).catch(() => undefined);
+    throw error;
+  }
+  return savedReservation;
 }
 
 export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}) {
@@ -173,6 +215,7 @@ export async function transitionReservation(id: string, status: "accepted" | "re
     body: JSON.stringify({ status, accepted_at: acceptedAt ?? null, reservation_code: reservationCode ?? null }),
   });
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
+  if (status !== "accepted") await releaseReservationSlots(config, id);
   return next;
 }
 
@@ -248,6 +291,7 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
     body: JSON.stringify({ status: "cancelled", cancelled_at: next.cancelledAt, refund_percent: refundPercent, refund_amount: next.refundAmount }),
   });
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
+  await releaseReservationSlots(config, id);
   return next;
 }
 
@@ -268,11 +312,18 @@ export async function rescheduleReservation(id: string, ownerEmail: string, slot
     return next;
   }
 
+  const addedSlots = slots.filter((slot) => !current.slots.includes(slot));
+  await claimReservationSlots(config, id, current.coachId, addedSlots);
   const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}`, {
     method: "PATCH",
     headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
     body: JSON.stringify({ slots, appointment_at: next.appointmentAt }),
   });
-  if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
+  if (!response.ok) {
+    await releaseReservationSlots(config, id, addedSlots).catch(() => undefined);
+    throw new Error(`Supabase reservation error (${response.status})`);
+  }
+  const releasedSlots = current.slots.filter((slot) => !slots.includes(slot));
+  if (releasedSlots.length) await releaseReservationSlots(config, id, releasedSlots);
   return next;
 }

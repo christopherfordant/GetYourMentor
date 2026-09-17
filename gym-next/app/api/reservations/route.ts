@@ -2,14 +2,16 @@ import { NextResponse } from "next/server";
 import { currentSession } from "@/lib/auth";
 import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
-import { createReservation, hasSlotConflict, listReservations } from "@/lib/reservations";
+import { createReservation, hasSlotConflict, listReservations, ReservationSlotConflictError } from "@/lib/reservations";
 import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
   if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
   const coach = await getCoach(typeof body?.coachId === "string" ? body.coachId : body?.coach);
-  const slots = Array.isArray(body?.slots) ? body.slots.filter((slot: unknown) => typeof slot === "string") : [];
+  const slots: string[] = Array.isArray(body?.slots)
+    ? Array.from(new Set(body.slots.filter((slot: unknown): slot is string => typeof slot === "string")))
+    : [];
 
   if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
   if (
@@ -56,7 +58,8 @@ export async function POST(request: Request) {
     const saved = await createReservation(reservation);
     return NextResponse.json({ data: saved }, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Erreur de persistance" }, { status: 502 });
+    const status = error instanceof ReservationSlotConflictError ? 409 : 502;
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Erreur de persistance" }, { status });
   }
 }
 

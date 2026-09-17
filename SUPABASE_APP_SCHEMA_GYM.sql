@@ -84,6 +84,27 @@ alter table public.gym_reservations add column if not exists cancelled_at timest
 alter table public.gym_reservations add column if not exists refund_percent numeric(5, 2) default 0;
 alter table public.gym_reservations add column if not exists refund_amount numeric(10, 2) default 0;
 
+-- Claim atomique des créneaux : la clé unique empêche deux réservations actives
+-- de prendre simultanément le même créneau pour un même coach.
+create table if not exists public.gym_reservation_slot_claims (
+  reservation_id text not null references public.gym_reservations(id) on delete cascade,
+  coach_id text not null,
+  slot text not null,
+  created_at timestamptz not null default now(),
+  primary key (coach_id, slot),
+  unique (reservation_id, slot)
+);
+
+alter table public.gym_reservation_slot_claims enable row level security;
+create index if not exists gym_reservation_slot_claims_reservation_idx on public.gym_reservation_slot_claims (reservation_id);
+
+-- Reprise non destructive des demandes déjà existantes lors de la migration.
+insert into public.gym_reservation_slot_claims (reservation_id, coach_id, slot)
+select r.id, r.coach_id, jsonb_array_elements_text(r.slots)
+from public.gym_reservations r
+where r.status in ('requested', 'accepted', 'paid')
+on conflict (coach_id, slot) do nothing;
+
 create table if not exists public.gym_reviews (
   id text primary key,
   reservation_id text not null unique references public.gym_reservations(id) on delete cascade,
