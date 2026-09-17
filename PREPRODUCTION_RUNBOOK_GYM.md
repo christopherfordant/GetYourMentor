@@ -13,6 +13,8 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 
 Le MVP utilise actuellement des appels serveur avec la clé `SUPABASE_SERVICE_ROLE_KEY`. Cette clé ne doit jamais être envoyée au navigateur. Les tables ont la RLS activée et aucune politique client générique n’est ajoutée par le script : toute ouverture d’accès direct devra faire l’objet d’une conception et de tests RLS par rôle.
 
+Les rôles applicatifs Supabase doivent être conservés dans `app_metadata`, mis à jour uniquement côté serveur avec la clé service role. Ne pas utiliser `user_metadata` pour autoriser un accès coach ou administrateur, car ces métadonnées peuvent être modifiées par l’utilisateur.
+
 ## 2. Renseigner les variables protégées
 
 Dans l’environnement de préproduction uniquement, renseigner les noms suivants à partir de valeurs générées par les services :
