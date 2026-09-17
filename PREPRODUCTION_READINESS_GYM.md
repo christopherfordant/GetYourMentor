@@ -20,6 +20,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Données bancaires club | PASS | Le parcours club ne conserve que les 4 derniers caractères de l’IBAN ; l’IBAN complet n’est pas stocké dans le modèle métier. |
 | Rôles Supabase | PASS code / À valider en préproduction | Les rôles sont lus depuis `app_metadata` et écrits côté serveur ; il reste à vérifier la migration des comptes réels et les accès par rôle dans Supabase. |
 | Catalogue coach persistant | PASS code / À valider en préproduction | La page `/coachs` lit le catalogue serveur quand Supabase est configuré et utilise les identifiants coach persistés ; les disponibilités doivent encore être validées avec les données réelles. |
+| Absence de faux catalogue en production | PASS code / À valider Supabase | Si Supabase est configuré mais ne contient aucun coach, l’application renvoie un catalogue vide ; les coachs de démonstration ne sont utilisés que dans le mode démo explicite. |
 | Tarif de réservation | PASS | Le montant d’une réservation est désormais dérivé du tarif du coach côté serveur ; le prix envoyé par le navigateur est ignoré et couvert par le parcours API. |
 | Confidentialité des réservations | PASS | La lecture publique renvoie uniquement les créneaux occupés ; les listes détaillées exigent un rôle autorisé et sont filtrées par sportif, coach ou administrateur. |
 | Minimisation des données coach | PASS | `bankAccountLast4` est retiré des réponses publiques ; il reste réservé aux usages serveur du profil coach autorisé. |
