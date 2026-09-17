@@ -1,0 +1,48 @@
+name: GetYourMentor MVP gates
+
+on:
+  push:
+    branches: [feat/nextjs-migration, main]
+  pull_request:
+    branches: [feat/nextjs-migration, main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build, audit and Playwright
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: gym-next
+
+    env:
+      PAYMENT_PROVIDER: local
+      STRIPE_WEBHOOK_SECRET: test-webhook-secret
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: gym-next/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run acceptance suite
+        run: npx playwright test --reporter=line
