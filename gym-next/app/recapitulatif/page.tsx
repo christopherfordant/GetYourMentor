@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { RecapitulatifReservationLegacyPage } from "@/components/reservation-legacy/RecapitulatifReservationLegacyPage";
+import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
+import { getBookingGate } from "@/lib/booking-gates";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type RecapitulatifPageProps = {
@@ -38,6 +40,11 @@ export default async function RecapitulatifPage({ searchParams }: RecapitulatifP
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
+
+  const gate = await getBookingGate(normalizedParams.coach);
+  if (gate.mode === "unavailable" || (gate.mode === "production" && !normalizedParams.reservationId)) {
+    return <ProductionUnavailable title="Récapitulatif indisponible" description="Le récapitulatif sera généré à partir d’une demande de réservation réelle et validée par un coach vérifié." />;
+  }
 
   return <RecapitulatifReservationLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
 }

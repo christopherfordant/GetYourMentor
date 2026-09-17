@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { PaiementLegacyPage } from "@/components/payment-legacy/PaiementLegacyPage";
+import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
+import { getBookingGate } from "@/lib/booking-gates";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type PaiementPageProps = {
@@ -38,6 +40,11 @@ export default async function PaiementPage({ searchParams }: PaiementPageProps) 
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
+
+  const gate = await getBookingGate(normalizedParams.coach);
+  if (gate.mode === "unavailable" || (gate.mode === "production" && !normalizedParams.reservationId)) {
+    return <ProductionUnavailable title="Paiement indisponible" description="Aucun paiement ne peut être présenté sans réservation réelle, coach vérifié et configuration de paiement active." />;
+  }
 
   return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
 }
