@@ -1,4 +1,4 @@
-import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
+import { canonicalSportSlug, coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4">;
@@ -133,5 +133,6 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
 export async function filterStoredCoaches(filters: { sport?: string; city?: string }) {
   const coaches = await listCoaches();
   if (coaches === coachProfiles) return filterCoaches(filters);
-  return coaches.filter((coach) => (!filters.sport || filters.sport === "metiers-de-la-forme" || coach.sport === filters.sport) && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase()));
+  const canonicalSport = canonicalSportSlug(filters.sport);
+  return coaches.filter((coach) => (!canonicalSport || coach.sport === canonicalSport) && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase()));
 }
