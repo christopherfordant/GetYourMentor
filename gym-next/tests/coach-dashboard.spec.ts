@@ -33,7 +33,9 @@ test("le coach peut traiter une demande depuis son tableau de bord", async ({ pa
   await profileEditor.getByLabel("Disponibilités basiques").fill("Mardi et jeudi, 18h–21h");
   await profileEditor.getByRole("button", { name: "Enregistrer le profil", exact: true }).click();
   await expect(profileEditor.locator("[data-coach-profile-status]")).toHaveText("Profil mis à jour.");
-  const savedProfile = await request.get("/api/coaches/steven-fordant");
+  const coachLogin = await request.post("/api/auth/sign-in", { data: { email: "coach@example.com", password: "demo-password", role: "coach" } });
+  const coachCookie = coachLogin.headers()["set-cookie"].split(";")[0];
+  const savedProfile = await request.get("/api/coaches/steven-fordant", { headers: { Cookie: coachCookie } });
   expect((await savedProfile.json()).data.availability).toBe("Mardi et jeudi, 18h–21h");
   expect((await savedProfile.json()).data).toMatchObject({ disciplines: "Basketball, préparation physique", diplomas: "BPJEPS", sessionTypes: "Individuel, duo, visio", bankAccountLast4: "0123" });
   const requestCard = page.locator(`[data-coach-request="${reservation.id}"]`);
