@@ -47,6 +47,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
   const hasPersistentCoachCatalog = Boolean(
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
+  const demoAllowed = process.env.GETYOURMENTOR_ALLOW_DEMO === "true";
   const persistedCoaches = hasPersistentCoachCatalog
     ? await filterStoredCoaches({ sport, city })
     : null;
@@ -63,7 +64,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     rating: coach.rating,
     verified: coach.verified,
     format: coach.sessionTypes?.toLowerCase().includes("visio") ? ("visio" as const) : undefined,
-  }));
+  })) ?? (demoAllowed ? undefined : []);
 
   return <SelectionCoachsLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} initialCoaches={initialCoaches} />;
 }
