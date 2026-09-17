@@ -969,3 +969,49 @@
     width: min(1440px, calc(100% - 64px));
   }
 }
+
+/* Palier tablette : les cartes restent lisibles sans attendre le mobile. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .topbar,
+  .main,
+  .siteFooter {
+    width: calc(100% - 40px);
+  }
+
+  .heroContent { padding: 68px 42px; }
+
+  .howGrid,
+  .insightsGrid,
+  .localesGrid,
+  .recruitSection {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metricsGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .stepCard,
+  .insightCard,
+  .localeColumn,
+  .metric,
+  .recruitCopy {
+    min-width: 0;
+  }
+
+  .stepHead h3 { font-size: clamp(22px, 2.5vw, 28px); }
+}
+
+@media (min-width: 1000px) and (max-width: 1180px) {
+  .topbar {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .sportsNav,
+  .topbarActions {
+    justify-content: center;
+  }
+
+  .howGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stepCard { padding: 18px; }
+  .stepHead { gap: 9px; }
+  .stepHead h3 { font-size: 21px; }
+}
