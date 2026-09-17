@@ -55,7 +55,7 @@ function StepDots({ count, activeIndex }: { count: number; activeIndex: number }
   );
 }
 
-export function HomePageClient() {
+export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallback?: boolean }) {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [sportInput, setSportInput] = useState("");
@@ -74,6 +74,21 @@ export function HomePageClient() {
   const activeProfile = profileSlides[profileIndex];
   const activeSlot = slotSlides[slotIndex];
   const activePayment = paymentSlides[paymentIndex];
+  const displayedProfile = allowDemoFallback ? activeProfile : {
+    ...activeProfile,
+    name: "Coach vérifié",
+    meta: "Profil réel après recherche",
+    detail: "Compare les disponibilités, le format et les informations du coach.",
+    price: "Tarif affiché sur le profil",
+    cta: "Explorer les coachs",
+  };
+  const displayedPayment = allowDemoFallback ? activePayment : {
+    ...activePayment,
+    title: "Session à confirmer",
+    date: "Après validation du coach",
+    detail: "Paiement sécurisé après acceptation",
+    total: "Selon le coach",
+  };
   const activeCity = activeProfile.meta.split(" - ")[1] || "Paris";
 
   const searchTarget = useMemo(() => {
@@ -189,23 +204,21 @@ export function HomePageClient() {
               </div>
               <div className={styles.miniScreen}>
                 <div className={styles.slideMedia}>
-                  <Image src={activeProfile.image} alt={activeProfile.name} fill className={styles.cardImage} />
+                  <Image src={displayedProfile.image} alt={displayedProfile.name} fill className={styles.cardImage} />
                 </div>
                 <div className={styles.slideContent}>
-                  <h4>{activeProfile.name}</h4>
-                  <p className={styles.slideMeta}>{activeProfile.meta}</p>
-                  <p className={styles.slideDetail}>{activeProfile.detail}</p>
-                  <span className={styles.pill}>{activeProfile.price}</span>
+                  <h4>{displayedProfile.name}</h4>
+                  <p className={styles.slideMeta}>{displayedProfile.meta}</p>
+                  <p className={styles.slideDetail}>{displayedProfile.detail}</p>
+                  <span className={styles.pill}>{displayedProfile.price}</span>
                   <button
                     className={styles.darkButton}
                     type="button"
-                    onClick={() =>
-                      router.push(
-                        `/coach?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`,
-                      )
-                    }
+                    onClick={() => router.push(allowDemoFallback
+                      ? `/coach?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`
+                      : searchTarget)}
                   >
-                    {activeProfile.cta}
+                    {displayedProfile.cta}
                   </button>
                 </div>
                 <div className={styles.stepActions}>
@@ -249,11 +262,9 @@ export function HomePageClient() {
                 <button
                   className={styles.softButton}
                   type="button"
-                  onClick={() =>
-                    router.push(
-                      `/creneau?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`,
-                    )
-                  }
+                    onClick={() => router.push(allowDemoFallback
+                      ? `/creneau?sport=${inferSportSlug(activeProfile.meta)}&city=${encodeURIComponent(activeCity)}&coach=${encodeURIComponent(activeProfile.name)}`
+                      : searchTarget)}
                 >
                   {activeSlot.cta}
                 </button>
@@ -284,12 +295,12 @@ export function HomePageClient() {
               </div>
               <div className={styles.miniScreen}>
                 <div className={styles.paymentVisual} />
-                <span className={styles.paymentStrong}>{activePayment.title}</span>
-                <span className={styles.paymentRow}>{activePayment.date}</span>
-                <span className={styles.paymentRow}>{activePayment.detail}</span>
+                <span className={styles.paymentStrong}>{displayedPayment.title}</span>
+                <span className={styles.paymentRow}>{displayedPayment.date}</span>
+                <span className={styles.paymentRow}>{displayedPayment.detail}</span>
                 <div className={styles.paymentTotal}>
                   <span>Total</span>
-                  <strong>{activePayment.total}</strong>
+                  <strong>{displayedPayment.total}</strong>
                 </div>
                 <button className={styles.darkButton} type="button" onClick={() => router.push("/paiement")}>
                   Payer maintenant
