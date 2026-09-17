@@ -4,7 +4,8 @@ import { assertDemoFallbackAllowed } from "@/lib/runtime";
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4">;
 
 export function toPublicCoach(coach: CoachProfile): PublicCoachProfile {
-  const { bankAccountLast4: _bankAccountLast4, ...publicCoach } = coach;
+  const publicCoach = { ...coach } as PublicCoachProfile & { bankAccountLast4?: string };
+  delete publicCoach.bankAccountLast4;
   return publicCoach;
 }
 
