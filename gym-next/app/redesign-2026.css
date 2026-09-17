@@ -380,6 +380,59 @@
   }
 }
 
+/* Même langage cinétique sur les écrans de recherche et de réservation. */
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.sport-city-card,
+.auth-card,
+.payment-card,
+.reservation-calendar-card {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.coach-result-card:hover,
+.sport-city-card:hover,
+.coach-profile-card:hover,
+.coach-booking-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(215, 243, 107, 0.4);
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.28);
+}
+
+.coach-book-button,
+.directory-search-button,
+.search-button,
+.auth-primary,
+.payment-submit,
+.reservation-confirm-button {
+  transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+}
+
+.coach-book-button:hover,
+.directory-search-button:hover,
+.search-button:hover,
+.auth-primary:hover,
+.payment-submit:hover,
+.reservation-confirm-button:hover {
+  transform: translateY(-2px) scale(1.015);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 24px rgba(215, 243, 107, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-result-card,
+  .sport-city-card,
+  .coach-profile-card,
+  .coach-booking-card,
+  .coach-book-button,
+  .directory-search-button,
+  .search-button,
+  .auth-primary,
+  .payment-submit,
+  .reservation-confirm-button { transition: none; transform: none !important; }
+}
+
 /* Le formulaire club doit rester contenu dans la largeur d'un téléphone. */
 html,
 body {

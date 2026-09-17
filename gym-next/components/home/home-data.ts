@@ -7,7 +7,7 @@ export type SportSlug =
 export const sportLinks: Array<{ label: string; slug: SportSlug }> = [
   { label: "Football", slug: "football" },
   { label: "Basketball", slug: "basketball" },
-  { label: "Métiers de la forme", slug: "metiers-de-la-forme" },
+  { label: "Fitness", slug: "metiers-de-la-forme" },
   { label: "Sports de combat", slug: "sports-de-combat" },
 ];
 
@@ -30,7 +30,7 @@ export const profileSlides = [
   },
   {
     name: "Julien Morel",
-    meta: "Métiers de la forme - Lille",
+    meta: "Fitness - Lille",
     detail: "Remise en forme - Coaching progressif",
     price: "42 EUR / séance",
     cta: "Voir ses séances",
@@ -91,7 +91,7 @@ export const paymentSlides = [
     total: "74 EUR",
   },
   {
-    title: "Julien Morel - Métiers de la forme",
+    title: "Julien Morel - Fitness",
     date: "Ven. 29 mars - 08:00",
     detail: "Séance 45 min - Lille",
     total: "48 EUR",
@@ -105,22 +105,22 @@ export const paymentSlides = [
 ];
 
 export const metrics = [
-  { value: "500+", label: "Coachs certifiés" },
-  { value: "10K+", label: "Réservations" },
-  { value: "4.9/5", label: "Note moyenne" },
+  { value: "04", label: "disciplines pour commencer" },
+  { value: "01 → 03", label: "créneaux proposés au coach" },
+  { value: "0 €", label: "avant la validation du coach" },
 ];
 
 export const insights = [
-  { value: "+ 50%", copy: "de fréquence sur les réservations de séances prises en ligne" },
-  { value: "4x", copy: "moins d'oublis avec les rappels automatiques des séances" },
+  { value: "01", copy: "Un objectif clair pour guider ta recherche" },
+  { value: "02", copy: "Un échange avec un coach avant de confirmer" },
   {
-    value: "50%",
-    copy: "des réservations prises en dehors des horaires d'ouverture",
+    value: "03",
+    copy: "Une session validée, puis un paiement sécurisé",
     featured: true,
   },
-  { value: "+50 000", copy: "séances et demandes de coaching gérées sur la plateforme" },
-  { value: "5 RDV", copy: "réservés toutes les secondes sur les créneaux les plus demandés" },
-  { value: "> 5 millions EUR", copy: "de réservations sportives générées pour les coachs partenaires" },
+  { value: "04", copy: "Un rythme que tu peux tenir dans la durée" },
+  { value: "05", copy: "Des repères pour revenir et progresser" },
+  { value: "06", copy: "Un espace coach pour gérer ses demandes" },
 ];
 
 export const localeColumns = [
@@ -135,7 +135,7 @@ export const localeColumns = [
     slug: "basketball" as SportSlug,
   },
   {
-    title: "Métiers de la forme",
+    title: "Fitness",
     copy: "Nos coachs forme populaires en France",
     slug: "metiers-de-la-forme" as SportSlug,
   },
