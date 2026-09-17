@@ -100,7 +100,7 @@ function ClubSignupForm() {
         </label>
 
         <label className="auth-field">
-          <span>Iban</span>
+          <span>IBAN (seuls les 4 derniers caractères sont conservés)</span>
           <input name="iban" className="club-signup-iban" type="text" placeholder="FR76" />
         </label>
 

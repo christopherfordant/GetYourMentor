@@ -7,7 +7,7 @@ export type ClubLead = {
   managerName: string;
   email: string;
   phone?: string;
-  iban?: string;
+  ibanLast4?: string;
   logoFileName?: string;
   identityFileName?: string;
   createdAt: string;

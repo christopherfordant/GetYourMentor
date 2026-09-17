@@ -6,7 +6,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
-| Build Next.js production | PASS | `npm.cmd run build` passe et génère 24 routes, dont `/api/health`. |
+| Build Next.js production | PASS | `npm.cmd run build` passe et génère 25 routes, dont `/api/health` et `/api/auth/sign-out`. |
 | Parcours fonctionnels Playwright | PASS | 78 tests réussis, incluant API, réservation, paiement, comptes, coach, admin, santé, limites d’entrée, déconnexion et responsive. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, build et Playwright ; run GitHub vérifié avec succès sur `1291595`. |
@@ -17,6 +17,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Protection d’origine | PASS | Les mutations API provenant d’une origine étrangère sont refusées en production réelle ; le webhook sans en-tête `Origin` reste recevable. |
 | Sessions multi-instance | PASS | En production, les sessions utilisent un cookie AES-GCM avec `SESSION_SECRET` et une durée de vie de 7 jours ; la `Map` mémoire reste limitée au mode démo. |
 | Déconnexion | PASS | `POST /api/auth/sign-out` supprime le cookie et l’accès authentifié est refusé après déconnexion. |
+| Données bancaires club | PASS | Le parcours club ne conserve que les 4 derniers caractères de l’IBAN ; l’IBAN complet n’est pas stocké dans le modèle métier. |
 | SEO technique de base | PASS | Métadonnées, `/robots.txt` et `/sitemap.xml` ajoutés et servis par l’application. |
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
 | Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` détecte l’absence des secrets Supabase, Stripe, Resend et de l’URL HTTPS. |
