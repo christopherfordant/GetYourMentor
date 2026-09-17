@@ -134,5 +134,5 @@ export async function filterStoredCoaches(filters: { sport?: string; city?: stri
   const coaches = await listCoaches();
   if (coaches === coachProfiles) return filterCoaches(filters);
   const canonicalSport = canonicalSportSlug(filters.sport);
-  return coaches.filter((coach) => (!canonicalSport || coach.sport === canonicalSport) && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase()));
+  return coaches.filter((coach) => coach.verified && (!canonicalSport || coach.sport === canonicalSport) && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase()));
 }

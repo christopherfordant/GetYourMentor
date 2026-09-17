@@ -10,6 +10,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
   const isAuthorizedPrivateView = Boolean(
     session && (session.role === "admin" || (session.role === "coach" && session.coachId === coach.id)),
   );
+  if (!coach.verified && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
   return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
 }
 
