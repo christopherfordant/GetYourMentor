@@ -14,6 +14,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Endpoint de santé | PASS | `/api/health` ne renvoie aucun secret et distingue le mode démo d’une configuration production dégradée. |
 | Échec fermé sans secrets | PASS | Runtime vérifié : sans configuration réelle ni flag démo, `/api/health` répond `503 degraded` avec tous les contrôles à `false`. |
 | Limites des entrées API | PASS | Limites de taille JSON/formulaire/webhook et bornes de champs ajoutées, avec test Playwright desktop/mobile. |
+| Limitation de fréquence | PASS code / À compléter hébergement | Une limitation par client protège les inscriptions, connexions, demandes club et créations de réservation, avec `429` et `Retry-After`. Le store est local au processus : un rate limiter partagé ou une protection edge reste requis en multi-instance. |
 | Protection d’origine | PASS | Les mutations API provenant d’une origine étrangère sont refusées en production réelle ; le webhook sans en-tête `Origin` reste recevable. |
 | Sessions multi-instance | PASS | En production, les sessions utilisent un cookie AES-GCM avec `SESSION_SECRET` et une durée de vie de 7 jours ; la `Map` mémoire reste limitée au mode démo. |
 | Déconnexion | PASS | `POST /api/auth/sign-out` supprime le cookie et l’accès authentifié est refusé après déconnexion. |

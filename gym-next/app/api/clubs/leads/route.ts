@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { createClubLead } from "@/lib/clubs";
-import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
+import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
+  const limit = rateLimit(request, "club-lead", 20, 60_000);
+  if (!limit.allowed) return NextResponse.json({ error: "Trop de demandes, réessayez plus tard" }, { status: 429, headers: { "Retry-After": String(limit.retryAfter) } });
   if (bodyExceedsLimit(request, 6 * 1024 * 1024)) return NextResponse.json({ error: "Fichiers trop volumineux" }, { status: 413 });
   const form = await request.formData().catch(() => null);
   if (!form) return NextResponse.json({ error: "Formulaire invalide" }, { status: 400 });
