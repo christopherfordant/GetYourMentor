@@ -53,7 +53,7 @@ export async function listCoaches() {
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
   const rows = (await response.json()) as Record<string, unknown>[];
-  return rows.length ? rows.map(fromRow) : coachProfiles;
+  return rows.map(fromRow);
 }
 
 export async function getCoach(idOrName?: string) {
@@ -66,7 +66,7 @@ export async function getCoach(idOrName?: string) {
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
   const [row] = (await response.json()) as Record<string, unknown>[];
-  return row ? fromRow(row) : findLocalCoach(idOrName);
+  return row ? fromRow(row) : null;
 }
 
 export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4">>) {
