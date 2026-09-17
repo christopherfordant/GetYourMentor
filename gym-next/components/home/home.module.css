@@ -835,6 +835,21 @@
   .mobileNavItemActive { background: var(--app-lime); color: #111827; }
 }
 
+@media (max-width: 900px) {
+  .sportsNav {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .sportsNav::-webkit-scrollbar { display: none; }
+  .sportLink { flex: 0 0 auto; white-space: nowrap; }
+}
+
 /* Correction des cartes : hauteur stable, contenus séparés et aucune zone blanche parasite. */
 .howGrid { align-items: stretch; }
 .stepCard { display: flex; flex-direction: column; min-height: 680px; overflow: hidden; }
