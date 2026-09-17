@@ -67,6 +67,9 @@ jobs:
       - name: Build production bundle
         run: npm run build
 
+      - name: Verify production fail-closed behavior
+        run: npm run check:production-safety
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
