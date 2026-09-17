@@ -11,7 +11,7 @@ export type ClubLead = {
   logoFileName?: string;
   identityFileName?: string;
   createdAt: string;
-  status: "pending";
+  status: "pending" | "contacted" | "closed";
 };
 
 const clubLeads: ClubLead[] = [];
@@ -25,6 +25,7 @@ function supabaseConfig() {
 }
 
 function fromRow(row: Record<string, unknown>): ClubLead {
+  const status = row.status === "contacted" || row.status === "closed" ? row.status : "pending";
   return {
     id: String(row.id),
     clubName: String(row.club_name ?? ""),
@@ -35,7 +36,7 @@ function fromRow(row: Record<string, unknown>): ClubLead {
     logoFileName: typeof row.logo_file_name === "string" ? row.logo_file_name : undefined,
     identityFileName: typeof row.identity_file_name === "string" ? row.identity_file_name : undefined,
     createdAt: String(row.created_at ?? ""),
-    status: "pending",
+    status,
   };
 }
 
