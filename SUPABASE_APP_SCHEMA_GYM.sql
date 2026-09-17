@@ -148,9 +148,9 @@ alter table public.gym_club_leads add column if not exists identity_storage_path
 create index if not exists gym_club_leads_status_idx on public.gym_club_leads (status);
 create index if not exists gym_club_leads_created_at_idx on public.gym_club_leads (created_at desc);
 
--- Documents de club privés : aucun accès public. Les uploads passent par le serveur
--- avec SUPABASE_SERVICE_ROLE_KEY ; l’accès humain devra être délivré par un endpoint
--- admin authentifié et des URLs signées à durée courte.
+-- Documents de club privés : aucun accès public. Les uploads et URLs signées
+-- passent par le serveur avec SUPABASE_SERVICE_ROLE_KEY ; l’endpoint admin
+-- vérifie le rôle avant de délivrer une URL temporaire.
 insert into storage.buckets (id, name, public)
 values ('club-documents', 'club-documents', false)
 on conflict (id) do update set public = false;

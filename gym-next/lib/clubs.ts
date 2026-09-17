@@ -19,6 +19,8 @@ export type ClubLeadInput = Omit<ClubLead, "id" | "createdAt" | "status"> & {
   identityFile?: File;
 };
 
+export type ClubDocumentKind = "logo" | "identity";
+
 const clubLeads: ClubLead[] = [];
 
 function supabaseConfig() {
@@ -70,6 +72,29 @@ async function removePrivateDocuments(config: ReturnType<typeof storageConfig>, 
     headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
     body: JSON.stringify({ prefixes: paths }),
   }).catch(() => undefined);
+}
+
+export async function getClubLeadDocumentSignedUrl(id: string, kind: ClubDocumentKind, expiresIn = 300) {
+  const config = storageConfig();
+  if (!config) return null;
+  const column = kind === "logo" ? "logo_storage_path" : "identity_storage_path";
+  const leadResponse = await fetch(`${config.url}/rest/v1/gym_club_leads?id=eq.${encodeURIComponent(id)}&select=${column}&limit=1`, {
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+    cache: "no-store",
+  });
+  if (!leadResponse.ok) throw new Error(`Supabase club lead error (${leadResponse.status})`);
+  const [row] = (await leadResponse.json()) as Record<string, unknown>[];
+  const objectPath = typeof row?.[column] === "string" ? row[column] as string : "";
+  if (!objectPath) return null;
+  const signResponse = await fetch(`${config.url}/storage/v1/object/sign/${encodeURIComponent(config.bucket)}/${objectPath.split("/").map(encodeURIComponent).join("/")}`, {
+    method: "POST",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ expiresIn }),
+  });
+  if (!signResponse.ok) throw new Error(`Supabase club document signing error (${signResponse.status})`);
+  const payload = await signResponse.json() as { signedURL?: unknown };
+  if (typeof payload.signedURL !== "string") throw new Error("Supabase signed URL missing");
+  return payload.signedURL.startsWith("http") ? payload.signedURL : `${config.url}/storage/v1${payload.signedURL.startsWith("/") ? payload.signedURL : `/${payload.signedURL}`}`;
 }
 
 function fromRow(row: Record<string, unknown>): ClubLead {
