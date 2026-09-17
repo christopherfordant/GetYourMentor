@@ -14,6 +14,32 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 6. Vérifier que la RLS est activée sur ces six tables.
 7. Vérifier que l’accès direct anonyme ne permet aucune lecture ou écriture inattendue.
 
+Requêtes de contrôle à exécuter dans l’éditeur SQL Supabase :
+
+```sql
+select c.relname as table_name, c.relrowsecurity as rls_enabled
+from pg_class c
+join pg_namespace n on n.oid = c.relnamespace
+where n.nspname = 'public'
+  and c.relname in ('gym_coaches', 'gym_reservations', 'gym_reviews',
+    'gym_messages', 'gym_reservation_slot_claims', 'gym_club_leads')
+order by c.relname;
+
+select id, name, public
+from storage.buckets
+where id = 'club-documents';
+
+select count(*) as initial_verified_coaches
+from public.gym_coaches
+where verified = true;
+```
+
+Résultats attendus avant recette : les six lignes indiquent `rls_enabled = true`,
+le bucket `club-documents` indique `public = false`, et le catalogue vérifié est
+vide tant qu’aucun coach réel n’a été validé. Tester ensuite les lectures et
+écritures avec les clés anon et service role séparément ; ne jamais utiliser la
+clé service role dans le navigateur.
+
 Le MVP utilise actuellement des appels serveur avec la clé `SUPABASE_SERVICE_ROLE_KEY`. Cette clé ne doit jamais être envoyée au navigateur. Les tables ont la RLS activée et aucune politique client générique n’est ajoutée par le script : toute ouverture d’accès direct devra faire l’objet d’une conception et de tests RLS par rôle.
 
 Les champs `logo` et `identity` sont envoyés côté serveur vers le bucket privé `club-documents` lorsque Supabase est configuré ; seuls les noms et chemins internes sont conservés dans la demande, jamais une URL publique. L’endpoint admin `/api/admin/club-leads/[id]/documents/[kind]` vérifie le rôle, renvoie une URL signée de 5 minutes et expose une suppression ciblée par `DELETE`. Avant de considérer les justificatifs comme archivés, appliquer le schéma, tester les politiques privées et définir la durée de rétention ainsi que la procédure de suppression.
