@@ -406,7 +406,7 @@ function CoachDashboard({
         <div className="coach-home-nav-footer">
           <a href="#coach-invitations">Invitation</a>
           <a href="#coach-help">Conseils et aides</a>
-          <a href={nextRoutes.home}>Déconnexion</a>
+          <a href={nextRoutes.home} onClick={async (event) => { event.preventDefault(); await fetch("/api/auth/sign-out", { method: "POST" }); window.location.assign(nextRoutes.home); }}>Déconnexion</a>
         </div>
       </aside>
       <section className="coach-home-planning account-dashboard-card" id="coach-planning">
@@ -604,7 +604,7 @@ function ClubDashboard() {
         </div>
         <div className="coach-home-nav-footer">
           <a href="#club-help">Conseils et aides</a>
-          <a href={nextRoutes.home}>Déconnexion</a>
+          <a href={nextRoutes.home} onClick={async (event) => { event.preventDefault(); await fetch("/api/auth/sign-out", { method: "POST" }); window.location.assign(nextRoutes.home); }}>Déconnexion</a>
         </div>
       </aside>
       <section className="coach-home-planning account-dashboard-card club-home-planning" id="club-planning">
