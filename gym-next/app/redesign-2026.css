@@ -608,6 +608,7 @@
 .site-shell:not(.home-shell) .account-footer,
 .site-footer,
 .account-footer {
+  padding: 44px 24px 34px !important;
   border-top: 1px solid #2d4161 !important;
   background: #111a2d !important;
   color: #f6f8fb !important;
