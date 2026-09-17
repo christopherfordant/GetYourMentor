@@ -10,6 +10,7 @@ import { findCoach, type CoachProfile } from "@/lib/domain";
 type ReserverSeanceLegacyPageProps = {
   legacyStyles: string;
   params: Record<string, string | undefined>;
+  allowDemoFallback?: boolean;
 };
 
 type WeekDay = {
@@ -592,7 +593,7 @@ function BookingFooter() {
   );
 }
 
-export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanceLegacyPageProps) {
+export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallback = false }: ReserverSeanceLegacyPageProps) {
   const sportSlug = useMemo(() => {
     const sport = params.sport;
     if (sport && sport in bookingProfileDictionary) {
@@ -603,7 +604,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
 
   const coach = params.coach || "Studio Form Marseille";
   const city = params.city || "Paris";
-  const [coachData, setCoachData] = useState<CoachProfile>(() => findCoach(coach));
+  const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? findCoach(coach) : null);
   useEffect(() => {
     let active = true;
     fetch(`/api/coaches/${encodeURIComponent(coach)}`)
@@ -618,12 +619,12 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
   }, [coach]);
   const profile = {
     ...bookingProfileDictionary[sportSlug],
-    specialty: coachData.specialty,
-    bio: coachData.description,
-    diploma: coachData.diplomas?.replace(/\s+—\s+à compléter$/i, "") || bookingProfileDictionary[sportSlug].diploma,
-    disciplines: coachData.disciplines,
-    sessionTypes: coachData.sessionTypes,
-    availability: coachData.availability,
+    specialty: coachData?.specialty ?? "",
+    bio: coachData?.description ?? "",
+    diploma: coachData?.diplomas?.replace(/\s+—\s+à compléter$/i, "") ?? "",
+    disciplines: coachData?.disciplines ?? "",
+    sessionTypes: coachData?.sessionTypes ?? "",
+    availability: coachData?.availability ?? "",
   };
   const visual = bookingVisualDictionary[sportSlug];
   const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
@@ -726,33 +727,38 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params }: ReserverSeanc
       <div className="site-shell booking-shell">
         <BookingHeader />
         <main className="booking-page booking-profile-page" data-booking-page>
-          <BookingHeroSection
-            coach={coach}
-            city={city}
-            profile={profile}
-            heroBackground={visual.hero}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
-            tabsFixed={tabsFixed}
-            tabsInlineStyle={tabsInlineStyle}
-            tabsRef={tabsRef}
-            galleryMainRef={galleryMainRef}
-          />
-          <BookingAProposPane
-            coach={coach}
-            profile={profile}
-            isActive={activeTab === "apropos"}
-          />
-          <BookingPlanningPane
-            isActive={activeTab === "planning"}
-            weekIndex={weekIndex}
-            selectedSlot={selectedSlot}
-            confirmHref={confirmHref}
-            onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weekSets.length - 1 : current - 1))}
-            onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
-            onSelectSlot={setSelectedSlot}
-          />
-          <BookingContenusPane isActive={activeTab === "contenus"} coach={coach} specialty={profile.specialty} />
+          {!coachData && !allowDemoFallback ? (
+            <section className="booking-card" data-coach-unavailable>
+              <h1>Profil coach indisponible</h1>
+              <p>Cette fiche sera accessible après la configuration du catalogue de préproduction.</p>
+            </section>
+          ) : (
+            <>
+              <BookingHeroSection
+                coach={coach}
+                city={city}
+                profile={profile}
+                heroBackground={visual.hero}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                tabsFixed={tabsFixed}
+                tabsInlineStyle={tabsInlineStyle}
+                tabsRef={tabsRef}
+                galleryMainRef={galleryMainRef}
+              />
+              <BookingAProposPane coach={coach} profile={profile} isActive={activeTab === "apropos"} />
+              <BookingPlanningPane
+                isActive={activeTab === "planning"}
+                weekIndex={weekIndex}
+                selectedSlot={selectedSlot}
+                confirmHref={confirmHref}
+                onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weekSets.length - 1 : current - 1))}
+                onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
+                onSelectSlot={setSelectedSlot}
+              />
+              <BookingContenusPane isActive={activeTab === "contenus"} coach={coach} specialty={profile.specialty} />
+            </>
+          )}
         </main>
         <BookingFooter />
       </div>

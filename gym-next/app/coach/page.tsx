@@ -43,5 +43,11 @@ export default async function CoachPage({ searchParams }: CoachPageProps) {
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
 
-  return <ReserverSeanceLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
+  return (
+    <ReserverSeanceLegacyPage
+      legacyStyles={legacyStyles}
+      params={normalizedParams}
+      allowDemoFallback={process.env.GETYOURMENTOR_ALLOW_DEMO === "true"}
+    />
+  );
 }
