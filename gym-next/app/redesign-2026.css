@@ -603,6 +603,48 @@
   color: #111827 !important;
 }
 
+/* Footer partagé des pages secondaires : même surface, même rythme, même contraste. */
+.site-shell:not(.home-shell) .site-footer,
+.site-shell:not(.home-shell) .account-footer,
+.site-footer,
+.account-footer {
+  border-top: 1px solid #2d4161 !important;
+  background: #111a2d !important;
+  color: #f6f8fb !important;
+}
+
+.site-footer .footer-brand,
+.account-footer .footer-brand,
+.account-footer-column h3 {
+  color: #ffffff !important;
+}
+
+.site-footer p,
+.site-footer small,
+.account-footer-bottom,
+.account-footer-column a {
+  color: #b9c7dd !important;
+}
+
+.site-footer .footer-links a,
+.account-footer .footer-links a {
+  color: #f6f8fb !important;
+}
+
+.account-footer-grid {
+  width: min(100%, 1180px);
+}
+
+.account-footer-bottom {
+  border-top-color: #2d4161 !important;
+}
+
+.account-socials a {
+  background: #182640 !important;
+  color: #d7f36b !important;
+  border: 1px solid #3a5277;
+}
+
 /* Même langage cinétique sur les écrans de recherche et de réservation. */
 .coach-result-card,
 .coach-profile-card,
