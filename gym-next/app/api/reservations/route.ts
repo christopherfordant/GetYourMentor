@@ -12,7 +12,18 @@ export async function POST(request: Request) {
   const slots = Array.isArray(body?.slots) ? body.slots.filter((slot: unknown) => typeof slot === "string") : [];
 
   if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
-  if (textExceedsLimit(body?.coachId, 128) || textExceedsLimit(body?.service, 256) || textExceedsLimit(body?.duration, 128) || !body?.coachId || !body?.service || !body?.duration || slots.length < 1 || slots.length > 3) {
+  if (
+    textExceedsLimit(body?.coachId, 128) ||
+    textExceedsLimit(body?.service, 256) ||
+    textExceedsLimit(body?.duration, 128) ||
+    slots.some((slot: string) => textExceedsLimit(slot, 256) || !slot.trim()) ||
+    textExceedsLimit(body?.appointmentAt, 128) ||
+    !body?.coachId ||
+    !body?.service ||
+    !body?.duration ||
+    slots.length < 1 ||
+    slots.length > 3
+  ) {
     return NextResponse.json({ error: "coachId, service, duration et 1 à 3 créneaux sont requis" }, { status: 400 });
   }
 

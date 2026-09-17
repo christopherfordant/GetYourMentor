@@ -169,6 +169,13 @@ test("les données bancaires ne sortent pas des endpoints coach publics", async 
   expect((await profile.json()).data).not.toHaveProperty("bankAccountLast4");
 });
 
+test("les champs de créneau sont bornés côté serveur", async ({ request }) => {
+  const response = await request.post("/api/reservations", {
+    data: { coachId: "steven-fordant", service: "Coaching", duration: "1 heure", slots: ["x".repeat(257)] },
+  });
+  expect(response.status()).toBe(400);
+});
+
 test("un sportif peut déplacer une réservation acceptée vers un créneau libre", async ({ request }, testInfo) => {
   const sourceSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 10:00" : "2026-12-19 10:00";
   const targetSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 11:00" : "2026-12-19 11:00";

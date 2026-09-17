@@ -23,6 +23,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   if ([body?.specialty, body?.city, body?.description, body?.disciplines, body?.diplomas, body?.sessionTypes, body?.availability, body?.photoUrl].some((value) => textExceedsLimit(value, 5000))) {
     return NextResponse.json({ error: "Profil trop long" }, { status: 400 });
   }
+  if (body?.priceFrom !== undefined && (!Number.isFinite(Number(body.priceFrom)) || Number(body.priceFrom) < 0 || Number(body.priceFrom) > 10000)) {
+    return NextResponse.json({ error: "Tarif invalide" }, { status: 400 });
+  }
   const updates = {
     specialty: typeof body?.specialty === "string" ? body.specialty.trim() : undefined,
     city: typeof body?.city === "string" ? body.city.trim() : undefined,
