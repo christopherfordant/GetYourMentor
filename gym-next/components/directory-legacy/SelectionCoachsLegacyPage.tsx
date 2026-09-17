@@ -8,9 +8,12 @@ type SelectionCoachsLegacyPageProps = {
   legacyStyles: string;
   sport?: string;
   city?: string;
+  initialCoaches?: CoachEntry[];
 };
 
 type CoachEntry = {
+  id?: string;
+  city?: string;
   name: string;
   address: string;
   meta: string;
@@ -401,8 +404,8 @@ function CoachResultCard({
 }) {
   const detailsLink = buildNextPath(nextRoutes.coach, {
     sport: sportSlug,
-    city,
-    coach: coach.name,
+    city: coach.city ?? city,
+    coach: coach.id ?? coach.name,
   });
 
   const dayMap = new Map<string, { day: string; periods: string[] }>();
@@ -544,6 +547,7 @@ export function SelectionCoachsLegacyPage({
   legacyStyles,
   sport,
   city,
+  initialCoaches,
 }: SelectionCoachsLegacyPageProps) {
   const sportSlug = useMemo(() => {
     if (sport && sport in directoryDictionary) {
@@ -557,8 +561,9 @@ export function SelectionCoachsLegacyPage({
   const cityValue = city || "Paris";
   const [filters, setFilters] = useState<DirectoryFilters>(defaultDirectoryFilters);
   const coaches = useMemo(
-    () =>
-      currentDirectory.getCoaches(cityValue).map<CoachEntry>((coach, index) => ({
+    () => {
+      if (initialCoaches) return initialCoaches;
+      return currentDirectory.getCoaches(cityValue).map<CoachEntry>((coach, index) => ({
         ...coach,
         gender: (index % 2 === 0 ? "femme" : "homme") as CoachEntry["gender"],
         practice: (index % 2 === 0 ? "interieur" : "exterieur") as CoachEntry["practice"],
@@ -568,8 +573,9 @@ export function SelectionCoachsLegacyPage({
         price: index === 0 ? 40 : 65,
         rating: index === 0 ? 4.9 : 4.2,
         verified: index === 0,
-      })),
-    [cityValue, currentDirectory],
+      }));
+    },
+    [cityValue, currentDirectory, initialCoaches],
   );
 
   return (

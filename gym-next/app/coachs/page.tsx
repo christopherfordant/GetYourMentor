@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { SelectionCoachsLegacyPage } from "@/components/directory-legacy/SelectionCoachsLegacyPage";
+import { filterStoredCoaches } from "@/lib/coaches";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
 
 type CoachsPageProps = {
@@ -43,5 +44,26 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
   const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
   const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
 
-  return <SelectionCoachsLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} />;
+  const hasPersistentCoachCatalog = Boolean(
+    process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
+  );
+  const persistedCoaches = hasPersistentCoachCatalog
+    ? await filterStoredCoaches({ sport, city })
+    : null;
+  const initialCoaches = persistedCoaches?.map((coach) => ({
+    id: coach.id,
+    name: coach.name,
+    address: coach.city || city || "Zone à confirmer",
+    city: coach.city || city,
+    meta: `${coach.rating.toFixed(1)} (${coach.reviewCount} avis) · ${coach.specialty}`,
+    morning: [],
+    afternoon: [],
+    cta: "Voir le profil",
+    price: coach.priceFrom,
+    rating: coach.rating,
+    verified: coach.verified,
+    format: coach.sessionTypes?.toLowerCase().includes("visio") ? ("visio" as const) : undefined,
+  }));
+
+  return <SelectionCoachsLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} initialCoaches={initialCoaches} />;
 }
