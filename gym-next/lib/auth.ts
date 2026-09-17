@@ -1,19 +1,63 @@
 import { cookies } from "next/headers";
-import { randomUUID } from "node:crypto";
+import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID } from "node:crypto";
 import { coachIdForName, createCoachProfile, findCoach } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
-type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
+type Session = { email: string; role: UserRole; coachId?: string };
 type SignupProfile = { firstName: string; lastName: string; phone: string; termsAccepted: boolean };
 
 const sessions = new Map<string, Session>();
 const localUsers = new Map<string, { password: string; role: UserRole; coachId?: string }>();
 const COOKIE_NAME = "gym_session";
+const SESSION_MAX_AGE = 60 * 60 * 24 * 7;
 
 function isUserRole(value: unknown): value is UserRole {
   return value === "sportif" || value === "coach" || value === "club" || value === "admin";
+}
+
+function sessionKey() {
+  const secret = process.env.SESSION_SECRET;
+  if (secret && secret.length >= 32) return createHash("sha256").update(secret).digest();
+  assertDemoFallbackAllowed("SESSION_SECRET");
+  return null;
+}
+
+function encodeSession(session: Session) {
+  const key = sessionKey();
+  if (!key) {
+    const sessionId = randomUUID();
+    sessions.set(sessionId, session);
+    return sessionId;
+  }
+
+  const iv = randomBytes(12);
+  const cipher = createCipheriv("aes-256-gcm", key, iv);
+  const encrypted = Buffer.concat([cipher.update(JSON.stringify(session), "utf8"), cipher.final()]);
+  return [iv, cipher.getAuthTag(), encrypted].map((value) => value.toString("base64url")).join(".");
+}
+
+function decodeSession(value: string) {
+  const key = sessionKey();
+  if (!key) return sessions.get(value) ?? null;
+
+  try {
+    const [ivValue, tagValue, encryptedValue] = value.split(".");
+    if (!ivValue || !tagValue || !encryptedValue) return null;
+    const decipher = createDecipheriv("aes-256-gcm", key, Buffer.from(ivValue, "base64url"));
+    decipher.setAuthTag(Buffer.from(tagValue, "base64url"));
+    const decrypted = Buffer.concat([
+      decipher.update(Buffer.from(encryptedValue, "base64url")),
+      decipher.final(),
+    ]).toString("utf8");
+    const parsed = JSON.parse(decrypted) as Partial<Session>;
+    return typeof parsed.email === "string" && isUserRole(parsed.role)
+      ? { email: parsed.email, role: parsed.role, coachId: typeof parsed.coachId === "string" ? parsed.coachId : undefined }
+      : null;
+  } catch {
+    return null;
+  }
 }
 
 function supabaseConfig() {
@@ -57,10 +101,9 @@ export async function signIn(email: string, password: string, role: Session["rol
     coachId = "steven-fordant";
   }
 
-  const sessionId = randomUUID();
-  sessions.set(sessionId, { email, role: resolvedRole, coachId, accessToken });
+  const sessionId = encodeSession({ email, role: resolvedRole, coachId });
   const cookieStore = await cookies();
-  cookieStore.set(COOKIE_NAME, sessionId, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", path: "/" });
+  cookieStore.set(COOKIE_NAME, sessionId, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: SESSION_MAX_AGE, path: "/" });
   return { email, role: resolvedRole, coachId, coachName: coachId ? findCoach(coachId).name : undefined };
 }
 
@@ -89,7 +132,7 @@ export async function signUp(email: string, password: string, role: UserRole, pr
 
 export async function currentSession() {
   const token = (await cookies()).get(COOKIE_NAME)?.value;
-  return token ? sessions.get(token) ?? null : null;
+  return token ? decodeSession(token) : null;
 }
 
 export async function requireRole(role: Session["role"]) {

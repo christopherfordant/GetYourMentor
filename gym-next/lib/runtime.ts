@@ -21,6 +21,7 @@ function isValidProductionUrl(value: string | undefined) {
 export function getRuntimeReadiness() {
   const checks = {
     publicUrl: isValidProductionUrl(process.env.NEXT_PUBLIC_APP_URL),
+    sessionSecret: Boolean(process.env.SESSION_SECRET && process.env.SESSION_SECRET.length >= 32),
     supabase: Boolean(
       (process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL) &&
       process.env.SUPABASE_ANON_KEY &&

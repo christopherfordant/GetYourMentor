@@ -20,6 +20,7 @@ Dans l’environnement de préproduction uniquement, renseigner les noms suivant
 - `SUPABASE_URL`
 - `SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_ROLE_KEY`
+- `SESSION_SECRET` avec au moins 32 caractères aléatoires
 - `NEXT_PUBLIC_APP_URL` avec une URL HTTPS réelle
 - `PAYMENT_PROVIDER=stripe`
 - `STRIPE_SECRET_KEY`

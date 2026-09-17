@@ -7,5 +7,5 @@ test("l’endpoint de santé signale explicitement le mode de démonstration", a
   expect(body.status).toBe("demo");
   expect(body.mode).toBe("demo");
   expect(body.ready).toBeTruthy();
-  expect(body.checks).toEqual({ publicUrl: false, supabase: false, stripe: false, resend: false });
+  expect(body.checks).toEqual({ publicUrl: false, sessionSecret: false, supabase: false, stripe: false, resend: false });
 });
