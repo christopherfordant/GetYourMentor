@@ -1,6 +1,7 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { payReservation } from "@/lib/reservations";
+import { bodyExceedsLimit } from "@/lib/request-guards";
 
 function validSignature(rawBody: string, signature: string, secret: string) {
   const parts = Object.fromEntries(signature.split(",").map((part) => part.split("=", 2) as [string, string]));
@@ -16,6 +17,7 @@ function validSignature(rawBody: string, signature: string, secret: string) {
 export async function POST(request: Request) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   const signature = request.headers.get("stripe-signature");
+  if (bodyExceedsLimit(request, 1024 * 1024)) return NextResponse.json({ error: "Webhook trop volumineux" }, { status: 413 });
   if (!secret || !signature) return NextResponse.json({ error: "Webhook Stripe non configuré" }, { status: 503 });
   const rawBody = await request.text();
   if (!validSignature(rawBody, signature, secret)) return NextResponse.json({ error: "Signature Stripe invalide" }, { status: 400 });

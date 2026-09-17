@@ -7,12 +7,13 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
 | Build Next.js production | PASS | `npm.cmd run build` passe et génère 24 routes, dont `/api/health`. |
-| Parcours fonctionnels Playwright | PASS | 74 tests réussis, incluant API, réservation, paiement, comptes, coach, admin, santé et responsive. |
+| Parcours fonctionnels Playwright | PASS | 76 tests réussis, incluant API, réservation, paiement, comptes, coach, admin, santé, limites d’entrée et responsive. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, build et Playwright ; run GitHub vérifié avec succès sur `1291595`. |
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local ne sont autorisés qu’avec `GETYOURMENTOR_ALLOW_DEMO=true`; le run CI du garde-fou `bbb13bb` est vert. |
 | Endpoint de santé | PASS | `/api/health` ne renvoie aucun secret et distingue le mode démo d’une configuration production dégradée. |
 | Échec fermé sans secrets | PASS | Runtime vérifié : sans configuration réelle ni flag démo, `/api/health` répond `503 degraded` avec tous les contrôles à `false`. |
+| Limites des entrées API | PASS | Limites de taille JSON/formulaire/webhook et bornes de champs ajoutées, avec test Playwright desktop/mobile. |
 | SEO technique de base | PASS | Métadonnées, `/robots.txt` et `/sitemap.xml` ajoutés et servis par l’application. |
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
 | Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` détecte l’absence des secrets Supabase, Stripe, Resend et de l’URL HTTPS. |

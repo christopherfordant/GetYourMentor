@@ -3,14 +3,16 @@ import { currentSession } from "@/lib/auth";
 import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
 import { createReservation, hasSlotConflict, listReservations } from "@/lib/reservations";
+import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
+  if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
   const coach = await getCoach(typeof body?.coachId === "string" ? body.coachId : body?.coach);
   const slots = Array.isArray(body?.slots) ? body.slots.filter((slot: unknown) => typeof slot === "string") : [];
 
   if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
-  if (!body?.coachId || !body?.service || !body?.duration || slots.length < 1 || slots.length > 3) {
+  if (textExceedsLimit(body?.coachId, 128) || textExceedsLimit(body?.service, 256) || textExceedsLimit(body?.duration, 128) || !body?.coachId || !body?.service || !body?.duration || slots.length < 1 || slots.length > 3) {
     return NextResponse.json({ error: "coachId, service, duration et 1 à 3 créneaux sont requis" }, { status: 400 });
   }
 

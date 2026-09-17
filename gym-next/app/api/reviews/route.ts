@@ -2,14 +2,16 @@ import { NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth";
 import { getReservation } from "@/lib/reservations";
 import { createReview } from "@/lib/reviews";
+import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
   const session = await requireRole("sportif");
   if (!session) return NextResponse.json({ error: "Connexion sportif requise" }, { status: 401 });
+  if (bodyExceedsLimit(request, 16 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
 
   const body = await request.json().catch(() => null);
   const rating = Number(body?.rating);
-  if (!body?.reservationId || !Number.isInteger(rating) || rating < 1 || rating > 5 || typeof body.comment !== "string" || !body.comment.trim()) {
+  if (textExceedsLimit(body?.reservationId, 128) || textExceedsLimit(body?.comment, 2000) || !body?.reservationId || !Number.isInteger(rating) || rating < 1 || rating > 5 || typeof body.comment !== "string" || !body.comment.trim()) {
     return NextResponse.json({ error: "reservationId, note de 1 à 5 et commentaire requis" }, { status: 400 });
   }
 
