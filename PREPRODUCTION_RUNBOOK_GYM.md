@@ -13,7 +13,7 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 
 Le MVP utilise actuellement des appels serveur avec la clé `SUPABASE_SERVICE_ROLE_KEY`. Cette clé ne doit jamais être envoyée au navigateur. Les tables ont la RLS activée et aucune politique client générique n’est ajoutée par le script : toute ouverture d’accès direct devra faire l’objet d’une conception et de tests RLS par rôle.
 
-Les champs `logo` et `identity` sont envoyés côté serveur vers le bucket privé `club-documents` lorsque Supabase est configuré ; seuls les noms et chemins internes sont conservés dans la demande, jamais une URL publique. L’endpoint admin `/api/admin/club-leads/[id]/documents/[kind]` vérifie le rôle et renvoie une URL signée de 5 minutes. Avant de considérer les justificatifs comme archivés, appliquer le schéma, tester les politiques privées et définir la procédure de suppression/rétention.
+Les champs `logo` et `identity` sont envoyés côté serveur vers le bucket privé `club-documents` lorsque Supabase est configuré ; seuls les noms et chemins internes sont conservés dans la demande, jamais une URL publique. L’endpoint admin `/api/admin/club-leads/[id]/documents/[kind]` vérifie le rôle, renvoie une URL signée de 5 minutes et expose une suppression ciblée par `DELETE`. Avant de considérer les justificatifs comme archivés, appliquer le schéma, tester les politiques privées et définir la durée de rétention ainsi que la procédure de suppression.
 
 Les rôles applicatifs Supabase doivent être conservés dans `app_metadata`, mis à jour uniquement côté serveur avec la clé service role. Ne pas utiliser `user_metadata` pour autoriser un accès coach ou administrateur, car ces métadonnées peuvent être modifiées par l’utilisateur.
 

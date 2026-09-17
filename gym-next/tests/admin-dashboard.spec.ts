@@ -9,6 +9,8 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
   expect(anonymousClubLeadUpdate.status()).toBe(401);
   const anonymousClubDocument = await request.get("/api/admin/club-leads/missing/documents/identity");
   expect(anonymousClubDocument.status()).toBe(401);
+  const anonymousClubDocumentDelete = await request.delete("/api/admin/club-leads/missing/documents/identity");
+  expect(anonymousClubDocumentDelete.status()).toBe(401);
   const clubLeadResponse = await request.post("/api/clubs/leads", {
     multipart: { clubName: "Club de recette", managerName: "Camille Martin", email: `club-${Date.now()}@example.com` },
   });
