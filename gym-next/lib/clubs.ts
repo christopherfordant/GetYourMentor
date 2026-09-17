@@ -14,6 +14,11 @@ export type ClubLead = {
   status: "pending" | "contacted" | "closed";
 };
 
+export type ClubLeadInput = Omit<ClubLead, "id" | "createdAt" | "status"> & {
+  logoFile?: File;
+  identityFile?: File;
+};
+
 const clubLeads: ClubLead[] = [];
 
 function supabaseConfig() {
@@ -22,6 +27,49 @@ function supabaseConfig() {
   if (url && key) return { url: url.replace(/\/$/, ""), key };
   assertDemoFallbackAllowed("Persistance des demandes club");
   return null;
+}
+
+function storageConfig() {
+  const config = supabaseConfig();
+  if (!config) return null;
+  return { ...config, bucket: process.env.SUPABASE_CLUB_DOCUMENTS_BUCKET ?? "club-documents" };
+}
+
+function storageFileName(file: File, field: "logo" | "identity") {
+  const extension = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") ?? "bin";
+  const baseName = file.name
+    .replace(/\.[^.]+$/, "")
+    .normalize("NFKD")
+    .replace(/[^a-zA-Z0-9_-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "document";
+  return `${field}-${baseName}.${extension}`;
+}
+
+async function uploadPrivateDocument(config: ReturnType<typeof storageConfig>, leadId: string, field: "logo" | "identity", file?: File) {
+  if (!config || !file || file.size === 0) return undefined;
+  const objectPath = `club-leads/${leadId}/${storageFileName(file, field)}`;
+  const response = await fetch(`${config.url}/storage/v1/object/${encodeURIComponent(config.bucket)}/${objectPath.split("/").map(encodeURIComponent).join("/")}`, {
+    method: "POST",
+    headers: {
+      apikey: config.key,
+      Authorization: `Bearer ${config.key}`,
+      "Content-Type": file.type || "application/octet-stream",
+      "x-upsert": "false",
+    },
+    body: Buffer.from(await file.arrayBuffer()),
+  });
+  if (!response.ok) throw new Error(`Supabase club document upload error (${response.status})`);
+  return objectPath;
+}
+
+async function removePrivateDocuments(config: ReturnType<typeof storageConfig>, paths: string[]) {
+  if (!config || paths.length === 0) return;
+  await fetch(`${config.url}/storage/v1/object/${encodeURIComponent(config.bucket)}`, {
+    method: "DELETE",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ prefixes: paths }),
+  }).catch(() => undefined);
 }
 
 function fromRow(row: Record<string, unknown>): ClubLead {
@@ -40,34 +88,53 @@ function fromRow(row: Record<string, unknown>): ClubLead {
   };
 }
 
-export async function createClubLead(input: Omit<ClubLead, "id" | "createdAt" | "status">) {
+export async function createClubLead(input: ClubLeadInput) {
   const config = supabaseConfig();
+  const storage = storageConfig();
   const lead: ClubLead = {
-    ...input,
+    clubName: input.clubName,
+    managerName: input.managerName,
+    email: input.email,
+    phone: input.phone,
+    ibanLast4: input.ibanLast4,
+    logoFileName: input.logoFileName,
+    identityFileName: input.identityFileName,
     id: randomUUID(),
     createdAt: new Date().toISOString(),
     status: "pending",
   };
   if (config) {
-    const response = await fetch(`${config.url}/rest/v1/gym_club_leads`, {
-      method: "POST",
-      headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
-      body: JSON.stringify({
-        id: lead.id,
-        club_name: lead.clubName,
-        manager_name: lead.managerName,
-        email: lead.email,
-        phone: lead.phone ?? null,
-        iban_last4: lead.ibanLast4 ?? null,
-        logo_file_name: lead.logoFileName ?? null,
-        identity_file_name: lead.identityFileName ?? null,
-        created_at: lead.createdAt,
-        status: lead.status,
-      }),
-    });
-    if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);
-    const [row] = (await response.json()) as Record<string, unknown>[];
-    return row ? fromRow(row) : lead;
+    const uploadedPaths: string[] = [];
+    try {
+      const logoStoragePath = await uploadPrivateDocument(storage, lead.id, "logo", input.logoFile);
+      if (logoStoragePath) uploadedPaths.push(logoStoragePath);
+      const identityStoragePath = await uploadPrivateDocument(storage, lead.id, "identity", input.identityFile);
+      if (identityStoragePath) uploadedPaths.push(identityStoragePath);
+      const response = await fetch(`${config.url}/rest/v1/gym_club_leads`, {
+        method: "POST",
+        headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+        body: JSON.stringify({
+          id: lead.id,
+          club_name: lead.clubName,
+          manager_name: lead.managerName,
+          email: lead.email,
+          phone: lead.phone ?? null,
+          iban_last4: lead.ibanLast4 ?? null,
+          logo_file_name: lead.logoFileName ?? null,
+          identity_file_name: lead.identityFileName ?? null,
+          logo_storage_path: logoStoragePath ?? null,
+          identity_storage_path: identityStoragePath ?? null,
+          created_at: lead.createdAt,
+          status: lead.status,
+        }),
+      });
+      if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);
+      const [row] = (await response.json()) as Record<string, unknown>[];
+      return row ? fromRow(row) : lead;
+    } catch (error) {
+      await removePrivateDocuments(storage, uploadedPaths);
+      throw error;
+    }
   }
   clubLeads.push(lead);
   return lead;

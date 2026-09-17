@@ -136,10 +136,21 @@ create table if not exists public.gym_club_leads (
   iban_last4 text check (iban_last4 is null or char_length(iban_last4) = 4),
   logo_file_name text,
   identity_file_name text,
+  logo_storage_path text,
+  identity_storage_path text,
   status text not null default 'pending' check (status in ('pending', 'contacted', 'closed')),
   created_at timestamptz not null default now()
 );
 
 alter table public.gym_club_leads enable row level security;
+alter table public.gym_club_leads add column if not exists logo_storage_path text;
+alter table public.gym_club_leads add column if not exists identity_storage_path text;
 create index if not exists gym_club_leads_status_idx on public.gym_club_leads (status);
 create index if not exists gym_club_leads_created_at_idx on public.gym_club_leads (created_at desc);
+
+-- Documents de club privés : aucun accès public. Les uploads passent par le serveur
+-- avec SUPABASE_SERVICE_ROLE_KEY ; l’accès humain devra être délivré par un endpoint
+-- admin authentifié et des URLs signées à durée courte.
+insert into storage.buckets (id, name, public)
+values ('club-documents', 'club-documents', false)
+on conflict (id) do update set public = false;
