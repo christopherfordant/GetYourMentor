@@ -5,6 +5,13 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
   expect(anonymous.status()).toBe(401);
   const anonymousUpdate = await request.patch("/api/admin/coaches/steven-fordant", { data: { verified: false } });
   expect(anonymousUpdate.status()).toBe(401);
+  const anonymousClubLeadUpdate = await request.patch("/api/admin/overview", { data: { clubLeadId: "missing", status: "contacted" } });
+  expect(anonymousClubLeadUpdate.status()).toBe(401);
+  const clubLeadResponse = await request.post("/api/clubs/leads", {
+    multipart: { clubName: "Club de recette", managerName: "Camille Martin", email: `club-${Date.now()}@example.com` },
+  });
+  expect(clubLeadResponse.status()).toBe(201);
+  const clubLeadId = (await clubLeadResponse.json()).data.id as string;
   const created = await request.post("/api/reservations", {
     data: { coachId: "steven-fordant", service: "Admin demo reservation", duration: "1 heure", price: 35, slots: [testInfo.project.name === "mobile-chromium" ? "2027-01-04 10:00" : "2027-01-03 10:00"] },
   });
@@ -28,6 +35,10 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
     data: { coachId: "steven-fordant", service: "Profil non vérifié", duration: "1 heure", slots: ["2027-01-05 10:00"] },
   })).status()).toBe(404);
   await expect(page.locator("[data-admin-reservation-list]")).toBeVisible();
+  const clubLead = page.locator(`[data-admin-club-lead="${clubLeadId}"]`);
+  await expect(clubLead).toBeVisible();
+  await clubLead.locator("[data-admin-club-status]").selectOption("contacted");
+  await expect(clubLead.locator("[data-admin-club-status]")).toHaveValue("contacted");
   await page.locator("[data-admin-reservation-search]").fill("Admin demo reservation");
   await expect(page.locator("[data-admin-reservation-list] [data-admin-reservation]").first()).toBeVisible();
   await coach.getByRole("button", { name: "Vérifier", exact: true }).click();
