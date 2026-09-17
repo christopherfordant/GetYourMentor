@@ -964,17 +964,26 @@
 /* La home exploite mieux les écrans larges sans devenir étirée. */
 @media (min-width: 901px) {
   .topbar,
-  .main,
-  .siteFooter {
+  .main {
     width: min(1440px, calc(100% - 64px));
+  }
+
+  .siteFooter {
+    width: 100%;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 26px 26px 0 0;
   }
 }
 
 /* Palier tablette : les cartes restent lisibles sans attendre le mobile. */
 @media (min-width: 901px) and (max-width: 1180px) {
   .topbar,
-  .main,
-  .siteFooter {
+  .main {
     width: calc(100% - 40px);
   }
 
