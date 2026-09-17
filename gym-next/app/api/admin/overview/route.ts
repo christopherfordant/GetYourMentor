@@ -10,7 +10,7 @@ export async function GET() {
   try {
     const reservations: Reservation[] = await listReservations();
     const coachProfiles = await listCoaches();
-    const clubLeads = listClubLeads();
+    const clubLeads = await listClubLeads();
     return NextResponse.json({ data: {
       coaches: coachProfiles.length,
       verifiedCoaches: coachProfiles.filter((coach) => coach.verified).length,
