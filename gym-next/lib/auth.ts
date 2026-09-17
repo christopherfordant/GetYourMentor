@@ -135,6 +135,17 @@ export async function currentSession() {
   return token ? decodeSession(token) : null;
 }
 
+export async function signOut() {
+  const cookieStore = await cookies();
+  cookieStore.set(COOKIE_NAME, "", {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 0,
+    path: "/",
+  });
+}
+
 export async function requireRole(role: Session["role"]) {
   const session = await currentSession();
   if (!session || session.role !== role) return null;
