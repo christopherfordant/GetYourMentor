@@ -3,9 +3,11 @@ import { currentSession } from "@/lib/auth";
 import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
 import { createReservation, hasSlotConflict, listReservations, ReservationSlotConflictError } from "@/lib/reservations";
-import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
+import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
+  const limit = rateLimit(request, "reservation-create", 60, 60_000);
+  if (!limit.allowed) return NextResponse.json({ error: "Trop de demandes, réessayez plus tard" }, { status: 429, headers: { "Retry-After": String(limit.retryAfter) } });
   if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
   const coach = await getCoach(typeof body?.coachId === "string" ? body.coachId : body?.coach);

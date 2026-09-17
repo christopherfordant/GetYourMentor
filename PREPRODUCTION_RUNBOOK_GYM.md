@@ -46,6 +46,8 @@ npm.cmd audit --omit=dev --audit-level=high
 Le contrôle de configuration doit réussir sans utiliser `GETYOURMENTOR_ALLOW_DEMO`.
 Il vérifie aussi les URLs HTTPS, les placeholders et les formats attendus des clés Stripe/Resend ; il ne journalise aucune valeur secrète.
 
+La limitation de fréquence applicative est un premier garde-fou par processus. Avant ouverture publique ou déploiement multi-instance, compléter avec une règle edge/WAF ou un store partagé (par exemple Redis) et vérifier les seuils avec les limites du fournisseur.
+
 Avant d’ouvrir la préproduction, vérifier aussi l’existence de `public.gym_reservation_slot_claims` et l’unicité de `(coach_id, slot)`. Deux créations simultanées sur un même coach et un même créneau doivent produire une seule réponse acceptée et une réponse `409`.
 
 ## 3. Configurer les services externes
