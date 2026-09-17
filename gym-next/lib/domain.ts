@@ -43,6 +43,11 @@ export type Reservation = {
   confirmationStatus?: "sent" | "queued" | "skipped";
 };
 
+export function canonicalSportSlug(value?: string) {
+  if (!value) return undefined;
+  return value === "metiers-de-la-forme" ? "fitness" : value;
+}
+
 export const coachProfiles: CoachProfile[] = [
   {
     id: "steven-fordant",
@@ -111,8 +116,9 @@ export function coachIdForName(name: string) {
 }
 
 export function filterCoaches({ sport, city }: { sport?: string; city?: string }) {
+  const canonicalSport = canonicalSportSlug(sport);
   return coachProfiles.filter((coach) => {
-    const sportMatches = !sport || sport === "metiers-de-la-forme" || coach.sport === sport;
+    const sportMatches = !canonicalSport || coach.sport === canonicalSport;
     const cityMatches = !city || coach.city.toLowerCase() === city.toLowerCase();
     return sportMatches && cityMatches;
   });
