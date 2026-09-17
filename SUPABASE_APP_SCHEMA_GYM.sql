@@ -28,6 +28,12 @@ alter table public.gym_coaches add column if not exists availability text not nu
 create index if not exists gym_coaches_sport_city_idx on public.gym_coaches (sport, city);
 create index if not exists gym_coaches_verified_idx on public.gym_coaches (verified);
 
+/*
+  Aucun profil de démonstration ne doit être injecté par le schéma de
+  préproduction. Le bloc historique ci-dessous est conservé comme référence,
+  mais volontairement désactivé ; les coachs réels doivent être créés et
+  vérifiés via le back-office.
+
 insert into public.gym_coaches (id, name, sport, specialty, city, rating, review_count, price_from, verified, description, disciplines, diplomas, session_types)
 values
   ('steven-fordant', 'Steven Fordant', 'basketball', 'Coach basketball individuel', 'Marseille', 4.9, 38, 35, true, 'Coach spécialisé dans le travail technique individuel, le développement du tir et la progression des jeunes joueurs.', 'Basketball, préparation physique', 'BPJEPS — à compléter', 'Individuel, duo, visio'),
@@ -49,6 +55,7 @@ on conflict (id) do update set
 update public.gym_coaches set availability = 'Lundi a vendredi, 18h-21h' where id = 'steven-fordant';
 update public.gym_coaches set availability = 'Mardi et jeudi, 17h-20h - samedi matin' where id = 'madison-seck';
 update public.gym_coaches set availability = 'Du lundi au samedi, 7h-12h' where id = 'studio-form-marseille';
+*/
 
 create table if not exists public.gym_reservations (
   id text primary key,
