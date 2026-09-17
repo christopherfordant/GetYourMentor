@@ -15,6 +15,6 @@ test("une structure peut transmettre une demande d'affiliation", async ({ page }
   const response = await responsePromise;
 
   expect(response.status()).toBe(201);
-  expect((await response.json()).data).toMatchObject({ logoFileName: "logo-club.png", identityFileName: "identite.pdf" });
+  expect((await response.json()).data).toMatchObject({ logoFileName: "logo-club.png", identityFileName: "identite.pdf", ibanLast4: "7890" });
   await expect(page.locator("[data-club-signup-status]")).toContainText("demande a bien été transmise");
 });

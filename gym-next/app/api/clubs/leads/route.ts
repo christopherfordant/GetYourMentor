@@ -11,7 +11,8 @@ export async function POST(request: Request) {
   const managerName = String(form.get("managerName") ?? "").trim();
   const email = String(form.get("email") ?? "").trim();
   const phone = String(form.get("phone") ?? "").trim();
-  const iban = String(form.get("iban") ?? "").trim();
+  const ibanInput = String(form.get("iban") ?? "").replace(/\s+/g, "").toUpperCase();
+  const ibanLast4 = ibanInput.length >= 4 ? ibanInput.slice(-4) : undefined;
   const logo = form.get("logo");
   const identity = form.get("identity");
   if ([logo, identity].some((file) => file instanceof File && file.size > 5 * 1024 * 1024)) {
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
     managerName,
     email,
     phone: phone || undefined,
-    iban: iban || undefined,
+    ibanLast4,
     logoFileName: logo instanceof File && logo.size > 0 ? logo.name : undefined,
     identityFileName: identity instanceof File && identity.size > 0 ? identity.name : undefined,
   });
