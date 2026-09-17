@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { currentSession } from "@/lib/auth";
 import { createMessage, listMessages } from "@/lib/messages";
 import { getCoach } from "@/lib/coaches";
+import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 
 export async function GET(request: Request) {
   const session = await currentSession();
@@ -19,8 +20,12 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const session = await currentSession();
   if (!session || session.role !== "sportif") return NextResponse.json({ error: "Connexion sportif requise pour contacter un coach" }, { status: 401 });
+  if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
 
   const body = await request.json().catch(() => null);
+  if (textExceedsLimit(body?.recipientName, 160) || textExceedsLimit(body?.body, 4000) || textExceedsLimit(body?.reservationId, 128)) {
+    return NextResponse.json({ error: "Message trop long" }, { status: 400 });
+  }
   if (typeof body?.recipientName !== "string" || !body.recipientName.trim() || typeof body?.body !== "string" || !body.body.trim()) {
     return NextResponse.json({ error: "Destinataire et message requis" }, { status: 400 });
   }

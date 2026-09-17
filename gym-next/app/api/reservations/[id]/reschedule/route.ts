@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
 import { currentSession } from "@/lib/auth";
 import { rescheduleReservation } from "@/lib/reservations";
+import { bodyExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const session = await currentSession();
   if (!session || session.role !== "sportif") return NextResponse.json({ error: "Connexion sportif requise" }, { status: 401 });
+  if (bodyExceedsLimit(request, 16 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
   const slots = Array.isArray(body?.slots) ? body.slots.filter((slot: unknown) => typeof slot === "string" && slot.trim()).map((slot: string) => slot.trim()) : [];
   try {

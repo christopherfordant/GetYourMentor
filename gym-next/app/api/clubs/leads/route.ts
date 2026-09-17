@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { createClubLead } from "@/lib/clubs";
+import { bodyExceedsLimit } from "@/lib/request-guards";
 
 export async function POST(request: Request) {
+  if (bodyExceedsLimit(request, 6 * 1024 * 1024)) return NextResponse.json({ error: "Fichiers trop volumineux" }, { status: 413 });
   const form = await request.formData().catch(() => null);
   if (!form) return NextResponse.json({ error: "Formulaire invalide" }, { status: 400 });
 
@@ -12,6 +14,9 @@ export async function POST(request: Request) {
   const iban = String(form.get("iban") ?? "").trim();
   const logo = form.get("logo");
   const identity = form.get("identity");
+  if ([logo, identity].some((file) => file instanceof File && file.size > 5 * 1024 * 1024)) {
+    return NextResponse.json({ error: "Fichier trop volumineux" }, { status: 413 });
+  }
 
   if (!clubName || !managerName || !email) {
     return NextResponse.json({ error: "Le club, le responsable et l’adresse mail sont requis" }, { status: 400 });
