@@ -13,7 +13,7 @@ test("le webhook Stripe signé confirme une réservation", async ({ request }, t
   const accepted = await request.patch(`/api/reservations/${reservation.id}`, { data: { status: "accepted" }, headers: { Cookie: coachCookie } });
   expect(accepted.status()).toBe(200);
 
-  const payload = JSON.stringify({ type: "checkout.session.completed", data: { object: { customer_details: { email: "sportif@example.com" }, metadata: { reservation_id: reservation.id } } } });
+  const payload = JSON.stringify({ type: "checkout.session.completed", data: { object: { customer_details: { email: "sportif@example.com" }, payment_intent: "pi_test_getyourmentor", metadata: { reservation_id: reservation.id } } } });
   const timestamp = Math.floor(Date.now() / 1000);
   const signature = createHmac("sha256", "test-webhook-secret").update(`${timestamp}.${payload}`).digest("hex");
   const webhook = await request.post("/api/webhooks/stripe", {
@@ -29,7 +29,9 @@ test("le webhook Stripe signé confirme une réservation", async ({ request }, t
   const payer = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const payerCookie = payer.headers()["set-cookie"].split(";")[0];
   const updated = await request.get(`/api/reservations/${reservation.id}`, { headers: { Cookie: payerCookie } });
-  expect((await updated.json()).data.status).toBe("paid");
+  const updatedBody = (await updated.json()).data;
+  expect(updatedBody.status).toBe("paid");
+  expect(updatedBody.stripePaymentIntentId).toBe("pi_test_getyourmentor");
 
   const malformedPayload = "not-json";
   const malformedSignature = createHmac("sha256", "test-webhook-secret").update(`${timestamp}.${malformedPayload}`).digest("hex");
