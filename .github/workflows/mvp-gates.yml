@@ -39,6 +39,9 @@ jobs:
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
+      - name: Verify preproduction environment template
+        run: npm run check:preproduction-template
+
       - name: Verify production configuration gate
         run: |
           set +e
