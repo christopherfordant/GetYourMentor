@@ -9,7 +9,8 @@ const child = spawn(process.execPath, [nextBin, "start", "--port", port], {
     ...process.env,
     NODE_ENV: "production",
     PORT: port,
-    GETYOURMENTOR_ALLOW_DEMO: "",
+    // Même si le flag fuit dans l’environnement, le runtime production doit rester fermé.
+    GETYOURMENTOR_ALLOW_DEMO: "true",
     SUPABASE_URL: "",
     NEXT_PUBLIC_SUPABASE_URL: "",
     SUPABASE_ANON_KEY: "",

@@ -12,6 +12,13 @@ const required = [
 
 const errors = [];
 
+if (process.env.NODE_ENV === "production" && process.env.GETYOURMENTOR_ALLOW_DEMO === "true") {
+  errors.push("GETYOURMENTOR_ALLOW_DEMO doit rester désactivé en production.");
+}
+if (process.env.NODE_ENV === "production" && process.env.GETYOURMENTOR_ACCEPTANCE_MODE === "true") {
+  errors.push("GETYOURMENTOR_ACCEPTANCE_MODE est réservé à la recette locale et doit rester désactivé en production.");
+}
+
 function looksLikePlaceholder(value) {
   return /^(YOUR_|REPLACE_|CHANGE_ME|CHANGEME|<|\[)/i.test(value.trim());
 }

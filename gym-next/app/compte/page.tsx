@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { AccountLegacyPage } from "@/components/account-legacy/AccountLegacyPage";
 import { currentSession } from "@/lib/auth";
+import { isDemoFallbackAllowed } from "@/lib/runtime";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
 type ComptePageProps = {
@@ -48,5 +49,5 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
     if (!normalizedParams.mode && session.role !== "sportif") normalizedParams.mode = session.role;
   }
 
-  return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} allowDemoFallback={process.env.GETYOURMENTOR_ALLOW_DEMO === "true"} />;
+  return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} allowDemoFallback={isDemoFallbackAllowed()} />;
 }

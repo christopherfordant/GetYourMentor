@@ -1,5 +1,12 @@
+function isAcceptanceTestMode() {
+  return process.env.GETYOURMENTOR_ACCEPTANCE_MODE === "true"
+    && process.env.CI === "true"
+    && /^http:\/\/127\.0\.0\.1:\d+$/.test(process.env.NEXT_PUBLIC_APP_URL ?? "");
+}
+
 export function isDemoFallbackAllowed() {
-  return process.env.NODE_ENV !== "production" || process.env.GETYOURMENTOR_ALLOW_DEMO === "true";
+  return isAcceptanceTestMode()
+    || (process.env.NODE_ENV !== "production" && process.env.GETYOURMENTOR_ALLOW_DEMO === "true");
 }
 
 export function assertDemoFallbackAllowed(resource: string) {

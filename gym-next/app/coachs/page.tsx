@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { SelectionCoachsLegacyPage } from "@/components/directory-legacy/SelectionCoachsLegacyPage";
 import { filterStoredCoaches } from "@/lib/coaches";
+import { isDemoFallbackAllowed } from "@/lib/runtime";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
 
 type CoachsPageProps = {
@@ -47,7 +48,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
   const hasPersistentCoachCatalog = Boolean(
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
-  const demoAllowed = process.env.GETYOURMENTOR_ALLOW_DEMO === "true";
+  const demoAllowed = isDemoFallbackAllowed();
   const persistedCoaches = hasPersistentCoachCatalog
     ? await filterStoredCoaches({ sport, city })
     : null;

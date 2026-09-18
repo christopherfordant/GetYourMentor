@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { ReserverSeanceLegacyPage } from "@/components/booking-legacy/ReserverSeanceLegacyPage";
+import { isDemoFallbackAllowed } from "@/lib/runtime";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
 
 type CoachPageProps = {
@@ -47,7 +48,7 @@ export default async function CoachPage({ searchParams }: CoachPageProps) {
     <ReserverSeanceLegacyPage
       legacyStyles={legacyStyles}
       params={normalizedParams}
-      allowDemoFallback={process.env.GETYOURMENTOR_ALLOW_DEMO === "true"}
+      allowDemoFallback={isDemoFallbackAllowed()}
     />
   );
 }
