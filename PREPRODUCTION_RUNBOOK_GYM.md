@@ -79,6 +79,7 @@ npm.cmd run check:production-config
 npm.cmd run check:types
 npm.cmd run check:netlify-config
 npm.cmd run check:preproduction-template
+npm.cmd run check:tracked-secrets
 npm.cmd run check:supabase-schema
 npm.cmd run build
 npm.cmd run check:client-secret-boundary
