@@ -4,6 +4,11 @@ import type { Reservation } from "@/lib/domain";
 import { sendReservationReminder } from "@/lib/notifications";
 import { listReservations } from "@/lib/reservations";
 
+// This endpoint must be evaluated on every request: the secret is supplied by
+// Netlify at runtime and the reservation window moves continuously.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 function isAuthorized(request: Request) {
   const expected = process.env.CRON_SECRET;
   const received = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "") ?? request.headers.get("x-cron-secret") ?? "";
