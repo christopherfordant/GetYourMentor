@@ -9,7 +9,7 @@ type Overview = {
   requested: number;
   accepted: number;
   paid: number;
-  coachList: Array<{ id: string; name: string; sport: string; city: string; verified: boolean; profileComplete: boolean }>;
+  coachList: Array<{ id: string; name: string; sport: string; city: string; verified: boolean; verificationStatus?: string; profileComplete: boolean }>;
   reservationList: Array<{ id: string; coachName: string; service: string; status: string; price: number }>;
   clubLeads: number;
   pendingClubLeads: number;
@@ -20,6 +20,16 @@ export function AdminDashboard() {
   const [overview, setOverview] = useState<Overview | null>(null);
   const [error, setError] = useState("");
   const [reservationSearch, setReservationSearch] = useState("");
+
+  async function openCoachDocument(id: string, kind: "identity" | "diploma") {
+    const response = await fetch(`/api/coaches/${encodeURIComponent(id)}/documents?kind=${kind}`);
+    const payload = await response.json();
+    if (!response.ok || typeof payload.data?.signedUrl !== "string") {
+      setError(payload.error ?? "Justificatif indisponible");
+      return;
+    }
+    window.open(payload.data.signedUrl, "_blank", "noopener,noreferrer");
+  }
 
   async function toggleVerification(id: string, verified: boolean) {
     const response = await fetch(`/api/admin/coaches/${id}`, {
@@ -86,7 +96,11 @@ export function AdminDashboard() {
                 <strong>{coach.name}</strong>
                 <span>{coach.sport} · {coach.city}</span>
                 <span data-admin-coach-completeness>{coach.profileComplete ? "Profil complet" : "Profil incomplet"}</span>
-                <span data-admin-coach-status>{coach.verified ? "Vérifié" : "À vérifier"}</span>
+                <span data-admin-coach-status>{coach.verificationStatus === "rejected" ? "Refusé" : coach.verified ? "Vérifié" : "À vérifier"}</span>
+                <div className="admin-document-actions">
+                  <button type="button" onClick={() => openCoachDocument(coach.id, "identity")}>Voir identité</button>
+                  <button type="button" onClick={() => openCoachDocument(coach.id, "diploma")}>Voir diplôme</button>
+                </div>
                 <button type="button" onClick={() => toggleVerification(coach.id, !coach.verified)}>
                   {coach.verified ? "Retirer la vérification" : "Vérifier"}
                 </button>
