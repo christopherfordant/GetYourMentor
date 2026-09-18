@@ -1,0 +1,86 @@
+{
+  "name": "GetYourMentor - Ingestion documentaire",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "gym/document", "responseMode": "onReceived", "options": {"binaryData": true}},
+      "id": "document-webhook",
+      "name": "Nouveau document",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [180, 300],
+      "webhookId": "gym-document-ingestion"
+    },
+    {
+      "parameters": {"operation": "pdf", "binaryPropertyName": "data", "options": {}},
+      "id": "extract-document",
+      "name": "Extraire le texte PDF",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [420, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const item = $input.first().json;\nconst text = String(item.text ?? item.data ?? '').replace(/\\s+/g, ' ').trim();\nconst sourceName = item.fileName ?? item.name ?? 'document-sans-nom';\nconst documentId = `doc-${sourceName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;\nconst chunkSize = 1200;\nconst chunks = [];\nfor (let index = 0; index < text.length; index += chunkSize) chunks.push(text.slice(index, index + chunkSize));\nreturn [{ json: { document_id: documentId, title: sourceName, source_path: sourceName, document_type: 'strategic', content: text, summary: text.slice(0, 500), chunks: chunks.map((content, index) => ({ chunk_index: index, content })) } }];"
+      },
+      "id": "normalize-document",
+      "name": "Nettoyer et découper",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "upsert",
+        "schema": "gym_memory",
+        "table": "documents",
+        "columns": {"mappingMode": "defineBelow", "value": {"id": "={{ $json.document_id }}", "title": "={{ $json.title }}", "source_path": "={{ $json.source_path }}", "document_type": "={{ $json.document_type }}", "summary": "={{ $json.summary }}", "ingested_at": "={{ $now.toISO() }}"}, "matchingColumns": ["id"]}
+      },
+      "id": "save-document",
+      "name": "Supabase - documents",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const source = $('Nettoyer et découper').first().json;\nreturn source.chunks.map((chunk) => ({ json: { document_id: source.document_id, chunk_index: chunk.chunk_index, content: chunk.content, metadata: JSON.stringify({ source_path: source.source_path }) } }));"
+      },
+      "id": "expand-chunks",
+      "name": "Préparer les chunks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1220, 300]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "create",
+        "schema": "gym_memory",
+        "table": "document_chunks",
+        "columns": {"mappingMode": "defineBelow", "value": {"document_id": "={{ $json.document_id }}", "chunk_index": "={{ $json.chunk_index }}", "content": "={{ $json.content }}", "metadata": "={{ $json.metadata }}"}}
+      },
+      "id": "save-chunks",
+      "name": "Supabase - document_chunks",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1480, 300],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    }
+  ],
+  "connections": {
+    "Nouveau document": {"main": [[{"node": "Extraire le texte PDF", "type": "main", "index": 0}]]},
+    "Extraire le texte PDF": {"main": [[{"node": "Nettoyer et découper", "type": "main", "index": 0}]]},
+    "Nettoyer et découper": {"main": [[{"node": "Supabase - documents", "type": "main", "index": 0}]]},
+    "Supabase - documents": {"main": [[{"node": "Préparer les chunks", "type": "main", "index": 0}]]},
+    "Préparer les chunks": {"main": [[{"node": "Supabase - document_chunks", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-document-ingestion-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}

@@ -1,0 +1,48 @@
+{
+  "name": "GetYourMentor - Journal des décisions",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "gym/decision", "responseMode": "onReceived", "options": {}},
+      "id": "decision-webhook",
+      "name": "Nouvelle décision",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [220, 300],
+      "webhookId": "gym-decision-journal"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $json.body ?? $json;\nconst allowedCategories = ['produit', 'finance', 'go-to-market', 'operations', 'technique'];\nconst impact = ['faible', 'moyen', 'fort'].includes(input.impact_level) ? input.impact_level : 'moyen';\nreturn [{ json: { title: String(input.title ?? '').trim(), description: String(input.description ?? '').trim(), category: allowedCategories.includes(input.category) ? input.category : 'produit', decided_by: String(input.decided_by ?? 'équipe GYM').trim(), impact_level: impact, status: 'active', decided_at: new Date().toISOString() } }];"
+      },
+      "id": "normalize-decision",
+      "name": "Normaliser la décision",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "create",
+        "schema": "gym_memory",
+        "table": "decisions",
+        "columns": {"mappingMode": "defineBelow", "value": {"title": "={{ $json.title }}", "description": "={{ $json.description }}", "category": "={{ $json.category }}", "decided_by": "={{ $json.decided_by }}", "impact_level": "={{ $json.impact_level }}", "status": "={{ $json.status }}", "decided_at": "={{ $json.decided_at }}"}}
+      },
+      "id": "save-decision",
+      "name": "Supabase - decisions",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [820, 300],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    }
+  ],
+  "connections": {
+    "Nouvelle décision": {"main": [[{"node": "Normaliser la décision", "type": "main", "index": 0}]]},
+    "Normaliser la décision": {"main": [[{"node": "Supabase - decisions", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-decision-journal-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}
