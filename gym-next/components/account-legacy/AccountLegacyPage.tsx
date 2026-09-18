@@ -403,7 +403,15 @@ function CoachDashboard({
 
   const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
   const acceptedCount = reservations.filter((reservation) => ["accepted", "paid"].includes(reservation.status)).length;
-  const paidRevenue = reservations.filter((reservation) => reservation.status === "paid").reduce((total, reservation) => total + reservation.price, 0);
+  const now = new Date();
+  const currentMonthLabel = now.toLocaleDateString("fr-FR", { month: "long" });
+  const paidRevenue = reservations
+    .filter((reservation) => {
+      if (reservation.status !== "paid") return false;
+      const createdAt = new Date(reservation.createdAt);
+      return createdAt.getFullYear() === now.getFullYear() && createdAt.getMonth() === now.getMonth();
+    })
+    .reduce((total, reservation) => total + reservation.price, 0);
 
   return (
     <section className="account-dashboard coach-home" data-account-dashboard="coach">
@@ -531,7 +539,7 @@ function CoachDashboard({
         <article className="account-dashboard-card coach-home-revenue" id="coach-payments" data-coach-display-block="revenue">
           <div className="coach-home-card-head">
             <h3>Revenus ce mois-ci</h3>
-            <span>Mars</span>
+            <span>{currentMonthLabel}</span>
           </div>
           <div className="coach-home-revenue-amount">{paidRevenue} EUR</div>
           <p>Montant calculé sur les réservations payées.</p>
