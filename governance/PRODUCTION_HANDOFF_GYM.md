@@ -2,7 +2,7 @@
 
 Dernière mise à jour : 2026-09-18  
 Branche : `feat/nextjs-migration`  
-Dernier commit applicatif : `a00fa30`
+Dernier commit livré sur la branche : `050f68e`
 
 Ce document rassemble les contrôles des métiers nécessaires avant une ouverture publique. Il distingue les preuves locales des validations qui doivent être réalisées dans les comptes externes.
 
@@ -75,4 +75,3 @@ La mise en production n’est autorisée que lorsque les quatre conditions suiva
 2. configuration Stripe/Resend testée avec événements réels de test ;
 3. contenus juridiques validés et variables légales complètes ;
 4. déploiement Netlify du commit courant réussi, puis smoke test HTTPS et recette multi-rôles validés.
-
