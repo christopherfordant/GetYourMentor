@@ -8,9 +8,10 @@ rejoués après l’ajout du parcours club persistant et du contrôle d’accès
 (desktop et mobile, un worker). Le test ciblé vérifie qu’un compte club
 authentifié retrouve uniquement sa propre demande d’affiliation et son statut.
 La CI distante du commit fonctionnel précédent `59187c1` est verte : run
-`35301686997`, avec le contrôle de frontière client/serveur inclus. Le commit
-documentaire courant `299622a` a été poussé après cette exécution ; sa CI doit
-être confirmée séparément.
+`35301686997`, avec le contrôle de frontière client/serveur inclus. Les commits
+documentaires `299622a` puis `f1f5cbe` ont été poussés après cette exécution ;
+leur CI doit être confirmée séparément. Aucun code applicatif n’a changé depuis
+le commit testé.
 
 Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation juridique, ni un audit de sécurité indépendant, ni une recette utilisateur réelle.
 
@@ -18,9 +19,9 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
-| Build Next.js production | PASS local / CI précédente | Build propre du commit courant `299622a` avec Node 22.23.2 : 25 routes générées, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. Le même build a été validé par la CI du commit fonctionnel précédent `59187c1`, run `35301686997` ; la CI de `299622a` reste à confirmer. |
+| Build Next.js production | PASS local / CI précédente | Build propre du code applicatif de `299622a` avec Node 22.23.2 : 25 routes générées, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. Le même build a été validé par la CI du commit fonctionnel précédent `59187c1`, run `35301686997` ; les commits documentaires suivants ne modifient pas le code. |
 | Vérification TypeScript | PASS | `npm.cmd run check:types` exécute `tsc --noEmit --incremental false` sans dépendance de lint supplémentaire ; la vérification de types est aussi rejouée par le build Next.js. |
-| Parcours fonctionnels Playwright | PASS local / CI précédente | La suite complète 98/98 passe sur le commit courant `299622a` (49/49 desktop et 49/49 mobile, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, sécurité, liens juridiques et responsive. La CI du commit fonctionnel précédent `59187c1` est verte ; la CI de `299622a` reste à confirmer. |
+| Parcours fonctionnels Playwright | PASS local / CI précédente | La suite complète 98/98 passe sur le code applicatif de `299622a` (49/49 desktop et 49/49 mobile, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, sécurité, liens juridiques et responsive. La CI du commit fonctionnel précédent `59187c1` est verte ; les commits documentaires suivants ne modifient pas le code. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Modèle d’environnement préproduction | PASS | `npm.cmd run check:preproduction-template` vérifie les variables attendues, Stripe, HTTPS et l’absence de clés réelles dans `gym-next/.env.preproduction.example`. |
 | Contrat de déploiement Netlify | PASS code / à valider hébergement | `npm.cmd run check:netlify-config` vérifie le manifeste versionné : base `gym-next`, build Next.js, publication `.next`, Node 22 et absence de secrets. Le site Netlify et ses variables restent à configurer. |
@@ -28,7 +29,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Schéma Supabase applicatif | PASS code / À valider Supabase | `npm.cmd run check:supabase-schema` vérifie les six tables MVP, la RLS, l’absence de seed coach actif, le bucket privé et l’unicité coach/créneau ; l’exécution SQL réelle reste à faire dans le projet Supabase de préproduction. |
 | Script de vérification Supabase | PRÉPARÉ / À exécuter Supabase | `SUPABASE_PREPRODUCTION_VERIFY.sql` regroupe les contrôles en lecture seule des tables, de la RLS, du bucket, des données de démonstration, de la contrainte de créneau et des policies. |
 | Frontière secrets serveur/client | PASS local / CI | `npm.cmd run check:client-secret-boundary` inspecte les artefacts `.next/static` et échoue si une variable serveur Supabase, Stripe, Resend ou session y apparaît. |
-| Contrôles reproductibles CI | PASS historique / courant à confirmer | `.github/workflows/mvp-gates.yml` rejoue installation, audit, TypeScript, contrôle de configuration, schéma Supabase, build, frontière secrets client/serveur, smoke production et Playwright. Le run `35301686997` du commit fonctionnel précédent est vert ; le run du commit documentaire courant doit être confirmé. |
+| Contrôles reproductibles CI | PASS historique / nouveaux commits à confirmer | `.github/workflows/mvp-gates.yml` rejoue installation, audit, TypeScript, contrôle de configuration, schéma Supabase, build, frontière secrets client/serveur, smoke production et Playwright. Le run `35301686997` du commit fonctionnel précédent est vert ; les nouveaux commits documentaires doivent être confirmés séparément. |
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local exigent `GETYOURMENTOR_ALLOW_DEMO=true` hors production ; le mode d’acceptation du bundle utilise en plus une URL loopback et `CI=true`. Le runtime et le contrôle de configuration refusent ces modes en production réelle. |
 | Endpoint de santé | PASS | `/api/health` ne renvoie aucun secret et distingue le mode démo d’une configuration production dégradée. |
 | Échec fermé sans secrets | PASS | Runtime vérifié : sans configuration réelle ni flag démo, `/api/health` répond `503 degraded` avec tous les contrôles à `false`. |
