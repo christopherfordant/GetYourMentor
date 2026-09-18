@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const auditExternalServer = process.env.PW_AUDIT_EXTERNAL_SERVER === "true";
+
 export default defineConfig({
   testDir: "./tests",
   timeout: 60_000,
@@ -19,7 +21,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
     video: "retain-on-failure",
   },
-  webServer: {
+  webServer: auditExternalServer ? undefined : {
     command: `${process.platform === "win32" ? "npm.cmd" : "npm"} run start -- --port 3001`,
     url: "http://127.0.0.1:3001/",
     // Ne jamais réutiliser un serveur lancé avec un autre environnement ou un ancien build.
