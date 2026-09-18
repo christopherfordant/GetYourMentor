@@ -530,6 +530,49 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+.legal-placeholder-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 8rem 1.5rem 4rem;
+  background: #080d1d;
+  color: #f4f7fb;
+}
+
+.legal-placeholder-card {
+  width: min(100%, 46rem);
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid #273756;
+  border-radius: 2rem;
+  background: #111b31;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.24);
+}
+
+.legal-placeholder-kicker {
+  margin: 0 0 1rem;
+  color: #d7f36b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.legal-placeholder-card h1 { margin: 0; color: #ffffff; }
+.legal-placeholder-card p { color: #c5d0e2; line-height: 1.7; }
+.legal-placeholder-status { font-weight: 700; color: #ffffff !important; }
+.legal-placeholder-topic { color: #9eafca !important; }
+
+.legal-placeholder-card a {
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  background: #d7f36b;
+  color: #0b1222;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 /* Profil coach : corrige les cartes legacy dont le fond blanc masquait les textes. */
 .booking-profile-page .booking-followers-pill,
 .booking-profile-page .booking-score-panel,

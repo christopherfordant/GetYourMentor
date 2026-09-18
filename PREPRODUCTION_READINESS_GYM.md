@@ -40,7 +40,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Paiement réel | BLOCKED | Le MVP reste en mode local tant qu’un compte Stripe, une clé serveur et un webhook ne sont pas configurés. |
 | Emails transactionnels | BLOCKED | Resend et une adresse d’expédition vérifiée sont nécessaires. |
 | Persistance/authentification réelle | BLOCKED | Supabase doit être créé, configuré, migré et testé avec ses politiques d’accès. |
-| Contenus juridiques | BLOCKED | Les liens CGU, confidentialité et mentions légales pointent encore vers des ancres de démonstration. Aucun texte juridique ne doit être inventé. |
+| Contenus juridiques | BLOCKED | Les liens CGV, CGU, confidentialité, cookies, accessibilité et mentions légales ouvrent désormais des pages de préproduction explicitement non indexées ; les textes applicables restent à fournir et à valider. Aucun texte juridique n’est inventé. |
 | Recette utilisateurs | À faire | Tests avec de vrais sportifs, coachs et administrateur à planifier. |
 | Déploiement | À faire | Domaine HTTPS, variables protégées, monitoring, sauvegardes et procédure de rollback à définir. |
 
