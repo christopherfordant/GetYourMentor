@@ -61,6 +61,13 @@ async function main() {
     dev = spawn(npmCmd, ["run", "dev", "--", "--hostname", "127.0.0.1", "--port", String(port)], {
       stdio: "inherit",
       shell: isWindows,
+      env: {
+        ...process.env,
+        CI: "true",
+        NEXT_PUBLIC_APP_URL: url,
+        GETYOURMENTOR_ALLOW_DEMO: "true",
+        GETYOURMENTOR_ACCEPTANCE_MODE: "true",
+      },
     });
   } else {
     console.log(`[pw:audit] Serveur detecte sur ${url}, reutilisation du serveur existant.`);
@@ -86,6 +93,7 @@ async function main() {
     const pw = spawn(pwCmd, args, {
       stdio: "inherit",
       shell: isWindows,
+      env: { ...process.env, PW_AUDIT_EXTERNAL_SERVER: "true" },
     });
 
     const exitCode = await new Promise((resolve) => {
