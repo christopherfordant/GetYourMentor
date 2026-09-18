@@ -7,7 +7,11 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
 
   useEffect(() => {
     const stored = window.localStorage.getItem("gym-language");
-    if (stored === "fr" || stored === "en") setLanguage(stored);
+    // L'anglais sera active quand les traductions seront disponibles. On
+    // refuse une ancienne preference EN pour ne jamais afficher du francais
+    // avec une langue de document anglaise.
+    if (stored === "fr") setLanguage(stored);
+    else if (stored === "en") window.localStorage.setItem("gym-language", "fr");
   }, []);
 
   return (
@@ -23,7 +27,7 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
         }}
       >
         <option value="fr">FR</option>
-        <option value="en">EN</option>
+        <option value="en" disabled>EN (bientot)</option>
       </select>
     </label>
   );
