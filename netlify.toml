@@ -1,0 +1,10 @@
+# Netlify deployment contract for the Next.js application.
+# The repository contains documentation and automation alongside the app.
+
+[build]
+  base = "gym-next"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"

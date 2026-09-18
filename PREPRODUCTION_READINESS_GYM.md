@@ -60,6 +60,8 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 ## Limites connues du mode MVP
 
+- Netlify : le contrat de build est versionné dans `netlify.toml` (base `gym-next`, build `npm run build`, publication `.next`). Le site Netlify doit encore être relié au dépôt et recevoir les secrets de préproduction ; aucun déploiement n’a été déclenché.
+
 - Le mode local mémoire est explicitement réservé à la démonstration (`GETYOURMENTOR_ALLOW_DEMO=true`) et n’est pas utilisable par inadvertance en production.
 - Sans Supabase, les comptes, sessions et données métier ne sont pas persistants.
 - Sans Stripe, le paiement réel n’est pas activé.
