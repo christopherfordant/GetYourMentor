@@ -21,6 +21,12 @@ const child = spawn(process.execPath, [nextBin, "start", "--port", port], {
     STRIPE_WEBHOOK_SECRET: "",
     RESEND_API_KEY: "",
     RESEND_FROM_EMAIL: "",
+    LEGAL_ENTITY_NAME: "",
+    LEGAL_ENTITY_ADDRESS: "",
+    LEGAL_CONTACT_EMAIL: "",
+    LEGAL_REGISTRATION: "",
+    LEGAL_DIRECTOR_NAME: "",
+    LEGAL_CONTENT_APPROVED: "false",
   },
   stdio: ["ignore", "pipe", "pipe"],
 });
