@@ -155,6 +155,7 @@ function AccountAuthShell({
     firstName: string;
     lastName: string;
     phone: string;
+    city: string;
     email: string;
     emailConfirmation: string;
     password: string;
@@ -300,6 +301,7 @@ function AccountAuthShell({
                 firstName: String(form.get("firstName") ?? ""),
                 lastName: String(form.get("lastName") ?? ""),
                 phone: String(form.get("phone") ?? ""),
+                city: String(form.get("city") ?? ""),
                 email: String(form.get("email") ?? ""),
                 emailConfirmation: String(form.get("emailConfirmation") ?? ""),
                 password: String(form.get("password") ?? ""),
@@ -335,6 +337,10 @@ function AccountAuthShell({
             <label className="auth-field">
               <span>Téléphone</span>
               <input name="phone" type="tel" placeholder="Téléphone" autoComplete="tel" />
+            </label>
+            <label className="auth-field">
+              <span>Ville / zone</span>
+              <input name="city" type="text" placeholder="Ville ou zone de pratique" autoComplete="address-level2" />
             </label>
             <label className="auth-checkbox">
               <input name="termsAccepted" type="checkbox" />
@@ -906,6 +912,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
     firstName: string;
     lastName: string;
     phone: string;
+    city: string;
     email: string;
     password: string;
     termsAccepted: boolean;
@@ -1020,7 +1027,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   revealDashboard(role);
                 }}
-                onSubmitCreate={({ firstName, lastName, phone, email, emailConfirmation, password, passwordConfirmation, termsAccepted }) => {
+                onSubmitCreate={({ firstName, lastName, phone, city, email, emailConfirmation, password, passwordConfirmation, termsAccepted }) => {
                   if (!firstName || !lastName || !phone) {
                     setStatus("Prénom, nom et téléphone sont requis.");
                     return;
@@ -1037,7 +1044,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                     setStatus("Vous devez accepter les CGU pour continuer.");
                     return;
                   }
-                  setPendingSignup({ firstName, lastName, phone, email, password, termsAccepted });
+                  setPendingSignup({ firstName, lastName, phone, city, email, password, termsAccepted });
                   setStatus("");
                   setStep("role");
                 }}

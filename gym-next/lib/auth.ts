@@ -6,7 +6,7 @@ import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
 type Session = { email: string; role: UserRole; coachId?: string };
-type SignupProfile = { firstName: string; lastName: string; phone: string; termsAccepted: boolean };
+type SignupProfile = { firstName: string; lastName: string; phone: string; city?: string; termsAccepted: boolean };
 
 const sessions = new Map<string, Session>();
 const localUsers = new Map<string, { password: string; role: UserRole; coachId?: string }>();
@@ -145,7 +145,7 @@ export async function signUp(email: string, password: string, role: UserRole, pr
       });
       if (!metadataResponse.ok) throw new Error("Profil de rôle indisponible");
     }
-    if (coachId && profile) await createStoredCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`.trim() });
+    if (coachId && profile) await createStoredCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`.trim(), city: profile.city });
   } else {
     if (localUsers.has(email)) throw new Error("Cette adresse est déjà inscrite");
     const coach = role === "coach" && profile ? createCoachProfile({ name: `${profile.firstName} ${profile.lastName}`.trim() }) : null;
