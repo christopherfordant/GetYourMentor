@@ -9,6 +9,7 @@
     "lint": "next lint",
     "check:production-config": "node scripts/check-production-config.mjs",
     "check:preproduction-template": "node scripts/check-preproduction-template.mjs",
+    "check:supabase-schema": "node scripts/check-supabase-schema.mjs",
     "check:production-safety": "node scripts/production-safety-smoke.mjs",
     "pw:audit": "node scripts/run-playwright-audit.cjs",
     "pw:business": "playwright test tests/business-flow.spec.ts",
