@@ -17,6 +17,7 @@ tmp_menu_accueil_profil_coach.jpg
 gym-next/.env
 gym-next/.env.*
 !gym-next/.env.example
+!gym-next/.env.preproduction.example
 
 docs/next-visual-validation/
 gym-next/playwright-artifacts/
@@ -26,6 +27,7 @@ governance/ai/supervisor_loop.log
 governance/ai/auto_mode_loop.log
 governance/ai/auto_orchestrator_loop.log
 governance/ai/auto_night_run.log
+governance/ai/agent_runs/
 gym-next/debug.log
 gym-next/pw_audit_stdout.log
 gym-next/pw_audit_stderr.log

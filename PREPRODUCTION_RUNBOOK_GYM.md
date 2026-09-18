@@ -48,6 +48,10 @@ Les rôles applicatifs Supabase doivent être conservés dans `app_metadata`, mi
 
 ## 2. Renseigner les variables protégées
 
+Utiliser `gym-next/.env.preproduction.example` comme liste de variables
+attendues. Il s’agit uniquement d’un modèle sans secret : renseigner les
+valeurs dans l’environnement protégé de l’hébergeur, jamais dans Git.
+
 Dans l’environnement de préproduction uniquement, renseigner les noms suivants à partir de valeurs générées par les services :
 
 - `SUPABASE_URL`
