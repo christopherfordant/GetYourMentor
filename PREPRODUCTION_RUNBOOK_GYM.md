@@ -70,12 +70,20 @@ cd C:\Users\cashe\Documents\GetYourMentor\gym-next
 npm.cmd run check:production-config
 npm.cmd run build
 npm.cmd audit --omit=dev --audit-level=high
+npx.cmd playwright install chromium
+npx.cmd playwright test --reporter=line --workers=1
 ```
 
 Le contrôle de configuration doit réussir sans utiliser `GETYOURMENTOR_ALLOW_DEMO`.
 Il vérifie aussi les URLs HTTPS, les placeholders et les formats attendus des clés Stripe/Resend ; il ne journalise aucune valeur secrète.
 
 La limitation de fréquence applicative est un premier garde-fou par processus. Avant ouverture publique ou déploiement multi-instance, compléter avec une règle edge/WAF ou un store partagé (par exemple Redis) et vérifier les seuils avec les limites du fournisseur.
+
+La suite Playwright doit être exécutée avec un worker unique afin d’éviter les
+collisions entre scénarios qui partagent le store de démonstration local. Elle
+couvre les parcours API, réservation, paiement, comptes, administration,
+inscription club, sécurité des accès, responsive et pages juridiques de
+préproduction. La CI reprend exactement cette commande.
 
 Avant d’ouvrir la préproduction, vérifier aussi l’existence de `public.gym_reservation_slot_claims` et l’unicité de `(coach_id, slot)`. Deux créations simultanées sur un même coach et un même créneau doivent produire une seule réponse acceptée et une réponse `409`.
 
