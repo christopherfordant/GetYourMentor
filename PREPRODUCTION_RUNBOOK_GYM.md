@@ -5,9 +5,11 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 ## 1. Préparer Supabase
 
 1. Créer un projet Supabase dédié à la préproduction, distinct d’une éventuelle production.
-2. Exécuter `SUPABASE_SCHEMA_GYM.sql` si le schéma mémoire de projet est nécessaire.
-3. Exécuter ensuite `SUPABASE_APP_SCHEMA_GYM.sql`. Ce script crée uniquement la
-   structure et n’injecte aucun coach de démonstration.
+2. Ne pas exécuter `SUPABASE_SCHEMA_GYM.sql` pour cette préproduction : ce script
+   correspond à l’ancien modèle mémoire et n’est pas le schéma de référence du
+   MVP déployé.
+3. Exécuter uniquement `SUPABASE_APP_SCHEMA_GYM.sql`. Ce script crée la
+structure applicative de référence et n’injecte aucun coach de démonstration.
 4. Exécuter `SUPABASE_PREPRODUCTION_VERIFY.sql` en lecture seule, puis archiver
    le résultat avec la date et le projet de préproduction.
 5. Vérifier l’existence des tables `public.gym_coaches`, `public.gym_reservations`, `public.gym_reviews`, `public.gym_messages`, `public.gym_reservation_slot_claims` et `public.gym_club_leads`.
