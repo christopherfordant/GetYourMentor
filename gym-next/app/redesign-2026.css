@@ -530,6 +530,40 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+.cookie-consent-banner {
+  position: fixed;
+  z-index: 1000;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(215, 243, 107, 0.3);
+  border-radius: 18px;
+  background: rgba(11, 16, 32, 0.97);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.36);
+  color: #f7fbff;
+}
+
+.cookie-consent-banner strong { display: block; margin-bottom: 0.3rem; }
+.cookie-consent-banner p { max-width: 620px; margin: 0; color: #c5d0e2; font-size: 0.86rem; line-height: 1.5; }
+.cookie-consent-banner a { color: #d7f36b; text-decoration: underline; }
+.cookie-consent-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.55rem; }
+.cookie-consent-actions button { min-height: 2.55rem; padding: 0.65rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.82rem; cursor: pointer; }
+.cookie-consent-primary { border: 0; background: #d7f36b; color: #0b1020; font-weight: 800; }
+.cookie-consent-secondary { border: 1px solid #526887; background: transparent; color: #f7fbff; }
+
+@media (max-width: 700px) {
+  .cookie-consent-banner { display: block; padding: 1rem; }
+  .cookie-consent-actions { justify-content: stretch; margin-top: 0.8rem; }
+  .cookie-consent-actions button { flex: 1; }
+}
+
 .legal-placeholder-page {
   min-height: 100vh;
   display: grid;
