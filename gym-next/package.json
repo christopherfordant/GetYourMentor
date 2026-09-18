@@ -13,6 +13,7 @@
     "check:supabase-schema": "node scripts/check-supabase-schema.mjs",
     "check:tracked-secrets": "node scripts/check-tracked-secrets.mjs",
     "check:client-secret-boundary": "node scripts/check-client-secret-boundary.mjs",
+    "check:n8n-workflows": "node scripts/check-n8n-workflows.mjs",
     "check:production-safety": "node scripts/production-safety-smoke.mjs",
     "check:preproduction-runtime": "node scripts/preproduction-runtime-smoke.mjs",
     "pw:audit": "node scripts/run-playwright-audit.cjs",
