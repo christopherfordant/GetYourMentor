@@ -4,11 +4,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   devIndicators: false,
   poweredByHeader: false,
-  // ESLint runs as an explicit CI/local gate; keep Next build independent
-  // from the linter worker and its legacy warnings.
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   async headers() {
     return [
       {
