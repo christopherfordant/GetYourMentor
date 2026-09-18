@@ -14,6 +14,12 @@ const required = [
   "NEXT_PUBLIC_APP_URL",
   "RESEND_API_KEY",
   "RESEND_FROM_EMAIL",
+  "LEGAL_ENTITY_NAME",
+  "LEGAL_ENTITY_ADDRESS",
+  "LEGAL_CONTACT_EMAIL",
+  "LEGAL_REGISTRATION",
+  "LEGAL_DIRECTOR_NAME",
+  "LEGAL_CONTENT_APPROVED",
 ];
 
 if (!fs.existsSync(filePath)) {
@@ -54,6 +60,9 @@ for (const [name, prefix] of [
 }
 if (values.get("GETYOURMENTOR_ALLOW_DEMO") || values.get("GETYOURMENTOR_ACCEPTANCE_MODE")) {
   errors.push("Les modes démo/acceptation doivent rester absents ou commentés.");
+}
+if (values.get("LEGAL_CONTENT_APPROVED") !== "false") {
+  errors.push("LEGAL_CONTENT_APPROVED doit rester false dans le modèle tant que le contenu juridique n'est pas validé.");
 }
 
 if (errors.length) {

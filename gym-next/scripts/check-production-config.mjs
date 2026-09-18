@@ -9,6 +9,12 @@ const required = [
   ["STRIPE_WEBHOOK_SECRET", "secret du webhook Stripe"],
   ["RESEND_API_KEY", "clé API Resend"],
   ["RESEND_FROM_EMAIL", "adresse d’expédition Resend"],
+  ["LEGAL_ENTITY_NAME", "raison sociale de l’éditeur"],
+  ["LEGAL_ENTITY_ADDRESS", "adresse de l’éditeur"],
+  ["LEGAL_CONTACT_EMAIL", "contact juridique"],
+  ["LEGAL_REGISTRATION", "immatriculation de l’éditeur"],
+  ["LEGAL_DIRECTOR_NAME", "directeur de publication"],
+  ["LEGAL_CONTENT_APPROVED", "validation juridique explicite"],
 ];
 
 const errors = [];
@@ -69,6 +75,12 @@ if (process.env.RESEND_API_KEY && !/^re_/.test(process.env.RESEND_API_KEY)) {
 }
 if (process.env.RESEND_FROM_EMAIL && !/^\S+@\S+\.\S+$/.test(process.env.RESEND_FROM_EMAIL.replace(/^.*<|>.*$/g, "").trim())) {
   errors.push("RESEND_FROM_EMAIL doit contenir une adresse email valide.");
+}
+if (process.env.LEGAL_CONTENT_APPROVED !== "true") {
+  errors.push("LEGAL_CONTENT_APPROVED doit être true après validation par la personne juridique responsable.");
+}
+if (process.env.LEGAL_CONTACT_EMAIL && !/^\S+@\S+\.\S+$/.test(process.env.LEGAL_CONTACT_EMAIL.trim())) {
+  errors.push("LEGAL_CONTACT_EMAIL doit contenir une adresse email valide.");
 }
 
 if (errors.length) {

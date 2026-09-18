@@ -25,6 +25,17 @@ function isValidProductionUrl(value: string | undefined) {
   }
 }
 
+function hasLegalProductionApproval() {
+  return process.env.LEGAL_CONTENT_APPROVED === "true"
+    && Boolean(
+      process.env.LEGAL_ENTITY_NAME?.trim()
+      && process.env.LEGAL_ENTITY_ADDRESS?.trim()
+      && process.env.LEGAL_CONTACT_EMAIL?.trim()
+      && process.env.LEGAL_REGISTRATION?.trim()
+      && process.env.LEGAL_DIRECTOR_NAME?.trim(),
+    );
+}
+
 export function getRuntimeReadiness() {
   const checks = {
     publicUrl: isValidProductionUrl(process.env.NEXT_PUBLIC_APP_URL),
@@ -37,6 +48,7 @@ export function getRuntimeReadiness() {
     ),
     stripe: process.env.PAYMENT_PROVIDER === "stripe" && Boolean(process.env.STRIPE_SECRET_KEY && process.env.STRIPE_WEBHOOK_SECRET),
     resend: Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM_EMAIL),
+    legal: hasLegalProductionApproval(),
   };
   const demo = isDemoFallbackAllowed();
   const servicesReady = Object.values(checks).every(Boolean);
