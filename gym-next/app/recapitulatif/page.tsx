@@ -32,7 +32,7 @@ export async function generateMetadata({ searchParams }: RecapitulatifPageProps)
 
 export default async function RecapitulatifPage({ searchParams }: RecapitulatifPageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "..", "prototype-site", "styles.css");
+  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
   const legacyStyles = fs
     .readFileSync(stylesheetPath, "utf8")
     .replaceAll("../design_assets/", "/design_assets/");

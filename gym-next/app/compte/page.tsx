@@ -34,7 +34,7 @@ export async function generateMetadata({ searchParams }: ComptePageProps): Promi
 
 export default async function ComptePage({ searchParams }: ComptePageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "..", "prototype-site", "styles.css");
+  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
   const legacyStyles = fs
     .readFileSync(stylesheetPath, "utf8")
     .replaceAll("../design_assets/", "/design_assets/");
