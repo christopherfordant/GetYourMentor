@@ -1,12 +1,15 @@
 import { canonicalSportSlug, coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { supabaseHeaders } from "@/lib/supabase";
+import { distanceKm, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
 
-export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4">;
+export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
 
-export function toPublicCoach(coach: CoachProfile): PublicCoachProfile {
-  const publicCoach = { ...coach } as PublicCoachProfile & { bankAccountLast4?: string };
+export function toPublicCoach(coach: CoachProfile & { distanceKm?: number }): PublicCoachProfile {
+  const publicCoach = { ...coach } as PublicCoachProfile & { bankAccountLast4?: string; latitude?: number; longitude?: number };
   delete publicCoach.bankAccountLast4;
+  delete publicCoach.latitude;
+  delete publicCoach.longitude;
   return publicCoach;
 }
 
@@ -36,6 +39,9 @@ function fromRow(row: Record<string, unknown>): CoachProfile {
     availability: String(row.availability ?? ""),
     photoUrl: String(row.photo_url ?? ""),
     bankAccountLast4: String(row.bank_account_last4 ?? ""),
+    latitude: row.latitude == null ? undefined : Number(row.latitude),
+    longitude: row.longitude == null ? undefined : Number(row.longitude),
+    serviceRadiusKm: row.service_radius_km == null ? undefined : Number(row.service_radius_km),
   };
 }
 
@@ -78,11 +84,11 @@ export async function getCoach(idOrName?: string) {
   return row ? fromRow(row) : null;
 }
 
-export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4">>) {
+export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "latitude" | "longitude" | "serviceRadiusKm">>) {
   const config = supabaseConfig();
   if (!config) return updateCoachProfile(id, updates);
   const body = Object.fromEntries(Object.entries(updates).map(([key, value]) => [
-    key === "priceFrom" ? "price_from" : key === "sessionTypes" ? "session_types" : key === "photoUrl" ? "photo_url" : key === "bankAccountLast4" ? "bank_account_last4" : key,
+    key === "priceFrom" ? "price_from" : key === "sessionTypes" ? "session_types" : key === "photoUrl" ? "photo_url" : key === "bankAccountLast4" ? "bank_account_last4" : key === "serviceRadiusKm" ? "service_radius_km" : key,
     value,
   ]));
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
@@ -139,9 +145,17 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   return row ? fromRow(row) : null;
 }
 
-export async function filterStoredCoaches(filters: { sport?: string; city?: string }) {
+export async function filterStoredCoaches(filters: { sport?: string; city?: string; latitude?: string; longitude?: string; radiusKm?: string }) {
   const coaches = await listCoaches();
-  if (coaches === coachProfiles) return filterCoaches(filters);
+  const origin = parseCoordinates(filters.latitude, filters.longitude);
+  const radiusKm = normalizeRadiusKm(filters.radiusKm);
+  if (coaches === coachProfiles) return filterCoaches(filters).map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }));
   const canonicalSport = canonicalSportSlug(filters.sport);
-  return coaches.filter((coach) => coach.verified && (!canonicalSport || coach.sport === canonicalSport) && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase()));
+  return coaches
+    .map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }))
+    .filter((coach) => coach.verified
+      && (!canonicalSport || coach.sport === canonicalSport)
+      && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase())
+      && (!origin || (coach.distanceKm != null && coach.distanceKm <= radiusKm)))
+    .sort((first, second) => (first.distanceKm ?? Number.POSITIVE_INFINITY) - (second.distanceKm ?? Number.POSITIVE_INFINITY));
 }

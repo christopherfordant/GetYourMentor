@@ -17,6 +17,9 @@ export type CoachProfile = {
   availability?: string;
   photoUrl?: string;
   bankAccountLast4?: string;
+  latitude?: number;
+  longitude?: number;
+  serviceRadiusKm?: number;
 };
 
 export type ReservationStatus = "requested" | "accepted" | "rejected" | "cancelled" | "paid";

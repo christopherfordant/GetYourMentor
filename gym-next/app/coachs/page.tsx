@@ -64,6 +64,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     price: coach.priceFrom,
     rating: coach.rating,
     verified: coach.verified,
+    distanceKm: coach.distanceKm,
     format: coach.sessionTypes?.toLowerCase().includes("visio") ? ("visio" as const) : undefined,
   })) ?? (demoAllowed ? undefined : []);
 
