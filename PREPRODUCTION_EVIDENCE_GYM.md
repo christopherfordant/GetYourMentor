@@ -48,7 +48,7 @@ personnelle inutile.
 
 ## 5. Netlify et runtime
 
-Mise à jour du 18/09/2026 : le site `gregarious-fox-fff605.netlify.app` est déployé avec le runtime Next.js (`@netlify/plugin-nextjs`), la page `/` répond en HTTPS et les fonctions sont présentes. `/api/health` répond `503 degraded` en mode production avec Supabase, Stripe et Resend absents ; le smoke complet reste donc bloqué jusqu’à la configuration de ces services.
+Mise à jour du 18/09/2026 : la branche `feat/nextjs-migration` contient le commit `1b1f144` et le build local Netlify valide la base `gym-next`, la publication `.next`, le runtime Next.js et la fonction planifiée des rappels H-72. Le site public `gregarious-fox-fff605.netlify.app` répond en HTTPS et `/api/health` renvoie `status: ok`, mais les routes récentes renvoient encore `404` : le site public n’est donc pas aligné sur cette branche. Une publication CLI a de nouveau été refusée par Netlify avec `403 Forbidden`. La migration Supabase réelle et la recette Stripe/Resend restent à valider séparément.
 
 - Site relié au dépôt et à la branche attendue : `À valider`
 - Build Netlify réussi avec `gym-next` et `.next` : `À valider`
