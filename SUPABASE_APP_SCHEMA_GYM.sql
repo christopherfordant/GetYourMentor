@@ -19,6 +19,15 @@ create table if not exists public.gym_coaches (
   availability text not null default '',
   photo_url text not null default '',
   bank_account_last4 text not null default '',
+  phone text,
+  phone_verified_at timestamptz,
+  identity_file_name text,
+  identity_storage_path text,
+  diploma_file_name text,
+  diploma_storage_path text,
+  verification_status text not null default 'pending' check (verification_status in ('pending', 'approved', 'rejected')),
+  verification_note text,
+  verified_at timestamptz,
   latitude numeric(9, 6),
   longitude numeric(9, 6),
   service_radius_km numeric(5, 2) not null default 10 check (service_radius_km > 0 and service_radius_km <= 100),
@@ -31,10 +40,20 @@ alter table public.gym_coaches add column if not exists availability text not nu
 alter table public.gym_coaches add column if not exists latitude numeric(9, 6);
 alter table public.gym_coaches add column if not exists longitude numeric(9, 6);
 alter table public.gym_coaches add column if not exists service_radius_km numeric(5, 2) not null default 10;
+alter table public.gym_coaches add column if not exists phone text;
+alter table public.gym_coaches add column if not exists phone_verified_at timestamptz;
+alter table public.gym_coaches add column if not exists identity_file_name text;
+alter table public.gym_coaches add column if not exists identity_storage_path text;
+alter table public.gym_coaches add column if not exists diploma_file_name text;
+alter table public.gym_coaches add column if not exists diploma_storage_path text;
+alter table public.gym_coaches add column if not exists verification_status text not null default 'pending';
+alter table public.gym_coaches add column if not exists verification_note text;
+alter table public.gym_coaches add column if not exists verified_at timestamptz;
 
 create index if not exists gym_coaches_sport_city_idx on public.gym_coaches (sport, city);
 create index if not exists gym_coaches_verified_idx on public.gym_coaches (verified);
 create index if not exists gym_coaches_location_idx on public.gym_coaches (latitude, longitude) where latitude is not null and longitude is not null;
+create index if not exists gym_coaches_verification_status_idx on public.gym_coaches (verification_status);
 
 /*
   Aucun profil de démonstration ne doit être injecté par le schéma de
@@ -180,4 +199,8 @@ create index if not exists gym_club_leads_created_at_idx on public.gym_club_lead
 -- vérifie le rôle avant de délivrer une URL temporaire.
 insert into storage.buckets (id, name, public)
 values ('club-documents', 'club-documents', false)
+on conflict (id) do update set public = false;
+
+insert into storage.buckets (id, name, public)
+values ('coach-documents', 'coach-documents', false)
 on conflict (id) do update set public = false;
