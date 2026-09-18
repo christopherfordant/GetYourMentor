@@ -180,6 +180,7 @@ export async function createClubLead(input: ClubLeadInput) {
           manager_name: lead.managerName,
           email: lead.email,
           phone: lead.phone ?? null,
+          address_label: lead.addressLabel ?? null,
           latitude: lead.latitude ?? null,
           longitude: lead.longitude ?? null,
           iban_last4: lead.ibanLast4 ?? null,
