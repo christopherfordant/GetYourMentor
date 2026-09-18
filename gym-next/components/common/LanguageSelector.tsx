@@ -2,12 +2,19 @@
 
 import { useEffect, useState } from "react";
 
+export function detectInitialLanguage(stored: string | null, browserLanguage?: string) {
+  if (stored === "fr" || stored === "en") return stored;
+  return browserLanguage?.toLowerCase().startsWith("en") ? "en" : "fr";
+}
+
 export function LanguageSelector({ className = "" }: { className?: string }) {
   const [language, setLanguage] = useState("fr");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("gym-language");
-    if (stored === "fr" || stored === "en") setLanguage(stored);
+    // French remains the safe default, but honour an available English browser
+    // preference until the user makes an explicit choice.
+    setLanguage(detectInitialLanguage(stored, window.navigator.language));
   }, []);
 
   return (
