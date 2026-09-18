@@ -4,6 +4,7 @@ import { assertDemoFallbackAllowed } from "@/lib/runtime";
 type ConfirmationResult = { status: "sent" | "queued" | "skipped"; id?: string };
 
 const localConfirmations: Array<{ id: string; email: string; reservationId: string; createdAt: string }> = [];
+const localReminders = new Set<string>();
 
 function resendConfig() {
   const apiKey = process.env.RESEND_API_KEY;
@@ -45,4 +46,35 @@ export async function sendReservationConfirmation(reservation: Reservation): Pro
 
 export function listLocalConfirmations() {
   return [...localConfirmations];
+}
+
+export async function sendReservationReminder(reservation: Reservation): Promise<ConfirmationResult> {
+  if (!reservation.ownerEmail || !reservation.appointmentAt) return { status: "skipped" };
+  const notificationId = `reminder-72h-${reservation.id}`;
+  if (localReminders.has(notificationId)) return { status: "queued", id: notificationId };
+  const config = resendConfig();
+  if (!config) {
+    localReminders.add(notificationId);
+    return { status: "queued", id: notificationId };
+  }
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json", "Idempotency-Key": notificationId },
+    body: JSON.stringify({
+      from: config.from,
+      to: [reservation.ownerEmail],
+      subject: `Rappel : votre séance avec ${reservation.coachName} approche`,
+      text: [
+        "Rappel GetYourMentor : votre séance est prévue dans environ 72 heures.",
+        `Coach : ${reservation.coachName}`,
+        `Prestation : ${reservation.service}`,
+        `Créneau : ${reservation.slots.join(" · ")}`,
+        `Code de réservation : ${reservation.reservationCode ?? "à venir"}`,
+      ].join("\n"),
+    }),
+  });
+  if (!response.ok) throw new Error(`Rappel email impossible (${response.status})`);
+  const payload = await response.json().catch(() => ({}));
+  localReminders.add(notificationId);
+  return { status: "sent", id: payload.id ?? notificationId };
 }
