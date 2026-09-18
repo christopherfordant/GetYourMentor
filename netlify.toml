@@ -10,7 +10,7 @@
   NODE_VERSION = "22"
 
 [functions]
-  directory = "gym-next/netlify/functions"
+  directory = "netlify/functions"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
