@@ -469,6 +469,9 @@ function CoachDashboard({
           availability={coachProfile.availability}
           photoUrl={coachProfile.photoUrl}
           bankAccountLast4={coachProfile.bankAccountLast4}
+          latitude={coachProfile.latitude}
+          longitude={coachProfile.longitude}
+          serviceRadiusKm={coachProfile.serviceRadiusKm}
         />
       ) : (
         <section className="account-dashboard-card" data-coach-profile-unavailable>

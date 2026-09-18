@@ -13,6 +13,10 @@ export async function POST(request: Request) {
   const managerName = String(form.get("managerName") ?? "").trim();
   const email = String(form.get("email") ?? "").trim();
   const phone = String(form.get("phone") ?? "").trim();
+  const latitudeValue = String(form.get("latitude") ?? "").trim();
+  const longitudeValue = String(form.get("longitude") ?? "").trim();
+  const latitude = latitudeValue === "" ? undefined : Number(latitudeValue);
+  const longitude = longitudeValue === "" ? undefined : Number(longitudeValue);
   const ibanInput = String(form.get("iban") ?? "").replace(/\s+/g, "").toUpperCase();
   const ibanLast4 = ibanInput.length >= 4 ? ibanInput.slice(-4) : undefined;
   const logo = form.get("logo");
@@ -43,6 +47,9 @@ export async function POST(request: Request) {
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     return NextResponse.json({ error: "Adresse mail invalide" }, { status: 400 });
   }
+  if ((latitude !== undefined && (!Number.isFinite(latitude) || latitude < -90 || latitude > 90)) || (longitude !== undefined && (!Number.isFinite(longitude) || longitude < -180 || longitude > 180))) {
+    return NextResponse.json({ error: "Coordonnées de localisation invalides" }, { status: 400 });
+  }
 
   let lead: Awaited<ReturnType<typeof createClubLead>>;
   try {
@@ -51,6 +58,8 @@ export async function POST(request: Request) {
       managerName,
       email,
       phone: phone || undefined,
+      latitude,
+      longitude,
       ibanLast4,
       logoFileName: logo instanceof File && logo.size > 0 ? logo.name : undefined,
       identityFileName: identity instanceof File && identity.size > 0 ? identity.name : undefined,

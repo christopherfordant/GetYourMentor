@@ -84,7 +84,7 @@ export async function getCoach(idOrName?: string) {
   return row ? fromRow(row) : null;
 }
 
-export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "latitude" | "longitude" | "serviceRadiusKm">>) {
+export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm">> & { latitude?: number | null; longitude?: number | null }) {
   const config = supabaseConfig();
   if (!config) return updateCoachProfile(id, updates);
   const body = Object.fromEntries(Object.entries(updates).map(([key, value]) => [
