@@ -663,17 +663,6 @@ function ClubLeadPanel() {
 
 function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
   if (!allowDemoFallback) return <ClubLeadPanel />;
-  if (!allowDemoFallback) {
-    return (
-      <section className="account-dashboard club-home" data-account-dashboard="club">
-        <section className="account-dashboard-card" data-club-production-state>
-          <h1>Espace club</h1>
-          <p>Votre espace sera disponible après validation de votre demande d’affiliation et configuration de vos coachs.</p>
-          <a className="coach-home-inline-link" href={nextRoutes.clubSignup}>Préparer une demande club</a>
-        </section>
-      </section>
-    );
-  }
 
   return (
     <section className="account-dashboard coach-home club-home" data-account-dashboard="club">
