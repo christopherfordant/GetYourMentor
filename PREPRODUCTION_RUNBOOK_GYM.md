@@ -165,4 +165,8 @@ non-club doit recevoir `401`.
 
 ## 6. Rollback
 
+Avant d’ouvrir la préproduction, compléter `PREPRODUCTION_EVIDENCE_GYM.md`.
+Ce registre ne doit contenir aucun secret, token, numéro de carte, IBAN complet
+ou donnée personnelle inutile.
+
 Avant toute migration ou activation de service : conserver le commit déployé, la sauvegarde Supabase et la configuration de l’environnement. En cas d’échec, revenir au dernier commit validé par la CI, désactiver le webhook de préproduction si nécessaire et restaurer uniquement après diagnostic.
