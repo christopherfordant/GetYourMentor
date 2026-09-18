@@ -13,6 +13,7 @@
     "check:supabase-schema": "node scripts/check-supabase-schema.mjs",
     "check:client-secret-boundary": "node scripts/check-client-secret-boundary.mjs",
     "check:production-safety": "node scripts/production-safety-smoke.mjs",
+    "check:preproduction-runtime": "node scripts/preproduction-runtime-smoke.mjs",
     "pw:audit": "node scripts/run-playwright-audit.cjs",
     "pw:business": "playwright test tests/business-flow.spec.ts",
     "pw:headed": "node scripts/run-playwright-audit.cjs --headed",

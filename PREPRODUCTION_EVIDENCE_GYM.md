@@ -49,6 +49,7 @@ personnelle inutile.
 - Build Netlify réussi avec `gym-next` et `.next` : `À valider`
 - Variables protégées configurées dans l’interface Netlify : `À valider`
 - `GET /api/health` renvoie `status: ok`, `mode: production`, `ready: true` : `À valider`
+- `BASE_URL=... npm.cmd run check:preproduction-runtime` réussi : `À valider`
 - HTTPS, domaine et redirections vérifiés : `À valider`
 - Logs d’erreur et alerte de santé configurés : `À valider`
 - Procédure de rollback testée ou approuvée : `À valider`

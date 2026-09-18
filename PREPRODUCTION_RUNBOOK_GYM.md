@@ -130,6 +130,18 @@ vérifier que l’email du client est rattaché à la réservation par le webhoo
 
 Après déploiement, appeler `GET /api/health`.
 
+Pour automatiser ce contrôle contre l’URL HTTPS réellement déployée :
+
+```powershell
+$env:BASE_URL="https://URL-DE-PREPRODUCTION"
+npm.cmd run check:preproduction-runtime
+Remove-Item Env:BASE_URL
+```
+
+Le smoke test refuse localhost, exige `status: ok`, `mode: production`,
+`ready: true`, des contrôles de services tous positifs et vérifie que le
+catalogue ne renvoie pas les identifiants de démonstration.
+
 Résultat attendu en préproduction configurée :
 
 ```json
