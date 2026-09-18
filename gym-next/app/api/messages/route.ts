@@ -7,6 +7,9 @@ import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
 export async function GET(request: Request) {
   const session = await currentSession();
   if (!session) return NextResponse.json({ error: "Connexion requise" }, { status: 401 });
+  if (session.role !== "sportif" && session.role !== "coach" && session.role !== "admin") {
+    return NextResponse.json({ error: "Accès messagerie non disponible pour ce rôle" }, { status: 403 });
+  }
   const requestedRecipient = new URL(request.url).searchParams.get("recipientName") ?? undefined;
   try {
     const recipientName = session.role === "coach" ? (session.coachId ? (await getCoach(session.coachId))?.name : "__coach_without_profile__") : requestedRecipient;

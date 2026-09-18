@@ -31,6 +31,9 @@ test("un compte club retrouve sa demande d'affiliation", async ({ page }) => {
   });
   expect(currentLead.status).toBe(200);
   expect(currentLead.payload.data).toMatchObject({ clubName: "Club Horizon", status: "pending" });
+
+  const messages = await page.evaluate(async () => (await fetch("/api/messages")).status);
+  expect(messages).toBe(403);
 });
 
 test("un compte sportif ne peut pas lire une demande club", async ({ page }) => {
