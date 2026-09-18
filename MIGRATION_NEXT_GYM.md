@@ -107,14 +107,14 @@ La migration MVP et sa vérification écran par écran sont terminées :
 - le récapitulatif vers connexion arrive sur `/compte?redirect=paiement`
 - après connexion, le paiement conserve les informations de réservation
 - le build Next.js est vert
-- les 90 tests Playwright desktop/mobile sont verts en local ; la CI distante reste à revalider séparément
+- les 94 tests Playwright desktop/mobile sont verts en local ; le dernier run CI confirmé est documenté dans `PREPRODUCTION_READINESS_GYM.md`, et le durcissement le plus récent reste à revalider à distance
 
 La prochaine étape relève de la mise en production : renseigner les secrets Supabase, Stripe et Resend, puis effectuer une recette avec des comptes et données réelles.
 
 ### Garde-fous de préproduction
 
 - Sans configuration Supabase et sans coach vérifié, `/creneau`, `/recapitulatif` et `/paiement` affichent un état indisponible au lieu de données de démonstration.
-- Le mode de démonstration est réservé aux tests et doit être activé explicitement par `GETYOURMENTOR_ALLOW_DEMO=true`.
+- Le mode de démonstration est réservé aux tests ; la recette du bundle utilise en plus `GETYOURMENTOR_ACCEPTANCE_MODE=true`, `CI=true` et une URL loopback. Ces modes sont refusés par la configuration de production.
 - Le contrôle `npm.cmd run check:production-config` reste bloquant tant que les secrets Supabase, Stripe, Resend, la clé de session et l'URL publique ne sont pas renseignés.
 - Les tests locaux ne remplacent pas la recette avec comptes réels, les règles RLS Supabase, la configuration du stockage des pièces jointes, les validations juridiques ou l'acceptation utilisateur.
 - Le dashboard coach lit désormais les données métier via les APIs ; le dashboard club est fail-closed en production et n’affiche plus ses fixtures, mais son espace métier reste à brancher sur les données persistées. La validation préproduction reste bloquée jusqu’à cette intégration.
