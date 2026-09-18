@@ -32,11 +32,15 @@ export async function POST(request: Request) {
     const checkout = event.data?.object;
     const reservationId = checkout?.metadata?.reservation_id;
     const ownerEmail = checkout?.customer_details?.email ?? checkout?.customer_email;
+    const paymentIntent = typeof checkout?.payment_intent === "string" ? checkout.payment_intent : undefined;
     if (typeof reservationId === "string" && reservationId.length <= 128) {
+      if (process.env.PAYMENT_PROVIDER === "stripe" && !paymentIntent) {
+        return NextResponse.json({ error: "PaymentIntent Stripe absent" }, { status: 400 });
+      }
       await payReservation(
         reservationId,
         typeof ownerEmail === "string" ? ownerEmail : undefined,
-        typeof checkout?.payment_intent === "string" ? checkout.payment_intent : undefined,
+        paymentIntent,
       );
     }
   }
