@@ -74,7 +74,7 @@ Avant déploiement, exécuter :
 ```powershell
 cd C:\Users\cashe\Documents\GetYourMentor\gym-next
 npm.cmd run check:production-config
-npm.cmd run lint
+npm.cmd run check:types
 npm.cmd run check:netlify-config
 npm.cmd run check:preproduction-template
 npm.cmd run check:supabase-schema
