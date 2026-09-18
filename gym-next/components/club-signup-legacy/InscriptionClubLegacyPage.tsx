@@ -52,6 +52,24 @@ function ClubSignupVisual() {
 function ClubSignupForm() {
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [locationStatus, setLocationStatus] = useState("");
+  const [coordinates, setCoordinates] = useState({ latitude: "", longitude: "" });
+
+  function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      setLocationStatus("La géolocalisation n’est pas disponible sur cet appareil.");
+      return;
+    }
+    setLocationStatus("Recherche de la position de la structure…");
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setCoordinates({ latitude: coords.latitude.toFixed(6), longitude: coords.longitude.toFixed(6) });
+        setLocationStatus("Position enregistrée. Elle servira à la recherche locale.");
+      },
+      () => setLocationStatus("Position indisponible. Renseignez au moins la ville ou l’adresse."),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
+    );
+  }
 
   return (
     <section className="club-signup-form-panel">
@@ -87,6 +105,15 @@ function ClubSignupForm() {
             <span>Numéro de téléphone</span>
             <input name="phone" type="tel" placeholder="Numéro de téléphone" />
           </label>
+        </div>
+
+        <input type="hidden" name="latitude" value={coordinates.latitude} />
+        <input type="hidden" name="longitude" value={coordinates.longitude} />
+        <div className="auth-field">
+          <span>Localiser la structure</span>
+          <button className="auth-secondary" type="button" onClick={useCurrentLocation}>Utiliser ma position</button>
+          <small>La position exacte reste privée et sert uniquement à la recherche de proximité.</small>
+          {locationStatus ? <p role="status">{locationStatus}</p> : null}
         </div>
 
         <label className="auth-field club-signup-upload">

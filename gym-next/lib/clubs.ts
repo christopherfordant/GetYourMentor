@@ -7,6 +7,9 @@ export type ClubLead = {
   managerName: string;
   email: string;
   phone?: string;
+  addressLabel?: string;
+  latitude?: number;
+  longitude?: number;
   ibanLast4?: string;
   logoFileName?: string;
   identityFileName?: string;
@@ -132,6 +135,9 @@ function fromRow(row: Record<string, unknown>): ClubLead {
     managerName: String(row.manager_name ?? ""),
     email: String(row.email ?? ""),
     phone: typeof row.phone === "string" ? row.phone : undefined,
+    addressLabel: typeof row.address_label === "string" ? row.address_label : undefined,
+    latitude: row.latitude == null ? undefined : Number(row.latitude),
+    longitude: row.longitude == null ? undefined : Number(row.longitude),
     ibanLast4: typeof row.iban_last4 === "string" ? row.iban_last4 : undefined,
     logoFileName: typeof row.logo_file_name === "string" ? row.logo_file_name : undefined,
     identityFileName: typeof row.identity_file_name === "string" ? row.identity_file_name : undefined,
@@ -171,6 +177,8 @@ export async function createClubLead(input: ClubLeadInput) {
           manager_name: lead.managerName,
           email: lead.email,
           phone: lead.phone ?? null,
+          latitude: lead.latitude ?? null,
+          longitude: lead.longitude ?? null,
           iban_last4: lead.ibanLast4 ?? null,
           logo_file_name: lead.logoFileName ?? null,
           identity_file_name: lead.identityFileName ?? null,

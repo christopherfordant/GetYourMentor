@@ -154,6 +154,7 @@ create table if not exists public.gym_club_leads (
   manager_name text not null,
   email text not null,
   phone text,
+  address_label text,
   iban_last4 text check (iban_last4 is null or char_length(iban_last4) = 4),
   logo_file_name text,
   identity_file_name text,
@@ -168,6 +169,7 @@ create table if not exists public.gym_club_leads (
 alter table public.gym_club_leads enable row level security;
 alter table public.gym_club_leads add column if not exists logo_storage_path text;
 alter table public.gym_club_leads add column if not exists identity_storage_path text;
+alter table public.gym_club_leads add column if not exists address_label text;
 alter table public.gym_club_leads add column if not exists latitude numeric(9, 6);
 alter table public.gym_club_leads add column if not exists longitude numeric(9, 6);
 create index if not exists gym_club_leads_status_idx on public.gym_club_leads (status);

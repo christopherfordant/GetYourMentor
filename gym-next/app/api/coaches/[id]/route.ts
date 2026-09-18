@@ -27,6 +27,14 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   if (body?.priceFrom !== undefined && (!Number.isFinite(Number(body.priceFrom)) || Number(body.priceFrom) < 0 || Number(body.priceFrom) > 10000)) {
     return NextResponse.json({ error: "Tarif invalide" }, { status: 400 });
   }
+  for (const [name, min, max] of [["latitude", -90, 90], ["longitude", -180, 180]] as const) {
+    if (body?.[name] !== undefined && body?.[name] !== null && (!Number.isFinite(Number(body[name])) || Number(body[name]) < min || Number(body[name]) > max)) {
+      return NextResponse.json({ error: "Coordonnées de localisation invalides" }, { status: 400 });
+    }
+  }
+  if (body?.serviceRadiusKm !== undefined && (!Number.isFinite(Number(body.serviceRadiusKm)) || ![1, 5, 10].includes(Number(body.serviceRadiusKm)))) {
+    return NextResponse.json({ error: "Rayon d’intervention invalide" }, { status: 400 });
+  }
   const updates = {
     specialty: typeof body?.specialty === "string" ? body.specialty.trim() : undefined,
     city: typeof body?.city === "string" ? body.city.trim() : undefined,
@@ -38,6 +46,9 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     photoUrl: typeof body?.photoUrl === "string" ? body.photoUrl.trim() : undefined,
     bankAccountLast4: typeof body?.bankAccountLast4 === "string" ? body.bankAccountLast4.replace(/\D/g, "").slice(-4) : undefined,
     priceFrom: Number.isFinite(Number(body?.priceFrom)) ? Number(body.priceFrom) : undefined,
+    latitude: body?.latitude === null ? null : Number.isFinite(Number(body?.latitude)) ? Number(body.latitude) : undefined,
+    longitude: body?.longitude === null ? null : Number.isFinite(Number(body?.longitude)) ? Number(body.longitude) : undefined,
+    serviceRadiusKm: Number.isFinite(Number(body?.serviceRadiusKm)) ? Number(body.serviceRadiusKm) : undefined,
   };
   const filtered = Object.fromEntries(Object.entries(updates).filter(([, value]) => value !== undefined));
   if (!Object.keys(filtered).length) return NextResponse.json({ error: "Aucune modification valide" }, { status: 400 });
