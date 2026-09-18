@@ -13,6 +13,7 @@ export async function POST(request: Request) {
   const managerName = String(form.get("managerName") ?? "").trim();
   const email = String(form.get("email") ?? "").trim();
   const phone = String(form.get("phone") ?? "").trim();
+  const addressLabel = String(form.get("addressLabel") ?? "").trim();
   const latitudeValue = String(form.get("latitude") ?? "").trim();
   const longitudeValue = String(form.get("longitude") ?? "").trim();
   const latitude = latitudeValue === "" ? undefined : Number(latitudeValue);
@@ -25,7 +26,7 @@ export async function POST(request: Request) {
     .filter((file): file is File => file instanceof File)
     .map((file) => file.name);
   if (
-    [clubName, managerName, email, phone, ibanInput, ...fileNames].some((value) =>
+    [clubName, managerName, email, phone, addressLabel, ibanInput, ...fileNames].some((value) =>
       textExceedsLimit(value, 512),
     )
   ) {
@@ -58,6 +59,7 @@ export async function POST(request: Request) {
       managerName,
       email,
       phone: phone || undefined,
+      addressLabel: addressLabel || undefined,
       latitude,
       longitude,
       ibanLast4,
