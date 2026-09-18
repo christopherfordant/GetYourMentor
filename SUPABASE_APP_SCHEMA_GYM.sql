@@ -1,5 +1,6 @@
 -- Persistance MVP du parcours de réservation GetYourMentor.
--- À exécuter après SUPABASE_SCHEMA_GYM.sql dans le projet Supabase.
+-- Script de référence pour la préproduction : il est autonome et ne doit pas
+-- être précédé de l'ancien schéma mémoire SUPABASE_SCHEMA_GYM.sql.
 
 create table if not exists public.gym_coaches (
   id text primary key,
