@@ -478,6 +478,11 @@ function CoachDashboard({
           latitude={coachProfile.latitude}
           longitude={coachProfile.longitude}
           serviceRadiusKm={coachProfile.serviceRadiusKm}
+          gender={coachProfile.gender}
+          practice={coachProfile.practice}
+          level={coachProfile.level}
+          format={coachProfile.format}
+          availabilityTags={coachProfile.availabilityTags}
         />
       ) : (
         <section className="account-dashboard-card" data-coach-profile-unavailable>
