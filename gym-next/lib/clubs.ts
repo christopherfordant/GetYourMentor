@@ -221,7 +221,7 @@ export async function getClubLeadForEmail(email: string) {
   const config = supabaseConfig();
   if (config) {
     const response = await fetch(
-      `${config.url}/rest/v1/gym_club_leads?email=eq.${encodeURIComponent(normalizedEmail)}&select=id,club_name,manager_name,email,phone,logo_file_name,identity_file_name,status,created_at&order=created_at.desc&limit=1`,
+      `${config.url}/rest/v1/gym_club_leads?email=eq.${encodeURIComponent(normalizedEmail)}&select=id,club_name,manager_name,email,phone,address_label,latitude,longitude,logo_file_name,identity_file_name,status,created_at&order=created_at.desc&limit=1`,
       { headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store" },
     );
     if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);

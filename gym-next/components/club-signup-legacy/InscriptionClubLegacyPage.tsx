@@ -105,6 +105,11 @@ function ClubSignupForm() {
             <span>Numéro de téléphone</span>
             <input name="phone" type="tel" placeholder="Numéro de téléphone" />
           </label>
+
+          <label className="auth-field club-signup-grid-wide">
+            <span>Ville / adresse de la structure</span>
+            <input name="addressLabel" type="text" placeholder="Ville, quartier ou adresse" maxLength={512} />
+          </label>
         </div>
 
         <input type="hidden" name="latitude" value={coordinates.latitude} />
