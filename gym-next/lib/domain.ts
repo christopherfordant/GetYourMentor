@@ -39,6 +39,9 @@ export type Reservation = {
   appointmentAt?: string;
   refundPercent?: number;
   refundAmount?: number;
+  stripePaymentIntentId?: string;
+  stripeRefundId?: string;
+  refundStatus?: "not_required" | "pending" | "succeeded";
   cancelledAt?: string;
   confirmationStatus?: "sent" | "queued" | "skipped";
 };

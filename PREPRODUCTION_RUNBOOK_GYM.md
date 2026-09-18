@@ -123,6 +123,11 @@ vérifier que l’email du client est rattaché à la réservation par le webhoo
 - Vérifier le scénario demande → acceptation coach → Checkout → webhook signé → réservation payée.
 - Vérifier les signatures invalides et les événements rejoués.
 
+Avant la recette, vérifier également que le `payment_intent` du Checkout est
+conservé sur la réservation, qu’une annulation complète ou partielle appelle
+un remboursement Stripe avec une clé d’idempotence, qu’un rejeu ne double pas
+le remboursement et qu’un échec Stripe laisse la réservation non annulée.
+
 ### Resend
 
 - Vérifier le domaine ou l’adresse d’expédition.

@@ -1,5 +1,6 @@
 import type { Reservation } from "@/lib/domain";
 import { sendReservationConfirmation } from "@/lib/notifications";
+import { refundStripePayment } from "@/lib/payments";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 const memoryReservations: Reservation[] = [];
@@ -152,6 +153,9 @@ export async function listReservations(options: { coachId?: string; ownerEmail?:
     appointmentAt: row.appointment_at,
     refundPercent: row.refund_percent,
     refundAmount: row.refund_amount,
+    stripePaymentIntentId: row.stripe_payment_intent_id,
+    stripeRefundId: row.stripe_refund_id,
+    refundStatus: row.refund_status,
     cancelledAt: row.cancelled_at,
   }));
 }
@@ -185,6 +189,9 @@ export async function getReservation(id: string) {
     appointmentAt: row.appointment_at,
     refundPercent: row.refund_percent,
     refundAmount: row.refund_amount,
+    stripePaymentIntentId: row.stripe_payment_intent_id,
+    stripeRefundId: row.stripe_refund_id,
+    refundStatus: row.refund_status,
     cancelledAt: row.cancelled_at,
   } as Reservation;
 }
@@ -219,13 +226,18 @@ export async function transitionReservation(id: string, status: "accepted" | "re
   return next;
 }
 
-export async function payReservation(id: string, ownerEmail?: string) {
+export async function payReservation(id: string, ownerEmail?: string, stripePaymentIntentId?: string) {
   const current = await getReservation(id);
   if (!current) return null;
   if (current.status === "paid") return current;
   if (current.status !== "accepted") throw new Error("Le paiement est disponible après acceptation du coach");
 
-  const next = { ...current, status: "paid" as const, ownerEmail: current.ownerEmail ?? ownerEmail };
+  const next: Reservation = {
+    ...current,
+    status: "paid" as const,
+    ownerEmail: current.ownerEmail ?? ownerEmail,
+    stripePaymentIntentId: current.stripePaymentIntentId ?? stripePaymentIntentId,
+  };
   const config = supabaseConfig();
   if (!config) {
     const index = memoryReservations.findIndex((reservation) => reservation.id === id);
@@ -244,7 +256,11 @@ export async function payReservation(id: string, ownerEmail?: string) {
       "Content-Type": "application/json",
       Prefer: "return=representation",
     },
-    body: JSON.stringify({ status: "paid", owner_email: next.ownerEmail ?? null }),
+    body: JSON.stringify({
+      status: "paid",
+      owner_email: next.ownerEmail ?? null,
+      stripe_payment_intent_id: next.stripePaymentIntentId ?? null,
+    }),
   });
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
   const [saved] = (await response.json()) as Array<{ id?: string; owner_email?: string | null; status?: string }>;
@@ -253,7 +269,12 @@ export async function payReservation(id: string, ownerEmail?: string) {
     if (latest?.status === "paid") return latest;
     throw new Error("La réservation n’est plus payable dans son état actuel");
   }
-  const paidReservation = { ...next, ownerEmail: saved.owner_email ?? next.ownerEmail, status: "paid" as const };
+  const paidReservation = {
+    ...next,
+    ownerEmail: saved.owner_email ?? next.ownerEmail,
+    status: "paid" as const,
+    stripePaymentIntentId: next.stripePaymentIntentId,
+  };
   const confirmation = await sendReservationConfirmation(paidReservation).catch(() => ({ status: "skipped" as const }));
   return { ...paidReservation, confirmationStatus: confirmation.status };
 }
@@ -274,19 +295,39 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
   }
 
   const refundPercent = current.status === "paid" && current.appointmentAt ? refundPercentFor(current.appointmentAt) : 0;
-  const next = {
+  const next: Reservation = {
     ...current,
     ownerEmail: current.ownerEmail ?? ownerEmail,
     status: "cancelled" as const,
     cancelledAt: new Date().toISOString(),
     refundPercent,
     refundAmount: Number(((current.price * refundPercent) / 100).toFixed(2)),
+    refundStatus: refundPercent > 0 ? ("pending" as const) : ("not_required" as const),
   };
+  let stripeRefundId: string | undefined;
+  if (current.status === "paid" && refundPercent > 0) {
+    if (!current.stripePaymentIntentId && process.env.PAYMENT_PROVIDER === "stripe") {
+      throw new Error("Remboursement impossible : identifiant de paiement Stripe absent");
+    }
+    const refund = current.stripePaymentIntentId
+      ? await refundStripePayment({
+          paymentIntentId: current.stripePaymentIntentId,
+          amountCents: Math.round((next.refundAmount ?? 0) * 100),
+          reservationId: id,
+        })
+      : null;
+    if (refund) {
+      stripeRefundId = refund.id;
+      next.refundStatus = refund.status;
+    } else {
+      next.refundStatus = "succeeded";
+    }
+  }
   const config = supabaseConfig();
   if (!config) {
     const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    memoryReservations[index] = next;
-    return next;
+    memoryReservations[index] = { ...next, stripeRefundId };
+    return memoryReservations[index];
   }
 
   const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}`, {
@@ -297,11 +338,18 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
       "Content-Type": "application/json",
       Prefer: "return=representation",
     },
-    body: JSON.stringify({ status: "cancelled", cancelled_at: next.cancelledAt, refund_percent: refundPercent, refund_amount: next.refundAmount }),
+    body: JSON.stringify({
+      status: "cancelled",
+      cancelled_at: next.cancelledAt,
+      refund_percent: refundPercent,
+      refund_amount: next.refundAmount,
+      stripe_refund_id: stripeRefundId ?? null,
+      refund_status: next.refundStatus,
+    }),
   });
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
   await releaseReservationSlots(config, id);
-  return next;
+  return { ...next, stripeRefundId };
 }
 
 export async function rescheduleReservation(id: string, ownerEmail: string, slots: string[]) {

@@ -36,6 +36,9 @@ personnelle inutile.
 - Événement rejoué traité sans double effet : `À valider`
 - Preuve archivée sans secret ni numéro de carte : `À renseigner`
 
+- `payment_intent` conservé et remboursement idempotent testé : `À valider`
+- Échec du remboursement : réservation conservée dans un état cohérent : `À valider`
+
 ## 4. Resend
 
 - Domaine ou adresse d’envoi vérifié : `À valider`

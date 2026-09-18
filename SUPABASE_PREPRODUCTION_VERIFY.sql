@@ -56,7 +56,16 @@ where schemaname = 'public'
   )
 order by tablename, policyname;
 
+-- 6. Les identifiants Stripe nécessaires aux remboursements doivent être
+-- présents sans jamais exposer de numéro de carte ou de secret.
+select column_name
+from information_schema.columns
+where table_schema = 'public'
+  and table_name = 'gym_reservations'
+  and column_name in ('stripe_payment_intent_id', 'stripe_refund_id', 'refund_status')
+order by column_name;
+
 -- Résultats attendus : six tables avec rls_enabled=true, un bucket
 -- club-documents avec public=false, aucune donnée de démonstration vérifiée,
--- une contrainte PRIMARY KEY (coach_id, slot), et aucune policy client
--- générique non documentée.
+-- une contrainte PRIMARY KEY (coach_id, slot), les trois colonnes Stripe
+-- présentes, et aucune policy client générique non documentée.

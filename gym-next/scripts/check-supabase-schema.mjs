@@ -40,6 +40,9 @@ if (!/values\s*\(\s*'club-documents'\s*,\s*'club-documents'\s*,\s*false\s*\)/i.t
 if (!/(?:primary\s+key|unique)\s*\(\s*coach_id\s*,\s*slot\s*\)/i.test(activeSql)) {
   errors.push("La contrainte d’unicité coach/créneau est absente.");
 }
+for (const column of ["stripe_payment_intent_id", "stripe_refund_id", "refund_status"]) {
+  if (!new RegExp(`\\b${column}\\b`, "i").test(activeSql)) errors.push(`Colonne de paiement absente : ${column}`);
+}
 
 if (errors.length) {
   console.error("Schéma Supabase applicatif invalide :");
