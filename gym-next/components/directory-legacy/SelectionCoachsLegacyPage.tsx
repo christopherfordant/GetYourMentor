@@ -509,17 +509,17 @@ function DirectoryContent({
   sort: DirectorySort;
 }) {
   const visibleCoaches = [...coaches].filter((coach) => {
-    if (filters.gender !== "all" && coach.gender !== filters.gender) return false;
-    if (filters.practice !== "all" && coach.practice !== filters.practice) return false;
-    if (filters.level !== "all" && coach.level !== filters.level) return false;
-    if (filters.format !== "all" && coach.format !== filters.format) return false;
-    if (filters.availability === "morning" && coach.morning.length === 0) return false;
-    if (filters.availability === "afternoon" && coach.afternoon.length === 0) return false;
-    if (filters.verified && !coach.verified) return false;
-    if (filters.rating !== "all" && (coach.rating ?? 0) < Number(filters.rating)) return false;
-    if (filters.budget === "under-40" && (coach.price ?? 0) >= 40) return false;
-    if (filters.budget === "40-60" && ((coach.price ?? 0) < 40 || (coach.price ?? 0) > 60)) return false;
-    if (filters.budget === "over-60" && (coach.price ?? 0) <= 60) return false;
+    if (filters.gender !== "all" && coach.gender && coach.gender !== filters.gender) return false;
+    if (filters.practice !== "all" && coach.practice && coach.practice !== filters.practice) return false;
+    if (filters.level !== "all" && coach.level && coach.level !== filters.level) return false;
+    if (filters.format !== "all" && coach.format && coach.format !== filters.format) return false;
+    if (filters.availability === "morning" && (coach.morning.length > 0 || coach.afternoon.length > 0) && coach.morning.length === 0) return false;
+    if (filters.availability === "afternoon" && (coach.morning.length > 0 || coach.afternoon.length > 0) && coach.afternoon.length === 0) return false;
+    if (filters.verified && coach.verified === false) return false;
+    if (filters.rating !== "all" && coach.rating != null && coach.rating < Number(filters.rating)) return false;
+    if (filters.budget === "under-40" && coach.price != null && coach.price >= 40) return false;
+    if (filters.budget === "40-60" && coach.price != null && (coach.price < 40 || coach.price > 60)) return false;
+    if (filters.budget === "over-60" && coach.price != null && coach.price <= 60) return false;
     return true;
   }).sort((first, second) => {
     if (sort === "rating-desc") return (second.rating ?? 0) - (first.rating ?? 0);
