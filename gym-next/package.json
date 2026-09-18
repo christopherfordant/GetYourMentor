@@ -16,6 +16,7 @@
     "check:n8n-workflows": "node scripts/check-n8n-workflows.mjs",
     "check:production-safety": "node scripts/production-safety-smoke.mjs",
     "check:preproduction-runtime": "node scripts/preproduction-runtime-smoke.mjs",
+    "validate:release-candidate": "npm run check:types && npm run check:netlify-config && npm run check:preproduction-template && npm run check:tracked-secrets && npm run check:n8n-workflows && npm run check:supabase-schema && npm run build && npm run check:client-secret-boundary && npm run check:production-safety && npx playwright test --reporter=line --workers=1",
     "pw:audit": "node scripts/run-playwright-audit.cjs",
     "pw:business": "playwright test tests/business-flow.spec.ts",
     "pw:headed": "node scripts/run-playwright-audit.cjs --headed",
