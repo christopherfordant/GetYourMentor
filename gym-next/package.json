@@ -11,6 +11,7 @@
     "check:preproduction-template": "node scripts/check-preproduction-template.mjs",
     "check:netlify-config": "node scripts/check-netlify-config.mjs",
     "check:supabase-schema": "node scripts/check-supabase-schema.mjs",
+    "check:tracked-secrets": "node scripts/check-tracked-secrets.mjs",
     "check:client-secret-boundary": "node scripts/check-client-secret-boundary.mjs",
     "check:production-safety": "node scripts/production-safety-smoke.mjs",
     "check:preproduction-runtime": "node scripts/preproduction-runtime-smoke.mjs",
