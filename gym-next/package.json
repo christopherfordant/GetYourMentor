@@ -29,6 +29,7 @@
     "postcss": "^8.5.28"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.16.0",
     "@playwright/test": "^1.62.0",
     "@types/node": "22.14.1",
     "@types/react": "19.1.2",

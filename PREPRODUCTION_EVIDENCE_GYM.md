@@ -48,6 +48,8 @@ personnelle inutile.
 
 ## 5. Netlify et runtime
 
+Mise à jour du 18/09/2026 : le site `gregarious-fox-fff605.netlify.app` est déployé avec le runtime Next.js (`@netlify/plugin-nextjs`), la page `/` répond en HTTPS et les fonctions sont présentes. `/api/health` répond `503 degraded` en mode production avec Supabase, Stripe et Resend absents ; le smoke complet reste donc bloqué jusqu’à la configuration de ces services.
+
 - Site relié au dépôt et à la branche attendue : `À valider`
 - Build Netlify réussi avec `gym-next` et `.next` : `À valider`
 - Variables protégées configurées dans l’interface Netlify : `À valider`

@@ -68,6 +68,8 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 ## Limites connues du mode MVP
 
+Mise à jour du 18/09/2026 : Netlify sert désormais le runtime Next.js sur `gregarious-fox-fff605.netlify.app` (déploiement `6aacd16de99a5ac28eea94d4`). Le site est joignable, mais reste volontairement dégradé (`/api/health` en `503`) tant que Supabase, Stripe et Resend ne sont pas configurés.
+
 - Netlify : le contrat de build est versionné dans `netlify.toml` (base `gym-next`, build `npm run build`, publication `.next`). Le site Netlify doit encore être relié au dépôt et recevoir les secrets de préproduction ; aucun déploiement n’a été déclenché.
 
 - Le mode local mémoire est explicitement réservé à la démonstration (`GETYOURMENTOR_ALLOW_DEMO=true`) et n’est pas utilisable par inadvertance en production.
