@@ -45,6 +45,9 @@ jobs:
       - name: Verify preproduction environment template
         run: npm run check:preproduction-template
 
+      - name: Verify tracked secrets
+        run: npm run check:tracked-secrets
+
       - name: Verify Netlify deployment contract
         run: npm run check:netlify-config
 
