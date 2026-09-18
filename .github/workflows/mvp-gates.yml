@@ -88,6 +88,9 @@ jobs:
       - name: Build production bundle
         run: npm run build
 
+      - name: Verify client/server secret boundary
+        run: npm run check:client-secret-boundary
+
       - name: Verify production fail-closed behavior
         run: npm run check:production-safety
 
