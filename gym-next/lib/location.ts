@@ -23,3 +23,9 @@ export function distanceKm(from: Coordinates, to: Coordinates) {
     + Math.cos(radians(from.latitude)) * Math.cos(radians(to.latitude)) * Math.sin(longitudeDelta / 2) ** 2;
   return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
+
+export function isWithinCoachServiceRadius(distance: number | undefined, searchRadiusKm: number, serviceRadiusKm?: number) {
+  if (distance == null || !Number.isFinite(distance)) return false;
+  const coachRadius = serviceRadiusKm == null || !Number.isFinite(serviceRadiusKm) ? searchRadiusKm : serviceRadiusKm;
+  return distance <= Math.min(searchRadiusKm, coachRadius);
+}

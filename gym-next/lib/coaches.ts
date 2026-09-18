@@ -1,7 +1,7 @@
 import { canonicalSportSlug, coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { supabaseHeaders } from "@/lib/supabase";
-import { distanceKm, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
+import { distanceKm, isWithinCoachServiceRadius, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
 export type CoachDocumentKind = "identity" | "diploma";
@@ -274,7 +274,7 @@ export async function filterStoredCoaches(filters: { sport?: string; city?: stri
     .filter((coach) => coach.verified
       && (!canonicalSport || coach.sport === canonicalSport)
       && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase())
-      && (!origin || (coach.distanceKm != null && coach.distanceKm <= radiusKm))
+      && (!origin || isWithinCoachServiceRadius(coach.distanceKm, radiusKm, coach.serviceRadiusKm))
       && (!filters.gender || coach.gender === filters.gender)
       && (!filters.practice || coach.practice === filters.practice)
       && (!filters.level || coach.level === filters.level)
