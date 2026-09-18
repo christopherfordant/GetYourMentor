@@ -7,8 +7,8 @@ rejoués après l’ajout du parcours club persistant et du contrôle d’accès
 **98/98 tests passés**
 (desktop et mobile, un worker). Le test ciblé vérifie qu’un compte club
 authentifié retrouve uniquement sa propre demande d’affiliation et son statut.
-La CI distante du commit courant reste à confirmer lorsque l’API GitHub sera
-accessible.
+La CI distante du commit `0592674` est également verte : run
+`35294957117`, avec le contrôle de frontière client/serveur inclus.
 
 Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation juridique, ni un audit de sécurité indépendant, ni une recette utilisateur réelle.
 
@@ -22,7 +22,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Modèle d’environnement préproduction | PASS | `npm.cmd run check:preproduction-template` vérifie les variables attendues, Stripe, HTTPS et l’absence de clés réelles dans `gym-next/.env.preproduction.example`. |
 | Schéma Supabase applicatif | PASS code / À valider Supabase | `npm.cmd run check:supabase-schema` vérifie les six tables MVP, la RLS, l’absence de seed coach actif, le bucket privé et l’unicité coach/créneau ; l’exécution SQL réelle reste à faire dans le projet Supabase de préproduction. |
 | Frontière secrets serveur/client | PASS local / CI | `npm.cmd run check:client-secret-boundary` inspecte les artefacts `.next/static` et échoue si une variable serveur Supabase, Stripe, Resend ou session y apparaît. |
-| Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, contrôle de configuration, schéma Supabase, build, smoke production et Playwright. Le run `35293894867` du commit `b00e132` est terminé avec succès. |
+| Contrôles reproductibles CI | PASS | `.github/workflows/mvp-gates.yml` rejoue installation, audit, contrôle de configuration, schéma Supabase, build, frontière secrets client/serveur, smoke production et Playwright. Le run `35294957117` du commit `0592674` est terminé avec succès. |
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local exigent `GETYOURMENTOR_ALLOW_DEMO=true` hors production ; le mode d’acceptation du bundle utilise en plus une URL loopback et `CI=true`. Le runtime et le contrôle de configuration refusent ces modes en production réelle. |
 | Endpoint de santé | PASS | `/api/health` ne renvoie aucun secret et distingue le mode démo d’une configuration production dégradée. |
 | Échec fermé sans secrets | PASS | Runtime vérifié : sans configuration réelle ni flag démo, `/api/health` répond `503 degraded` avec tous les contrôles à `false`. |
