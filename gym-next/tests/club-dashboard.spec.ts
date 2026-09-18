@@ -32,3 +32,28 @@ test("un compte club retrouve sa demande d'affiliation", async ({ page }) => {
   expect(currentLead.status).toBe(200);
   expect(currentLead.payload.data).toMatchObject({ clubName: "Club Horizon", status: "pending" });
 });
+
+test("un compte sportif ne peut pas lire une demande club", async ({ page }) => {
+  await page.goto("/compte");
+  await page.evaluate(async () => {
+    await fetch("/api/auth/sign-up", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: `athlete-${Date.now()}@example.com`,
+        password: "athlete-pass-123",
+        role: "sportif",
+        firstName: "Alex",
+        lastName: "Martin",
+        phone: "0600000000",
+        termsAccepted: true,
+      }),
+    });
+  });
+
+  const response = await page.evaluate(async () => {
+    const result = await fetch("/api/clubs/me");
+    return result.status;
+  });
+  expect(response).toBe(401);
+});

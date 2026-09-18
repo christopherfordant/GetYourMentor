@@ -3,7 +3,8 @@
 ## Dernière vérification locale
 
 Le 2026-09-18, le build de production et la suite Playwright complète ont été
-rejoués après l’ajout du parcours club persistant : **96/96 tests passés**
+rejoués après l’ajout du parcours club persistant et du contrôle d’accès :
+**98/98 tests passés**
 (desktop et mobile, un worker). Le test ciblé vérifie qu’un compte club
 authentifié retrouve uniquement sa propre demande d’affiliation et son statut.
 La CI distante du commit courant reste à confirmer lorsque l’API GitHub sera
@@ -16,7 +17,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
 | Build Next.js production | PASS | `npm.cmd run build` passe et génère 25 routes, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. |
-| Parcours fonctionnels Playwright | PASS local / CI précédent | Le 2026-09-18, 48/48 tests passent sur `desktop-chromium` et 48/48 sur `mobile-chromium` (96/96 local, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié, workflow club, validation MIME, limitation de fréquence, liens juridiques, isolation démo/production et responsive. Le run CI `35289598168` du commit `0a9245a` est terminé avec succès ; les commits suivants restent à revalider à distance. |
+| Parcours fonctionnels Playwright | PASS local / CI précédent | Le 2026-09-18, 49/49 tests passent sur `desktop-chromium` et 49/49 sur `mobile-chromium` (98/98 local, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié, workflow club, validation MIME, limitation de fréquence, liens juridiques, isolation démo/production et responsive. Le run CI `35289598168` du commit `0a9245a` est terminé avec succès ; les commits suivants restent à revalider à distance. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Modèle d’environnement préproduction | PASS | `npm.cmd run check:preproduction-template` vérifie les variables attendues, Stripe, HTTPS et l’absence de clés réelles dans `gym-next/.env.preproduction.example`. |
 | Schéma Supabase applicatif | PASS code / À valider Supabase | `npm.cmd run check:supabase-schema` vérifie les six tables MVP, la RLS, l’absence de seed coach actif, le bucket privé et l’unicité coach/créneau ; l’exécution SQL réelle reste à faire dans le projet Supabase de préproduction. |
