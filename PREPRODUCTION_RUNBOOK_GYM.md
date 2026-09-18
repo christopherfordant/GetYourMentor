@@ -75,15 +75,21 @@ npx.cmd playwright test --reporter=line --workers=1
 ```
 
 Le contrôle de configuration doit réussir sans utiliser `GETYOURMENTOR_ALLOW_DEMO`.
+Ce flag est réservé aux tests et démonstrations hors production ; le mode
+`GETYOURMENTOR_ACCEPTANCE_MODE` est en plus limité à la CI sur une URL loopback.
+Ces modes sont refusés par le runtime et par le contrôle de configuration
+lorsqu’une production réelle est déclarée.
 Il vérifie aussi les URLs HTTPS, les placeholders et les formats attendus des clés Stripe/Resend ; il ne journalise aucune valeur secrète.
 
 La limitation de fréquence applicative est un premier garde-fou par processus. Avant ouverture publique ou déploiement multi-instance, compléter avec une règle edge/WAF ou un store partagé (par exemple Redis) et vérifier les seuils avec les limites du fournisseur.
 
-La suite Playwright doit être exécutée avec un worker unique afin d’éviter les
-collisions entre scénarios qui partagent le store de démonstration local. Elle
-couvre les parcours API, réservation, paiement, comptes, administration,
-inscription club, sécurité des accès, responsive et pages juridiques de
-préproduction. La CI reprend exactement cette commande.
+La suite Playwright utilise le bundle production avec un mode d’acceptation
+strictement local/CI (URL loopback, `CI=true` et `GETYOURMENTOR_ACCEPTANCE_MODE`)
+pour ses fixtures ; ce mode est refusé par le contrôle de configuration d’une
+production réelle. Le smoke test ci-dessus vérifie séparément le fail-closed
+sans ce mode. La suite doit être exécutée avec un worker unique afin d’éviter
+les collisions entre scénarios qui partagent le store local. La CI reprend
+exactement cette commande.
 
 Avant d’ouvrir la préproduction, vérifier aussi l’existence de `public.gym_reservation_slot_claims` et l’unicité de `(coach_id, slot)`. Deux créations simultanées sur un même coach et un même créneau doivent produire une seule réponse acceptée et une réponse `409`.
 

@@ -3,7 +3,11 @@ import { NextResponse, type NextRequest } from "next/server";
 const unsafeMethods = new Set(["POST", "PUT", "PATCH", "DELETE"]);
 
 function demoFallbackAllowed() {
-  return process.env.NODE_ENV !== "production" || process.env.GETYOURMENTOR_ALLOW_DEMO === "true";
+  const acceptanceMode = process.env.GETYOURMENTOR_ACCEPTANCE_MODE === "true"
+    && process.env.CI === "true"
+    && /^http:\/\/127\.0\.0\.1:\d+$/.test(process.env.NEXT_PUBLIC_APP_URL ?? "");
+  return acceptanceMode
+    || (process.env.NODE_ENV !== "production" && process.env.GETYOURMENTOR_ALLOW_DEMO === "true");
 }
 
 export function middleware(request: NextRequest) {

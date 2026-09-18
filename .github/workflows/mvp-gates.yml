@@ -50,6 +50,21 @@ jobs:
           fi
           echo "Incomplete production configuration was rejected as expected."
 
+      - name: Reject demo and acceptance modes in production
+        run: |
+          set +e
+          npm run check:production-config
+          status=$?
+          if [ "$status" -eq 0 ]; then
+            echo "Production configuration unexpectedly accepted test-only modes."
+            exit 1
+          fi
+          echo "Test-only modes were rejected in production as expected."
+        env:
+          NODE_ENV: production
+          GETYOURMENTOR_ALLOW_DEMO: true
+          GETYOURMENTOR_ACCEPTANCE_MODE: true
+
       - name: Verify complete production configuration
         run: npm run check:production-config
         env:

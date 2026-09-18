@@ -22,12 +22,17 @@ export default defineConfig({
   webServer: {
     command: `${process.platform === "win32" ? "npm.cmd" : "npm"} run start -- --port 3001`,
     url: "http://127.0.0.1:3001/",
-    reuseExistingServer: true,
+    // Ne jamais réutiliser un serveur lancé avec un autre environnement ou un ancien build.
+    reuseExistingServer: false,
     timeout: 120_000,
     env: {
+      NODE_ENV: "production",
+      CI: "true",
+      NEXT_PUBLIC_APP_URL: "http://127.0.0.1:3001",
       STRIPE_WEBHOOK_SECRET: "test-webhook-secret",
       PAYMENT_PROVIDER: "local",
       GETYOURMENTOR_ALLOW_DEMO: "true",
+      GETYOURMENTOR_ACCEPTANCE_MODE: "true",
     },
   },
   projects: [
