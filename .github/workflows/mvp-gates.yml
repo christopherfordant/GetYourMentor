@@ -51,6 +51,9 @@ jobs:
       - name: Verify Netlify deployment contract
         run: npm run check:netlify-config
 
+      - name: Verify n8n workflow exports
+        run: npm run check:n8n-workflows
+
       - name: Verify Supabase application schema
         run: npm run check:supabase-schema
 
