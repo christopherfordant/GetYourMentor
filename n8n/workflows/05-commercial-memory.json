@@ -1,0 +1,68 @@
+{
+  "name": "GetYourMentor - Mémoire commerciale",
+  "nodes": [
+    {
+      "parameters": {"httpMethod": "POST", "path": "gym/contact", "responseMode": "onReceived", "options": {}},
+      "id": "contact-webhook",
+      "name": "Nouveau contact",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [180, 300],
+      "webhookId": "gym-commercial-memory"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = $json.body ?? $json;\nconst allowedTypes = ['coach', 'club', 'partner', 'investor', 'incubator', 'provider', 'other'];\nconst allowedStatuses = ['new', 'contacted', 'follow_up', 'interested', 'pilot', 'won', 'lost', 'inactive'];\nconst nextActionDate = input.next_action_date ? new Date(input.next_action_date).toISOString().slice(0, 10) : null;\nreturn [{ json: { contact_type: allowedTypes.includes(input.contact_type) ? input.contact_type : 'other', full_name: String(input.full_name ?? '').trim(), organization_name: String(input.organization_name ?? '').trim(), email: String(input.email ?? '').trim(), phone: String(input.phone ?? '').trim(), sport: String(input.sport ?? '').trim(), city: String(input.city ?? '').trim(), source: String(input.source ?? 'n8n').trim(), status: allowedStatuses.includes(input.status) ? input.status : 'new', next_action: String(input.next_action ?? '').trim(), next_action_date: nextActionDate, owner: String(input.owner ?? '').trim(), notes: String(input.notes ?? '').trim(), due_for_follow_up: Boolean(nextActionDate && nextActionDate <= new Date().toISOString().slice(0, 10)) } }];"
+      },
+      "id": "normalize-contact",
+      "name": "Normaliser le contact",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "upsert",
+        "schema": "gym_memory",
+        "table": "contacts",
+        "columns": {"mappingMode": "defineBelow", "value": {"contact_type": "={{ $json.contact_type }}", "full_name": "={{ $json.full_name }}", "organization_name": "={{ $json.organization_name }}", "email": "={{ $json.email }}", "phone": "={{ $json.phone }}", "sport": "={{ $json.sport }}", "city": "={{ $json.city }}", "source": "={{ $json.source }}", "status": "={{ $json.status }}", "next_action": "={{ $json.next_action }}", "next_action_date": "={{ $json.next_action_date }}", "owner": "={{ $json.owner }}", "notes": "={{ $json.notes }}"}, "matchingColumns": ["email"]}
+      },
+      "id": "save-contact",
+      "name": "Supabase - contacts",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [780, 300],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {"conditions": {"boolean": [{"value1": "={{ $json.due_for_follow_up }}", "operation": "isTrue"}]}},
+      "id": "follow-up-check",
+      "name": "Relance due ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1060, 300]
+    },
+    {
+      "parameters": {"fromEmail": "REPLACE_WITH_SENDER_EMAIL", "toEmail": "REPLACE_WITH_OWNER_EMAIL", "subject": "Relance GetYourMentor à effectuer", "text": "={{ `Relance : ${$json.full_name || $json.organization_name}. Action : ${$json.next_action}` }}", "options": {}},
+      "id": "follow-up-email",
+      "name": "Notification relance (optionnelle)",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1320, 220],
+      "disabled": true,
+      "credentials": {"smtp": {"id": "", "name": "SMTP account"}}
+    }
+  ],
+  "connections": {
+    "Nouveau contact": {"main": [[{"node": "Normaliser le contact", "type": "main", "index": 0}]]},
+    "Normaliser le contact": {"main": [[{"node": "Supabase - contacts", "type": "main", "index": 0}]]},
+    "Supabase - contacts": {"main": [[{"node": "Relance due ?", "type": "main", "index": 0}]]},
+    "Relance due ?": {"main": [[{"node": "Notification relance (optionnelle)", "type": "main", "index": 0}], []]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-commercial-memory-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}

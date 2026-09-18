@@ -1,0 +1,99 @@
+{
+  "name": "GetYourMentor - Brief hebdomadaire",
+  "nodes": [
+    {
+      "parameters": {"rule": {"interval": [{"field": "weeks", "triggerAtDay": [1], "triggerAtHour": 8}]}},
+      "id": "weekly-trigger",
+      "name": "Chaque lundi matin",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [180, 360]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "getAll",
+        "schema": "gym_memory",
+        "table": "tasks_sync",
+        "returnAll": true,
+        "filters": {"conditions": [{"keyName": "status", "condition": "in", "keyValue": "En cours,En attente,A faire cette semaine"}]}
+      },
+      "id": "active-tasks",
+      "name": "Tâches actives",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 220],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "getAll",
+        "schema": "gym_memory",
+        "table": "decisions",
+        "returnAll": true,
+        "filters": {"conditions": [{"keyName": "created_at", "condition": "largerOrEqual", "keyValue": "={{ $now.minus({ days: 7 }).toISO() }}"}]}
+      },
+      "id": "recent-decisions",
+      "name": "Décisions des 7 derniers jours",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 360],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "getAll",
+        "schema": "gym_memory",
+        "table": "contacts",
+        "returnAll": true,
+        "filters": {"conditions": [{"keyName": "next_action_date", "condition": "smallerOrEqual", "keyValue": "={{ $now.toISODate() }}"}]}
+      },
+      "id": "contacts-to-follow-up",
+      "name": "Contacts à relancer",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 500],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all();\nconst tasks = items.filter((item) => item.json.trello_card_id || item.json.status).map((item) => item.json);\nconst decisions = items.filter((item) => item.json.category || item.json.decided_by).map((item) => item.json);\nconst contacts = items.filter((item) => item.json.contact_type || item.json.next_action_date).map((item) => item.json);\nconst topPriorities = tasks.slice(0, 3).map((task) => task.title).filter(Boolean);\nconst summary = `Progression : ${tasks.length} tâche(s) active(s).\nBlocages : ${tasks.filter((task) => task.status === 'En attente').length} tâche(s) en attente.\nDécisions récentes : ${decisions.length}.\nRelances à faire : ${contacts.length}.`;\nreturn [{ json: { period_start: $now.minus({ days: 7 }).toISODate(), period_end: $now.toISODate(), summary, blockers: tasks.filter((task) => task.status === 'En attente').map((task) => task.title), decisions, priorities: topPriorities, follow_ups: contacts } }];"
+      },
+      "id": "compose-brief",
+      "name": "Composer le brief",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 360]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "create",
+        "schema": "gym_memory",
+        "table": "weekly_briefs",
+        "columns": {"mappingMode": "defineBelow", "value": {"period_start": "={{ $json.period_start }}", "period_end": "={{ $json.period_end }}", "summary": "={{ $json.summary }}", "blockers": "={{ JSON.stringify($json.blockers) }}", "decisions": "={{ JSON.stringify($json.decisions) }}", "priorities": "={{ JSON.stringify($json.priorities) }}", "follow_ups": "={{ JSON.stringify($json.follow_ups) }}"}}
+      },
+      "id": "save-brief",
+      "name": "Supabase - weekly_briefs",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1040, 360],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    }
+  ],
+  "connections": {
+    "Chaque lundi matin": {"main": [[{"node": "Tâches actives", "type": "main", "index": 0}, {"node": "Décisions des 7 derniers jours", "type": "main", "index": 0}, {"node": "Contacts à relancer", "type": "main", "index": 0}]]},
+    "Tâches actives": {"main": [[{"node": "Composer le brief", "type": "main", "index": 0}]]},
+    "Décisions des 7 derniers jours": {"main": [[{"node": "Composer le brief", "type": "main", "index": 0}]]},
+    "Contacts à relancer": {"main": [[{"node": "Composer le brief", "type": "main", "index": 0}]]},
+    "Composer le brief": {"main": [[{"node": "Supabase - weekly_briefs", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-weekly-brief-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}

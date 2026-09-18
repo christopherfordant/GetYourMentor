@@ -1,0 +1,62 @@
+{
+  "name": "GetYourMentor - Brouillon alignement Document Maître",
+  "nodes": [
+    {
+      "parameters": {"rule": {"interval": [{"field": "weeks", "triggerAtDay": [1], "triggerAtHour": 9}]}},
+      "id": "alignment-trigger",
+      "name": "Revue hebdomadaire",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [160, 360]
+    },
+    {
+      "parameters": {"resource": "row", "operation": "getAll", "schema": "gym_memory", "table": "decisions", "returnAll": true, "filters": {"conditions": [{"keyName": "created_at", "condition": "largerOrEqual", "keyValue": "={{ $now.minus({ days: 30 }).toISO() }}"}]}},
+      "id": "alignment-decisions",
+      "name": "Décisions récentes",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 220],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {"resource": "row", "operation": "getAll", "schema": "gym_memory", "table": "features", "returnAll": true, "filters": {"conditions": [{"keyName": "phase", "condition": "equals", "keyValue": "MVP"}]}},
+      "id": "alignment-features",
+      "name": "Fonctionnalités MVP",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 360],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {"resource": "row", "operation": "getAll", "schema": "gym_memory", "table": "roadmap_items", "returnAll": true, "filters": {"conditions": [{"keyName": "status", "condition": "notEquals", "keyValue": "done"}]}},
+      "id": "alignment-roadmap",
+      "name": "Roadmap ouverte",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [420, 500],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all().map((item) => item.json);\nconst decisions = items.filter((item) => item.category || item.decided_by);\nconst features = items.filter((item) => item.target_user || item.phase === 'MVP');\nconst roadmap = items.filter((item) => item.phase || item.owner);\nconst scopeRules = ['4 sports visibles au MVP', 'paiement après validation coach', 'pas de client fictif ni de déploiement client', 'ne pas ajouter de contenu premium au MVP'];\nconst draft = `# Brouillon de revue du Document Maître\\n\\nDate : ${$now.toISODate()}\\n\\n## État observé\\n- Décisions récentes : ${decisions.length}\\n- Fonctionnalités MVP suivies : ${features.length}\\n- Éléments de roadmap ouverts : ${roadmap.length}\\n\\n## Règles MVP à vérifier\\n${scopeRules.map((rule) => `- [ ] ${rule}`).join('\\n')}\\n\\n## Décisions à intégrer\\n${decisions.map((decision) => `- ${decision.title ?? 'Décision sans titre'} : ${decision.description ?? ''}`).join('\\n') || '- Aucune décision récente'}\\n\\n## Validation humaine requise\\nCe document est un brouillon. Ne pas écraser DOCUMENT_MAITRE_GYM.md automatiquement.`;\nreturn [{ json: { file_name: `master-alignment-draft-${$now.toISODate()}.md`, draft, requires_human_validation: true } }];"
+      },
+      "id": "create-alignment-draft",
+      "name": "Générer le brouillon",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 360]
+    }
+  ],
+  "connections": {
+    "Revue hebdomadaire": {"main": [[{"node": "Décisions récentes", "type": "main", "index": 0}, {"node": "Fonctionnalités MVP", "type": "main", "index": 0}, {"node": "Roadmap ouverte", "type": "main", "index": 0}]]},
+    "Décisions récentes": {"main": [[{"node": "Générer le brouillon", "type": "main", "index": 0}]]},
+    "Fonctionnalités MVP": {"main": [[{"node": "Générer le brouillon", "type": "main", "index": 0}]]},
+    "Roadmap ouverte": {"main": [[{"node": "Générer le brouillon", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-master-alignment-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}

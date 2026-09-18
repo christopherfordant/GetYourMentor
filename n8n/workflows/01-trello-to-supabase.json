@@ -1,0 +1,68 @@
+{
+  "name": "GetYourMentor - Trello vers Supabase",
+  "nodes": [
+    {
+      "parameters": {
+        "events": ["create", "update", "move"],
+        "boardId": "REPLACE_WITH_GETYOURMENTOR_BOARD_ID"
+      },
+      "id": "trello-trigger",
+      "name": "Trello Trigger",
+      "type": "n8n-nodes-base.trelloTrigger",
+      "typeVersion": 1,
+      "position": [260, 300],
+      "credentials": {"trelloApi": {"id": "", "name": "Trello account"}}
+    },
+    {
+      "parameters": {
+        "jsCode": "const card = $json.card ?? $json;\nconst list = $json.list ?? {};\nconst labels = Array.isArray(card.labels) ? card.labels.map((label) => label.name ?? label.id).filter(Boolean) : [];\nconst members = Array.isArray(card.members) ? card.members.map((member) => member.fullName ?? member.username ?? member.id).filter(Boolean) : [];\nreturn [{ json: { trello_card_id: card.id, trello_board_id: card.idBoard ?? $json.board?.id, trello_list_id: card.idList ?? list.id, trello_list_name: list.name ?? $json.listName ?? '', title: card.name ?? '', description: card.desc ?? '', status: list.name ?? $json.listName ?? '', labels, members, due_date: card.due ?? null, url: card.shortUrl ?? card.url ?? '', synced_at: new Date().toISOString() } }];"
+      },
+      "id": "normalize-card",
+      "name": "Normaliser la carte",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "resource": "row",
+        "operation": "upsert",
+        "schema": "gym_memory",
+        "table": "tasks_sync",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "trello_card_id": "={{ $json.trello_card_id }}",
+            "trello_board_id": "={{ $json.trello_board_id }}",
+            "trello_list_id": "={{ $json.trello_list_id }}",
+            "trello_list_name": "={{ $json.trello_list_name }}",
+            "title": "={{ $json.title }}",
+            "description": "={{ $json.description }}",
+            "status": "={{ $json.status }}",
+            "labels": "={{ JSON.stringify($json.labels) }}",
+            "members": "={{ JSON.stringify($json.members) }}",
+            "due_date": "={{ $json.due_date }}",
+            "url": "={{ $json.url }}",
+            "synced_at": "={{ $json.synced_at }}"
+          },
+          "matchingColumns": ["trello_card_id"]
+        }
+      },
+      "id": "supabase-upsert",
+      "name": "Supabase - tasks_sync",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [820, 300],
+      "credentials": {"supabaseApi": {"id": "", "name": "Supabase account"}}
+    }
+  ],
+  "connections": {
+    "Trello Trigger": {"main": [[{"node": "Normaliser la carte", "type": "main", "index": 0}]]},
+    "Normaliser la carte": {"main": [[{"node": "Supabase - tasks_sync", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "gym-trello-supabase-v1",
+  "meta": {"templateCredsSetupCompleted": false},
+  "tags": []
+}
