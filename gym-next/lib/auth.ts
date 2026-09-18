@@ -5,7 +5,7 @@ import { createStoredCoachProfile } from "@/lib/coaches";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
-type Session = { email: string; role: UserRole; coachId?: string };
+type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
 type SignupProfile = { firstName: string; lastName: string; phone: string; city?: string; termsAccepted: boolean };
 
 const sessions = new Map<string, Session>();
@@ -63,7 +63,7 @@ function decodeSession(value: string) {
     ]).toString("utf8");
     const parsed = JSON.parse(decrypted) as Partial<Session>;
     return typeof parsed.email === "string" && isUserRole(parsed.role)
-      ? { email: parsed.email, role: parsed.role, coachId: typeof parsed.coachId === "string" ? parsed.coachId : undefined }
+      ? { email: parsed.email, role: parsed.role, coachId: typeof parsed.coachId === "string" ? parsed.coachId : undefined, accessToken: typeof parsed.accessToken === "string" ? parsed.accessToken : undefined }
       : null;
   } catch {
     return null;
@@ -111,7 +111,7 @@ export async function signIn(email: string, password: string, role: Session["rol
     coachId = "steven-fordant";
   }
 
-  const sessionId = encodeSession({ email, role: resolvedRole, coachId });
+  const sessionId = encodeSession({ email, role: resolvedRole, coachId, accessToken });
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, sessionId, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: SESSION_MAX_AGE, path: "/" });
   const coachName = coachId ? coachProfiles.find((coach) => coach.id === coachId)?.name : undefined;
