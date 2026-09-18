@@ -42,6 +42,8 @@ type DirectoryFilters = {
   verified: boolean;
 };
 
+type DirectorySort = "relevance" | "rating-desc" | "price-asc" | "price-desc";
+
 const defaultDirectoryFilters: DirectoryFilters = {
   gender: "all",
   practice: "all",
@@ -257,6 +259,8 @@ function DirectoryToolbar({
   locationStatus,
   radiusKm,
   onRadiusChange,
+  sort,
+  onSortChange,
 }: {
   sportLabel: string;
   city: string;
@@ -266,6 +270,8 @@ function DirectoryToolbar({
   locationStatus: string;
   radiusKm: number;
   onRadiusChange: (radius: number) => void;
+  sort: DirectorySort;
+  onSortChange: (sort: DirectorySort) => void;
 }) {
   const [sportInput, setSportInput] = useState(sportLabel);
   const [cityInput, setCityInput] = useState(city);
@@ -333,12 +339,15 @@ function DirectoryToolbar({
         <button className="directory-chip directory-chip-filter" type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen}>
           Filtres
         </button>
-        <button className="directory-chip directory-chip-secondary" type="button">
-          Trier par :
-        </button>
-        <button className="directory-chip directory-chip-secondary" type="button">
-          Avis :
-        </button>
+        <label className="directory-chip directory-chip-secondary">
+          Trier par
+          <select value={sort} onChange={(event) => onSortChange(event.target.value as DirectorySort)} aria-label="Trier les coachs">
+            <option value="relevance">Pertinence</option>
+            <option value="rating-desc">Mieux notés</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+        </label>
       </div>
       {locationStatus ? <p role="status" data-directory-location-status>{locationStatus}</p> : null}
       {filtersOpen ? (
@@ -489,6 +498,7 @@ function DirectoryContent({
   subtitle,
   coaches,
   filters,
+  sort,
 }: {
   sportSlug: string;
   city: string;
@@ -496,8 +506,9 @@ function DirectoryContent({
   subtitle: string;
   coaches: CoachEntry[];
   filters: DirectoryFilters;
+  sort: DirectorySort;
 }) {
-  const visibleCoaches = coaches.filter((coach) => {
+  const visibleCoaches = [...coaches].filter((coach) => {
     if (filters.gender !== "all" && coach.gender !== filters.gender) return false;
     if (filters.practice !== "all" && coach.practice !== filters.practice) return false;
     if (filters.level !== "all" && coach.level !== filters.level) return false;
@@ -510,6 +521,11 @@ function DirectoryContent({
     if (filters.budget === "40-60" && ((coach.price ?? 0) < 40 || (coach.price ?? 0) > 60)) return false;
     if (filters.budget === "over-60" && (coach.price ?? 0) <= 60) return false;
     return true;
+  }).sort((first, second) => {
+    if (sort === "rating-desc") return (second.rating ?? 0) - (first.rating ?? 0);
+    if (sort === "price-asc") return (first.price ?? Number.POSITIVE_INFINITY) - (second.price ?? Number.POSITIVE_INFINITY);
+    if (sort === "price-desc") return (second.price ?? 0) - (first.price ?? 0);
+    return (first.distanceKm ?? Number.POSITIVE_INFINITY) - (second.distanceKm ?? Number.POSITIVE_INFINITY);
   });
 
   return (
@@ -583,6 +599,7 @@ export function SelectionCoachsLegacyPage({
   const cityValue = city || "Paris";
   const [filters, setFilters] = useState<DirectoryFilters>(defaultDirectoryFilters);
   const [radiusKm, setRadiusKm] = useState(10);
+  const [sort, setSort] = useState<DirectorySort>("relevance");
   const [locationStatus, setLocationStatus] = useState("");
   const [locatedCoaches, setLocatedCoaches] = useState<CoachEntry[] | null>(null);
   const coaches = useMemo(
@@ -638,7 +655,7 @@ export function SelectionCoachsLegacyPage({
       <div className="site-shell coach-profile-shell">
         <DirectoryHeader />
         <main className="coach-directory-page" data-coach-directory-page>
-          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} />
+          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
           <DirectoryContent
             sportSlug={sportSlug}
             city={cityValue}
@@ -646,6 +663,7 @@ export function SelectionCoachsLegacyPage({
             subtitle={currentDirectory.getSubtitle(cityValue)}
             coaches={visibleCoaches}
             filters={filters}
+            sort={sort}
           />
         </main>
         <DirectoryFooter />
