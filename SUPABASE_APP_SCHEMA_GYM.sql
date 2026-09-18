@@ -76,6 +76,9 @@ create table if not exists public.gym_reservations (
   cancelled_at timestamptz,
   refund_percent numeric(5, 2) default 0 check (refund_percent between 0 and 100),
   refund_amount numeric(10, 2) default 0 check (refund_amount >= 0),
+  stripe_payment_intent_id text,
+  stripe_refund_id text,
+  refund_status text not null default 'not_required' check (refund_status in ('not_required', 'pending', 'succeeded')),
   created_at timestamptz not null default now()
 );
 
@@ -91,6 +94,9 @@ alter table public.gym_reservations add column if not exists owner_email text;
 alter table public.gym_reservations add column if not exists cancelled_at timestamptz;
 alter table public.gym_reservations add column if not exists refund_percent numeric(5, 2) default 0;
 alter table public.gym_reservations add column if not exists refund_amount numeric(10, 2) default 0;
+alter table public.gym_reservations add column if not exists stripe_payment_intent_id text;
+alter table public.gym_reservations add column if not exists stripe_refund_id text;
+alter table public.gym_reservations add column if not exists refund_status text not null default 'not_required';
 
 -- Claim atomique des créneaux : la clé unique empêche deux réservations actives
 -- de prendre simultanément le même créneau pour un même coach.

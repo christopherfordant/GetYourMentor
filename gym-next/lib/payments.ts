@@ -3,6 +3,8 @@ import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 type CheckoutResult = { checkoutUrl: string; sessionId: string };
 
+type RefundResult = { id: string; status: "pending" | "succeeded" };
+
 function stripeConfig() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const provider = process.env.PAYMENT_PROVIDER ?? "local";
@@ -47,4 +49,40 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   const payload = await response.json();
   if (typeof payload.url !== "string" || typeof payload.id !== "string") throw new Error("Session Stripe invalide");
   return { checkoutUrl: payload.url, sessionId: payload.id };
+}
+
+export async function refundStripePayment(input: {
+  paymentIntentId: string;
+  amountCents: number;
+  reservationId: string;
+}): Promise<RefundResult | null> {
+  const secretKey = process.env.STRIPE_SECRET_KEY;
+  const provider = process.env.PAYMENT_PROVIDER ?? "local";
+  if (provider !== "stripe" || !secretKey) {
+    assertDemoFallbackAllowed("Stripe");
+    return null;
+  }
+  if (!Number.isInteger(input.amountCents) || input.amountCents <= 0) {
+    throw new Error("Montant de remboursement Stripe invalide");
+  }
+
+  const form = new URLSearchParams({
+    payment_intent: input.paymentIntentId,
+    amount: String(input.amountCents),
+  });
+  const response = await fetch("https://api.stripe.com/v1/refunds", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${secretKey}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Idempotency-Key": `gym-refund-${input.reservationId}-${input.amountCents}`,
+    },
+    body: form,
+  });
+  if (!response.ok) throw new Error("Remboursement Stripe impossible");
+  const payload = await response.json();
+  if (typeof payload.id !== "string" || !["pending", "succeeded"].includes(payload.status)) {
+    throw new Error("Réponse de remboursement Stripe invalide");
+  }
+  return { id: payload.id, status: payload.status };
 }
