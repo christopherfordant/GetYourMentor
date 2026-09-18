@@ -9,6 +9,7 @@ import { MessageInbox } from "@/components/account-legacy/MessageInbox";
 import { AthleteDashboard } from "@/components/account-legacy/AthleteDashboard";
 import { AdminDashboard } from "@/components/account-legacy/AdminDashboard";
 import { PhoneVerificationPanel } from "@/components/account-legacy/PhoneVerificationPanel";
+import { CoachDocumentsPanel } from "@/components/account-legacy/CoachDocumentsPanel";
 import { findCoach, type CoachProfile, type Reservation } from "@/lib/domain";
 
 type AccountLegacyPageProps = {
@@ -407,6 +408,7 @@ function CoachDashboard({
   return (
     <section className="account-dashboard coach-home" data-account-dashboard="coach">
       <PhoneVerificationPanel />
+      {coachId ? <CoachDocumentsPanel coachId={coachId} /> : null}
       <aside className="coach-home-sidebar">
         <button className="coach-home-nav-main is-active" type="button">
           Accueil
