@@ -9,8 +9,9 @@ rejoués après l’ajout du parcours club persistant et du contrôle d’accès
 authentifié retrouve uniquement sa propre demande d’affiliation et son statut.
 La CI distante du commit fonctionnel précédent `59187c1` est verte : run
 `35301686997`, avec le contrôle de frontière client/serveur inclus. Le code
-applicatif a ensuite évolué jusqu’au commit `a3fc9da` pour le remboursement
-Stripe ; les tests locaux de cette version sont documentés séparément et sa CI
+applicatif a ensuite évolué jusqu’au commit `e38c254` pour le remboursement
+Stripe et le garde-fou PaymentIntent ; les tests locaux de cette version sont
+documentés séparément et sa CI
 reste à confirmer.
 
 Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation juridique, ni un audit de sécurité indépendant, ni une recette utilisateur réelle.
@@ -19,9 +20,9 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
-| Build Next.js production | PASS local / CI précédente | Build propre du code applicatif de `a3fc9da` avec Node 22.23.2 : 25 routes générées, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. Le build CI `35301686997` valide le commit fonctionnel précédent `59187c1` ; le build local courant inclut le remboursement Stripe et sa CI reste à confirmer. |
+| Build Next.js production | PASS local / CI précédente | Build propre du code applicatif de `e38c254` avec Node 22.23.2 : 25 routes générées, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. Le build CI `35301686997` valide le commit fonctionnel précédent `59187c1` ; le build local courant inclut le remboursement Stripe et le garde-fou PaymentIntent, et sa CI reste à confirmer. |
 | Vérification TypeScript | PASS | `npm.cmd run check:types` exécute `tsc --noEmit --incremental false` sans dépendance de lint supplémentaire ; la vérification de types est aussi rejouée par le build Next.js. |
-| Parcours fonctionnels Playwright | PASS local / CI précédente | La suite complète 98/98 passe sur le code applicatif de `a3fc9da` (49/49 desktop et 49/49 mobile, mono-worker), incluant API, réservation, paiement, remboursements locaux, comptes, coach, club, admin, santé, sécurité, liens juridiques et responsive. La CI du commit fonctionnel précédent `59187c1` est verte ; la CI de `a3fc9da` reste à confirmer. |
+| Parcours fonctionnels Playwright | PASS local / CI précédente | La suite complète 98/98 passe sur le code applicatif de `e38c254` (49/49 desktop et 49/49 mobile, mono-worker), incluant API, réservation, paiement, remboursements locaux, comptes, coach, club, admin, santé, sécurité, liens juridiques et responsive. La CI du commit fonctionnel précédent `59187c1` est verte ; la CI de `e38c254` reste à confirmer. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Modèle d’environnement préproduction | PASS | `npm.cmd run check:preproduction-template` vérifie les variables attendues, Stripe, HTTPS et l’absence de clés réelles dans `gym-next/.env.preproduction.example`. |
 | Secrets dans les fichiers suivis | PASS | `npm.cmd run check:tracked-secrets` refuse les fichiers sensibles suivis par Git et les motifs de clés réelles ; les templates et valeurs synthétiques CI sont explicitement autorisés. |
