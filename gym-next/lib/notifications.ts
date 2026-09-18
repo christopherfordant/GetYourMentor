@@ -31,7 +31,11 @@ export async function sendReservationConfirmation(reservation: Reservation): Pro
   if (config) {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${config.apiKey}`,
+        "Content-Type": "application/json",
+        "Idempotency-Key": notificationId,
+      },
       body: JSON.stringify({ from: config.from, to: [reservation.ownerEmail], subject, text }),
     });
     if (!response.ok) throw new Error(`Email de confirmation impossible (${response.status})`);
