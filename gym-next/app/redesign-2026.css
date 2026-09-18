@@ -557,6 +557,20 @@
 .cookie-consent-actions button { min-height: 2.55rem; padding: 0.65rem 0.9rem; border-radius: 999px; font: inherit; font-size: 0.82rem; cursor: pointer; }
 .cookie-consent-primary { border: 0; background: #d7f36b; color: #0b1020; font-weight: 800; }
 .cookie-consent-secondary { border: 1px solid #526887; background: transparent; color: #f7fbff; }
+.cookie-preferences-trigger {
+  position: fixed;
+  z-index: 1000;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #526887;
+  border-radius: 999px;
+  background: rgba(11, 16, 32, 0.96);
+  color: #f7fbff;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
 
 @media (max-width: 700px) {
   .cookie-consent-banner { display: block; padding: 1rem; }

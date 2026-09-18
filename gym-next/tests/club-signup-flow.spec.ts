@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("une structure peut transmettre une demande d'affiliation", async ({ page }) => {
   await page.goto("/inscription-club");
+  await page.getByRole("button", { name: "Continuer avec le nécessaire", exact: true }).click();
   await page.locator('input[name="clubName"]').fill("Club Démonstration");
   await page.locator('input[name="managerName"]').fill("Camille Martin");
   await page.locator('input[name="email"]').fill(`club-${Date.now()}@example.com`);
