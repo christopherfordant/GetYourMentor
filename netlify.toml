@@ -9,5 +9,8 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  directory = "gym-next/netlify/functions"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
