@@ -4,6 +4,7 @@ import { supabaseHeaders } from "@/lib/supabase";
 import { distanceKm, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
+export type CoachDocumentKind = "identity" | "diploma";
 
 export function toPublicCoach(coach: CoachProfile & { distanceKm?: number }): PublicCoachProfile {
   const publicCoach = { ...coach } as PublicCoachProfile & { bankAccountLast4?: string; latitude?: number; longitude?: number };
@@ -19,6 +20,112 @@ function supabaseConfig() {
   if (url && key) return { url: url.replace(/\/$/, ""), key };
   assertDemoFallbackAllowed("Supabase Coaches");
   return null;
+}
+
+function coachStorageConfig() {
+  const config = supabaseConfig();
+  if (!config) return null;
+  return { ...config, bucket: process.env.SUPABASE_COACH_DOCUMENTS_BUCKET ?? "coach-documents" };
+}
+
+function coachDocumentName(file: File, kind: CoachDocumentKind) {
+  const extension = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "bin";
+  return `${kind}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}.${extension}`;
+}
+
+function coachDocumentColumn(kind: CoachDocumentKind, path = false) {
+  return kind === "identity" ? (path ? "identity_storage_path" : "identity_file_name") : (path ? "diploma_storage_path" : "diploma_file_name");
+}
+
+async function uploadCoachDocument(config: ReturnType<typeof coachStorageConfig>, coachId: string, kind: CoachDocumentKind, file: File) {
+  if (!config) return null;
+  const objectPath = `coaches/${encodeURIComponent(coachId)}/${coachDocumentName(file, kind)}`;
+  const response = await fetch(`${config.url}/storage/v1/object/${encodeURIComponent(config.bucket)}/${objectPath.split("/").map(encodeURIComponent).join("/")}`, {
+    method: "POST",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": file.type || "application/octet-stream", "x-upsert": "false" },
+    body: Buffer.from(await file.arrayBuffer()),
+  });
+  if (!response.ok) throw new Error(`Supabase coach document upload error (${response.status})`);
+  return objectPath;
+}
+
+async function deleteCoachStorageObject(config: ReturnType<typeof coachStorageConfig>, objectPath: string) {
+  if (!config || !objectPath) return;
+  await fetch(`${config.url}/storage/v1/object/${encodeURIComponent(config.bucket)}`, {
+    method: "DELETE",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ prefixes: [objectPath] }),
+  });
+}
+
+export async function saveCoachDocument(id: string, kind: CoachDocumentKind, file: File) {
+  const config = coachStorageConfig();
+  if (!config) return null;
+  const pathColumn = coachDocumentColumn(kind, true);
+  const nameColumn = coachDocumentColumn(kind);
+  const previousResponse = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}&select=${pathColumn}&limit=1`, {
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store",
+  });
+  if (!previousResponse.ok) throw new Error(`Supabase coach lookup error (${previousResponse.status})`);
+  const [previous] = await previousResponse.json() as Array<Record<string, unknown>>;
+  const objectPath = await uploadCoachDocument(config, id, kind, file);
+  if (!objectPath) return null;
+  const updateResponse = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+    body: JSON.stringify({ [pathColumn]: objectPath, [nameColumn]: file.name, verification_status: "pending", verified: false, verified_at: null }),
+  });
+  if (!updateResponse.ok) {
+    await deleteCoachStorageObject(config, objectPath);
+    throw new Error(`Supabase coach document metadata error (${updateResponse.status})`);
+  }
+  const previousPath = typeof previous?.[pathColumn] === "string" ? previous[pathColumn] as string : "";
+  if (previousPath) await deleteCoachStorageObject(config, previousPath);
+  return { kind, fileName: file.name };
+}
+
+export async function getCoachDocumentSignedUrl(id: string, kind: CoachDocumentKind, expiresIn = 300) {
+  const config = coachStorageConfig();
+  if (!config) return null;
+  const pathColumn = coachDocumentColumn(kind, true);
+  const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}&select=${pathColumn}&limit=1`, {
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store",
+  });
+  if (!response.ok) throw new Error(`Supabase coach lookup error (${response.status})`);
+  const [row] = await response.json() as Array<Record<string, unknown>>;
+  const objectPath = typeof row?.[pathColumn] === "string" ? row[pathColumn] as string : "";
+  if (!objectPath) return null;
+  const signResponse = await fetch(`${config.url}/storage/v1/object/sign/${encodeURIComponent(config.bucket)}/${objectPath.split("/").map(encodeURIComponent).join("/")}`, {
+    method: "POST",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ expiresIn }),
+  });
+  if (!signResponse.ok) throw new Error(`Supabase coach document signing error (${signResponse.status})`);
+  const payload = await signResponse.json() as { signedURL?: unknown };
+  if (typeof payload.signedURL !== "string") throw new Error("Supabase signed URL missing");
+  return payload.signedURL.startsWith("http") ? payload.signedURL : `${config.url}/storage/v1${payload.signedURL.startsWith("/") ? payload.signedURL : `/${payload.signedURL}`}`;
+}
+
+export async function deleteCoachDocument(id: string, kind: CoachDocumentKind) {
+  const config = coachStorageConfig();
+  if (!config) return false;
+  const pathColumn = coachDocumentColumn(kind, true);
+  const nameColumn = coachDocumentColumn(kind);
+  const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}&select=${pathColumn}&limit=1`, {
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store",
+  });
+  if (!response.ok) throw new Error(`Supabase coach lookup error (${response.status})`);
+  const [row] = await response.json() as Array<Record<string, unknown>>;
+  const objectPath = typeof row?.[pathColumn] === "string" ? row[pathColumn] as string : "";
+  if (!objectPath) return false;
+  await deleteCoachStorageObject(config, objectPath);
+  const clearResponse = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ [pathColumn]: null, [nameColumn]: null, verification_status: "pending", verified: false, verified_at: null }),
+  });
+  if (!clearResponse.ok) throw new Error(`Supabase coach metadata error (${clearResponse.status})`);
+  return true;
 }
 
 function fromRow(row: Record<string, unknown>): CoachProfile {
