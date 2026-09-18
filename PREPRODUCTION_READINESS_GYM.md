@@ -16,7 +16,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
-| Build Next.js production | PASS | `npm.cmd run build` passe et génère 25 routes, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. |
+| Build Next.js production | À confirmer CI Node 22 | Le dernier build validé a généré 25 routes, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. Après la réinstallation des dépendances ESLint, le build local sous Node 24 reste bloqué avant compilation ; il ne doit pas être présenté comme une preuve actuelle tant que le runner CI Node 22 n’a pas confirmé le commit courant. |
 | Lint applicatif | PASS avec avertissements legacy | `npm.cmd run lint` est maintenant non interactif et bloquerait les erreurs. Il reste des avertissements sur les écrans legacy (apostrophes JSX, liens internes et quelques optimisations image) ; ils sont visibles dans la sortie et ne sont pas présentés comme résolus. |
 | Parcours fonctionnels Playwright | PASS local / CI | Le 2026-09-18, 49/49 tests passent sur `desktop-chromium` et 49/49 sur `mobile-chromium` (98/98 local, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié, workflow club, validation MIME, limitation de fréquence, liens juridiques, isolation démo/production et responsive. Le run CI `35293894867` du commit `b00e132` est terminé avec succès. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
