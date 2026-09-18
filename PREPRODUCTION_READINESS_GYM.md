@@ -1,13 +1,22 @@
 # GetYourMentor — readiness préproduction
 
+## Dernière vérification locale
+
+Le 2026-09-18, le build de production et la suite Playwright complète ont été
+rejoués après l’ajout du parcours club persistant : **96/96 tests passés**
+(desktop et mobile, un worker). Le test ciblé vérifie qu’un compte club
+authentifié retrouve uniquement sa propre demande d’affiliation et son statut.
+La CI distante du commit courant reste à confirmer lorsque l’API GitHub sera
+accessible.
+
 Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation juridique, ni un audit de sécurité indépendant, ni une recette utilisateur réelle.
 
 ## État des contrôles
 
 | Contrôle | État | Preuve / remarque |
 |---|---|---|
-| Build Next.js production | PASS | `npm.cmd run build` passe et génère 24 routes, dont `/api/health` et `/api/auth/sign-out`. |
-| Parcours fonctionnels Playwright | PASS local / CI précédent | Le 2026-09-18, 47/47 tests passent sur `desktop-chromium` et 47/47 sur `mobile-chromium` (94/94 local, mono-worker), incluant API, réservation, paiement, comptes, coach, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié, workflow club, validation MIME, limitation de fréquence, liens juridiques, isolation démo/production et responsive. Le run CI `35289598168` du commit `0a9245a` est terminé avec succès ; le commit de durcissement `31793c0` reste à revalider à distance. |
+| Build Next.js production | PASS | `npm.cmd run build` passe et génère 25 routes, dont `/api/health`, `/api/auth/sign-out` et `/api/clubs/me`. |
+| Parcours fonctionnels Playwright | PASS local / CI précédent | Le 2026-09-18, 48/48 tests passent sur `desktop-chromium` et 48/48 sur `mobile-chromium` (96/96 local, mono-worker), incluant API, réservation, paiement, comptes, coach, club, admin, santé, limites d’entrée, bornes de créneau, déconnexion, confidentialité des réservations, minimisation bancaire, webhook invalide, catalogue vérifié, workflow club, validation MIME, limitation de fréquence, liens juridiques, isolation démo/production et responsive. Le run CI `35289598168` du commit `0a9245a` est terminé avec succès ; les commits suivants restent à revalider à distance. |
 | Vulnérabilités dépendances de production | PASS | `npm.cmd audit --omit=dev --audit-level=high` retourne `found 0 vulnerabilities`; Next.js est en 15.5.25. |
 | Modèle d’environnement préproduction | PASS | `npm.cmd run check:preproduction-template` vérifie les variables attendues, Stripe, HTTPS et l’absence de clés réelles dans `gym-next/.env.preproduction.example`. |
 | Schéma Supabase applicatif | PASS code / À valider Supabase | `npm.cmd run check:supabase-schema` vérifie les six tables MVP, la RLS, l’absence de seed coach actif, le bucket privé et l’unicité coach/créneau ; l’exécution SQL réelle reste à faire dans le projet Supabase de préproduction. |
@@ -26,7 +35,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Catalogue coach persistant | PASS code / À valider en préproduction | La page `/coachs` lit le catalogue serveur quand Supabase est configuré et utilise les identifiants coach persistés ; les disponibilités doivent encore être validées avec les données réelles. |
 | Absence de faux catalogue en production | PASS code / À valider Supabase | Si Supabase est configuré mais ne contient aucun coach, l’application renvoie un catalogue vide ; les coachs de démonstration ne sont utilisés que dans le mode démo explicite. Le schéma applicatif n’injecte plus de profils de démonstration. |
 | Vérification coach avant exposition | PASS code / À valider recette admin | Le catalogue public, la fiche publique, la messagerie et la réservation refusent les profils non vérifiés ; l’accès privé du coach et de l’administrateur reste disponible. |
-| Données des dashboards coach / sportif / club | BLOCKED | Le dashboard coach lit le profil, les réservations, les paiements et les messages via les APIs. Le dashboard club n’expose plus ses anciennes fixtures en production et affiche un état d’attente ; son espace métier reste à connecter aux données persistées et à valider avec un vrai compte club. |
+| Données des dashboards coach / sportif / club | PARTIEL / À valider préproduction | Le dashboard coach lit le profil, les réservations, les paiements et les messages via les APIs. L’espace club peut désormais retrouver la demande d’affiliation du compte connecté via `GET /api/clubs/me`, sans exposer de chemin Storage ni d’IBAN complet ; le planning, les coachs affiliés et les paiements club restent hors périmètre MVP et ne doivent pas être simulés. |
 | Demandes club persistantes | PASS code / À valider Supabase | Les demandes club sont stockées dans `gym_club_leads` quand Supabase est configuré ; le mode mémoire reste limité à la démonstration et seuls les noms de fichiers et quatre caractères d’IBAN sont conservés. |
 | Stockage des pièces club | PASS code / BLOCKED préproduction | Les fichiers sont envoyés côté serveur vers un bucket Supabase Storage privé, sous un chemin isolé par demande, avec nettoyage en cas d’échec et validation de taille/MIME. Un endpoint admin vérifie le rôle, renvoie une URL signée de 5 minutes et permet la suppression ciblée ; il reste à appliquer le schéma, tester les politiques d’accès et définir la durée de rétention avant archivage réel. |
 | Tarif de réservation | PASS | Le montant d’une réservation est désormais dérivé du tarif du coach côté serveur ; le prix envoyé par le navigateur est ignoré et couvert par le parcours API. |

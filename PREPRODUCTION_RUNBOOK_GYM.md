@@ -154,6 +154,11 @@ démarre le bundle avec des variables vides et vérifie que l’application rest
 fermée sans services réels : santé `503`, tunnel de réservation indisponible et
 catalogue sans coach de démonstration.
 
+Pour un compte club authentifie, verifier aussi `GET /api/clubs/me`. La reponse
+doit retourner uniquement la demande dont l'adresse e-mail correspond a la
+session courante, sans chemin Storage, URL signee ni IBAN complet. Une session
+non-club doit recevoir `401`.
+
 ## 6. Rollback
 
 Avant toute migration ou activation de service : conserver le commit déployé, la sauvegarde Supabase et la configuration de l’environnement. En cas d’échec, revenir au dernier commit validé par la CI, désactiver le webhook de préproduction si nécessaire et restaurer uniquement après diagnostic.
