@@ -75,6 +75,7 @@ npm.cmd run check:production-config
 npm.cmd run check:preproduction-template
 npm.cmd run check:supabase-schema
 npm.cmd run build
+npm.cmd run check:client-secret-boundary
 npm.cmd audit --omit=dev --audit-level=high
 npx.cmd playwright install chromium
 npx.cmd playwright test --reporter=line --workers=1
