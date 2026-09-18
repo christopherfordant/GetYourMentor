@@ -48,6 +48,8 @@ test.describe("parcours metier principaux", () => {
     await expect(page.locator("[data-booking-bio]")).toContainText("Séances personnalisées");
     await expect(page.locator("[data-booking-disciplines]")).toContainText("Fitness");
     await expect(page.locator("[data-booking-public-diplomas]")).toContainText("Certification fitness");
+    const cookieConsent = page.getByRole("button", { name: "Continuer avec le nécessaire", exact: true });
+    if (await cookieConsent.isVisible().catch(() => false)) await cookieConsent.click();
     await page.getByRole("button", { name: "Planning" }).click();
     await expect(page.locator('[data-booking-confirm]')).toBeVisible();
     await page.locator('[data-booking-confirm]').click();

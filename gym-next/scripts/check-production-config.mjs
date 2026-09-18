@@ -3,6 +3,7 @@ const required = [
   ["SUPABASE_ANON_KEY", "clé publique Supabase côté serveur"],
   ["SUPABASE_SERVICE_ROLE_KEY", "clé Supabase serveur uniquement"],
   ["SESSION_SECRET", "secret de chiffrement des sessions"],
+  ["CRON_SECRET", "secret du planificateur de rappels"],
   ["NEXT_PUBLIC_APP_URL", "URL publique de l’application"],
   ["STRIPE_SECRET_KEY", "clé secrète Stripe"],
   ["STRIPE_WEBHOOK_SECRET", "secret du webhook Stripe"],
@@ -48,6 +49,9 @@ if (process.env.PAYMENT_PROVIDER !== "stripe") {
 
 if (process.env.SESSION_SECRET && process.env.SESSION_SECRET.length < 32) {
   errors.push("SESSION_SECRET doit contenir au moins 32 caractères.");
+}
+if (process.env.CRON_SECRET && process.env.CRON_SECRET.length < 32) {
+  errors.push("CRON_SECRET doit contenir au moins 32 caractères.");
 }
 
 if (process.env.SUPABASE_SERVICE_ROLE_KEY?.startsWith("NEXT_PUBLIC_")) {
