@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "check:production-config": "node scripts/check-production-config.mjs",
     "check:preproduction-template": "node scripts/check-preproduction-template.mjs",
     "check:netlify-config": "node scripts/check-netlify-config.mjs",
@@ -28,10 +28,13 @@
     "postcss": "^8.5.28"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@playwright/test": "^1.62.0",
     "@types/node": "22.14.1",
     "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.5.25",
     "typescript": "5.8.3"
   }
 }

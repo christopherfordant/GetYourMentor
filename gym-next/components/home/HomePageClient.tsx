@@ -421,10 +421,10 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
         <div className={styles.footerBrand}>GETYOURMENTOR</div>
         <p>Ton coaching, ton rythme, ta progression.</p>
         <nav className={styles.footerLinks} aria-label="Liens legaux">
-          <a href="/legal/cgv">CGV</a>
-          <a href="/legal/cgu">CGU</a>
-          <a href="/legal/confidentialite">Politique de confidentialité</a>
-          <a href="/legal/mentions-legales">Mentions légales</a>
+          <Link href="/legal/cgv">CGV</Link>
+          <Link href="/legal/cgu">CGU</Link>
+          <Link href="/legal/confidentialite">Politique de confidentialité</Link>
+          <Link href="/legal/mentions-legales">Mentions légales</Link>
         </nav>
         <small>&copy; 2026 GetYourMentor. Tous droits réservés.</small>
       </footer>
