@@ -8,6 +8,7 @@ export function AthleteDashboard() {
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [locationStatus, setLocationStatus] = useState("");
 
   useEffect(() => {
     fetch("/api/reservations")
@@ -53,6 +54,22 @@ export function AthleteDashboard() {
     input.value = "";
   }
 
+  function searchNearby(radiusKm: number) {
+    if (!navigator.geolocation) {
+      setLocationStatus("La géolocalisation n’est pas disponible sur cet appareil.");
+      return;
+    }
+    setLocationStatus("Recherche de coachs à proximité…");
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        const query = new URLSearchParams({ latitude: String(coords.latitude), longitude: String(coords.longitude), radiusKm: String(radiusKm) });
+        window.location.assign(`/coachs?${query.toString()}`);
+      },
+      () => setLocationStatus("Autorisez la position pour rechercher les coachs autour de vous."),
+      { enableHighAccuracy: false, maximumAge: 300000, timeout: 10000 },
+    );
+  }
+
   return (
     <section className="account-dashboard athlete-home" data-athlete-dashboard>
       <div className="account-dashboard-card">
@@ -65,6 +82,14 @@ export function AthleteDashboard() {
         <p data-loyalty-count>{loading ? "Chargement..." : `${paidCount} séance${paidCount > 1 ? "s" : ""} payée${paidCount > 1 ? "s" : ""}`}</p>
         <progress max={target} value={progress} aria-label="Progression fidélité" />
         <p>{paidCount >= target ? "Avantage fidélité disponible." : `${target - progress} séance${target - progress > 1 ? "s" : ""} avant le prochain avantage.`}</p>
+      </section>
+      <section className="account-dashboard-card" data-athlete-location>
+        <h2>Trouver un coach près de moi</h2>
+        <p>Utilisez votre position pour afficher les coachs vérifiés dans votre rayon.</p>
+        <div className="account-inline-actions">
+          {[1, 5, 10].map((radiusKm) => <button className="auth-secondary" type="button" key={radiusKm} onClick={() => searchNearby(radiusKm)}>{radiusKm} km</button>)}
+        </div>
+        {locationStatus ? <p role="status">{locationStatus}</p> : null}
       </section>
       <section className="account-dashboard-card" data-athlete-reservations>
         <h2>Mes réservations</h2>
