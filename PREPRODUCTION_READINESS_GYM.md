@@ -58,7 +58,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | En-têtes HTTP de base | PASS | `nosniff`, `Referrer-Policy`, `X-Frame-Options` et `Permissions-Policy` vérifiés sur la réponse HTTP. |
 | Configuration de production | BLOCKED | Le contrôle `npm.cmd run check:production-config` rejette l’absence, les placeholders, les URLs non HTTPS et les formats de clés Stripe/Resend incorrects ; les secrets réels restent à renseigner. |
 | Tunnel sans données réelles | PASS code / À valider préproduction | En mode production sans Supabase ou sans coach vérifié, `/creneau`, `/recapitulatif` et `/paiement` affichent un état indisponible et ne présentent pas les valeurs de démonstration. |
-| Paiement réel | BLOCKED | Le MVP reste en mode local tant qu’un compte Stripe, une clé serveur et un webhook ne sont pas configurés. |
+| Paiement réel | BLOCKED | Le MVP reste en mode local tant qu’un compte Stripe, une clé serveur et un webhook ne sont pas configurés. La transition `accepted` → `paid` est conditionnelle côté Supabase afin qu’une livraison Stripe concurrente ne renvoie pas deux confirmations ; le rejeu doit encore être vérifié avec un compte Stripe test réel. |
 | Emails transactionnels | BLOCKED | Resend et une adresse d’expédition vérifiée sont nécessaires. |
 | Persistance/authentification réelle | BLOCKED | Supabase doit être créé, configuré, migré et testé avec ses politiques d’accès. |
 | Contenus juridiques | BLOCKED | Les liens CGV, CGU, confidentialité, cookies, accessibilité et mentions légales ouvrent désormais des pages de préproduction explicitement non indexées ; les textes applicables restent à fournir et à valider. Aucun texte juridique n’est inventé. |

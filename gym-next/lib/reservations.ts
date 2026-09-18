@@ -234,7 +234,9 @@ export async function payReservation(id: string, ownerEmail?: string) {
     return { ...next, confirmationStatus: confirmation.status };
   }
 
-  const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}`, {
+  // La condition status=accepted rend le webhook Stripe idempotent côté base :
+  // deux livraisons concurrentes ne peuvent pas toutes deux déclencher l’email.
+  const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}&status=eq.accepted`, {
     method: "PATCH",
     headers: {
       apikey: config.key,
@@ -245,8 +247,15 @@ export async function payReservation(id: string, ownerEmail?: string) {
     body: JSON.stringify({ status: "paid", owner_email: next.ownerEmail ?? null }),
   });
   if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
-  const confirmation = await sendReservationConfirmation(next).catch(() => ({ status: "skipped" as const }));
-  return { ...next, confirmationStatus: confirmation.status };
+  const [saved] = (await response.json()) as Array<{ id?: string; owner_email?: string | null; status?: string }>;
+  if (!saved) {
+    const latest = await getReservation(id);
+    if (latest?.status === "paid") return latest;
+    throw new Error("La réservation n’est plus payable dans son état actuel");
+  }
+  const paidReservation = { ...next, ownerEmail: saved.owner_email ?? next.ownerEmail, status: "paid" as const };
+  const confirmation = await sendReservationConfirmation(paidReservation).catch(() => ({ status: "skipped" as const }));
+  return { ...paidReservation, confirmationStatus: confirmation.status };
 }
 
 export function refundPercentFor(appointmentAt: string, now = new Date()) {
