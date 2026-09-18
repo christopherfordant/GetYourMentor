@@ -1,5 +1,6 @@
 import { canonicalSportSlug, coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { supabaseHeaders } from "@/lib/supabase";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4">;
 
@@ -48,10 +49,14 @@ export async function listCoaches() {
   const config = supabaseConfig();
   if (!config) return coachProfiles;
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?select=*&order=name.asc`, {
-    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+    headers: supabaseHeaders(config.key),
     cache: "no-store",
   });
-  if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
+  if (!response.ok) {
+    const details = (await response.text()).slice(0, 300);
+    console.error("[supabase] gym_coaches list failed", response.status, details);
+    throw new Error(`Supabase coach error (${response.status})`);
+  }
   const rows = (await response.json()) as Record<string, unknown>[];
   return rows.map(fromRow);
 }
@@ -61,10 +66,14 @@ export async function getCoach(idOrName?: string) {
   if (!config) return findLocalCoach(idOrName);
   const normalized = decodeURIComponent(idOrName ?? "");
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?select=*&or=(id.eq.${encodeURIComponent(normalized)},name.ilike.*${encodeURIComponent(normalized)}*)&limit=1`, {
-    headers: { apikey: config.key, Authorization: `Bearer ${config.key}` },
+    headers: supabaseHeaders(config.key),
     cache: "no-store",
   });
-  if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
+  if (!response.ok) {
+    const details = (await response.text()).slice(0, 300);
+    console.error("[supabase] gym_coaches lookup failed", response.status, details);
+    throw new Error(`Supabase coach error (${response.status})`);
+  }
   const [row] = (await response.json()) as Record<string, unknown>[];
   return row ? fromRow(row) : null;
 }
@@ -78,7 +87,7 @@ export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile
   ]));
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
     method: "PATCH",
-    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+    headers: supabaseHeaders(config.key, { "Content-Type": "application/json", Prefer: "return=representation" }),
     body: JSON.stringify(body),
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
@@ -92,7 +101,7 @@ export async function createStoredCoachProfile(input: { name: string; id?: strin
   if (!config) return localProfile;
   const response = await fetch(`${config.url}/rest/v1/gym_coaches`, {
     method: "POST",
-    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation,resolution=merge-duplicates" },
+    headers: supabaseHeaders(config.key, { "Content-Type": "application/json", Prefer: "return=representation,resolution=merge-duplicates" }),
     body: JSON.stringify({
       id: localProfile.id,
       name: localProfile.name,
@@ -122,7 +131,7 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   if (!config) return setCoachVerification(id, verified);
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
     method: "PATCH",
-    headers: { apikey: config.key, Authorization: `Bearer ${config.key}`, "Content-Type": "application/json", Prefer: "return=representation" },
+    headers: supabaseHeaders(config.key, { "Content-Type": "application/json", Prefer: "return=representation" }),
     body: JSON.stringify({ verified }),
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);

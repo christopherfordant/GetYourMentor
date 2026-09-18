@@ -35,7 +35,7 @@ export async function generateMetadata({ searchParams }: CoachPageProps): Promis
 
 export default async function CoachPage({ searchParams }: CoachPageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "..", "prototype-site", "styles.css");
+  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
   const legacyStyles = fs
     .readFileSync(stylesheetPath, "utf8")
     .replaceAll("../design_assets/", "/design_assets/");

@@ -32,7 +32,7 @@ export async function generateMetadata({ searchParams }: RecherchePageProps): Pr
 
 export default async function RecherchePage({ searchParams }: RecherchePageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "..", "prototype-site", "styles.css");
+  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
   const legacyStyles = fs
     .readFileSync(stylesheetPath, "utf8")
     .replaceAll("../design_assets/", "/design_assets/");
