@@ -17,6 +17,11 @@ create table if not exists public.gym_coaches (
   diplomas text not null default '',
   session_types text not null default '',
   availability text not null default '',
+  gender text check (gender is null or gender in ('homme', 'femme')),
+  practice text check (practice is null or practice in ('interieur', 'exterieur')),
+  level text check (level is null or level in ('debutant', 'intermediaire', 'confirme')),
+  session_format text check (session_format is null or session_format in ('presentiel', 'visio')),
+  availability_tags jsonb not null default '[]'::jsonb check (jsonb_typeof(availability_tags) = 'array'),
   photo_url text not null default '',
   bank_account_last4 text not null default '',
   phone text,
@@ -37,6 +42,11 @@ create table if not exists public.gym_coaches (
 
 alter table public.gym_coaches enable row level security;
 alter table public.gym_coaches add column if not exists availability text not null default '';
+alter table public.gym_coaches add column if not exists gender text;
+alter table public.gym_coaches add column if not exists practice text;
+alter table public.gym_coaches add column if not exists level text;
+alter table public.gym_coaches add column if not exists session_format text;
+alter table public.gym_coaches add column if not exists availability_tags jsonb not null default '[]'::jsonb;
 alter table public.gym_coaches add column if not exists latitude numeric(9, 6);
 alter table public.gym_coaches add column if not exists longitude numeric(9, 6);
 alter table public.gym_coaches add column if not exists service_radius_km numeric(5, 2) not null default 10;
@@ -54,6 +64,7 @@ create index if not exists gym_coaches_sport_city_idx on public.gym_coaches (spo
 create index if not exists gym_coaches_verified_idx on public.gym_coaches (verified);
 create index if not exists gym_coaches_location_idx on public.gym_coaches (latitude, longitude) where latitude is not null and longitude is not null;
 create index if not exists gym_coaches_verification_status_idx on public.gym_coaches (verification_status);
+create index if not exists gym_coaches_filters_idx on public.gym_coaches (gender, practice, level, session_format);
 
 /*
   Aucun profil de démonstration ne doit être injecté par le schéma de

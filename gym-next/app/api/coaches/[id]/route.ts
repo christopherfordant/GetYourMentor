@@ -35,6 +35,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   if (body?.serviceRadiusKm !== undefined && (!Number.isFinite(Number(body.serviceRadiusKm)) || ![1, 5, 10].includes(Number(body.serviceRadiusKm)))) {
     return NextResponse.json({ error: "Rayon d’intervention invalide" }, { status: 400 });
   }
+  if (body?.gender !== undefined && !["homme", "femme"].includes(body.gender)) return NextResponse.json({ error: "Genre invalide" }, { status: 400 });
+  if (body?.practice !== undefined && !["interieur", "exterieur"].includes(body.practice)) return NextResponse.json({ error: "Lieu de pratique invalide" }, { status: 400 });
+  if (body?.level !== undefined && !["debutant", "intermediaire", "confirme"].includes(body.level)) return NextResponse.json({ error: "Niveau invalide" }, { status: 400 });
+  if (body?.format !== undefined && !["presentiel", "visio"].includes(body.format)) return NextResponse.json({ error: "Format invalide" }, { status: 400 });
+  if (body?.availabilityTags !== undefined && (!Array.isArray(body.availabilityTags) || body.availabilityTags.some((value: unknown) => !["morning", "afternoon"].includes(String(value))))) return NextResponse.json({ error: "Disponibilité invalide" }, { status: 400 });
   const updates = {
     specialty: typeof body?.specialty === "string" ? body.specialty.trim() : undefined,
     city: typeof body?.city === "string" ? body.city.trim() : undefined,
@@ -49,6 +54,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     latitude: body?.latitude === null ? null : Number.isFinite(Number(body?.latitude)) ? Number(body.latitude) : undefined,
     longitude: body?.longitude === null ? null : Number.isFinite(Number(body?.longitude)) ? Number(body.longitude) : undefined,
     serviceRadiusKm: Number.isFinite(Number(body?.serviceRadiusKm)) ? Number(body.serviceRadiusKm) : undefined,
+    gender: typeof body?.gender === "string" ? body.gender : undefined,
+    practice: typeof body?.practice === "string" ? body.practice : undefined,
+    level: typeof body?.level === "string" ? body.level : undefined,
+    format: typeof body?.format === "string" ? body.format : undefined,
+    availabilityTags: Array.isArray(body?.availabilityTags) ? body.availabilityTags : undefined,
   };
   const filtered = Object.fromEntries(Object.entries(updates).filter(([, value]) => value !== undefined));
   if (!Object.keys(filtered).length) return NextResponse.json({ error: "Aucune modification valide" }, { status: 400 });

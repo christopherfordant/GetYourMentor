@@ -10,6 +10,13 @@ export async function GET(request: Request) {
       latitude: url.searchParams.get("latitude") ?? undefined,
       longitude: url.searchParams.get("longitude") ?? undefined,
       radiusKm: url.searchParams.get("radiusKm") ?? undefined,
+      gender: url.searchParams.get("gender") ?? undefined,
+      practice: url.searchParams.get("practice") ?? undefined,
+      level: url.searchParams.get("level") ?? undefined,
+      format: url.searchParams.get("format") ?? undefined,
+      availability: url.searchParams.get("availability") ?? undefined,
+      minRating: url.searchParams.get("minRating") ?? undefined,
+      maxPrice: url.searchParams.get("maxPrice") ?? undefined,
     });
 
     return NextResponse.json({ data: data.map(toPublicCoach) });

@@ -149,6 +149,11 @@ function fromRow(row: Record<string, unknown>): CoachProfile {
     latitude: row.latitude == null ? undefined : Number(row.latitude),
     longitude: row.longitude == null ? undefined : Number(row.longitude),
     serviceRadiusKm: row.service_radius_km == null ? undefined : Number(row.service_radius_km),
+    gender: row.gender === "homme" || row.gender === "femme" ? row.gender : undefined,
+    practice: row.practice === "interieur" || row.practice === "exterieur" ? row.practice : undefined,
+    level: row.level === "debutant" || row.level === "intermediaire" || row.level === "confirme" ? row.level : undefined,
+    format: row.session_format === "presentiel" || row.session_format === "visio" ? row.session_format : undefined,
+    availabilityTags: Array.isArray(row.availability_tags) ? row.availability_tags.filter((value): value is "morning" | "afternoon" => value === "morning" || value === "afternoon") : undefined,
   };
 }
 
@@ -191,11 +196,11 @@ export async function getCoach(idOrName?: string) {
   return row ? fromRow(row) : null;
 }
 
-export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm">> & { latitude?: number | null; longitude?: number | null }) {
+export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm" | "gender" | "practice" | "level" | "format" | "availabilityTags">> & { latitude?: number | null; longitude?: number | null }) {
   const config = supabaseConfig();
   if (!config) return updateCoachProfile(id, updates);
   const body = Object.fromEntries(Object.entries(updates).map(([key, value]) => [
-    key === "priceFrom" ? "price_from" : key === "sessionTypes" ? "session_types" : key === "photoUrl" ? "photo_url" : key === "bankAccountLast4" ? "bank_account_last4" : key === "serviceRadiusKm" ? "service_radius_km" : key,
+    key === "priceFrom" ? "price_from" : key === "sessionTypes" ? "session_types" : key === "photoUrl" ? "photo_url" : key === "bankAccountLast4" ? "bank_account_last4" : key === "serviceRadiusKm" ? "service_radius_km" : key === "format" ? "session_format" : key === "availabilityTags" ? "availability_tags" : key,
     value,
   ]));
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
@@ -232,6 +237,11 @@ export async function createStoredCoachProfile(input: { name: string; id?: strin
       availability: localProfile.availability,
       photo_url: localProfile.photoUrl,
       bank_account_last4: localProfile.bankAccountLast4,
+      gender: localProfile.gender ?? null,
+      practice: localProfile.practice ?? null,
+      level: localProfile.level ?? null,
+      session_format: localProfile.format ?? null,
+      availability_tags: localProfile.availabilityTags ?? [],
     }),
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
@@ -252,7 +262,7 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   return row ? fromRow(row) : null;
 }
 
-export async function filterStoredCoaches(filters: { sport?: string; city?: string; latitude?: string; longitude?: string; radiusKm?: string }) {
+export async function filterStoredCoaches(filters: { sport?: string; city?: string; latitude?: string; longitude?: string; radiusKm?: string; gender?: string; practice?: string; level?: string; format?: string; availability?: string; minRating?: string; maxPrice?: string }) {
   const coaches = await listCoaches();
   const origin = parseCoordinates(filters.latitude, filters.longitude);
   const radiusKm = normalizeRadiusKm(filters.radiusKm);
@@ -263,6 +273,13 @@ export async function filterStoredCoaches(filters: { sport?: string; city?: stri
     .filter((coach) => coach.verified
       && (!canonicalSport || coach.sport === canonicalSport)
       && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase())
-      && (!origin || (coach.distanceKm != null && coach.distanceKm <= radiusKm)))
+      && (!origin || (coach.distanceKm != null && coach.distanceKm <= radiusKm))
+      && (!filters.gender || coach.gender === filters.gender)
+      && (!filters.practice || coach.practice === filters.practice)
+      && (!filters.level || coach.level === filters.level)
+      && (!filters.format || coach.format === filters.format)
+      && (!filters.availability || coach.availabilityTags?.includes(filters.availability as "morning" | "afternoon"))
+      && (!filters.minRating || coach.rating >= Number(filters.minRating))
+      && (!filters.maxPrice || coach.priceFrom <= Number(filters.maxPrice)))
     .sort((first, second) => (first.distanceKm ?? Number.POSITIVE_INFINITY) - (second.distanceKm ?? Number.POSITIVE_INFINITY));
 }

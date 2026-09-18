@@ -20,6 +20,11 @@ export type CoachProfile = {
   latitude?: number;
   longitude?: number;
   serviceRadiusKm?: number;
+  gender?: "homme" | "femme";
+  practice?: "interieur" | "exterieur";
+  level?: "debutant" | "intermediaire" | "confirme";
+  format?: "presentiel" | "visio";
+  availabilityTags?: Array<"morning" | "afternoon">;
 };
 
 export type ReservationStatus = "requested" | "accepted" | "rejected" | "cancelled" | "paid";

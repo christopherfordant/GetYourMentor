@@ -44,19 +44,33 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
   const latitudeParam = params.latitude;
   const longitudeParam = params.longitude;
   const radiusParam = params.radiusKm;
+  const genderParam = params.gender;
+  const practiceParam = params.practice;
+  const levelParam = params.level;
+  const formatParam = params.format;
+  const availabilityParam = params.availability;
+  const minRatingParam = params.minRating;
+  const maxPriceParam = params.maxPrice;
 
   const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
   const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
   const latitude = Array.isArray(latitudeParam) ? latitudeParam[0] : latitudeParam;
   const longitude = Array.isArray(longitudeParam) ? longitudeParam[0] : longitudeParam;
   const radiusKm = Array.isArray(radiusParam) ? radiusParam[0] : radiusParam;
+  const gender = Array.isArray(genderParam) ? genderParam[0] : genderParam;
+  const practice = Array.isArray(practiceParam) ? practiceParam[0] : practiceParam;
+  const level = Array.isArray(levelParam) ? levelParam[0] : levelParam;
+  const format = Array.isArray(formatParam) ? formatParam[0] : formatParam;
+  const availability = Array.isArray(availabilityParam) ? availabilityParam[0] : availabilityParam;
+  const minRating = Array.isArray(minRatingParam) ? minRatingParam[0] : minRatingParam;
+  const maxPrice = Array.isArray(maxPriceParam) ? maxPriceParam[0] : maxPriceParam;
 
   const hasPersistentCoachCatalog = Boolean(
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
   const demoAllowed = isDemoFallbackAllowed();
   const persistedCoaches = hasPersistentCoachCatalog
-    ? await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm })
+    ? await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm, gender, practice, level, format, availability, minRating, maxPrice })
     : null;
   const initialCoaches = persistedCoaches?.map((coach) => ({
     id: coach.id,
@@ -72,6 +86,10 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     verified: coach.verified,
     distanceKm: coach.distanceKm,
     format: coach.sessionTypes?.toLowerCase().includes("visio") ? ("visio" as const) : undefined,
+    gender: coach.gender,
+    practice: coach.practice,
+    level: coach.level,
+    availability: coach.availabilityTags?.[0],
   })) ?? (demoAllowed ? undefined : []);
 
   return <SelectionCoachsLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} initialCoaches={initialCoaches} />;

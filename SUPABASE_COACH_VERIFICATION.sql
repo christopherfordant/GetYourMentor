@@ -11,7 +11,12 @@ alter table public.gym_coaches
   add column if not exists diploma_storage_path text,
   add column if not exists verification_status text not null default 'pending',
   add column if not exists verification_note text,
-  add column if not exists verified_at timestamptz;
+  add column if not exists verified_at timestamptz,
+  add column if not exists gender text,
+  add column if not exists practice text,
+  add column if not exists level text,
+  add column if not exists session_format text,
+  add column if not exists availability_tags jsonb not null default '[]'::jsonb;
 
 alter table public.gym_coaches
   drop constraint if exists gym_coaches_verification_status_check;
