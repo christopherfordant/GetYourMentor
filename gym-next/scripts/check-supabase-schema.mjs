@@ -37,6 +37,9 @@ if (/insert\s+into\s+public\.gym_coaches\b/i.test(activeSql)) {
 if (!/values\s*\(\s*'club-documents'\s*,\s*'club-documents'\s*,\s*false\s*\)/i.test(activeSql)) {
   errors.push("Le bucket club-documents doit être privé.");
 }
+if (!/values\s*\(\s*'coach-documents'\s*,\s*'coach-documents'\s*,\s*false\s*\)/i.test(activeSql)) {
+  errors.push("Le bucket coach-documents doit être privé.");
+}
 if (!/(?:primary\s+key|unique)\s*\(\s*coach_id\s*,\s*slot\s*\)/i.test(activeSql)) {
   errors.push("La contrainte d’unicité coach/créneau est absente.");
 }
