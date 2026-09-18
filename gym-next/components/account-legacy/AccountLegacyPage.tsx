@@ -586,7 +586,61 @@ function CoachDashboard({
   );
 }
 
+function ClubLeadPanel() {
+  const [lead, setLead] = useState<{
+    clubName: string;
+    managerName: string;
+    email: string;
+    phone?: string;
+    logoFileName?: string;
+    identityFileName?: string;
+    createdAt: string;
+    status: "pending" | "contacted" | "closed";
+  } | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/clubs/me", { cache: "no-store" })
+      .then(async (response) => {
+        const payload = await response.json();
+        if (!response.ok) throw new Error(payload.error ?? "Demande club indisponible");
+        if (active) setLead(payload.data ?? null);
+      })
+      .catch((reason) => {
+        if (active) setError(reason instanceof Error ? reason.message : "Demande club indisponible");
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return (
+    <section className="account-dashboard club-home" data-account-dashboard="club">
+      <section className="account-dashboard-card" data-club-production-state>
+        <h1>Espace club</h1>
+        {loading ? <p data-club-lead-loading>Verification de votre demande d'affiliation...</p> : null}
+        {error ? <p role="alert">{error}</p> : null}
+        {!loading && !error && lead ? (
+          <div data-club-lead-status>
+            <p><strong>{lead.clubName}</strong> - demande envoyee le {new Date(lead.createdAt).toLocaleDateString("fr-FR")}</p>
+            <p>Statut : <strong>{lead.status === "pending" ? "Demande recue" : lead.status === "contacted" ? "Prise de contact en cours" : "Dossier cloture"}</strong></p>
+            <p>Prochaine etape avec {lead.managerName} : nous vous recontacterons a {lead.email}.</p>
+            {lead.logoFileName || lead.identityFileName ? <p>Pieces transmises : {[lead.logoFileName, lead.identityFileName].filter(Boolean).join(" - ")}</p> : null}
+          </div>
+        ) : null}
+        {!loading && !error && !lead ? <p>Aucune demande d'affiliation n'est rattachee a ce compte.</p> : null}
+      </section>
+    </section>
+  );
+}
+
 function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
+  if (!allowDemoFallback) return <ClubLeadPanel />;
   if (!allowDemoFallback) {
     return (
       <section className="account-dashboard club-home" data-account-dashboard="club">

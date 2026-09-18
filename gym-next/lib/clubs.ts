@@ -205,6 +205,23 @@ export async function listClubLeads() {
   return [...clubLeads];
 }
 
+export async function getClubLeadForEmail(email: string) {
+  const normalizedEmail = email.trim().toLowerCase();
+  const config = supabaseConfig();
+  if (config) {
+    const response = await fetch(
+      `${config.url}/rest/v1/gym_club_leads?email=eq.${encodeURIComponent(normalizedEmail)}&select=id,club_name,manager_name,email,phone,logo_file_name,identity_file_name,status,created_at&order=created_at.desc&limit=1`,
+      { headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store" },
+    );
+    if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);
+    const [row] = (await response.json()) as Record<string, unknown>[];
+    return row ? fromRow(row) : null;
+  }
+  return [...clubLeads]
+    .reverse()
+    .find((lead) => lead.email.trim().toLowerCase() === normalizedEmail) ?? null;
+}
+
 export async function updateClubLeadStatus(id: string, status: ClubLead["status"]) {
   const config = supabaseConfig();
   if (config) {
