@@ -139,6 +139,7 @@ function fromRow(row: Record<string, unknown>): CoachProfile {
     reviewCount: Number(row.review_count ?? 0),
     priceFrom: Number(row.price_from ?? 0),
     verified: Boolean(row.verified),
+    verificationStatus: row.verification_status === "approved" || row.verification_status === "rejected" ? row.verification_status : "pending",
     description: String(row.description ?? ""),
     disciplines: String(row.disciplines ?? ""),
     diplomas: String(row.diplomas ?? ""),
@@ -255,7 +256,7 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
     method: "PATCH",
     headers: supabaseHeaders(config.key, { "Content-Type": "application/json", Prefer: "return=representation" }),
-    body: JSON.stringify({ verified }),
+    body: JSON.stringify({ verified, verification_status: verified ? "approved" : "rejected", verified_at: verified ? new Date().toISOString() : null }),
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
   const [row] = (await response.json()) as Record<string, unknown>[];
