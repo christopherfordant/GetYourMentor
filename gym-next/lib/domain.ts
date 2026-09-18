@@ -10,6 +10,7 @@ export type CoachProfile = {
   reviewCount: number;
   priceFrom: number;
   verified: boolean;
+  verificationStatus?: "pending" | "approved" | "rejected";
   description: string;
   disciplines?: string;
   diplomas?: string;

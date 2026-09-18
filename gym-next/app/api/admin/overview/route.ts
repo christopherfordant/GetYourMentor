@@ -25,6 +25,7 @@ export async function GET() {
         sport: coach.sport,
         city: coach.city,
         verified: coach.verified,
+        verificationStatus: coach.verificationStatus ?? (coach.verified ? "approved" : "pending"),
         profileComplete: Boolean(coach.specialty && coach.city && coach.description && coach.disciplines && coach.diplomas && coach.sessionTypes && coach.photoUrl && coach.bankAccountLast4),
       })),
       reservationList: reservations.map((reservation) => ({ id: reservation.id, coachName: reservation.coachName, service: reservation.service, status: reservation.status, price: reservation.price })),
