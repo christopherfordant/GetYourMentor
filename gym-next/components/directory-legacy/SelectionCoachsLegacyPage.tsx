@@ -550,15 +550,23 @@ function DirectoryContent({
         </div>
       </div>
 
-      <aside className="coach-directory-map" aria-label="Carte des coachs">
+      <aside className="coach-directory-map" aria-label="Apercu de proximite des coachs">
         <div className="coach-map-panel">
           <div className="coach-map-grid"></div>
           <div className="coach-map-water"></div>
-          <span className="map-pin map-pin-1"></span>
-          <span className="map-pin map-pin-2"></span>
-          <span className="map-pin map-pin-3"></span>
-          <span className="map-pin map-pin-4"></span>
-          <span className="map-pin map-pin-5"></span>
+          <div className="coach-map-summary">
+            <strong>Proximite autour de {city || "votre recherche"}</strong>
+            <span>{visibleCoaches.length} coach{visibleCoaches.length > 1 ? "s" : ""} correspondant aux filtres</span>
+          </div>
+          <div className="coach-map-distance-list" aria-label="Distances des coachs">
+            {visibleCoaches.slice(0, 5).map((coach) => (
+              <div className="coach-map-distance-row" key={`distance-${coach.name}`}>
+                <span>{coach.name}</span>
+                <strong>{coach.distanceKm != null ? `${coach.distanceKm.toFixed(1)} km` : "Zone indiquee"}</strong>
+              </div>
+            ))}
+            {visibleCoaches.length === 0 ? <span>Aucun resultat dans ce rayon.</span> : null}
+          </div>
         </div>
       </aside>
     </section>

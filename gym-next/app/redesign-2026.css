@@ -997,9 +997,53 @@
   color: #ffffff;
 }
 
+.language-selector select option:disabled {
+  color: #9eafca;
+}
+
 .language-selector select:focus-visible {
   outline: 2px solid #d7f36b;
   outline-offset: -2px;
+}
+
+.coach-map-summary,
+.coach-map-distance-list {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem;
+  color: #ffffff;
+}
+
+.coach-map-summary {
+  margin-bottom: 0.75rem;
+}
+
+.coach-map-summary span,
+.coach-map-distance-list {
+  color: #c2cde0;
+  font-size: 0.82rem;
+}
+
+.coach-map-distance-list {
+  gap: 0.35rem;
+  margin-top: 4.75rem;
+}
+
+.coach-map-distance-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.65rem;
+  background: rgba(9, 16, 32, 0.72);
+}
+
+.coach-map-distance-row strong {
+  color: #d7f36b;
+  white-space: nowrap;
 }
 
 /* Composant champ unifié : le label et la valeur doivent toujours se détacher du fond. */
