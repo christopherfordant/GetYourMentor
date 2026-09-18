@@ -804,10 +804,10 @@ function AccountFooter() {
           <h3>A propos de GetYourMentor</h3>
           <a href={`${nextRoutes.account}?mode=coach`}>Je suis coach</a>
           <a href={`${nextRoutes.account}?mode=coach`}>Rejoignez-nous</a>
-          <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
-          <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialité</a>
-          <a href={`${nextRoutes.home}#faq-title`}>Gestion des cookies</a>
-          <a href={`${nextRoutes.home}#faq-title`}>Accessibilité</a>
+          <a href="/legal/cgu">CGU</a>
+          <a href="/legal/confidentialite">Politique de confidentialité</a>
+          <a href="/legal/cookies">Gestion des cookies</a>
+          <a href="/legal/accessibilite">Accessibilité</a>
         </div>
         <div className="account-footer-column">
           <h3>Trouvez votre coach</h3>

@@ -218,10 +218,10 @@ function PaymentFooter() {
       <div className="footer-brand">GETYOURMENTOR</div>
       <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens legaux">
-        <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
-        <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
-        <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialite</a>
-        <a href={`${nextRoutes.home}#faq-title`}>Mentions legales</a>
+        <a href="/legal/cgv">CGV</a>
+        <a href="/legal/cgu">CGU</a>
+        <a href="/legal/confidentialite">Politique de confidentialite</a>
+        <a href="/legal/mentions-legales">Mentions legales</a>
       </nav>
       <small>&copy; 2026 GetYourMentor. Tous droits reserves.</small>
     </footer>

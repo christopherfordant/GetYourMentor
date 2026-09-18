@@ -533,10 +533,10 @@ function DirectoryFooter() {
       <div className="footer-brand">GETYOURMENTOR</div>
       <p>Ton coaching, ton rythme, ta progression.</p>
       <nav className="footer-links" aria-label="Liens l&eacute;gaux">
-        <a href={`${nextRoutes.home}#faq-title`}>CGV</a>
-        <a href={`${nextRoutes.home}#faq-title`}>CGU</a>
-        <a href={`${nextRoutes.home}#faq-title`}>Politique de confidentialit&eacute;</a>
-        <a href={`${nextRoutes.home}#faq-title`}>Mentions l&eacute;gales</a>
+        <a href="/legal/cgv">CGV</a>
+        <a href="/legal/cgu">CGU</a>
+        <a href="/legal/confidentialite">Politique de confidentialit&eacute;</a>
+        <a href="/legal/mentions-legales">Mentions l&eacute;gales</a>
       </nav>
       <small>&copy; 2026 GetYourMentor. Tous droits r&eacute;serv&eacute;s.</small>
     </footer>
