@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { InternalNavigationEnhancer } from "@/components/InternalNavigationEnhancer";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import "./globals.css";
 import "./legacy-prototype.css";
 import "./redesign-2026.css";
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className={manrope.variable}>
         <InternalNavigationEnhancer />
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );

@@ -65,7 +65,7 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
         <h1>{document.label}</h1>
         <p>
           Cette page est volontairement informative. Aucun texte juridique n’est déduit ou présenté comme applicable.
-          Le contenu final devra être rédigé et validé par la personne compétente avant le lancement.
+          Les informations à fournir et à valider avant toute ouverture publique devront être rédigées et validées par la personne compétente.
         </p>
         <p className="legal-placeholder-topic">Périmètre prévu : {document.description}</p>
         <div className="legal-sections">
