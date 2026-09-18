@@ -41,16 +41,22 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
 
   const sportParam = params.sport;
   const cityParam = params.city;
+  const latitudeParam = params.latitude;
+  const longitudeParam = params.longitude;
+  const radiusParam = params.radiusKm;
 
   const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
   const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
+  const latitude = Array.isArray(latitudeParam) ? latitudeParam[0] : latitudeParam;
+  const longitude = Array.isArray(longitudeParam) ? longitudeParam[0] : longitudeParam;
+  const radiusKm = Array.isArray(radiusParam) ? radiusParam[0] : radiusParam;
 
   const hasPersistentCoachCatalog = Boolean(
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
   const demoAllowed = isDemoFallbackAllowed();
   const persistedCoaches = hasPersistentCoachCatalog
-    ? await filterStoredCoaches({ sport, city })
+    ? await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm })
     : null;
   const initialCoaches = persistedCoaches?.map((coach) => ({
     id: coach.id,
