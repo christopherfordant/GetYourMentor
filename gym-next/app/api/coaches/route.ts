@@ -7,6 +7,9 @@ export async function GET(request: Request) {
     const data = await filterStoredCoaches({
       sport: url.searchParams.get("sport") ?? undefined,
       city: url.searchParams.get("city") ?? undefined,
+      latitude: url.searchParams.get("latitude") ?? undefined,
+      longitude: url.searchParams.get("longitude") ?? undefined,
+      radiusKm: url.searchParams.get("radiusKm") ?? undefined,
     });
 
     return NextResponse.json({ data: data.map(toPublicCoach) });

@@ -28,6 +28,7 @@ type CoachEntry = {
   price?: number;
   rating?: number;
   verified?: boolean;
+  distanceKm?: number;
 };
 
 type DirectoryFilters = {
@@ -252,11 +253,19 @@ function DirectoryToolbar({
   city,
   filters,
   onFiltersChange,
+  onLocate,
+  locationStatus,
+  radiusKm,
+  onRadiusChange,
 }: {
   sportLabel: string;
   city: string;
   filters: DirectoryFilters;
   onFiltersChange: (filters: DirectoryFilters) => void;
+  onLocate: () => void;
+  locationStatus: string;
+  radiusKm: number;
+  onRadiusChange: (radius: number) => void;
 }) {
   const [sportInput, setSportInput] = useState(sportLabel);
   const [cityInput, setCityInput] = useState(city);
@@ -310,6 +319,17 @@ function DirectoryToolbar({
       </form>
 
       <div className="directory-chip-row" aria-label="Filtres">
+        <button className="directory-chip directory-chip-secondary" type="button" onClick={onLocate} data-directory-locate>
+          Utiliser ma position
+        </button>
+        <label className="directory-chip directory-chip-secondary">
+          Rayon
+          <select value={radiusKm} onChange={(event) => onRadiusChange(Number(event.target.value))} aria-label="Rayon de recherche">
+            <option value="1">1 km</option>
+            <option value="5">5 km</option>
+            <option value="10">10 km</option>
+          </select>
+        </label>
         <button className="directory-chip directory-chip-filter" type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen}>
           Filtres
         </button>
@@ -320,6 +340,7 @@ function DirectoryToolbar({
           Avis :
         </button>
       </div>
+      {locationStatus ? <p role="status" data-directory-location-status>{locationStatus}</p> : null}
       {filtersOpen ? (
         <div className="directory-filter-panel" data-directory-filter-panel>
           <label>
@@ -431,6 +452,7 @@ function CoachResultCard({
         <div className="coach-result-top">
           <h2>{coach.name}</h2>
           <div className="coach-result-address">{coach.address}</div>
+          {coach.distanceKm != null ? <div className="coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
           <div className="coach-result-meta">{coach.meta}</div>
         </div>
         <div className="coach-result-slots">
@@ -560,6 +582,9 @@ export function SelectionCoachsLegacyPage({
   const currentDirectory = directoryDictionary[sportSlug];
   const cityValue = city || "Paris";
   const [filters, setFilters] = useState<DirectoryFilters>(defaultDirectoryFilters);
+  const [radiusKm, setRadiusKm] = useState(10);
+  const [locationStatus, setLocationStatus] = useState("");
+  const [locatedCoaches, setLocatedCoaches] = useState<CoachEntry[] | null>(null);
   const coaches = useMemo(
     () => {
       if (initialCoaches) return initialCoaches;
@@ -577,6 +602,35 @@ export function SelectionCoachsLegacyPage({
     },
     [cityValue, currentDirectory, initialCoaches],
   );
+  const visibleCoaches = locatedCoaches ?? coaches;
+
+  const locateSportist = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus("La géolocalisation n’est pas disponible sur cet appareil.");
+      return;
+    }
+    setLocationStatus("Recherche des coachs à proximité…");
+    navigator.geolocation.getCurrentPosition(async ({ coords }) => {
+      try {
+        const query = new URLSearchParams({ sport: sportSlug, latitude: String(coords.latitude), longitude: String(coords.longitude), radiusKm: String(radiusKm) });
+        const response = await fetch(`/api/coaches?${query.toString()}`);
+        if (!response.ok) throw new Error("Recherche indisponible");
+        const payload = await response.json() as { data?: Array<CoachEntry & { specialty?: string; city?: string; priceFrom?: number; reviewCount?: number }> };
+        setLocatedCoaches((payload.data ?? []).map((coach) => ({
+          ...coach,
+          address: coach.city ?? "Zone d’intervention",
+          meta: `${coach.rating?.toFixed(1) ?? "0.0"} (${coach.reviewCount ?? 0} avis) · ${coach.specialty ?? "Coach sportif"}`,
+          morning: [],
+          afternoon: [],
+          cta: "Voir le profil",
+          price: coach.priceFrom,
+        })));
+        setLocationStatus(`Résultats dans un rayon de ${radiusKm} km.`);
+      } catch {
+        setLocationStatus("La recherche géolocalisée est momentanément indisponible.");
+      }
+    }, () => setLocationStatus("Autorisez la position pour rechercher les coachs autour de vous."), { enableHighAccuracy: false, maximumAge: 300_000, timeout: 10_000 });
+  };
 
   return (
     <>
@@ -584,13 +638,13 @@ export function SelectionCoachsLegacyPage({
       <div className="site-shell coach-profile-shell">
         <DirectoryHeader />
         <main className="coach-directory-page" data-coach-directory-page>
-          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} />
+          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} />
           <DirectoryContent
             sportSlug={sportSlug}
             city={cityValue}
             title={currentDirectory.getTitle()}
             subtitle={currentDirectory.getSubtitle(cityValue)}
-            coaches={coaches}
+            coaches={visibleCoaches}
             filters={filters}
           />
         </main>

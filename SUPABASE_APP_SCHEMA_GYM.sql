@@ -19,15 +19,22 @@ create table if not exists public.gym_coaches (
   availability text not null default '',
   photo_url text not null default '',
   bank_account_last4 text not null default '',
+  latitude numeric(9, 6),
+  longitude numeric(9, 6),
+  service_radius_km numeric(5, 2) not null default 10 check (service_radius_km > 0 and service_radius_km <= 100),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
 
 alter table public.gym_coaches enable row level security;
 alter table public.gym_coaches add column if not exists availability text not null default '';
+alter table public.gym_coaches add column if not exists latitude numeric(9, 6);
+alter table public.gym_coaches add column if not exists longitude numeric(9, 6);
+alter table public.gym_coaches add column if not exists service_radius_km numeric(5, 2) not null default 10;
 
 create index if not exists gym_coaches_sport_city_idx on public.gym_coaches (sport, city);
 create index if not exists gym_coaches_verified_idx on public.gym_coaches (verified);
+create index if not exists gym_coaches_location_idx on public.gym_coaches (latitude, longitude) where latitude is not null and longitude is not null;
 
 /*
   Aucun profil de démonstration ne doit être injecté par le schéma de
@@ -152,6 +159,8 @@ create table if not exists public.gym_club_leads (
   identity_file_name text,
   logo_storage_path text,
   identity_storage_path text,
+  latitude numeric(9, 6),
+  longitude numeric(9, 6),
   status text not null default 'pending' check (status in ('pending', 'contacted', 'closed')),
   created_at timestamptz not null default now()
 );
@@ -159,6 +168,8 @@ create table if not exists public.gym_club_leads (
 alter table public.gym_club_leads enable row level security;
 alter table public.gym_club_leads add column if not exists logo_storage_path text;
 alter table public.gym_club_leads add column if not exists identity_storage_path text;
+alter table public.gym_club_leads add column if not exists latitude numeric(9, 6);
+alter table public.gym_club_leads add column if not exists longitude numeric(9, 6);
 create index if not exists gym_club_leads_status_idx on public.gym_club_leads (status);
 create index if not exists gym_club_leads_created_at_idx on public.gym_club_leads (created_at desc);
 
