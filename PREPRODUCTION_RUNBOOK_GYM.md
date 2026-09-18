@@ -8,11 +8,13 @@ Ce runbook prépare une préproduction contrôlée. Il ne constitue pas une vali
 2. Exécuter `SUPABASE_SCHEMA_GYM.sql` si le schéma mémoire de projet est nécessaire.
 3. Exécuter ensuite `SUPABASE_APP_SCHEMA_GYM.sql`. Ce script crée uniquement la
    structure et n’injecte aucun coach de démonstration.
-4. Vérifier l’existence des tables `public.gym_coaches`, `public.gym_reservations`, `public.gym_reviews`, `public.gym_messages`, `public.gym_reservation_slot_claims` et `public.gym_club_leads`.
-5. Créer uniquement des profils coach réels, documentés et vérifiés ; un catalogue
+4. Exécuter `SUPABASE_PREPRODUCTION_VERIFY.sql` en lecture seule, puis archiver
+   le résultat avec la date et le projet de préproduction.
+5. Vérifier l’existence des tables `public.gym_coaches`, `public.gym_reservations`, `public.gym_reviews`, `public.gym_messages`, `public.gym_reservation_slot_claims` et `public.gym_club_leads`.
+6. Créer uniquement des profils coach réels, documentés et vérifiés ; un catalogue
    vide est attendu tant que la recette administrateur n’est pas effectuée.
-6. Vérifier que la RLS est activée sur ces six tables.
-7. Vérifier que l’accès direct anonyme ne permet aucune lecture ou écriture inattendue.
+7. Vérifier que la RLS est activée sur ces six tables.
+8. Vérifier que l’accès direct anonyme ne permet aucune lecture ou écriture inattendue.
 
 Requêtes de contrôle à exécuter dans l’éditeur SQL Supabase :
 
