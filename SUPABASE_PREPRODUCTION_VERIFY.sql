@@ -19,10 +19,11 @@ where n.nspname = 'public'
   )
 order by c.relname;
 
--- 2. Le bucket des justificatifs doit être privé.
+-- 2. Les buckets des justificatifs doivent être privés.
 select id, name, public
 from storage.buckets
-where id = 'club-documents';
+where id in ('club-documents', 'coach-documents')
+order by id;
 
 -- 3. Le catalogue ne doit pas contenir de coach vérifié de démonstration.
 select count(*) as verified_coach_count
