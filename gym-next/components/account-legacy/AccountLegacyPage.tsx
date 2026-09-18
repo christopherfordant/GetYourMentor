@@ -610,6 +610,9 @@ function ClubLeadPanel() {
     managerName: string;
     email: string;
     phone?: string;
+    addressLabel?: string;
+    latitude?: number;
+    longitude?: number;
     logoFileName?: string;
     identityFileName?: string;
     createdAt: string;
@@ -648,6 +651,7 @@ function ClubLeadPanel() {
             <p><strong>{lead.clubName}</strong> - demande envoyee le {new Date(lead.createdAt).toLocaleDateString("fr-FR")}</p>
             <p>Statut : <strong>{lead.status === "pending" ? "Demande recue" : lead.status === "contacted" ? "Prise de contact en cours" : "Dossier cloture"}</strong></p>
             <p>Prochaine etape avec {lead.managerName} : nous vous recontacterons a {lead.email}.</p>
+            {lead.addressLabel ? <p data-club-location-status>Localisation enregistrée pour la recherche de proximité : <strong>{lead.addressLabel}</strong>{lead.latitude != null && lead.longitude != null ? " · position GPS confirmée" : ""}.</p> : null}
             {lead.logoFileName || lead.identityFileName ? <p>Pieces transmises : {[lead.logoFileName, lead.identityFileName].filter(Boolean).join(" - ")}</p> : null}
           </div>
         ) : null}
