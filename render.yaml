@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: getyourmentor-web
+    runtime: node
+    region: frankfurt
+    plan: free
+    rootDir: gym-next
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+      - key: PAYMENT_PROVIDER
+        value: stripe
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        sync: false
+
+  # A activer seulement lorsque les rappels doivent tourner en preproduction.
+  # Render facture les cron jobs selon leur temps d'execution.
+  - type: cron
+    name: getyourmentor-reminders
+    runtime: node
+    region: frankfurt
+    plan: starter
+    schedule: "0 * * * *"
+    rootDir: gym-next
+    buildCommand: npm ci
+    startCommand: npm run cron:reservation-reminders
+    envVars:
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+      - key: CRON_SECRET
+        sync: false

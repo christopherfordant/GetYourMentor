@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 const siteName = "GetYourMentor";
 const defaultDescription =
   "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.";
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
 
 const sportLabels: Record<string, string> = {
   football: "football",
@@ -27,7 +28,7 @@ export function buildPageMetadata({
     title,
     description: description ?? defaultDescription,
     applicationName: siteName,
-    metadataBase: new URL("https://getyourmentor.fr"),
+    metadataBase: new URL(siteUrl),
     alternates: {
       canonical: "/",
     },

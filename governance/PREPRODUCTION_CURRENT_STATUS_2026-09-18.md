@@ -1,4 +1,4 @@
-# GetYourMentor - etat de preproduction au 2026-09-18
+# GetYourMentor - etat de preproduction au 2026-09-19
 
 Ce registre remplace les anciens instantanes de readiness pour la branche
 `feat/nextjs-migration`. Il distingue les preuves locales des verifications qui
@@ -7,7 +7,7 @@ exigent encore un acces administrateur aux services externes.
 ## Version
 
 - Branche : `feat/nextjs-migration`
-- Dernier commit GitHub : `f8d6e82`
+- Dernier commit local de reference : `d89e787` (`chore: add local release candidate validation`)
 - Depot : `christopherfordant/GetYourMentor`
 - Site Netlify : `gregarious-fox-fff605`
 - Projet Supabase lie : `getyourmentor-preprod`
@@ -18,6 +18,7 @@ exigent encore un acces administrateur aux services externes.
 - Build Next.js : PASS.
 - TypeScript : PASS.
 - Playwright : 102/102 PASS, desktop et mobile.
+- Validation locale complete : `npm.cmd run validate:release-candidate` PASS.
 - Smoke de securite sans secrets : PASS.
 - Contrat Netlify : PASS (`gym-next`, `npm run build`, `.next`).
 - Schema applicatif statique : PASS (six tables MVP, RLS, contraintes de
@@ -65,6 +66,19 @@ comme secret Netlify. Aucune valeur secrete n'est conservee dans ce registre.
    ne doit etre active en production.
 5. La recette utilisateur multi-roles et la politique de retention des pieces
    justificatives restent a valider avant ouverture publique.
+
+## Protocole de travail sans mise en production
+
+Tant que les validations externes ne sont pas fermees, le projet doit etre
+travaille par lots locaux :
+
+1. modifier le code dans `gym-next` sans pousser la branche ;
+2. executer `npm.cmd run validate:release-candidate` ;
+3. examiner les rapports Playwright et les captures locales ;
+4. ne demander qu'une seule mise en production apres validation complete du lot.
+
+Ce protocole evite qu'un push de la branche de migration declenche un nouveau
+build Netlify avant la fin de la recette et du quota de compte.
 
 ## Regle de sortie
 

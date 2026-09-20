@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "cron:reservation-reminders": "node scripts/run-render-reminders.mjs",
     "check:types": "tsc --noEmit --incremental false",
     "check:production-config": "node scripts/check-production-config.mjs",
     "check:preproduction-template": "node scripts/check-preproduction-template.mjs",
