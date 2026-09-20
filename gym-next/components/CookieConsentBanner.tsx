@@ -19,14 +19,30 @@ export function CookieConsentBanner() {
   if (visible === null) return null;
 
   if (!visible) {
-    return <button type="button" className="cookie-preferences-trigger" onClick={() => setVisible(true)}>Préférences cookies</button>;
+    return (
+      <button
+        type="button"
+        className="cookie-preferences-trigger"
+        onClick={() => setVisible(true)}
+        aria-haspopup="dialog"
+        aria-expanded="false"
+      >
+        Préférences cookies
+      </button>
+    );
   }
 
   return (
-    <aside className="cookie-consent-banner" role="dialog" aria-label="Préférences de cookies" aria-live="polite">
+    <div
+      className="cookie-consent-banner"
+      role="dialog"
+      aria-labelledby="cookie-consent-title"
+      aria-describedby="cookie-consent-description"
+      aria-modal="false"
+    >
       <div>
-        <strong>Votre confidentialité compte</strong>
-        <p>
+        <strong id="cookie-consent-title">Votre confidentialité compte</strong>
+        <p id="cookie-consent-description">
           GetYourMentor utilise uniquement les éléments nécessaires à la session et à la sécurité. Aucun outil de mesure d’audience
           n’est activé sans votre choix. <a href="/legal/cookies">En savoir plus</a>
         </p>
@@ -35,6 +51,6 @@ export function CookieConsentBanner() {
         <button type="button" className="cookie-consent-secondary" onClick={() => saveChoice("refused")}>Refuser le non nécessaire</button>
         <button type="button" className="cookie-consent-primary" onClick={() => saveChoice("essential")}>Continuer avec le nécessaire</button>
       </div>
-    </aside>
+    </div>
   );
 }
