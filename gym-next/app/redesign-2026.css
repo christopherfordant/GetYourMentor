@@ -1370,6 +1370,14 @@ body {
 .coach-map-grid { opacity: 0.28; }
 .coach-map-water { opacity: 0.24; }
 
+/* Remplace les séparateurs gris legacy par un contraste ardoise discret. */
+.recap-divider::before,
+.recap-divider::after,
+.auth-divider::before,
+.auth-divider::after {
+  background: rgba(145, 164, 194, 0.2) !important;
+}
+
 /* Révélation progressive : le contenu reste dans le DOM, mais les cartes apparaissent au scroll. */
 .scroll-reveal-ready .scroll-particle-card {
   position: relative;

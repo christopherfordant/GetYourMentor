@@ -2124,14 +2124,14 @@ button {
   min-height: 189px;
   background:
     linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.08)),
-    linear-gradient(145deg, #d6d8dd, #b5bac3);
+    linear-gradient(145deg, #1c2b45, #2d3e5b);
 }
 
 .thumb-2,
 .thumb-4 {
   background:
     linear-gradient(180deg, rgba(74, 45, 122, 0.12), rgba(74, 45, 122, 0.08)),
-    linear-gradient(145deg, #d6d8dd, #b5bac3);
+    linear-gradient(145deg, #1c2b45, #2d3e5b);
 }
 
 .thumb-1 {
