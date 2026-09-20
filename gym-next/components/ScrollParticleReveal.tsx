@@ -24,6 +24,7 @@ const CARD_SELECTOR = [
   ".club-signup-form-card",
   ".reservation-selection-panel",
   ".reservation-calendar-card",
+  ".coach-map-panel",
 ].join(",");
 
 export function ScrollParticleReveal() {

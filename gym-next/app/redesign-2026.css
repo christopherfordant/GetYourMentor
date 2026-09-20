@@ -530,6 +530,73 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+/* Shared surface finish: one restrained orbit, no stacked child borders. */
+header.topbar,
+.mobileNav,
+.directory-filter-panel,
+.coach-directory-search,
+.coach-map-panel {
+  border: 1px solid transparent !important;
+  background:
+    linear-gradient(rgba(13, 21, 38, 0.94), rgba(13, 21, 38, 0.94)) padding-box,
+    conic-gradient(
+      from var(--surface-angle, 0deg),
+      rgba(215, 243, 107, 0.08),
+      rgba(215, 243, 107, 0.82) 22%,
+      rgba(255, 255, 255, 0.18) 31%,
+      rgba(215, 243, 107, 0.08) 46%,
+      rgba(215, 243, 107, 0.04) 72%,
+      rgba(215, 243, 107, 0.08)
+    ) border-box !important;
+  animation: surface-orbit 10s linear infinite;
+}
+
+header.topbar > *,
+.mobileNav > *,
+.directory-filter-panel > *,
+.coach-directory-search > *,
+.coach-map-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.coach-directory-search,
+.coach-map-panel {
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22) !important;
+}
+
+.coach-directory-search:hover,
+.coach-map-panel:hover {
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.22),
+    0 0 28px rgba(215, 243, 107, 0.08) !important;
+}
+
+.scroll-reveal-ready .scroll-particle-card.is-revealed::before {
+  opacity: 0.94;
+  background: conic-gradient(
+    from var(--surface-angle, 0deg),
+    transparent 0deg,
+    transparent 18%,
+    rgba(215, 243, 107, 0.08) 27%,
+    rgba(215, 243, 107, 0.82) 39%,
+    rgba(255, 255, 255, 0.24) 47%,
+    rgba(215, 243, 107, 0.08) 57%,
+    transparent 72%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header.topbar,
+  .mobileNav,
+  .directory-filter-panel,
+  .coach-directory-search,
+  .coach-map-panel {
+    animation: none;
+  }
+}
+
 /* Système de surfaces partagé : cartes, menus et panneaux utilisent le même halo discret. */
 @property --surface-angle {
   syntax: "<angle>";
