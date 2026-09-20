@@ -1252,3 +1252,14 @@
   .sportRailCard { min-height: 142px; padding: 14px; }
   .searchCard { width: 100%; grid-template-columns: 1fr; }
 }
+
+/* Les sous-vues des cartes héritent de la surface du parent : une seule grande
+   zone sombre, sans empilement de panneaux bleus clair. Les contrôles courts
+   (boutons, créneaux et total) gardent leur contraste propre. */
+.stepCard .miniScreen,
+.stepCard .paymentVisual,
+.stepCard .paymentTotal {
+  background: #111a2d !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
