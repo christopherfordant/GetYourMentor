@@ -51,6 +51,26 @@ export function ScrollParticleReveal() {
       scene.style.setProperty("--scene-delay", `${Math.min(index % 4, 3) * 70}ms`);
     });
 
+    let frame = 0;
+    const updateScrollDepth = () => {
+      frame = 0;
+      scenes.forEach((scene) => {
+        const rect = scene.getBoundingClientRect();
+        const travel = window.innerHeight + rect.height;
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
+        scene.style.setProperty("--scene-progress", progress.toFixed(3));
+        scene.style.setProperty("--scene-drift", `${((0.5 - progress) * 24).toFixed(2)}px`);
+        scene.style.setProperty("--scene-scale", (0.992 + progress * 0.008).toFixed(4));
+      });
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrollDepth);
+    };
+    updateScrollDepth();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateScrollDepth);
+
     if (typeof IntersectionObserver === "undefined") {
       cards.forEach((card) => card.classList.add("is-revealed"));
       scenes.forEach((scene) => scene.classList.add("is-revealed"));
@@ -70,7 +90,12 @@ export function ScrollParticleReveal() {
 
     cards.forEach((card) => observer.observe(card));
     scenes.forEach((scene) => observer.observe(scene));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateScrollDepth);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   return null;

@@ -1709,7 +1709,7 @@ body {
 .scroll-reveal-ready .scroll-scene.is-revealed {
   opacity: 1;
   filter: blur(0);
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, var(--scene-drift, 0px), 0) scale(var(--scene-scale, 1));
 }
 
 .scroll-reveal-ready .scroll-scene > [class*="sectionHeading__"],
