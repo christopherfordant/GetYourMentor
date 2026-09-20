@@ -530,6 +530,128 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+/* Système de surfaces partagé : cartes, menus et panneaux utilisent le même halo discret. */
+@property --surface-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.scroll-reveal-ready .scroll-particle-card::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: conic-gradient(from var(--surface-angle, 0deg), transparent 0 28%, rgba(215, 243, 107, .04) 38%, rgba(215, 243, 107, .5) 47%, rgba(255, 255, 255, .14) 55%, transparent 68% 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.scroll-reveal-ready .scroll-particle-card > * { position: relative; z-index: 1; }
+
+.scroll-reveal-ready .scroll-particle-card.is-revealed::before {
+  opacity: 1;
+  animation: surface-orbit 9s linear infinite;
+}
+
+@keyframes surface-orbit {
+  from { --surface-angle: 0deg; }
+  to { --surface-angle: 360deg; }
+}
+
+.site-shell > .topbar,
+.sport-page-shell > .topbar,
+.coach-profile-shell > .topbar,
+.account-shell > .topbar,
+.payment-shell > .topbar,
+.reservation-shell > .topbar,
+.booking-shell > .topbar,
+.club-signup-shell > .topbar,
+.mobileNav,
+.directory-filter-panel {
+  position: relative;
+  isolation: isolate;
+  border-color: rgba(255, 255, 255, .08) !important;
+  background: rgba(13, 21, 38, .9) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .18) !important;
+}
+
+.site-shell > .topbar::before,
+.sport-page-shell > .topbar::before,
+.coach-profile-shell > .topbar::before,
+.account-shell > .topbar::before,
+.payment-shell > .topbar::before,
+.reservation-shell > .topbar::before,
+.booking-shell > .topbar::before,
+.club-signup-shell > .topbar::before,
+.mobileNav::before,
+.directory-filter-panel::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  opacity: .72;
+  background: conic-gradient(from var(--surface-angle, 0deg), transparent 0 30%, rgba(215, 243, 107, .04) 40%, rgba(215, 243, 107, .36) 48%, transparent 60% 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: surface-orbit 11s linear infinite;
+}
+
+.site-shell > .topbar > *,
+.sport-page-shell > .topbar > *,
+.coach-profile-shell > .topbar > *,
+.account-shell > .topbar > *,
+.payment-shell > .topbar > *,
+.reservation-shell > .topbar > *,
+.booking-shell > .topbar > *,
+.club-signup-shell > .topbar > *,
+.mobileNav > *,
+.directory-filter-panel > * { position: relative; z-index: 1; }
+
+.language-selector,
+.directory-chip,
+.directory-filter-panel select,
+.auth-field select,
+.booking-field select,
+.reservation-field select {
+  border-color: rgba(255, 255, 255, .1) !important;
+  background-color: #182640 !important;
+  box-shadow: none !important;
+}
+
+.language-selector:focus-within,
+.directory-chip:focus-within,
+.directory-filter-panel select:focus-visible,
+.auth-field select:focus-visible,
+.booking-field select:focus-visible,
+.reservation-field select:focus-visible {
+  border-color: rgba(215, 243, 107, .72) !important;
+  box-shadow: 0 0 0 2px rgba(215, 243, 107, .12) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready .scroll-particle-card.is-revealed::before,
+  .site-shell > .topbar::before,
+  .sport-page-shell > .topbar::before,
+  .coach-profile-shell > .topbar::before,
+  .account-shell > .topbar::before,
+  .payment-shell > .topbar::before,
+  .reservation-shell > .topbar::before,
+  .booking-shell > .topbar::before,
+  .club-signup-shell > .topbar::before,
+  .mobileNav::before,
+  .directory-filter-panel::before { animation: none; }
+}
+
 .cookie-consent-banner {
   position: fixed;
   z-index: 1000;
