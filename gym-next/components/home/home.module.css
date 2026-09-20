@@ -1175,6 +1175,13 @@
 .insightCard, .localeColumn { border-radius: 18px; }
 .insightCard:hover, .localeColumn:hover { border-color: #516a92; background: #182640; }
 .recruitSection { overflow: hidden; border: 1px solid #2a3b58; border-radius: 24px; background: #111a2d; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+.recruitCopy {
+  border: 0;
+  background: #111a2d;
+  box-shadow: none;
+  color: #f6f8fb;
+}
+.recruitCopy h2 { color: #f6f8fb; }
 .recruitMedia { min-height: 420px; }
 .faqSection { padding-bottom: 24px; }
 .faqItem { border-radius: 14px; }
