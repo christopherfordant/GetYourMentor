@@ -1370,6 +1370,58 @@ body {
 .coach-map-grid { opacity: 0.28; }
 .coach-map-water { opacity: 0.24; }
 
+/* Révélation progressive : le contenu reste dans le DOM, mais les cartes apparaissent au scroll. */
+.scroll-reveal-ready .scroll-particle-card {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 22px, 0) scale(0.985);
+  transition: opacity 520ms ease var(--particle-delay, 0ms), transform 620ms cubic-bezier(.2, .8, .2, 1) var(--particle-delay, 0ms);
+}
+
+.scroll-reveal-ready .scroll-particle-card::after {
+  position: absolute;
+  z-index: 5;
+  inset: -24%;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  transform: scale(0.65);
+  background:
+    radial-gradient(circle at 16% 24%, rgba(215, 243, 107, .95) 0 2px, transparent 3px),
+    radial-gradient(circle at 32% 72%, rgba(255, 255, 255, .8) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 51% 30%, rgba(215, 243, 107, .88) 0 2px, transparent 3px),
+    radial-gradient(circle at 68% 64%, rgba(255, 255, 255, .72) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 84% 22%, rgba(215, 243, 107, .8) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 84%, rgba(255, 255, 255, .72) 0 1.5px, transparent 3px);
+  filter: blur(.15px);
+}
+
+.scroll-reveal-ready .scroll-particle-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.scroll-reveal-ready .scroll-particle-card.is-revealed::after {
+  animation: particle-card-burst 760ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes particle-card-burst {
+  0% { opacity: .95; transform: scale(.55) rotate(0deg); }
+  55% { opacity: .78; transform: scale(1.12) rotate(7deg); }
+  100% { opacity: 0; transform: scale(1.42) rotate(13deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready .scroll-particle-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .scroll-reveal-ready .scroll-particle-card::after { display: none; }
+}
+
 @media (max-width: 900px) {
   .directory-filter-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
