@@ -192,6 +192,25 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
+        <section className={styles.sportRail} aria-labelledby="sport-rail-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionKicker}>Choisir son terrain</p>
+            <h2 id="sport-rail-title">Commence par ce qui te fait bouger</h2>
+            <p className={styles.sectionIntro}>
+              Des coachs vérifiés, près de chez toi ou en visio, pour progresser avec un cadre qui te ressemble.
+            </p>
+          </div>
+          <div className={styles.sportRailGrid}>
+            {sportLinks.map((sport, index) => (
+              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard}>
+                <span className={styles.sportRailIndex}>0{index + 1}</span>
+                <span className={styles.sportRailLabel}>{sport.label}</span>
+                <span className={styles.sportRailAction}>Explorer <span aria-hidden="true">↗</span></span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section}>
           <div className={styles.sectionHeading}>
             <h2>Ton parcours, sans friction</h2>

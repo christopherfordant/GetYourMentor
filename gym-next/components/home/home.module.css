@@ -1122,3 +1122,76 @@
   .stepHead { gap: 9px; }
   .stepHead h3 { font-size: 21px; }
 }
+
+/* 2026 marketplace composition: editorial sections, calm surfaces, and one
+   clear action per block. The footer intentionally stays outside this layer. */
+.page {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(85, 116, 173, 0.2), transparent 28%),
+    #080e1d;
+  color: #f6f8fb;
+}
+
+.topbar { width: min(1200px, calc(100% - 40px)); padding: 16px 0; }
+.brandName, .topbarLink, .accountButton, .sportLink { border: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+.brandName { min-height: 44px; padding: 0; color: #fff; font-size: 20px; }
+.brandName::before { color: #d7f36b; }
+.sportLink { min-height: 40px; color: #aebbd1; font-size: 13px; }
+.sportLink:hover { color: #d7f36b; }
+.topbarLink { min-height: 40px; color: #cbd5e1; }
+.accountButton { min-height: 42px; border-radius: 12px; background: #d7f36b; color: #111827; }
+.main { width: min(1200px, calc(100% - 40px)); padding-bottom: 104px; }
+.hero { min-height: 650px; margin-top: 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 30px; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+.heroOverlay { background: linear-gradient(90deg, rgba(8,14,29,.94) 0%, rgba(8,14,29,.7) 43%, rgba(8,14,29,.18) 100%); }
+.heroContent { width: min(650px, 100%); padding: 88px 64px; gap: 20px; }
+.eyebrow, .sectionKicker { color: #d7f36b; font-size: 11px; letter-spacing: .16em; }
+.heroTitle { max-width: 620px; font-size: clamp(48px, 7vw, 82px); }
+.heroCopy { max-width: 520px; color: #c4cfe1; font-size: 18px; }
+.searchCard { max-width: 650px; padding: 12px; border: 1px solid #324566; border-radius: 20px; background: rgba(17,26,45,.94); box-shadow: 0 18px 40px rgba(0,0,0,.28); }
+.field { border: 1px solid #3a4b68; background: #182640; }
+.field:focus-within { border-color: #d7f36b; box-shadow: 0 0 0 3px rgba(215,243,107,.12); }
+.fieldLabel { color: #d7f36b; }
+.searchButton { min-height: 54px; border-radius: 14px; background: #d7f36b; color: #111827; }
+.sportRail { display: grid; grid-template-columns: minmax(250px,.82fr) minmax(0,1.7fr); gap: 48px; align-items: end; padding: 92px 0 28px; }
+.sportRail .sectionHeading { max-width: 360px; }
+.sectionHeading { max-width: 760px; }
+.sectionHeading h2 { margin: 8px 0 0; color: #fff; font-size: clamp(30px, 4vw, 52px); letter-spacing: -.06em; }
+.sectionIntro { margin: 14px 0 0; color: #9eafca; line-height: 1.6; }
+.sportRailGrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+.sportRailCard { min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid #2a3b58; border-radius: 18px; background: #111a2d; color: #fff; transition: transform 220ms ease, background 220ms ease, border-color 220ms ease; }
+.sportRailCard:hover { transform: translateY(-6px); border-color: #d7f36b; background: #182640; }
+.sportRailIndex { color: #8394b0; font-size: 11px; letter-spacing: .12em; }
+.sportRailLabel { max-width: 110px; font-size: 17px; font-weight: 800; line-height: 1.1; }
+.sportRailAction { color: #d7f36b; font-size: 12px; font-weight: 800; }
+.section, .metricsSection, .recruitSection, .faqSection { margin-top: 88px; }
+.section { padding-top: 0; }
+.howGrid, .insightsGrid, .localesGrid { margin-top: 30px; }
+.stepCard, .insightCard, .localeColumn, .faqItem { border: 1px solid #2a3b58; background: #111a2d; box-shadow: 0 18px 42px rgba(0,0,0,.14); }
+.stepCard { border-radius: 22px; }
+.miniScreen { background: #182640; border-color: #2d4161; }
+.metricsSection { padding: 22px 0; border-block: 1px solid #22324d; }
+.metric strong { color: #d7f36b; }
+.metric span, .insightCard p, .localeColumn p, .recruitCopy p { color: #9eafca; }
+.insightCard, .localeColumn { border-radius: 18px; }
+.insightCard:hover, .localeColumn:hover { border-color: #516a92; background: #182640; }
+.recruitSection { overflow: hidden; border: 1px solid #2a3b58; border-radius: 24px; background: #111a2d; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+.recruitMedia { min-height: 420px; }
+.faqSection { padding-bottom: 24px; }
+.faqItem { border-radius: 14px; }
+
+@media (max-width: 900px) {
+  .sportRail { grid-template-columns: 1fr; gap: 24px; padding-top: 64px; }
+  .sportRail .sectionHeading { max-width: none; }
+  .sportRailGrid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .heroContent { padding: 68px 32px; }
+}
+
+@media (max-width: 560px) {
+  .topbar, .main { width: min(100% - 28px, 520px); }
+  .sportsNav { display: none; }
+  .hero { min-height: 620px; border-radius: 22px; }
+  .heroContent { padding: 54px 20px; }
+  .heroTitle { font-size: clamp(42px, 14vw, 64px); }
+  .sportRailGrid { grid-template-columns: 1fr 1fr; }
+  .sportRailCard { min-height: 142px; padding: 14px; }
+}
