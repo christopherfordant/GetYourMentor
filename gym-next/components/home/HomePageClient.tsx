@@ -192,7 +192,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.orbitSection}`}>
           <div className={styles.sectionHeading}>
             <h2>Ton parcours, sans friction</h2>
           </div>
@@ -328,7 +328,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.metricsSection}>
+        <section className={`${styles.metricsSection} ${styles.orbitSection}`}>
           <div className={styles.metricsGrid}>
             {metrics.map((metric) => (
               <div key={metric.label} className={styles.metric}>
@@ -339,7 +339,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section} id="coach-space">
+        <section className={`${styles.section} ${styles.orbitSection}`} id="coach-space">
           <div className={styles.sectionHeading}>
           <h2>Construis une routine que tu peux tenir</h2>
           </div>
@@ -361,7 +361,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.recruitSection}>
+        <section className={`${styles.recruitSection} ${styles.orbitSection}`}>
           <div className={styles.recruitMedia}>
             <Image
               src="/design_assets/content_library/football/football-coach-rain.jpg"
@@ -384,7 +384,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.orbitSection}`}>
           <div className={styles.sectionHeading}>
             <h2>Des coachs pour chaque façon de progresser</h2>
           </div>
@@ -405,7 +405,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.faqSection}>
+        <section className={`${styles.faqSection} ${styles.orbitSection}`}>
           <p className={styles.sectionKicker}>FAQ</p>
           <h2>Les questions fréquentes</h2>
           <div className={styles.faqList}>
