@@ -37,6 +37,7 @@ function hasLegalProductionApproval() {
 }
 
 export function getRuntimeReadiness() {
+  const isStaging = process.env.DEPLOY_ENV === "staging";
   const checks = {
     publicUrl: isValidProductionUrl(process.env.NEXT_PUBLIC_APP_URL),
     sessionSecret: Boolean(process.env.SESSION_SECRET && process.env.SESSION_SECRET.length >= 32),
@@ -51,10 +52,13 @@ export function getRuntimeReadiness() {
     legal: hasLegalProductionApproval(),
   };
   const demo = isDemoFallbackAllowed();
+  const technicalChecksReady = Object.entries(checks)
+    .filter(([name]) => name !== "legal")
+    .every(([, value]) => value);
   const servicesReady = Object.values(checks).every(Boolean);
   return {
-    mode: demo ? "demo" : "production",
-    ready: demo || servicesReady,
+    mode: demo ? "demo" : isStaging ? "staging" : "production",
+    ready: demo || servicesReady || (isStaging && technicalChecksReady),
     checks,
   } as const;
 }
