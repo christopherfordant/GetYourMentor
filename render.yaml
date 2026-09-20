@@ -33,6 +33,18 @@ services:
         sync: false
       - key: RESEND_FROM_EMAIL
         sync: false
+      - key: LEGAL_ENTITY_NAME
+        sync: false
+      - key: LEGAL_ENTITY_ADDRESS
+        sync: false
+      - key: LEGAL_CONTACT_EMAIL
+        sync: false
+      - key: LEGAL_REGISTRATION
+        sync: false
+      - key: LEGAL_DIRECTOR_NAME
+        sync: false
+      - key: LEGAL_CONTENT_APPROVED
+        value: "false"
 
   # A activer seulement lorsque les rappels doivent tourner en preproduction.
   # Render facture les cron jobs selon leur temps d'execution.
