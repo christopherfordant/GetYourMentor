@@ -1143,7 +1143,7 @@
 .main { width: min(1200px, calc(100% - 40px)); padding-bottom: 104px; }
 .hero { min-height: 650px; margin-top: 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 30px; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
 .heroOverlay { background: linear-gradient(90deg, rgba(8,14,29,.94) 0%, rgba(8,14,29,.7) 43%, rgba(8,14,29,.18) 100%); }
-.heroContent { width: min(650px, 100%); padding: 88px 64px; gap: 20px; }
+.heroContent { width: min(760px, 100%); padding: 88px 64px; gap: 20px; }
 .eyebrow, .sectionKicker { color: #d7f36b; font-size: 11px; letter-spacing: .16em; }
 .heroTitle { max-width: 620px; font-size: clamp(48px, 7vw, 82px); }
 .heroCopy { max-width: 520px; color: #c4cfe1; font-size: 18px; }
@@ -1181,9 +1181,9 @@
 
 /* Recherche unifiée : un seul cadre extérieur, champs fondus dans le parent. */
 .searchCard {
-  width: min(720px, 100%);
+  width: min(760px, calc(100vw - 80px));
   max-width: none;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(170px, .72fr);
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(180px, .72fr);
   gap: 8px;
   padding: 8px;
   border: 1px solid #3a4b68;
@@ -1232,9 +1232,9 @@
   .topbar, .main { width: min(100% - 28px, 520px); }
   .sportsNav { display: none; }
   .hero { min-height: 620px; border-radius: 22px; }
-  .heroContent { padding: 54px 20px; }
+  .heroContent { width: 100%; padding: 54px 20px; }
   .heroTitle { font-size: clamp(42px, 14vw, 64px); }
   .sportRailGrid { grid-template-columns: 1fr 1fr; }
   .sportRailCard { min-height: 142px; padding: 14px; }
-  .searchCard { grid-template-columns: 1fr; }
+  .searchCard { width: 100%; grid-template-columns: 1fr; }
 }
