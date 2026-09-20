@@ -144,8 +144,8 @@ function HomeHero({
             <div className="search-preview-frame">
               <img
                 className="search-preview-image"
-                src="/design_assets/info_resa_accueil.jpeg"
-                alt="Apercu de la page de recherche avec filtres, resultats et carte"
+                src="/design_assets/content_library/football/football-coach-rain.jpg"
+                alt="Coach de football en séance"
               />
             </div>
             <p className="search-preview-copy">

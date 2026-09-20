@@ -49,7 +49,7 @@ export const profileSlides = [
 export const slotSlides = [
   {
     title: "Choisissez jusqu'à 3 créneaux",
-    visual: "/design_assets/info_resa_accueil.jpeg",
+    visual: "/design_assets/content_library/football/football-youth-coach.jpg",
     selection: "1 créneau sélectionné",
     cta: "Proposer mes créneaux",
     slots: ["10:30", "15:00"],
