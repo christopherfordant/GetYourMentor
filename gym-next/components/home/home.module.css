@@ -854,6 +854,21 @@
   0%, 100% { transform: scale(.82) translate3d(0, 0, 0); }
   50% { transform: scale(1.08) translate3d(1%, -2%, 0); }
 }
+
+/* Orbital contour disabled globally by design decision. */
+.searchCard::before,
+.searchCard::after,
+.orbitSection::before {
+  display: none !important;
+  animation: none !important;
+}
+
+.orbitSection {
+  animation: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
 .section { padding-top: 92px; }
 .sectionHeading h2 { color: #fff; font-size: clamp(30px, 4vw, 48px); }
 .stepCard, .insightCard, .localeColumn, .faqItem { border: 1px solid rgba(255, 255, 255, 0.08); background: var(--app-panel); box-shadow: none; }

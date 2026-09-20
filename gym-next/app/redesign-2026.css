@@ -530,6 +530,65 @@
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
 
+/* Final opt-out: no rotating contour or orbital halo anywhere. */
+.scroll-reveal-ready .scroll-particle-card::before,
+.site-shell > .topbar::before,
+.sport-page-shell > .topbar::before,
+.coach-profile-shell > .topbar::before,
+.account-shell > .topbar::before,
+.payment-shell > .topbar::before,
+.reservation-shell > .topbar::before,
+.booking-shell > .topbar::before,
+.club-signup-shell > .topbar::before,
+.mobileNav::before,
+.directory-filter-panel::before,
+.coach-directory-search::before,
+.coach-directory-search::after {
+  display: none !important;
+  animation: none !important;
+}
+
+header.topbar,
+.mobileNav,
+.directory-filter-panel,
+.coach-directory-search,
+.coach-map-panel {
+  animation: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #111a2d !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* The animated orbital contour is intentionally disabled. Keep the surfaces
+   and reveal particles, without rotating borders or halo frames. */
+.scroll-reveal-ready .scroll-particle-card::before,
+.site-shell > .topbar::before,
+.sport-page-shell > .topbar::before,
+.coach-profile-shell > .topbar::before,
+.account-shell > .topbar::before,
+.payment-shell > .topbar::before,
+.reservation-shell > .topbar::before,
+.booking-shell > .topbar::before,
+.club-signup-shell > .topbar::before,
+.mobileNav::before,
+.directory-filter-panel::before,
+.coach-directory-search::before,
+.coach-directory-search::after {
+  display: none !important;
+  animation: none !important;
+}
+
+header.topbar,
+.mobileNav,
+.directory-filter-panel,
+.coach-directory-search,
+.coach-map-panel {
+  animation: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #111a2d !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18) !important;
+}
+
 /* Shared surface finish: one restrained orbit, no stacked child borders. */
 header.topbar,
 .mobileNav,
