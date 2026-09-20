@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 
 const CARD_SELECTOR = [
-  ".stepCard",
-  ".insightCard",
-  ".localeColumn",
+  '[class*="stepCard__"]',
+  '[class*="insightCard__"]',
+  '[class*="localeColumn__"]',
   ".sport-city-card",
   ".coach-result-card",
   ".coach-profile-card",
@@ -27,6 +27,14 @@ const CARD_SELECTOR = [
   ".coach-map-panel",
 ].join(",");
 
+const SCENE_SELECTOR = [
+  '[class*="sportRail__"]',
+  '[class*="section__"]',
+  '[class*="metricsSection__"]',
+  '[class*="recruitSection__"]',
+  '[class*="faqSection__"]',
+].join(",");
+
 export function ScrollParticleReveal() {
   useEffect(() => {
     document.documentElement.classList.add("scroll-reveal-ready");
@@ -37,8 +45,15 @@ export function ScrollParticleReveal() {
       card.style.setProperty("--particle-delay", `${Math.min(index % 5, 4) * 55}ms`);
     });
 
+    const scenes = Array.from(document.querySelectorAll<HTMLElement>(SCENE_SELECTOR));
+    scenes.forEach((scene, index) => {
+      scene.classList.add("scroll-scene");
+      scene.style.setProperty("--scene-delay", `${Math.min(index % 4, 3) * 70}ms`);
+    });
+
     if (typeof IntersectionObserver === "undefined") {
       cards.forEach((card) => card.classList.add("is-revealed"));
+      scenes.forEach((scene) => scene.classList.add("is-revealed"));
       return;
     }
 
@@ -54,6 +69,7 @@ export function ScrollParticleReveal() {
     );
 
     cards.forEach((card) => observer.observe(card));
+    scenes.forEach((scene) => observer.observe(scene));
     return () => observer.disconnect();
   }, []);
 
