@@ -45,20 +45,3 @@ services:
         sync: false
       - key: LEGAL_CONTENT_APPROVED
         value: "false"
-
-  # A activer seulement lorsque les rappels doivent tourner en preproduction.
-  # Render facture les cron jobs selon leur temps d'execution.
-  - type: cron
-    name: getyourmentor-reminders
-    runtime: node
-    region: frankfurt
-    plan: starter
-    schedule: "0 * * * *"
-    rootDir: gym-next
-    buildCommand: npm ci
-    startCommand: npm run cron:reservation-reminders
-    envVars:
-      - key: NEXT_PUBLIC_APP_URL
-        sync: false
-      - key: CRON_SECRET
-        sync: false
