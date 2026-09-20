@@ -1271,6 +1271,113 @@ body {
 
 .coach-directory-map { filter: saturate(0.55) brightness(0.72); border-color: rgba(255,255,255,0.1); }
 
+/* Surfaces simplifiées : une seule profondeur visuelle par zone. */
+.coach-directory-toolbar {
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.coach-directory-search,
+.sport-search-card {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #111a2d !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16) !important;
+  backdrop-filter: none;
+}
+
+.directory-field,
+.sport-search-field {
+  border: 0 !important;
+  background: #182640 !important;
+  box-shadow: none !important;
+}
+
+.directory-chip-row {
+  margin-top: 12px;
+}
+
+.directory-chip,
+.directory-chip-secondary,
+.directory-chip-filter {
+  min-height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #111a2d !important;
+  box-shadow: none !important;
+}
+
+.directory-chip-filter {
+  background: #d7f36b !important;
+  border-color: #d7f36b !important;
+  color: #111827 !important;
+}
+
+.directory-chip select,
+.coach-directory-toolbar select,
+.sport-search-card select,
+.auth-field select {
+  appearance: none;
+  min-height: 28px;
+  padding: 0 1.9rem 0 0.7rem;
+  border: 0 !important;
+  border-radius: 8px;
+  background-color: #182640 !important;
+  background-image: linear-gradient(45deg, transparent 50%, #d7f36b 50%), linear-gradient(135deg, #d7f36b 50%, transparent 50%);
+  background-position: calc(100% - 12px) 50%, calc(100% - 7px) 50%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+  color: #f6f8fb !important;
+  cursor: pointer;
+}
+
+.directory-filter-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: #111a2d;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+.directory-filter-panel label {
+  display: grid;
+  gap: 6px;
+  color: #aebbd1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.directory-filter-panel select {
+  width: 100%;
+  min-height: 38px;
+  padding: 0 2rem 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: #182640;
+  color: #f6f8fb;
+}
+
+.coach-map-panel {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #111a2d !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+}
+
+.coach-map-grid { opacity: 0.28; }
+.coach-map-water { opacity: 0.24; }
+
+@media (max-width: 900px) {
+  .directory-filter-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .directory-filter-panel { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .sport-page-shell,
   .coach-profile-shell,
