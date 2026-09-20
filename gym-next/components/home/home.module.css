@@ -1179,6 +1179,13 @@
 .faqSection { padding-bottom: 24px; }
 .faqItem { border-radius: 14px; }
 
+/* Replace the legacy orange accent with the slate-blue visual language. */
+.sectionKicker { color: #9eb9db !important; }
+.stepNumber {
+  background: #2d4161 !important;
+  box-shadow: 0 0 0 6px rgba(45, 65, 97, .18), 0 10px 24px rgba(0, 0, 0, .2) !important;
+}
+
 /* Recherche unifiée : un seul cadre extérieur, champs fondus dans le parent. */
 .searchCard {
   width: min(760px, calc(100vw - 80px));
