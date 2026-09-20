@@ -1752,6 +1752,52 @@ body {
   }
 }
 
+/* Allumage progressif de chaque carte : une nappe lumineuse traverse la
+   surface une seule fois quand elle entre dans le champ, puis disparaît. */
+.scroll-reveal-ready .scroll-particle-card::before {
+  z-index: 2;
+  inset: -20% -70%;
+  display: block !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  opacity: 0;
+  transform: translateX(-62%) rotate(10deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 39%,
+    rgba(215, 243, 107, 0.02) 45%,
+    rgba(215, 243, 107, 0.22) 50%,
+    rgba(255, 255, 255, 0.12) 54%,
+    transparent 62%,
+    transparent 100%
+  );
+  filter: blur(14px);
+  mask: none;
+  -webkit-mask: none;
+}
+
+.scroll-reveal-ready .scroll-particle-card.is-revealed::before {
+  opacity: 1;
+  transform: translateX(62%) rotate(10deg);
+  animation: card-light-on 1250ms cubic-bezier(.16, .76, .24, 1) var(--particle-delay, 0ms) both;
+}
+
+@keyframes card-light-on {
+  0% { opacity: 0; transform: translateX(-62%) rotate(10deg); }
+  22% { opacity: .95; }
+  100% { opacity: 0; transform: translateX(62%) rotate(10deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-ready .scroll-particle-card::before,
+  .scroll-reveal-ready .scroll-particle-card.is-revealed::before {
+    opacity: 0;
+    animation: none;
+  }
+}
+
 @property --search-angle {
   syntax: "<angle>";
   inherits: false;

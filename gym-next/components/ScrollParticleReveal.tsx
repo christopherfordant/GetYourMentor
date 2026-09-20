@@ -29,7 +29,6 @@ const CARD_SELECTOR = [
 
 const SCENE_SELECTOR = [
   '[class*="sportRail__"]',
-  '[class*="section__"]',
   '[class*="metricsSection__"]',
   '[class*="recruitSection__"]',
   '[class*="faqSection__"]',
@@ -42,7 +41,7 @@ export function ScrollParticleReveal() {
     const cards = Array.from(document.querySelectorAll<HTMLElement>(CARD_SELECTOR));
     cards.forEach((card, index) => {
       card.classList.add("scroll-particle-card");
-      card.style.setProperty("--particle-delay", `${Math.min(index % 5, 4) * 55}ms`);
+      card.style.setProperty("--particle-delay", `${Math.min(index % 5, 4) * 150}ms`);
     });
 
     const scenes = Array.from(document.querySelectorAll<HTMLElement>(SCENE_SELECTOR));
@@ -85,7 +84,7 @@ export function ScrollParticleReveal() {
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.18, rootMargin: "0px 0px -18% 0px" },
     );
 
     cards.forEach((card) => observer.observe(card));
