@@ -149,6 +149,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               alt="Athletes et coachs en mouvement"
               fill
               priority
+              sizes="100vw"
               className={styles.heroImage}
             />
           </div>
@@ -204,7 +205,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
               <div className={styles.miniScreen}>
                 <div className={styles.slideMedia}>
-                  <Image src={displayedProfile.image} alt={displayedProfile.name} fill className={styles.cardImage} />
+                  <Image src={displayedProfile.image} alt={displayedProfile.name} fill sizes="(max-width: 900px) 100vw, 33vw" className={styles.cardImage} />
                 </div>
                 <div className={styles.slideContent}>
                   <h4>{displayedProfile.name}</h4>
@@ -249,7 +250,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               <div className={styles.miniScreen}>
                 <p className={styles.slideCaption}>{activeSlot.title}</p>
                 <div className={styles.slotVisual}>
-                  <Image src={activeSlot.visual} alt={activeSlot.title} fill className={styles.cardImage} />
+                  <Image src={activeSlot.visual} alt={activeSlot.title} fill sizes="(max-width: 900px) 100vw, 33vw" className={styles.cardImage} />
                 </div>
                 <div className={styles.slotRow}>
                   {activeSlot.slots.map((slot, index) => (
@@ -366,6 +367,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               src="/design_assets/content_library/football/football-coach-rain.jpg"
               alt="Coach sur terrain"
               fill
+              sizes="(max-width: 900px) 100vw, 50vw"
               className={styles.cardImage}
             />
           </div>
