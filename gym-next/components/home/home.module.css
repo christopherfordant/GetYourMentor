@@ -1034,7 +1034,11 @@
 .stepNumber { box-shadow: 0 0 0 6px rgba(255, 138, 82, 0.08), 0 10px 24px rgba(255, 138, 82, 0.22); }
 .metricsSection { position: relative; overflow: hidden; }
 .metric { transition: transform 220ms ease, background 220ms ease; }
-.metric:hover { transform: translateY(-4px) rotate(-1deg); background: #202d42; }
+.metric,
+.metric:hover {
+  background: #202d42;
+}
+.metric:hover { transform: translateY(-4px) rotate(-1deg); }
 .insightCard { transition: transform 220ms ease, border-color 220ms ease; }
 .insightCard:hover { transform: translateY(-5px) rotate(0.6deg); border-color: rgba(215, 243, 107, 0.35); }
 
