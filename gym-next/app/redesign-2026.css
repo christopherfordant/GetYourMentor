@@ -1842,7 +1842,25 @@ body {
   position: relative;
   isolation: isolate;
   --tab-progress: 0;
+  overflow: visible;
   will-change: transform, color;
+}
+
+.header-smoke-particle {
+  position: absolute;
+  right: auto;
+  bottom: 2px;
+  left: 50%;
+  z-index: 3;
+  width: var(--smoke-size, 8px);
+  height: var(--smoke-size, 8px);
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, .72) 0%, rgba(215, 243, 107, .36) 42%, rgba(145, 184, 255, .12) 62%, transparent 76%);
+  box-shadow: 0 0 10px rgba(215, 243, 107, .48);
+  filter: blur(2px);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
 }
 
 .gsap-header-tab::after {
@@ -1880,6 +1898,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .cinematic-particles { opacity: .2; }
   .gsap-header-tab::after { opacity: 0; transition: none; }
+  .header-smoke-particle { display: none; }
 }
 
 @property --search-angle {

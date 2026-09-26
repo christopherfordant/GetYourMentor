@@ -34,22 +34,103 @@ export function GsapJourneyScene() {
       clearProps: "transform,opacity,visibility",
     });
 
-    gsap.set(headerItems, { autoAlpha: 0, y: -12, filter: "blur(6px)" });
-    gsap.to(headerItems, {
-      autoAlpha: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 0.85,
-      stagger: 0.07,
-      delay: 0.28,
-      ease: "expo.out",
-      clearProps: "filter",
-    });
-
     const headerCleanup: Array<() => void> = [];
+    const smokeParticles: HTMLElement[] = [];
+
+    const emitLandingSmoke = (item: HTMLElement, index: number) => {
+      const smokeTimeline = gsap.timeline();
+      const particleCount = 7 + (index % 3);
+
+      for (let particleIndex = 0; particleIndex < particleCount; particleIndex += 1) {
+        const particle = document.createElement("span");
+        const direction = particleIndex % 2 === 0 ? 1 : -1;
+        const size = 5 + Math.random() * 8;
+        particle.className = "header-smoke-particle";
+        particle.setAttribute("aria-hidden", "true");
+        particle.style.setProperty("--smoke-size", `${size}px`);
+        item.appendChild(particle);
+        smokeParticles.push(particle);
+
+        smokeTimeline.fromTo(
+          particle,
+          {
+            autoAlpha: 0,
+            x: (Math.random() - 0.5) * 24,
+            y: 5 + Math.random() * 8,
+            scale: 0.2,
+          },
+          {
+            autoAlpha: 0.72,
+            x: direction * (18 + Math.random() * 24),
+            y: -(12 + Math.random() * 22),
+            scale: 1.35 + Math.random() * 0.8,
+            duration: 0.24 + Math.random() * 0.12,
+            ease: "power2.out",
+          },
+          particleIndex * 0.025,
+        );
+        smokeTimeline.to(
+          particle,
+          {
+            autoAlpha: 0,
+            y: -(28 + Math.random() * 22),
+            scale: 2.1,
+            duration: 0.48 + Math.random() * 0.18,
+            ease: "power1.out",
+            onComplete: () => particle.remove(),
+          },
+          particleIndex * 0.025 + 0.18,
+        );
+      }
+    };
+
+    const landingTimeline = gsap.timeline({ delay: 0.2 });
     headerItems.forEach((item) => {
       item.classList.add("gsap-header-tab");
-      gsap.set(item, { "--tab-progress": 0 });
+      gsap.set(item, { "--tab-progress": 0, autoAlpha: 0 });
+
+      const index = headerItems.indexOf(item);
+      const itemTimeline = gsap.timeline({
+        onComplete: () => emitLandingSmoke(item, index),
+      });
+      itemTimeline
+        .fromTo(
+          item,
+          {
+            autoAlpha: 0,
+            x: index % 2 === 0 ? -150 - index * 18 : 150 + index * 18,
+            y: -180 - index * 22,
+            rotation: index % 2 === 0 ? -14 : 14,
+            scale: 0.7,
+            filter: "blur(10px)",
+          },
+          {
+            autoAlpha: 1,
+            x: index % 2 === 0 ? 14 : -14,
+            y: 12,
+            rotation: index % 2 === 0 ? 2 : -2,
+            scale: 0.92,
+            duration: 0.44,
+            ease: "power2.in",
+          },
+        )
+        .to(item, {
+          x: 0,
+          y: -5,
+          rotation: 0,
+          scale: 1.04,
+          filter: "blur(0px)",
+          duration: 0.26,
+          ease: "back.out(2.2)",
+        })
+        .to(item, {
+          y: 0,
+          scale: 1,
+          duration: 0.32,
+          ease: "bounce.out",
+          clearProps: "filter",
+        });
+      landingTimeline.add(itemTimeline, index * 0.12);
 
       const onEnter = () => {
         gsap.killTweensOf(item);
@@ -84,6 +165,7 @@ export function GsapJourneyScene() {
         item.removeEventListener("blur", onLeave);
       });
     });
+    landingTimeline.play();
 
     gsap.fromTo(heroItems, { autoAlpha: 0, y: 54, filter: "blur(12px)" }, {
       autoAlpha: 1,
@@ -217,6 +299,7 @@ export function GsapJourneyScene() {
 
     return () => {
       headerCleanup.forEach((cleanup) => cleanup());
+      smokeParticles.forEach((particle) => particle.remove());
       mm.revert();
     };
   }, { scope });
