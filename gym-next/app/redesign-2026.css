@@ -1838,6 +1838,40 @@ body {
 
 .heroContent { z-index: 2 !important; }
 
+.gsap-header-tab {
+  position: relative;
+  isolation: isolate;
+  --tab-progress: 0;
+  will-change: transform, color;
+}
+
+.gsap-header-tab::after {
+  position: absolute;
+  right: 14px;
+  bottom: 1px;
+  left: 14px;
+  z-index: 0;
+  height: 2px;
+  pointer-events: none;
+  content: "";
+  opacity: var(--tab-progress);
+  transform: scaleX(var(--tab-progress));
+  transform-origin: center;
+  background: linear-gradient(90deg, transparent, #d7f36b 35%, #ffffff 50%, #d7f36b 65%, transparent);
+  box-shadow: 0 0 12px rgba(215, 243, 107, .92), 0 0 28px rgba(145, 184, 255, .42);
+  transition: opacity .18s ease;
+}
+
+.gsap-header-tab:hover,
+.gsap-header-tab:focus-visible {
+  z-index: 2;
+}
+
+.gsap-header-tab:focus-visible {
+  outline: 1px solid rgba(215, 243, 107, .7);
+  outline-offset: 5px;
+}
+
 @media (max-width: 700px) {
   .cinematic-particles { opacity: .42; }
   .journey-light-line { display: none; }
@@ -1845,6 +1879,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .cinematic-particles { opacity: .2; }
+  .gsap-header-tab::after { opacity: 0; transition: none; }
 }
 
 @property --search-angle {

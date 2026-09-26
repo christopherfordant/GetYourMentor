@@ -108,14 +108,14 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
       <GsapJourneyScene />
       <header data-gsap-header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
         <div className={styles.brandLockup}>
-          <Link href="/" className={styles.brandName}>
+          <Link href="/" className={styles.brandName} data-gsap-header-item>
             GetYourMentor
           </Link>
         </div>
 
         <nav className={styles.sportsNav} aria-label="Sports">
           {sportLinks.map((sport) => (
-            <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportLink}>
+            <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportLink} data-gsap-header-item>
               {sport.label}
             </Link>
           ))}
@@ -123,10 +123,10 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
         <div className={styles.topbarActions}>
           <LanguageSelector />
-          <Link href="/compte" className={styles.topbarLink}>
+          <Link href="/compte" className={styles.topbarLink} data-gsap-header-item>
             Je suis coach
           </Link>
-          <Link href="/compte" className={styles.accountButton}>
+          <Link href="/compte" className={styles.accountButton} data-gsap-header-item>
             <span className={styles.accountIcon} aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />

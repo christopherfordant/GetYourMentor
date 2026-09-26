@@ -20,10 +20,11 @@ export function GsapJourneyScene() {
     if (!cards.length) return;
 
     const header = document.querySelector<HTMLElement>('[data-gsap-header]');
+    const headerItems = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-header-item]"));
     const hero = document.querySelector<HTMLElement>('[data-gsap-hero]');
-    const heroItems = gsap.utils.toArray<HTMLElement>("[data-gsap-hero-item]");
+    const heroItems = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-hero-item]"));
     const heroImage = hero?.querySelector<HTMLElement>('[class*="heroImage__"]');
-    const scenes = gsap.utils.toArray<HTMLElement>('[data-gsap-scene]');
+    const scenes = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-scene]"));
 
     gsap.fromTo(header, { autoAlpha: 0, y: -22 }, {
       autoAlpha: 1,
@@ -31,6 +32,57 @@ export function GsapJourneyScene() {
       duration: 1.1,
       ease: "expo.out",
       clearProps: "transform,opacity,visibility",
+    });
+
+    gsap.set(headerItems, { autoAlpha: 0, y: -12, filter: "blur(6px)" });
+    gsap.to(headerItems, {
+      autoAlpha: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 0.85,
+      stagger: 0.07,
+      delay: 0.28,
+      ease: "expo.out",
+      clearProps: "filter",
+    });
+
+    const headerCleanup: Array<() => void> = [];
+    headerItems.forEach((item) => {
+      item.classList.add("gsap-header-tab");
+      gsap.set(item, { "--tab-progress": 0 });
+
+      const onEnter = () => {
+        gsap.killTweensOf(item);
+        gsap.to(item, {
+          y: -3,
+          scale: 1.035,
+          color: "#ffffff",
+          "--tab-progress": 1,
+          duration: 0.34,
+          ease: "power3.out",
+        });
+      };
+      const onLeave = () => {
+        gsap.to(item, {
+          y: 0,
+          scale: 1,
+          clearProps: "color",
+          "--tab-progress": 0,
+          duration: 0.42,
+          ease: "power3.out",
+        });
+      };
+
+      item.addEventListener("pointerenter", onEnter);
+      item.addEventListener("pointerleave", onLeave);
+      item.addEventListener("focus", onEnter);
+      item.addEventListener("blur", onLeave);
+      headerCleanup.push(() => {
+        item.removeEventListener("pointerenter", onEnter);
+        item.removeEventListener("pointerleave", onLeave);
+        item.removeEventListener("focus", onEnter);
+        item.removeEventListener("blur", onLeave);
+      });
     });
 
     gsap.fromTo(heroItems, { autoAlpha: 0, y: 54, filter: "blur(12px)" }, {
@@ -163,7 +215,10 @@ export function GsapJourneyScene() {
       });
     });
 
-    return () => mm.revert();
+    return () => {
+      headerCleanup.forEach((cleanup) => cleanup());
+      mm.revert();
+    };
   }, { scope });
 
   return <div ref={scope} className="gsap-journey-runtime" aria-hidden="true" />;
