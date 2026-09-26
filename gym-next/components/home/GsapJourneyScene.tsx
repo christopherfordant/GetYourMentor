@@ -19,6 +19,83 @@ export function GsapJourneyScene() {
     const lightLine = section.querySelector<HTMLElement>("[data-gsap-line]");
     if (!cards.length) return;
 
+    const header = document.querySelector<HTMLElement>('[data-gsap-header]');
+    const hero = document.querySelector<HTMLElement>('[data-gsap-hero]');
+    const heroItems = gsap.utils.toArray<HTMLElement>("[data-gsap-hero-item]");
+    const heroImage = hero?.querySelector<HTMLElement>('[class*="heroImage__"]');
+    const scenes = gsap.utils.toArray<HTMLElement>('[data-gsap-scene]');
+
+    gsap.fromTo(header, { autoAlpha: 0, y: -22 }, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 1.1,
+      ease: "expo.out",
+      clearProps: "transform,opacity,visibility",
+    });
+
+    gsap.fromTo(heroItems, { autoAlpha: 0, y: 54, filter: "blur(12px)" }, {
+      autoAlpha: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 1.25,
+      stagger: 0.13,
+      delay: 0.18,
+      ease: "expo.out",
+      clearProps: "filter",
+    });
+
+    if (heroImage) {
+      gsap.to(heroImage, {
+        yPercent: 7,
+        scale: 1.08,
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.2,
+        },
+      });
+    }
+
+    if (header) {
+      gsap.to(header, {
+        backgroundColor: "rgba(8, 14, 29, .78)",
+        backdropFilter: "blur(16px)",
+        boxShadow: "0 14px 34px rgba(0, 0, 0, .18)",
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "+=180",
+          scrub: 0.8,
+        },
+      });
+    }
+
+    scenes.forEach((scene) => {
+      const items = gsap.utils.toArray<HTMLElement>("[data-gsap-stagger], [data-gsap-recruit-media], [data-gsap-recruit-copy]", scene);
+      if (!items.length) return;
+      gsap.set(items, { autoAlpha: 0, y: 78, rotateX: 8, filter: "blur(10px)" });
+      gsap.to(items, {
+        autoAlpha: 1,
+        y: 0,
+        rotateX: 0,
+        filter: "blur(0px)",
+        duration: 1.15,
+        stagger: 0.11,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: scene,
+          start: "top 78%",
+          end: "top 42%",
+          scrub: 0.9,
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+
     const mm = gsap.matchMedia();
 
     mm.add("(min-width: 901px)", () => {

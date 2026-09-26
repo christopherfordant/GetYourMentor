@@ -106,7 +106,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   return (
     <div className={styles.page}>
       <GsapJourneyScene />
-      <header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
+      <header data-gsap-header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
         <div className={styles.brandLockup}>
           <Link href="/" className={styles.brandName}>
             GetYourMentor
@@ -145,7 +145,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
       </header>
 
       <main className={styles.main}>
-        <section className={styles.hero}>
+        <section className={styles.hero} data-gsap-hero>
           <div className={styles.heroBackdrop}>
             <Image
               src="/design_assets/hero_accueil_whatsapp.jpeg"
@@ -159,12 +159,12 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           <div className={styles.heroOverlay} />
           <CinematicParticles />
 
-          <div className={styles.heroContent}>
-            <p className={styles.eyebrow}>Coaching qui te ressemble</p>
-            <h1 className={styles.heroTitle}>Bouge. Progresse. Recommence.</h1>
-            <p className={styles.heroCopy}>Trouve le bon accompagnement, réserve une session et garde le rythme.</p>
+          <div className={styles.heroContent} data-gsap-hero-content>
+            <p className={styles.eyebrow} data-gsap-hero-item>Coaching qui te ressemble</p>
+            <h1 className={styles.heroTitle} data-gsap-hero-item>Bouge. Progresse. Recommence.</h1>
+            <p className={styles.heroCopy} data-gsap-hero-item>Trouve le bon accompagnement, réserve une session et garde le rythme.</p>
 
-            <div className={styles.searchCard}>
+            <div className={styles.searchCard} data-gsap-hero-item>
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>Quel sport ?</span>
                 <input
@@ -196,7 +196,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.sportRail} aria-labelledby="sport-rail-title">
+        <section className={styles.sportRail} data-gsap-scene="sports" aria-labelledby="sport-rail-title">
           <div className={styles.sectionHeading}>
             <p className={styles.sectionKicker}>Choisir son terrain</p>
             <h2 id="sport-rail-title">Commence par ce qui te fait bouger</h2>
@@ -206,7 +206,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
           <div className={styles.sportRailGrid}>
             {sportLinks.map((sport, index) => (
-              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard}>
+              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard} data-gsap-stagger>
                 <span className={styles.sportRailIndex}>0{index + 1}</span>
                 <span className={styles.sportRailLabel}>{sport.label}</span>
                 <span className={styles.sportRailAction}>Explorer <span aria-hidden="true">↗</span></span>
@@ -352,10 +352,10 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.metricsSection}>
+        <section className={styles.metricsSection} data-gsap-scene="metrics">
           <div className={styles.metricsGrid}>
             {metrics.map((metric) => (
-              <div key={metric.label} className={styles.metric}>
+              <div key={metric.label} className={styles.metric} data-gsap-stagger>
                 <strong>{metric.value}</strong>
                 <span>{metric.label}</span>
               </div>
@@ -363,7 +363,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section} id="coach-space">
+        <section className={styles.section} data-gsap-scene="routine" id="coach-space">
           <div className={styles.sectionHeading}>
           <h2>Construis une routine que tu peux tenir</h2>
           </div>
@@ -372,6 +372,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               <article
                 key={`${item.value}-${item.copy}`}
                 className={`${styles.insightCard} ${item.featured ? styles.insightCardFeatured : ""}`}
+                data-gsap-stagger
               >
                 <strong>{item.value}</strong>
                 <p>{item.copy}</p>
@@ -385,8 +386,8 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.recruitSection}>
-          <div className={styles.recruitMedia}>
+        <section className={styles.recruitSection} data-gsap-scene="recruit">
+          <div className={styles.recruitMedia} data-gsap-recruit-media>
             <Image
               src="/design_assets/content_library/football/football-coach-rain.jpg"
               alt="Coach sur terrain"
@@ -395,7 +396,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               className={styles.cardImage}
             />
           </div>
-          <div className={styles.recruitCopy}>
+          <div className={styles.recruitCopy} data-gsap-recruit-copy>
             <p className={styles.sectionKicker}>Professionnel</p>
             <h2>GetYourMentor recherche des profils partout en France pour digitaliser le coaching sportif</h2>
             <p>
@@ -408,13 +409,13 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={styles.section} data-gsap-scene="locales">
           <div className={styles.sectionHeading}>
             <h2>Des coachs pour chaque façon de progresser</h2>
           </div>
           <div className={styles.localesGrid}>
             {localeColumns.map((column) => (
-              <article key={column.slug} className={styles.localeColumn}>
+              <article key={column.slug} className={styles.localeColumn} data-gsap-stagger>
                 <h3>{column.title}</h3>
                 <p>{column.copy}</p>
                 <div className={styles.localeLinks}>
@@ -429,12 +430,12 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.faqSection}>
+        <section className={styles.faqSection} data-gsap-scene="faq">
           <p className={styles.sectionKicker}>FAQ</p>
           <h2>Les questions fréquentes</h2>
           <div className={styles.faqList}>
             {faqItems.map((item) => (
-              <details key={item.question} className={styles.faqItem}>
+              <details key={item.question} className={styles.faqItem} data-gsap-stagger>
                 <summary>{item.question}</summary>
                 <p>{item.answer}</p>
               </details>
