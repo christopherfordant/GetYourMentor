@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { CinematicParticles } from "./CinematicParticles";
 import styles from "./home.module.css";
 import {
   faqItems,
@@ -154,6 +155,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
             />
           </div>
           <div className={styles.heroOverlay} />
+          <CinematicParticles />
 
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Coaching qui te ressemble</p>
