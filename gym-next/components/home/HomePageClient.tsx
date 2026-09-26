@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { CinematicParticles } from "./CinematicParticles";
+import { GsapJourneyScene } from "./GsapJourneyScene";
 import styles from "./home.module.css";
 import {
   faqItems,
@@ -104,6 +105,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
   return (
     <div className={styles.page}>
+      <GsapJourneyScene />
       <header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
         <div className={styles.brandLockup}>
           <Link href="/" className={styles.brandName}>
@@ -213,13 +215,14 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section}>
-          <div className={styles.sectionHeading}>
+        <section className={styles.section} data-gsap-section="journey">
+          <div className={styles.sectionHeading} data-gsap-heading>
             <h2>Ton parcours, sans friction</h2>
           </div>
+          <div className="journey-light-line" data-gsap-line aria-hidden="true" />
 
           <div className={styles.howGrid}>
-            <article className={styles.stepCard}>
+            <article className={styles.stepCard} data-gsap-card>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>1</span>
                 <h3>Choisis ton coach</h3>
@@ -263,7 +266,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard}>
+            <article className={styles.stepCard} data-gsap-card>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>2</span>
                 <h3>Bloque tes créneaux</h3>
@@ -310,7 +313,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard}>
+            <article className={styles.stepCard} data-gsap-card>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>3</span>
                 <h3>Valide ta session</h3>

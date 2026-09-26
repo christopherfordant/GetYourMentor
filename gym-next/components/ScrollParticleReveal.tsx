@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const CARD_SELECTOR = [
-  '[class*="stepCard__"]',
+  '[class*="stepCard__"]:not([data-gsap-card])',
   '[class*="insightCard__"]',
   '[class*="localeColumn__"]',
   ".sport-city-card",
