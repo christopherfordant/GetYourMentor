@@ -20,6 +20,10 @@ gym-next/.env.*
 !gym-next/.env.preproduction.example
 
 docs/next-visual-validation/
+/.tools/
+/playwright-artifacts/
+supabase/**/.temp/
+gym-next/*.png
 gym-next/playwright-artifacts/
 gym-next/playwright-report/
 gym-next/test-results/
