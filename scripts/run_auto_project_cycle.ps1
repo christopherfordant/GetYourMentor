@@ -102,16 +102,19 @@ if (-not $gitStatusShort) {
 & $Python $SupervisorScript | Out-Null
 $supervisorStatus = Get-SupervisorStatus -ReportPath $ReportPath
 
-$nextPhase = if ($supervisorStatus -eq "CONFORME") {
+$missionCompleted = $state.last_mission_plan_status -eq "COMPLETED"
+$nextPhase = if ($supervisorStatus -eq "CONFORME" -and $missionCompleted) {
     Get-NextPhase -Current $state.active_phase
 } else {
     $state.active_phase
 }
 
-$nextAction = if ($supervisorStatus -eq "CONFORME") {
-    "Continuer le cycle sur la phase $nextPhase"
-} else {
+$nextAction = if ($supervisorStatus -ne "CONFORME") {
     "Traiter les alertes du superviseur avant toute action suivante"
+} elseif (-not $missionCompleted) {
+    "Executer puis cloturer la mission RAG $($state.next_mission_id) avant de changer de phase"
+} else {
+    "Continuer le cycle sur la phase $nextPhase"
 }
 
 $state.last_cycle_at = $timestamp

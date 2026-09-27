@@ -6,7 +6,7 @@
     "GetYourMentor MVP_V1 - Fonctionnalités générales.pdf",
     "Copie de Devis DEV - GetYourMentor.pdf",
     "MVP_ECRANS_GYM.md",
-    "ARCHITECTURE_MEMOIRE_GYM.md"
+    "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md"
   ],
   "source_socle": [
     "DESIGN_SYSTEM_GYM.md",
@@ -33,6 +33,7 @@
     "governance/prompts/PROMPT_DEVOPS_GYM.md",
     "governance/prompts/PROMPT_QA_GYM.md",
     "governance/prompts/PROMPT_SEO_GYM.md",
+    "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
     "governance/ai/ARCHITECTURE_IA_RAG_GYM.md",
     "governance/ai/MODE_AUTO_PROJET_GYM.md",
     "governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md",
@@ -51,7 +52,13 @@
     "governance/ai/CYCLE_009_INSCRIPTION_CLUB_GYM.md",
     "governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md",
     "governance/ai/CYCLE_011_QA_PLAYWRIGHT_GYM.md",
-    "governance/ai/CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md"
+    "governance/ai/CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md",
+    "governance/ai/mission_registry.json",
+    "governance/ai/NEXT_MISSION_GYM.md",
+    "scripts/run_auto_mission_planning.ps1",
+    "scripts/complete_auto_mission.ps1"
+    ,"scripts/run_codex_mission_agent.ps1"
+    ,"governance/ai/AGENT_MISSION_EXECUTION_PROMPT.md"
   ],
   "role_files": [
     "governance/roles/README_CTO.md",

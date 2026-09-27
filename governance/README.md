@@ -42,6 +42,7 @@ Le dossier `ai/` contient aussi la memoire locale de production :
 
 - `PHASES_EXECUTION_GYM.md`
 - `CONTEXT_RAG_GYM.md`
+- `../docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md` (architecture canonique mémoire/RAG)
 - `DECISIONS_LOG_GYM.md`
 - `CYCLE_001_ORCHESTRATION_GYM.md`
 - `MVP_ROUTE_CONTROL_GYM.md`
@@ -78,12 +79,22 @@ Pieces principales :
 - `scripts/start_auto_orchestrator_loop.ps1`
 - `scripts/run_auto_git_checkpoint_lot.ps1`
 - `scripts/start_auto_night_run.ps1`
+- `scripts/run_auto_mission_planning.ps1`
+- `scripts/complete_auto_mission.ps1`
+- `scripts/run_codex_mission_agent.ps1`
+- `governance/ai/AGENT_MISSION_EXECUTION_PROMPT.md`
+
+Le runner Codex exige une authentification locale valide. Il ne contourne ni les protections systeme ni les controles d acces; en cas d indisponibilite, la mission reste en attente dans le RAG.
+- `governance/ai/mission_registry.json`
+- `governance/ai/NEXT_MISSION_GYM.md`
 
 But :
 
 - relancer un cycle de controle sans perdre le fil rouge
 - garder une memoire durable entre les reprises
 - reduire le nombre de validations manuelles inutiles
+
+Avant tout lot de build, audit ou checkpoint, l'orchestrateur execute le lot `mission_planning`. Ce lot relit le document maitre et le fil rouge, verifie le superviseur, choisit la mission du role actif et met a jour le RAG.
 
 ## Regle de travail
 

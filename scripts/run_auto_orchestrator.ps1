@@ -11,6 +11,8 @@ $JournalPath = Join-Path $Root "governance\ai\auto_orchestrator_journal.md"
 $BuildLotScript = Join-Path $PSScriptRoot "run_auto_build_supervision_lot.ps1"
 $VisualLotScript = Join-Path $PSScriptRoot "run_auto_visual_audit_lot.ps1"
 $CheckpointLotScript = Join-Path $PSScriptRoot "run_auto_git_checkpoint_lot.ps1"
+$MissionPlanningScript = Join-Path $PSScriptRoot "run_auto_mission_planning.ps1"
+$MissionAgentScript = Join-Path $PSScriptRoot "run_codex_mission_agent.ps1"
 
 function Read-JsonFile {
     param([string]$Path)
@@ -78,6 +80,18 @@ function Get-NextLot {
             reason = "superviseur non conforme"
         }
     }
+    if ($State.last_mission_plan_status -ne "COMPLETED") {
+        if ($State.last_mission_plan_status -ne "READY") {
+            return [pscustomobject]@{
+                name = "mission_planning"
+                reason = "plan de mission RAG absent ou non valide"
+            }
+        }
+        return [pscustomobject]@{
+            name = "codex_mission_agent"
+            reason = "mission metier READY a executer par l agent"
+        }
+    }
     if ($State.last_build_status -ne "OK") {
         return [pscustomobject]@{
             name = "build_supervision"
@@ -129,7 +143,7 @@ for ($i = 0; $i -lt $MaxLots; $i++) {
     $decisions += "Decision $($i + 1): $($decision.name) - $($decision.reason)"
 
     if ($decision.name -eq "stop") {
-        $chainStatus = "CHAIN_ALERT"
+        $chainStatus = if ($decision.reason -eq "superviseur non conforme") { "CHAIN_ALERT" } else { "CHAIN_PARTIAL" }
         break
     }
     if ($decision.name -eq "done") {
@@ -141,6 +155,14 @@ for ($i = 0; $i -lt $MaxLots; $i++) {
     }
 
     switch ($decision.name) {
+        "mission_planning" {
+            $lot = Invoke-Lot -LotName "mission_planning" -ScriptPath $MissionPlanningScript
+            $executedLots += $lot.name
+        }
+        "codex_mission_agent" {
+            $lot = Invoke-Lot -LotName "codex_mission_agent" -ScriptPath $MissionAgentScript
+            $executedLots += $lot.name
+        }
         "build_supervision" {
             $lot = Invoke-Lot -LotName "build_supervision" -ScriptPath $BuildLotScript
             $executedLots += $lot.name
@@ -184,6 +206,8 @@ Set-StateValue -State $state -Name "last_orchestrator_decisions" -Value $decisio
 
 $nextAction = if ($chainStatus -eq "CHAIN_ALERT") {
     "Traiter l'alerte de chaine avant de poursuivre"
+} elseif ($state.last_mission_plan_status -eq "READY") {
+    "Executer puis cloturer la mission $($state.next_mission_id) avant tout lot technique"
 } elseif ($state.last_build_status -eq "OK" -and $state.last_visual_audit_status -eq "OK" -and $state.last_checkpoint_status -eq "CHECKPOINT_CREATED") {
     "Preparer le prochain lot securise, par exemple un push GitHub cadre"
 } else {

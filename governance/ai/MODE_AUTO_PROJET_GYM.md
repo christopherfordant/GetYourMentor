@@ -16,7 +16,7 @@ Mettre en place un mode d'execution semi-autonome du projet qui :
 - `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
 - `governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md`
 - `governance/ai/PHASES_EXECUTION_GYM.md`
-- `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`
+- `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
 
 ## Principe
 
@@ -111,6 +111,8 @@ Cet orchestrateur doit :
 - choisir le prochain lot utile
 - executer un nombre limite de lots
 - s'arreter proprement si une alerte apparait
+
+Avant ces lots techniques, le lot `mission_planning` relit le document maitre et le fil rouge, selectionne une mission dans `mission_registry.json` et met a jour `NEXT_MISSION_GYM.md`. Tant que cette mission est `READY` mais non cloturee avec une preuve, la chaine reste en attente et ne modifie pas le code actif.
 
 ## Reprise sur la requete suivante
 
