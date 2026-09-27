@@ -21,7 +21,7 @@
     {
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "const item = $input.first().json;\nconst text = String(item.text ?? item.data ?? '').replace(/\\s+/g, ' ').trim();\nconst sourceName = item.fileName ?? item.name ?? 'document-sans-nom';\nconst documentId = `doc-${sourceName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;\nconst chunkSize = 1200;\nconst chunks = [];\nfor (let index = 0; index < text.length; index += chunkSize) chunks.push(text.slice(index, index + chunkSize));\nreturn [{ json: { document_id: documentId, title: sourceName, source_path: sourceName, document_type: 'strategic', content: text, summary: text.slice(0, 500), chunks: chunks.map((content, index) => ({ chunk_index: index, content })) } }];"
+        "jsCode": "const item = $input.first().json;\nconst text = String(item.text ?? item.data ?? '').replace(/\\s+/g, ' ').trim();\nconst sourceName = item.fileName ?? item.name ?? 'document-sans-nom';\nconst documentId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (char) => { const random = Math.random() * 16 | 0; const value = char === 'x' ? random : random & 3 | 8; return value.toString(16); });\nconst chunkSize = 1200;\nconst chunks = [];\nfor (let index = 0; index < text.length; index += chunkSize) chunks.push(text.slice(index, index + chunkSize));\nreturn [{ json: { document_id: documentId, title: sourceName, file_path: sourceName, document_type: 'other', content: text, summary: text.slice(0, 500), chunks: chunks.map((content, index) => ({ chunk_index: index, content })) } }];"
       },
       "id": "normalize-document",
       "name": "Nettoyer et découper",
@@ -35,7 +35,7 @@
         "operation": "upsert",
         "schema": "gym_memory",
         "table": "documents",
-        "columns": {"mappingMode": "defineBelow", "value": {"id": "={{ $json.document_id }}", "title": "={{ $json.title }}", "source_path": "={{ $json.source_path }}", "document_type": "={{ $json.document_type }}", "summary": "={{ $json.summary }}", "ingested_at": "={{ $now.toISO() }}"}, "matchingColumns": ["id"]}
+        "columns": {"mappingMode": "defineBelow", "value": {"id": "={{ $json.document_id }}", "title": "={{ $json.title }}", "file_path": "={{ $json.file_path }}", "document_type": "={{ $json.document_type }}", "summary": "={{ $json.summary }}", "status_reference": "working", "source_system": "local"}, "matchingColumns": ["id"]}
       },
       "id": "save-document",
       "name": "Supabase - documents",
@@ -47,7 +47,7 @@
     {
       "parameters": {
         "mode": "runOnceForAllItems",
-        "jsCode": "const source = $('Nettoyer et découper').first().json;\nreturn source.chunks.map((chunk) => ({ json: { document_id: source.document_id, chunk_index: chunk.chunk_index, content: chunk.content, metadata: JSON.stringify({ source_path: source.source_path }) } }));"
+        "jsCode": "const source = $('Nettoyer et découper').first().json;\nreturn source.chunks.map((chunk) => ({ json: { document_id: source.document_id, chunk_index: chunk.chunk_index, chunk_text: chunk.content, tags: [source.file_path] } }));"
       },
       "id": "expand-chunks",
       "name": "Préparer les chunks",
@@ -61,7 +61,7 @@
         "operation": "create",
         "schema": "gym_memory",
         "table": "document_chunks",
-        "columns": {"mappingMode": "defineBelow", "value": {"document_id": "={{ $json.document_id }}", "chunk_index": "={{ $json.chunk_index }}", "content": "={{ $json.content }}", "metadata": "={{ $json.metadata }}"}}
+        "columns": {"mappingMode": "defineBelow", "value": {"document_id": "={{ $json.document_id }}", "chunk_index": "={{ $json.chunk_index }}", "chunk_text": "={{ $json.chunk_text }}", "tags": "={{ $json.tags }}"}}
       },
       "id": "save-chunks",
       "name": "Supabase - document_chunks",
