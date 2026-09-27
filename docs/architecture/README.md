@@ -1,5 +1,7 @@
 # Architecture GetYourMentor
 
+L’index documentaire général est [`../README.md`](../README.md). Cette rubrique ne contient que les décisions d’architecture et leurs documents de référence.
+
 Documents de référence :
 
 - [`ARCHITECTURE_TARGET_GYM.md`](./ARCHITECTURE_TARGET_GYM.md) — architecture applicative et migration Next.js ;
