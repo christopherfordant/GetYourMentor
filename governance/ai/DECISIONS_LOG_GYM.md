@@ -15,14 +15,14 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Decision : instaurer une orchestration obligatoire des prompts metiers dans l'ordre `CTO > PRODUCT > DESIGN > DEVOPS > QA > SEO`
 - Pourquoi : eviter les arbitrages en ordre inverse, les corrections UI hors scope et la perte de coherence entre produit, code et documentation
 - Impact : toutes les futures missions importantes doivent passer par cette sequence ou justifier une exception
-- Sources : `DOCUMENT_MAITRE_GYM.md`, `governance/FIL_ROUGE_OPERATOIRE_GYM.md`, `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`
+- Sources : `DOCUMENT_MAITRE_GYM.md`, `governance/FIL_ROUGE_OPERATOIRE_GYM.md`, `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
 
 ## 2026-07-26 - Creation d'une memoire projet compacte
 
 - Decision : creer un contexte RAG local persistant dedie au suivi des routes, correspondances prototype/Next, priorites, risques et regles de protection
 - Pourquoi : reduire les pertes de contexte dans les conversations longues et mieux decouper les prochaines phases de production
 - Impact : le projet gagne un fil conducteur local reutilisable par role et par cycle
-- Sources : `ARCHITECTURE_MEMOIRE_GYM.md`, `MIGRATION_NEXT_GYM.md`, `CARTOGRAPHIE_GLOBALE_GYM.md`
+- Sources : `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`, `MIGRATION_NEXT_GYM.md`, `CARTOGRAPHIE_GLOBALE_GYM.md`
 
 ## 2026-07-26 - Arbitrage du cycle fiche coach
 

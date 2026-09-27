@@ -1,5 +1,10 @@
 # Workflows n8n GetYourMentor
 
+L’architecture mémoire/RAG de référence est `../docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`.
+Les workflows ci-dessous sont des exports d’orchestration ; ils ne constituent ni une seconde source de vérité ni un RAG autonome.
+
+Le schéma `gym_memory` est séparé du schéma applicatif. `SUPABASE_SCHEMA_GYM.sql` prépare la mémoire documentaire et opérationnelle ; `SUPABASE_APP_SCHEMA_GYM.sql` porte les données métier de l’application. Cette séparation doit être conservée.
+
 Les exports sont importables dans n8n, mais restent inactifs tant que les credentials et les identifiants de board ne sont pas configurés.
 
 ## Premier workflow

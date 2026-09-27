@@ -1,5 +1,7 @@
 # Architecture IA / RAG Senior - GetYourMentor
 
+> Document historique conservé pour traçabilité. L’architecture mémoire/RAG de référence est désormais `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`. Toute nouvelle décision doit être ajoutée dans ce document canonique.
+
 ## Objectif
 
 Mettre en place une architecture IA utile au projet, capable de :

@@ -1,5 +1,7 @@
 # Contexte RAG Local GYM
 
+> Ce fichier est le contexte opérationnel compact. L’architecture mémoire/RAG de référence est `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`.
+
 ## But
 
 Conserver une memoire projet compacte, lisible et priorisee afin d'eviter la perte de contexte entre les phases, les prompts metiers et les futures conversations.
@@ -15,7 +17,7 @@ Priorite documentaire :
 5. `MVP_ECRANS_GYM.md`
 6. `DESIGN_SYSTEM_GYM.md`
 7. `MIGRATION_NEXT_GYM.md`
-8. `ARCHITECTURE_MEMOIRE_GYM.md`
+8. `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
 9. `governance/roles/*.md`
 10. le code actif
 

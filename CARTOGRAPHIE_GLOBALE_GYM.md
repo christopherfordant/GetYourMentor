@@ -73,7 +73,7 @@ Ces fichiers a la racine servent maintenant de reference commune pour passer du 
 - `N8N_WORKFLOWS_GYM.md`
 - `N8N_WORKFLOW_1_TRELLO_SUPABASE.md`
 - `TRELLO_SETUP_GYM.md`
-- `ARCHITECTURE_MEMOIRE_GYM.md`
+- `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md` (architecture canonique mémoire/RAG)
 
 ## 4. Ce que cela veut dire pour la suite
 

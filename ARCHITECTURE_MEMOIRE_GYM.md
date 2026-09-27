@@ -1,5 +1,7 @@
 # GetYourMentor - Architecture Memoire et Synthese
 
+> Document historique conservé pour traçabilité. L’architecture mémoire/RAG de référence est désormais `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`. Toute nouvelle décision doit être ajoutée dans ce document canonique.
+
 ## 1. But
 
 Construire une memoire projet continue pour ne pas perdre le fil entre :

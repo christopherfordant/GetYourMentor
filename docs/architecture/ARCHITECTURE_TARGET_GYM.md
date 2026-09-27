@@ -73,7 +73,7 @@ GetYourMentor/
 
 ## RAG et MCP
 
-Le RAG n'est pas placé dans le chemin critique des réservations ou paiements. Une future base documentaire pourra utiliser Supabase/Postgres + pgvector, avec retrieval hybride et métadonnées de priorité, conformément à `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`.
+Le RAG n'est pas placé dans le chemin critique des réservations ou paiements. Une future base documentaire pourra utiliser Supabase/Postgres + pgvector, avec retrieval hybride et métadonnées de priorité, conformément à `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`.
 
 Pour MCP, préférer une exposition minimale d'outils et choisir le pattern selon le besoin : wrapper d'API pour une API stable, composite pour un parcours regroupé, event-driven pour un traitement asynchrone. Aucun accès arbitraire aux fichiers, secrets, commandes ou réseaux.
 
@@ -137,7 +137,7 @@ Une étape est terminée seulement si :
 - `DOCUMENT_MAITRE_GYM.md`
 - `MIGRATION_NEXT_GYM.md`
 - `PREPRODUCTION_READINESS_GYM.md`
-- `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`
+- `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
 - `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
 - `C:/Users/cashe/Documents/projet_automatisations/docs/TECHNOLOGY_SELECTION_GUIDE.md`
 - `C:/Users/cashe/Documents/projet_automatisations/docs/MCP_DESIGN_PATTERNS_GUIDE.md`
