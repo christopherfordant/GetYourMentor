@@ -69,7 +69,7 @@ Ces fichiers a la racine servent maintenant de reference commune pour passer du 
 - `FIGMA_MICROCOPY_3_ECRANS_GYM.md`
 - `FIGMA_MICROCOPY_TUNNEL_GYM.md`
 - `PREVIEW_MAQUETTE_GYM.html`
-- `SUPABASE_SCHEMA_GYM.sql`
+- `supabase/schemas/memory.sql`
 - `N8N_WORKFLOWS_GYM.md`
 - `N8N_WORKFLOW_1_TRELLO_SUPABASE.md`
 - `TRELLO_SETUP_GYM.md`
@@ -101,7 +101,7 @@ Les documents les plus importants a garder en tete en permanence sont :
 - `SOURCES_PRIORITAIRES_2026_03_19.md`
 - `DOCUMENT_MAITRE_GYM.md`
 - `MVP_ECRANS_GYM.md`
-- `SUPABASE_SCHEMA_GYM.sql`
+- `supabase/schemas/memory.sql`
 - `FIGMA_MAQUETTE_GYM.md`
 - `FIGMA_MAKE_READY_GYM.md`
 - `Dossier Business Plan/Bussiness_Plan_1.1 (2).docx`

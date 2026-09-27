@@ -29,7 +29,7 @@ Ce document décrit l’état vérifié du MVP. Il ne remplace ni une validation
 | Contrat de déploiement Netlify | PASS code / à valider hébergement | `npm.cmd run check:netlify-config` vérifie le manifeste versionné : base `gym-next`, build Next.js, publication `.next`, Node 22 et absence de secrets. Le site Netlify et ses variables restent à configurer. |
 | Smoke runtime préproduction | PRÉPARÉ / à exécuter après déploiement | `npm.cmd run check:preproduction-runtime` exige une URL HTTPS, vérifie `/api/health` en mode production prêt et refuse les identifiants de démonstration dans le catalogue. |
 | Schéma Supabase applicatif | PASS code / À valider Supabase | `npm.cmd run check:supabase-schema` vérifie les six tables MVP, la RLS, l’absence de seed coach actif, le bucket privé et l’unicité coach/créneau ; l’exécution SQL réelle reste à faire dans le projet Supabase de préproduction. |
-| Script de vérification Supabase | PRÉPARÉ / À exécuter Supabase | `SUPABASE_PREPRODUCTION_VERIFY.sql` regroupe les contrôles en lecture seule des tables, de la RLS, du bucket, des données de démonstration, de la contrainte de créneau et des policies. |
+| Script de vérification Supabase | PRÉPARÉ / À exécuter Supabase | `supabase/verification/preproduction-verify.sql` regroupe les contrôles en lecture seule des tables, de la RLS, du bucket, des données de démonstration, de la contrainte de créneau et des policies. |
 | Frontière secrets serveur/client | PASS local / CI | `npm.cmd run check:client-secret-boundary` inspecte les artefacts `.next/static` et échoue si une variable serveur Supabase, Stripe, Resend ou session y apparaît. |
 | Contrôles reproductibles CI | PASS historique / nouveaux commits à confirmer | `.github/workflows/mvp-gates.yml` rejoue installation, audit, TypeScript, contrôle de configuration, schéma Supabase, build, frontière secrets client/serveur, smoke production et Playwright. Le run `35301686997` du commit fonctionnel précédent est vert ; les nouveaux commits documentaires doivent être confirmés séparément. |
 | Fallback démonstration explicite | PASS | Les fallbacks mémoire/local exigent `GETYOURMENTOR_ALLOW_DEMO=true` hors production ; le mode d’acceptation du bundle utilise en plus une URL loopback et `CI=true`. Le runtime et le contrôle de configuration refusent ces modes en production réelle. |
@@ -82,7 +82,7 @@ Mise à jour du 18/09/2026 : Netlify sert désormais le runtime Next.js sur `gre
 ## Ordre de passage recommandé
 
 1. Rédiger et valider les contenus légaux avec le responsable compétent.
-2. Créer/configurer Supabase, appliquer `SUPABASE_APP_SCHEMA_GYM.sql`, puis tester les rôles et la RLS.
+2. Créer/configurer Supabase, appliquer `supabase/schemas/app.sql`, puis tester les rôles et la RLS.
 3. Créer/configurer Stripe en mode test, enregistrer le webhook et vérifier les transitions de réservation.
 4. Créer/configurer Resend et tester les emails avec une adresse vérifiée.
 5. Renseigner les variables dans l’environnement de préproduction et exécuter `npm.cmd run check:production-config`.

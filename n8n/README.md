@@ -3,7 +3,7 @@
 L’architecture mémoire/RAG de référence est `../docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`.
 Les workflows ci-dessous sont des exports d’orchestration ; ils ne constituent ni une seconde source de vérité ni un RAG autonome.
 
-Le schéma `gym_memory` est séparé du schéma applicatif. `SUPABASE_SCHEMA_GYM.sql` prépare la mémoire documentaire et opérationnelle ; `SUPABASE_APP_SCHEMA_GYM.sql` porte les données métier de l’application. Cette séparation doit être conservée.
+Le schéma `gym_memory` est séparé du schéma applicatif. `supabase/schemas/memory.sql` prépare la mémoire documentaire et opérationnelle ; `supabase/schemas/app.sql` porte les données métier de l’application. Cette séparation doit être conservée.
 
 Les exports sont importables dans n8n, mais restent inactifs tant que les credentials et les identifiants de board ne sont pas configurés.
 
@@ -23,7 +23,7 @@ Les exports sont importables dans n8n, mais restent inactifs tant que les creden
 
 Avant activation :
 
-1. Exécuter `SUPABASE_SCHEMA_GYM.sql` dans Supabase.
+1. Exécuter `supabase/schemas/memory.sql` puis `supabase/schemas/app.sql` dans Supabase, selon l’environnement et le runbook concerné.
 2. Créer les credentials Trello et Supabase dans n8n.
 3. Remplacer `REPLACE_WITH_GETYOURMENTOR_BOARD_ID` par l’identifiant du board.
 4. Importer le JSON et vérifier le mapping de la node Supabase selon la version n8n installée.

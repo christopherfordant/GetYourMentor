@@ -21,7 +21,7 @@ Avant de construire ce workflow, il faut :
 
 1. avoir cree le board Trello
 2. avoir cree le projet Supabase
-3. avoir execute [SUPABASE_SCHEMA_GYM.sql](c:\Users\cashe\Documents\GetYourMentor\SUPABASE_SCHEMA_GYM.sql)
+3. avoir exécuté [supabase/schemas/memory.sql](c:\Users\cashe\Documents\GetYourMentor\supabase\schemas\memory.sql)
 4. avoir les credentials :
    - Trello API key / token
    - Supabase URL
@@ -184,4 +184,3 @@ Une fois ce workflow stable, le prochain est :
 
 Puis :
 - `Journal des decisions`
-

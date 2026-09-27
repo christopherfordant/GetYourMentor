@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const schemaPath = path.join(process.cwd(), "..", "SUPABASE_APP_SCHEMA_GYM.sql");
+const schemaPath = path.join(process.cwd(), "..", "supabase", "schemas", "app.sql");
 if (!fs.existsSync(schemaPath)) {
   console.error(`Schéma Supabase absent : ${schemaPath}`);
   process.exit(1);

@@ -18,8 +18,8 @@ personnelle inutile.
 ## 2. Supabase
 
 - Projet de préproduction : identifiant non sensible uniquement
-- Migration `SUPABASE_APP_SCHEMA_GYM.sql` appliquée le : `À renseigner`
-- Script `SUPABASE_PREPRODUCTION_VERIFY.sql` exécuté le : `À renseigner`
+- Migration `supabase/schemas/app.sql` appliquée le : `À renseigner`
+- Script `supabase/verification/preproduction-verify.sql` exécuté le : `À renseigner`
 - Résultat archivé dans : `À renseigner`
 - Six tables présentes et RLS active : `À valider`
 - Bucket `club-documents` privé : `À valider`

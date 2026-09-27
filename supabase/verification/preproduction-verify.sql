@@ -1,5 +1,5 @@
 -- Vérification en lecture seule de la préproduction GetYourMentor.
--- À exécuter après SUPABASE_APP_SCHEMA_GYM.sql dans l'éditeur SQL Supabase.
+-- À exécuter après supabase/schemas/app.sql dans l'éditeur SQL Supabase.
 
 -- 1. Les six tables MVP doivent exister avec la RLS active.
 select

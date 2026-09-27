@@ -37,8 +37,8 @@ Ce document rassemble les contrôles des métiers nécessaires avant une ouvertu
 
 ### Sécurité et données
 
-- Appliquer `SUPABASE_APP_SCHEMA_GYM.sql` dans le projet de préproduction.
-- Exécuter `SUPABASE_PREPRODUCTION_VERIFY.sql`.
+- Appliquer `supabase/schemas/app.sql` dans le projet de préproduction.
+- Exécuter `supabase/verification/preproduction-verify.sql`.
 - Vérifier RLS, bucket privé, politiques Storage, contraintes de créneau et absence de données de démonstration.
 - Confirmer la rotation des secrets et la conservation minimale des pièces justificatives.
 

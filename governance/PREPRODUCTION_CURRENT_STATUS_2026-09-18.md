@@ -57,8 +57,8 @@ comme secret Netlify. Aucune valeur secrete n'est conservee dans ce registre.
    servi publiquement.
 2. La CLI Supabase refuse l'endpoint de gestion avec les droits du compte
    courant. Un proprietaire ou administrateur doit appliquer
-   `SUPABASE_APP_SCHEMA_GYM.sql`, executer
-   `SUPABASE_PREPRODUCTION_VERIFY.sql` et archiver les resultats.
+   `supabase/schemas/app.sql`, executer
+   `supabase/verification/preproduction-verify.sql` et archiver les resultats.
 3. La recette Stripe/Resend avec des evenements et une adresse de test reelles
    reste a executer sur une URL de preproduction a jour.
 4. Les textes juridiques, l'identite de l'editeur et l'approbation juridique

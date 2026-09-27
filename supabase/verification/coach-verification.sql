@@ -1,5 +1,5 @@
 -- GetYourMentor - verification professionnelle des coachs
--- À appliquer dans Supabase après SUPABASE_APP_SCHEMA_GYM.sql.
+-- À appliquer dans Supabase après supabase/schemas/app.sql.
 -- Les pièces restent privées dans le bucket coach-documents.
 
 alter table public.gym_coaches
