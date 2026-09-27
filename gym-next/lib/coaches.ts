@@ -1,7 +1,8 @@
-import { canonicalSportSlug, coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
+import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { supabaseHeaders } from "@/lib/supabase";
 import { distanceKm, isWithinCoachServiceRadius, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
+import { normalizeSearchFilters, type SearchFilters } from "@/lib/domain/validation/search-filters";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
 export type CoachDocumentKind = "identity" | "diploma";
@@ -263,24 +264,25 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   return row ? fromRow(row) : null;
 }
 
-export async function filterStoredCoaches(filters: { sport?: string; city?: string; latitude?: string; longitude?: string; radiusKm?: string; gender?: string; practice?: string; level?: string; format?: string; availability?: string; minRating?: string; maxPrice?: string }) {
+export async function filterStoredCoaches(filters: SearchFilters) {
+  const normalizedFilters = normalizeSearchFilters(filters);
   const coaches = await listCoaches();
-  const origin = parseCoordinates(filters.latitude, filters.longitude);
-  const radiusKm = normalizeRadiusKm(filters.radiusKm);
-  if (coaches === coachProfiles) return filterCoaches(filters).map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }));
-  const canonicalSport = canonicalSportSlug(filters.sport);
+  const origin = parseCoordinates(normalizedFilters.latitude, normalizedFilters.longitude);
+  const radiusKm = normalizeRadiusKm(normalizedFilters.radiusKm);
+  if (coaches === coachProfiles) return filterCoaches(normalizedFilters).map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }));
+  const canonicalSport = normalizedFilters.sport;
   return coaches
     .map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }))
     .filter((coach) => coach.verified
       && (!canonicalSport || coach.sport === canonicalSport)
-      && (!filters.city || coach.city.toLowerCase() === filters.city.toLowerCase())
+      && (!normalizedFilters.city || coach.city.toLowerCase() === normalizedFilters.city.toLowerCase())
       && (!origin || isWithinCoachServiceRadius(coach.distanceKm, radiusKm, coach.serviceRadiusKm))
-      && (!filters.gender || coach.gender === filters.gender)
-      && (!filters.practice || coach.practice === filters.practice)
-      && (!filters.level || coach.level === filters.level)
-      && (!filters.format || coach.format === filters.format)
-      && (!filters.availability || coach.availabilityTags?.includes(filters.availability as "morning" | "afternoon"))
-      && (!filters.minRating || coach.rating >= Number(filters.minRating))
-      && (!filters.maxPrice || coach.priceFrom <= Number(filters.maxPrice)))
+      && (!normalizedFilters.gender || coach.gender === normalizedFilters.gender)
+      && (!normalizedFilters.practice || coach.practice === normalizedFilters.practice)
+      && (!normalizedFilters.level || coach.level === normalizedFilters.level)
+      && (!normalizedFilters.format || coach.format === normalizedFilters.format)
+      && (!normalizedFilters.availability || coach.availabilityTags?.includes(normalizedFilters.availability as "morning" | "afternoon"))
+      && (!normalizedFilters.minRating || coach.rating >= Number(normalizedFilters.minRating))
+      && (!normalizedFilters.maxPrice || coach.priceFrom <= Number(normalizedFilters.maxPrice)))
     .sort((first, second) => (first.distanceKm ?? Number.POSITIVE_INFINITY) - (second.distanceKm ?? Number.POSITIVE_INFINITY));
 }

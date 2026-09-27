@@ -107,6 +107,8 @@ Sixième extraction réalisée : `gym-next/lib/domain/validation/reservation-inp
 
 Septième extraction réalisée : `gym-next/lib/domain/validation/coach-profile-input.ts` centralise les bornes et valeurs autorisées du profil coach, sans changer le contrat de la route de mise à jour.
 
+Huitième extraction réalisée : `gym-next/lib/domain/validation/search-filters.ts` normalise les filtres du catalogue MVP et conserve les quatre sports autorisés, sans élargir le périmètre produit.
+
 ### Phase 2 — migration des composants
 
 Migrer une capacité à la fois, dans l'ordre du document maître : accueil, recherche, sélection, réservation, créneau, récapitulatif, compte, paiement, inscription club. Pour chaque capacité : structure, styles, données, interactions, navigation, puis validation desktop/mobile.
