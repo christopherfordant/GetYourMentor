@@ -5,7 +5,7 @@ import { createStoredCoachProfile } from "@/lib/coaches";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
-type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
+export type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
 type SignupProfile = { firstName: string; lastName: string; phone: string; city?: string; termsAccepted: boolean };
 
 const sessions = new Map<string, Session>();

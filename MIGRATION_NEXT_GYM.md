@@ -1,5 +1,7 @@
 # Migration Next.js - GetYourMentor
 
+La cible d'organisation et les frontières techniques sont décrites dans `docs/architecture/ARCHITECTURE_TARGET_GYM.md`. Ce document complète la migration page par page ; il ne remplace pas le document maître.
+
 ## But
 
 Migrer le prototype HTML vers `React + Next.js` **page par page** sans perdre :

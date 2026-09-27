@@ -3,7 +3,8 @@ import { currentSession } from "@/lib/auth";
 import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
 import { createReservation, hasSlotConflict, listReservations, ReservationSlotConflictError } from "@/lib/reservations";
-import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
+import { parseReservationInput } from "@/lib/domain/validation/reservation-input";
+import { bodyExceedsLimit, rateLimit } from "@/lib/request-guards";
 import { reservationClaimToken } from "@/lib/reservation-claims";
 
 export async function POST(request: Request) {
@@ -11,26 +12,12 @@ export async function POST(request: Request) {
   if (!limit.allowed) return NextResponse.json({ error: "Trop de demandes, réessayez plus tard" }, { status: 429, headers: { "Retry-After": String(limit.retryAfter) } });
   if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
-  const coach = await getCoach(typeof body?.coachId === "string" ? body.coachId : body?.coach);
-  const slots: string[] = Array.isArray(body?.slots)
-    ? Array.from(new Set(body.slots.filter((slot: unknown): slot is string => typeof slot === "string")))
-    : [];
+  const input = parseReservationInput(body);
+  if (!input.ok) return NextResponse.json({ error: input.error }, { status: 400 });
+  const coach = await getCoach(input.data.coachId);
+  const { coachId, service, duration, slots, appointmentAt } = input.data;
 
   if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
-  if (
-    textExceedsLimit(body?.coachId, 128) ||
-    textExceedsLimit(body?.service, 256) ||
-    textExceedsLimit(body?.duration, 128) ||
-    slots.some((slot: string) => textExceedsLimit(slot, 256) || !slot.trim()) ||
-    textExceedsLimit(body?.appointmentAt, 128) ||
-    !body?.coachId ||
-    !body?.service ||
-    !body?.duration ||
-    slots.length < 1 ||
-    slots.length > 3
-  ) {
-    return NextResponse.json({ error: "coachId, service, duration et 1 à 3 créneaux sont requis" }, { status: 400 });
-  }
 
   try {
     if (await hasSlotConflict(coach.id, slots)) {
@@ -43,18 +30,18 @@ export async function POST(request: Request) {
   const reservation: Reservation = {
     id: `res-${Date.now()}`,
     ownerEmail: (await currentSession())?.email,
-    coachId: coach.id,
+    coachId: coach.id || coachId,
     coachName: coach.name,
     sport: coach.sport,
     city: coach.city,
-    service: body.service,
-    duration: body.duration,
+    service,
+    duration,
     // Le tarif est une donnée métier serveur : ne jamais faire confiance au montant envoyé par le navigateur.
     price: coach.priceFrom,
     slots,
     status: "requested",
     createdAt: new Date().toISOString(),
-    appointmentAt: typeof body.appointmentAt === "string" ? body.appointmentAt : slots[0],
+    appointmentAt: appointmentAt ?? slots[0],
   };
 
   try {

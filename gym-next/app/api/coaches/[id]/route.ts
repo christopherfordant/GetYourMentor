@@ -1,15 +1,15 @@
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
 import { getCoach, toPublicCoach, updateCoach } from "@/lib/coaches";
-import { bodyExceedsLimit, textExceedsLimit } from "@/lib/request-guards";
+import { bodyExceedsLimit } from "@/lib/request-guards";
+import { canEditCoachProfile, canViewPrivateCoach } from "@/lib/policies/authorization";
+import { validateCoachProfileInput } from "@/lib/domain/validation/coach-profile-input";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   const coach = await getCoach((await params).id);
   if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
   const session = await currentSession();
-  const isAuthorizedPrivateView = Boolean(
-    session && (session.role === "admin" || (session.role === "coach" && session.coachId === coach.id)),
-  );
+  const isAuthorizedPrivateView = canViewPrivateCoach(session, coach.id);
   if (!coach.verified && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
   return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
 }
@@ -18,28 +18,11 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   const session = await requireRole("coach");
   if (!session) return NextResponse.json({ error: "Connexion coach requise" }, { status: 401 });
   const coachId = (await params).id;
-  if (!session.coachId || session.coachId !== coachId) return NextResponse.json({ error: "Vous ne pouvez modifier que votre propre profil" }, { status: 403 });
+  if (!canEditCoachProfile(session, coachId)) return NextResponse.json({ error: "Vous ne pouvez modifier que votre propre profil" }, { status: 403 });
   if (bodyExceedsLimit(request, 64 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
-  if ([body?.specialty, body?.city, body?.description, body?.disciplines, body?.diplomas, body?.sessionTypes, body?.availability, body?.photoUrl].some((value) => textExceedsLimit(value, 5000))) {
-    return NextResponse.json({ error: "Profil trop long" }, { status: 400 });
-  }
-  if (body?.priceFrom !== undefined && (!Number.isFinite(Number(body.priceFrom)) || Number(body.priceFrom) < 0 || Number(body.priceFrom) > 10000)) {
-    return NextResponse.json({ error: "Tarif invalide" }, { status: 400 });
-  }
-  for (const [name, min, max] of [["latitude", -90, 90], ["longitude", -180, 180]] as const) {
-    if (body?.[name] !== undefined && body?.[name] !== null && (!Number.isFinite(Number(body[name])) || Number(body[name]) < min || Number(body[name]) > max)) {
-      return NextResponse.json({ error: "Coordonnées de localisation invalides" }, { status: 400 });
-    }
-  }
-  if (body?.serviceRadiusKm !== undefined && (!Number.isFinite(Number(body.serviceRadiusKm)) || ![1, 5, 10].includes(Number(body.serviceRadiusKm)))) {
-    return NextResponse.json({ error: "Rayon d’intervention invalide" }, { status: 400 });
-  }
-  if (body?.gender !== undefined && !["homme", "femme"].includes(body.gender)) return NextResponse.json({ error: "Genre invalide" }, { status: 400 });
-  if (body?.practice !== undefined && !["interieur", "exterieur"].includes(body.practice)) return NextResponse.json({ error: "Lieu de pratique invalide" }, { status: 400 });
-  if (body?.level !== undefined && !["debutant", "intermediaire", "confirme"].includes(body.level)) return NextResponse.json({ error: "Niveau invalide" }, { status: 400 });
-  if (body?.format !== undefined && !["presentiel", "visio"].includes(body.format)) return NextResponse.json({ error: "Format invalide" }, { status: 400 });
-  if (body?.availabilityTags !== undefined && (!Array.isArray(body.availabilityTags) || body.availabilityTags.some((value: unknown) => !["morning", "afternoon"].includes(String(value))))) return NextResponse.json({ error: "Disponibilité invalide" }, { status: 400 });
+  const validationError = validateCoachProfileInput(body);
+  if (validationError) return NextResponse.json({ error: validationError }, { status: 400 });
   const updates = {
     specialty: typeof body?.specialty === "string" ? body.specialty.trim() : undefined,
     city: typeof body?.city === "string" ? body.city.trim() : undefined,
