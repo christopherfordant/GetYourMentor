@@ -56,7 +56,7 @@ Le statut observé le 2026-09-27 est de 3 202 tiroirs, répartis notamment entre
 
 ### 3.3 Mémoire structurée préparée, mais non activée comme RAG de production
 
-`supabase/schemas/memory.sql` prépare le schéma `gym_memory`, notamment `documents`, `document_chunks` et les vecteurs `pgvector`. Il s’agit d’un socle d’infrastructure documentaire, pas d’une preuve qu’un RAG de production est déjà opérationnel.
+`supabase/schemas/memory.sql` prépare le schéma `gym_memory`, notamment `documents`, `document_chunks`, une recherche lexicale contrôlée et les vecteurs `pgvector`. Il s’agit d’un socle d’infrastructure documentaire, pas d’une preuve qu’un RAG sémantique de production est déjà opérationnel.
 
 `n8n/workflows/04-document-ingestion.json` prépare l’ingestion des documents et des morceaux de texte. Les embeddings et l’appel LLM restent à configurer avec un fournisseur et des critères d’évaluation explicites.
 

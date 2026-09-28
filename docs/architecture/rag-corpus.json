@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "retrieval": {
+    "baseline": "lexical",
+    "semantic": "disabled_until_embedding_provider_and_evaluation_are_approved",
+    "citations": "required"
+  },
+  "documents": [
+    { "id": "master", "path": "DOCUMENT_MAITRE_GYM.md", "priority": 1 },
+    { "id": "architecture", "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md", "priority": 2 },
+    { "id": "memory-rag", "path": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md", "priority": 2 },
+    { "id": "rag-readiness", "path": "docs/architecture/RAG_READINESS_GYM.md", "priority": 2 },
+    { "id": "mvp-screens", "path": "MVP_ECRANS_GYM.md", "priority": 3 },
+    { "id": "design-system", "path": "DESIGN_SYSTEM_GYM.md", "priority": 3 },
+    { "id": "migration", "path": "MIGRATION_NEXT_GYM.md", "priority": 3 },
+    { "id": "decisions", "path": "governance/ai/DECISIONS_LOG_GYM.md", "priority": 4 }
+  ]
+}

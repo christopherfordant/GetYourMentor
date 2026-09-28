@@ -120,12 +120,16 @@ create table if not exists gym_memory.documents (
   file_hash text,
   version text,
   summary text,
+  priority integer not null default 3 check (priority between 1 and 5),
   status_reference text not null default 'working' check (status_reference in ('draft', 'working', 'reference', 'archived')),
   source_system text not null default 'local' check (source_system in ('local', 'trello', 'drive', 'notion', 'email', 'other')),
   tags text[] not null default '{}',
   created_at timestamptz not null default timezone('utc', now()),
   updated_at timestamptz not null default timezone('utc', now())
 );
+
+alter table gym_memory.documents
+  add column if not exists priority integer not null default 3;
 
 create table if not exists gym_memory.document_chunks (
   id uuid primary key default gen_random_uuid(),
@@ -139,6 +143,11 @@ create table if not exists gym_memory.document_chunks (
   unique (document_id, chunk_index)
 );
 
+-- Recherche lexicale sûre et déterministe avant l'activation d'un fournisseur d'embeddings.
+alter table gym_memory.document_chunks
+  add column if not exists search_vector tsvector
+  generated always as (to_tsvector('simple', coalesce(section, '') || ' ' || chunk_text)) stored;
+
 create table if not exists gym_memory.weekly_briefs (
   id uuid primary key default gen_random_uuid(),
   week_start date not null unique,
@@ -149,6 +158,17 @@ create table if not exists gym_memory.weekly_briefs (
   created_at timestamptz not null default timezone('utc', now())
 );
 
+-- La mémoire projet est privée : les accès passent par un rôle serveur contrôlé.
+alter table gym_memory.decisions enable row level security;
+alter table gym_memory.features enable row level security;
+alter table gym_memory.roadmap_items enable row level security;
+alter table gym_memory.meetings enable row level security;
+alter table gym_memory.contacts enable row level security;
+alter table gym_memory.tasks_sync enable row level security;
+alter table gym_memory.documents enable row level security;
+alter table gym_memory.document_chunks enable row level security;
+alter table gym_memory.weekly_briefs enable row level security;
+
 create index if not exists idx_decisions_status on gym_memory.decisions(status);
 create index if not exists idx_decisions_category on gym_memory.decisions(category);
 create index if not exists idx_features_phase on gym_memory.features(phase);
@@ -158,35 +178,83 @@ create index if not exists idx_contacts_status on gym_memory.contacts(status);
 create index if not exists idx_contacts_next_action_date on gym_memory.contacts(next_action_date);
 create index if not exists idx_documents_type on gym_memory.documents(document_type);
 create index if not exists idx_document_chunks_document_id on gym_memory.document_chunks(document_id);
+create index if not exists idx_document_chunks_search_vector on gym_memory.document_chunks using gin(search_vector);
 
+create or replace function gym_memory.search_document_chunks(
+  query_text text,
+  result_limit integer default 8
+)
+returns table (
+  chunk_id uuid,
+  document_id uuid,
+  title text,
+  section text,
+  chunk_text text,
+  document_priority integer,
+  rank real
+)
+language sql
+stable
+security invoker
+set search_path = gym_memory, public
+as $$
+  select
+    chunks.id,
+    chunks.document_id,
+    documents.title,
+    chunks.section,
+    chunks.chunk_text,
+    documents.priority,
+    ts_rank_cd(chunks.search_vector, websearch_to_tsquery('simple', query_text))
+  from gym_memory.document_chunks as chunks
+  join gym_memory.documents as documents on documents.id = chunks.document_id
+  where query_text is not null
+    and length(trim(query_text)) > 0
+    and chunks.search_vector @@ websearch_to_tsquery('simple', query_text)
+  order by
+    documents.priority asc,
+    ts_rank_cd(chunks.search_vector, websearch_to_tsquery('simple', query_text)) desc,
+    chunks.chunk_index asc
+  limit greatest(1, least(result_limit, 50));
+$$;
+
+revoke all on function gym_memory.search_document_chunks(text, integer) from public;
+grant execute on function gym_memory.search_document_chunks(text, integer) to service_role;
+
+drop trigger if exists decisions_set_updated_at on gym_memory.decisions;
 create trigger decisions_set_updated_at
 before update on gym_memory.decisions
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists features_set_updated_at on gym_memory.features;
 create trigger features_set_updated_at
 before update on gym_memory.features
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists roadmap_set_updated_at on gym_memory.roadmap_items;
 create trigger roadmap_set_updated_at
 before update on gym_memory.roadmap_items
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists meetings_set_updated_at on gym_memory.meetings;
 create trigger meetings_set_updated_at
 before update on gym_memory.meetings
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists contacts_set_updated_at on gym_memory.contacts;
 create trigger contacts_set_updated_at
 before update on gym_memory.contacts
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists tasks_sync_set_updated_at on gym_memory.tasks_sync;
 create trigger tasks_sync_set_updated_at
 before update on gym_memory.tasks_sync
 for each row execute function gym_memory.set_updated_at();
 
+drop trigger if exists documents_set_updated_at on gym_memory.documents;
 create trigger documents_set_updated_at
 before update on gym_memory.documents
 for each row execute function gym_memory.set_updated_at();
 
 comment on schema gym_memory is 'Project memory schema for GetYourMentor.';
 comment on table gym_memory.document_chunks is 'Store chunks and embeddings for semantic search. Adjust vector dimension if you use another embedding model.';
-

@@ -365,7 +365,7 @@ La vérification de production échoue volontairement tant que ces variables ne 
 
 ### Priorité 3 — test du RAG
 
-Ne pas activer directement en production. Utiliser un projet Supabase de test et ingérer seulement :
+Le socle lexical et le manifeste du corpus sont maintenant versionnés. Ne pas activer directement le RAG sémantique en production. Utiliser un projet Supabase de test et ingérer seulement :
 
 - le document maître ;
 - le business plan ;
@@ -375,6 +375,10 @@ Ne pas activer directement en production. Utiliser un projet Supabase de test et
 - le design system ;
 - la migration Next.js ;
 - les décisions validées.
+
+Le contrôle local `npm run check:rag-corpus` valide les huit sources gouvernées. Le script `npm run seed:rag` a ingéré 8 documents et 67 chunks dans le projet Supabase de préproduction. La recherche SQL `gym_memory.search_document_chunks` fournit le premier niveau lexical, avec priorité documentaire, citations et RLS. Les embeddings, la recherche vectorielle et l’évaluation sémantique restent volontairement bloqués jusqu’au choix et à la validation d’un fournisseur.
+
+Le contrat MCP lecture seule est défini dans `docs/mcp/MCP_TOOL_CONTRACT_GYM.md` et contrôlé par `npm run check:mcp-contract`. Aucun serveur MCP n’est activé tant que les tests de permission et la validation humaine ne sont pas réalisés.
 
 Évaluer les réponses avec citations et détection de contradictions avant de connecter un agent.
 

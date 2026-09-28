@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "source-of-truth",
+      "question": "Quel document est la source de vérité du produit ?",
+      "expectedDocuments": ["master"]
+    },
+    {
+      "id": "critical-path",
+      "question": "Le RAG peut-il décider ou bloquer une réservation ou un paiement ?",
+      "expectedDocuments": ["memory-rag", "architecture"]
+    },
+    {
+      "id": "mcp-safety",
+      "question": "Quels accès sont interdits à un outil MCP ?",
+      "expectedDocuments": ["memory-rag", "architecture"]
+    },
+    {
+      "id": "mvp-flow",
+      "question": "Quel est le parcours principal de réservation du MVP ?",
+      "expectedDocuments": ["mvp-screens", "master"]
+    },
+    {
+      "id": "web-first",
+      "question": "Pourquoi GetYourMentor commence-t-il par un site web responsive plutôt qu’une application mobile native ?",
+      "expectedDocuments": ["master", "architecture"]
+    },
+    {
+      "id": "rag-boundary",
+      "question": "Le RAG doit-il être placé dans le chemin critique de réservation paiement authentification ?",
+      "expectedDocuments": ["memory-rag", "rag-readiness", "architecture"]
+    },
+    {
+      "id": "mcp-permissions",
+      "question": "Quelles permissions minimales faut-il appliquer aux outils MCP ?",
+      "expectedDocuments": ["memory-rag", "architecture"]
+    },
+    {
+      "id": "design-priority",
+      "question": "Quelles règles de design doivent rester prioritaires pour le tunnel de réservation ?",
+      "expectedDocuments": ["design-system", "master"]
+    }
+  ]
+}

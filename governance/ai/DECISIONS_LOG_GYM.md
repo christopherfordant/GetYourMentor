@@ -1,5 +1,12 @@
 # Decisions Log GYM
 
+## 2026-09-28 - Socle RAG lexical et contrat MCP lecture seule
+
+- Decision : activer uniquement un socle documentaire lexical gouverné et un contrat MCP allowlisté, sans brancher ces capacités au tunnel métier critique.
+- Pourquoi : rendre l’architecture testable sans introduire de fournisseur d’embeddings, de secret ou d’agent non contrôlé.
+- Impact : le manifeste `docs/architecture/rag-corpus.json`, la fonction SQL `gym_memory.search_document_chunks` et les contrôles `check:rag-corpus` / `check:mcp-contract` deviennent les garde-fous versionnés. Les embeddings, agents et serveur MCP restent bloqués jusqu’à une validation séparée.
+- Sources : `DOCUMENT_MAITRE_GYM.md`, `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`, `docs/mcp/MCP_TOOL_CONTRACT_GYM.md`
+
 ## Regle
 
 Ce journal ne recense que les decisions structurantes ayant un impact sur :

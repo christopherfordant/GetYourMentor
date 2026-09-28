@@ -9,9 +9,10 @@ Ce document décrit quand le RAG pourra être activé. Tant que les critères ne
 | Sources prioritaires | Disponible | Document maître, sources métier et gouvernance identifiés |
 | Mémoire locale | Active | MemPalace conservé pour le contexte de travail |
 | Schéma mémoire | Préparé | `supabase/schemas/memory.sql` |
-| Ingestion documentaire | Export n8n corrigé, inactive | Activation après credentials et test contrôlé |
+| Ingestion documentaire | Corpus de préproduction ingéré manuellement | Le workflow n8n reste inactif par sécurité ; le script `npm run seed:rag` est idempotent |
 | Embeddings | Non activés | Aucun fournisseur ni dimension de modèle imposé en production |
-| Retrieval hybride | Non activé | À tester après ingestion d’un corpus de référence |
+| Retrieval lexical | Actif en préproduction | Fonction SQL `gym_memory.search_document_chunks`, RLS et citations vérifiées |
+| Retrieval hybride | Non activé | À tester après choix d’un fournisseur d’embeddings |
 | Agents métier | Non branchés au RAG | Les prompts restent gouvernés par les documents existants |
 
 ## Conditions d’entrée
@@ -29,16 +30,7 @@ Avant activation, il faut :
 
 ## Corpus initial recommandé
 
-Commencer uniquement avec :
-
-- `DOCUMENT_MAITRE_GYM.md` ;
-- `Bussiness Plan.pdf` ;
-- `GetYourMentor MVP_V1 - Fonctionnalités générales.pdf` ;
-- `Copie de Devis DEV - GetYourMentor.pdf` ;
-- `MVP_ECRANS_GYM.md` ;
-- `DESIGN_SYSTEM_GYM.md` ;
-- `MIGRATION_NEXT_GYM.md` ;
-- les décisions validées dans `governance/ai/DECISIONS_LOG_GYM.md`.
+Le corpus actuellement gouverné est défini dans `docs/architecture/rag-corpus.json`. Il contient les documents maîtres, architecture, mémoire RAG, readiness, MVP, design system, migration et décisions validées.
 
 Ne pas ingérer au départ les exports générés, captures, journaux d’exécution, dossiers `.mempalace*`, le dépôt `mempalace/` ni les idées V2/V3 non validées.
 
@@ -59,10 +51,17 @@ Le RAG pourra être considéré comme utilisable seulement si :
 1. préparer un projet Supabase de test ;
 2. exécuter `supabase/schemas/memory.sql` ;
 3. configurer les credentials n8n sans activer les workflows en production ;
-4. ingérer trois documents prioritaires ;
-5. contrôler les lignes et les métadonnées ;
-6. ajouter les embeddings ;
-7. tester retrieval lexical + vectoriel + priorité documentaire ;
-8. comparer avec MemPalace ;
-9. documenter les résultats ;
-10. seulement ensuite brancher un agent métier en lecture seule.
+4. ingérer le corpus local gouverné avec `npm run seed:rag` ;
+5. contrôler les lignes, priorités et métadonnées ;
+6. exécuter les 8 cas de référence avec `npm run evaluate:rag` ;
+7. ajouter les embeddings seulement après choix explicite du fournisseur ;
+8. tester retrieval lexical + vectoriel + priorité documentaire ;
+9. comparer avec MemPalace ;
+10. documenter les résultats ;
+11. seulement ensuite brancher un agent métier en lecture seule.
+
+Le contrôle local `npm run check:rag-corpus` valide le manifeste et les chemins du corpus. Il ne remplace pas l’ingestion Supabase ni l’évaluation sémantique.
+
+Le jeu de référence local contient maintenant huit cas dans `rag-evaluation.json` et peut être exécuté avec `npm run evaluate:rag`. Cette évaluation valide les sources candidates et les citations du socle lexical ; elle ne prétend pas mesurer la qualité d’un modèle d’embeddings.
+
+Une route serveur optionnelle `GET /api/knowledge/search?q=...` prépare l’intégration applicative en lecture seule. Elle est désactivée par défaut, exige une session administrateur et ne devient accessible que lorsque `RAG_PUBLIC_SEARCH_ENABLED=true` est explicitement défini ; elle utilise uniquement la clé service côté serveur et renvoie les citations avec les extraits.
