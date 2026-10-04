@@ -18,7 +18,7 @@ export const profileSlides = [
     detail: "Spécialiste préparation match - 12 ans d'expérience",
     price: "50 EUR / séance",
     cta: "Voir le profil",
-    image: "/design_assets/content_library/football/football-field-mentor.jpg",
+    image: "/design_assets/content_library/web_reference/football-coaching.jpg",
   },
   {
     name: "Sarah Benali",
@@ -26,7 +26,7 @@ export const profileSlides = [
     detail: "Technique individuelle - Séances intensives",
     price: "65 EUR / séance",
     cta: "Découvrir le coach",
-    image: "/design_assets/content_library/basketball/basketball-training-athlete.jpg",
+    image: "/design_assets/content_library/web_reference/basketball-coaching.jpg",
   },
   {
     name: "Julien Morel",
@@ -34,7 +34,7 @@ export const profileSlides = [
     detail: "Remise en forme - Coaching progressif",
     price: "42 EUR / séance",
     cta: "Voir ses séances",
-    image: "/design_assets/content_library/fitness/fitness-bench-trainer.jpg",
+    image: "/design_assets/content_library/web_reference/fitness-training.jpg",
   },
   {
     name: "Ines Caron",

@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import gsap from "gsap";
+import { Draggable } from "gsap/Draggable";
+import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
-import { CinematicParticles } from "./CinematicParticles";
-import { GsapJourneyScene } from "./GsapJourneyScene";
-import styles from "./home.module.css";
+import styles from "./home-refined.module.css";
 import {
   faqItems,
   insights,
@@ -47,6 +48,13 @@ const inferSportSlug = (value = ""): SportSlug => {
   return "football";
 };
 
+const sportVisuals: Record<SportSlug, string> = {
+  football: "/design_assets/content_library/web_reference/football-coaching.jpg",
+  basketball: "/design_assets/content_library/web_reference/basketball-coaching.jpg",
+  "metiers-de-la-forme": "/design_assets/content_library/web_reference/fitness-training.jpg",
+  "sports-de-combat": "/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
+};
+
 function StepDots({ count, activeIndex }: { count: number; activeIndex: number }) {
   return (
     <div className={styles.dots} aria-hidden="true">
@@ -65,6 +73,72 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const [profileIndex, setProfileIndex] = useState(0);
   const [slotIndex, setSlotIndex] = useState(0);
   const [paymentIndex, setPaymentIndex] = useState(0);
+  const [journeyIndex, setJourneyIndex] = useState(0);
+  const journeyViewportRef = useRef<HTMLDivElement>(null);
+  const journeyTrackRef = useRef<HTMLDivElement>(null);
+  const journeyDragRef = useRef<Draggable | null>(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(Draggable, InertiaPlugin);
+    const viewport = journeyViewportRef.current;
+    const track = journeyTrackRef.current;
+    if (!viewport || !track) return;
+
+    const getSlide = () => track.querySelector<HTMLElement>("[data-journey-slide]");
+    const getSlideWidth = () => getSlide()?.getBoundingClientRect().width || viewport.getBoundingClientRect().width;
+    const getStride = () => getSlideWidth() + Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+    const getCenterOffset = () => (viewport.getBoundingClientRect().width - getSlideWidth()) / 2;
+    const snapX = (value: number) => {
+      const stride = getStride();
+      const offset = getCenterOffset();
+      return stride ? offset - Math.round((offset - value) / stride) * stride : value;
+    };
+    const updateIndex = (value: number) => {
+      const stride = getStride();
+      const offset = getCenterOffset();
+      if (!stride) return;
+      setJourneyIndex(Math.max(0, Math.min(2, Math.round((offset - value) / stride))));
+    };
+    const getBounds = () => {
+      const offset = getCenterOffset();
+      return { minX: offset - getStride() * 2, maxX: offset };
+    };
+
+    const draggable = Draggable.create(track, {
+      type: "x",
+      inertia: true,
+      bounds: getBounds(),
+      edgeResistance: 0.86,
+      snap: snapX,
+      allowNativeTouchScrolling: false,
+      onDrag: function () { updateIndex(this.x); },
+      onThrowUpdate: function () { updateIndex(this.x); },
+      onRelease: function () { updateIndex(this.x); },
+    })[0];
+    gsap.set(track, { x: getCenterOffset() });
+    journeyDragRef.current = draggable;
+    const onResize = () => { draggable.applyBounds(getBounds()); gsap.set(track, { x: snapX(draggable.x) }); };
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      draggable.kill();
+      journeyDragRef.current = null;
+    };
+  }, []);
+
+  const goToJourney = (index: number) => {
+    const next = Math.max(0, Math.min(2, index));
+    setJourneyIndex(next);
+    const track = journeyTrackRef.current;
+    const viewport = journeyViewportRef.current;
+    if (track && viewport) {
+      const slide = track.querySelector<HTMLElement>("[data-journey-slide]");
+      const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
+      const stride = (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width) + gap;
+      const offset = (viewport.getBoundingClientRect().width - (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width)) / 2;
+      gsap.to(track, { x: offset - next * stride, duration: 0.8, ease: "expo.out", overwrite: true });
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY >= 24);
@@ -105,7 +179,6 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
   return (
     <div className={styles.page}>
-      <GsapJourneyScene />
       <header data-gsap-header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
         <div className={styles.brandLockup}>
           <Link href="/" className={styles.brandName} data-gsap-header-item>
@@ -115,7 +188,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
         <nav className={styles.sportsNav} aria-label="Sports">
           {sportLinks.map((sport) => (
-            <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportLink} data-gsap-header-item>
+              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportLink} data-gsap-header-item data-sport-tab={sport.slug}>
               {sport.label}
             </Link>
           ))}
@@ -123,7 +196,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
         <div className={styles.topbarActions}>
           <LanguageSelector />
-          <Link href="/compte" className={styles.topbarLink} data-gsap-header-item>
+          <Link href="/compte?mode=coach" className={styles.topbarLink} data-gsap-header-item>
             Je suis coach
           </Link>
           <Link href="/compte" className={styles.accountButton} data-gsap-header-item>
@@ -157,8 +230,6 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
             />
           </div>
           <div className={styles.heroOverlay} />
-          <CinematicParticles />
-
           <div className={styles.heroContent} data-gsap-hero-content>
             <p className={styles.eyebrow} data-gsap-hero-item>Coaching qui te ressemble</p>
             <h1 className={styles.heroTitle} data-gsap-hero-item>Bouge. Progresse. Recommence.</h1>
@@ -189,7 +260,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 />
               </label>
 
-              <button className={styles.searchButton} type="button" aria-label="Rechercher" onClick={handleSearch}>
+              <button className={styles.searchButton} type="button" aria-label="Rechercher" data-home-search-button onClick={handleSearch}>
                 Trouver un coach
               </button>
             </div>
@@ -206,7 +277,9 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
           <div className={styles.sportRailGrid}>
             {sportLinks.map((sport, index) => (
-              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard} data-gsap-stagger>
+              <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard} data-gsap-stagger data-sport-motion={sport.slug === "metiers-de-la-forme" ? "fitness" : sport.slug === "sports-de-combat" ? "combat" : sport.slug}>
+                <Image src={sportVisuals[sport.slug]} alt="" fill sizes="(max-width: 900px) 100vw, 25vw" className={styles.sportRailImage} />
+                <span className={styles.sportRailShade} aria-hidden="true" />
                 <span className={styles.sportRailIndex}>0{index + 1}</span>
                 <span className={styles.sportRailLabel}>{sport.label}</span>
                 <span className={styles.sportRailAction}>Explorer <span aria-hidden="true">↗</span></span>
@@ -218,11 +291,18 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
         <section className={styles.section} data-gsap-section="journey">
           <div className={styles.sectionHeading} data-gsap-heading>
             <h2>Ton parcours, sans friction</h2>
+            <p className={styles.carouselHint}>Fais glisser pour découvrir les 3 étapes</p>
           </div>
           <div className="journey-light-line" data-gsap-line aria-hidden="true" />
 
-          <div className={styles.howGrid}>
-            <article className={styles.stepCard} data-gsap-card>
+          <div className={styles.carouselViewport} aria-live="polite" ref={journeyViewportRef}>
+          <div className={styles.carouselControls} aria-label="Navigation du parcours">
+            <button className={styles.carouselButton} type="button" aria-label="Étape précédente" disabled={journeyIndex === 0} onClick={() => goToJourney(journeyIndex - 1)}>‹</button>
+            <span className={styles.carouselCounter}>{String(journeyIndex + 1).padStart(2, "0")} / 03</span>
+            <button className={styles.carouselButton} type="button" aria-label="Étape suivante" disabled={journeyIndex === 2} onClick={() => goToJourney(journeyIndex + 1)}>›</button>
+          </div>
+          <div className={styles.howGrid} ref={journeyTrackRef}>
+            <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 0}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>1</span>
                 <h3>Choisis ton coach</h3>
@@ -266,7 +346,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard} data-gsap-card>
+            <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 1}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>2</span>
                 <h3>Bloque tes créneaux</h3>
@@ -313,7 +393,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard} data-gsap-card>
+            <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 2}>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>3</span>
                 <h3>Valide ta session</h3>
@@ -349,6 +429,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 </div>
               </div>
             </article>
+          </div>
           </div>
         </section>
 
