@@ -150,6 +150,19 @@
 }
 
 @media (max-width: 700px) {
+  /* Defer layout/paint work for sections below the mobile hero. The browser
+     keeps their geometry reserved and reveals them normally on approach. */
+  .sportRail,
+  .experienceSection,
+  .section,
+  .metricsSection,
+  .recruitSection,
+  .faqSection,
+  .siteFooter {
+    content-visibility: auto;
+    contain-intrinsic-size: 720px;
+  }
+
   /* Preserve the translucent header look without forcing a full-page
      backdrop recomposition on mobile first paint and scroll frames. */
   .topbar,
