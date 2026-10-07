@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { InternalNavigationEnhancer } from "@/components/InternalNavigationEnhancer";
-import { LegacyStylesLoader } from "@/components/LegacyStylesLoader";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { ClientEnhancers } from "@/components/ClientEnhancers";
 import { BackToTopButton } from "@/components/BackToTopButton";
@@ -87,7 +86,6 @@ export default function RootLayout({
           }}
         />
         <InternalNavigationEnhancer />
-        <LegacyStylesLoader />
         <ClientEnhancers />
         {children}
         <CookieConsentBanner />
