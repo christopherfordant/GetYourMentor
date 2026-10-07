@@ -15,6 +15,7 @@ export function detectInitialLanguage(stored: string | null, browserLanguage?: s
 
 export function LanguageSelector({ className = "" }: { className?: string }) {
   const [language, setLanguage] = useState("fr");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("gym-language");
@@ -26,10 +27,15 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
   const setSelectedLanguage = (nextLanguage: string) => {
     setLanguage(nextLanguage);
     window.localStorage.setItem("gym-language", nextLanguage);
+    setIsOpen(false);
   };
 
   return (
-    <details className={`language-selector language-selector-accordion ${className}`.trim()}>
+    <details
+      className={`language-selector language-selector-accordion ${className}`.trim()}
+      open={isOpen}
+      onToggle={(event) => setIsOpen(event.currentTarget.open)}
+    >
       <summary><span>{language.toUpperCase()}</span><span aria-hidden="true">⌄</span></summary>
       <div className="language-selector-panel">
         <button type="button" aria-pressed={language === "fr"} onClick={() => setSelectedLanguage("fr")}>Français</button>
