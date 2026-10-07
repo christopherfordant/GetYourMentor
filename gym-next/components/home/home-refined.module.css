@@ -150,6 +150,17 @@
 }
 
 @media (max-width: 700px) {
+  /* Mobile performance pass: keep the same dark cinematic treatment while
+     avoiding an extra filtered/multiply compositing layer for the hero. */
+  .heroImage {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(180deg, rgba(7, 13, 29, .22) 0%, rgba(7, 13, 29, .74) 62%, #07101f 100%) !important;
+  }
+
   /* Defer layout/paint work for sections below the mobile hero. The browser
      keeps their geometry reserved and reveals them normally on approach. */
   .sportRail,
