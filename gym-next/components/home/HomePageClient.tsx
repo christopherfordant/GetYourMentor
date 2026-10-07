@@ -276,7 +276,6 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               alt="Athlète en pleine action sportive"
                 fill
                 priority
-                unoptimized
                 sizes="100vw"
               quality={65}
               className={styles.heroImage}
