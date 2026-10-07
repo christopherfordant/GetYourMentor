@@ -187,3 +187,11 @@ header.topbar > *,
 body {
   margin: 0;
 }
+.home-deferred-placeholder {
+  min-height: 420px;
+  background: transparent;
+}
+
+.home-deferred-placeholder-sections {
+  min-height: 1800px;
+}

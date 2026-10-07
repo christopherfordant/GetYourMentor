@@ -173,6 +173,7 @@
   }
 }
 
+
 /* Emergent alignment pass: keep the three header zones on a true grid so the
    navigation remains centered independently from the right actions. */
 @media (min-width: 901px) {

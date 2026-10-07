@@ -2,13 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import styles from "./home-refined.module.css";
-import { HomeFaqSection } from "./HomeFaqSection";
-import { HomeBelowFoldSections } from "./HomeBelowFoldSections";
+const HomeFaqSection = dynamic(
+  () => import("./HomeFaqSection").then((module) => module.HomeFaqSection),
+  { ssr: false, loading: () => <div aria-hidden="true" className="home-deferred-placeholder home-deferred-placeholder-faq" /> },
+);
+const HomeBelowFoldSections = dynamic(
+  () => import("./HomeBelowFoldSections").then((module) => module.HomeBelowFoldSections),
+  { ssr: false, loading: () => <div aria-hidden="true" className="home-deferred-placeholder home-deferred-placeholder-sections" /> },
+);
 import {
   metrics,
   paymentSlides,
