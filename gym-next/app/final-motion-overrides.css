@@ -53,6 +53,29 @@ header.topbar > *,
 .account-auth-stage .auth-card .auth-actions,
 .account-auth-stage .auth-card .auth-divider { border-color: rgba(174, 196, 231, 0.14) !important; }
 
+/* Authentication surfaces: one frame, fields remain readable without nested panels. */
+.account-auth-stage .auth-card .auth-field,
+.account-auth-stage .auth-card .auth-actions,
+.account-auth-stage .auth-card .auth-divider,
+.account-auth-stage .auth-card .signup-block {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.account-auth-stage .auth-card .auth-field input,
+.account-auth-stage .auth-card .auth-field select {
+  border: 1px solid rgba(174,196,231,.24) !important;
+  box-shadow: none !important;
+}
+.club-signup-page .club-signup-form-panel,
+.club-signup-page .club-signup-form-card {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.club-signup-page .club-signup-form-card > *:not(.club-signup-dropzone) {
+  border-color: transparent !important;
+}
+
 /* Search and sorting: a single toolbar, with compact controls instead of nested panels. */
 .coach-directory-toolbar,
 .coach-directory-search,
