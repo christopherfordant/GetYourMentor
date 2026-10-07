@@ -140,6 +140,27 @@
     linear-gradient(180deg, rgba(5, 9, 18, 0.28) 0%, rgba(5, 9, 18, 0.48) 100%);
 }
 
+.motionAssetRail {
+  position: fixed;
+  z-index: 60;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.motionAssetRail img { position: absolute; width: clamp(48px, 6vw, 92px); height: auto; filter: drop-shadow(0 16px 22px rgba(0,0,0,.32)); }
+.motionAssetRail img:nth-child(1) { top: 34%; right: 18%; }
+.motionAssetRail img:nth-child(2) { top: 26%; right: 24%; }
+
+.sportRailCard { isolation: isolate; }
+
+@media (max-width: 700px) {
+  .motionAssetRail img:nth-child(1) { top: 38%; right: 16%; }
+  .motionAssetRail img:nth-child(2) { top: 30%; right: 20%; }
+  .motionAssetRail img { width: 44px; }
+}
+
 .heroContent {
   position: relative;
   z-index: 1;
@@ -994,6 +1015,236 @@
 .stepCard .softButton:hover,
 .searchButton:hover { transform: translateY(-1px); filter: brightness(1.04); }
 
+/* Parcours premium : une seule coque visuelle, des surfaces calmes et une
+   hiérarchie proche d'un produit SaaS sportif haut de gamme. */
+.howGrid { gap: 22px; }
+
+/* UI refresh 2026 — one visual system, fewer nested surfaces and calmer hierarchy. */
+.page {
+  --app-bg: #080d19;
+  --app-panel: #101a2c;
+  --app-panel-soft: #17243b;
+  --app-line: rgba(181, 198, 225, 0.14);
+  --app-lime: #d7f36b;
+  --app-muted: #9eabc1;
+  background: var(--app-bg);
+  color: #f6f8fb;
+}
+
+.topbar {
+  width: 100%;
+  margin: 0;
+  padding: 16px max(24px, calc((100vw - 1280px) / 2));
+  background: rgba(8, 13, 25, 0.86);
+  border-bottom: 1px solid var(--app-line);
+  backdrop-filter: blur(18px);
+}
+
+.topbarScrolled { padding-top: 12px; padding-bottom: 12px; }
+.brandName, .topbarLink, .accountButton, .sportLink { border: 0; box-shadow: none; }
+.brandName { color: #fff; }
+.sportsNav { gap: 2px; }
+.sportLink { border-radius: 10px; color: #b5c0d2; transition: background 180ms ease, color 180ms ease; }
+.sportLink:hover, .sportLink:focus-visible { background: rgba(255,255,255,.08); color: #fff; }
+.topbarLink { color: #b5c0d2; }
+.topbarLink:hover { color: #fff; }
+.accountButton { background: var(--app-lime); }
+
+.main { width: min(1280px, calc(100% - 48px)); }
+.hero { min-height: min(760px, calc(100vh - 78px)); margin-top: 0; border-radius: 0 0 34px 34px; box-shadow: none; }
+.heroOverlay { background: linear-gradient(90deg, rgba(8,13,25,.92), rgba(8,13,25,.54) 48%, rgba(8,13,25,.12)); }
+.heroContent { padding: clamp(64px, 10vw, 132px) clamp(24px, 6vw, 84px); }
+.heroTitle { max-width: 720px; font-size: clamp(50px, 7.2vw, 96px); }
+.heroCopy { max-width: 520px; color: #c4cde0; }
+.searchCard { max-width: 700px; border: 1px solid rgba(255,255,255,.16); background: rgba(16,26,44,.82); box-shadow: 0 22px 48px rgba(0,0,0,.22); }
+.field { border: 0; background: transparent; }
+.fieldInput { border: 1px solid rgba(255,255,255,.11); background: #17243b; color: #fff; }
+.fieldInput:focus { box-shadow: 0 0 0 2px rgba(215,243,107,.55); }
+
+.section, .metricsSection, .recruitSection, .faqSection { margin-top: 84px; }
+.sectionHeading { max-width: 720px; margin-bottom: 28px; }
+.sectionHeading h2, .faqSection h2, .recruitCopy h2 { color: #fff; }
+.sectionHeading h2 { font-size: clamp(34px, 5vw, 58px); }
+.howGrid, .insightsGrid, .localesGrid, .metricsGrid { gap: 14px; }
+.stepCard, .insightCard, .localeColumn, .metric, .faqSection, .recruitCopy { border: 1px solid var(--app-line); background: var(--app-panel); box-shadow: none; }
+.stepCard { min-height: 640px; border-radius: 22px; padding: 20px; }
+.stepCard:hover { transform: translateY(-3px); border-color: rgba(215,243,107,.32); box-shadow: 0 16px 34px rgba(0,0,0,.18); }
+.stepHead h3 { font-size: 24px; }
+.stepNumber { width: 38px; height: 38px; border-radius: 11px; background: var(--app-panel-soft); color: var(--app-lime); }
+.miniScreen { gap: 14px; }
+.slideMedia, .slotVisual { border-radius: 16px; }
+.slideContent h4 { font-size: 22px; }
+.darkButton, .darkButtonLink, .softButton, .insightButton, .searchButton { min-height: 46px; border-radius: 12px; }
+.darkButton, .darkButtonLink, .softButton, .searchButton { background: var(--app-lime); color: #101827; }
+.softButton { font-weight: 800; }
+.arrowButton { border: 1px solid var(--app-line); background: var(--app-panel-soft); }
+.metricsGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.metric { border-radius: 18px; padding: 22px; }
+.metric strong { color: var(--app-lime); }
+.insightCard, .localeColumn { border-radius: 18px; padding: 22px; }
+.insightCardFeatured { background: linear-gradient(135deg, #17243b, #101a2c); }
+.recruitSection { gap: 0; overflow: hidden; border: 1px solid var(--app-line); border-radius: 24px; background: var(--app-panel); }
+.recruitMedia { min-height: 460px; border-radius: 0; box-shadow: none; }
+.recruitCopy { border: 0; border-radius: 0; padding: clamp(28px, 5vw, 64px); }
+.faqSection { padding: clamp(24px, 5vw, 48px); border-radius: 24px; }
+.faqItem { border: 0; border-bottom: 1px solid var(--app-line); border-radius: 0; background: transparent; padding: 20px 0; }
+.faqItem:last-child { border-bottom: 0; }
+.siteFooter { width: min(1280px, calc(100% - 48px)); border: 1px solid var(--app-line); background: #0d1525; }
+
+@media (max-width: 900px) {
+  .topbar { padding: 14px 16px; }
+  .main { width: calc(100% - 24px); }
+  .hero { min-height: 680px; border-radius: 0 0 24px 24px; }
+  .heroContent { padding: 68px 20px 28px; }
+  .metricsGrid { grid-template-columns: 1fr; }
+  .stepCard { min-height: 0; }
+  .siteFooter { width: calc(100% - 24px); }
+}
+.stepCard {
+  position: relative;
+  min-height: 672px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(151, 177, 218, 0.18);
+  border-radius: 26px;
+  background: linear-gradient(155deg, rgba(22, 36, 61, .98), rgba(12, 21, 39, .98));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.stepCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 18%;
+  left: 18%;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, rgba(215,243,107,.78), transparent);
+  opacity: .55;
+  pointer-events: none;
+}
+.stepCard:hover {
+  border-color: rgba(151, 184, 255, .34);
+  box-shadow: 0 30px 72px rgba(0, 0, 0, .30), inset 0 1px 0 rgba(255,255,255,.07);
+}
+.stepHead {
+  min-height: 62px;
+  margin: 0 4px 14px;
+  gap: 12px;
+}
+.stepHead h3 {
+  font-size: clamp(22px, 2.2vw, 29px);
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.stepNumber {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border: 1px solid rgba(215,243,107,.24);
+  border-radius: 13px;
+  background: rgba(215,243,107,.12);
+  color: #d7f36b;
+  box-shadow: none;
+}
+.miniScreen {
+  position: relative;
+  gap: 14px;
+  padding: 0 8px 8px;
+  border-radius: 18px;
+}
+.slideMedia,
+.slotVisual,
+.paymentVisual {
+  border-radius: 18px;
+  box-shadow: 0 16px 34px rgba(0,0,0,.20);
+}
+.slideMedia,
+.slotVisual { aspect-ratio: 1.48 / 1; min-height: 188px; }
+.slideContent { gap: 8px; }
+.slideContent h4 { font-size: 22px; }
+.pill {
+  min-height: 30px;
+  padding: 0 11px;
+  border: 1px solid rgba(151,177,218,.16);
+  background: rgba(151,177,218,.10);
+  color: #dbe6f7;
+}
+.darkButton,
+.softButton {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 13px;
+}
+.darkButton { background: #d7f36b; color: #0b1220; }
+.softButton { background: rgba(151,177,218,.13); color: #f6f8fb; border: 1px solid rgba(151,177,218,.22); }
+.slotCaption,
+.slideCaption { color: #dbe6f7; font-size: 14px; font-weight: 700; }
+.slotRow { gap: 8px; }
+.slotButton,
+.slotSelected {
+  min-height: 38px;
+  padding: 0 13px;
+  border-radius: 11px;
+  border-color: rgba(151,177,218,.18);
+  background: rgba(151,177,218,.08);
+  color: #dbe6f7;
+}
+.slotSelected { background: #d7f36b; color: #0b1220; border-color: transparent; }
+.paymentVisual {
+  position: relative;
+  min-height: 154px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 24%, rgba(215,243,107,.30), transparent 24%),
+    linear-gradient(135deg, #20365b 0%, #12213c 58%, #0d172b 100%);
+}
+.paymentVisual::before {
+  content: "PAIEMENT SÉCURISÉ";
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  color: rgba(246,248,251,.72);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.paymentVisual::after {
+  content: "✓";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(215,243,107,.42);
+  border-radius: 50%;
+  background: rgba(215,243,107,.14);
+  color: #d7f36b;
+  font-size: 22px;
+}
+.paymentStrong { font-size: 17px; }
+.paymentTotal { padding: 14px 16px; border: 1px solid rgba(151,177,218,.12); border-radius: 14px; background: rgba(151,177,218,.09); }
+.paymentTotal strong { color: #d7f36b; font-size: 22px; }
+.stepActions { padding-top: 12px; }
+.arrowButton {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border-color: rgba(151,177,218,.18);
+  background: rgba(151,177,218,.09);
+  color: #eaf1fb;
+  font-size: 22px;
+}
+.dot,
+.dotActive { background: rgba(151,177,218,.28); }
+.dotActive { background: #d7f36b; }
+
+@media (max-width: 900px) {
+  .stepCard { min-height: 0; }
+  .miniScreen { padding-inline: 2px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .heroImage, .stepCard, .stepCard .darkButton, .stepCard .softButton, .searchButton { transition: none; transform: none; }
 }
@@ -1144,8 +1395,8 @@
 .sportLink:hover { color: #d7f36b; }
 .topbarLink { min-height: 40px; color: #cbd5e1; }
 .accountButton { min-height: 42px; border-radius: 12px; background: #d7f36b; color: #111827; }
-.main { width: min(1200px, calc(100% - 40px)); padding-bottom: 104px; }
-.hero { min-height: 650px; margin-top: 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 30px; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
+.main { width: 100%; padding-bottom: 104px; }
+.hero { min-height: 100svh; margin-top: 0; border: 0; border-radius: 0; box-shadow: 0 28px 80px rgba(0,0,0,.3); }
 .heroOverlay { background: linear-gradient(90deg, rgba(8,14,29,.94) 0%, rgba(8,14,29,.7) 43%, rgba(8,14,29,.18) 100%); }
 .heroContent { width: min(760px, 100%); padding: 88px 64px; gap: 20px; }
 .eyebrow, .sectionKicker { color: #d7f36b; font-size: 11px; letter-spacing: .16em; }
@@ -1162,8 +1413,13 @@
 .sectionHeading h2 { margin: 8px 0 0; color: #fff; font-size: clamp(30px, 4vw, 52px); letter-spacing: -.06em; }
 .sectionIntro { margin: 14px 0 0; color: #9eafca; line-height: 1.6; }
 .sportRailGrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
-.sportRailCard { min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid #2a3b58; border-radius: 18px; background: #111a2d; color: #fff; transition: transform 220ms ease, background 220ms ease, border-color 220ms ease; }
+.sportRailCard { position: relative; overflow: hidden; min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; padding: 18px; border: 1px solid #2a3b58; border-radius: 18px; background: #111a2d; color: #fff; transition: transform 220ms ease, background 220ms ease, border-color 220ms ease; }
 .sportRailCard:hover { transform: translateY(-6px); border-color: #d7f36b; background: #182640; }
+.sportRailImage, .sportRailShade { position: absolute; inset: 0; }
+.sportRailImage { z-index: 0; object-fit: cover; transition: transform 420ms ease; }
+.sportRailShade { z-index: 1; background: linear-gradient(180deg, rgba(8,16,32,.12), rgba(8,16,32,.88)); }
+.sportRailCard:hover .sportRailImage { transform: scale(1.06); }
+.sportRailCard > :not(.sportRailImage):not(.sportRailShade) { position: relative; z-index: 2; }
 .sportRailIndex { color: #8394b0; font-size: 11px; letter-spacing: .12em; }
 .sportRailLabel { max-width: 110px; font-size: 17px; font-weight: 800; line-height: 1.1; }
 .sportRailAction { color: #d7f36b; font-size: 12px; font-weight: 800; }
@@ -1247,9 +1503,22 @@
 }
 
 @media (max-width: 560px) {
-  .topbar, .main { width: min(100% - 28px, 520px); }
-  .sportsNav { display: none; }
-  .hero { min-height: 620px; border-radius: 22px; }
+  .topbar { width: min(100% - 28px, 520px); }
+  .main { width: 100%; }
+  /* Keep the sport catalogue discoverable on small screens. The nav scrolls
+     horizontally instead of disappearing behind the mobile bottom bar. */
+  .sportsNav {
+    display: flex;
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+  .sportsNav::-webkit-scrollbar { display: none; }
+  .sportLink { flex: 0 0 auto; white-space: nowrap; }
+  .hero { min-height: 100svh; border-radius: 0; }
   .heroContent { width: 100%; padding: 54px 20px; }
   .heroTitle { font-size: clamp(42px, 14vw, 64px); }
   .sportRailGrid { grid-template-columns: 1fr 1fr; }
@@ -1266,4 +1535,236 @@
   background: #111a2d !important;
   border-color: transparent !important;
   box-shadow: none !important;
+}
+
+/* Bandeaux horizontaux : lecture éditoriale, geste tactile et cartes non empilées. */
+.sportRailGrid,
+.howGrid,
+.metricsGrid,
+.insightsGrid,
+.localesGrid {
+  display: flex;
+  grid-template-columns: none;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 2px 18px;
+}
+
+.sportRailGrid::-webkit-scrollbar,
+.howGrid::-webkit-scrollbar,
+.metricsGrid::-webkit-scrollbar,
+.insightsGrid::-webkit-scrollbar,
+.localesGrid::-webkit-scrollbar { display: none; }
+
+.sportRailCard { flex: 0 0 clamp(220px, 20vw, 286px); scroll-snap-align: start; }
+.stepCard { flex: 0 0 min(520px, 84vw); scroll-snap-align: center; }
+.metric { flex: 0 0 min(280px, 72vw); scroll-snap-align: start; }
+.insightCard, .localeColumn { flex: 0 0 min(380px, 78vw); scroll-snap-align: start; }
+
+/* The journey is a carousel track, not a three-column card grid. */
+.carouselHint {
+  margin: 14px 0 0;
+  color: var(--app-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.howGrid {
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(215, 243, 107, .65) transparent;
+  gap: 0;
+  padding: 24px 24px 22px;
+  border: 1px solid var(--app-line);
+  border-radius: 26px;
+  background: var(--app-panel);
+}
+
+.howGrid:active { cursor: grabbing; }
+.howGrid::-webkit-scrollbar { display: block; height: 5px; }
+.howGrid::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
+.howGrid::-webkit-scrollbar-thumb { background: rgba(215,243,107,.65); border-radius: 999px; }
+
+.howGrid .stepCard {
+  min-height: 0;
+  padding: 0 26px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.howGrid .stepCard + .stepCard { border-left: 1px solid var(--app-line); }
+
+.howGrid .stepCard::before,
+.howGrid .stepCard::after { display: none; }
+
+.howGrid .stepCard .stepHead { padding: 0 4px; }
+.howGrid .stepCard .miniScreen {
+  min-height: 580px;
+  padding: 22px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+/* Strict carousel: one journey slide is visible at a time. */
+.carouselViewport {
+  overflow: hidden;
+  width: 100%;
+  border: 0;
+}
+
+.carouselControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: -8px 0 14px;
+}
+
+.carouselCounter {
+  min-width: 58px;
+  color: var(--app-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-align: center;
+}
+
+.carouselButton {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--app-line);
+  border-radius: 50%;
+  background: var(--app-panel-soft);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.carouselButton:hover { border-color: var(--app-lime); color: var(--app-lime); }
+.carouselButton:focus-visible { outline: 2px solid var(--app-lime); outline-offset: 3px; }
+
+.carouselViewport > .carouselControls {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.carouselViewport > .carouselControls .carouselButton {
+  position: absolute;
+  top: 50%;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+.carouselViewport > .carouselControls .carouselButton:first-child { left: 42px; }
+.carouselViewport > .carouselControls .carouselButton:last-child { right: 42px; }
+.carouselViewport > .carouselControls .carouselCounter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carouselViewport .howGrid {
+  display: flex;
+  width: max-content;
+  overflow: visible;
+  gap: 18px;
+  padding: 18px 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  scrollbar-width: none;
+  cursor: default;
+  transition: transform 520ms cubic-bezier(.22, .8, .2, 1);
+  will-change: transform;
+}
+
+.carouselViewport .howGrid::-webkit-scrollbar { display: none; }
+.carouselViewport .howGrid .stepCard {
+  flex: 0 0 clamp(300px, 68vw, 760px);
+  width: clamp(300px, 68vw, 760px);
+  padding: 0;
+  opacity: .42;
+  transform: scale(.88);
+  transition: opacity 360ms ease, transform 360ms ease, filter 360ms ease;
+  filter: saturate(.72);
+}
+
+.carouselViewport .howGrid .stepCard[data-active="true"] { opacity: 1; transform: scale(1); filter: saturate(1); }
+.carouselViewport .howGrid .stepCard:hover { transform: scale(.9); }
+.carouselViewport .howGrid .stepCard .stepHead { padding-inline: 8px; }
+.carouselViewport .howGrid .stepCard .miniScreen { min-height: 520px; }
+.carouselViewport .howGrid .stepCard + .stepCard { border-left: 0; }
+
+.carouselViewport {
+  position: relative;
+  margin-inline: -24px;
+  padding-inline: 24px;
+  background: #05070c;
+  border-block: 1px solid rgba(255,255,255,.08);
+}
+
+.carouselViewport::before,
+.carouselViewport::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  pointer-events: none;
+  content: "";
+}
+
+.carouselViewport::before { left: 0; background: linear-gradient(90deg, #05070c, transparent); }
+.carouselViewport::after { right: 0; background: linear-gradient(270deg, #05070c, transparent); }
+
+@media (max-width: 900px) {
+  .carouselViewport { margin-inline: -12px; padding-inline: 12px; }
+  .carouselViewport .howGrid .stepCard { flex-basis: 82vw; width: 82vw; }
+  .carouselViewport > .carouselControls .carouselButton:first-child { left: 18px; }
+  .carouselViewport > .carouselControls .carouselButton:last-child { right: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carouselViewport .howGrid { transition: none; }
+}
+
+.howGrid::after,
+.metricsGrid::after,
+.insightsGrid::after,
+.localesGrid::after,
+.sportRailGrid::after { content: ""; flex: 0 0 1px; }
+
+@media (min-width: 901px) {
+  .sportRailGrid,
+  .howGrid,
+  .metricsGrid,
+  .insightsGrid,
+  .localesGrid {
+    margin-right: calc((min(1280px, 100vw - 48px) - 100vw) / 2);
+    padding-right: max(24px, calc((100vw - 1280px) / 2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sportRailGrid,
+  .howGrid,
+  .metricsGrid,
+  .insightsGrid,
+  .localesGrid { scroll-behavior: auto; }
 }

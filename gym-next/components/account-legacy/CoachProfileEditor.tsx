@@ -49,7 +49,7 @@ export function CoachProfileEditor({ coachId, specialty, city, priceFrom, descri
   }
 
   return (
-    <section className="account-dashboard-card" data-coach-profile-editor>
+    <section className="account-dashboard-card" id="coach-profile-editor" data-coach-profile-editor>
       <div className="coach-home-card-head">
         <h3>Modifier mon profil</h3>
         <span>Informations visibles par les sportifs</span>

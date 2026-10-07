@@ -11,6 +11,8 @@ export function GsapJourneyScene() {
   const scope = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const section = document.querySelector<HTMLElement>('[data-gsap-section="journey"]');
     if (!section) return;
 
@@ -22,6 +24,9 @@ export function GsapJourneyScene() {
     const header = document.querySelector<HTMLElement>('[data-gsap-header]');
     const headerItems = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-header-item]"));
     const hero = document.querySelector<HTMLElement>('[data-gsap-hero]');
+    const motionAssets = Array.from(document.querySelectorAll<HTMLElement>("[data-motion-asset]"));
+    const footballBall = motionAssets.find((asset) => asset.dataset.motionAsset === "football");
+    const basketballBall = motionAssets.find((asset) => asset.dataset.motionAsset === "basketball");
     const heroItems = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-hero-item]"));
     const heroImage = hero?.querySelector<HTMLElement>('[class*="heroImage__"]');
     const scenes = Array.from(document.querySelectorAll<HTMLElement>("[data-gsap-scene]"));
@@ -35,54 +40,6 @@ export function GsapJourneyScene() {
     });
 
     const headerCleanup: Array<() => void> = [];
-    const smokeParticles: HTMLElement[] = [];
-
-    const emitLandingSmoke = (item: HTMLElement, index: number) => {
-      const smokeTimeline = gsap.timeline();
-      const particleCount = 7 + (index % 3);
-
-      for (let particleIndex = 0; particleIndex < particleCount; particleIndex += 1) {
-        const particle = document.createElement("span");
-        const direction = particleIndex % 2 === 0 ? 1 : -1;
-        const size = 5 + Math.random() * 8;
-        particle.className = "header-smoke-particle";
-        particle.setAttribute("aria-hidden", "true");
-        particle.style.setProperty("--smoke-size", `${size}px`);
-        item.appendChild(particle);
-        smokeParticles.push(particle);
-
-        smokeTimeline.fromTo(
-          particle,
-          {
-            autoAlpha: 0,
-            x: (Math.random() - 0.5) * 24,
-            y: 5 + Math.random() * 8,
-            scale: 0.2,
-          },
-          {
-            autoAlpha: 0.72,
-            x: direction * (18 + Math.random() * 24),
-            y: -(12 + Math.random() * 22),
-            scale: 1.35 + Math.random() * 0.8,
-            duration: 0.24 + Math.random() * 0.12,
-            ease: "power2.out",
-          },
-          particleIndex * 0.025,
-        );
-        smokeTimeline.to(
-          particle,
-          {
-            autoAlpha: 0,
-            y: -(28 + Math.random() * 22),
-            scale: 2.1,
-            duration: 0.48 + Math.random() * 0.18,
-            ease: "power1.out",
-            onComplete: () => particle.remove(),
-          },
-          particleIndex * 0.025 + 0.18,
-        );
-      }
-    };
 
     const landingTimeline = gsap.timeline({ delay: 0.2 });
     headerItems.forEach((item) => {
@@ -90,9 +47,7 @@ export function GsapJourneyScene() {
       gsap.set(item, { "--tab-progress": 0, autoAlpha: 0 });
 
       const index = headerItems.indexOf(item);
-      const itemTimeline = gsap.timeline({
-        onComplete: () => emitLandingSmoke(item, index),
-      });
+      const itemTimeline = gsap.timeline();
       itemTimeline
         .fromTo(
           item,
@@ -178,6 +133,52 @@ export function GsapJourneyScene() {
       clearProps: "filter",
     });
 
+    // Start shortly after the client view is mounted. Waiting for the full
+    // window load made the effect invisible on slower connections.
+    const ballTimeline = gsap.timeline({ paused: true });
+    const footballTab = document.querySelector<HTMLElement>('[data-sport-tab="football"]');
+    const basketballTab = document.querySelector<HTMLElement>('[data-sport-tab="basketball"]');
+
+    const choreographBall = (
+      asset: HTMLElement | undefined,
+      target: HTMLElement | null,
+      index: number,
+      fromX: number,
+      fromY: number,
+      rotation: number,
+      exitX: number,
+      exitY: number,
+    ) => {
+      if (!asset || !target) return;
+      const assetRect = asset.getBoundingClientRect();
+      // The header entrance temporarily translates the tabs. Measure their
+      // layout position without that temporary transform so the ball always
+      // targets the final, visible tab position.
+      const targetInlineStyle = target.getAttribute("style");
+      target.removeAttribute("style");
+      const targetRect = target.getBoundingClientRect();
+      if (targetInlineStyle) target.setAttribute("style", targetInlineStyle);
+      const impactX = targetRect.left + targetRect.width / 2 - (assetRect.left + assetRect.width / 2);
+      const impactY = targetRect.top + targetRect.height / 2 - (assetRect.top + assetRect.height / 2);
+      const position = index * 1.4;
+
+      gsap.set(asset, { autoAlpha: 0, x: 0, y: 0, scale: 0.72, rotate: rotation * 0.2 });
+      ballTimeline
+        .to(asset, { autoAlpha: 1, x: fromX, y: fromY, duration: 0.01 }, position)
+        .to(asset, { x: impactX, y: impactY, scale: 1, rotate: rotation, duration: 3.2, ease: "power2.in" }, position)
+        .call(() => target.classList.add("gsap-ball-impact"), [], position + 2.8)
+        .to(target, { x: index % 2 ? -7 : 7, y: -2, duration: 0.06, repeat: 3, yoyo: true, ease: "power1.inOut" }, position + 2.8)
+        .call(() => target.classList.remove("gsap-ball-impact"), [], position + 3.15)
+        .to(asset, { x: exitX, y: exitY, autoAlpha: 0, scale: 0.46, rotate: rotation * 1.4, duration: 1, ease: "power3.in" }, position + 3)
+        .set(target, { x: 0, y: 0 }, position + 4.2);
+    };
+
+    // Start just beyond each viewport edge. Starting several screen widths
+    // away made the first seconds look frozen even though GSAP was running.
+    choreographBall(footballBall, footballTab, 0, -180, window.innerHeight * 0.2, -720, window.innerWidth * 0.8, -120);
+    choreographBall(basketballBall, basketballTab, 1, window.innerWidth + 180, -window.innerHeight * 0.18, 720, -window.innerWidth * 0.8, -120);
+    const ballStartTimer = window.setTimeout(() => ballTimeline.play(0), 800);
+
     if (heroImage) {
       gsap.to(heroImage, {
         yPercent: 7,
@@ -251,15 +252,12 @@ export function GsapJourneyScene() {
           start: "top top+=72",
           end: "+=1500",
           pin: true,
-          scrub: 1.15,
+          // The reveal must settle quickly when the user stops scrolling.
+          // A long scrub combined with snap made the timeline keep moving
+          // after the gesture ended and could send the last card backwards.
+          scrub: 0.55,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          snap: {
-            snapTo: "labelsDirectional",
-            duration: { min: 0.25, max: 0.8 },
-            delay: 0.12,
-            ease: "power2.out",
-          },
         },
       });
 
@@ -299,7 +297,8 @@ export function GsapJourneyScene() {
 
     return () => {
       headerCleanup.forEach((cleanup) => cleanup());
-      smokeParticles.forEach((particle) => particle.remove());
+      window.clearTimeout(ballStartTimer);
+      ballTimeline.kill();
       mm.revert();
     };
   }, { scope });

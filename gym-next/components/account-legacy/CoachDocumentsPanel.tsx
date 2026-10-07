@@ -19,7 +19,7 @@ export function CoachDocumentsPanel({ coachId }: { coachId: string }) {
     setStatus(response.ok ? `${kind === "identity" ? "Identité" : "Diplôme"} transmis pour vérification.` : payload.error ?? "Dépôt impossible");
   }
 
-  return <section className="account-dashboard-card" data-coach-documents>
+  return <section className="account-dashboard-card" id="coach-documents" data-coach-documents>
     <h3>Justificatifs de vérification</h3>
     <p>Déposez des fichiers PDF ou image de 5 Mo maximum. Ils restent privés et ne sont visibles que par l’équipe habilitée.</p>
     <div className="account-inline-actions">

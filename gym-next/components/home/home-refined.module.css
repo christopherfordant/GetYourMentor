@@ -1,4 +1,5 @@
 .page { min-height: 100vh; background: #070d1d; color: #eef3ff; overflow-x: clip; }
+.page a { text-decoration: none; }
 .topbar { position: fixed; z-index: 30; inset: 0 0 auto; height: 76px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding: 0 clamp(20px, 5vw, 84px); border-bottom: 1px solid rgba(218,230,255,.1); background: rgba(7,13,29,.72); backdrop-filter: blur(18px); transition: background .25s ease, border-color .25s ease; }
 .topbarScrolled { background: rgba(7,13,29,.94); border-color: rgba(218,230,255,.18); }
 .brandLockup, .brandName { font-weight: 800; letter-spacing: -.04em; }
@@ -35,11 +36,30 @@
 .sectionHeading { max-width: 690px; margin-bottom: 34px; }
 .sectionHeading h2, .recruitCopy h2, .faqSection h2 { margin: 0; font-size: clamp(2rem, 4vw, 4.3rem); line-height: .98; letter-spacing: -.06em; }
 .sectionIntro, .carouselHint, .recruitCopy p { color: #9eabc3; line-height: 1.6; }
-.sportRailGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
-.sportRailCard { position: relative; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; overflow: hidden; border-radius: 18px; isolation: isolate; }
+.sportRailGrid { display: flex; gap: 0; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.sportRailGrid::-webkit-scrollbar { display: none; }
+.sportRailCard { position: relative; min-height: 320px; flex: 0 0 clamp(250px, 24vw, 340px); overflow: hidden; isolation: isolate; transition: flex-basis .45s ease, filter .45s ease, opacity .45s ease; }
+.sportRailCard:hover, .sportRailCard:focus-visible { flex-basis: clamp(300px, 30vw, 430px); z-index: 1; }
+.sportRailCard + .sportRailCard { border-left: 2px solid #07101f; }
 .sportRailImage, .sportRailShade { position: absolute; inset: 0; z-index: -2; }
 .sportRailImage { object-fit: cover; transition: transform .5s ease; }
 .sportRailCard:hover .sportRailImage { transform: scale(1.07); }
+.experienceSection { padding-top: 70px; }
+.experienceSection .sectionHeading { position: relative; }
+.experienceCounter { position: absolute; right: 0; bottom: 4px; color: #aebbd1; font-size: .8rem; letter-spacing: .15em; }
+.experienceCarousel { display: grid; grid-template-columns: minmax(0, 1fr) 72px; min-height: 560px; overflow: hidden; border-radius: 24px; background: #0c162b; }
+.experienceMedia { position: relative; min-height: 560px; overflow: hidden; }
+.experienceImage, .experienceShade { position: absolute; inset: 0; }
+.experienceImage { object-fit: cover; transition: transform .7s ease, opacity .35s ease; }
+.experienceShade { background: linear-gradient(90deg, rgba(7,13,29,.05), rgba(7,13,29,.12) 42%, rgba(7,13,29,.8)); }
+.experienceCaption { position: absolute; right: 8%; bottom: 12%; z-index: 1; max-width: 460px; color: #fff; }
+.experienceCaption h3 { margin: 0 0 10px; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -.05em; }
+.experienceCaption p { margin: 0; color: #dbe5f8; line-height: 1.55; }
+.experienceControls { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; background: #0c162b; }
+.experienceControls .carouselButton { position: static; transform: none; }
+.experienceDots { display: flex; flex-direction: column; gap: 10px; }
+.experienceDots button { width: 6px; height: 6px; padding: 0; border: 0; border-radius: 999px; background: #506382; cursor: pointer; }
+.experienceDots button[aria-current="true"] { height: 30px; background: #caff3d; }
 .sportRailShade { z-index: -1; background: linear-gradient(180deg, rgba(7,13,29,.16), rgba(7,13,29,.9)); }
 .sportRailIndex { color: #caff3d; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
 .sportRailLabel { font-size: clamp(1.25rem, 2vw, 2rem); font-weight: 800; }
@@ -52,7 +72,12 @@
 .carouselButton:hover { background: #caff3d; color: #07101d; }
 .carouselCounter { position: absolute; right: 50%; bottom: 22px; color: #aebbd1; font-size: .8rem; letter-spacing: .15em; transform: translateX(50%); }
 .howGrid { display: flex; width: max-content; gap: 18px; min-height: 490px; align-items: stretch; will-change: transform; touch-action: pan-y; }
-.stepCard { width: min(72vw, 760px); min-height: 480px; display: grid; grid-template-rows: auto 1fr; padding: 28px; border: 1px solid rgba(219,230,255,.14); border-radius: 22px; background: #111f39; box-shadow: 0 24px 50px rgba(0,0,0,.2); }
+.stepCard { width: min(72vw, 760px); min-height: 480px; display: grid; grid-template-rows: auto 1fr; padding: 28px; border: 1px solid rgba(219,230,255,.14); border-radius: 22px; background: #111f39; box-shadow: 0 24px 50px rgba(0,0,0,.2); opacity: .55; transform: scale(.92); transform-origin: center; transition: transform .55s ease, opacity .55s ease, filter .55s ease; filter: saturate(.7); }
+.progressVisual { min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 32px; border-radius: 16px; background: linear-gradient(145deg, #20385e, #132440); color: #aebbd1; }
+.progressVisual span { color: #caff3d; font-size: .72rem; font-weight: 800; letter-spacing: .14em; }
+.progressVisual strong { color: #f4f7ff; font-size: clamp(3rem, 7vw, 5.4rem); letter-spacing: -.08em; }
+.progressVisual small { font-size: .9rem; }
+.stepCard[data-active="true"] { opacity: 1; transform: scale(1); filter: saturate(1); }
 .stepHead { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 .stepHead h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -.05em; }
 .stepNumber { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 auto; border-radius: 12px; background: #24395d; color: #caff3d; font-weight: 800; }
@@ -65,6 +90,7 @@
 .pill { margin: 12px 0 20px; color: #caff3d; font-size: .8rem; }
 .darkButton, .darkButtonLink { background: #203454; color: #fff; }
 .stepActions { display: flex; align-items: center; justify-content: space-between; grid-column: 1 / -1; align-self: end; padding-top: 16px; }
+.stepActions .arrowButton { display: none; }
 .arrowButton { width: 42px; height: 42px; border: 1px solid rgba(219,230,255,.2); border-radius: 12px; background: #172943; color: #fff; font-size: 1.5rem; cursor: pointer; }
 .dots { display: flex; gap: 7px; }
 .dot, .dotActive { width: 7px; height: 7px; border-radius: 50%; background: #506382; }
@@ -123,6 +149,156 @@
   .insightsGrid, .localesGrid { grid-template-columns: 1fr; }
 }
 
+/* Emergent alignment pass: keep the three header zones on a true grid so the
+   navigation remains centered independently from the right actions. */
+@media (min-width: 901px) {
+  .topbar {
+    height: 72px;
+    grid-template-columns: 1fr auto 1fr;
+    padding-inline: clamp(24px, 4vw, 56px);
+    gap: 32px;
+  }
+
+  .brandLockup { justify-self: start; }
+  .sportsNav { justify-self: center; align-items: center; }
+  .topbarActions { justify-self: end; }
+  .main { padding-top: 72px; }
+  .hero { min-height: min(828px, calc(100svh - 72px)); }
+  .heroTitle {
+    max-width: 760px;
+    font-size: clamp(3.25rem, 5.7vw, 5.65rem);
+    line-height: .94;
+  }
+  .heroCopy { margin-top: 24px; margin-bottom: 28px; }
+}
+
+/* The reference uses a quiet, compact language control rather than a native
+   select-looking block in the header. */
+.topbarActions :global(.language-selector) {
+  position: relative;
+  min-width: 64px;
+}
+
+.topbarActions :global(.language-selector summary) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 64px;
+  padding: 10px 13px;
+  border: 1px solid rgba(219,230,255,.28);
+  border-radius: 999px;
+  color: #f4f7ff;
+  cursor: pointer;
+  list-style: none;
+}
+
+.topbarActions :global(.language-selector summary::-webkit-details-marker) { display: none; }
+.topbarActions :global(.language-selector[open] summary) { border-color: rgba(202,255,61,.72); }
+.topbarActions :global(.language-selector-panel) {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 40;
+  display: grid;
+  min-width: 142px;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid rgba(219,230,255,.16);
+  border-radius: 14px;
+  background: rgba(15,27,53,.98);
+  box-shadow: 0 16px 40px rgba(0,0,0,.3);
+}
+
+.topbarActions :global(.language-selector-panel button),
+.topbarActions :global(.language-selector-panel select) {
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #dbe5f8;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.topbarActions :global(.language-selector-panel button:hover),
+.topbarActions :global(.language-selector-panel select:hover) {
+  background: rgba(202,255,61,.14);
+  color: #caff3d;
+}
+
+@media (max-width: 900px) {
+  .heroTitle { max-width: 680px; line-height: .95; }
+  .heroCopy { margin-top: 20px; margin-bottom: 24px; }
+}
+
+/* Senior layout pass: keep the visual language editorial and let the hero
+   breathe like the reference composition instead of stacking everything in
+   the middle of the viewport. */
+.page {
+  background: #07101f;
+  color: #f4f7ff;
+}
+
+.topbar {
+  height: 80px;
+  padding-inline: clamp(24px, 3.2vw, 48px);
+  grid-template-columns: minmax(190px, 1fr) auto minmax(300px, 1fr);
+  gap: 28px;
+}
+
+.brandName { font-size: 1.08rem; }
+.sportsNav { gap: clamp(18px, 2.4vw, 36px); }
+.topbarActions { justify-content: flex-end; gap: 22px; }
+.topbarLink { white-space: nowrap; }
+
+.main { padding-top: 80px; }
+.hero {
+  min-height: min(820px, calc(100svh - 80px));
+  align-items: center;
+  background: #07101f;
+}
+.heroOverlay {
+  background:
+    linear-gradient(90deg, rgba(7, 13, 29, .94) 0%, rgba(7, 13, 29, .72) 36%, rgba(7, 13, 29, .24) 75%, rgba(7, 13, 29, .48) 100%),
+    linear-gradient(0deg, rgba(7, 13, 29, .7), transparent 48%);
+}
+.heroContent {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: clamp(76px, 11vh, 132px) clamp(24px, 3.2vw, 48px) 64px;
+  text-align: left;
+}
+.eyebrow { display: inline-flex; margin-bottom: 26px; padding: 8px 13px; border: 1px solid rgba(202, 255, 61, .42); border-radius: 999px; background: rgba(12, 25, 48, .6); }
+.heroTitle { max-width: 780px; margin: 0; font-size: clamp(3.35rem, 7vw, 6.5rem); line-height: .92; }
+.heroCopy { max-width: 560px; margin: 28px 0 34px; }
+.searchCard { max-width: 768px; }
+.heroMetrics { gap: clamp(24px, 3vw, 46px); margin-top: 38px; }
+.heroMetric { display: inline-flex; align-items: baseline; gap: 8px; }
+.heroMetric strong { font-size: 1.3rem; }
+
+@media (max-width: 900px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .sportsNav { display: none; }
+  .topbarActions { gap: 10px; }
+  .heroContent { padding: 86px 20px 48px; }
+  .heroTitle { max-width: 620px; font-size: clamp(3.2rem, 13vw, 5.6rem); }
+  .searchCard { grid-template-columns: 1fr; }
+  .searchButton { width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .topbar { height: 68px; padding-inline: 16px; }
+  .main { padding-top: 68px; }
+  .topbarLink { display: none; }
+  .hero { min-height: calc(100svh - 68px); }
+  .heroContent { padding: 64px 16px 34px; }
+  .heroTitle { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .heroMetrics { display: grid; gap: 12px; margin-top: 28px; }
+}
+
 @media (max-width: 620px) {
   .topbar { height: 64px; padding-inline: 16px; }
   .main { padding-top: 64px; }
@@ -147,9 +323,733 @@
   .siteFooter { grid-template-columns: 1fr; }
 }
 
+/* Derniere couche de stabilisation du header : largeur naturelle des groupes. */
+.topbar {
+  grid-template-columns: auto auto auto !important;
+  justify-content: space-between !important;
+  background: rgba(10, 22, 40, .8) !important;
+  border-bottom-color: rgba(255, 255, 255, .05) !important;
+}
+.sportsNav { width: max-content !important; justify-self: center !important; }
+
+/* Final authenticated-blue cascade. */
+.page { background: #07101f !important; color: #f4f7ff !important; }
+.topbar, .topbarScrolled { background: rgba(7,16,31,.88) !important; color: #f4f7ff !important; border-bottom-color: rgba(219,230,255,.12) !important; }
+.brandName, .sportLink, .topbarLink { color: #f4f7ff !important; }
+.hero { background: #07101f !important; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%) !important; }
+.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong, .faqItem summary { color: #f4f7ff !important; }
+.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: #aebbd1 !important; }
+.searchCard { background: rgba(15,27,53,.9) !important; border-color: rgba(219,230,255,.18) !important; }
+.field { background: rgba(34,52,84,.72) !important; }
+.fieldLabel { color: #caff3d !important; }
+.fieldInput { color: #fff !important; }
+.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #caff3d !important; color: #07101f !important; }
+.carouselViewport { background: rgba(15,27,53,.72) !important; }
+.stepCard, .insightCard, .localeColumn { background: rgba(17,31,57,.94) !important; border-color: rgba(219,230,255,.14) !important; }
+.carouselButton, .arrowButton { background: #172943 !important; color: #fff !important; border-color: rgba(219,230,255,.25) !important; }
+.stepNumber, .slotButton { background: #24395d !important; color: #caff3d !important; }
+.slotSelected { background: #caff3d !important; color: #07101f !important; }
+.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(219,230,255,.13) !important; }
+.metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
+.siteFooter { background: #07101f !important; color: #aebbd1 !important; }
+.footerBrand { color: #f4f7ff !important; }
+
+/* Keep below-the-fold sections out of the initial layout/paint work while
+   preserving their exact visual dimensions when the user reaches them. */
+.sportRail,
+.experienceSection,
+.carouselViewport,
+.metricsSection,
+.recruitSection,
+.faqSection,
+.siteFooter { content-visibility: auto; contain-intrinsic-size: 700px; }
+
+/* Emergent coverflow: previous, active and next image stay visible. The
+   active slide is larger and brighter; arrows rotate the index infinitely. */
+.experienceStage { position: absolute; inset: 0; z-index: 0; display: flex; align-items: center; justify-content: center; gap: 18px; overflow: hidden; }
+.experienceSlide { position: relative; flex: 0 0 34%; height: 72%; overflow: hidden; border-radius: 18px; opacity: .46; transform: scale(.82); filter: saturate(.72) brightness(.62); transition: transform .65s cubic-bezier(.2,.8,.2,1), opacity .65s ease, filter .65s ease; }
+.experienceSlideActive { flex-basis: 52%; height: 86%; z-index: 2; opacity: 1; transform: scale(1); filter: saturate(1) brightness(1); box-shadow: 0 24px 55px rgba(0,0,0,.3); }
+.experienceSlideSideLeft, .experienceSlideSideRight { flex-basis: 34%; height: 72%; }
+.experienceSlideSideLeft { transform: translateX(-2%) scale(.82); }
+.experienceSlideSideRight { transform: translateX(2%) scale(.82); }
+.experienceSlideActive, .experienceSlideSideLeft, .experienceSlideSideRight { transition: flex-basis .72s cubic-bezier(.22,.8,.2,1), height .72s cubic-bezier(.22,.8,.2,1), transform .72s cubic-bezier(.22,.8,.2,1), opacity .72s ease, filter .72s ease; }
+.experienceSlide .experienceImage { object-fit: cover !important; }
+.experienceStage::before, .experienceStage::after { content: ""; position: absolute; top: 0; bottom: 0; z-index: 3; width: 16%; pointer-events: none; }
+.experienceStage::before { left: 0; background: linear-gradient(90deg, rgba(7,13,29,.72), transparent); }
+.experienceStage::after { right: 0; background: linear-gradient(270deg, rgba(7,13,29,.72), transparent); }
+.experienceCarousel > .experienceMedia > .experienceShade { z-index: 4 !important; pointer-events: none; background: linear-gradient(0deg, rgba(5,9,18,.86), transparent 55%) !important; }
+.experienceCarousel > .experienceMedia > .experienceCaption { z-index: 5 !important; }
+.experienceGallery { display: none !important; }
+
+@media (max-width: 900px) {
+  .experienceStage { gap: 10px; }
+  .experienceSlide { flex-basis: 28%; height: 68%; }
+  .experienceSlideActive { flex-basis: 68%; height: 82%; }
+  .experienceSlideSideLeft, .experienceSlideSideRight { flex-basis: 28%; height: 68%; }
+}
+
+/* Emergent-style experience carousel: exactly one active composition fills
+   the viewport. Adjacent slides are never rendered beside it; only the two
+   small gallery previews remain visible in the upper-right corner. */
+.experienceCarousel {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 580px !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+}
+.experienceMedia {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 580px !important;
+  overflow: hidden !important;
+}
+.experienceImage { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover !important; }
+.experienceShade { position: absolute !important; inset: 0 !important; z-index: 1 !important; background: linear-gradient(0deg, rgba(5,9,18,.86), rgba(5,9,18,.04) 62%) !important; }
+.experienceGallery { top: 24px !important; right: 24px !important; z-index: 4 !important; }
+.experienceCaption { left: 7% !important; right: auto !important; bottom: 88px !important; z-index: 4 !important; }
+.experienceControls { inset: auto 24px 22px !important; z-index: 6 !important; }
+.experienceControls .carouselButton { position: static !important; width: 48px !important; height: 48px !important; }
+.experienceDots { position: absolute !important; left: 50% !important; transform: translateX(-50%); }
+
+@media (max-width: 620px) {
+  .experienceCarousel, .experienceMedia { min-height: 500px !important; }
+  .experienceGallery { top: 16px !important; right: 16px !important; }
+  .experienceCaption { left: 20px !important; bottom: 82px !important; }
+  .experienceControls { inset-inline: 16px !important; bottom: 16px !important; }
+}
+
+/* Multi-image experience composition, matching the reference's layered
+   editorial treatment while keeping the active image dominant. */
+.experienceGallery { position: absolute; top: 28px; right: 28px; z-index: 2; display: grid; grid-template-columns: repeat(2, 112px); gap: 10px; }
+.experienceThumb { position: relative !important; width: 112px !important; height: 82px !important; object-fit: cover; border: 1px solid rgba(244,247,255,.28); border-radius: 10px; opacity: .9; box-shadow: 0 10px 24px rgba(0,0,0,.24); }
+.experienceGallery::after { content: ""; position: absolute; inset: -8px; z-index: -1; border: 1px solid rgba(202,255,61,.28); border-radius: 14px; transform: rotate(-2deg); pointer-events: none; }
+
+@media (max-width: 620px) {
+  .experienceGallery { top: 18px; right: 18px; grid-template-columns: repeat(2, 74px); gap: 6px; }
+  .experienceThumb { width: 74px !important; height: 56px !important; }
+}
+
+/* Image-first carousel treatment: the journey is a visual rail, not a set of
+   nested cards. Headers remain readable while the visual surface carries the
+   composition and future sport-specific motion. */
+.howGrid { gap: 22px !important; }
+.stepCard {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+.stepCard[data-active="false"] { opacity: .42; transform: scale(.94); }
+.stepCard[data-active="true"] { opacity: 1; transform: scale(1); }
+.stepHead { position: relative; z-index: 3; margin: 0 0 -58px 22px !important; padding-top: 22px; pointer-events: none; }
+.stepHead h3 { text-shadow: 0 2px 18px rgba(0,0,0,.5); }
+.miniScreen {
+  position: relative;
+  display: grid !important;
+  min-height: 510px !important;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .72fr) !important;
+  gap: 0 !important;
+  overflow: hidden;
+  padding: 76px 30px 30px !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #1b3155, #0f1e38) !important;
+}
+.miniScreen::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(90deg, rgba(7,13,29,.12), rgba(7,13,29,.72)); pointer-events: none; }
+.miniScreen > * { position: relative; z-index: 1; }
+.slideMedia, .slotVisual { min-height: 360px !important; border-radius: 16px !important; }
+.slideContent { padding: 28px; }
+.stepActions { position: absolute; right: 24px; bottom: 24px; left: 24px; z-index: 3; }
+.carouselViewport > .carouselControls { z-index: 8; }
+.carouselViewport > .carouselControls .carouselButton { pointer-events: auto; }
+
+/* A button is a discrete action: no press-and-hold is required. */
+.carouselButton, .arrowButton, .experienceDots button { user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+
+@media (max-width: 900px) {
+  .stepHead { margin-left: 16px !important; }
+  .miniScreen { grid-template-columns: 1fr !important; padding: 70px 18px 24px !important; }
+  .slideMedia, .slotVisual { min-height: 250px !important; }
+  .slideContent { padding: 20px 0 56px; }
+}
+
+/* Footer: restrained final section, with a clear legal/navigation hierarchy. */
+.siteFooter {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 22px 34px !important;
+  padding: 58px max(24px, 8vw) 34px !important;
+  border-top: 1px solid rgba(219,230,255,.16) !important;
+  background: #07101f !important;
+}
+.footerBrand { font-size: 1.05rem; letter-spacing: .08em; }
+.siteFooter p { color: #aebbd1; }
+.footerLinks { display: flex !important; justify-content: flex-end; gap: 12px 22px !important; color: #aebbd1 !important; }
+.footerLinks a { transition: color .2s ease; }
+.footerLinks a:hover, .footerLinks a:focus-visible { color: #caff3d !important; }
+.siteFooter small { color: rgba(174,187,209,.68); }
+
+.mobileNav {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 25;
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 8px;
+  border: 1px solid rgba(219,230,255,.16);
+  border-radius: 18px;
+  background: rgba(10,22,40,.94);
+  box-shadow: 0 16px 34px rgba(0,0,0,.3);
+  backdrop-filter: blur(18px);
+}
+.mobileNavItem, .mobileNavItemActive { display: grid; justify-items: center; gap: 4px; padding: 8px 4px; color: #aebbd1; font-size: .68rem; }
+.mobileNavItemActive { color: #caff3d; }
+
+@media (max-width: 620px) {
+  .siteFooter { grid-template-columns: 1fr !important; gap: 14px !important; padding: 44px 20px 98px !important; }
+  .footerLinks { justify-content: flex-start; grid-column: auto !important; }
+  .siteFooter small { grid-column: auto !important; }
+  .mobileNav { display: grid; }
+}
+
+/* FAQ: clean accordion surface, consistent with the dark editorial system. */
+.faqSection {
+  padding-block: 112px !important;
+  background: transparent !important;
+}
+.faqSection > h2 { max-width: 700px; margin: 0 !important; }
+.faqList { max-width: 980px !important; margin-top: 42px !important; border-top: 1px solid rgba(219,230,255,.16); }
+.faqItem, .faqItem:last-child {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(219,230,255,.16) !important;
+}
+.faqItem summary {
+  position: relative;
+  padding: 25px 54px 25px 0 !important;
+  color: #f4f7ff !important;
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.35;
+  transition: color .2s ease;
+}
+.faqItem summary::-webkit-details-marker { display: none; }
+.faqItem summary::after {
+  content: "+" !important;
+  position: absolute;
+  top: 22px;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(219,230,255,.28);
+  border-radius: 50%;
+  color: #caff3d !important;
+  font-size: 1.2rem !important;
+  font-weight: 400;
+  transition: transform .25s ease, background .25s ease;
+}
+.faqItem[open] summary { color: #caff3d !important; }
+.faqItem[open] summary::after { content: "−" !important; transform: rotate(180deg); background: rgba(202,255,61,.1); }
+.faqItem p {
+  max-width: 760px !important;
+  margin: -2px 70px 24px 0 !important;
+  color: #aebbd1 !important;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 620px) {
+  .faqSection { padding-block: 76px !important; }
+  .faqList { margin-top: 28px !important; }
+  .faqItem summary { padding-block: 21px !important; }
+  .faqItem summary::after { top: 17px; }
+  .faqItem p { margin-right: 0 !important; }
+}
+
+/* National coverage: open columns with links, not four nested cards. */
+.localesGrid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border-top: 1px solid rgba(219,230,255,.16);
+  border-bottom: 1px solid rgba(219,230,255,.16);
+}
+.localeColumn {
+  min-height: 250px !important;
+  padding: 28px 24px !important;
+  border: 0 !important;
+  border-right: 1px solid rgba(219,230,255,.16) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.localeColumn:first-child { padding-left: 0 !important; }
+.localeColumn:last-child { border-right: 0 !important; }
+.localeColumn h3 { margin: 0 !important; color: #f4f7ff !important; font-size: 1.35rem !important; }
+.localeColumn p { margin: 12px 0 0 !important; font-size: .88rem; }
+.localeLinks { display: flex !important; gap: 8px 14px !important; margin-top: 22px !important; }
+.localeLinks a { color: #aebbd1 !important; font-size: .82rem; transition: color .2s ease; }
+.localeLinks a:hover, .localeLinks a:focus-visible { color: #caff3d !important; }
+
+@media (max-width: 900px) {
+  .localesGrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .localeColumn, .localeColumn:first-child { padding: 24px 18px !important; }
+  .localeColumn:nth-child(2) { border-right: 0 !important; }
+  .localeColumn:nth-child(-n+2) { border-bottom: 1px solid rgba(219,230,255,.16) !important; }
+}
+
+@media (max-width: 560px) {
+  .localesGrid { grid-template-columns: 1fr !important; }
+  .localeColumn, .localeColumn:first-child { padding: 22px 0 !important; border-right: 0 !important; border-bottom: 1px solid rgba(219,230,255,.16) !important; }
+  .localeColumn:last-child { border-bottom: 0 !important; }
+}
+
+/* Professional recruitment block: image-led composition with an open text
+   column, avoiding another boxed panel. */
+.recruitSection {
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr) !important;
+  gap: clamp(36px, 7vw, 104px) !important;
+  padding-block: 112px !important;
+}
+.recruitMedia {
+  min-height: 500px !important;
+  border-radius: 24px !important;
+  box-shadow: none !important;
+  isolation: isolate;
+}
+.recruitMedia::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 45%, rgba(5,9,18,.5)); pointer-events: none; }
+.recruitCopy { max-width: 580px !important; }
+.recruitCopy h2 { margin: 0 !important; font-size: clamp(2.35rem, 4.2vw, 4.5rem) !important; line-height: .98 !important; }
+.recruitCopy p { max-width: 500px; margin: 24px 0 30px !important; }
+.recruitCopy .darkButtonLink { background: #caff3d !important; color: #07101f !important; border-radius: 999px !important; }
+
+@media (max-width: 900px) {
+  .recruitSection { grid-template-columns: 1fr !important; gap: 30px !important; padding-block: 76px !important; }
+  .recruitMedia { min-height: 360px !important; order: 1; }
+  .recruitCopy { order: 2; }
+}
+
+/* Routine section: numbered editorial list, not a grid of boxed cards. */
+.insightsGrid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  border-top: 1px solid rgba(219,230,255,.16);
+}
+.insightCard {
+  position: relative;
+  min-height: 0 !important;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  padding: 26px 22px !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(219,230,255,.16) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.insightCard:nth-child(odd) { border-right: 1px solid rgba(219,230,255,.16) !important; padding-left: 0 !important; }
+.insightCard strong {
+  color: #caff3d !important;
+  font-size: 1rem !important;
+  letter-spacing: .12em;
+  line-height: 1.3;
+}
+.insightCard p { margin: 0 !important; color: #dbe5f8 !important; line-height: 1.45 !important; }
+.insightCard::after { content: ""; position: absolute; left: 22px; right: 22px; bottom: -1px; height: 1px; background: transparent; transition: background .25s ease; }
+.insightCard:hover::after, .insightCard:focus-within::after { background: #caff3d; }
+.insightCard .insightButton { grid-column: 2; justify-self: start; margin-top: 4px; }
+
+@media (max-width: 700px) {
+  .insightsGrid { grid-template-columns: 1fr !important; }
+  .insightCard, .insightCard:nth-child(odd) { grid-template-columns: 54px minmax(0, 1fr); padding: 22px 0 !important; border-right: 0 !important; }
+  .insightCard::after { left: 0; right: 0; }
+}
+
+/* Trust metrics: a single editorial strip instead of three floating cards. */
+.metricsSection { width: min(1180px, calc(100% - 48px)) !important; padding: 36px 0 104px !important; }
+.metricsGrid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  border-block: 1px solid rgba(219,230,255,.16) !important;
+}
+.metric {
+  min-height: 126px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 34px 28px !important;
+  border-right: 1px solid rgba(219,230,255,.16) !important;
+}
+.metric:first-child { padding-left: 0 !important; }
+.metric:last-child { border-right: 0 !important; }
+.metric strong { color: #f4f7ff !important; font-size: clamp(2rem, 4vw, 3.65rem) !important; line-height: 1 !important; }
+.metric span { color: #aebbd1 !important; font-size: .86rem; }
+
+@media (max-width: 700px) {
+  .metricsSection { width: calc(100% - 32px) !important; padding-block: 28px 76px !important; }
+  .metricsGrid { grid-template-columns: 1fr !important; }
+  .metric, .metric:first-child { min-height: 0; padding: 22px 0 !important; border-right: 0 !important; border-bottom: 1px solid rgba(219,230,255,.16) !important; }
+  .metric:last-child { border-bottom: 0 !important; }
+}
+
+/* Journey rail: one active editorial panel, with adjacent panels acting as
+   quiet previews. The track remains draggable through the existing GSAP
+   Draggable/InertiaPlugin implementation. */
+.carouselViewport {
+  min-height: 620px !important;
+  padding: 28px 0 82px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: rgba(15,27,53,.72) !important;
+}
+.howGrid { gap: 16px !important; min-height: 510px !important; }
+.stepCard {
+  width: min(68vw, 760px) !important;
+  min-height: 510px !important;
+  padding: 30px !important;
+  border: 1px solid rgba(219,230,255,.12) !important;
+  border-radius: 20px !important;
+  background: rgba(17,31,57,.96) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.24) !important;
+}
+.stepCard[data-active="true"] { border-color: rgba(202,255,61,.34) !important; }
+.stepHead { margin-bottom: 22px !important; }
+.stepNumber { width: 40px !important; height: 40px !important; border-radius: 50% !important; }
+.miniScreen { gap: 26px !important; min-height: 370px !important; }
+.slideMedia, .slotVisual { min-height: 300px !important; border-radius: 14px !important; }
+.stepActions { padding-top: 18px !important; }
+.carouselViewport > .carouselControls .carouselButton { top: auto !important; bottom: 20px !important; transform: none !important; }
+.carouselViewport > .carouselControls .carouselButton:first-child { left: 24px !important; }
+.carouselViewport > .carouselControls .carouselButton:last-child { right: 24px !important; }
+.carouselViewport > .carouselControls .carouselCounter { bottom: 38px !important; }
+
+@media (max-width: 900px) {
+  .carouselViewport { min-height: 600px !important; }
+  .stepCard { width: 82vw !important; min-height: 500px !important; padding: 22px !important; }
+  .miniScreen { min-height: 360px !important; }
+}
+
+/* Discipline rail: editorial image strip with readable metadata, not nested
+   cards. The text stays on the image and the rail remains horizontally
+   scrollable on narrow screens. */
+.sportRailGrid { display: flex !important; gap: 0 !important; }
+.sportRailCard { min-height: 360px !important; border-radius: 0 !important; box-shadow: none !important; }
+.sportRailCopy { position: absolute; inset: auto 24px 22px; z-index: 2; display: grid; gap: 6px; color: #fff; }
+.sportRailIndex { color: #caff3d !important; font-size: .72rem; letter-spacing: .16em; }
+.sportRailLabel { color: #fff; font-size: clamp(1.35rem, 2.2vw, 2.05rem); line-height: 1; letter-spacing: -.04em; }
+.sportRailAction { color: rgba(244,247,255,.76) !important; font-size: .84rem; }
+.sportRailCard::after { content: ""; position: absolute; inset: auto 0 0; height: 48%; z-index: 1; background: linear-gradient(0deg, rgba(5,9,18,.88), transparent); pointer-events: none; }
+.sportRailCard + .sportRailCard { border-left: 1px solid rgba(219,230,255,.18) !important; }
+.sportRailCard:hover .sportRailCopy, .sportRailCard:focus-visible .sportRailCopy { transform: translateY(-4px); transition: transform .35s ease; }
+
+@media (max-width: 900px) {
+  .sportRailGrid { margin-inline: -14px; padding-inline: 14px; }
+  .sportRailCard { flex-basis: 78vw !important; min-height: 300px !important; }
+}
+
+/* Experience rail: full-bleed editorial image, with navigation layered over
+   the image instead of a second side container. */
+.experienceCarousel {
+  position: relative !important;
+  display: block !important;
+  min-height: 580px !important;
+  border-radius: 24px !important;
+  background: #0c162b !important;
+}
+.experienceMedia { min-height: 580px !important; }
+.experienceShade { background: linear-gradient(90deg, rgba(7,13,29,.08), rgba(7,13,29,.12) 42%, rgba(7,13,29,.76)) !important; }
+.experienceCaption { right: auto !important; left: clamp(24px, 6vw, 82px); bottom: clamp(72px, 10vw, 108px); max-width: 520px !important; }
+.experienceCaption h3 { font-size: clamp(2rem, 4vw, 3.5rem) !important; }
+.experienceControls {
+  position: absolute !important;
+  inset: auto 24px 24px !important;
+  z-index: 3;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 0 !important;
+  background: transparent !important;
+  pointer-events: none;
+}
+.experienceControls .carouselButton { pointer-events: auto; }
+.experienceDots { flex-direction: row !important; align-items: center; gap: 8px !important; pointer-events: auto; }
+.experienceDots button[aria-current="true"] { width: 30px; height: 6px; }
+
+@media (max-width: 620px) {
+  .experienceCarousel { min-height: 500px !important; border-radius: 18px !important; }
+  .experienceMedia { min-height: 500px !important; }
+  .experienceCaption { left: 20px !important; right: 20px !important; bottom: 78px !important; }
+  .experienceCaption h3 { font-size: 2rem !important; }
+  .experienceControls { inset-inline: 16px !important; bottom: 16px !important; }
+}
+
+/* Last-pass hierarchy overrides: these must remain last so legacy palette
+   layers above cannot re-expand the hero typography. */
+@media (min-width: 901px) {
+  .topbar {
+    height: 72px !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    padding-inline: clamp(24px, 4vw, 56px) !important;
+  }
+  .brandLockup { justify-self: start; }
+  .sportsNav { justify-self: center; }
+  .topbarActions { justify-self: end; }
+  .main { padding-top: 72px !important; }
+  .hero { min-height: min(828px, calc(100svh - 72px)) !important; }
+  .heroTitle { max-width: 760px !important; font-size: clamp(3.25rem, 5.7vw, 5.65rem) !important; line-height: .94 !important; }
+  .heroCopy { margin-top: 24px !important; margin-bottom: 28px !important; }
+}
+.topbar {
+  padding-inline: clamp(24px, 2.6vw, 37px) !important;
+  grid-template-columns: auto auto auto !important;
+  justify-content: space-between !important;
+  background: rgba(10, 22, 40, .8) !important;
+  border-bottom-color: rgba(255, 255, 255, .05) !important;
+}
+.sportsNav { width: auto !important; }
+
+/* Final header parity overrides. */
+.topbar {
+  padding-inline: clamp(24px, 2.6vw, 37px) !important;
+  grid-template-columns: auto auto auto !important;
+  justify-content: space-between !important;
+  background: rgba(10, 22, 40, .8) !important;
+  border-bottom-color: rgba(255, 255, 255, .05) !important;
+}
+.sportsNav { width: auto !important; }
+
+/* Composition de reference : le header flotte au-dessus du hero. */
+.main { padding-top: 0 !important; }
+.hero { min-height: 100svh !important; }
+
+/* Ajustement header selon la composition Emergent. */
+.topbar {
+  padding-inline: clamp(24px, 2.6vw, 37px) !important;
+  grid-template-columns: auto 1fr auto !important;
+  background: rgba(10, 22, 40, .8) !important;
+  border-bottom-color: rgba(255, 255, 255, .05) !important;
+}
+.brandName { font-size: 20px !important; font-weight: 700 !important; letter-spacing: -.025em; }
+.topbarActions { gap: 14px !important; }
+
+/* Le parcours reste interactif au clavier et au swipe, mais reprend la composition sobre d'Emergent. */
+[data-gsap-section="journey"] .carouselHint,
+[data-gsap-section="journey"] .carouselControls { display: none; }
+
+@media (max-width: 620px) {
+  .heroContent { box-sizing: border-box; min-width: 0; max-width: 100%; }
+  .heroTitle { box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0; font-size: clamp(2.7rem, 14vw, 4.25rem) !important; line-height: .94; overflow-wrap: anywhere; }
+  .heroCopy { max-width: 100%; }
+}
+
+/* Final senior pass: this is intentionally the last layer in the module. */
+.topbar { height: 80px; padding-inline: clamp(24px, 3.2vw, 48px); grid-template-columns: minmax(190px, 1fr) auto minmax(300px, 1fr); gap: 28px; }
+.sportsNav { gap: clamp(18px, 2.4vw, 36px); }
+.topbarActions { justify-content: flex-end; gap: 22px; }
+.main { padding-top: 80px; }
+.hero { min-height: min(820px, calc(100svh - 80px)); align-items: center; }
+.heroOverlay { background: linear-gradient(90deg, rgba(7,13,29,.94) 0%, rgba(7,13,29,.72) 36%, rgba(7,13,29,.24) 75%, rgba(7,13,29,.48) 100%), linear-gradient(0deg, rgba(7,13,29,.7), transparent 48%) !important; }
+.heroContent { width: min(100%, 1280px); margin: 0 auto; padding: clamp(76px, 11vh, 132px) clamp(24px, 3.2vw, 48px) 64px; text-align: left; }
+.eyebrow { display: inline-flex; margin-bottom: 26px; padding: 8px 13px; border: 1px solid rgba(202,255,61,.42); border-radius: 999px; background: rgba(12,25,48,.6); }
+.heroTitle { max-width: 780px; margin: 0; font-size: clamp(3.35rem, 7vw, 6.5rem); line-height: .92; }
+.heroCopy { max-width: 560px; margin: 28px 0 34px; }
+.searchCard { max-width: 768px; }
+.heroMetrics { gap: clamp(24px, 3vw, 46px); margin-top: 38px; }
+.heroMetric { display: inline-flex; align-items: baseline; gap: 8px; }
+.heroMetric strong { font-size: 1.3rem; }
+@media (max-width: 900px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .sportsNav { display: none; }
+  .topbarActions { gap: 10px; }
+  .heroContent { padding: 86px 20px 48px; }
+  .heroTitle { max-width: 620px; font-size: clamp(3.2rem, 13vw, 5.6rem); }
+  .searchCard { grid-template-columns: 1fr; }
+  .searchButton { width: 100%; }
+}
+@media (max-width: 560px) {
+  .topbar { height: 68px; padding-inline: 16px; }
+  .main { padding-top: 68px; }
+  .topbarLink { display: none; }
+  .hero { min-height: calc(100svh - 68px); }
+  .heroContent { padding: 64px 16px 34px; }
+  .heroTitle { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .heroMetrics { display: grid; gap: 12px; margin-top: 28px; }
+}
+
+/* Senior layout pass: editorial alignment, controlled hero scale, and a
+   single responsive rhythm. This block wins over the historical iterations. */
+.topbar { height: 80px; padding-inline: clamp(24px, 3.2vw, 48px); grid-template-columns: minmax(190px, 1fr) auto minmax(300px, 1fr); gap: 28px; }
+.sportsNav { gap: clamp(18px, 2.4vw, 36px); }
+.topbarActions { justify-content: flex-end; gap: 22px; }
+.main { padding-top: 80px; }
+.hero { min-height: min(820px, calc(100svh - 80px)); align-items: center; }
+.heroOverlay { background: linear-gradient(90deg, rgba(7,13,29,.94) 0%, rgba(7,13,29,.72) 36%, rgba(7,13,29,.24) 75%, rgba(7,13,29,.48) 100%), linear-gradient(0deg, rgba(7,13,29,.7), transparent 48%) !important; }
+.heroContent { width: min(100%, 1280px); margin: 0 auto; padding: clamp(76px, 11vh, 132px) clamp(24px, 3.2vw, 48px) 64px; text-align: left; }
+.eyebrow { display: inline-flex; margin-bottom: 26px; padding: 8px 13px; border: 1px solid rgba(202,255,61,.42); border-radius: 999px; background: rgba(12,25,48,.6); }
+.heroTitle { max-width: 780px; margin: 0; font-size: clamp(3.35rem, 7vw, 6.5rem); line-height: .92; }
+.heroCopy { max-width: 560px; margin: 28px 0 34px; }
+.searchCard { max-width: 768px; }
+.heroMetrics { gap: clamp(24px, 3vw, 46px); margin-top: 38px; }
+.heroMetric { display: inline-flex; align-items: baseline; gap: 8px; }
+.heroMetric strong { font-size: 1.3rem; }
+@media (max-width: 900px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .sportsNav { display: none; }
+  .topbarActions { gap: 10px; }
+  .heroContent { padding: 86px 20px 48px; }
+  .heroTitle { max-width: 620px; font-size: clamp(3.2rem, 13vw, 5.6rem); }
+  .searchCard { grid-template-columns: 1fr; }
+  .searchButton { width: 100%; }
+}
+@media (max-width: 560px) {
+  .topbar { height: 68px; padding-inline: 16px; }
+  .main { padding-top: 68px; }
+  .topbarLink { display: none; }
+  .hero { min-height: calc(100svh - 68px); }
+  .heroContent { padding: 64px 16px 34px; }
+  .heroTitle { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .heroMetrics { display: grid; gap: 12px; margin-top: 28px; }
+}
+.topbarActions :global(.language-selector) { position: relative; color: #f4f7ff; }
+.topbarActions :global(.language-selector summary) { display: flex; align-items: center; gap: 7px; padding: 10px 13px; border: 1px solid rgba(219,230,255,.2); border-radius: 999px; cursor: pointer; list-style: none; font-size: .82rem; }
+.topbarActions :global(.language-selector summary::-webkit-details-marker) { display: none; }
+.topbarActions :global(.language-selector-panel) { position: absolute; top: calc(100% + 8px); right: 0; z-index: 5; display: grid; min-width: 150px; gap: 4px; padding: 8px; border: 1px solid rgba(219,230,255,.16); border-radius: 14px; background: #fff; box-shadow: 0 14px 30px rgba(0,0,0,.25); }
+.topbarActions :global(.language-selector-panel) select, .topbarActions :global(.language-selector-panel) button { width: 100%; border: 0; border-radius: 8px; padding: 8px; background: transparent; color: #07101f; font: inherit; text-align: left; cursor: pointer; }
+.topbarActions :global(.language-selector-panel) button:hover, .topbarActions :global(.language-selector-panel) select:hover { background: rgba(0,0,0,.07); }
+
+/* Neutral alpha palette measured from the reference UI. */
+.page { background: #fff; color: #000; }
+.topbar, .topbarScrolled { background: rgba(255,255,255,.88) !important; color: #000 !important; border-bottom-color: rgba(0,0,0,.07); box-shadow: 0 8px 24px rgba(0,0,0,.04); }
+.brandName, .sportLink, .topbarLink { color: #000; }
+.topbarActions :global(.language-selector select) { background: rgba(0,0,0,.07); color: #000; }
+.hero { background: #fff; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(255,255,255,.08), rgba(255,255,255,.94) 66%, #fff 82%); }
+.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong { color: #000; }
+.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: rgba(0,0,0,.6); }
+.searchCard { border-color: rgba(0,0,0,.07); background: rgba(255,255,255,.92); box-shadow: 0 18px 42px rgba(0,0,0,.08); }
+.field { background: rgba(0,0,0,.07); }
+.fieldLabel { color: rgba(0,0,0,.6); }
+.fieldInput { color: #000; }
+.fieldInput::placeholder { color: rgba(0,0,0,.55); }
+.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #000; color: #fff; }
+.accountButton:hover, .searchButton:hover, .softButton:hover, .insightButton:hover, .darkButton:hover, .darkButtonLink:hover { background: rgba(0,0,0,.8); }
+.sportRailCard { box-shadow: 0 14px 30px rgba(0,0,0,.09); }
+.carouselViewport { background: rgba(0,0,0,.025); box-shadow: 0 18px 50px rgba(0,0,0,.08); }
+.stepCard, .insightCard, .localeColumn { border-color: rgba(0,0,0,.07); background: rgba(255,255,255,.96); box-shadow: 0 16px 36px rgba(0,0,0,.07); }
+.carouselButton, .arrowButton { border-color: rgba(0,0,0,.12); background: #fff; color: #000; box-shadow: 0 8px 22px rgba(0,0,0,.07); }
+.carouselButton:hover { background: #000; color: #fff; }
+.stepNumber, .slotButton { background: rgba(0,0,0,.07); color: #000; }
+.slotSelected { background: #000; color: #fff; }
+.paymentTotal { background: rgba(0,0,0,.07); color: rgba(0,0,0,.6); }
+.paymentTotal strong, .insightCard strong, .localeColumn h3 { color: #000; }
+.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(0,0,0,.07); }
+.metric strong, .localeLinks, .footerLinks { color: #000; }
+.faqItem summary { color: #000; }
+.faqItem summary::after { color: #000; }
+.siteFooter { background: #fff; color: rgba(0,0,0,.6); }
+.footerBrand { color: #000; }
+
+/* GetYourMentor reference correction: the authenticated homepage uses a blue canvas. */
+.page { background: #07101f !important; color: #f4f7ff !important; }
+.topbar, .topbarScrolled { background: rgba(7,16,31,.88) !important; color: #f4f7ff !important; border-bottom-color: rgba(219,230,255,.12); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.brandName, .sportLink, .topbarLink { color: #f4f7ff; }
+.sportLink:hover, .topbarLink:hover { color: #caff3d; }
+.topbarActions :global(.language-selector select) { background: rgba(219,230,255,.12); color: #f4f7ff; }
+.hero { background: #07101f !important; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%); }
+.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong { color: #f4f7ff; }
+.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: #aebbd1; }
+.searchCard { border-color: rgba(219,230,255,.18); background: rgba(15,27,53,.9); box-shadow: 0 18px 42px rgba(0,0,0,.24); }
+.field { background: rgba(34,52,84,.72); }
+.fieldLabel { color: #caff3d; }
+.fieldInput { color: #fff; }
+.fieldInput::placeholder { color: #aebbd1; }
+.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #caff3d; color: #07101f; }
+.accountButton:hover, .searchButton:hover, .softButton:hover, .insightButton:hover, .darkButton:hover, .darkButtonLink:hover { background: #e0ff83; }
+.carouselViewport { background: rgba(15,27,53,.72); box-shadow: 0 18px 50px rgba(0,0,0,.22); }
+.stepCard, .insightCard, .localeColumn { border-color: rgba(219,230,255,.14); background: rgba(17,31,57,.94); box-shadow: 0 16px 36px rgba(0,0,0,.2); }
+.carouselButton, .arrowButton { border-color: rgba(219,230,255,.25); background: #172943; color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
+.carouselButton:hover { background: #caff3d; color: #07101f; }
+.stepNumber, .slotButton { background: #24395d; color: #caff3d; }
+.slotSelected { background: #caff3d; color: #07101f; }
+.paymentTotal { background: rgba(219,230,255,.08); color: #aebbd1; }
+.paymentTotal strong, .insightCard strong, .localeColumn h3 { color: #f4f7ff; }
+.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(219,230,255,.13); }
+.metric strong, .localeLinks, .footerLinks { color: #caff3d; }
+.faqItem summary { color: #f4f7ff; }
+.faqItem summary::after { color: #caff3d; }
+.siteFooter { background: #07101f; color: #aebbd1; }
+.footerBrand { color: #f4f7ff; }
+.senior-layout-marker { display: contents; }
+.topbar { height: 80px; padding-inline: clamp(24px, 3.2vw, 48px); grid-template-columns: minmax(190px, 1fr) auto minmax(300px, 1fr); gap: 28px; }
+.sportsNav { gap: clamp(18px, 2.4vw, 36px); }
+.topbarActions { justify-content: flex-end; gap: 22px; }
+.main { padding-top: 80px; }
+.hero { min-height: min(820px, calc(100svh - 80px)); align-items: center; }
+.heroOverlay { background: linear-gradient(90deg, rgba(7,13,29,.94) 0%, rgba(7,13,29,.72) 36%, rgba(7,13,29,.24) 75%, rgba(7,13,29,.48) 100%), linear-gradient(0deg, rgba(7,13,29,.7), transparent 48%) !important; }
+.heroContent { width: min(100%, 1280px); margin: 0 auto; padding: clamp(76px, 11vh, 132px) clamp(24px, 3.2vw, 48px) 64px; text-align: left; }
+.eyebrow { display: inline-flex; margin-bottom: 26px; padding: 8px 13px; border: 1px solid rgba(202,255,61,.42); border-radius: 999px; background: rgba(12,25,48,.6); }
+.heroTitle { max-width: 780px; margin: 0; font-size: clamp(3.35rem, 7vw, 6.5rem); line-height: .92; }
+.heroCopy { max-width: 560px; margin: 28px 0 34px; }
+.searchCard { max-width: 768px; }
+.heroMetrics { gap: clamp(24px, 3vw, 46px); margin-top: 38px; }
+.heroMetric { display: inline-flex; align-items: baseline; gap: 8px; }
+.heroMetric strong { font-size: 1.3rem; }
+@media (max-width: 900px) {
+  .topbar { grid-template-columns: 1fr auto; }
+  .sportsNav { display: none; }
+  .topbarActions { gap: 10px; }
+  .heroContent { padding: 86px 20px 48px; }
+  .heroTitle { max-width: 620px; font-size: clamp(3.2rem, 13vw, 5.6rem); }
+  .searchCard { grid-template-columns: 1fr; }
+  .searchButton { width: 100%; }
+}
+@media (max-width: 560px) {
+  .topbar { height: 68px; padding-inline: 16px; }
+  .main { padding-top: 68px; }
+  .topbarLink { display: none; }
+  .hero { min-height: calc(100svh - 68px); }
+  .heroContent { padding: 64px 16px 34px; }
+  .heroTitle { font-size: clamp(3rem, 15vw, 4.5rem); }
+  .heroMetrics { display: grid; gap: 12px; margin-top: 28px; }
+}
+
+/* Final cascade: keep the authenticated homepage blue above legacy light-theme rules. */
+.page { background: #07101f !important; color: #f4f7ff !important; }
+.topbar, .topbarScrolled { background: rgba(7,16,31,.88) !important; color: #f4f7ff !important; border-bottom-color: rgba(219,230,255,.12) !important; }
+.brandName, .sportLink, .topbarLink { color: #f4f7ff !important; }
+.hero { background: #07101f !important; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%) !important; }
+.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong, .faqItem summary { color: #f4f7ff !important; }
+.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: #aebbd1 !important; }
+.searchCard { background: rgba(15,27,53,.9) !important; border-color: rgba(219,230,255,.18) !important; }
+.field { background: rgba(34,52,84,.72) !important; }
+.fieldLabel { color: #caff3d !important; }
+.fieldInput { color: #fff !important; }
+.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #caff3d !important; color: #07101f !important; }
+.carouselViewport { background: rgba(15,27,53,.72) !important; }
+.stepCard, .insightCard, .localeColumn { background: rgba(17,31,57,.94) !important; border-color: rgba(219,230,255,.14) !important; }
+.carouselButton, .arrowButton { background: #172943 !important; color: #fff !important; border-color: rgba(219,230,255,.25) !important; }
+.stepNumber, .slotButton { background: #24395d !important; color: #caff3d !important; }
+.slotSelected { background: #caff3d !important; color: #07101f !important; }
+.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(219,230,255,.13) !important; }
+.metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
+.siteFooter { background: #07101f !important; color: #aebbd1 !important; }
+.footerBrand { color: #f4f7ff !important; }
+
 /* Emergent-inspired editorial layer: clean light canvas, centered storytelling. */
-.page { background: #f7f8fa; color: #111318; }
-.topbar { height: 78px; padding-inline: 24px; border-bottom: 0; background: rgba(247,248,250,.88) !important; color: #111318; box-shadow: 0 1px 0 rgba(17,19,24,.05); }
+.page { background: #07101f; color: #f4f7ff; }
+.topbar { height: 80px; padding-inline: clamp(24px, 2.6vw, 37px); grid-template-columns: auto auto auto; justify-content: space-between; gap: 28px; border-bottom: 0; background: rgba(10,22,40,.8) !important; color: #f4f7ff; box-shadow: 0 1px 0 rgba(0,0,0,.18); }
 .topbarScrolled { background: rgba(247,248,250,.96); border-color: rgba(17,19,24,.08); }
 .brandName, .sportLink, .topbarLink { color: #111318; }
 .brandName::before { display: none; }
@@ -158,27 +1058,31 @@
 .topbarActions :global(.language-selector select) { border: 0; background: #eef0f4; color: #111318; padding: 12px 15px; }
 .accountButton, .searchButton, .softButton, .insightButton { background: #111318; color: #fff; border-radius: 999px; }
 .accountButton:hover, .searchButton:hover, .softButton:hover, .insightButton:hover { background: #315ee8; }
-.main { padding-top: 78px; }
-.hero { min-height: calc(100svh - 78px); align-items: center; background: #f7f8fa; }
-.heroBackdrop { inset: 9% 9% 0; opacity: .22; filter: grayscale(1); }
+.main { padding-top: 80px; }
+.hero { min-height: min(820px, calc(100svh - 80px)); align-items: center; background: #07101f; }
+.heroBackdrop { inset: 0; opacity: .3; filter: grayscale(.15); }
 .heroImage { object-position: center; filter: saturate(.4) contrast(.9); mix-blend-mode: multiply; }
-.heroOverlay { background: radial-gradient(circle at center, rgba(247,248,250,.08), rgba(247,248,250,.94) 66%, #f7f8fa 82%); }
-.heroContent { width: min(760px, 100%); margin: auto; padding: 100px 20px 80px; text-align: center; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%); }
+.heroContent { width: min(100%, 1280px); margin: 0 auto; padding: clamp(76px, 11vh, 132px) clamp(24px, 3.2vw, 48px) 64px; text-align: left; }
 .eyebrow, .sectionKicker { color: #315ee8; letter-spacing: .14em; }
-.heroTitle { margin-inline: auto; color: #111318; font-size: clamp(3.5rem, 8vw, 7.4rem); line-height: .88; }
-.heroCopy { margin: 26px auto 32px; color: #626873; }
-.searchCard { grid-template-columns: 1fr 1fr auto; margin: auto; border: 1px solid #e1e4ea; border-radius: 999px; background: rgba(255,255,255,.9); box-shadow: 0 18px 42px rgba(25,32,48,.1); text-align: left; }
+.heroTitle { max-width: 780px; margin: 0; color: #f4f7ff; font-size: clamp(3.35rem, 7vw, 6.5rem); line-height: .92; }
+.heroCopy { max-width: 560px; margin: 28px 0 34px; color: #626873; }
+.searchCard { grid-template-columns: 1fr 1fr auto; max-width: 768px; margin: 0; border: 1px solid #e1e4ea; border-radius: 999px; background: rgba(255,255,255,.9); box-shadow: 0 18px 42px rgba(25,32,48,.1); text-align: left; }
 .field { border-radius: 999px; background: #f0f2f5; }
 .fieldLabel { color: #626873; }
 .fieldInput { color: #111318; }
 .fieldInput::placeholder { color: #777e89; }
 .searchButton { min-height: 60px; }
+.heroMetrics { display: flex; flex-wrap: wrap; gap: 34px; margin-top: 34px; }
+.heroMetric { display: flex; align-items: baseline; gap: 8px; color: #aebbd1; }
+.heroMetric strong { color: #f4f7ff; font-size: 1.45rem; letter-spacing: -.04em; }
+.heroMetric span { font-size: .82rem; }
 .sportRail, .section, .metricsSection, .recruitSection, .faqSection { width: min(1180px, calc(100% - 48px)); }
 .sportRail, .section, .recruitSection, .faqSection { padding-block: 118px; }
 .sectionHeading { margin-bottom: 42px; }
 .sectionHeading h2, .recruitCopy h2, .faqSection h2 { color: #111318; }
 .sectionIntro, .carouselHint, .recruitCopy p { color: #626873; }
-.sportRailGrid { gap: 14px; }
+.sportRailGrid { gap: 0; }
 .sportRailCard { min-height: 360px; border-radius: 22px; box-shadow: 0 14px 30px rgba(25,32,48,.09); }
 .sportRailShade { background: linear-gradient(180deg, rgba(17,19,24,.05), rgba(17,19,24,.78)); }
 .carouselViewport { min-height: 600px; border: 0; border-radius: 28px; background: #fff; box-shadow: 0 18px 50px rgba(25,32,48,.08); }
@@ -220,8 +1124,53 @@
 .footerLinks { color: #315ee8; }
 
 @media (max-width: 620px) {
+  .topbar { height: 68px; padding-inline: 16px; grid-template-columns: 1fr auto; }
+  .sportsNav { display: none; }
+  .brandName { font-size: .92rem; }
+  .topbarActions { gap: 6px; }
+  .topbarActions :global(.language-selector) { min-width: 62px; }
+  .accountButton { padding: 10px 13px; font-size: .86rem; }
+  .topbarLink { display: none; }
+  .main { padding-top: 68px; }
+  .hero { min-height: calc(100svh - 68px); }
   .searchCard { border-radius: 22px; }
   .field { border-radius: 13px; }
   .sportRail, .section, .metricsSection, .recruitSection, .faqSection { width: min(100% - 28px, 1180px); }
-  .heroContent { padding-inline: 16px; }
+  .heroContent { width: 100%; padding: 64px 16px 34px; }
+  .heroTitle { max-width: 620px; font-size: clamp(3rem, 15vw, 4.5rem); }
+  .searchCard { grid-template-columns: 1fr; }
+  .searchButton { width: 100%; }
+  .heroMetrics { gap: 18px 26px; }
+  .heroMetric { display: block; }
+  .heroMetric strong, .heroMetric span { display: block; }
+  .experienceSection { padding-top: 56px; }
+  .experienceCounter { position: static; display: block; margin-top: 12px; }
+  .experienceCarousel { grid-template-columns: 1fr; min-height: 470px; }
+  .experienceMedia { min-height: 400px; }
+  .experienceControls { flex-direction: row; min-height: 70px; }
+  .experienceDots { flex-direction: row; }
+  .experienceDots button[aria-current="true"] { width: 30px; height: 6px; }
 }
+
+/* Final reference palette overrides */
+.page { background: #07101f !important; color: #f4f7ff !important; }
+.topbar, .topbarScrolled { background: rgba(10,22,40,.8) !important; color: #f4f7ff !important; border-bottom-color: rgba(255,255,255,.05) !important; }
+.brandName, .sportLink, .topbarLink { color: #f4f7ff !important; }
+.hero { background: #07101f !important; }
+.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%) !important; }
+.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong, .faqItem summary { color: #f4f7ff !important; }
+.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: #aebbd1 !important; }
+.searchCard { background: rgba(15,27,53,.9) !important; border-color: rgba(219,230,255,.18) !important; }
+.field { background: rgba(34,52,84,.72) !important; }
+.fieldLabel { color: #caff3d !important; }
+.fieldInput { color: #fff !important; }
+.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #caff3d !important; color: #07101f !important; }
+.carouselViewport { background: rgba(15,27,53,.72) !important; }
+.stepCard, .insightCard, .localeColumn { background: rgba(17,31,57,.94) !important; border-color: rgba(219,230,255,.14) !important; }
+.carouselButton, .arrowButton { background: #172943 !important; color: #fff !important; border-color: rgba(219,230,255,.25) !important; }
+.stepNumber, .slotButton { background: #24395d !important; color: #caff3d !important; }
+.slotSelected { background: #caff3d !important; color: #07101f !important; }
+.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(219,230,255,.13) !important; }
+.metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
+.siteFooter { background: #07101f !important; color: #aebbd1 !important; }
+.footerBrand { color: #f4f7ff !important; }

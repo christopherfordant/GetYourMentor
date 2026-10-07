@@ -256,6 +256,7 @@ function DirectoryToolbar({
   filters,
   onFiltersChange,
   onLocate,
+  isLocating,
   locationStatus,
   radiusKm,
   onRadiusChange,
@@ -267,6 +268,7 @@ function DirectoryToolbar({
   filters: DirectoryFilters;
   onFiltersChange: (filters: DirectoryFilters) => void;
   onLocate: () => void;
+  isLocating: boolean;
   locationStatus: string;
   radiusKm: number;
   onRadiusChange: (radius: number) => void;
@@ -325,8 +327,8 @@ function DirectoryToolbar({
       </form>
 
       <div className="directory-chip-row" aria-label="Filtres">
-        <button className="directory-chip directory-chip-secondary" type="button" onClick={onLocate} data-directory-locate>
-          Utiliser ma position
+        <button className="directory-chip directory-chip-secondary" type="button" onClick={onLocate} disabled={isLocating} data-directory-locate>
+          {isLocating ? "Recherche…" : "Utiliser ma position"}
         </button>
         <label className="directory-chip directory-chip-secondary">
           Rayon
@@ -349,7 +351,7 @@ function DirectoryToolbar({
           </select>
         </label>
       </div>
-      {locationStatus ? <p role="status" data-directory-location-status>{locationStatus}</p> : null}
+      {locationStatus ? <p className="directory-location-status" role="status" aria-live="polite" data-directory-location-status>{locationStatus}</p> : null}
       {filtersOpen ? (
         <div className="directory-filter-panel" data-directory-filter-panel>
           <label>
@@ -499,6 +501,7 @@ function DirectoryContent({
   coaches,
   filters,
   sort,
+  onResetFilters,
 }: {
   sportSlug: string;
   city: string;
@@ -507,6 +510,7 @@ function DirectoryContent({
   coaches: CoachEntry[];
   filters: DirectoryFilters;
   sort: DirectorySort;
+  onResetFilters: () => void;
 }) {
   const visibleCoaches = [...coaches].filter((coach) => {
     if (filters.gender !== "all" && coach.gender && coach.gender !== filters.gender) return false;
@@ -546,7 +550,14 @@ function DirectoryContent({
               index={index}
             />
           ))}
-          {visibleCoaches.length === 0 ? <p data-directory-empty>Aucun coach ne correspond à ces filtres.</p> : null}
+          {visibleCoaches.length === 0 ? (
+            <div className="directory-empty-state" data-directory-empty role="status">
+              <span className="directory-empty-icon" aria-hidden="true">⌕</span>
+              <strong>Aucun coach ne correspond à ces filtres.</strong>
+              <p>Élargissez la zone de recherche ou retirez un filtre pour voir davantage de profils.</p>
+              <button type="button" onClick={onResetFilters}>Effacer les filtres</button>
+            </div>
+          ) : null}
         </div>
       </div>
 
@@ -609,6 +620,7 @@ export function SelectionCoachsLegacyPage({
   const [radiusKm, setRadiusKm] = useState(10);
   const [sort, setSort] = useState<DirectorySort>("relevance");
   const [locationStatus, setLocationStatus] = useState("");
+  const [isLocating, setIsLocating] = useState(false);
   const [locatedCoaches, setLocatedCoaches] = useState<CoachEntry[] | null>(null);
   const coaches = useMemo(
     () => {
@@ -631,9 +643,11 @@ export function SelectionCoachsLegacyPage({
 
   const locateSportist = () => {
     if (!navigator.geolocation) {
+      setIsLocating(false);
       setLocationStatus("La géolocalisation n’est pas disponible sur cet appareil.");
       return;
     }
+    setIsLocating(true);
     setLocationStatus("Recherche des coachs à proximité…");
     navigator.geolocation.getCurrentPosition(async ({ coords }) => {
       try {
@@ -653,8 +667,13 @@ export function SelectionCoachsLegacyPage({
         setLocationStatus(`Résultats dans un rayon de ${radiusKm} km.`);
       } catch {
         setLocationStatus("La recherche géolocalisée est momentanément indisponible.");
+      } finally {
+        setIsLocating(false);
       }
-    }, () => setLocationStatus("Autorisez la position pour rechercher les coachs autour de vous."), { enableHighAccuracy: false, maximumAge: 300_000, timeout: 10_000 });
+    }, () => {
+      setIsLocating(false);
+      setLocationStatus("Autorisez la position pour rechercher les coachs autour de vous.");
+    }, { enableHighAccuracy: false, maximumAge: 300_000, timeout: 10_000 });
   };
 
   return (
@@ -663,7 +682,7 @@ export function SelectionCoachsLegacyPage({
       <div className="site-shell coach-profile-shell">
         <DirectoryHeader />
         <main className="coach-directory-page" data-coach-directory-page>
-          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
+          <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} isLocating={isLocating} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
           <DirectoryContent
             sportSlug={sportSlug}
             city={cityValue}
@@ -672,6 +691,7 @@ export function SelectionCoachsLegacyPage({
             coaches={visibleCoaches}
             filters={filters}
             sort={sort}
+            onResetFilters={() => setFilters(defaultDirectoryFilters)}
           />
         </main>
         <DirectoryFooter />

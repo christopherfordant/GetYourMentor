@@ -51,9 +51,11 @@ export function ScrollParticleReveal() {
     });
 
     let frame = 0;
+    const activeScenes = new Set<HTMLElement>();
+    const isSmallScreen = window.matchMedia("(max-width: 700px)").matches;
     const updateScrollDepth = () => {
       frame = 0;
-      scenes.forEach((scene) => {
+      activeScenes.forEach((scene) => {
         const rect = scene.getBoundingClientRect();
         const travel = window.innerHeight + rect.height;
         const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / travel));
@@ -66,23 +68,42 @@ export function ScrollParticleReveal() {
       if (frame) return;
       frame = window.requestAnimationFrame(updateScrollDepth);
     };
-    updateScrollDepth();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", updateScrollDepth);
+    // Keep reveal observers on mobile, but avoid recalculating every active
+    // scene on every scroll frame in the constrained viewport.
+    if (!isSmallScreen) {
+      updateScrollDepth();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+    const onResize = () => {
+      if (isSmallScreen) return;
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrollDepth);
+    };
+    window.addEventListener("resize", onResize, { passive: true });
 
     if (typeof IntersectionObserver === "undefined") {
       cards.forEach((card) => card.classList.add("is-revealed"));
       scenes.forEach((scene) => scene.classList.add("is-revealed"));
-      return;
+      return () => {
+        document.documentElement.classList.remove("scroll-reveal-ready");
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onResize);
+        if (frame) window.cancelAnimationFrame(frame);
+      };
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-revealed");
-          observer.unobserve(entry.target);
+          const element = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            element.classList.add("is-revealed");
+            if (scenes.includes(element)) activeScenes.add(element);
+          } else if (scenes.includes(element)) {
+            activeScenes.delete(element);
+          }
         });
+        if (!isSmallScreen && !frame) frame = window.requestAnimationFrame(updateScrollDepth);
       },
       { threshold: 0.18, rootMargin: "0px 0px -18% 0px" },
     );
@@ -91,8 +112,9 @@ export function ScrollParticleReveal() {
     scenes.forEach((scene) => observer.observe(scene));
     return () => {
       observer.disconnect();
+      document.documentElement.classList.remove("scroll-reveal-ready");
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", updateScrollDepth);
+      window.removeEventListener("resize", onResize);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);

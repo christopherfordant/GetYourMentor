@@ -4,9 +4,9 @@ import { isDemoFallbackAllowed } from "@/lib/runtime";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Accueil coaching sportif",
+  title: "GetYourMentor - Coaching sportif en ligne",
   description:
-    "Plateforme web de coaching sportif pour trouver un coach, comparer les profils et reserver une seance en ligne.",
+    "Trouvez un coach sportif, comparez les profils et réservez votre séance en ligne avec GetYourMentor.",
 });
 
 export default function HomePage() {

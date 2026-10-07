@@ -380,6 +380,217 @@
   }
 }
 
+/* Coach focus cards: preserve readable proportions and prevent text overflow. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home-focus {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .account-page.is-coach-mode .coach-home-focus > * {
+    min-width: 0;
+    min-height: 232px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .account-page.is-coach-mode .coach-home-next-session {
+    grid-column: span 2;
+  }
+
+  .account-page.is-coach-mode .coach-home-rating,
+  .account-page.is-coach-mode .coach-home-revenue {
+    grid-column: span 1;
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+
+  .account-page.is-coach-mode .coach-home-standalone-cta {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+
+  .account-page.is-coach-mode .coach-home-focus .coach-home-card-head {
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .account-page.is-coach-mode .coach-home-focus .coach-home-card-head h3 {
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+  }
+
+  .account-page.is-coach-mode .coach-home-focus .coach-home-card-head span,
+  .account-page.is-coach-mode .coach-home-profile-preview-head span {
+    flex: 0 0 auto;
+    max-width: 45%;
+    overflow-wrap: anywhere;
+    text-align: right;
+  }
+
+  .account-page.is-coach-mode .coach-home-rating-score {
+    white-space: nowrap;
+    font-size: clamp(34px, 3vw, 50px);
+    letter-spacing: -0.07em;
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview-grid div {
+    min-width: 0;
+    min-height: 86px;
+    box-sizing: border-box;
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview-grid strong,
+  .account-page.is-coach-mode .coach-home-profile-preview-copy {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+}
+
+/* Editorial coach workspace: continuous content with a tall navigation band. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home {
+    grid-template-columns: 218px minmax(0, 1fr);
+    grid-template-areas:
+      "sidebar summary"
+      "sidebar planning"
+      "sidebar focus"
+      "sidebar profile"
+      "sidebar phone"
+      "sidebar documents"
+      "sidebar inbox";
+    gap: 0 34px;
+    padding: 0;
+    background: #101a2d;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .account-page.is-coach-mode .coach-home-sidebar {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    width: 100%;
+    min-height: 720px;
+    padding: 28px 22px;
+    border: 0;
+    border-radius: 0;
+    background: #f5f5f1;
+    color: #152038;
+    box-shadow: 18px 0 34px rgba(4, 9, 20, 0.12);
+  }
+
+  .account-page.is-coach-mode .coach-home-sidebar a,
+  .account-page.is-coach-mode .coach-home-sidebar button { color: #152038; }
+  .account-page.is-coach-mode .coach-home-sidebar .coach-home-nav-main.is-active { color: #fff; background: #152038; }
+  .account-page.is-coach-mode .coach-home-nav-group,
+  .account-page.is-coach-mode .coach-home-nav-footer { border-color: rgba(21, 32, 56, 0.12); }
+  .account-page.is-coach-mode .coach-home-nav-heading { color: #8290a5; }
+
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode .coach-home-focus,
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox],
+  .account-page.is-coach-mode [data-phone-verification],
+  .account-page.is-coach-mode [data-coach-documents] {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .account-page.is-coach-mode .coach-home-summary { padding: 34px 0 22px; border-bottom: 1px solid rgba(203, 215, 239, 0.12); }
+  .account-page.is-coach-mode .coach-home-planning { padding: 30px 0; border-bottom: 1px solid rgba(203, 215, 239, 0.12); }
+  .account-page.is-coach-mode .coach-home-focus { display: grid; padding: 30px 0 12px; background: transparent; }
+  .account-page.is-coach-mode .coach-home-focus > .account-dashboard-card,
+  .account-page.is-coach-mode .coach-home-focus > .coach-home-standalone-cta {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .account-page.is-coach-mode .coach-home-next-session {
+    position: relative;
+    min-height: 270px !important;
+    padding: 26px 28px !important;
+    overflow: hidden;
+    background: #182640 !important;
+  }
+  .account-page.is-coach-mode .coach-home-next-session > *:not(.coach-home-editorial-image),
+  .account-page.is-coach-mode .coach-home-profile-preview > *:not(.coach-home-editorial-image) { position: relative; z-index: 1; }
+
+  .coach-home-editorial-image { position: relative; overflow: hidden; pointer-events: none; }
+  .coach-home-editorial-image * { pointer-events: none; }
+  .coach-home-editorial-image img { object-fit: cover; }
+  .coach-home-editorial-image--session { position: absolute; inset: 0 0 0 58%; opacity: 0.5; }
+  .coach-home-editorial-image--session::after,
+  .coach-home-editorial-image--profile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #182640 0%, rgba(24, 38, 64, 0.78) 46%, rgba(24, 38, 64, 0.16) 100%);
+  }
+
+  .account-page.is-coach-mode .coach-home-rating,
+  .account-page.is-coach-mode .coach-home-revenue { padding: 26px 0 !important; border-block: 1px solid rgba(203, 215, 239, 0.12) !important; }
+  .account-page.is-coach-mode .coach-home-profile-preview {
+    position: relative;
+    min-height: 290px !important;
+    padding: 28px !important;
+    overflow: hidden;
+    background: #182640 !important;
+  }
+  .coach-home-editorial-image--profile { position: absolute; inset: 0; opacity: 0.22; }
+  .account-page.is-coach-mode .coach-home-profile-preview-grid div,
+  .account-page.is-coach-mode .coach-home-summary .coach-home-profile-preview-grid div { background: rgba(255, 255, 255, 0.08); border: 0; }
+
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-phone-verification],
+  .account-page.is-coach-mode [data-coach-documents],
+  .account-page.is-coach-mode [data-message-inbox] { padding: 30px 0; border-top: 1px solid rgba(203, 215, 239, 0.12); }
+
+  .account-page.is-coach-mode [data-coach-profile-editor] button[type="submit"] { scroll-margin-bottom: 180px; }
+}
+
+@media (max-width: 900px) {
+  .account-page.is-coach-mode .coach-home-focus > * {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .account-page.is-coach-mode .coach-home-rating-score {
+    white-space: nowrap;
+    font-size: clamp(38px, 14vw, 56px);
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .account-page.is-coach-mode .coach-home-profile-preview-grid div,
+  .account-page.is-coach-mode .coach-home-profile-preview-grid strong {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* Palette anti-fatigue : surfaces bleutées plus profondes, sans gris lumineux. */
 .site-shell,
 .sport-page-shell,
@@ -417,6 +628,20 @@
 .reservation-calendar-card,
 .club-signup-form-card {
   background: #111a2d !important;
+}
+
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode .coach-home-focus,
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox],
+  .account-page.is-coach-mode [data-coach-documents] {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
 }
 
 .sport-search-field,
@@ -529,6 +754,674 @@
 .booking-contact-success strong { color: #b9f2c8 !important; }
 .booking-contact-success p,
 .booking-contact-success small { color: #a9cdb5 !important; }
+
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode .coach-home-focus,
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox],
+  .account-page.is-coach-mode [data-coach-documents] {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Last cascade guard for the editorial coach workspace. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode .coach-home-focus,
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox],
+  .account-page.is-coach-mode [data-coach-documents] {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Decorative profile photography must never sit above form controls. */
+.coach-home-editorial-image,
+.coach-home-editorial-image * {
+  pointer-events: none !important;
+}
+
+@media (max-width: 900px) {
+  .account-page.is-coach-mode [data-coach-profile-editor] button[type="submit"] {
+    scroll-margin-bottom: 190px;
+  }
+}
+
+/* Final coach editorial layout pass: remove nested panel treatment. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home {
+    grid-template-columns: 218px minmax(0, 1fr);
+    grid-template-areas:
+      "sidebar summary"
+      "sidebar planning"
+      "sidebar requests"
+      "sidebar focus"
+      "sidebar profile"
+      "sidebar phone"
+      "sidebar documents"
+      "sidebar inbox";
+    gap: 0 34px;
+  }
+
+  .account-page.is-coach-mode .coach-home-sidebar { grid-area: sidebar; }
+  .account-page.is-coach-mode .coach-home-summary { grid-area: summary; }
+  .account-page.is-coach-mode .coach-home-planning { grid-area: planning; }
+  .account-page.is-coach-mode [data-coach-requests] { grid-area: requests; }
+  .account-page.is-coach-mode .coach-home-focus { grid-area: focus; }
+  .account-page.is-coach-mode [data-coach-profile-editor] { grid-area: profile; }
+  .account-page.is-coach-mode [data-phone-verification] { grid-area: phone; }
+  .account-page.is-coach-mode [data-coach-documents] { grid-area: documents; }
+  .account-page.is-coach-mode [data-message-inbox] { grid-area: inbox; }
+
+  .account-page.is-coach-mode .coach-home-schedule article,
+  .account-page.is-coach-mode .coach-home-request-list article,
+  .account-page.is-coach-mode .coach-home-summary .coach-home-profile-preview-grid div,
+  .account-page.is-coach-mode .coach-home-profile-preview-grid div {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .account-page.is-coach-mode .coach-home-schedule,
+  .account-page.is-coach-mode .coach-home-request-list { border-left: 2px solid #d7f36b; padding-left: 18px; }
+}
+
+/* Keep the coach dashboard editorial: cards are structural only, not visible panels. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode .coach-home-focus,
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox],
+  .account-page.is-coach-mode [data-coach-documents] {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .account-page.is-coach-mode .coach-home-sidebar {
+    background: #f5f5f1 !important;
+    color: #152038 !important;
+  }
+}
+
+/* Final product surface system: one calm surface per component, subtle depth,
+   and a single accent reserved for the primary action. */
+:root {
+  --surface-0: #080e1d;
+  --surface-1: #101b30;
+  --surface-2: #162640;
+  --surface-3: #1d3150;
+  --line-soft: rgba(151, 177, 218, .18);
+  --line-strong: rgba(151, 177, 218, .32);
+  --text-soft: #aebdd3;
+  --accent-action: #d7f36b;
+}
+
+.sport-city-card,
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.booking-card,
+.booking-contact-card,
+.reservation-card,
+.payment-card,
+.payment-summary-card,
+.auth-card,
+.account-panel,
+.account-dashboard-card,
+.club-signup-form-card,
+.reservation-selection-panel,
+.reservation-calendar-card,
+.coach-map-panel,
+.legal-placeholder-card {
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 22px !important;
+  background: linear-gradient(145deg, rgba(22, 38, 64, .98), rgba(13, 24, 43, .98)) !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+
+.sport-city-card,
+.coach-result-card,
+.coach-profile-card,
+.coach-booking-card,
+.booking-card,
+.payment-card,
+.payment-summary-card,
+.auth-card,
+.club-signup-form-card,
+.reservation-selection-panel,
+.reservation-calendar-card,
+.coach-map-panel,
+.legal-placeholder-card {
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1), border-color 240ms ease, box-shadow 240ms ease !important;
+}
+
+.sport-city-card:hover,
+.coach-result-card:hover,
+.coach-profile-card:hover,
+.coach-booking-card:hover,
+.booking-card:hover,
+.payment-card:hover,
+.payment-summary-card:hover,
+.club-signup-form-card:hover,
+.reservation-calendar-card:hover,
+.coach-map-panel:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--line-strong) !important;
+  box-shadow: 0 28px 64px rgba(0, 0, 0, .30), inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+
+/* Child elements no longer look like separate cards inside the main card. */
+.coach-result-body,
+.coach-result-slots,
+.coach-result-footer,
+.account-dashboard-card > section,
+.account-dashboard-card > article,
+.payment-card section,
+.payment-summary-card section {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.coach-result-media,
+.coach-profile-media,
+.coach-booking-media,
+.coach-result-media img,
+.coach-profile-media img,
+.coach-booking-media img,
+.coach-map-panel,
+.recap-header-shot,
+.payment-card-head {
+  border-radius: 16px !important;
+}
+
+.coach-result-top h2,
+.coach-profile-card h1,
+.coach-profile-card h2,
+.coach-booking-card h2,
+.booking-card h2,
+.payment-card h2,
+.payment-summary-card h2,
+.account-dashboard-card h2,
+.account-dashboard-card h3,
+.auth-card h1,
+.auth-card h2,
+.legal-placeholder-card h1 {
+  color: #f7f9fd !important;
+  letter-spacing: -.035em;
+}
+
+.coach-result-address,
+.coach-result-distance,
+.coach-result-meta,
+.coach-day-card,
+.coach-day-period,
+.account-dashboard-card p,
+.payment-card p,
+.payment-summary-card p,
+.booking-card p,
+.auth-subtitle,
+.legal-placeholder-card p {
+  color: var(--text-soft) !important;
+}
+
+.coach-day-card,
+.coach-day-period,
+.reservation-day,
+.reservation-slot,
+.reservation-coach-option,
+.payment-method,
+.directory-chip,
+.directory-chip-secondary,
+.directory-chip-filter {
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 12px !important;
+  background: rgba(151, 177, 218, .08) !important;
+  color: #e8eff9 !important;
+}
+
+.reservation-slot.is-selected,
+.reservation-coach-option.is-active,
+.payment-method.is-active,
+.coach-book-button,
+.reservation-confirm-button,
+.recap-dark-button,
+.search-button,
+.directory-search-button {
+  border-color: transparent !important;
+  border-radius: 13px !important;
+  background: var(--accent-action) !important;
+  color: #0a1220 !important;
+  box-shadow: 0 10px 24px rgba(215,243,107,.14) !important;
+}
+
+.reservation-slot:hover,
+.reservation-coach-option:hover,
+.directory-chip:hover,
+.directory-chip-secondary:hover,
+.directory-chip-filter:hover {
+  border-color: rgba(215,243,107,.42) !important;
+  background: rgba(215,243,107,.10) !important;
+}
+
+.sport-search-card,
+.coach-directory-search,
+.directory-filter-panel,
+.reservation-form,
+.reservation-field,
+.payment-field,
+.sport-search-field,
+.coach-booking-card .booking-card-stack {
+  border-color: var(--line-soft) !important;
+  border-radius: 16px !important;
+  background: rgba(16, 27, 48, .86) !important;
+  box-shadow: none !important;
+}
+
+.sport-search-card input,
+.sport-search-card select,
+.directory-filter-panel select,
+.reservation-field input,
+.reservation-field select,
+.payment-field input,
+.payment-field select,
+.payment-method {
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 11px !important;
+  background: rgba(151,177,218,.08) !important;
+  color: #f6f8fb !important;
+}
+
+.sport-search-card input:focus,
+.sport-search-card select:focus,
+.directory-filter-panel select:focus,
+.reservation-field input:focus,
+.reservation-field select:focus,
+.payment-field input:focus,
+.payment-field select:focus {
+  border-color: rgba(215,243,107,.62) !important;
+  box-shadow: 0 0 0 3px rgba(215,243,107,.12) !important;
+}
+
+.auth-card,
+.account-panel,
+.club-signup-form-card {
+  padding: clamp(22px, 3vw, 34px) !important;
+}
+
+.auth-primary,
+.auth-pill-button,
+.account-inline-actions button,
+.coach-home-inline-link {
+  border-radius: 12px !important;
+}
+
+.auth-primary {
+  background: var(--accent-action) !important;
+  color: #0a1220 !important;
+  box-shadow: 0 10px 22px rgba(215,243,107,.14) !important;
+}
+
+.account-dashboard-card {
+  padding: 22px !important;
+}
+
+.account-dashboard-card + .account-dashboard-card,
+.recap-service-card + .recap-date-card {
+  margin-top: 18px;
+}
+
+.cookie-consent-banner,
+.cookie-consent-banner [role="dialog"] {
+  border: 1px solid var(--line-soft) !important;
+  border-radius: 16px !important;
+  background: rgba(16, 27, 48, .96) !important;
+  box-shadow: 0 22px 48px rgba(0,0,0,.28) !important;
+}
+
+@media (max-width: 700px) {
+  .sport-city-card,
+  .coach-result-card,
+  .coach-profile-card,
+  .coach-booking-card,
+  .booking-card,
+  .payment-card,
+  .payment-summary-card,
+  .auth-card,
+  .account-panel,
+  .account-dashboard-card,
+  .club-signup-form-card,
+  .reservation-selection-panel,
+  .reservation-calendar-card { border-radius: 18px !important; }
+
+  .account-dashboard-card { padding: 17px !important; }
+}
+
+/* Phase 1 — mobile-first marketplace layout. */
+@media (max-width: 900px) {
+  .coach-directory-page,
+  .sport-page-shell,
+  .coach-profile-shell,
+  .account-shell,
+  .payment-shell,
+  .recap-shell,
+  .reservation-shell {
+    padding-inline: 14px !important;
+  }
+
+  .coach-directory-search,
+  .sport-search-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 8px !important;
+  }
+
+  .coach-directory-search .directory-field,
+  .sport-search-field { min-height: 58px !important; }
+
+  .coach-directory-search .directory-search-button,
+  .sport-search-card .search-button {
+    width: 100% !important;
+    min-height: 48px !important;
+    border-radius: 12px !important;
+  }
+
+  .directory-chip-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px !important;
+  }
+
+  .directory-chip {
+    min-width: 0 !important;
+    width: 100% !important;
+    justify-content: center;
+    padding-inline: 9px !important;
+    white-space: nowrap;
+  }
+
+  .directory-chip select {
+    max-width: 82px;
+    min-width: 0;
+  }
+
+  .directory-filter-panel {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-top: 10px !important;
+    padding: 12px !important;
+  }
+
+  .directory-filter-panel label,
+  .directory-filter-panel button { min-width: 0; }
+
+  .coach-directory-content {
+    display: block !important;
+    margin-top: 24px !important;
+  }
+
+  .coach-map-panel {
+    min-height: 250px !important;
+    margin-top: 20px;
+  }
+
+  .coach-results { gap: 14px !important; }
+
+  .coach-result-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    padding: 10px !important;
+  }
+
+  .coach-result-media {
+    min-height: 214px !important;
+    border-radius: 16px !important;
+  }
+
+  .coach-result-body { padding: 16px 6px 6px !important; }
+
+  .coach-result-footer {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    align-items: stretch !important;
+  }
+
+  .coach-more-link,
+  .coach-book-button { width: 100% !important; justify-content: center; }
+
+  .coach-result-slots {
+    display: flex !important;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .coach-day-card { flex: 0 0 112px; }
+}
+
+@media (max-width: 520px) {
+  .directory-chip-row,
+  .directory-filter-panel { grid-template-columns: 1fr !important; }
+  .directory-chip { justify-content: space-between; }
+  .directory-heading h1 { font-size: 34px !important; }
+  .coach-result-media { min-height: 190px !important; }
+}
+
+.directory-empty-state {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 24px;
+  border: 1px dashed rgba(151,177,218,.30);
+  border-radius: 18px;
+  background: rgba(151,177,218,.06);
+}
+
+.directory-empty-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(215,243,107,.12);
+  color: var(--accent-action);
+  font-size: 24px;
+}
+
+.directory-empty-state strong { color: #f7f9fd; font-size: 17px; }
+.directory-empty-state p { max-width: 46ch; margin: 0; color: var(--text-soft); line-height: 1.55; }
+.directory-empty-state button {
+  min-height: 40px;
+  margin-top: 4px;
+  padding: 0 14px;
+  border: 1px solid rgba(215,243,107,.34);
+  border-radius: 11px;
+  background: rgba(215,243,107,.10);
+  color: var(--accent-action);
+  font-weight: 800;
+}
+.directory-empty-state button:hover { background: rgba(215,243,107,.18); }
+.directory-location-status { color: var(--text-soft) !important; }
+.directory-chip:disabled { cursor: wait; opacity: .68; }
+
+.reservation-loading,
+.reservation-inline-error {
+  margin: 0 0 12px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.reservation-loading {
+  color: #dbe6f7;
+  background: rgba(151,177,218,.08);
+}
+.reservation-inline-error,
+.reservation-error {
+  color: #ffd2c8 !important;
+  background: rgba(226,107,71,.12);
+  border: 1px solid rgba(226,107,71,.26);
+}
+.reservation-confirm-button[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: .52;
+  filter: saturate(.55);
+  box-shadow: none !important;
+}
+.reservation-slot:disabled {
+  cursor: not-allowed;
+  opacity: .42;
+}
+.reservation-slot.is-booked {
+  text-decoration: line-through;
+}
+
+/* Performance and accessibility guardrails. Smooth scrolling is delegated to
+   explicit user actions so browser scroll and pinned GSAP scenes never fight. */
+html { scroll-behavior: auto !important; }
+
+@media (max-width: 700px) {
+  .topbar,
+  .coach-directory-search,
+  .sport-search-card,
+  .coach-map-panel,
+  .account-auth-stage,
+  .auth-card,
+  .payment-card,
+  .payment-summary-card,
+  .reservation-calendar-card {
+    backdrop-filter: none !important;
+  }
+
+  .cinematic-particles { opacity: .34 !important; }
+  /* The mobile header remains immediately usable even while the entrance
+     animation is loading or being throttled by the browser. */
+  .gsap-header-tab { opacity: 1 !important; visibility: visible !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .cinematic-particles { display: none !important; }
+  .gsap-header-tab,
+  [data-gsap-hero-item],
+  [data-gsap-card],
+  [data-gsap-heading] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Coach workspace: compact hierarchy instead of a long stack of equal cards. */
+@media (min-width: 901px) {
+  .account-page.is-coach-mode .account-panel {
+    width: min(1440px, calc(100% - 48px));
+    max-width: none;
+  }
+
+  .account-page.is-coach-mode .coach-home {
+    display: grid;
+    grid-template-columns: 178px minmax(0, 1.35fr) minmax(320px, 0.85fr);
+    grid-template-areas:
+      "sidebar summary summary"
+      "sidebar planning requests"
+      "sidebar focus focus"
+      "sidebar profile profile"
+      "sidebar phone documents"
+      "sidebar inbox inbox";
+    gap: 14px;
+    align-items: start;
+  }
+
+  .account-page.is-coach-mode .coach-home-sidebar { grid-area: sidebar; position: sticky; top: 92px; }
+  .account-page.is-coach-mode [data-phone-verification] { grid-area: phone; }
+  .account-page.is-coach-mode [data-coach-documents] { grid-area: documents; }
+  .account-page.is-coach-mode .coach-home-planning { grid-area: planning; }
+  .account-page.is-coach-mode [data-coach-requests] { grid-area: requests; }
+  .account-page.is-coach-mode .coach-home-summary { grid-area: summary; }
+  .account-page.is-coach-mode .coach-home-focus { grid-area: focus; }
+  .account-page.is-coach-mode [data-coach-profile-editor] { grid-area: profile; }
+  .account-page.is-coach-mode [data-message-inbox] { grid-area: inbox; }
+
+  .account-page.is-coach-mode .coach-home-focus {
+    grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 0.8fr));
+    gap: 12px;
+  }
+
+  .account-page.is-coach-mode .coach-home-next-copy--plain { min-height: 0; }
+  .account-page.is-coach-mode .coach-home-planning,
+  .account-page.is-coach-mode [data-coach-requests],
+  .account-page.is-coach-mode .coach-home-summary,
+  .account-page.is-coach-mode .coach-home-focus > *,
+  .account-page.is-coach-mode [data-phone-verification],
+  .account-page.is-coach-mode [data-coach-documents],
+  .account-page.is-coach-mode [data-coach-profile-editor],
+  .account-page.is-coach-mode [data-message-inbox] {
+    min-width: 0;
+  }
+
+  .account-page.is-coach-mode [data-coach-profile-editor] form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .account-page.is-coach-mode [data-coach-profile-editor] form > .auth-field,
+  .account-page.is-coach-mode [data-coach-profile-editor] form > fieldset { margin: 0; min-width: 0; }
+  .account-page.is-coach-mode [data-coach-profile-editor] form > .auth-field:has(textarea) { grid-column: span 2; }
+  .account-page.is-coach-mode [data-coach-profile-editor] form > .auth-primary { grid-column: span 2; min-height: 44px; }
+  .account-page.is-coach-mode [data-coach-profile-editor] form > [data-coach-profile-status] { align-self: center; margin: 0; }
+
+  .account-page.is-coach-mode .coach-home-schedule article,
+  .account-page.is-coach-mode .coach-home-profile-preview-grid div,
+  .account-page.is-coach-mode .coach-home-mini-tabs,
+  .account-page.is-coach-mode .coach-home-mini-tabs span {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: #202d42;
+    color: #f6f8fb;
+  }
+
+  .account-page.is-coach-mode .coach-home-schedule span,
+  .account-page.is-coach-mode .coach-home-profile-preview-grid span,
+  .account-page.is-coach-mode .coach-home-profile-preview-copy,
+  .account-page.is-coach-mode .coach-home-rating p,
+  .account-page.is-coach-mode .coach-home-revenue p {
+    color: #aebbd1;
+  }
+}
+
+@media (max-width: 900px) {
+  .account-page.is-coach-mode .coach-home { display: flex; flex-direction: column; gap: 12px; }
+  .account-page.is-coach-mode .coach-home-sidebar { order: -1; position: static; }
+  .account-page.is-coach-mode .coach-home-sidebar .coach-home-nav-group { display: none; }
+  .account-page.is-coach-mode .coach-home-sidebar .coach-home-nav-footer { display: flex; flex-wrap: wrap; gap: 8px; }
+  .account-page.is-coach-mode .coach-home-sidebar .coach-home-nav-footer a { flex: 1 1 auto; }
+  .account-page.is-coach-mode .coach-home-focus { grid-template-columns: 1fr; }
+  .account-page.is-coach-mode [data-coach-profile-editor] form { display: grid; gap: 10px; }
+}
 
 /* Final opt-out: no rotating contour or orbital halo anywhere. */
 .scroll-reveal-ready .scroll-particle-card::before,
@@ -824,6 +1717,27 @@ header.topbar > *,
   .cookie-consent-banner { display: block; padding: 1rem; }
   .cookie-consent-actions { justify-content: stretch; margin-top: 0.8rem; }
   .cookie-consent-actions button { flex: 1; }
+}
+
+/* Compact consent layer: informative without obscuring the hero metrics. */
+.cookie-consent-banner {
+  right: 1rem;
+  bottom: 1rem;
+  left: auto;
+  width: min(760px, calc(100% - 2rem));
+  max-width: none;
+  padding: .9rem 1rem;
+  border-color: rgba(219,230,255,.18);
+  border-radius: 16px;
+  background: rgba(10,22,40,.96);
+  box-shadow: 0 14px 42px rgba(0,0,0,.3);
+}
+.cookie-consent-banner p { max-width: 470px; font-size: .78rem; line-height: 1.4; }
+.cookie-consent-actions { flex: 0 0 auto; }
+.cookie-consent-actions button { min-height: 2.35rem; padding: .55rem .8rem; font-size: .76rem; }
+
+@media (max-width: 700px) {
+  .cookie-consent-banner { right: .75rem; bottom: .75rem; left: .75rem; width: auto; }
 }
 
 .legal-placeholder-page {
@@ -1379,6 +2293,7 @@ body {
 
 body {
   min-height: 100dvh;
+  margin: 0;
 }
 
 @media (max-width: 900px) {
@@ -2249,7 +3164,7 @@ body {
 .payment-card,
 .payment-summary-card,
 .auth-card,
-.account-dashboard-card,
+.account-dashboard-card:not(.coach-home-summary):not(.coach-home-planning):not(.coach-home-profile-preview):not(.coach-home-next-session):not(.coach-home-rating):not(.coach-home-revenue):not(.coach-home-requests):not([data-coach-profile-editor]):not([data-phone-verification]):not([data-coach-documents]):not([data-message-inbox]),
 .account-panel,
 .account-auth-stage,
 .reservation-selection-panel,

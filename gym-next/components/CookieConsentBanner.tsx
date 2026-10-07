@@ -26,6 +26,7 @@ export function CookieConsentBanner() {
         onClick={() => setVisible(true)}
         aria-haspopup="dialog"
         aria-expanded="false"
+        aria-controls="cookie-consent-banner"
       >
         Préférences cookies
       </button>
@@ -33,12 +34,13 @@ export function CookieConsentBanner() {
   }
 
   return (
-    <div
+    <aside
+      id="cookie-consent-banner"
       className="cookie-consent-banner"
-      role="dialog"
+      role="region"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-description"
-      aria-modal="false"
+      aria-live="polite"
     >
       <div>
         <strong id="cookie-consent-title">Votre confidentialité compte</strong>
@@ -51,6 +53,6 @@ export function CookieConsentBanner() {
         <button type="button" className="cookie-consent-secondary" onClick={() => saveChoice("refused")}>Refuser le non nécessaire</button>
         <button type="button" className="cookie-consent-primary" onClick={() => saveChoice("essential")}>Continuer avec le nécessaire</button>
       </div>
-    </div>
+    </aside>
   );
 }

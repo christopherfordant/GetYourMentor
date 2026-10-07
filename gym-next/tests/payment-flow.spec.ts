@@ -1,13 +1,15 @@
 import { expect, test } from "@playwright/test";
 
 test("le paiement est verrouillé avant acceptation puis confirmé après", async ({ page, request }) => {
+  const appointmentAt = new Date(Date.now() + 72 * 3_600_000).toISOString();
   const created = await request.post("/api/reservations", {
     data: {
       coachId: "steven-fordant",
       service: "Coaching basketball",
       duration: "1 heure",
       price: 35,
-      slots: ["2026-09-25 18:00"],
+      slots: [appointmentAt],
+      appointmentAt,
     },
   });
   expect(created.status()).toBe(201);

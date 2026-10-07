@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { CoachRequestsPanel } from "@/components/account-legacy/CoachRequestsPanel";
@@ -23,34 +24,14 @@ type DashboardMode = "sportif" | "coach" | "club" | "admin" | null;
 
 const coachSessions = [
   {
-    name: "Vazquez Eliott",
-    age: "19 ans",
-    club: "Sans club",
-    objective: "Objectif : perfectionnement dribble",
+    name: "Élève test",
+    age: "Profil de démonstration",
+    club: "Compte sportif de test",
+    objective: "Objectif : perfectionnement basketball",
     location: "Lieu : Gymnase de la Paix",
     slot: "18h - 19h",
     date: "05/04",
     href: buildNextPath(nextRoutes.coach, { sport: "basketball", city: "Lyon", coach: "Steven Fordant" }),
-  },
-  {
-    name: "Fordant Christopher",
-    age: "22 ans",
-    club: "Club Horizon",
-    objective: "Objectif : reprise et coordination",
-    location: "Lieu : Stade des Docks",
-    slot: "19h - 20h",
-    date: "06/04",
-    href: buildNextPath(nextRoutes.coach, { sport: "football", city: "Marseille", coach: "Steven Fordant" }),
-  },
-  {
-    name: "Seck Madison",
-    age: "24 ans",
-    club: "Sans club",
-    objective: "Objectif : gainage et remise en forme",
-    location: "Lieu : Studio Centre Ville",
-    slot: "20h - 21h",
-    date: "07/04",
-    href: buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: "Steven Fordant" }),
   },
 ];
 
@@ -136,6 +117,7 @@ function AccountHeader() {
 
 function AccountAuthShell({
   step,
+  isCoachMode,
   status,
   passwordVisible,
   onTogglePassword,
@@ -146,6 +128,7 @@ function AccountAuthShell({
   onSubmitCreate,
 }: {
   step: StepName;
+  isCoachMode: boolean;
   status: string;
   passwordVisible: boolean;
   onTogglePassword: () => void;
@@ -169,9 +152,11 @@ function AccountAuthShell({
     <div className="account-auth-stage" data-account-auth-shell>
       <div className={`auth-modal-step${step === "signin" ? " is-active" : ""}`} data-account-step="signin" hidden={step !== "signin"}>
         <div className="auth-card auth-card-compact">
-          <h1 data-account-title>S'identifier</h1>
+          <h1 data-account-title>{isCoachMode ? "Connexion coach" : "S'identifier"}</h1>
           <p className="auth-subtitle" data-account-subtitle>
-            Connectez-vous pour retrouver votre espace ou poursuivre votre inscription.
+            {isCoachMode
+              ? "Connectez-vous pour accéder à votre espace coach et gérer vos créneaux."
+              : "Connectez-vous pour retrouver votre espace ou poursuivre votre inscription."}
           </p>
           <p className="auth-status-message" data-account-status hidden={!status}>
             {status}
@@ -424,18 +409,15 @@ function CoachDashboard({
         <div className="coach-home-nav-group">
           <div className="coach-home-nav-heading">Organisation</div>
           <a href="#coach-planning">Planning</a>
-          <a href="#coach-messages">Messagerie</a>
-          <a href="#coach-contents">Mes contenus</a>
-          <a href="#coach-templates">Mes templates</a>
-          <a href="#coach-athletes">Mes sportifs</a>
+          <a href="#coach-requests">Demandes</a>
+          <a href="#coach-messages-live">Messagerie</a>
         </div>
         <div className="coach-home-nav-group">
           <div className="coach-home-nav-heading">Mes données</div>
           <a href="#coach-dashboard">Tableau de bord</a>
           <a href="#coach-payments">Mes paiements</a>
-          <a href="#coach-rib">Mon RIB</a>
-          <a href="#coach-subscription">Mon abonnement</a>
-          <a href="#coach-bills">Mes factures</a>
+          <a href="#coach-profile-editor">Mon profil</a>
+          <a href="#coach-documents">VÃ©rification</a>
         </div>
         <div className="coach-home-nav-footer">
           <a href="#coach-invitations">Invitation</a>
@@ -516,6 +498,9 @@ function CoachDashboard({
       </section>
       <div className="coach-home-focus">
         <article className="account-dashboard-card coach-home-next-session" id="coach-dashboard" data-coach-display-block="next-session">
+          <div className="coach-home-editorial-image coach-home-editorial-image--session" aria-hidden="true">
+            <Image src="/design_assets/content_library/basketball/basketball-training-athlete.jpg" alt="" fill sizes="(max-width: 900px) 100vw, 42vw" />
+          </div>
           <div className="coach-home-card-head">
             <h3>Prochaines séances</h3>
             <div className="coach-home-next-head-actions">
@@ -545,6 +530,9 @@ function CoachDashboard({
           <p>Montant calculé sur les réservations payées.</p>
         </article>
         <article className="account-dashboard-card coach-home-profile-preview" data-coach-display-block="profile-preview">
+          <div className="coach-home-editorial-image coach-home-editorial-image--profile" aria-hidden="true">
+            <Image src={coachProfile?.photoUrl || "/design_assets/content_library/football/football-field-mentor.jpg"} alt="" fill sizes="(max-width: 900px) 100vw, 100vw" />
+          </div>
           <div className="coach-home-card-head">
             <h3>Aperçu de mon profil</h3>
             <span>Vue élève</span>
@@ -584,7 +572,7 @@ function CoachDashboard({
           </a>
         </div>
       </div>
-      {allowDemoFallback ? <section className="account-dashboard-card coach-home-messages" id="coach-messages">
+      {false ? <section className="account-dashboard-card coach-home-messages" id="coach-messages">
         <div className="coach-home-card-head">
           <h3>Messagerie</h3>
           <span>4 conversations</span>
@@ -972,6 +960,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
             {!dashboardMode ? (
               <AccountAuthShell
                 step={step}
+                isCoachMode={isCoachMode}
                 status={status}
                 passwordVisible={passwordVisible}
                 onTogglePassword={() => setPasswordVisible((current) => !current)}

@@ -16,7 +16,7 @@ export function MessageInbox({ recipientName }: { recipientName?: string }) {
   }, [recipientName]);
 
   return (
-    <section className="account-dashboard-card" data-message-inbox>
+    <section className="account-dashboard-card" id="coach-messages-live" data-message-inbox>
       <div className="coach-home-card-head">
         <h3>Messagerie</h3>
         <span>{messages.length} message{messages.length > 1 ? "s" : ""}</span>

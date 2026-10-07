@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
@@ -49,11 +49,25 @@ const inferSportSlug = (value = ""): SportSlug => {
 };
 
 const sportVisuals: Record<SportSlug, string> = {
-  football: "/design_assets/content_library/web_reference/football-coaching.jpg",
-  basketball: "/design_assets/content_library/web_reference/basketball-coaching.jpg",
-  "metiers-de-la-forme": "/design_assets/content_library/web_reference/fitness-training.jpg",
-  "sports-de-combat": "/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
+  football: "/design_assets/content_library/emergent/football.jpg",
+  basketball: "/design_assets/content_library/emergent/basketball.jpg",
+  "metiers-de-la-forme": "/design_assets/content_library/emergent/fitness.jpg",
+  "sports-de-combat": "/design_assets/content_library/emergent/combat.jpg",
 };
+
+const experienceSlides = [
+  { title: "Séances en extérieur", copy: "Entraîne-toi au grand air avec un plan sur-mesure.", image: sportVisuals.football },
+  { title: "Stratégie de jeu", copy: "Analyse, placements et prise de décision pour passer un cap.", image: sportVisuals["metiers-de-la-forme"] },
+  { title: "Préparation physique", copy: "Un plan progressif pour gagner en force, mobilité et confiance.", image: sportVisuals["metiers-de-la-forme"] },
+  { title: "Préparation mentale", copy: "Concentration, régularité et confiance dans chaque séance.", image: sportVisuals["sports-de-combat"] },
+];
+
+const experienceGalleries = [
+  [sportVisuals.basketball, sportVisuals["metiers-de-la-forme"]],
+  [sportVisuals.football, sportVisuals["sports-de-combat"]],
+  [sportVisuals.basketball, sportVisuals.football],
+  [sportVisuals["metiers-de-la-forme"], sportVisuals.basketball],
+];
 
 function StepDots({ count, activeIndex }: { count: number; activeIndex: number }) {
   return (
@@ -74,11 +88,14 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const [slotIndex, setSlotIndex] = useState(0);
   const [paymentIndex, setPaymentIndex] = useState(0);
   const [journeyIndex, setJourneyIndex] = useState(0);
+  const [experienceIndex, setExperienceIndex] = useState(0);
   const journeyViewportRef = useRef<HTMLDivElement>(null);
   const journeyTrackRef = useRef<HTMLDivElement>(null);
   const journeyDragRef = useRef<Draggable | null>(null);
 
-  useLayoutEffect(() => {
+  // GSAP is intentionally initialized after the first paint. This keeps the
+  // mobile hero responsive while preserving the same journey interactions.
+  useEffect(() => {
     gsap.registerPlugin(Draggable, InertiaPlugin);
     const viewport = journeyViewportRef.current;
     const track = journeyTrackRef.current;
@@ -97,11 +114,11 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
       const stride = getStride();
       const offset = getCenterOffset();
       if (!stride) return;
-      setJourneyIndex(Math.max(0, Math.min(2, Math.round((offset - value) / stride))));
+      setJourneyIndex(Math.max(0, Math.min(3, Math.round((offset - value) / stride))));
     };
     const getBounds = () => {
       const offset = getCenterOffset();
-      return { minX: offset - getStride() * 2, maxX: offset };
+      return { minX: offset - getStride() * 3, maxX: offset };
     };
 
     const draggable = Draggable.create(track, {
@@ -127,7 +144,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   }, []);
 
   const goToJourney = (index: number) => {
-    const next = Math.max(0, Math.min(2, index));
+    const next = Math.max(0, Math.min(3, index));
     setJourneyIndex(next);
     const track = journeyTrackRef.current;
     const viewport = journeyViewportRef.current;
@@ -136,8 +153,20 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
       const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
       const stride = (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width) + gap;
       const offset = (viewport.getBoundingClientRect().width - (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width)) / 2;
-      gsap.to(track, { x: offset - next * stride, duration: 0.8, ease: "expo.out", overwrite: true });
+      const targetX = offset - next * stride;
+      gsap.killTweensOf(track);
+      gsap.to(track, {
+        x: targetX,
+        duration: 0.8,
+        ease: "expo.out",
+        overwrite: true,
+        onComplete: () => journeyDragRef.current?.update(true),
+      });
     }
+  };
+
+  const goToExperience = (index: number) => {
+    setExperienceIndex((index + experienceSlides.length) % experienceSlides.length);
   };
 
   useEffect(() => {
@@ -150,6 +179,8 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const activeProfile = profileSlides[profileIndex];
   const activeSlot = slotSlides[slotIndex];
   const activePayment = paymentSlides[paymentIndex];
+  const experiencePreviousIndex = (experienceIndex + experienceSlides.length - 1) % experienceSlides.length;
+  const experienceNextIndex = (experienceIndex + 1) % experienceSlides.length;
   const displayedProfile = allowDemoFallback ? activeProfile : {
     ...activeProfile,
     name: "Coach vérifié",
@@ -221,19 +252,20 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
         <section className={styles.hero} data-gsap-hero>
           <div className={styles.heroBackdrop}>
             <Image
-              src="/design_assets/hero_accueil_whatsapp.jpeg"
-              alt="Athletes et coachs en mouvement"
+              src="/design_assets/content_library/emergent/hero-athlete.webp"
+              alt="Athlète en pleine action sportive"
               fill
               priority
               sizes="100vw"
+              quality={65}
               className={styles.heroImage}
             />
           </div>
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent} data-gsap-hero-content>
-            <p className={styles.eyebrow} data-gsap-hero-item>Coaching qui te ressemble</p>
-            <h1 className={styles.heroTitle} data-gsap-hero-item>Bouge. Progresse. Recommence.</h1>
-            <p className={styles.heroCopy} data-gsap-hero-item>Trouve le bon accompagnement, réserve une session et garde le rythme.</p>
+            <p className={styles.eyebrow} data-gsap-hero-item>Plateforme #1 en France</p>
+            <h1 className={styles.heroTitle} data-gsap-hero-item>Trouve ton coach. Progresse vraiment.</h1>
+            <p className={styles.heroCopy} data-gsap-hero-item>Des coachs certifiés en Football, Basketball, Fitness et Sports de combat. Réserve ta session en quelques clics.</p>
 
             <div className={styles.searchCard} data-gsap-hero-item>
               <label className={styles.field}>
@@ -264,42 +296,81 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 Trouver un coach
               </button>
             </div>
+            <div className={styles.heroMetrics} data-gsap-hero-item aria-label="Repères GetYourMentor">
+              {metrics.map((metric) => (
+                <div key={metric.label} className={styles.heroMetric}>
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section className={styles.sportRail} data-gsap-scene="sports" aria-labelledby="sport-rail-title">
           <div className={styles.sectionHeading}>
             <p className={styles.sectionKicker}>Choisir son terrain</p>
-            <h2 id="sport-rail-title">Commence par ce qui te fait bouger</h2>
-            <p className={styles.sectionIntro}>
-              Des coachs vérifiés, près de chez toi ou en visio, pour progresser avec un cadre qui te ressemble.
-            </p>
+            <h2 id="sport-rail-title">Choisis ton terrain de jeu</h2>
           </div>
           <div className={styles.sportRailGrid}>
             {sportLinks.map((sport, index) => (
               <Link key={sport.slug} href={`/recherche?sport=${sport.slug}`} className={styles.sportRailCard} data-gsap-stagger data-sport-motion={sport.slug === "metiers-de-la-forme" ? "fitness" : sport.slug === "sports-de-combat" ? "combat" : sport.slug}>
-                <Image src={sportVisuals[sport.slug]} alt="" fill sizes="(max-width: 900px) 100vw, 25vw" className={styles.sportRailImage} />
+                <Image src={sportVisuals[sport.slug]} alt="" fill loading="lazy" sizes="(max-width: 900px) 100vw, 25vw" quality={60} className={styles.sportRailImage} />
                 <span className={styles.sportRailShade} aria-hidden="true" />
-                <span className={styles.sportRailIndex}>0{index + 1}</span>
-                <span className={styles.sportRailLabel}>{sport.label}</span>
-                <span className={styles.sportRailAction}>Explorer <span aria-hidden="true">↗</span></span>
+                <span className={styles.sportRailCopy}>
+                  <span className={styles.sportRailIndex}>{String(index + 1).padStart(2, "0")}</span>
+                  <strong className={styles.sportRailLabel}>{sport.label}</strong>
+                  <span className={styles.sportRailAction}>{sport.coachCount}</span>
+                </span>
               </Link>
             ))}
           </div>
         </section>
 
+        <section className={`${styles.section} ${styles.experienceSection}`} data-gsap-scene="experiences" aria-labelledby="experience-title">
+          <div className={styles.sectionHeading}>
+            <p className={styles.sectionKicker}>Expériences</p>
+            <h2 id="experience-title">Un coaching sur-mesure</h2>
+            <span className={styles.experienceCounter}>{String(experienceIndex + 1).padStart(2, "0")} / 04</span>
+          </div>
+          <div className={styles.experienceCarousel} aria-live="polite">
+            <div className={styles.experienceMedia}>
+              <div className={styles.experienceStage} aria-label="Carrousel des expériences">
+                {[experiencePreviousIndex, experienceIndex, experienceNextIndex].map((slideIndex, position) => (
+                  <div key={slideIndex} className={`${styles.experienceSlide} ${position === 1 ? styles.experienceSlideActive : position === 0 ? styles.experienceSlideSideLeft : styles.experienceSlideSideRight}`}>
+                    <Image src={experienceSlides[slideIndex].image} alt={experienceSlides[slideIndex].title} fill loading="lazy" sizes="(max-width: 900px) 76vw, 52vw" quality={60} className={styles.experienceImage} />
+                  </div>
+                ))}
+              </div>
+              <div className={styles.experienceShade} aria-hidden="true" />
+              <div className={styles.experienceCaption}>
+                <h3>{experienceSlides[experienceIndex].title}</h3>
+                <p>{experienceSlides[experienceIndex].copy}</p>
+              </div>
+            </div>
+            <div className={styles.experienceControls} aria-label="Navigation des expériences">
+              <button className={styles.carouselButton} type="button" aria-label="Expérience précédente" onClick={() => goToExperience(experienceIndex - 1)}>‹</button>
+              <div className={styles.experienceDots}>
+                {experienceSlides.map((slide, index) => <button key={slide.title} type="button" aria-label={`Aller à l'expérience ${index + 1}`} aria-current={experienceIndex === index} onClick={() => goToExperience(index)} />)}
+              </div>
+              <button className={styles.carouselButton} type="button" aria-label="Expérience suivante" onClick={() => goToExperience(experienceIndex + 1)}>›</button>
+            </div>
+          </div>
+        </section>
+
         <section className={styles.section} data-gsap-section="journey">
           <div className={styles.sectionHeading} data-gsap-heading>
-            <h2>Ton parcours, sans friction</h2>
-            <p className={styles.carouselHint}>Fais glisser pour découvrir les 3 étapes</p>
+            <p className={styles.sectionKicker}>Ton parcours</p>
+            <h2>De l'inscription à ton premier record</h2>
+            <p className={styles.carouselHint}>Fais glisser pour découvrir les 4 étapes</p>
           </div>
           <div className="journey-light-line" data-gsap-line aria-hidden="true" />
 
           <div className={styles.carouselViewport} aria-live="polite" ref={journeyViewportRef}>
           <div className={styles.carouselControls} aria-label="Navigation du parcours">
             <button className={styles.carouselButton} type="button" aria-label="Étape précédente" disabled={journeyIndex === 0} onClick={() => goToJourney(journeyIndex - 1)}>‹</button>
-            <span className={styles.carouselCounter}>{String(journeyIndex + 1).padStart(2, "0")} / 03</span>
-            <button className={styles.carouselButton} type="button" aria-label="Étape suivante" disabled={journeyIndex === 2} onClick={() => goToJourney(journeyIndex + 1)}>›</button>
+            <span className={styles.carouselCounter}>{String(journeyIndex + 1).padStart(2, "0")} / 04</span>
+            <button className={styles.carouselButton} type="button" aria-label="Étape suivante" disabled={journeyIndex === 3} onClick={() => goToJourney(journeyIndex + 1)}>›</button>
           </div>
           <div className={styles.howGrid} ref={journeyTrackRef}>
             <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 0}>
@@ -429,6 +500,22 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 </div>
               </div>
             </article>
+            <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 3}>
+              <div className={styles.stepHead}>
+                <span className={styles.stepNumber}>4</span>
+                <h3>Progresse avec ton coach</h3>
+              </div>
+              <div className={styles.miniScreen}>
+                <div className={styles.progressVisual} aria-hidden="true">
+                  <span>OBJECTIF</span><strong>+ 18%</strong><small>de régularité ce mois-ci</small>
+                </div>
+                <div className={styles.slideContent}>
+                  <h4>Un rythme qui tient</h4>
+                  <p className={styles.slideDetail}>Suivi personnalisé, objectifs atteints, résultats réels.</p>
+                  <Link className={styles.darkButtonLink} href="/compte">Voir mon espace</Link>
+                </div>
+              </div>
+            </article>
           </div>
           </div>
         </section>
@@ -469,11 +556,12 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
         <section className={styles.recruitSection} data-gsap-scene="recruit">
           <div className={styles.recruitMedia} data-gsap-recruit-media>
-            <Image
-              src="/design_assets/content_library/football/football-coach-rain.jpg"
-              alt="Coach sur terrain"
-              fill
-              sizes="(max-width: 900px) 100vw, 50vw"
+              <Image
+                src="/design_assets/content_library/football/football-coach-rain.jpg"
+                alt="Coach sur terrain"
+                fill
+                loading="lazy"
+                sizes="(max-width: 900px) 100vw, 50vw"
               className={styles.cardImage}
             />
           </div>

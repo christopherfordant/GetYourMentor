@@ -1,0 +1,189 @@
+/* Final visual layer: intentionally loaded after the legacy and redesign layers. */
+
+/* One full-bleed header surface, with no residual lighter strip. */
+header.topbar,
+[data-gsap-header] {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(174, 196, 231, 0.12) !important;
+  border-radius: 0 !important;
+  background: #080e1d !important;
+  box-shadow: 0 12px 30px rgba(2, 7, 18, 0.24) !important;
+}
+
+header.topbar::before,
+[data-gsap-header]::before,
+.directory-filter-panel::before,
+.coach-directory-search::before,
+.coach-directory-search::after {
+  display: none !important;
+  animation: none !important;
+}
+
+header.topbar > *,
+[data-gsap-header] > * { z-index: 1; }
+
+/* Authentication: one calm frame, without card-inside-card borders. */
+.account-auth-stage,
+.account-auth-stage .auth-card,
+.account-auth-stage .auth-card::before,
+.account-auth-stage .auth-card::after {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.account-auth-stage {
+  width: min(760px, 100%) !important;
+  padding: 24px 0 !important;
+}
+
+.account-auth-stage .auth-card {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 30px clamp(20px, 5vw, 54px) !important;
+  background: linear-gradient(180deg, rgba(24, 38, 64, 0.96), rgba(17, 26, 45, 0.96)) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25) !important;
+}
+
+.account-auth-stage .auth-card .auth-field,
+.account-auth-stage .auth-card .auth-actions,
+.account-auth-stage .auth-card .auth-divider { border-color: rgba(174, 196, 231, 0.14) !important; }
+
+/* Search and sorting: a single toolbar, with compact controls instead of nested panels. */
+.coach-directory-toolbar,
+.coach-directory-search,
+.directory-chip-row,
+.directory-filter-panel {
+  border-radius: 16px !important;
+}
+
+.coach-directory-toolbar {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.coach-directory-search {
+  border: 1px solid rgba(174, 196, 231, 0.16) !important;
+  background: #111a2d !important;
+  box-shadow: none !important;
+}
+
+.directory-chip-row {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px !important;
+  padding: 12px 0 0 !important;
+}
+
+.directory-chip {
+  min-height: 42px !important;
+  border: 1px solid rgba(174, 196, 231, 0.16) !important;
+  border-radius: 12px !important;
+  background: #182640 !important;
+  box-shadow: none !important;
+}
+
+.directory-chip-filter { background: #d7f36b !important; color: #101a2d !important; border-color: #d7f36b !important; }
+.directory-filter-panel {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px !important;
+  margin-top: 12px !important;
+  padding: 14px !important;
+  border: 1px solid rgba(174, 196, 231, 0.14) !important;
+  background: #111a2d !important;
+  box-shadow: none !important;
+}
+
+/* Language accordion. The native select remains for accessibility and tests. */
+.language-selector-accordion {
+  position: relative;
+  min-width: 78px;
+  border: 1px solid rgba(174, 196, 231, 0.2) !important;
+  border-radius: 12px !important;
+  background: #182640 !important;
+}
+
+.language-selector-accordion summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  padding: 0 12px;
+  cursor: pointer;
+  list-style: none;
+  color: #f6f8fb;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.language-selector-accordion summary::-webkit-details-marker { display: none; }
+.language-selector-panel {
+  position: absolute;
+  z-index: 80;
+  top: calc(100% + 8px);
+  right: 0;
+  display: grid;
+  gap: 4px;
+  min-width: 150px;
+  padding: 8px;
+  border: 1px solid rgba(174, 196, 231, 0.16);
+  border-radius: 14px;
+  background: #111a2d;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.language-selector-panel select,
+.language-selector-panel button {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #cbd5e1;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.language-selector-panel button:hover,
+.language-selector-panel select:focus-visible { background: #203252; color: #fff; }
+
+/* FAQ keeps the dark blue system instead of inheriting a white legacy surface. */
+[class*="faqSection__"],
+[class*="faqItem__"] {
+  background: #0f1a2d !important;
+  color: #f6f8fb !important;
+}
+
+[class*="faqItem__"] { border-color: rgba(174, 196, 231, 0.16) !important; box-shadow: none !important; }
+[class*="faqItem__"] p { color: #aebbd1 !important; }
+
+/* Decorative sport assets are non-interactive and can be safely animated by GSAP. */
+[data-motion-asset] { pointer-events: none; transform-origin: 50% 50%; }
+[data-motion-asset][data-motion-primary="false"] { opacity: 0; }
+
+@keyframes tabImpactGlow {
+  0% { filter: brightness(1); box-shadow: 0 0 0 rgba(207, 255, 74, 0); }
+  45% { filter: brightness(1.35); box-shadow: 0 0 24px rgba(207, 255, 74, .5); }
+  100% { filter: brightness(1); box-shadow: 0 0 0 rgba(207, 255, 74, 0); }
+}
+
+.gsap-tab-impact,
+.gsap-ball-impact { animation: tabImpactGlow .38s ease-out both; }
+
+@media (max-width: 900px) {
+  .directory-filter-panel { grid-template-columns: 1fr !important; }
+  .language-selector-panel { right: auto; left: 0; }
+}
+body {
+  margin: 0;
+}

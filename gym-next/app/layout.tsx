@@ -6,20 +6,40 @@ import { ScrollParticleReveal } from "@/components/ScrollParticleReveal";
 import "./globals.css";
 import "./legacy-prototype.css";
 import "./redesign-2026.css";
+import "./final-motion-overrides.css";
 
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
   variable: "--font-manrope",
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001"),
+  metadataBase: new URL(appUrl),
   title: {
     default: "GetYourMentor",
     template: "%s | GetYourMentor",
   },
   description: "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.",
   applicationName: "GetYourMentor",
+  category: "sports",
+  keywords: ["coach sportif", "coaching sportif", "réservation coach", "entraînement", "sport"],
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    siteName: "GetYourMentor",
+    title: "GetYourMentor — Trouve le coach qui te correspond",
+    description: "Trouvez et réservez votre coach sportif en ligne sur GetYourMentor.",
+    url: appUrl,
+    images: [{ url: "/design_assets/hero_accueil_whatsapp.jpeg", width: 1600, height: 900, alt: "Athlètes et coachs en mouvement" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GetYourMentor — Trouve le coach qui te correspond",
+    description: "Trouvez et réservez votre coach sportif en ligne sur GetYourMentor.",
+    images: ["/design_assets/hero_accueil_whatsapp.jpeg"],
+  },
   alternates: {
     canonical: "/",
   },
@@ -39,6 +59,31 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={manrope.variable}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${appUrl}/#website`,
+                  url: appUrl,
+                  name: "GetYourMentor",
+                  description: "Plateforme de mise en relation entre sportifs et coachs.",
+                  inLanguage: "fr-FR",
+                },
+                {
+                  "@type": "Organization",
+                  "@id": `${appUrl}/#organization`,
+                  name: "GetYourMentor",
+                  url: appUrl,
+                  logo: `${appUrl}/design_assets/logo-getyourmentor-signup.png`,
+                },
+              ],
+            }),
+          }}
+        />
         <InternalNavigationEnhancer />
         <ScrollParticleReveal />
         {children}

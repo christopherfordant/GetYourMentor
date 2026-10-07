@@ -4,11 +4,11 @@ export type SportSlug =
   | "metiers-de-la-forme"
   | "sports-de-combat";
 
-export const sportLinks: Array<{ label: string; slug: SportSlug }> = [
-  { label: "Football", slug: "football" },
-  { label: "Basketball", slug: "basketball" },
-  { label: "Fitness", slug: "metiers-de-la-forme" },
-  { label: "Sports de combat", slug: "sports-de-combat" },
+export const sportLinks: Array<{ label: string; slug: SportSlug; coachCount: string }> = [
+  { label: "Football", slug: "football", coachCount: "248 coachs" },
+  { label: "Basketball", slug: "basketball", coachCount: "132 coachs" },
+  { label: "Fitness", slug: "metiers-de-la-forme", coachCount: "415 coachs" },
+  { label: "Sports de combat", slug: "sports-de-combat", coachCount: "96 coachs" },
 ];
 
 export const profileSlides = [
@@ -105,9 +105,9 @@ export const paymentSlides = [
 ];
 
 export const metrics = [
-  { value: "04", label: "disciplines pour commencer" },
-  { value: "01 → 03", label: "créneaux proposés au coach" },
-  { value: "0 €", label: "avant la validation du coach" },
+  { value: "890+", label: "coachs certifiés" },
+  { value: "12k", label: "sportifs actifs" },
+  { value: "4.9★", label: "note moyenne" },
 ];
 
 export const insights = [

@@ -186,6 +186,8 @@ function ReservationCalendarStep({
   submitting,
   error,
   bookedSlots,
+  availabilityLoading,
+  availabilityError,
 }: {
   weekIndex: number;
   selectedSlot: string;
@@ -197,6 +199,8 @@ function ReservationCalendarStep({
   submitting: boolean;
   error: string;
   bookedSlots: string[];
+  availabilityLoading: boolean;
+  availabilityError: string;
 }) {
   const currentWeek = weekSets[weekIndex];
 
@@ -205,7 +209,9 @@ function ReservationCalendarStep({
       <h2>
         <span>2.</span> Choix de la date &amp; heure
       </h2>
-      <div className="reservation-calendar-card">
+      <div className="reservation-calendar-card" aria-busy={availabilityLoading}>
+        {availabilityLoading ? <p className="reservation-loading" role="status">Vérification des disponibilités…</p> : null}
+        {availabilityError ? <p className="reservation-inline-error" role="alert">{availabilityError}</p> : null}
         <div className="reservation-calendar-head">
           <button className="calendar-arrow" type="button" aria-label="Semaine precedente" data-calendar-prev onClick={onPrevWeek}>
             ‹
@@ -254,10 +260,10 @@ function ReservationCalendarStep({
           href={confirmHref}
           data-multi-confirm
           aria-busy={submitting}
-          aria-disabled={!selectedSlot || bookedSlots.includes(selectedSlot)}
+          aria-disabled={availabilityLoading || submitting || !selectedSlot || bookedSlots.includes(selectedSlot)}
           onClick={onConfirm}
         >
-          {submitting ? "Envoi de la demande..." : "Reserver mon creneau"}
+          {submitting ? "Envoi de la demande…" : availabilityLoading ? "Vérification…" : "Réserver mon créneau"}
         </a>
       </div>
       {error ? <p role="alert" className="reservation-error">{error}</p> : null}
@@ -299,12 +305,16 @@ export function ChoixCoachCreneauLegacyPage({
   const [selectedMentor, setSelectedMentor] = useState(params.mentor || "Sans preference");
   const [weekIndex, setWeekIndex] = useState(0);
   const [bookedSlots, setBookedSlots] = useState<string[]>([]);
+  const [availabilityLoading, setAvailabilityLoading] = useState(true);
+  const [availabilityError, setAvailabilityError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   const serviceMeta = [duration, price, format, objective, packageLabel].filter(Boolean).join("  ");
 
   useEffect(() => {
+    setAvailabilityLoading(true);
+    setAvailabilityError("");
     fetch(`/api/reservations?coachId=${encodeURIComponent(coach)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Disponibilités indisponibles"))))
       .then((payload) => {
@@ -312,10 +322,14 @@ export function ChoixCoachCreneauLegacyPage({
           .filter((item) => ["requested", "accepted", "paid"].includes(item.status))
           .flatMap((item) => item.slots);
         setBookedSlots(slots);
-        if (slots.includes(selectedSlot)) setSelectedSlot("");
+        setSelectedSlot((current) => (slots.includes(current) ? "" : current));
       })
-      .catch(() => setBookedSlots([]));
-  }, [coach, selectedSlot]);
+    .catch(() => {
+      setBookedSlots([]);
+      setAvailabilityError("Les disponibilités n’ont pas pu être vérifiées. Vous pouvez réessayer.");
+    })
+    .finally(() => setAvailabilityLoading(false));
+  }, [coach]);
 
   const confirmHref = useMemo(
     () =>
@@ -347,6 +361,10 @@ export function ChoixCoachCreneauLegacyPage({
 
   async function handleConfirm(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
+    if (availabilityLoading) {
+      setError("Patientez pendant la vérification des disponibilités.");
+      return;
+    }
     if (!selectedSlot || bookedSlots.includes(selectedSlot)) {
       setError("Sélectionnez un créneau disponible.");
       return;
@@ -413,12 +431,17 @@ export function ChoixCoachCreneauLegacyPage({
             selectedSlot={selectedSlot}
             onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weekSets.length - 1 : current - 1))}
             onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
-            onSelectSlot={setSelectedSlot}
+            onSelectSlot={(slot) => {
+              setSelectedSlot(slot);
+              setError("");
+            }}
             confirmHref={confirmHref}
             onConfirm={handleConfirm}
             submitting={submitting}
             error={error}
             bookedSlots={bookedSlots}
+            availabilityLoading={availabilityLoading}
+            availabilityError={availabilityError}
           />
         </main>
 

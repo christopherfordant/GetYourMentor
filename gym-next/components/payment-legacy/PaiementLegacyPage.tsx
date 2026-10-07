@@ -134,6 +134,7 @@ function PaymentSide({
   reservationStatus,
   reservationCode,
   reservationId,
+  processing,
 }: {
   coach: string;
   city: string;
@@ -153,6 +154,7 @@ function PaymentSide({
   reservationStatus: string;
   reservationCode: string;
   reservationId: string;
+  processing: boolean;
 }) {
   const summaryDuration = [duration, format, objective, packageLabel].filter(Boolean).join(" • ");
 
@@ -188,10 +190,11 @@ function PaymentSide({
         <button
           className="payment-submit"
           type="button"
-          disabled={!paymentReady || success}
+          disabled={!paymentReady || success || processing}
+          aria-label={success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : undefined}
           onClick={onSubmit}
         >
-          {success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : paymentReady ? "Payer et confirmer" : "Paiement indisponible"}
+          {processing ? "Traitement en cours…" : success ? (selectedMethod === "onsite" ? "Réservation enregistrée" : "Paiement confirmé") : paymentReady ? "Payer et confirmer" : "Paiement indisponible"}
         </button>
         <p className="payment-note" data-payment-status>
           {paymentError || (reservationStatus === "requested" ? "En attente de validation par le coach." : reservationStatus === "accepted" ? "Demande acceptée : vous pouvez payer." : "Réservation introuvable.")}
@@ -246,6 +249,7 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
   const [reservationStatus, setReservationStatus] = useState("");
   const [reservationCode, setReservationCode] = useState("");
   const [paymentError, setPaymentError] = useState("");
+  const [processing, setProcessing] = useState(false);
 
   useEffect(() => {
     if (!reservationId) {
@@ -286,24 +290,31 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
   }, [params.payment]);
 
   async function handlePayment() {
-    if (!reservationId) return;
+    if (!reservationId || processing) return;
+    setProcessing(true);
     setPaymentError("");
-    const response = await fetch(`/api/reservations/${reservationId}/payment`, {
-      method: "POST",
-      headers: claimToken ? { "x-reservation-claim-token": claimToken } : undefined,
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      setPaymentError(payload.error ?? "Paiement impossible.");
-      return;
+    try {
+      const response = await fetch(`/api/reservations/${reservationId}/payment`, {
+        method: "POST",
+        headers: claimToken ? { "x-reservation-claim-token": claimToken } : undefined,
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        setPaymentError(payload.error ?? "Paiement impossible.");
+        return;
+      }
+      if (payload.data.checkoutUrl) {
+        window.location.assign(payload.data.checkoutUrl);
+        return;
+      }
+      setReservationStatus(payload.data.status);
+      setReservationCode(payload.data.reservationCode ?? "");
+      setSuccess(true);
+    } catch {
+      setPaymentError("Le service de paiement est momentanément indisponible.");
+    } finally {
+      setProcessing(false);
     }
-    if (payload.data.checkoutUrl) {
-      window.location.assign(payload.data.checkoutUrl);
-      return;
-    }
-    setReservationStatus(payload.data.status);
-    setReservationCode(payload.data.reservationCode ?? "");
-    setSuccess(true);
   }
 
   return (
@@ -333,6 +344,7 @@ export function PaiementLegacyPage({ legacyStyles, params }: PaiementLegacyPageP
             reservationStatus={reservationStatus}
             reservationCode={reservationCode}
             reservationId={reservationId}
+            processing={processing}
           />
         </main>
 

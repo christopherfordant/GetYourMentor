@@ -3,8 +3,14 @@
 import { useEffect, useState } from "react";
 
 export function detectInitialLanguage(stored: string | null, browserLanguage?: string) {
-  if (stored === "fr" || stored === "en") return stored;
-  return browserLanguage?.toLowerCase().startsWith("en") ? "en" : "fr";
+  if (stored && ["fr", "en", "es", "de", "it", "pt"].includes(stored)) return stored;
+  const browser = browserLanguage?.toLowerCase() ?? "";
+  if (browser.startsWith("en")) return "en";
+  if (browser.startsWith("es")) return "es";
+  if (browser.startsWith("de")) return "de";
+  if (browser.startsWith("it")) return "it";
+  if (browser.startsWith("pt")) return "pt";
+  return "fr";
 }
 
 export function LanguageSelector({ className = "" }: { className?: string }) {
@@ -17,21 +23,27 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
     setLanguage(detectInitialLanguage(stored, window.navigator.language));
   }, []);
 
+  const setSelectedLanguage = (nextLanguage: string) => {
+    setLanguage(nextLanguage);
+    window.localStorage.setItem("gym-language", nextLanguage);
+  };
+
   return (
-    <label className={`language-selector ${className}`.trim()}>
-      <span className="sr-only">Langue</span>
-      <select
-        aria-label="Langue"
-        value={language}
-        onChange={(event) => {
-          const nextLanguage = event.target.value;
-          setLanguage(nextLanguage);
-          window.localStorage.setItem("gym-language", nextLanguage);
-        }}
-      >
-        <option value="fr">FR</option>
-        <option value="en">EN</option>
-      </select>
-    </label>
+    <details className={`language-selector language-selector-accordion ${className}`.trim()}>
+      <summary><span>{language.toUpperCase()}</span><span aria-hidden="true">⌄</span></summary>
+      <div className="language-selector-panel">
+        <label>
+          <span className="sr-only">Langue</span>
+          <select aria-label="Langue" value={language} onChange={(event) => setSelectedLanguage(event.target.value)}>
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+        <button type="button" onClick={() => setSelectedLanguage("es")}>Español</button>
+        <button type="button" onClick={() => setSelectedLanguage("de")}>Deutsch</button>
+        <button type="button" onClick={() => setSelectedLanguage("it")}>Italiano</button>
+        <button type="button" onClick={() => setSelectedLanguage("pt")}>Português</button>
+      </div>
+    </details>
   );
 }
