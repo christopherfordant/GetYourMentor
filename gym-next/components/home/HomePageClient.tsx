@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import gsap from "gsap";
-import { Draggable } from "gsap/Draggable";
-import { InertiaPlugin } from "gsap/InertiaPlugin";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import styles from "./home-refined.module.css";
 import {
@@ -91,15 +89,25 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const [experienceIndex, setExperienceIndex] = useState(0);
   const journeyViewportRef = useRef<HTMLDivElement>(null);
   const journeyTrackRef = useRef<HTMLDivElement>(null);
-  const journeyDragRef = useRef<Draggable | null>(null);
+  const journeyDragRef = useRef<any>(null);
 
   // GSAP is intentionally initialized after the first paint. This keeps the
   // mobile hero responsive while preserving the same journey interactions.
   useEffect(() => {
-    gsap.registerPlugin(Draggable, InertiaPlugin);
-    const viewport = journeyViewportRef.current;
-    const track = journeyTrackRef.current;
-    if (!viewport || !track) return;
+    let disposed = false;
+    let cleanup = () => {};
+
+    const initialize = async () => {
+      const [{ Draggable }, { InertiaPlugin }] = await Promise.all([
+        import("gsap/Draggable"),
+        import("gsap/InertiaPlugin"),
+      ]);
+      if (disposed) return;
+      gsap.registerPlugin(Draggable, InertiaPlugin);
+
+      const viewport = journeyViewportRef.current;
+      const track = journeyTrackRef.current;
+      if (!viewport || !track) return;
 
     const getSlide = () => track.querySelector<HTMLElement>("[data-journey-slide]");
     const getSlideWidth = () => getSlide()?.getBoundingClientRect().width || viewport.getBoundingClientRect().width;
@@ -136,10 +144,17 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
     journeyDragRef.current = draggable;
     const onResize = () => { draggable.applyBounds(getBounds()); gsap.set(track, { x: snapX(draggable.x) }); };
     window.addEventListener("resize", onResize);
-    return () => {
+    cleanup = () => {
       window.removeEventListener("resize", onResize);
       draggable.kill();
       journeyDragRef.current = null;
+    };
+    };
+
+    void initialize();
+    return () => {
+      disposed = true;
+      cleanup();
     };
   }, []);
 
