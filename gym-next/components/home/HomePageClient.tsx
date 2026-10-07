@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 import gsap from "gsap";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import styles from "./home-refined.module.css";
+import { HomeFaqSection } from "./HomeFaqSection";
 import {
-  faqItems,
   insights,
   localeColumns,
   locales,
@@ -615,18 +615,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.faqSection} data-gsap-scene="faq">
-          <p className={styles.sectionKicker}>FAQ</p>
-          <h2>Les questions fréquentes</h2>
-          <div className={styles.faqList}>
-            {faqItems.map((item) => (
-              <details key={item.question} className={styles.faqItem} data-gsap-stagger>
-                <summary>{item.question}</summary>
-                <p>{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
+        <HomeFaqSection />
       </main>
 
       <footer className={styles.siteFooter}>
