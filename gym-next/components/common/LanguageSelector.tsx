@@ -32,13 +32,8 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
     <details className={`language-selector language-selector-accordion ${className}`.trim()}>
       <summary><span>{language.toUpperCase()}</span><span aria-hidden="true">⌄</span></summary>
       <div className="language-selector-panel">
-        <label>
-          <span className="sr-only">Langue</span>
-          <select aria-label="Langue" value={language} onChange={(event) => setSelectedLanguage(event.target.value)}>
-            <option value="fr">Français</option>
-            <option value="en">English</option>
-          </select>
-        </label>
+        <button type="button" aria-pressed={language === "fr"} onClick={() => setSelectedLanguage("fr")}>Français</button>
+        <button type="button" aria-pressed={language === "en"} onClick={() => setSelectedLanguage("en")}>English</button>
         <button type="button" onClick={() => setSelectedLanguage("es")}>Español</button>
         <button type="button" onClick={() => setSelectedLanguage("de")}>Deutsch</button>
         <button type="button" onClick={() => setSelectedLanguage("it")}>Italiano</button>

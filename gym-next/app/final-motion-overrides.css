@@ -234,6 +234,26 @@ body {
   color: #d7f36b;
 }
 
+/* Compact journey rail: preserve the content while reducing the vertical footprint. */
+[data-gsap-section="journey"] .carouselViewport {
+  min-height: 413px !important;
+}
+[data-gsap-section="journey"] .howGrid {
+  min-height: 357px !important;
+}
+[data-gsap-section="journey"] .stepCard {
+  min-height: 357px !important;
+  padding: 21px !important;
+}
+[data-gsap-section="journey"] .miniScreen {
+  min-height: 259px !important;
+  gap: 18px !important;
+}
+[data-gsap-section="journey"] .slideMedia,
+[data-gsap-section="journey"] .slotVisual {
+  min-height: 210px !important;
+}
+
 /* The journey owns horizontal dragging; the page keeps vertical scrolling. */
 [data-gsap-section="journey"] .carouselViewport {
   touch-action: pan-y pinch-zoom !important;
@@ -275,5 +295,11 @@ body {
 }
 .cookie-preferences-trigger { bottom: 4.75rem; }
 @media (max-width: 700px) {
+  [data-gsap-section="journey"] .carouselViewport { min-height: 427px !important; }
+  [data-gsap-section="journey"] .howGrid,
+  [data-gsap-section="journey"] .stepCard { min-height: 364px !important; }
+  [data-gsap-section="journey"] .miniScreen { min-height: 260px !important; }
+  [data-gsap-section="journey"] .slideMedia,
+  [data-gsap-section="journey"] .slotVisual { min-height: 190px !important; }
   .back-to-top { bottom: 4.75rem; }
 }
