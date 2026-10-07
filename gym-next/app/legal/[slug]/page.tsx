@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { buildCanonical } from "@/lib/seo";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const documents = {
   cgv: {
@@ -59,7 +60,8 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
   if (!document) notFound();
 
   return (
-    <main className="legal-placeholder-page">
+    <>
+      <main className="legal-placeholder-page">
       <div className="legal-placeholder-card">
         <p className="legal-placeholder-kicker">Brouillon a valider</p>
         <h1>{document.label}</h1>
@@ -73,6 +75,8 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
         </div>
         <Link href="/">Retour à l’accueil</Link>
       </div>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

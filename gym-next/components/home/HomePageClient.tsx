@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { SiteFooter } from "@/components/SiteFooter";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -546,17 +547,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
         <HomeFaqSection />
       </main>
 
-      <footer className={styles.siteFooter}>
-        <div className={styles.footerBrand}>GETYOURMENTOR</div>
-        <p>Ton coaching, ton rythme, ta progression.</p>
-        <nav className={styles.footerLinks} aria-label="Liens legaux">
-          <Link href="/legal/cgv">CGV</Link>
-          <Link href="/legal/cgu">CGU</Link>
-          <Link href="/legal/confidentialite">Politique de confidentialité</Link>
-          <Link href="/legal/mentions-legales">Mentions légales</Link>
-        </nav>
-        <small>&copy; 2026 GetYourMentor. Tous droits réservés.</small>
-      </footer>
+      <SiteFooter />
 
       <nav className={styles.mobileNav} aria-label="Navigation principale">
         <Link href="/" className={styles.mobileNavItemActive}><span aria-hidden="true">⌂</span><span>Accueil</span></Link>

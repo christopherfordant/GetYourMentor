@@ -584,21 +584,8 @@ function DirectoryContent({
   );
 }
 
-function DirectoryFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Ton coaching, ton rythme, ta progression.</p>
-      <nav className="footer-links" aria-label="Liens l&eacute;gaux">
-        <a href="/legal/cgv">CGV</a>
-        <a href="/legal/cgu">CGU</a>
-        <a href="/legal/confidentialite">Politique de confidentialit&eacute;</a>
-        <a href="/legal/mentions-legales">Mentions l&eacute;gales</a>
-      </nav>
-      <small>&copy; 2026 GetYourMentor. Tous droits r&eacute;serv&eacute;s.</small>
-    </footer>
-  );
-}
+import { SiteFooter } from "@/components/SiteFooter";
+function DirectoryFooter() { return <SiteFooter />; }
 
 export function SelectionCoachsLegacyPage({
   legacyStyles,

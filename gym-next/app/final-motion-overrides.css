@@ -196,6 +196,40 @@ body {
   min-height: 1800px;
 }
 
+.global-footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 64px clamp(20px, 7vw, 96px) 24px;
+  border-top: 1px solid rgba(219,230,255,.1);
+  background: #07101f;
+  color: #aebbd1;
+}
+.global-footer-main { display: grid; grid-template-columns: minmax(240px, 1.5fr) repeat(4, minmax(130px, 1fr)); gap: 42px; max-width: 1400px; margin: 0 auto; }
+.global-footer-brand { min-width: 0; }
+.global-footer-logo { display: inline-flex; align-items: center; gap: 9px; color: #f4f7ff; font-size: 20px; font-weight: 800; text-decoration: none; }
+.global-footer-logo strong { color: #d7f36b; }
+.global-footer-mark { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 9px; background: #d7f36b; color: #101827; }
+.global-footer-brand p { max-width: 300px; margin: 24px 0 22px; line-height: 1.6; }
+.global-footer-socials { display: flex; gap: 12px; }
+.global-footer-social { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: #111d31; color: #f4f7ff; font-weight: 800; text-decoration: none; }
+.global-footer-social:hover, .global-footer-social:focus-visible { background: #203252; color: #d7f36b; outline: none; }
+.global-footer-column { display: grid; align-content: start; gap: 16px; }
+.global-footer-column h2 { margin: 4px 0 10px; color: #f4f7ff; font-size: 16px; }
+.global-footer-column a, .global-footer-bottom a { color: #aebbd1; text-decoration: none; }
+.global-footer-column a:hover, .global-footer-column a:focus-visible, .global-footer-bottom a:hover { color: #d7f36b; }
+.global-footer-bottom { display: flex; justify-content: space-between; gap: 20px; max-width: 1400px; margin: 56px auto 0; padding-top: 30px; border-top: 1px solid rgba(219,230,255,.1); }
+.global-footer-bottom small { color: #8d9bb2; }
+@media (max-width: 800px) {
+  .global-footer { padding: 48px 20px 24px; }
+  .global-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 24px; }
+  .global-footer-brand { grid-column: 1 / -1; }
+  .global-footer-bottom { flex-direction: column; gap: 10px; margin-top: 40px; }
+}
+@media (max-width: 460px) {
+  .global-footer-main { grid-template-columns: 1fr; }
+  .global-footer-column { gap: 12px; }
+}
+
 /* Shared final corrections: the dropdown has one visible outline only. */
 .language-selector.language-selector-accordion {
   border: 0 !important;

@@ -271,21 +271,8 @@ function ReservationCalendarStep({
   );
 }
 
-function ReservationFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="footer-brand">GETYOURMENTOR</div>
-      <p>Ton coaching, ton rythme, ta progression.</p>
-      <nav className="footer-links" aria-label="Liens legaux">
-        <a href="/legal/cgv">CGV</a>
-        <a href="/legal/cgu">CGU</a>
-        <a href="/legal/confidentialite">Politique de confidentialite</a>
-        <a href="/legal/mentions-legales">Mentions legales</a>
-      </nav>
-      <small>&copy; 2026 GetYourMentor. Tous droits reserves.</small>
-    </footer>
-  );
-}
+import { SiteFooter } from "@/components/SiteFooter";
+function ReservationFooter() { return <SiteFooter />; }
 
 export function ChoixCoachCreneauLegacyPage({
   legacyStyles,

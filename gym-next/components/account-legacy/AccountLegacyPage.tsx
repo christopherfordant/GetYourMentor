@@ -846,7 +846,10 @@ function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
   );
 }
 
+import { SiteFooter } from "@/components/SiteFooter";
 function AccountFooter() {
+  return <SiteFooter />;
+  /*
   return (
     <footer className="account-footer">
       <div className="account-footer-grid">
@@ -890,6 +893,7 @@ function AccountFooter() {
       <div className="account-footer-bottom">Copyright &copy; 2026 GetYourMentor</div>
     </footer>
   );
+  */
 }
 
 export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = false }: AccountLegacyPageProps) {
