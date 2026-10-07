@@ -202,6 +202,9 @@ body {
   background: transparent !important;
   box-shadow: none !important;
   overflow: visible !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+  z-index: 3000;
 }
 .language-selector.language-selector-accordion > summary {
   min-height: 40px;
@@ -220,6 +223,16 @@ body {
   z-index: 2000 !important;
   border: 1px solid rgba(174,196,231,.2) !important;
   background: #111a2d !important;
+  pointer-events: auto !important;
+}
+
+/* The journey owns horizontal dragging; the page keeps vertical scrolling. */
+[data-gsap-section="journey"] .carouselViewport {
+  touch-action: pan-y pinch-zoom !important;
+  overscroll-behavior-x: contain;
+}
+[data-gsap-section="journey"] .howGrid {
+  touch-action: pan-y pinch-zoom !important;
 }
 
 .back-to-top {
