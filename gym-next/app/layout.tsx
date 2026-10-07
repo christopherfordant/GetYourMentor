@@ -4,6 +4,7 @@ import { InternalNavigationEnhancer } from "@/components/InternalNavigationEnhan
 import { LegacyStylesLoader } from "@/components/LegacyStylesLoader";
 import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { ClientEnhancers } from "@/components/ClientEnhancers";
+import { BackToTopButton } from "@/components/BackToTopButton";
 import "./globals.css";
 import "./redesign-2026.css";
 import "./final-motion-overrides.css";
@@ -59,6 +60,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={manrope.variable}>
+        <div id="top" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -89,6 +91,7 @@ export default function RootLayout({
         <ClientEnhancers />
         {children}
         <CookieConsentBanner />
+        <BackToTopButton />
       </body>
     </html>
   );
