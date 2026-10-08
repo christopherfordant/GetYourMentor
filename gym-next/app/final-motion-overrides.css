@@ -97,6 +97,86 @@ header.topbar > *,
   box-shadow: none !important;
 }
 
+/* Emergent visual bridge for the still-functional reservation routes. */
+.site-shell,
+.sport-page-shell,
+.coach-profile-shell,
+.account-shell,
+.payment-shell,
+.reservation-shell,
+.booking-shell,
+.club-signup-shell,
+.recap-shell {
+  background: #080e1d !important;
+  color: #f4f7ff !important;
+}
+.site-shell .topbar,
+.sport-page-shell .topbar,
+.coach-profile-shell .topbar,
+.account-shell .topbar,
+.payment-shell .topbar,
+.reservation-shell .topbar,
+.booking-shell .topbar,
+.club-signup-shell .topbar {
+  border-bottom: 1px solid rgba(219,230,255,.12) !important;
+  background: #080e1d !important;
+  box-shadow: none !important;
+}
+.site-shell .topbar-link,
+.sport-page-shell .topbar-link,
+.coach-profile-shell .topbar-link,
+.account-shell .topbar-link,
+.payment-shell .topbar-link,
+.reservation-shell .topbar-link,
+.booking-shell .topbar-link,
+.club-signup-shell .topbar-link { color: #cbd5e1 !important; }
+.site-shell .topbar-link:hover,
+.sport-page-shell .topbar-link:hover,
+.coach-profile-shell .topbar-link:hover,
+.account-shell .topbar-link:hover,
+.payment-shell .topbar-link:hover,
+.reservation-shell .topbar-link:hover,
+.booking-shell .topbar-link:hover,
+.club-signup-shell .topbar-link:hover { color: #d7f36b !important; }
+.site-shell .coach-directory-toolbar,
+.site-shell .coach-result-card,
+.site-shell .coach-profile-card,
+.site-shell .coach-booking-card,
+.site-shell .booking-card,
+.site-shell .reservation-card,
+.site-shell .payment-card,
+.site-shell .payment-summary-card,
+.site-shell .reservation-selection-panel,
+.site-shell .reservation-calendar-card,
+.site-shell .club-signup-form-card {
+  border-color: rgba(174,196,231,.16) !important;
+  background: #111a2d !important;
+  box-shadow: 0 20px 48px rgba(0,0,0,.18) !important;
+}
+.site-shell input,
+.site-shell select,
+.site-shell textarea,
+.account-shell input,
+.account-shell select,
+.account-shell textarea,
+.club-signup-shell input,
+.club-signup-shell select,
+.club-signup-shell textarea {
+  border-color: rgba(174,196,231,.24) !important;
+  background: #182640 !important;
+  color: #f4f7ff !important;
+}
+.site-shell button[type="submit"],
+.site-shell .coach-book-button,
+.site-shell .booking-submit,
+.site-shell .payment-submit,
+.account-shell button[type="submit"],
+.club-signup-shell button[type="submit"] {
+  border-color: transparent !important;
+  background: #d7f36b !important;
+  color: #101827 !important;
+}
+
 .directory-chip-row {
   display: flex !important;
   flex-wrap: wrap;
@@ -206,6 +286,31 @@ header.topbar > *,
 @media (max-width: 900px) {
   .directory-filter-panel { grid-template-columns: 1fr !important; }
   .language-selector-panel { right: auto; left: 0; }
+  .site-shell > .topbar .sportsNav,
+  .page > .topbar .sportsNav,
+  [data-gsap-header] .sportsNav,
+  [data-gsap-header] nav[aria-label="Sports"] {
+    display: flex !important;
+    grid-column: 1 / -1;
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 0 2px;
+    scrollbar-width: none;
+  }
+  [data-gsap-header] {
+    height: auto !important;
+    min-height: 68px;
+    overflow: visible !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+  }
+  .site-shell > .topbar .sportsNav::-webkit-scrollbar,
+  .page > .topbar .sportsNav::-webkit-scrollbar,
+  [data-gsap-header] .sportsNav::-webkit-scrollbar,
+  [data-gsap-header] nav[aria-label="Sports"]::-webkit-scrollbar { display: none; }
 }
 body {
   margin: 0;
@@ -289,6 +394,34 @@ body {
 .language-selector.language-selector-accordion .language-selector-panel option {
   background: #111a2d;
   color: #d7f36b;
+}
+.language-selector-native-label { display: block; }
+.language-selector-panel .language-selector-native-label select { width: 100%; min-height: 34px; border: 0 !important; border-radius: 8px; background: #111a2d !important; color: #d7f36b !important; font: inherit; cursor: pointer; }
+
+/* One native, always reachable language control. The browser closes its
+   option list after selection, avoiding the duplicated custom/native menus. */
+.language-selector-native {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  min-width: 78px;
+  color: #f6f8fb !important;
+}
+.language-selector-native select {
+  display: block !important;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 30px 0 12px;
+  border: 1px solid rgba(174,196,231,.2) !important;
+  border-radius: 999px !important;
+  background: #182640 !important;
+  color: #d7f36b !important;
+  font: inherit;
+  cursor: pointer;
+}
+.language-selector-native select:focus-visible {
+  outline: 2px solid #d7f36b;
+  outline-offset: 2px;
 }
 
 /* Compact journey rail: preserve the content while reducing the vertical footprint. */

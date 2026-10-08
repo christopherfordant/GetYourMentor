@@ -35,5 +35,5 @@ export function SiteFooter() {
 }
 
 function FooterColumn({ title, links }: { title: string; links: Array<[string, string]> }) {
-  return <nav className="global-footer-column" aria-label={title}><h2>{title}</h2>{links.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}</nav>;
+  return <nav className="global-footer-column" aria-label={title}><h2>{title}</h2>{links.map(([label, href]) => <Link key={label} href={href} aria-label={title === "Disciplines" ? `${label} dans le footer` : undefined}>{label}</Link>)}</nav>;
 }
