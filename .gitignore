@@ -35,3 +35,9 @@ governance/ai/agent_runs/
 gym-next/debug.log
 gym-next/pw_audit_stdout.log
 gym-next/pw_audit_stderr.log
+
+# Données de contacts locales : à conserver hors des nouveaux commits.
+# Ces chemins sont déjà suivis historiquement et ne sont pas désindexés
+# automatiquement afin de ne supprimer aucune donnée ni historique.
+/Les Contacts (perso et clubs)/
+/project_readable/Les Contacts (perso et clubs)/
