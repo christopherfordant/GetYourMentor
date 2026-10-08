@@ -375,7 +375,14 @@ body {
   margin: 0 auto;
   padding: clamp(54px, 8vw, 112px) 0 clamp(72px, 10vw, 140px);
 }
-.sport-page-shell .sport-hero { max-width: 960px; margin: 0 auto; text-align: center; }
+.sport-page-shell .sport-hero {
+  display: grid;
+  align-content: center;
+  min-height: calc(100svh - 69px);
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
 .sport-page-shell .sport-title {
   max-width: 820px;
   margin: 0 auto 32px;
@@ -474,6 +481,7 @@ body {
 @media (max-width: 800px) {
   .sport-page-shell > .topbar,
   .sport-page-shell .sport-page { width: min(100% - 28px, 1200px); }
+  .sport-page-shell .sport-hero { min-height: calc(100svh - 86px); }
   .sport-page-shell .sport-search-card { grid-template-columns: 1fr; border-radius: 22px !important; }
   .sport-page-shell .sport-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .sport-page-shell .sport-city-card { min-height: 220px; border-radius: 20px !important; }
