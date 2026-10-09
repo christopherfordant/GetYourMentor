@@ -6,7 +6,13 @@
 .brandName { color: #f4f7ff; font-size: 1.15rem; white-space: nowrap; }
 .brandIcon { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; margin-right: 9px; border-radius: 11px; background: #d7f36b; color: #07101f; vertical-align: middle; }
 .brandIcon svg { width: 21px; height: 21px; }
+.brandAccent { color: #d7f36b; }
 .heroAccent { color: #d7f36b; }
+
+@media (min-width: 1200px) {
+  .topbar { padding-inline: max(24px, calc((100vw - 1374px) / 2)); }
+  .heroContent { width: min(100%, 1374px); padding-inline: 0; }
+}
 .brandName::before { content: ""; display: inline-block; width: 7px; height: 7px; margin: 0 8px 2px 0; border-radius: 50%; background: #caff3d; }
 .sportsNav { display: flex; justify-content: center; gap: clamp(14px, 2vw, 32px); }
 .sportLink, .topbarLink { color: #acb8cf; font-size: .85rem; transition: color .2s ease; }
@@ -393,6 +399,12 @@
 .metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
+
+/* Final homepage alignment measured against the attached Emergent tab. */
+@media (min-width: 1200px) {
+  .topbar { padding-inline: max(24px, calc((100vw - 1374px) / 2)); }
+  .heroContent { width: min(100%, 1374px); padding-inline: 0; }
+}
 
 /* Keep below-the-fold sections out of the initial layout/paint work while
    preserving their exact visual dimensions when the user reaches them. */

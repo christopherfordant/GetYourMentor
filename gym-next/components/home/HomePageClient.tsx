@@ -236,7 +236,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
         <div className={styles.brandLockup}>
           <Link href="/" className={styles.brandName} data-gsap-header-item>
             <span className={styles.brandIcon} aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 8v8M4.5 10v4M9.5 6v12M17 8v8m2.5-6v4M14.5 6v12M9.5 12h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></span>
-            GetYourMentor
+            GetYour<span className={styles.brandAccent}>Mentor</span>
           </Link>
         </div>
 
