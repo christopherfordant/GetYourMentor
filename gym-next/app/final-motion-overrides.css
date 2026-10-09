@@ -731,23 +731,6 @@ body {
 .back-to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .back-to-top:hover, .back-to-top:focus-visible { background: #203252; outline: none; }
 
-/* The language panel is anchored to its trigger, never to the viewport. */
-[data-gsap-header] .language-selector,
-.site-shell .language-selector { position: relative; }
-[data-gsap-header] .language-selector-menu,
-.site-shell .language-selector-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  left: auto;
-  z-index: 1001;
-  min-width: 178px;
-}
-[data-gsap-header] .language-selector-trigger,
-.site-shell .language-selector-trigger { display: inline-flex; align-items: center; justify-content: center; gap: 5px; line-height: 1; }
-[data-gsap-header] .language-selector-chevron,
-.site-shell .language-selector-chevron { display: inline-flex; align-items: center; justify-content: center; height: 16px; }
-
 /* Fixed cookie controls must not cover footer actions or icons. */
 .siteFooter, .account-footer {
   min-height: 0 !important;
