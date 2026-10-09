@@ -235,6 +235,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
       <header data-gsap-header className={`${styles.topbar} ${isScrolled ? styles.topbarScrolled : ""}`}>
         <div className={styles.brandLockup}>
           <Link href="/" className={styles.brandName} data-gsap-header-item>
+            <span className={styles.brandIcon} aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 8v8M4.5 10v4M9.5 6v12M17 8v8m2.5-6v4M14.5 6v12M9.5 12h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></span>
             GetYourMentor
           </Link>
         </div>
@@ -286,7 +287,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           <div className={styles.heroOverlay} />
           <div className={styles.heroContent} data-gsap-hero-content>
             <p className={styles.eyebrow} data-gsap-hero-item>Plateforme #1 en France</p>
-            <h1 className={styles.heroTitle} data-gsap-hero-item>Trouve ton coach. Progresse vraiment.</h1>
+            <h1 className={styles.heroTitle} data-gsap-hero-item><span>Trouve ton coach.</span> <span className={styles.heroAccent}>Progresse vraiment.</span></h1>
             <p className={styles.heroCopy} data-gsap-hero-item>Des coachs certifiés en Football, Basketball, Fitness et Sports de combat. Réserve ta session en quelques clics.</p>
 
             <div className={styles.searchCard} data-gsap-hero-item>
