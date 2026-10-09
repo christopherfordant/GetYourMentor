@@ -748,3 +748,15 @@ body {
   [data-gsap-section="journey"] .slotVisual { min-height: 190px !important; }
   .back-to-top { bottom: 4.75rem; }
 }
+
+/* Homepage Emergent parity: this layer is loaded after the legacy homepage rules. */
+@media (min-width: 1200px) {
+  .page > .topbar,
+  [data-gsap-header] { height: 80px !important; padding-inline: max(24px, calc((100vw - 1400px) / 2 + 24px)) !important; }
+  .page > .main { padding-top: 0 !important; }
+  [data-gsap-hero] { min-height: 863px !important; }
+  [data-gsap-hero-content] { width: min(1400px, calc(100% - 48px)) !important; padding: 210px 24px 110px !important; }
+  [data-gsap-hero-content] .heroTitle { max-width: 768px !important; font-size: clamp(4.8rem, 5.4vw, 6.8rem) !important; line-height: .9 !important; }
+  [data-gsap-hero-content] .searchCard { max-width: 734px !important; padding: 7px !important; border-radius: 16px !important; }
+  [data-gsap-hero-content] .searchButton { min-height: 48px !important; }
+}

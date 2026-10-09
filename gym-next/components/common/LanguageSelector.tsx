@@ -18,10 +18,6 @@ export function detectInitialLanguage(stored: string | null, browserLanguage?: s
   return "fr";
 }
 
-function DumbbellIcon() {
-  return <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M7 8v8M4.5 10v4M9.5 6v12M17 8v8m2.5-6v4M14.5 6v12M9.5 12h5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>;
-}
-
 export function LanguageSelector({ className = "" }: { className?: string }) {
   const [language, setLanguage] = useState("fr");
   const [open, setOpen] = useState(false);
@@ -46,7 +42,6 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
 
   return <div ref={rootRef} className={`language-selector language-selector-native ${className}`.trim()}>
     <span className="sr-only">Langue</span>
-    <span className="language-selector-dumbbell"><DumbbellIcon /></span>
     <button type="button" className="language-selector-trigger" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(value => !value)}>
       <span aria-hidden="true">{language.toUpperCase()}</span><span className="language-selector-chevron" aria-hidden="true">⌄</span>
     </button>
@@ -54,7 +49,7 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
       {LANGUAGES.map(([code, label]) => <option key={code} value={code}>{label}</option>)}
     </select>
     {open && <div className="language-selector-menu" role="menu" aria-label="Choisir une langue">
-      <div className="language-selector-menu-title"><span className="language-selector-dumbbell"><DumbbellIcon /></span>Langue</div>
+      <div className="language-selector-menu-title">Langue</div>
       {LANGUAGES.map(([code, label]) => <button key={code} type="button" role="menuitemradio" aria-checked={language === code} className={language === code ? "is-selected" : ""} onClick={() => selectLanguage(code)}>{label}</button>)}
     </div>}
   </div>;

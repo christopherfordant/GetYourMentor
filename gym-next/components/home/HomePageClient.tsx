@@ -292,7 +292,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
 
             <div className={styles.searchCard} data-gsap-hero-item>
               <label className={styles.field}>
-                <span className={styles.fieldLabel}>Quel sport ?</span>
+                <span className={styles.fieldLabel}><svg className={styles.fieldIcon} viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.8" /><path d="m16 16 4 4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>Quel sport ?</span>
                 <input
                   className={styles.fieldInput}
                   type="text"
