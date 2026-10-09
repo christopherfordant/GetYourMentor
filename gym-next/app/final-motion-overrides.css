@@ -478,6 +478,68 @@ body {
 .sport-page-shell .sport-city-copy { position: absolute; z-index: 1; right: 22px; bottom: 20px; left: 22px; }
 .sport-page-shell .sport-city-copy p { margin: 0 0 8px; color: #d7f36b; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .sport-page-shell .sport-city-copy h2 { margin: 0; color: #f4f7ff !important; font-size: clamp(1.1rem, 2vw, 1.5rem); line-height: 1.08; text-wrap: balance; }
+
+/* /recherche — header et hero uniquement, alignement Emergent. */
+.sport-page-shell > .topbar.topbar-light {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  max-width: none;
+  min-height: 81px;
+  margin: 0;
+  padding: 0 clamp(20px, 5vw, 72px);
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-radius: 0;
+  background: rgba(7, 16, 31, .82) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,.12);
+  backdrop-filter: blur(16px);
+}
+.sport-page-shell > .topbar.topbar-light .brand-lockup,
+.sport-page-shell > .topbar.topbar-light .sports-nav,
+.sport-page-shell > .topbar.topbar-light .topbar-actions { min-width: 0; }
+.sport-page-shell > .topbar.topbar-light .brand-lockup { flex: 1 1 0; }
+.sport-page-shell > .topbar.topbar-light .sports-nav { flex: 0 1 auto; justify-content: center; }
+.sport-page-shell > .topbar.topbar-light .topbar-actions { flex: 1 1 0; justify-content: flex-end; }
+.sport-page-shell > .topbar.topbar-light .sport-link::after,
+.sport-page-shell > .topbar.topbar-light .topbar-link::after { background: #d7f36b; }
+
+.sport-page-shell .sport-hero {
+  width: min(100% - 48px, 1120px);
+  min-height: calc(100svh - 81px);
+  margin-inline: auto;
+  padding-block: clamp(72px, 10vh, 124px);
+  align-content: center;
+  justify-items: center;
+}
+.sport-page-shell .sport-hero .sport-title {
+  max-width: 880px;
+  margin-inline: auto;
+  text-align: center;
+  text-wrap: balance;
+}
+.sport-page-shell .sport-hero .sport-search-card {
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+@media (max-width: 800px) {
+  .sport-page-shell > .topbar.topbar-light {
+    min-height: 72px;
+    padding-inline: 16px;
+  }
+  .sport-page-shell .sport-hero {
+    width: min(100% - 28px, 680px);
+    min-height: calc(100svh - 72px);
+    padding-block: 52px 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sport-page-shell > .topbar.topbar-light { padding-inline: 12px; }
+  .sport-page-shell .sport-hero { width: min(100% - 24px, 420px); }
+}
 @media (max-width: 800px) {
   .sport-page-shell > .topbar,
   .sport-page-shell .sport-page { width: min(100% - 28px, 1200px); }
