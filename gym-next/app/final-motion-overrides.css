@@ -555,6 +555,22 @@ body {
   margin-inline: auto;
 }
 
+/* Sélecteur de langue partagé : base sûre pour l'accueil et les routes legacy. */
+.language-selector { position: relative; z-index: 1000; display: inline-flex; align-items: center; gap: 5px; }
+.language-selector-dumbbell { display: inline-flex; width: 16px; height: 16px; color: #d7f36b; }
+.language-selector-dumbbell svg { width: 100%; height: 100%; }
+.language-selector-trigger { display: inline-flex; align-items: center; gap: 5px; border: 0; background: transparent; color: #dbe4f2; padding: 8px 4px; cursor: pointer; }
+.language-selector-trigger:hover,
+.language-selector-trigger:focus-visible { color: #d7f36b; }
+.language-selector-chevron { font-size: 16px; line-height: 1; }
+.language-selector-native-control { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.language-selector-menu { position: fixed; top: 82px; right: clamp(20px, 5vw, 72px); z-index: 1001; display: grid; min-width: 178px; padding: 8px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(12,25,48,.98); box-shadow: 0 20px 45px rgba(0,0,0,.34); pointer-events: auto; }
+.language-selector-menu-title { display: flex; align-items: center; gap: 8px; padding: 8px 10px 10px; color: #d7f36b; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.language-selector-menu button { border: 0; border-radius: 9px; background: transparent; color: #f4f7ff; padding: 9px 10px; text-align: left; cursor: pointer; }
+.language-selector-menu button:hover,
+.language-selector-menu button:focus-visible,
+.language-selector-menu button.is-selected { background: rgba(215,243,107,.14); color: #d7f36b; }
+
 @media (max-width: 800px) {
   .sport-page-shell > .topbar.topbar-light {
     min-height: 72px;
