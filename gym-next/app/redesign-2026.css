@@ -1,5 +1,13 @@
 /* GetYourMentor 2026 visual system: discovery and directory surfaces */
 
+@media (min-width: 901px) {
+  header[data-gsap-header] {
+    padding-inline: max(24px, calc((100vw - 1400px) / 2 + 24px)) !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    justify-content: normal !important;
+  }
+}
+
 .sport-page-shell,
 .coach-profile-shell {
   min-height: 100vh;
