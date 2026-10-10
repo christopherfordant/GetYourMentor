@@ -401,6 +401,20 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+@media (min-width: 901px) {
+  .topbar { grid-template-columns: auto minmax(0, 1fr) auto !important; }
+  .sportsNav { justify-self: stretch !important; justify-content: center !important; }
+  .heroContent { width: 100% !important; max-width: 1280px !important; padding-inline: 24px !important; }
+}
+
+/* Emergent measured desktop alignment: brand/actions stay intrinsic and the
+   sports navigation occupies the flexible middle lane. */
+@media (min-width: 901px) {
+  .topbar { grid-template-columns: auto minmax(0, 1fr) auto !important; }
+  .sportsNav { justify-self: center !important; }
+  .heroContent { padding-inline: 24px !important; }
+}
+
 @media (min-width: 1200px) {
   .topbar { height: 80px !important; padding-inline: max(24px, calc((100vw - 1400px) / 2 + 24px)) !important; }
   .main { padding-top: 0 !important; }
@@ -963,6 +977,15 @@
   .heroContent { padding: 64px 16px 34px; }
   .heroTitle { font-size: clamp(3rem, 15vw, 4.5rem); }
   .heroMetrics { display: grid; gap: 12px; margin-top: 28px; }
+}
+
+/* Emergent baseline: the navigation occupies the flexible middle lane while
+   the brand and actions keep their intrinsic widths. The hero uses the same
+   24px canvas inset as the reference at desktop sizes. */
+@media (min-width: 901px) {
+  .topbar { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .sportsNav { justify-self: center; }
+  .heroContent { padding-inline: 24px; }
 }
 
 /* Senior layout pass: editorial alignment, controlled hero scale, and a
