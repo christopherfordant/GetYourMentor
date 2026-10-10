@@ -741,9 +741,10 @@ body {
   z-index: 1001;
 }
 [data-gsap-header] .language-selector-trigger { display: inline-flex; align-items: center; justify-content: center; gap: 5px; line-height: 1; }
-[data-gsap-header] .language-selector-trigger::before { content: "◎"; color: currentColor; font-size: 15px; line-height: 1; }
-[data-gsap-header] .language-selector-chevron { display: inline-flex; align-items: center; height: 16px; font-size: 0; }
-[data-gsap-header] .language-selector-chevron::before { content: "⌄"; font-size: 15px; line-height: 1; }
+[data-gsap-header] .language-selector-trigger::before { content: none; }
+[data-gsap-header] .language-selector-globe { width: 16px; height: 16px; flex: 0 0 16px; }
+[data-gsap-header] .language-selector-chevron { display: inline-flex; align-items: center; width: 10px; height: 8px; flex: 0 0 10px; font-size: 0; }
+[data-gsap-header] .language-selector-chevron::before { content: none; }
 
 /* Fixed cookie controls must not cover footer actions or icons. */
 .siteFooter, .account-footer {

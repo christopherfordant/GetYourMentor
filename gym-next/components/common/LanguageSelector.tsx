@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 const LANGUAGES = [
-  ["fr", "Fran\u00e7ais"], ["en", "English"], ["es", "Espa\u00f1ol"],
-  ["de", "Deutsch"], ["it", "Italiano"], ["pt", "Portugu\u00eas"],
+  ["fr", "Français"], ["en", "English"], ["es", "Español"],
+  ["de", "Deutsch"], ["it", "Italiano"], ["pt", "Português"],
 ] as const;
 
 export function detectInitialLanguage(stored: string | null, browserLanguage?: string) {
@@ -42,15 +42,12 @@ export function LanguageSelector({ className = "" }: { className?: string }) {
 
   return <div ref={rootRef} className={`language-selector language-selector-native ${className}`.trim()}>
     <span className="sr-only">Langue</span>
-    <button type="button" className="language-selector-trigger" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(value => !value)}>
-      <span aria-hidden="true">{language.toUpperCase()}</span><span className="language-selector-chevron" aria-hidden="true">⌄</span>
+    <button type="button" className="language-selector-trigger" aria-label="Open language menu" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(value => !value)}>
+      <svg className="language-selector-globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" strokeWidth="1.5" /><path d="M3.8 12h16.4M12 3.5c2.2 2.3 3.2 5.1 3.2 8.5S14.2 18.2 12 20.5C9.8 18.2 8.8 15.4 8.8 12S9.8 5.8 12 3.5Z" fill="none" stroke="currentColor" strokeWidth="1.25" /></svg>
+      <span aria-hidden="true">{language.toUpperCase()}</span>
+      <svg className="language-selector-chevron" viewBox="0 0 12 8" aria-hidden="true" focusable="false"><path d="m1 1.5 5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </button>
-    <select className="language-selector-native-control" aria-label="Langue" value={language} onChange={event => selectLanguage(event.target.value)}>
-      {LANGUAGES.map(([code, label]) => <option key={code} value={code}>{label}</option>)}
-    </select>
-    {open && <div className="language-selector-menu" role="menu" aria-label="Choisir une langue">
-      <div className="language-selector-menu-title">Langue</div>
-      {LANGUAGES.map(([code, label]) => <button key={code} type="button" role="menuitemradio" aria-checked={language === code} className={language === code ? "is-selected" : ""} onClick={() => selectLanguage(code)}>{label}</button>)}
-    </div>}
+    <select className="language-selector-native-control" aria-label="Langue" value={language} onChange={event => selectLanguage(event.target.value)}>{LANGUAGES.map(([code, label]) => <option key={code} value={code}>{label}</option>)}</select>
+    {open && <div className="language-selector-menu" role="menu" aria-label="Choisir une langue"><div className="language-selector-menu-title">Langue</div>{LANGUAGES.map(([code, label]) => <button key={code} type="button" role="menuitemradio" aria-checked={language === code} className={language === code ? "is-selected" : ""} onClick={() => selectLanguage(code)}>{label}</button>)}</div>}
   </div>;
 }
