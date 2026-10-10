@@ -359,11 +359,14 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           <div className={styles.experienceCarousel} aria-live="polite">
             <div className={styles.experienceMedia}>
               <div className={styles.experienceStage} aria-label="Carrousel des expériences">
-                {[experiencePreviousIndex, experienceIndex, experienceNextIndex].map((slideIndex, position) => (
-                  <div key={slideIndex} className={`${styles.experienceSlide} ${position === 1 ? styles.experienceSlideActive : position === 0 ? styles.experienceSlideSideLeft : styles.experienceSlideSideRight}`}>
-                    <Image src={experienceSlides[slideIndex].image} alt={experienceSlides[slideIndex].title} fill loading="lazy" sizes="(max-width: 900px) 76vw, 52vw" quality={60} className={styles.experienceImage} />
+                {experienceSlides.map((slide, slideIndex) => {
+                  const offset = (slideIndex - experienceIndex + experienceSlides.length) % experienceSlides.length;
+                  return (
+                  <div key={slide.title} className={`${styles.experienceSlide} ${offset === 0 ? styles.experienceSlideActive : offset === 1 ? styles.experienceSlideNext : offset === 2 ? styles.experienceSlideNextFar : styles.experienceSlidePrevious}`}>
+                    <Image src={slide.image} alt={slide.title} fill loading="lazy" sizes="(max-width: 900px) 76vw, 52vw" quality={60} className={styles.experienceImage} />
                   </div>
-                ))}
+                  );
+                })}
               </div>
               <div className={styles.experienceShade} aria-hidden="true" />
               <div className={styles.experienceCaption}>

@@ -218,6 +218,23 @@
   .heroCopy { margin-top: 24px; margin-bottom: 28px; }
 }
 
+/* Keep the experience rail full-bleed like the Emergent reference. */
+@media (min-width: 901px) {
+  .experienceSection {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+  .experienceSection > .sectionHeading {
+    padding-inline: 24px !important;
+  }
+  .experienceCarousel,
+  .experienceMedia {
+    min-height: 560px !important;
+    border-radius: 0 !important;
+  }
+}
+
 /* The reference uses a quiet, compact language control rather than a native
    select-looking block in the header. */
 .topbarActions :global(.language-selector) {
@@ -401,6 +418,59 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+/* Final measured rail sizing. */
+@media (min-width: 901px) {
+  main .experienceStage .experienceSlide.experienceSlideActive {
+    left: 29% !important;
+    width: 42% !important;
+    height: 66% !important;
+    transform: translate3d(0,-50%,0) scale(1) !important;
+  }
+  main .experienceStage .experienceSlide.experienceSlideNext,
+  main .experienceStage .experienceSlide.experienceSlideNextFar,
+  main .experienceStage .experienceSlide.experienceSlidePrevious {
+    width: 32.75% !important;
+    height: 51.5% !important;
+    transform: translate3d(0,-50%,0) scale(1) !important;
+  }
+}
+
+/* Final carousel geometry: match Emergent's full-bleed image rail. */
+@media (min-width: 901px) {
+  .experienceSection { width: 100vw !important; margin-left: calc(50% - 50vw) !important; padding-inline: 0 !important; }
+  .experienceSection > .sectionHeading { padding-inline: 24px !important; }
+  .experienceCarousel, .experienceMedia { height: 560px !important; min-height: 560px !important; border-radius: 0 !important; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlide { width: 32.75% !important; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideActive { width: 42% !important; }
+}
+
+/* ASCII-safe selectors keep the contract active regardless of stylesheet encoding. */
+@media (min-width: 901px) {
+  .experienceStage { display: block !important; height: 560px !important; overflow: hidden !important; isolation: isolate; }
+  .experienceStage .experienceSlide { position: absolute !important; top: 50% !important; left: 0; width: 32.75% !important; height: 51.5% !important; margin: 0; flex: none !important; border-radius: 18px; opacity: .42; transform: translate3d(0,-50%,0) scale(.92); filter: saturate(.72) brightness(.62); transition: left .72s cubic-bezier(.22,.8,.2,1), width .72s cubic-bezier(.22,.8,.2,1), height .72s cubic-bezier(.22,.8,.2,1), transform .72s cubic-bezier(.22,.8,.2,1), opacity .72s ease, filter .72s ease; }
+  .experienceStage .experienceSlideActive { left: 29% !important; width: 42% !important; height: 66% !important; z-index: 3; opacity: 1; transform: translate3d(0,-50%,0) scale(1); filter: saturate(1) brightness(1); }
+  .experienceStage .experienceSlideNext { left: 56.7% !important; z-index: 2; }
+  .experienceStage .experienceSlideNextFar { left: 79.8% !important; z-index: 1; }
+  .experienceStage .experienceSlidePrevious { left: 4% !important; z-index: 1; }
+}
+
+/* Final carousel geometry: match Emergent's full-bleed image rail. */
+@media (min-width: 901px) {
+  .experienceSection {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+  .experienceSection > .sectionHeading { padding-inline: 24px !important; }
+  .experienceCarousel,
+  .experienceMedia { height: 560px !important; min-height: 560px !important; border-radius: 0 !important; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideActive { width: 42% !important; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlide,
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNext,
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNextFar,
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlidePrevious { width: 32.75% !important; }
+}
+
 @media (min-width: 901px) {
   .topbar { grid-template-columns: auto minmax(0, 1fr) auto !important; }
   .sportsNav { justify-self: stretch !important; justify-content: center !important; }
@@ -471,6 +541,49 @@
 .experienceStage::before, .experienceStage::after { content: ""; position: absolute; top: 0; bottom: 0; z-index: 3; width: 16%; pointer-events: none; }
 .experienceStage::before { left: 0; background: linear-gradient(90deg, rgba(7,13,29,.72), transparent); }
 .experienceStage::after { right: 0; background: linear-gradient(270deg, rgba(7,13,29,.72), transparent); }
+
+/* Emergent reference contract: a focused image followed by a visible horizontal image rail. */
+.experienceStage[aria-label="Carrousel des expériences"] {
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+}
+.experienceStage[aria-label="Carrousel des expériences"] .experienceSlide {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 35.55%;
+  height: 51.5%;
+  margin: 0;
+  flex: none;
+  border-radius: 18px;
+  opacity: .42;
+  transform: translate3d(0, -50%, 0) scale(.92);
+  filter: saturate(.72) brightness(.62);
+  transition: left .72s cubic-bezier(.22,.8,.2,1), top .72s cubic-bezier(.22,.8,.2,1), width .72s cubic-bezier(.22,.8,.2,1), height .72s cubic-bezier(.22,.8,.2,1), transform .72s cubic-bezier(.22,.8,.2,1), opacity .72s ease, filter .72s ease;
+}
+.experienceStage[aria-label="Carrousel des expériences"] .experienceSlideActive {
+  left: 29%;
+  width: 45.55%;
+  height: 66%;
+  z-index: 3;
+  opacity: 1;
+  transform: translate3d(0, -50%, 0) scale(1);
+  filter: saturate(1) brightness(1);
+  box-shadow: 0 24px 55px rgba(0,0,0,.3);
+}
+.experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNext {
+  left: 56.7%;
+  z-index: 2;
+}
+.experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNextFar {
+  left: 79.8%;
+  z-index: 1;
+}
+.experienceStage[aria-label="Carrousel des expériences"] .experienceSlidePrevious {
+  left: 4%;
+  z-index: 1;
+}
 .experienceCarousel > .experienceMedia > .experienceShade { z-index: 4 !important; pointer-events: none; background: linear-gradient(0deg, rgba(5,9,18,.86), transparent 55%) !important; }
 .experienceCarousel > .experienceMedia > .experienceCaption { z-index: 5 !important; }
 .experienceGallery { display: none !important; }
@@ -480,6 +593,10 @@
   .experienceSlide { flex-basis: 28%; height: 68%; }
   .experienceSlideActive { flex-basis: 68%; height: 82%; }
   .experienceSlideSideLeft, .experienceSlideSideRight { flex-basis: 28%; height: 68%; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideActive { left: 12%; width: 76%; height: 68%; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNext { left: 78%; width: 42%; height: 54%; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlideNextFar { left: 104%; width: 42%; height: 54%; }
+  .experienceStage[aria-label="Carrousel des expériences"] .experienceSlidePrevious { left: -38%; width: 42%; height: 54%; }
 }
 
 /* Emergent-style experience carousel: exactly one active composition fills
