@@ -13,6 +13,7 @@ $VisualLotScript = Join-Path $PSScriptRoot "run_auto_visual_audit_lot.ps1"
 $CheckpointLotScript = Join-Path $PSScriptRoot "run_auto_git_checkpoint_lot.ps1"
 $MissionPlanningScript = Join-Path $PSScriptRoot "run_auto_mission_planning.ps1"
 $MissionAgentScript = Join-Path $PSScriptRoot "run_codex_mission_agent.ps1"
+$VisualContractScript = Join-Path $PSScriptRoot "check_visual_contract.ps1"
 
 function Read-JsonFile {
     param([string]$Path)
@@ -129,6 +130,12 @@ function Invoke-Lot {
 }
 
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$contractOutput = & powershell -ExecutionPolicy Bypass -File $VisualContractScript -Quiet 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Output "[orchestrator] Contrat visuel non conforme; arret preventif."
+    $contractOutput | Write-Output
+    exit 2
+}
 $state = Read-JsonFile -Path $StatePath
 if ($null -eq $state) {
     throw "Etat auto projet introuvable."

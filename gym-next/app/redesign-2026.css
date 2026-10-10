@@ -2735,14 +2735,12 @@ body {
 
 [data-gsap-section="journey"] {
   position: relative;
-  perspective: 1400px;
 }
 
 [data-gsap-section="journey"] [data-gsap-heading],
 [data-gsap-section="journey"] [data-gsap-card] {
   position: relative;
   z-index: 1;
-  transform-style: preserve-3d;
   will-change: transform, opacity, filter;
 }
 

@@ -237,8 +237,6 @@ export function GsapJourneyScene() {
       gsap.set(cards, {
         autoAlpha: 0,
         y: 110,
-        rotateX: 14,
-        rotateY: (index) => (index - 1) * 5,
         scale: 0.84,
         filter: "blur(14px)",
         transformOrigin: "50% 100%",
@@ -265,11 +263,11 @@ export function GsapJourneyScene() {
         .to(heading, { autoAlpha: 1, y: -8, duration: 0.18, ease: "power2.out" })
         .to(lightLine, { autoAlpha: 1, scaleX: 1, duration: 0.16, ease: "power2.out" }, "<")
         .addLabel("coach")
-        .to(cards[0], { autoAlpha: 1, y: 0, rotateX: 0, rotateY: -1.5, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
+        .to(cards[0], { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
         .addLabel("slots")
-        .to(cards[1], { autoAlpha: 1, y: 0, rotateX: 0, rotateY: 0, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
+        .to(cards[1], { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
         .addLabel("payment")
-        .to(cards[2], { autoAlpha: 1, y: 0, rotateX: 0, rotateY: 1.5, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
+        .to(cards[2], { autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.34, ease: "expo.out" })
         .to(cards, { y: (index) => (index - 1) * -10, duration: 0.22, ease: "power1.inOut" });
 
       return () => timeline.scrollTrigger?.kill();

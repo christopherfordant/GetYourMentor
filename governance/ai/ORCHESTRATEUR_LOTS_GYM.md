@@ -32,6 +32,8 @@ L'orchestrateur :
 
 Le lot `mission_planning` lit `DOCUMENT_MAITRE_GYM.md`, `governance/FIL_ROUGE_OPERATOIRE_GYM.md` et `governance/ai/mission_registry.json`. Il produit `governance/ai/NEXT_MISSION_GYM.md` et met a jour `auto_mode_state.json`. Une alerte du superviseur bloque la chaine.
 
+Avant chaque passage, `scripts/check_visual_contract.ps1` vérifie la présence du contrat visuel et bloque préventivement les transformations 3D retirées du périmètre actif. Cette vérification ne remplace pas les documents maîtres et ne modifie aucun fichier métier.
+
 Apres execution reelle de la mission, `scripts/complete_auto_mission.ps1` exige une preuve de travail et une nouvelle conformite du superviseur avant de faire avancer la phase.
 
 ## Session longue
