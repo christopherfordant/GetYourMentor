@@ -418,6 +418,55 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+/* Discipline rail measured from the Emergent reference. */
+@media (min-width: 901px) {
+  main .sportRail {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding: 110px 24px 80px !important;
+    box-sizing: border-box;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  main .sportRailGrid {
+    display: flex !important;
+    gap: 24px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  main .sportRailCard {
+    flex: 0 0 calc((100% - 72px) / 4) !important;
+    height: 386.656px !important;
+    min-height: 386.656px !important;
+    border-radius: 15px !important;
+    border: 0 !important;
+  }
+  main .sportRailIndex { display: none !important; }
+}
+
+@media (max-width: 900px) {
+  main .sportRail {
+    width: 100% !important;
+    margin-inline: 0 !important;
+    padding-inline: 16px !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  main .sportRailGrid {
+    display: flex !important;
+    gap: 12px !important;
+    margin-inline: 0 !important;
+    padding-inline: 0 !important;
+    overflow-x: auto !important;
+  }
+  main .sportRailCard {
+    flex: 0 0 min(78vw, 320px) !important;
+    min-height: 300px !important;
+    border-radius: 16px !important;
+  }
+  main .sportRailIndex { display: none !important; }
+}
+
 /* Final measured rail sizing. */
 @media (min-width: 901px) {
   main .experienceStage .experienceSlide.experienceSlideActive {
