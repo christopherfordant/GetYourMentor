@@ -436,6 +436,101 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+/* Popular coaches: editorial grid matching the Emergent reference. */
+.popularCoachesSection {
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  padding: 140px 24px 144px !important;
+  background: #07101f;
+}
+.popularCoachesHeading {
+  width: min(1232px, 100%);
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.popularCoachesHeading h2 { margin: 0; max-width: 780px; font-size: clamp(2rem, 3.75vw, 3rem); line-height: 1; }
+.popularCoachesLink {
+  flex: 0 0 auto;
+  border-bottom: 1px solid #caff3d;
+  color: #caff3d;
+  font-size: .88rem;
+  font-weight: 700;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+.popularCoachesGrid {
+  width: min(1232px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.popularCoach {
+  min-width: 0;
+  height: 440px;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(219,230,255,.14);
+  border-radius: 16px;
+  background: rgba(17,31,57,.94);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.popularCoach:hover, .popularCoach:focus-within {
+  transform: translateY(-5px);
+  border-color: rgba(202,255,61,.55);
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+}
+.popularCoachImage {
+  position: relative;
+  height: 296px;
+  overflow: hidden;
+}
+.popularCoachImage .cardImage { object-fit: cover; transition: transform .45s ease; }
+.popularCoach:hover .popularCoachImage .cardImage,
+.popularCoach:focus-within .popularCoachImage .cardImage { transform: scale(1.04); }
+.popularCoachSport, .popularCoachRating {
+  position: absolute;
+  top: 16px;
+  z-index: 1;
+  border-radius: 999px;
+  background: rgba(7,16,31,.78);
+  color: #f4f7ff;
+  font-size: .76rem;
+  line-height: 1;
+  padding: 9px 11px;
+}
+.popularCoachSport { left: 16px; }
+.popularCoachRating { right: 16px; color: #caff3d; }
+.popularCoachBody { padding: 22px 22px 20px; }
+.popularCoachTitle { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.popularCoachTitle h3 { margin: 0; color: #f4f7ff; font-size: 1.18rem; }
+.popularCoachTitle strong { color: #caff3d; font-size: .95rem; white-space: nowrap; }
+.popularCoachBody p { margin: 10px 0 18px; color: #aebbd1; font-size: .88rem; }
+.popularCoachButton {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border-radius: 999px;
+  background: #caff3d;
+  color: #07101f;
+  padding: 0 17px;
+  font-size: .82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .popularCoachesSection { padding: 88px 16px 96px !important; }
+  .popularCoachesHeading { align-items: start; flex-direction: column; gap: 18px; margin-bottom: 28px; }
+  .popularCoachesHeading h2 { font-size: clamp(2rem, 8vw, 2.75rem); }
+  .popularCoachesGrid { display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+  .popularCoachesGrid::-webkit-scrollbar { display: none; }
+  .popularCoach { flex: 0 0 min(88vw, 360px); height: 430px; scroll-snap-align: start; }
+  .popularCoachImage { height: 270px; }
+}
+
 /* Journey editorial grid measured from Emergent. */
 @media (min-width: 901px) {
   .section[data-gsap-section="journey"] {

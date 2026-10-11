@@ -3,6 +3,15 @@ import Link from "next/link";
 import styles from "./home-refined.module.css";
 import { insights, localeColumns, locales, metrics } from "./home-data";
 
+const popularCoaches = [
+  { name: "Lucas M.", sport: "Football", rating: "4.9", price: "45€ / h", details: "Paris · Présentiel · Visio", image: "/design_assets/content_library/web_reference/football-coaching.jpg", slug: "football" },
+  { name: "Amina K.", sport: "Fitness", rating: "4.8", price: "35€ / h", details: "Lyon · Présentiel · Groupe", image: "/design_assets/content_library/fitness/fitness-coach-plank.jpg", slug: "metiers-de-la-forme" },
+  { name: "Nathan B.", sport: "Basketball", rating: "5", price: "50€ / h", details: "Marseille · Présentiel", image: "/design_assets/content_library/web_reference/basketball-coaching.jpg", slug: "basketball" },
+  { name: "Sofia D.", sport: "Sports de combat", rating: "4.9", price: "55€ / h", details: "Bordeaux · Présentiel · Visio", image: "/design_assets/content_library/combat/combat-boxer-portrait.jpg", slug: "sports-de-combat" },
+  { name: "Thomas R.", sport: "Football", rating: "4.7", price: "40€ / h", details: "Toulouse · Présentiel", image: "/design_assets/content_library/football/football-coach-rain.jpg", slug: "football" },
+  { name: "Clara V.", sport: "Fitness", rating: "4.9", price: "30€ / h", details: "Nice · Visio", image: "/design_assets/content_library/fitness/fitness-coach-plank.jpg", slug: "metiers-de-la-forme" },
+];
+
 export function HomeBelowFoldSections() {
   return (
     <>
@@ -22,6 +31,34 @@ export function HomeBelowFoldSections() {
             <article key={`${item.value}-${item.copy}`} className={`${styles.insightCard} ${item.featured ? styles.insightCardFeatured : ""}`} data-gsap-stagger>
               <strong>{item.value}</strong><p>{item.copy}</p>
               {item.featured ? <Link href="/compte" className={styles.insightButton}>Je suis coach</Link> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className={`${styles.section} ${styles.popularCoachesSection}`} data-gsap-scene="popular-coaches" aria-labelledby="popular-coaches-title">
+        <div className={styles.popularCoachesHeading}>
+          <div>
+            <p className={styles.sectionKicker}>Les mentors</p>
+            <h2 id="popular-coaches-title">Coachs populaires cette semaine</h2>
+          </div>
+          <Link href="/coachs" className={styles.popularCoachesLink}>Voir tous les coachs</Link>
+        </div>
+        <div className={styles.popularCoachesGrid}>
+          {popularCoaches.map((coach) => (
+            <article key={`${coach.name}-${coach.sport}`} className={styles.popularCoach}>
+              <div className={styles.popularCoachImage}>
+                <Image src={coach.image} alt={`Portrait du coach ${coach.name}`} fill loading="lazy" sizes="(max-width: 900px) 88vw, 31vw" className={styles.cardImage} />
+                <span className={styles.popularCoachSport}>{coach.sport}</span>
+                <span className={styles.popularCoachRating}>★ {coach.rating}</span>
+              </div>
+              <div className={styles.popularCoachBody}>
+                <div className={styles.popularCoachTitle}>
+                  <h3>{coach.name}</h3>
+                  <strong>{coach.price}</strong>
+                </div>
+                <p>{coach.details}</p>
+                <Link href={`/coachs?sport=${coach.slug}`} className={styles.popularCoachButton}>Voir le profil</Link>
+              </div>
             </article>
           ))}
         </div>
