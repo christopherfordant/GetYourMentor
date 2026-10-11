@@ -6,7 +6,6 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import gsap from "gsap";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import styles from "./home-refined.module.css";
 const HomeFaqSection = dynamic(
@@ -83,6 +82,14 @@ function StepDots({ count, activeIndex }: { count: number; activeIndex: number }
   );
 }
 
+function JourneyIcon({ type }: { type: "users" | "calendar" | "check" | "trend" }) {
+  const common = { width: 36, height: 36, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, "aria-hidden": true };
+  if (type === "users") return <svg {...common}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><path d="M16 3.128a4 4 0 0 1 0 7.744" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><circle cx="9" cy="7" r="4" /></svg>;
+  if (type === "calendar") return <svg {...common}><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>;
+  if (type === "check") return <svg {...common}><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>;
+  return <svg {...common}><path d="M16 7h6v6" /><path d="m22 7-8.5 8.5-5-5L2 17" /></svg>;
+}
+
 export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallback?: boolean }) {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -95,97 +102,8 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const [experienceIndex, setExperienceIndex] = useState(0);
   const journeyViewportRef = useRef<HTMLDivElement>(null);
   const journeyTrackRef = useRef<HTMLDivElement>(null);
-  const journeyDragRef = useRef<any>(null);
 
-  // GSAP is intentionally initialized after the first paint. This keeps the
-  // mobile hero responsive while preserving the same journey interactions.
-  useEffect(() => {
-    let disposed = false;
-    let cleanup = () => {};
-
-    const initialize = async () => {
-      const [{ Draggable }, { InertiaPlugin }] = await Promise.all([
-        import("gsap/Draggable"),
-        import("gsap/InertiaPlugin"),
-      ]);
-      if (disposed) return;
-      gsap.registerPlugin(Draggable, InertiaPlugin);
-
-      const viewport = journeyViewportRef.current;
-      const track = journeyTrackRef.current;
-      if (!viewport || !track) return;
-
-    const getSlide = () => track.querySelector<HTMLElement>("[data-journey-slide]");
-    const getSlideWidth = () => getSlide()?.getBoundingClientRect().width || viewport.getBoundingClientRect().width;
-    const getStride = () => getSlideWidth() + Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
-    const getCenterOffset = () => (viewport.getBoundingClientRect().width - getSlideWidth()) / 2;
-    const snapX = (value: number) => {
-      const stride = getStride();
-      const offset = getCenterOffset();
-      return stride ? offset - Math.round((offset - value) / stride) * stride : value;
-    };
-    const updateIndex = (value: number) => {
-      const stride = getStride();
-      const offset = getCenterOffset();
-      if (!stride) return;
-      setJourneyIndex(Math.max(0, Math.min(3, Math.round((offset - value) / stride))));
-    };
-    const getBounds = () => {
-      const offset = getCenterOffset();
-      return { minX: offset - getStride() * 3, maxX: offset };
-    };
-
-    const draggable = Draggable.create(track, {
-      type: "x",
-      inertia: true,
-      bounds: getBounds(),
-      edgeResistance: 0.86,
-      snap: snapX,
-      allowNativeTouchScrolling: true,
-      lockAxis: true,
-      onDrag: function () { updateIndex(this.x); },
-      onThrowUpdate: function () { updateIndex(this.x); },
-      onRelease: function () { updateIndex(this.x); },
-    })[0];
-    gsap.set(track, { x: getCenterOffset() });
-    journeyDragRef.current = draggable;
-    const onResize = () => { draggable.applyBounds(getBounds()); gsap.set(track, { x: snapX(draggable.x) }); };
-    window.addEventListener("resize", onResize);
-    cleanup = () => {
-      window.removeEventListener("resize", onResize);
-      draggable.kill();
-      journeyDragRef.current = null;
-    };
-    };
-
-    void initialize();
-    return () => {
-      disposed = true;
-      cleanup();
-    };
-  }, []);
-
-  const goToJourney = (index: number) => {
-    const next = Math.max(0, Math.min(3, index));
-    setJourneyIndex(next);
-    const track = journeyTrackRef.current;
-    const viewport = journeyViewportRef.current;
-    if (track && viewport) {
-      const slide = track.querySelector<HTMLElement>("[data-journey-slide]");
-      const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || "0");
-      const stride = (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width) + gap;
-      const offset = (viewport.getBoundingClientRect().width - (slide?.getBoundingClientRect().width || viewport.getBoundingClientRect().width)) / 2;
-      const targetX = offset - next * stride;
-      gsap.killTweensOf(track);
-      gsap.to(track, {
-        x: targetX,
-        duration: 0.8,
-        ease: "expo.out",
-        overwrite: true,
-        onComplete: () => journeyDragRef.current?.update(true),
-      });
-    }
-  };
+  const goToJourney = (index: number) => setJourneyIndex(Math.max(0, Math.min(3, index)));
 
   const goToExperience = (index: number) => {
     setExperienceIndex((index + experienceSlides.length) % experienceSlides.length);
@@ -384,7 +302,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
         </section>
 
-        <section className={styles.section} data-gsap-section="journey">
+        <section className={`${styles.section} ${styles.journeyProcedure}`} data-gsap-section="journey">
           <div className={styles.sectionHeading} data-gsap-heading>
             <p className={styles.sectionKicker}>Ton parcours</p>
             <h2>De l'inscription à ton premier record</h2>
@@ -400,6 +318,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
           <div className={styles.howGrid} ref={journeyTrackRef}>
             <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 0}>
+              <div className={styles.procedureVisual}><div className={styles.procedureIcon}><JourneyIcon type="users" /></div><div className={styles.procedureNumber}>01</div><h3>Choisis ton coach</h3><p>Parcours les profils vérifiés, compare tarifs et disponibilités.</p></div>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>1</span>
                 <h3>Choisis ton coach</h3>
@@ -444,6 +363,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
             </article>
 
             <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 1}>
+              <div className={styles.procedureVisual}><div className={styles.procedureIcon}><JourneyIcon type="calendar" /></div><div className={styles.procedureNumber}>02</div><h3>Bloque tes créneaux</h3><p>Réserve en 2 clics selon ton emploi du temps.</p></div>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>2</span>
                 <h3>Bloque tes créneaux</h3>
@@ -491,6 +411,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
             </article>
 
             <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 2}>
+              <div className={styles.procedureVisual}><div className={styles.procedureIcon}><JourneyIcon type="check" /></div><div className={styles.procedureNumber}>03</div><h3>Valide ta session</h3><p>Paiement simulé sécurisé, confirmation instantanée.</p></div>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>3</span>
                 <h3>Valide ta session</h3>
@@ -529,6 +450,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
             <article className={styles.stepCard} data-gsap-card data-journey-slide data-active={journeyIndex === 3}>
+              <div className={styles.procedureVisual}><div className={styles.procedureIcon}><JourneyIcon type="trend" /></div><div className={styles.procedureNumber}>04</div><h3>Progresse avec ton coach</h3><p>Suivi personnalisé, objectifs atteints, résultats réels.</p></div>
               <div className={styles.stepHead}>
                 <span className={styles.stepNumber}>4</span>
                 <h3>Progresse avec ton coach</h3>
