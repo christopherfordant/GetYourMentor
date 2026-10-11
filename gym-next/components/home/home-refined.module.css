@@ -466,7 +466,6 @@
 .section.section[data-gsap-section="journey"].journeyProcedure .carouselViewport { display: contents !important; }
 .section.section[data-gsap-section="journey"].journeyProcedure .carouselControls { display: none !important; }
 .section.section[data-gsap-section="journey"].journeyProcedure .howGrid { display: grid !important; height: auto !important; min-height: 0 !important; transform: none !important; }
-.section.section[data-gsap-section="journey"].journeyProcedure .howGrid { position: relative !important; }
 .section.section[data-gsap-section="journey"].journeyProcedure .stepCard { display: block !important; height: auto !important; min-height: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
 .section.section[data-gsap-section="journey"].journeyProcedure .stepCard > .stepHead,
 .section.section[data-gsap-section="journey"].journeyProcedure .stepCard > .miniScreen { display: none !important; }
