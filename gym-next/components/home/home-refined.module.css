@@ -436,6 +436,39 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+/* Journey interaction guard: keep the visual rail inside its hit-test area.
+   The cards intentionally extend beyond the old editorial grid height; the
+   viewport and track must therefore own the full card height so controls are
+   not hit-tested against the parent section. */
+.section.section[data-gsap-section="journey"] .carouselViewport {
+  position: relative !important;
+  z-index: 2 !important;
+  min-height: 368px !important;
+  height: 368px !important;
+  overflow: visible !important;
+}
+.section.section[data-gsap-section="journey"] .howGrid {
+  position: relative !important;
+  z-index: 3 !important;
+  min-height: 368px !important;
+  height: 368px !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard,
+.section.section[data-gsap-section="journey"] .stepCard button,
+.section.section[data-gsap-section="journey"] .stepCard a {
+  position: relative !important;
+  z-index: 4 !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 767px) {
+  .section.section[data-gsap-section="journey"] .carouselViewport,
+  .section.section[data-gsap-section="journey"] .howGrid {
+    min-height: 384px !important;
+    height: 384px !important;
+  }
+}
+
 /* Final journey contract: four equal editorial columns on desktop. */
 .section.section[data-gsap-section="journey"] .howGrid {
   display: grid !important;
