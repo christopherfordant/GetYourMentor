@@ -436,6 +436,54 @@
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
 
+/* Final journey contract: four equal editorial columns on desktop. */
+.section.section[data-gsap-section="journey"] .howGrid {
+  display: grid !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 212px !important;
+  height: 212px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard {
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 212px !important;
+  height: 212px !important;
+  padding: 0 !important;
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+.section.section[data-gsap-section="journey"] {
+  min-height: 608px !important;
+}
+.section.section[data-gsap-section="journey"] > .sectionHeading h2 {
+  line-height: 48px !important;
+}
+@media (max-width: 900px) {
+  .section.section[data-gsap-section="journey"] .howGrid {
+    display: flex !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    height: 212px !important;
+    min-height: 212px !important;
+    gap: 16px !important;
+    overflow: visible !important;
+  }
+  .section.section[data-gsap-section="journey"] .stepCard {
+    flex: 0 0 calc(100vw - 48px) !important;
+    width: calc(100vw - 48px) !important;
+    height: 212px !important;
+    min-height: 212px !important;
+  }
+  .section.section[data-gsap-section="journey"] { min-height: 374px !important; }
+  .section.section[data-gsap-section="journey"] > .sectionHeading h2 { line-height: 36px !important; }
+}
+
 /* Popular coaches: editorial grid matching the Emergent reference. */
 .popularCoachesSection {
   width: 100vw !important;
