@@ -496,7 +496,9 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 <h3>Valide ta session</h3>
               </div>
               <div className={styles.miniScreen}>
-                <div className={styles.paymentVisual} />
+                <div className={styles.paymentVisual}>
+                  <Image src="/design_assets/content_library/fitness/fitness-coach-plank.jpg" alt="Coach et sportif pendant une séance" fill sizes="(max-width: 900px) 88vw, 22vw" className={styles.cardImage} />
+                </div>
                 <span className={styles.paymentStrong}>{displayedPayment.title}</span>
                 <span className={styles.paymentRow}>{displayedPayment.date}</span>
                 <span className={styles.paymentRow}>{displayedPayment.detail}</span>
@@ -532,8 +534,11 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 <h3>Progresse avec ton coach</h3>
               </div>
               <div className={styles.miniScreen}>
-                <div className={styles.progressVisual} aria-hidden="true">
+                <div className={styles.progressVisual}>
+                  <Image src="/design_assets/content_library/football/football-coach-rain.jpg" alt="Coach accompagnant un sportif sur le terrain" fill sizes="(max-width: 900px) 88vw, 22vw" className={styles.cardImage} />
+                  <div className={styles.progressOverlay} aria-hidden="true">
                   <span>OBJECTIF</span><strong>+ 18%</strong><small>de régularité ce mois-ci</small>
+                  </div>
                 </div>
                 <div className={styles.slideContent}>
                   <h4>Un rythme qui tient</h4>

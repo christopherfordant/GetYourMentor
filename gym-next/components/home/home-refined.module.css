@@ -509,6 +509,43 @@
   margin-top: auto !important;
   padding-top: 4px !important;
 }
+.section.section[data-gsap-section="journey"] .paymentVisual,
+.section.section[data-gsap-section="journey"] .progressVisual {
+  position: relative !important;
+  flex: 0 0 118px !important;
+  width: 100% !important;
+  min-height: 118px !important;
+  height: 118px !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  background: #172943 !important;
+}
+.section.section[data-gsap-section="journey"] .paymentVisual .cardImage,
+.section.section[data-gsap-section="journey"] .progressVisual .cardImage {
+  object-fit: cover !important;
+}
+.section.section[data-gsap-section="journey"] .progressOverlay {
+  position: absolute;
+  inset: auto 12px 10px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0,0,0,.8);
+}
+.section.section[data-gsap-section="journey"] .progressOverlay span { color: #caff3d; font-size: .65rem; font-weight: 800; letter-spacing: .12em; }
+.section.section[data-gsap-section="journey"] .progressOverlay strong { font-size: 1.7rem; line-height: 1; }
+.section.section[data-gsap-section="journey"] .progressOverlay small { font-size: .68rem; }
+.section.section[data-gsap-section="journey"] .paymentStrong,
+.section.section[data-gsap-section="journey"] .paymentRow,
+.section.section[data-gsap-section="journey"] .paymentTotal,
+.section.section[data-gsap-section="journey"] .darkButton,
+.section.section[data-gsap-section="journey"] .softButton,
+.section.section[data-gsap-section="journey"] .slotRow,
+.section.section[data-gsap-section="journey"] .slotSelection {
+  position: relative !important;
+  z-index: 2 !important;
+}
 @media (max-width: 900px) {
   .section.section[data-gsap-section="journey"] .howGrid {
     display: flex !important;
@@ -530,6 +567,8 @@
   .section.section[data-gsap-section="journey"] .stepCard > .miniScreen { height: 316px !important; }
   .section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slideMedia,
   .section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slotVisual { flex-basis: 148px !important; height: 148px !important; min-height: 148px !important; }
+  .section.section[data-gsap-section="journey"] .paymentVisual,
+  .section.section[data-gsap-section="journey"] .progressVisual { flex-basis: 148px !important; height: 148px !important; min-height: 148px !important; }
 }
 
 /* Popular coaches: editorial grid matching the Emergent reference. */
