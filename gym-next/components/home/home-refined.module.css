@@ -159,6 +159,24 @@
   .insightsGrid, .localesGrid { grid-template-columns: 1fr; }
 }
 
+/* Remove the legacy intrinsic placeholder and card surfaces from the journey rail. */
+.section.section[data-gsap-section="journey"] {
+  content-visibility: visible !important;
+  contain-intrinsic-size: auto !important;
+}
+.section.section[data-gsap-section="journey"] .carouselViewport {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.section.section[data-gsap-section="journey"] .carouselHint,
+.section.section[data-gsap-section="journey"] .carouselControls { display: none !important; }
+
 @media (max-width: 700px) {
   /* Mobile performance pass: keep the same dark cinematic treatment while
      avoiding an extra filtered/multiply compositing layer for the hero. */
@@ -417,6 +435,105 @@
 .metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
 .siteFooter { background: #07101f !important; color: #aebbd1 !important; }
 .footerBrand { color: #f4f7ff !important; }
+
+/* Journey editorial grid measured from Emergent. */
+@media (min-width: 901px) {
+  .section[data-gsap-section="journey"] {
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    padding: 110px 24px 80px !important;
+    box-sizing: border-box;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .section[data-gsap-section="journey"] > .sectionHeading { padding: 0 !important; max-width: 672px !important; }
+  .section[data-gsap-section="journey"] .carouselViewport {
+    height: 212px !important;
+    min-height: 212px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .section[data-gsap-section="journey"] .howGrid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 32px !important;
+    width: 100% !important;
+    transform: none !important;
+    min-height: 212px !important;
+    height: 212px !important;
+  }
+  .section[data-gsap-section="journey"] .howGrid::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(202,255,61,.4), transparent);
+    pointer-events: none;
+  }
+  .section[data-gsap-section="journey"] .stepCard {
+    width: auto !important;
+    height: 212px !important;
+    min-height: 212px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .section[data-gsap-section="journey"] .stepHead {
+    margin: 0 0 14px !important;
+    padding: 0 !important;
+    gap: 14px !important;
+    pointer-events: auto !important;
+  }
+  .section[data-gsap-section="journey"] .stepHead h3 { font-size: 1.4rem !important; line-height: 1.15 !important; }
+  .section[data-gsap-section="journey"] .stepCard > div:last-child { position: relative; z-index: 1; min-height: 0 !important; max-height: 148px !important; overflow: hidden !important; font-size: .82rem !important; }
+  .section[data-gsap-section="journey"] .stepCard img { max-height: 48px !important; object-fit: cover !important; border-radius: 10px !important; }
+  .section[data-gsap-section="journey"] .carouselControls { display: none !important; }
+}
+
+@media (max-width: 900px) {
+  .section[data-gsap-section="journey"] {
+    width: 100% !important;
+    margin-inline: 0 !important;
+    padding: 0 24px 12px !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .section[data-gsap-section="journey"] .sectionHeading { padding: 0 !important; }
+  .section[data-gsap-section="journey"] .carouselViewport {
+    height: 226px !important;
+    min-height: 226px !important;
+    margin: 28px 0 0 !important;
+    border-radius: 0 !important;
+  }
+  .section[data-gsap-section="journey"] .howGrid {
+    display: flex !important;
+    width: max-content !important;
+    height: 212px !important;
+    min-height: 212px !important;
+    gap: 16px !important;
+  }
+  .section[data-gsap-section="journey"] .stepCard {
+    flex: 0 0 calc(100vw - 48px) !important;
+    width: calc(100vw - 48px) !important;
+    height: 212px !important;
+    min-height: 212px !important;
+    border-radius: 0 !important;
+  }
+}
 
 /* Discipline rail measured from the Emergent reference. */
 @media (min-width: 901px) {
