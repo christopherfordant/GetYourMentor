@@ -459,10 +459,55 @@
   filter: none !important;
 }
 .section.section[data-gsap-section="journey"] {
-  min-height: 608px !important;
+  min-height: 680px !important;
 }
 .section.section[data-gsap-section="journey"] > .sectionHeading h2 {
   line-height: 48px !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard {
+  height: 368px !important;
+  min-height: 368px !important;
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  overflow: visible !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen {
+  display: flex !important;
+  min-height: 0 !important;
+  height: 300px !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  overflow: visible !important;
+  padding: 14px !important;
+  border-radius: 16px !important;
+  background: rgba(17,31,57,.94) !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slideMedia,
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slotVisual {
+  flex: 0 0 118px !important;
+  width: 100% !important;
+  min-height: 118px !important;
+  height: 118px !important;
+  border-radius: 12px !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen img {
+  width: 100% !important;
+  max-height: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slideContent {
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding: 0 !important;
+  justify-content: flex-start !important;
+}
+.section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .stepActions {
+  position: static !important;
+  margin-top: auto !important;
+  padding-top: 4px !important;
 }
 @media (max-width: 900px) {
   .section.section[data-gsap-section="journey"] .howGrid {
@@ -477,11 +522,14 @@
   .section.section[data-gsap-section="journey"] .stepCard {
     flex: 0 0 calc(100vw - 48px) !important;
     width: calc(100vw - 48px) !important;
-    height: 212px !important;
-    min-height: 212px !important;
+    height: 384px !important;
+    min-height: 384px !important;
   }
-  .section.section[data-gsap-section="journey"] { min-height: 374px !important; }
+  .section.section[data-gsap-section="journey"] { min-height: 560px !important; }
   .section.section[data-gsap-section="journey"] > .sectionHeading h2 { line-height: 36px !important; }
+  .section.section[data-gsap-section="journey"] .stepCard > .miniScreen { height: 316px !important; }
+  .section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slideMedia,
+  .section.section[data-gsap-section="journey"] .stepCard > .miniScreen > .slotVisual { flex-basis: 148px !important; height: 148px !important; min-height: 148px !important; }
 }
 
 /* Popular coaches: editorial grid matching the Emergent reference. */
