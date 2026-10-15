@@ -1,5 +1,7 @@
 # GetYourMentor - Design system v1
 
+> Direction validée le 15 octobre 2026 : refonte progressive inspirée du pitch, violet `#872BBF`, papier `#F6F4F0`, encre `#141316`, surfaces blanches et bordures `#D8D2DF`. Implémentation opt-in avec tokens `--gym-*`, premier lot dans les comptes. Les palettes historiques ci-dessous restent des références ; elles ne priment pas sur cette validation. Header conservé dans sa structure. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
 ## 1. Direction
 
 GetYourMentor doit adopter un style :

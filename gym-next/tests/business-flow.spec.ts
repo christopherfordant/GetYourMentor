@@ -39,7 +39,12 @@ test.describe("parcours metier principaux", () => {
     await expect(page).toHaveURL(/\/coach\?/);
   });
 
-  test("fiche coach vers creneau puis recapitulatif", async ({ page }, testInfo) => {
+  test("fiche coach vers creneau puis recapitulatif", async ({ page }) => {
+    await page.goto("/compte?mode=sportif");
+    await page.locator("#account-email").fill("sportif@example.com");
+    await page.locator("#account-password").fill("demo-password");
+    await page.getByRole("button", { name: "Se connecter", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "Mes réservations", exact: true })).toBeVisible();
     await page.goto(
       "/coach?sport=metiers-de-la-forme&city=Lyon&coach=Studio%20Form%20Marseille",
       { waitUntil: "networkidle" },
@@ -52,13 +57,18 @@ test.describe("parcours metier principaux", () => {
     if (await cookieConsent.isVisible().catch(() => false)) await cookieConsent.click();
     await page.getByRole("button", { name: "Planning" }).click();
     await expect(page.locator('[data-booking-confirm]')).toBeVisible();
+    const availabilityResponse = page.waitForResponse((response) => response.url().includes("/api/reservations?coachId=") && response.request().method() === "GET");
     await page.locator('[data-booking-confirm]').click();
 
     await page.waitForURL("**/creneau?**");
     await expect(page).toHaveURL(/\/creneau\?/);
     await expect(page.locator('[data-multi-confirm]')).toBeVisible();
-    const selectedSlot = testInfo.project.name === "mobile-chromium" ? "11:00" : "10:00";
-    await page.locator(`[data-slot="${selectedSlot}"][data-slot-booked="false"]`).first().click();
+    const availability = await (await availabilityResponse).json();
+    const occupied = availability.data.filter((r: { status: string }) => ["requested", "accepted", "paid"].includes(r.status)).flatMap((r: { slots: string[] }) => r.slots);
+    const selectedSlot = (await page.locator("[data-slot]").evaluateAll((buttons) => buttons.map((button) => button.getAttribute("data-slot")))).find((slot) => slot && !occupied.includes(slot));
+    expect(selectedSlot, "La recette choisit un créneau réellement libre du store persistant").toBeTruthy();
+    await page.locator(`[data-slot="${selectedSlot}"]`).first().click();
+    await expect(page.locator('[data-multi-confirm]')).toHaveAttribute("aria-disabled", "false");
     const reservationResponse = page.waitForResponse(
       (response) => response.url().includes("/api/reservations") && response.request().method() === "POST",
     );
@@ -67,6 +77,9 @@ test.describe("parcours metier principaux", () => {
 
     await page.waitForURL("**/recapitulatif?**");
     await expect(page).toHaveURL(/\/recapitulatif\?/);
+    const reservationId = new URL(page.url()).searchParams.get("reservationId");
+    expect(reservationId).toBeTruthy();
+    expect(await page.evaluate(async (id) => (await fetch(`/api/reservations/${id}/cancel`, { method: "POST" })).status, reservationId)).toBe(200);
   });
 
   test("recapitulatif vers compte pour paiement", async ({ page }) => {

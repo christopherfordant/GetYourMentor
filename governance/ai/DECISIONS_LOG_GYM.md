@@ -1,5 +1,12 @@
 # Decisions Log GYM
 
+## 2026-10-15 — Refonte progressive validée
+
+- La maquette locale est validée pour l'implémentation dans l'application existante ; header conservé dans ses noms, ordre, destinations et organisation.
+- Premier lot : socle visuel et comptes, priorité au panneau coach mobile rétréci par les styles hérités. Vérification Playwright MCP, puis build et recette ; commits ciblés sur une branche design, travail antérieur préservé.
+- Commission actuelle 15 % et snapshots inchangés. LangChain/LangGraph non ajoutés sans bénéfice démontré ; aucun agent métier supplémentaire. Nettoyage limité aux doublons dont les références et usages ont été contrôlés.
+- Périmètre, preuves et état de livraison : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`. V2/V3 restent à construire selon les critères documentés.
+
 ## 2026-09-28 - Socle RAG lexical et contrat MCP lecture seule
 
 - Decision : activer uniquement un socle documentaire lexical gouverné et un contrat MCP allowlisté, sans brancher ces capacités au tunnel métier critique.

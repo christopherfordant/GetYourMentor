@@ -417,7 +417,7 @@ function CoachDashboard({
           <a href="#coach-dashboard">Tableau de bord</a>
           <a href="#coach-payments">Mes paiements</a>
           <a href="#coach-profile-editor">Mon profil</a>
-          <a href="#coach-documents">VÃ©rification</a>
+          <a href="#coach-documents">Vérification</a>
         </div>
         <div className="coach-home-nav-footer">
           <a href="#coach-invitations">Invitation</a>
@@ -957,7 +957,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
         [data-account-form] > .auth-field:nth-child(2),
         [data-account-form] > .auth-field:nth-child(3) { display: none; }
       `}</style>
-      <div className="site-shell account-shell">
+      <div className="site-shell account-shell" id="gym-account" data-gym-design="pitch-v1">
         <AccountHeader />
         <main className={`account-page${dashboardMode ? " is-coach-mode" : ""}`} data-account-page>
           <section className="account-panel">

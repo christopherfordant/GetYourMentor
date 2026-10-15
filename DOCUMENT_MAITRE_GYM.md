@@ -1,5 +1,7 @@
 # GetYourMentor - Document Maitre v1
 
+> Refonte validée le 15 octobre 2026 : la maquette locale violet/noir/papier du dossier `GetYourMentor_Audit_Design_2026-10-15` devient la direction d'implémentation progressive. Le header conserve noms, ordre, destinations et organisation ; chaque famille de pages est migrée par lot vérifié. Commission 15 % et droits métier préservés. État, périmètre V2/V3 et preuves : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
 ## 0. Sources prioritaires actuelles
 
 A compter du `19 mars 2026`, les documents de reference prioritaires du projet sont :

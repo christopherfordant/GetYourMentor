@@ -2,6 +2,8 @@
 
 ## Entrées principales
 
+- [`REFONTE_PROGRESSIVE_2026-10-15.md`](REFONTE_PROGRESSIVE_2026-10-15.md) — maquette validée, lots de migration, tests et livraison du design ;
+
 - [`../DOCUMENT_MAITRE_GYM.md`](../DOCUMENT_MAITRE_GYM.md) — source de vérité produit ;
 - [`architecture/`](./architecture/) — architecture applicative, mémoire et RAG ;
 - [`../governance/`](../governance/) — décisions, rôles, fil rouge et contrôles ;

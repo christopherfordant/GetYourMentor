@@ -7,6 +7,7 @@ import { BackToTopButton } from "@/components/BackToTopButton";
 import "./globals.css";
 import "./redesign-2026.css";
 import "./final-motion-overrides.css";
+import "./gym-account-design.css";
 
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
