@@ -1,5 +1,7 @@
 # Documentation GetYourMentor
 
+> **Lecture obligatoire ? chaque prompt :** `../AGENTS.md` et la proc?dure de `../BRANCH_STRATEGY_GYM.md` avant les travaux ; v?rification, documentation, commit et push cibl? avant la r?ponse finale de livraison.
+
 ## Entrées principales
 
 - [`REFONTE_PROGRESSIVE_2026-10-15.md`](REFONTE_PROGRESSIVE_2026-10-15.md) — maquette validée, lots de migration, tests et livraison du design ;

@@ -1,3 +1,5 @@
+> **? chaque prompt :** lire `../AGENTS.md` et la proc?dure obligatoire de `../BRANCH_STRATEGY_GYM.md`. Livrer les lots v?rifi?s avec documentation, commit et push cibl? sur la branche appropri?e avant la r?ponse finale ; confirmer la r?f?rence distante. Les changements ant?rieurs non v?rifi?s restent pr?serv?s.
+
 ## Reprise active — accueil issu de la maquette HTML complète
 
 La nouvelle validation porte sur l’ensemble de `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html` et remplace la direction « recolorer en clair » comme méthode de refonte. Le HTML, son CSS et son JavaScript ont été lus ; Playwright MCP a examiné desktop/mobile, panneaux coach/structure, dialogue Premium et variante verte.
