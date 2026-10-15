@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-16",
+  "base": "f0472db9526c5203a7eba089d3a081ad71a051c3",
+  "branch": "design/refonte-progressive-lot1",
+  "isolated_worktree": "C:\\Users\\cashe\\Documents\\GYM-visitor-review",
+  "files_sha256_lf": {
+    "gym-next/components/home/EditorialHome.tsx": "ba73a04f2d242a040ee98fb39747489aa9b5853c5b13f4daebf00912ff3f708b",
+    "gym-next/app/gym-editorial-design.css": "9cb6723320e45d8637bd84e8a917eea45ff9beb21280dc463ae30f89b8b2c722",
+    "gym-next/app/legal/[slug]/page.tsx": "648a6c635a73a2b64c57ad0148f7b3fa3ed707eac04567a5060dc819c2fe56b7",
+    "gym-next/tests/editorial-home.spec.ts": "1f3ad6cd575513d8caf1d89931c6c777382f21b489caa5c23576b9f31fa99534",
+    "gym-next/tests/legal-links.spec.ts": "c2ba342455248d6528bcbaf787f703d728524b1cd6adc41defa1ab8e43201043",
+    "gym-next/tests/visitor-actions.spec.ts": "d1633f702e69efddb70e06230be7525c0811f18fcd043f190cf70e719068bb9d",
+    "gym-next/tests/visitor-inventory.spec.ts": "93694512f44a317f977819d733b3ef526857bee32b0f8684a35b3b9a152e12df",
+    "gym-next/tests/visitor-accounts.spec.ts": "ca614e0e2a08e5cf8c0bd69ad4dcf3be1fa068c064b254f7e2021f80d288f1fb"
+  },
+  "build": "PASS including TypeScript",
+  "tests": {
+    "regression": "74/74 PASS",
+    "connected_inventory": "6/6 PASS",
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ]
+  },
+  "mcp": "Headless Edge separate context; homepage 3 panels x 4 widths; connected 3 roles with fixtures",
+  "public_entries": 21,
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "checks": {
+    "client_secret_boundary": "PASS",
+    "netlify_config": "PASS",
+    "production_config": "EXPECTED REJECTION in isolated checkout without service and legal configuration"
+  },
+  "missing_routes_in_committed_candidate": [
+    "/structures",
+    "/demo"
+  ],
+  "preexisting_account_limits": {
+    "sportif": [],
+    "coach": [
+      {
+        "label": "Vérification",
+        "href": "#coach-documents",
+        "targetExists": false
+      },
+      {
+        "label": "Invitation",
+        "href": "#coach-invitations",
+        "targetExists": false
+      },
+      {
+        "label": "Conseils et aides",
+        "href": "#coach-help",
+        "targetExists": false
+      }
+    ],
+    "club": [
+      {
+        "label": "Mes coachs affiliés",
+        "href": "#club-coaches",
+        "targetExists": false
+      },
+      {
+        "label": "Mes contenus",
+        "href": "#club-contents",
+        "targetExists": false
+      },
+      {
+        "label": "Mes templates",
+        "href": "#club-templates",
+        "targetExists": false
+      },
+      {
+        "label": "Mon RIB",
+        "href": "#club-rib",
+        "targetExists": false
+      },
+      {
+        "label": "Mon abonnement",
+        "href": "#club-subscription",
+        "targetExists": false
+      },
+      {
+        "label": "Mes factures",
+        "href": "#club-bills",
+        "targetExists": false
+      },
+      {
+        "label": "Conseils et aides",
+        "href": "#club-help",
+        "targetExists": false
+      }
+    ]
+  },
+  "screenshots": {
+    "accueil-1440.png": [
+      1440,
+      4598
+    ],
+    "accueil-390.png": [
+      390,
+      7440
+    ],
+    "avant-desktop.png": [
+      1280,
+      4672
+    ],
+    "avant-mobile.png": [
+      390,
+      7625
+    ],
+    "coach-390.png": [
+      354,
+      1142
+    ],
+    "compte-club-390.png": [
+      390,
+      4612
+    ],
+    "compte-coach-390.png": [
+      390,
+      6824
+    ],
+    "compte-sportif-390.png": [
+      390,
+      2233
+    ],
+    "informations-suivi.png": [
+      520,
+      394
+    ],
+    "sportif-390.png": [
+      354,
+      1146
+    ],
+    "structure-390.png": [
+      354,
+      1146
+    ]
+  },
+  "deployment": "NONE; push is not a deployment",
+  "rls": "No change, no remote validation"
+}

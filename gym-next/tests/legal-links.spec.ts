@@ -13,7 +13,7 @@ test("les pages juridiques en attente sont explicites et non indexées", async (
   for (const [path, title] of legalPaths) {
     await page.goto(path, { waitUntil: "domcontentloaded" });
     await expect(page.locator("h1")).toHaveText(title);
-    await expect(page.locator("body")).toContainText("à fournir et à valider avant toute ouverture publique");
+    await expect(page.locator("body")).toContainText("Les documents définitifs ne sont pas encore publiés");
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   }
 });

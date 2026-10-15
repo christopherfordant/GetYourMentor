@@ -1,3 +1,5 @@
+> **Lot textes visiteurs — 16 octobre 2026 :** retirer de l’interface les consignes au propriétaire et explications de conception. Nommer les actions selon leur effet réel, relier aux routes existantes et conserver les limites de démonstration/offres indisponibles. Audit, huit fichiers vérifiés et limites prioritaires des comptes : `docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md`. Aucun abonnement, droit ou paiement réel activé.
+
 # GetYourMentor - Document Maitre v1
 
 > **Lot créneaux/récapitulatif — 15 octobre 2026 :** deux écrans déclinés dans l’identité éditoriale violette ; demande et acceptation avant paiement clarifiées, données fictives de confiance retirées et récupération après erreur de disponibilités ajoutée. Le calendrier hérité reste une démonstration à heures seules, sans réservation datée réelle. Sources, recette, limites et prochaine reprise : `docs/REFONTE_RESERVATION_2026-10-15.md` et `docs/PROMPT_SUITE_RESERVATION_2026-10-15.md`. Ce lot ne valide pas les correctifs comptes/paiements antérieurs restés locaux.

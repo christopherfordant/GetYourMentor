@@ -1,3 +1,5 @@
+> **Précision utilisateur active — 16 octobre 2026 :** les textes de conception, validations de maquette et citations internes quittent l'interface. Les sections « suite » et « sources » conservent leurs compositions/ancres mais deviennent guide de réservation et aide visiteurs. Les actions nomment leur effet réel ; les offres indisponibles restent signalées. Aucun achat, abonnement ou droit n'est activé par la refonte. Rapport : `docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md`.
+
 ## Référence active — maquette HTML intégralement validée, 15 octobre 2026
 
 Source : `C:/Users/cashe/Documents/GetYourMentor_Audit_Design_2026-10-15/maquette/index.html`, avec `style.css` et `app.js`. La validation actuelle porte sur l’ensemble de cette maquette et remplace les prescriptions incompatibles ci-dessous. Elle ne se réduit pas à une palette claire appliquée à l’ancien site.

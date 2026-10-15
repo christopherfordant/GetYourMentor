@@ -1,3 +1,5 @@
+> **Recette complémentaire — 16 octobre 2026 :** contrôler les liens réels des trois panneaux, les alternatives des dialogues et l'absence de consignes internes. La feuille de route et les sources visibles deviennent guide/aide ; garder ancres et composition. Inventorier les contrôles existants sans confondre leur visibilité et leur fonctionnement. Vérifier noindex des pages légales provisoires et 404 pour les noms inconnus/propriétés héritées. Voir `AUDIT_TEXTES_ACTIONS_2026-10-16.md`.
+
 ## Recette active — accueil éditorial et migrations suivantes
 
 Référence : maquette HTML validée dans son ensemble ; les références Emergent et les décisions de recoloration restent historiques.

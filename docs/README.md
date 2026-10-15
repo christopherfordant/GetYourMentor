@@ -1,3 +1,5 @@
+> **Dernier lot — 16 octobre 2026 :** [textes visiteurs, accès réels et inventaire des limites](AUDIT_TEXTES_ACTIONS_2026-10-16.md). Prochaine priorité : déconnexion UI et menus des comptes.
+
 # Documentation GetYourMentor
 
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.

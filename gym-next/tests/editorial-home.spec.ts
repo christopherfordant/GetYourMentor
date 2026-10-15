@@ -49,7 +49,7 @@ test("aperçus natifs, Échap et retour du focus sans opération commerciale", a
 test("forfaits documentés, palette validée fixe et FAQ existante", async ({ page }) => {
   await page.goto("/"); await dismissCookies(page);
   await expect(page.locator("#forfaits")).toContainText("19,99"); await expect(page.locator("#forfaits")).toContainText("29,99");
-  await expect(page.locator(".pricing-footnote")).toContainText("15 %"); await expect(page.locator(".pricing-footnote")).toContainText("ne sont pas appliqués");
+  await expect(page.locator(".pricing-footnote")).toContainText("15 %"); await expect(page.locator(".pricing-footnote")).toContainText("ne sont pas activés");
   await expect(page.getByRole("button", { name: /Comparer avec le vert|Revenir au violet/ })).toHaveCount(0);
   await expect(page.locator("#palette")).toHaveCount(0);
   await expect(page.locator("#gym-editorial")).not.toHaveClass(/green/);

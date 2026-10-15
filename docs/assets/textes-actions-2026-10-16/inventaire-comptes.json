@@ -1,0 +1,299 @@
+[
+  {
+    "role": "sportif",
+    "widths": [
+      {
+        "viewport": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "viewport": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "viewport": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "buttons": [
+      {
+        "label": "1 km",
+        "disabled": false
+      },
+      {
+        "label": "5 km",
+        "disabled": false
+      },
+      {
+        "label": "10 km",
+        "disabled": false
+      }
+    ],
+    "links": []
+  },
+  {
+    "role": "coach",
+    "widths": [
+      {
+        "viewport": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "viewport": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "viewport": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Envoyer le code",
+        "disabled": true
+      },
+      {
+        "label": "Accueil",
+        "disabled": false
+      },
+      {
+        "label": "‹",
+        "disabled": false
+      },
+      {
+        "label": "›",
+        "disabled": false
+      },
+      {
+        "label": "Utiliser ma position",
+        "disabled": false
+      },
+      {
+        "label": "Enregistrer le profil",
+        "disabled": false
+      },
+      {
+        "label": "›",
+        "disabled": false
+      }
+    ],
+    "links": [
+      {
+        "label": "Planning",
+        "href": "#coach-planning",
+        "targetExists": true
+      },
+      {
+        "label": "Demandes",
+        "href": "#coach-requests",
+        "targetExists": true
+      },
+      {
+        "label": "Messagerie",
+        "href": "#coach-messages-live",
+        "targetExists": true
+      },
+      {
+        "label": "Tableau de bord",
+        "href": "#coach-dashboard",
+        "targetExists": true
+      },
+      {
+        "label": "Mes paiements",
+        "href": "#coach-payments",
+        "targetExists": true
+      },
+      {
+        "label": "Mon profil",
+        "href": "#coach-profile-editor",
+        "targetExists": true
+      },
+      {
+        "label": "Vérification",
+        "href": "#coach-documents",
+        "targetExists": false
+      },
+      {
+        "label": "Invitation",
+        "href": "#coach-invitations",
+        "targetExists": false
+      },
+      {
+        "label": "Conseils et aides",
+        "href": "#coach-help",
+        "targetExists": false
+      },
+      {
+        "label": "Déconnexion",
+        "href": "/",
+        "targetExists": true
+      },
+      {
+        "label": "Voir fiche",
+        "href": "/coach?sport=basketball&city=Lyon&coach=Steven+Fordant",
+        "targetExists": true
+      },
+      {
+        "label": "Voir fiche sportive",
+        "href": "/coach?sport=basketball&city=Lyon&coach=Steven+Fordant",
+        "targetExists": true
+      },
+      {
+        "label": "Voir mon profil en ligne",
+        "href": "/coach?sport=metiers-de-la-forme&city=Lille&coach=Steven+Fordant",
+        "targetExists": true
+      }
+    ]
+  },
+  {
+    "role": "club",
+    "widths": [
+      {
+        "viewport": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "viewport": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "viewport": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "viewport": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "buttons": [
+      {
+        "label": "Accueil",
+        "disabled": false
+      },
+      {
+        "label": "‹",
+        "disabled": false
+      },
+      {
+        "label": "›",
+        "disabled": false
+      },
+      {
+        "label": "›",
+        "disabled": false
+      }
+    ],
+    "links": [
+      {
+        "label": "Planning du club",
+        "href": "#club-planning",
+        "targetExists": true
+      },
+      {
+        "label": "Messagerie",
+        "href": "#club-messages",
+        "targetExists": true
+      },
+      {
+        "label": "Mes coachs affiliés",
+        "href": "#club-coaches",
+        "targetExists": false
+      },
+      {
+        "label": "Mes contenus",
+        "href": "#club-contents",
+        "targetExists": false
+      },
+      {
+        "label": "Mes templates",
+        "href": "#club-templates",
+        "targetExists": false
+      },
+      {
+        "label": "Tableau de bord",
+        "href": "#club-overview",
+        "targetExists": true
+      },
+      {
+        "label": "Mes paiements",
+        "href": "#club-payments",
+        "targetExists": true
+      },
+      {
+        "label": "Mon RIB",
+        "href": "#club-rib",
+        "targetExists": false
+      },
+      {
+        "label": "Mon abonnement",
+        "href": "#club-subscription",
+        "targetExists": false
+      },
+      {
+        "label": "Mes factures",
+        "href": "#club-bills",
+        "targetExists": false
+      },
+      {
+        "label": "Conseils et aides",
+        "href": "#club-help",
+        "targetExists": false
+      },
+      {
+        "label": "Déconnexion",
+        "href": "/",
+        "targetExists": true
+      },
+      {
+        "label": "Voir fiche",
+        "href": "/coach?sport=football&city=Marseille&coach=Steven+Fordant",
+        "targetExists": true
+      },
+      {
+        "label": "Voir fiche",
+        "href": "/coach?sport=metiers-de-la-forme&city=Lille&coach=Kenza+Training+Club",
+        "targetExists": true
+      },
+      {
+        "label": "Gérer",
+        "href": "/inscription-club?source=compte",
+        "targetExists": true
+      },
+      {
+        "label": "Voir la séance",
+        "href": "/coach?sport=football&city=Marseille&coach=Steven+Fordant",
+        "targetExists": true
+      },
+      {
+        "label": "Voir le club en ligne",
+        "href": "/recherche?sport=football&city=Marseille",
+        "targetExists": true
+      },
+      {
+        "label": "Voir les coachs affiliés",
+        "href": "/recherche?sport=football&city=Marseille",
+        "targetExists": true
+      }
+    ]
+  }
+]

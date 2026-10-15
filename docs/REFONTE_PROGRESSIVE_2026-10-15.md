@@ -1,6 +1,14 @@
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
-## Dernier lot — créneaux et récapitulatif
+## Dernier lot — textes visiteurs et accès réels, 16 octobre 2026
+
+Accueil débarrassé des consignes de conception et citations internes, guide/aide adaptés aux visiteurs ; recherche, compte coach et inscription structure accessibles par des liens réels. Informations d'offres et suivi avec limites explicites, sans achat ni activation Premium. Six pages légales provisoires reformulées, cookies reliés au contrôle existant et routes légales héritées inconnues rejetées en 404.
+
+[Audit complet, inventaire, preuves et limites](AUDIT_TEXTES_ACTIONS_2026-10-16.md). Build/typage isolés PASS ; 74/74 tests puis 6/6 comptes connectés PASS. Les contrôles inventoriés des comptes ne fonctionnent pas tous : liens latéraux de déconnexion vers l'accueil, ancres absentes et planning illustratif dans la base committée. Correctifs métier locaux préservés, exclus de ce lot. `/structures` et `/demo` restent locaux ; pas de livraison ni déploiement implicite.
+
+Prochain lot prioritaire : valider les correctifs de déconnexion UI et corriger les menus inertes des comptes, avant réservation datée, services réels et abonnements. Commission 15 % et historiques inchangés. Branche : `design/refonte-progressive-lot1`, SHA distant à vérifier à chaque reprise. Aucun déploiement.
+
+## Historique — créneaux et récapitulatif
 
 Deux routes reprennent le cadre éditorial partagé, sans injection CSS héritée. Le calendrier mobile défile dans son cadre, les données fictives de confiance sont retirées, les erreurs de disponibilité permettent une nouvelle tentative et bloquent l’envoi. Identifiant de réservation conservé vers le compte. La demande, l’acceptation du coach et le paiement sont explicités.
 
