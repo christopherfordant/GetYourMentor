@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-15",
+  "code_commit": "37c8db2cb7e6d71f58974b7139df81d34aa3fbf9",
+  "branch": "design/refonte-progressive-lot1",
+  "build": "PASS",
+  "isolated_checkout": true,
+  "tests": {
+    "passed": 42,
+    "failed": 0,
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "widths": [
+      320,
+      390,
+      430,
+      621,
+      768,
+      900,
+      1024,
+      1280,
+      1440
+    ],
+    "log": "gym-next/playwright-artifacts/editorial/commit-tests.log"
+  },
+  "checks": {
+    "netlify_config": "PASS",
+    "tracked_secrets": "PASS",
+    "client_secret_boundary": "PASS"
+  },
+  "mcp": {
+    "sections": 6,
+    "contrast_intro": 5.750540048838369,
+    "contrast_primary": 6.713452579214984,
+    "contrast_selected_role": 6.713452579214984,
+    "reflow_720_client": 705,
+    "reflow_720_scroll": 705,
+    "reflow_note": "Viewport equivalent to 1440 px at 200%; long intro text. Native browser zoom not exhaustively certified."
+  },
+  "deployment": "NONE",
+  "payments_triggered": false,
+  "premium_activated": false,
+  "source_sha256": {
+    "index.html": "ef66e2d28bd7824760db20261e9b954a791c9049b5c9a55004206a6c38733466",
+    "style.css": "93aa79694f780e2f85f3899f029ff58ca7609c4b9d493f30a91f654199d95526",
+    "app.js": "e8fef2ad05177cc0a47af10cef16db0c7b762d046f6ba76ea050b37e462d63fa"
+  },
+  "screenshots_sha256": {
+    "discovery-before-accueil.png": "19a2a8eac7fc01023ffec6590532d657363f7db35d3449f5bb6e885eebaf9191",
+    "editorial-final-1440.png": "e958a37979708cb25a94ac2d7abdd3ca2ccb5876227bd81516af2a4da0c6bfd2",
+    "editorial-final-390.png": "fac9c92c8b6cd30501ffd5aa82cabef57aafa2bb486c0b14b7bee7a48311a2c9",
+    "editorial-final-coach.png": "e5d939652495bdf1339a52f77f817136902934d0d0a26c23ffe0a6b8dfdf4bd9",
+    "editorial-final-dialog.png": "1d111fe1b347c301bd07182ebb3afa7c7e82fc1ff6a2984d617a03458b6d09c9",
+    "editorial-final-structure.png": "ff12f7afd8bbbef70c2d30fd5c179ac5259365bf2b5beb727c81dfab5e18ab4a",
+    "editorial-final-top-1440.png": "f985caae69167a29ba8554722bd7df542ec528e937cc03c244261e7314d07a23",
+    "editorial-final-top-390.png": "67c6f32c59f70351959cc20f12b8a3fa48b6442f68f1ff775146847de7969f81",
+    "editorial-reference-1440.png": "1f57762a5d24be339b0e153fe0133126e7e5cbd87fb9372b6887a561e5560cc7",
+    "editorial-reference-390.png": "386103cdec611b2e11c20941ce7d343ecdab650f6a7da0985b1f37a280119098",
+    "editorial-reference-top1440.png": "54a8197513b955501ee9bc75082fc583a4a6e12ae43b21cd9123f9b04eb3d187"
+  }
+}

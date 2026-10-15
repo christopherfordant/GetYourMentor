@@ -42,7 +42,25 @@ Les contrats VISUAL_REFERENCE_CONTRACT, DESIGN_SYSTEM et VISUAL_ACCEPTANCE sont 
 
 ### Recette et livraison
 
-État de recette : EN COURS. Aucun nouveau push ou déploiement annoncé avant vérification du commit isolé. La première recette de développement a passé 5/5 tests avant les dernières adaptations de langue et de tokens ; elle ne vaut pas recette finale.
+**Livraison vérifiée et code poussé : `37c8db2` sur `origin/design/refonte-progressive-lot1`. Aucun déploiement.** Build et typage PASS dans un checkout isolé, sans les correctifs métier locaux. **42/42 tests PASS**, un worker : accueil éditorial (10), découverte et cohérence de catalogue (8), comptes (14), parcours métier (10). Largeurs de découverte/accueil : 320, 390, 430, 621, 768, 900, 1024, 1280, 1440 px.
+
+Le premier build isolé du candidat `3bb0edf` a détecté un attribut JSX dupliqué dans l’ancien composant conservé. Correction dans `37c8db2`, puis build complet et 42/42 PASS. Les campagnes de développement 5/5 puis 10/10 restent des preuves intermédiaires, pas une certification du premier candidat.
+
+Playwright MCP : maquette et vrai build isolé, six sections, panneaux coach/structure, dialogue, variante locale et retour au violet. Échantillons de contraste : intro 5,75:1 ; CTA et onglet sélectionné 6,71:1. Reflow à 720 px avec introduction allongée : clientWidth = scrollWidth = 705 px. Cela vérifie la composition équivalente à 1440 px à 200 %, sans certifier tous les mécanismes de zoom natif et de traduction de chaque navigateur.
+
+Contrôles secrets suivis, frontière client/serveur et configuration Netlify : PASS. Aucun POST commercial pendant les aperçus testés. Aucun paiement réel, aucune activation Premium, aucun changement de commission ou de droits.
+
+| Aperçu | Référence HTML | Application réelle |
+| --- | --- | --- |
+| Desktop | [maquette](assets/refonte-editoriale/editorial-reference-1440.png) | [accueil](assets/refonte-editoriale/editorial-final-1440.png) |
+| Mobile | [maquette](assets/refonte-editoriale/editorial-reference-390.png) | [accueil](assets/refonte-editoriale/editorial-final-390.png) |
+| Hero desktop | [référence](assets/refonte-editoriale/editorial-reference-top1440.png) | [résultat](assets/refonte-editoriale/editorial-final-top-1440.png) |
+| États | — | [coach](assets/refonte-editoriale/editorial-final-coach.png), [structure](assets/refonte-editoriale/editorial-final-structure.png), [dialogue](assets/refonte-editoriale/editorial-final-dialog.png) |
+
+[Ancien accueil mobile](assets/refonte-editoriale/discovery-before-accueil.png). [Synthèse et empreintes](assets/refonte-editoriale/verification.json). Journaux : `gym-next/playwright-artifacts/editorial/commit-build-final.log` et `commit-tests.log`. Les preuves sont ajoutées dans le commit documentaire suivant. Le serveur de test et l’onglet MCP temporaires sont fermés ; les sessions utilisateur et VS Code sont préservés.
+
+Limites de livraison : seule la route d’accueil reprend la maquette intégrale. Recherche, annuaire, fiche et comptes conservent leurs migrations précédentes en attendant les déclinaisons visuelles dédiées. Les modules de progression, multi-coachs, facturation d’abonnements et droits de contenus restent prévus, tels qu’indiqués dans les cartes et la matrice. Aucun déploiement Netlify ni changement de production.
+
 
 Retour arrière : revert des commits éditoriaux, sans reset des données ni suppression des modifications métier locales. Prochain lot : déclinaison de cette référence sur recherche/annuaire/fiches ; consolider leurs contrôles puis comptes et tunnel. La refonte complète, V2 et V3 ne sont pas déclarées terminées.
 
