@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15",
+  "branch": "design/refonte-progressive-lot1",
+  "build": "PASS",
+  "tests": {
+    "passed": 26,
+    "failed": 0,
+    "log": "gym-next/playwright-artifacts/light-tests-final-scoped.log",
+    "widths": [
+      320,
+      390,
+      621,
+      768,
+      900,
+      1024,
+      1440
+    ],
+    "workers": 1
+  },
+  "checks": {
+    "netlify_config": "PASS",
+    "tracked_secrets": "PASS",
+    "client_secret_boundary": "PASS"
+  },
+  "mcp": {
+    "local_build_inspected": true,
+    "document_width_at_320": 316,
+    "temporary_tab_closed": true
+  },
+  "deployment": "NONE",
+  "production_changed": false,
+  "backend_changes_included": false,
+  "isolated_checkout_tested": false,
+  "screenshots": {
+    "compte-avant.png": "013c5a9b5ca4f638cb33e8c44ef4c9aab6e1c6f6c9688074fdc4e57b518689b4",
+    "compte-desktop.png": "93e3b3adbf1d7528624d3d5b7d53f395505f41702ae86a6041bde0bdad340889",
+    "compte-mobile.png": "d6e99cdf1c851ff1c97b2eb061d4e583eb9b8bfbfd2f4609ed729e4560c20ab5",
+    "formulaire-mobile.png": "fb608f0d624d3d8dd9da4b1d623b070bd94938e9faf17b1e62da0edb3ed673aa"
+  }
+}

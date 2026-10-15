@@ -1,5 +1,12 @@
 # Decisions Log GYM
 
+## 2026-10-15 à Harmonisation claire du socle comptes
+
+- Instruction utilisateur prioritaire : remplacer le sombre historique par blanc/papier/violet ; présentation mobile adaptable sans changer les liens ni leurs noms.
+- Contradictions résolues : DESIGN_SYSTEM_GYM.md (thème sombre premium), VISUAL_REFERENCE_CONTRACT.md (Identité bleu nuit/lime), premier rapport de refonte (menu coach sombre et disposition figée).
+- Contrôles natifs conservés, un seul sélecteur de langue visible dans le compte. Pied de page responsive corrigé à 900 px ; header mobile non fixe pour préserver les ancres.
+- Aucun changement de finance, authentification, droits ou déploiement. Livraison et preuves : docs/REFONTE_PROGRESSIVE_2026-10-15.md.
+
 ## 2026-10-15 — Refonte progressive validée
 
 - La maquette locale est validée pour l'implémentation dans l'application existante ; header conservé dans ses noms, ordre, destinations et organisation.

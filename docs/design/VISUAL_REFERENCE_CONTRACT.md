@@ -1,3 +1,5 @@
+> **Arbitrage utilisateur du 15 octobre 2026 — refonte claire.** Les fonds sombres, le bleu nuit/lime et la disposition mobile figée sont remplacés pour les pages migrées par des surfaces claires, textes contrastés et accents violets. Les noms, ordre logique et destinations du header restent identiques ; adaptation mobile et burger autorisés. Les règles de sécurité, métier, reduced-motion et validation restent actives. Les prescriptions historiques ci-dessous ne doivent pas réintroduire un thème sombre. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
 # Contrat visuel GetYourMentor
 
 Statut : **actif — version 1.0**  

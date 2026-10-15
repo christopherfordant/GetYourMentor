@@ -64,3 +64,47 @@ Retour arrière : revert du commit de design sur cette branche ; pour l'arbre de
 Le commit de code **`ac8e8e4`** a été vérifié dans un checkout Git isolé, sans les modifications backend locales : **typage PASS, build PASS et 18/18 tests PASS** (`account-design.spec.ts` et `business-flow.spec.ts`, desktop/mobile, 57,7 s). Les dépendances installées ont été réutilisées par jonction locale ; la version Next du lockfile commité et celle installée sont identiques (15.5.27). Aucune réinstallation ni deuxième serveur simultané. Journaux `commit-types.log`, `commit-build.log`, `commit-tests.log`.
 
 Le push de ce commit vers `origin/design/refonte-progressive-lot1` a réussi. Les compléments de preuves sont enregistrés dans un commit documentaire suivant, sans changement de code. Synthèse exportée : [verification.json](assets/refonte-lot1/verification.json). Les captures intégrées plus haut montrent l'application locale avec les correctifs antérieurs conservés ; le checkout isolé vérifie séparément la portion de design réellement poussée. La CI existante ne se déclenche pas automatiquement sur cette nouvelle branche ; aucune réussite distante de CI n'est revendiquée.
+
+
+## Lot 1 bis — clarification claire et uniforme (15 octobre 2026)
+
+### Arbitrages et reprise
+
+L'instruction utilisateur la plus récente remplace le maintien du sombre et de la disposition mobile figée. Elle conserve les noms, ordre logique et destinations des liens. Le burger est autorisé, pas obligatoire : ce lot conserve tous les liens visibles et les répartit sur plusieurs lignes. Le header devient non fixe sous 900 px pour ne pas recouvrir les ancres. Aucun changement des droits, sessions, commission administrable de 15 % ou montants historiques ; aucun paiement réel.
+
+| Passage historique | Arbitrage appliqué |
+| --- | --- |
+| `DESIGN_SYSTEM_GYM.md`, thème sombre premium / cartes sombres | Blanc, papier, violet ; passages anciens explicitement historiques |
+| `docs/design/VISUAL_REFERENCE_CONTRACT.md`, Domaines couverts 1 : bleu nuit/lime | Palette claire pour les pages migrées ; règles fonctionnelles et reduced-motion conservées |
+| Présent rapport, lot 1 : menu coach sombre et header figé | Navigation claire ; présentation mobile adaptable ; liens inchangés |
+| `DOCUMENT_MAITRE_GYM.md`, direction violet/noir/papier | Le noir reste une couleur de texte, pas un fond de header/menu |
+
+Pas de contradiction majeure restante nécessitant un arbitrage. Les anciennes mentions sont conservées comme historique, avec un avertissement prioritaire. Aucune nouvelle couche de gouvernance ni dépendance.
+
+### Réalisation
+
+Socle des comptes : header, navigation coach, champs, listes natives, boutons, pied de page et contrôles flottants blancs/papier/violet. Survol, focus visible, désactivation et erreurs aria-invalid harmonisés. Formulaire coach en grille deux colonnes, une sous 620 px ; zones de texte sur toute la largeur. Groupes de champs et formulaire de connexion sans fond sombre ; bordures des champs explicites face aux anciennes règles forcées. Les mots gardent leurs limites naturelles, les chaînes longues peuvent se replier. Le contrôle natif de langue reste seul visible dans le compte : suppression visuelle du double contrôle superposé, sans retirer la sélection clavier/tactile.
+
+Le pied de page partagé débordait à 900 px à cause de ses cinq colonnes minimales : grilles à deux colonnes sous 1100 px, puis une sous 620 px. Correction mesurée avec Playwright MCP : largeur document 1005 px avant, 885 px après pour une fenêtre de 900 px. La portée CSS reste `#gym-account` (ou `body:has(#gym-account)` pour les contrôles de cookies) : les autres familles de pages restent à migrer dans les lots suivants.
+
+### Références ergonomiques consultées
+
+- [Calendly](https://calendly.com/) : navigation regroupée et hiérarchie titres/descriptions/actions ; consultation HTML, sans mesure visuelle de ses espacements.
+- [Planity](https://www.planity.com/) : inspection mobile avec Playwright MCP ; accès au compte visible dans le header, navigation compacte, recherche en blocs lisibles. Principes retenus : repères stables, champs distincts, libellés non comprimés. Aucun texte, identité, politique de paiement ou abonnement copié.
+- Superprof, page coaching France : accès automatisé en erreur ; aucune conclusion visuelle tirée de cette page.
+
+La maquette locale approuvée et les tokens du projet restent les références de palette. Les PDF métier, dont `Bussiness Plan.pdf`, ne sont pas modifiés.
+
+### Preuves et livraison de ce lot
+
+Avant : [compte mobile du lot précédent](assets/refonte-clair/compte-avant.png). Aprés : [mobile](assets/refonte-clair/compte-mobile.png), [desktop](assets/refonte-clair/compte-desktop.png), [formulaire mobile](assets/refonte-clair/formulaire-mobile.png).
+
+Validation finale : **build/typage PASS et 26/26 tests PASS**, un worker, desktop/mobile : 14 tests de design aux sept largeurs, 10 parcours et 2 tests admin. Netlify, secrets suivis et frontière client/serveur : PASS. Playwright MCP : document de 316 px dans une fenêtre de 320 px ; captures du vrai build, champs natifs bordés. Les options natives gardent le rendu du navigateur/OS.
+
+Journaux intermédiaires conservés : 40/40 puis 39/40 (contexte de navigation détruit dans le test admin). Rejeu final admin desktop/mobile PASS. Un rejeu 25/26 a identifié le style générique appliqué aux flèches du planning à 320 px ; style restreint au bouton d'actualisation, puis 26/26 PASS. Aucun échec n'est compté comme une réussite de sa campagne.
+
+Tests sur l'arbre local avec correctifs métier antérieurs ; commit ciblé sans ces changements backend. Aucun checkout isolé validé pour ce lot. Logs : `gym-next/playwright-artifacts/light-build-final-scoped.log` et `light-tests-final-scoped.log`. Synthèse : [verification.json](assets/refonte-clair/verification.json). Serveur de test arrêté et onglet MCP temporaire fermé.
+
+Branche : `design/refonte-progressive-lot1`. Le commit ciblé du design et de ses preuves constitue cette livraison ; les changements backend antérieurs restent locaux. Aucun déploiement, aucune fusion, aucun force-push. Retour arrière : revert de ce commit ; les originaux documentaires et données restent préservés.
+
+Prochain lot : découverte (accueil, recherche, annuaire, fiche coach), puis réservation/récapitulatif/paiement, structures/administration selon le tableau des lots. V2/V3 restent incomplets. Les limites de ce lot incluent la vérification visuelle approfondie des écrans sportif/structure/admin et une recette complète de zoom navigateur et de traductions longues ; aucun résultat non testé n'est revendiqué.
