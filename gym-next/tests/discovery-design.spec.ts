@@ -69,4 +69,3 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   await page.locator("[data-content-unlock]").click();
   await expect(page.locator("[data-content-unlock]")).toHaveText("Prévisualisation de démo");
 });
-

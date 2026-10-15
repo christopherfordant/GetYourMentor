@@ -323,4 +323,3 @@ body:has(#gym-editorial):has(.cookie-consent-banner) .back-to-top { display: non
  #gym-editorial .header-cta { display: inline-flex; padding: 10px 12px; font-size: 12px; }
  #gym-editorial .mobile-nav { z-index: 100; }
 }
-
