@@ -4,6 +4,8 @@
 
 ## Entrées principales
 
+- [`REFONTE_RESERVATION_2026-10-15.md`](REFONTE_RESERVATION_2026-10-15.md) — créneaux/récapitulatif, sources, erreurs et limites du calendrier ; [prompt suivant](PROMPT_SUITE_RESERVATION_2026-10-15.md).
+
 - [`AUDIT_ECARTS_REFONTE_2026-10-15.md`](AUDIT_ECARTS_REFONTE_2026-10-15.md) - audit des divergences, sources et phases de refonte ;
 
 - [`REFONTE_PROGRESSIVE_2026-10-15.md`](REFONTE_PROGRESSIVE_2026-10-15.md) — maquette validée, lots de migration, tests et livraison du design ;

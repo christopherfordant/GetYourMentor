@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-15",
+  "branch": "design/refonte-progressive-lot1",
+  "base": "3f6d3a30fec39eaac293b2989576cfaf57aae049",
+  "candidate": "C:/Users/cashe/Documents/GYM-booking-review",
+  "checks": {
+    "build_delivery": "PASS; includes TypeScript validation",
+    "check_types_after_delivery": "PASS",
+    "playwright_before_final_copy_changes": "30/30; booking 8, business 10, discovery 12",
+    "playwright_delivery": "18/18; booking 8 and business 10 after final currency and copy adjustments",
+    "responsive_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "fil_rouge": "CONFORME",
+    "netlify_config": "PASS",
+    "tracked_secrets": "PASS",
+    "client_secret_boundary": "PASS"
+  },
+  "source_sha256": {
+    "gym-next/app/creneau/page.tsx": "4edcc1d1a9ddb27daa929df3637c64e29f8dbc6493e4df2d3e260662ee5f7604",
+    "gym-next/app/recapitulatif/page.tsx": "41759a584048cadde8b42998ba33b6ea1e8f7f6cd4321a971f3cf79395587905",
+    "gym-next/app/gym-booking-design.css": "748a73a73ab962d7ee93cca919b6f997932919323b29d6966a958bfb6bd7b4da",
+    "gym-next/components/discovery/DiscoveryFrame.tsx": "7f4358347916608f87c28728318bfa78977457cf8f34cde1f45dbcb05a86ff6c",
+    "gym-next/components/reservation-legacy/ChoixCoachCreneauLegacyPage.tsx": "5343a38f9c58176b3a3ac51306d5780e1a0db1ce0536de3d93af94e445afaf40",
+    "gym-next/components/reservation-legacy/RecapitulatifReservationLegacyPage.tsx": "d34d07c3163116418bfe0b995cc42b05f0392754549bd81c5ba33568d1056a1a",
+    "gym-next/tests/booking-editorial.spec.ts": "fef80c77f00c9f8dddcaefa2753f650603cff56026c27f31c35ac014fc380871"
+  },
+  "limitations": [
+    "Real dates, timezone, capacity and concurrency not delivered",
+    "Existing unrelated local edits excluded",
+    "No remote RLS, real payment, real user study or physical device test",
+    "No deployment requested or started",
+    "Screenshots use existing local acceptance-test harness and mocked empty availability GET"
+  ],
+  "screenshots": {
+    "creneau-1440.png": "5f7cbedf08e098833e8a6230be5bd686b4a39cd5cb24054a972b0e0bd4acbae8",
+    "creneau-390.png": "64463c427d8f2f99744c1a6fddf02279dceca09a832637bb9a16698f69afeb33",
+    "recapitulatif-1440.png": "ce592dbf11b3c3ed1491c1ba02a30983fdfcc196509d3e46260f64aa0e0753c0",
+    "recapitulatif-390.png": "8982f000c53a62152ebed976d08643a5eb07a23736626632dc387960b86ea165"
+  }
+}

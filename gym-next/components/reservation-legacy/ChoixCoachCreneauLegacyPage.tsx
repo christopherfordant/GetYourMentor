@@ -2,10 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type ChoixCoachCreneauLegacyPageProps = {
-  legacyStyles: string;
+  demo: boolean;
   params: Record<string, string | undefined>;
 };
 
@@ -44,55 +44,6 @@ const coaches = [
   { id: "S", name: "Sabine" },
 ];
 
-function ReservationHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
-          GetYourMentor
-        </a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
-          Football
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
-          Basketball
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Fitness
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
-          Sports de combat
-        </a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis coach
-        </a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path
-                d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
-
 function ReservationMainHeader({
   coach,
   city,
@@ -101,10 +52,10 @@ function ReservationMainHeader({
   city: string;
 }) {
   return (
-    <section className="reservation-header">
+    <section className="bk-reservation-header">
       <h1 data-multi-name>{coach}</h1>
-      <div className="reservation-address" data-multi-address>{`10 Rue du Sport, ${city}`}</div>
-      <div className="reservation-meta" data-multi-meta>4.9 (423 avis) • Coaching premium</div>
+      <div className="bk-reservation-address" data-multi-address>{city}</div>
+      <p className="bk-reservation-meta" data-multi-meta>Une demande, puis l’accord du coach. Le paiement vient après son acceptation.</p>
     </section>
   );
 }
@@ -125,18 +76,18 @@ function ReservationSelectedStep({
   backToCoachHref: string;
 }) {
   return (
-    <section className="reservation-step">
+    <section className="bk-reservation-step">
       <h2>
         <span>1.</span> Seance selectionnee
       </h2>
-      <div className="reservation-selection-panel">
-        <div className="reservation-selection-top">
-          <div className="reservation-selection-copy">
+      <div className="bk-reservation-selection-panel">
+        <div className="bk-reservation-selection-top">
+          <div className="bk-reservation-selection-copy">
             <strong data-multi-service>{service}</strong>
             <div data-multi-service-meta>{serviceMeta}</div>
           </div>
           <a
-            className="reservation-remove"
+            className="bk-reservation-remove"
             href={backToCoachHref}
             data-multi-remove
             onClick={(event) => {
@@ -144,32 +95,33 @@ function ReservationSelectedStep({
               onBackToCoach();
             }}
           >
-            Supprimer
+            Revoir le coach
           </a>
         </div>
 
-        <div className="reservation-coach-choice">
+        <div className="bk-reservation-coach-choice">
           <p>Choisir avec qui ?</p>
-          <div className="reservation-coach-grid" data-multi-coaches>
+          <div className="bk-reservation-coach-grid" data-multi-coaches>
             {coaches.map((item) => (
               <button
                 key={item.name}
-                className={`reservation-coach-option${item.name === selectedMentor ? " is-active" : ""}`}
+                className={`bk-reservation-coach-option${item.name === selectedMentor ? " is-active" : ""}`}
                 type="button"
+                aria-pressed={item.name === selectedMentor}
                 data-mentor={item.name}
                 onClick={() => onMentorChange(item.name)}
               >
-                <span className="reservation-coach-id">{item.id}</span>
-                <span className="reservation-coach-name">{item.name}</span>
-                <span className="reservation-coach-radio" aria-hidden="true"></span>
+                <span className="bk-reservation-coach-id">{item.id}</span>
+                <span className="bk-reservation-coach-name">{item.name}</span>
+                <span className="bk-reservation-coach-radio" aria-hidden="true"></span>
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      <button className="reservation-add-button" type="button" data-multi-add onClick={onBackToCoach}>
-        + Ajouter une seance a la suite
+      <button className="bk-reservation-add-button" type="button" data-multi-add onClick={onBackToCoach}>
+        Choisir une autre séance
       </button>
     </section>
   );
@@ -188,6 +140,7 @@ function ReservationCalendarStep({
   bookedSlots,
   availabilityLoading,
   availabilityError,
+  onRetry,
 }: {
   weekIndex: number;
   selectedSlot: string;
@@ -201,24 +154,26 @@ function ReservationCalendarStep({
   bookedSlots: string[];
   availabilityLoading: boolean;
   availabilityError: string;
+  onRetry: () => void;
 }) {
   const currentWeek = weekSets[weekIndex];
 
   return (
-    <section className="reservation-step">
+    <section className="bk-reservation-step">
       <h2>
         <span>2.</span> Choix de la date &amp; heure
       </h2>
-      <div className="reservation-calendar-card" aria-busy={availabilityLoading}>
-        {availabilityLoading ? <p className="reservation-loading" role="status">Vérification des disponibilités…</p> : null}
-        {availabilityError ? <p className="reservation-inline-error" role="alert">{availabilityError}</p> : null}
-        <div className="reservation-calendar-head">
+      <p className="booking-calendar-help">Choisis un horaire disponible. Sur mobile, fais défiler le calendrier horizontalement pour voir tous les jours.</p>
+      <div className="bk-reservation-calendar-card" tabIndex={0} role="region" aria-label="Calendrier des horaires de démonstration" aria-busy={availabilityLoading}>
+        {availabilityLoading ? <p className="bk-reservation-loading" role="status">Vérification des disponibilités…</p> : null}
+        {availabilityError ? <div className="bk-reservation-inline-error"><p role="alert">{availabilityError}</p><button type="button" onClick={onRetry}>Réessayer les disponibilités</button></div> : null}
+        <div className="bk-reservation-calendar-head">
           <button className="calendar-arrow" type="button" aria-label="Semaine precedente" data-calendar-prev onClick={onPrevWeek}>
             ‹
           </button>
-          <div className="reservation-days" data-multi-days>
+          <div className="bk-reservation-days" data-multi-days>
             {currentWeek.map((item) => (
-              <div className="reservation-day" key={`${item.day}-${item.date}`}>
+              <div className="bk-reservation-day" key={`${item.day}-${item.date}`}>
                 <strong>{item.day}</strong>
                 <span>{item.date}</span>
               </div>
@@ -228,15 +183,17 @@ function ReservationCalendarStep({
             ›
           </button>
         </div>
-        <div className="reservation-slots-grid" data-multi-slots-grid>
+        <div className="bk-reservation-slots-grid" data-multi-slots-grid>
           {currentWeek.map((item) => (
-            <div className="reservation-slot-column" key={`${item.day}-${item.date}-slots`}>
+            <div className="bk-reservation-slot-column" key={`${item.day}-${item.date}-slots`}>
               {item.slots.length ? (
                 item.slots.map((slot) => (
                   <button
                     key={`${item.day}-${slot}`}
-                    className={`reservation-slot${slot === selectedSlot ? " is-selected" : ""}${bookedSlots.includes(slot) ? " is-booked" : ""}`}
+                    className={`bk-reservation-slot${slot === selectedSlot ? " is-selected" : ""}${bookedSlots.includes(slot) ? " is-booked" : ""}`}
                     type="button"
+                    aria-label={`${item.day} ${item.date}, ${slot}${bookedSlots.includes(slot) ? ", indisponible" : ""}`}
+                    aria-pressed={slot === selectedSlot}
                     data-slot={slot}
                     data-slot-booked={bookedSlots.includes(slot) ? "true" : "false"}
                     disabled={bookedSlots.includes(slot)}
@@ -246,7 +203,7 @@ function ReservationCalendarStep({
                   </button>
                 ))
               ) : (
-                <button className="reservation-slot" type="button" disabled>
+                <button className="bk-reservation-slot" type="button" disabled>
                   -
                 </button>
               )}
@@ -254,28 +211,26 @@ function ReservationCalendarStep({
           ))}
         </div>
       </div>
-      <div className="reservation-cta-row">
+      <div className="bk-reservation-cta-row">
         <a
-          className="reservation-confirm-button"
+          className="bk-reservation-confirm-button"
           href={confirmHref}
           data-multi-confirm
           aria-busy={submitting}
-          aria-disabled={availabilityLoading || submitting || !selectedSlot || bookedSlots.includes(selectedSlot)}
+          aria-disabled={Boolean(availabilityError) || availabilityLoading || submitting || !selectedSlot || bookedSlots.includes(selectedSlot)}
           onClick={onConfirm}
         >
-          {submitting ? "Envoi de la demande…" : availabilityLoading ? "Vérification…" : "Réserver mon créneau"}
+          {submitting ? "Envoi de la demande…" : availabilityLoading ? "Vérification…" : "Envoyer ma demande"}
         </a>
       </div>
-      {error ? <p role="alert" className="reservation-error">{error}</p> : null}
+      {error ? <p role="alert" className="bk-reservation-error">{error}</p> : null}
     </section>
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function ReservationFooter() { return <SiteFooter />; }
 
 export function ChoixCoachCreneauLegacyPage({
-  legacyStyles,
+  demo,
   params,
 }: ChoixCoachCreneauLegacyPageProps) {
   const sport = params.sport || "metiers-de-la-forme";
@@ -291,13 +246,15 @@ export function ChoixCoachCreneauLegacyPage({
   const [selectedSlot, setSelectedSlot] = useState(params.slot || "10:00");
   const [selectedMentor, setSelectedMentor] = useState(params.mentor || "Sans preference");
   const [weekIndex, setWeekIndex] = useState(0);
+  const [availabilityAttempt, setAvailabilityAttempt] = useState(0);
   const [bookedSlots, setBookedSlots] = useState<string[]>([]);
   const [availabilityLoading, setAvailabilityLoading] = useState(true);
   const [availabilityError, setAvailabilityError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
-  const serviceMeta = [duration, price, format, objective, packageLabel].filter(Boolean).join("  ");
+  const displayPrice = price.includes("€") ? price : `${price.trim()} €`;
+  const serviceMeta = [duration, displayPrice, format, objective, packageLabel].filter(Boolean).join(" · ");
 
   useEffect(() => {
     setAvailabilityLoading(true);
@@ -316,7 +273,7 @@ export function ChoixCoachCreneauLegacyPage({
       setAvailabilityError("Les disponibilités n’ont pas pu être vérifiées. Vous pouvez réessayer.");
     })
     .finally(() => setAvailabilityLoading(false));
-  }, [coach]);
+  }, [coach, availabilityAttempt]);
 
   const confirmHref = useMemo(
     () =>
@@ -348,6 +305,11 @@ export function ChoixCoachCreneauLegacyPage({
 
   async function handleConfirm(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
+    if (submitting) return;
+    if (availabilityError) {
+      setError("Réessayez la vérification des disponibilités avant d’envoyer votre demande.");
+      return;
+    }
     if (availabilityLoading) {
       setError("Patientez pendant la vérification des disponibilités.");
       return;
@@ -396,13 +358,13 @@ export function ChoixCoachCreneauLegacyPage({
   }
 
   return (
-    <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell reservation-shell">
-        <ReservationHeader />
+    <DiscoveryFrame page="slot" demo={demo}>
+      <div id="gym-booking" className="bk-reservation-shell">
 
-        <main className="reservation-page reservation-page-wide" data-reservation-multi-page>
+        <main className="bk-reservation-page bk-reservation-page-wide" data-reservation-multi-page>
+          <p className="booking-eyebrow">01 / LA DEMANDE DE SÉANCE</p>
           <ReservationMainHeader coach={coach} city={city} />
+          <p className="booking-note">Calendrier de démonstration : les dates de mars et avril 2026 et les mentors ci-dessous sont des exemples. Ces horaires ne permettent pas de réserver une séance réelle.</p>
           <ReservationSelectedStep
             service={service}
             serviceMeta={serviceMeta}
@@ -429,11 +391,11 @@ export function ChoixCoachCreneauLegacyPage({
             bookedSlots={bookedSlots}
             availabilityLoading={availabilityLoading}
             availabilityError={availabilityError}
+            onRetry={() => setAvailabilityAttempt(current => current + 1)}
           />
         </main>
 
-        <ReservationFooter />
       </div>
-    </>
+    </DiscoveryFrame>
   );
 }

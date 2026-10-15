@@ -2,61 +2,12 @@
 
 import { useMemo } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type RecapitulatifReservationLegacyPageProps = {
-  legacyStyles: string;
+  demo: boolean;
   params: Record<string, string | undefined>;
 };
-
-function RecapHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
-          GetYourMentor
-        </a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
-          Football
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
-          Basketball
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Fitness
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
-          Sports de combat
-        </a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis coach
-        </a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path
-                d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
 
 function RecapMainHeader({
   coach,
@@ -66,14 +17,10 @@ function RecapMainHeader({
   city: string;
 }) {
   return (
-    <section className="recap-header">
+    <section className="bk-recap-header">
       <h1 data-recap-name>{coach}</h1>
-      <div className="recap-address" data-recap-address>{`10 Rue du Sport, ${city}`}</div>
-      <div className="recap-meta" data-recap-meta>4.9 (284 avis) • Coaching premium</div>
-      <div className="recap-header-visual" aria-hidden="true">
-        <div className="recap-header-shot recap-header-shot-main"></div>
-        <div className="recap-header-shot recap-header-shot-side"></div>
-      </div>
+      <div className="bk-recap-address" data-recap-address>{city}</div>
+      <div className="bk-recap-meta" data-recap-meta>Vérifie ta demande avant de retrouver son suivi dans ton compte.</div>
     </section>
   );
 }
@@ -117,39 +64,25 @@ function RecapServicesSection({
     mentor,
   });
 
-  const modifyHref = buildNextPath(nextRoutes.coach, {
-    sport,
-    city,
-    coach,
-  });
-
   return (
-    <section className="recap-step">
+    <section className="bk-recap-step">
       <h2>
-        <span>1.</span> Seances selectionnees
+        <span>1.</span> Séance sélectionnée
       </h2>
-      <div className="recap-cards" data-recap-services>
-        <article className="recap-service-card">
-          <div className="recap-service-copy">
+      <div className="bk-recap-cards" data-recap-services>
+        <article className="bk-recap-service-card">
+          <div className="bk-recap-service-copy">
             <strong>{service}</strong>
-            <div>{`${duration} • ${price} • avec ${mentor}`}</div>
+            <div>{`${duration} · ${price.includes("€") ? price : `${price.trim()} €`} · avec ${mentor}`}</div>
             {sport === "metiers-de-la-forme" ? (
               <div>{[format, objective, packageLabel].filter(Boolean).join(" • ")}</div>
             ) : null}
           </div>
-          <a className="recap-link" href={removeHref}>
-            Supprimer
+          <a className="bk-recap-link" href={removeHref}>
+            Modifier la séance
           </a>
         </article>
-        <article className="recap-service-card">
-          <div className="recap-service-copy">
-            <strong>Bilan express avant seance</strong>
-            <div>10min • inclus dans votre reservation</div>
-          </div>
-          <a className="recap-link" href={modifyHref}>
-            Modifier
-          </a>
-        </article>
+
       </div>
     </section>
   );
@@ -163,13 +96,13 @@ function RecapDatetimeSection({
   slot: string;
 }) {
   return (
-    <section className="recap-step">
+    <section className="bk-recap-step">
       <h2>
-        <span>2.</span> Date et heure selectionnees
+        <span>2.</span> Horaire demandé
       </h2>
-      <div className="recap-date-card">
-        <div data-recap-datetime>{`Vendredi 27 mars 2026 a ${slot}`}</div>
-        <a href={editHref} className="recap-link" data-recap-edit>
+      <div className="bk-recap-date-card">
+        <div data-recap-datetime>{`${slot} · Horaire de démonstration, date à confirmer`}</div>
+        <a href={editHref} className="bk-recap-link" data-recap-edit>
           Modifier
         </a>
       </div>
@@ -183,26 +116,26 @@ function RecapAuthSection({
   accountRedirect: string;
 }) {
   return (
-    <section className="recap-step">
+    <section className="bk-recap-step">
       <h2>
         <span>3.</span> Identification
       </h2>
-      <div className="recap-auth-card">
-        <div className="recap-auth-block">
+      <div className="bk-recap-auth-card">
+        <div className="bk-recap-auth-block">
           <h3>Nouveau sur GetYourMentor ?</h3>
-          <a className="recap-outline-button" href={accountRedirect} data-recap-create>
-            Creer mon compte
+          <a className="bk-recap-outline-button" href={accountRedirect} data-recap-create>
+            Créer mon compte
           </a>
         </div>
 
-        <div className="recap-divider">
+        <div className="bk-recap-divider">
           <span>ou</span>
         </div>
 
-        <div className="recap-auth-block">
-          <h3>Vous avez deja utilise GetYourMentor ?</h3>
-          <a className="recap-dark-button" href={accountRedirect} data-recap-login>
-            Se connecter pour acceder au paiement
+        <div className="bk-recap-auth-block">
+          <h3>Vous avez déjà utilisé GetYourMentor ?</h3>
+          <a className="bk-recap-dark-button" href={accountRedirect} data-recap-login>
+            Se connecter pour suivre ma demande
           </a>
         </div>
       </div>
@@ -210,11 +143,9 @@ function RecapAuthSection({
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function RecapFooter() { return <SiteFooter />; }
 
 export function RecapitulatifReservationLegacyPage({
-  legacyStyles,
+  demo,
   params,
 }: RecapitulatifReservationLegacyPageProps) {
   const sport = params.sport || "metiers-de-la-forme";
@@ -253,6 +184,7 @@ export function RecapitulatifReservationLegacyPage({
     () =>
       buildNextPath(nextRoutes.account, {
         redirect: "paiement",
+        reservationId: params.reservationId,
         sport,
         city,
         coach,
@@ -266,17 +198,17 @@ export function RecapitulatifReservationLegacyPage({
         mentor,
         claimToken: params.claimToken,
       }),
-    [coach, city, duration, format, objective, packageLabel, params.claimToken, price, slot, mentor, service, sport],
+    [coach, city, duration, format, objective, packageLabel, params.claimToken, params.reservationId, price, slot, mentor, service, sport],
   );
 
   return (
-    <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell recap-shell">
-        <RecapHeader />
+    <DiscoveryFrame page="recap" demo={demo}>
+      <div id="gym-booking" className="bk-recap-shell">
 
-        <main className="recap-page" data-recap-page>
+        <main className="bk-recap-page" data-recap-page>
+          <p className="booking-eyebrow">02 / LE RÉCAPITULATIF</p>
           <RecapMainHeader coach={coach} city={city} />
+          <p className="booking-note">La demande doit être acceptée par le coach avant le paiement. Le montant de ta sélection sera vérifié avant tout paiement.</p>
           <RecapServicesSection
             sport={sport}
             city={city}
@@ -294,8 +226,7 @@ export function RecapitulatifReservationLegacyPage({
           <RecapAuthSection accountRedirect={accountRedirect} />
         </main>
 
-        <RecapFooter />
       </div>
-    </>
+    </DiscoveryFrame>
   );
 }

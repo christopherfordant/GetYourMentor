@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import fs from "node:fs";
-import path from "node:path";
+import "../gym-booking-design.css";
 import { RecapitulatifReservationLegacyPage } from "@/components/reservation-legacy/RecapitulatifReservationLegacyPage";
 import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
 import { getBookingGate } from "@/lib/booking-gates";
@@ -32,11 +31,6 @@ export async function generateMetadata({ searchParams }: RecapitulatifPageProps)
 
 export default async function RecapitulatifPage({ searchParams }: RecapitulatifPageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
-  const legacyStyles = fs
-    .readFileSync(stylesheetPath, "utf8")
-    .replaceAll("../design_assets/", "/design_assets/");
-
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
@@ -46,5 +40,5 @@ export default async function RecapitulatifPage({ searchParams }: RecapitulatifP
     return <ProductionUnavailable title="Récapitulatif indisponible" description="Le récapitulatif sera généré à partir d’une demande de réservation réelle et validée par un coach vérifié." />;
   }
 
-  return <RecapitulatifReservationLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
+  return <RecapitulatifReservationLegacyPage demo={gate.mode === "demo"} params={normalizedParams} />;
 }

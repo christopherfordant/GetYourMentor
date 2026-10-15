@@ -1,6 +1,12 @@
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
-## Dernier lot — footer et connexion
+## Dernier lot — créneaux et récapitulatif
+
+Deux routes reprennent le cadre éditorial partagé, sans injection CSS héritée. Le calendrier mobile défile dans son cadre, les données fictives de confiance sont retirées, les erreurs de disponibilité permettent une nouvelle tentative et bloquent l’envoi. Identifiant de réservation conservé vers le compte. La demande, l’acceptation du coach et le paiement sont explicités.
+
+[Rapport, sources et limites](REFONTE_RESERVATION_2026-10-15.md). Le calendrier hérité ne transmet qu’une heure ; les dates illustratives ne constituent pas une réservation réelle. Prochain lot : cohérence du statut et du contexte récapitulatif → compte → paiement, avec [prompt de reprise](PROMPT_SUITE_RESERVATION_2026-10-15.md). Aucun changement des API, droits, commission ou RLS, aucun déploiement.
+
+## Historique — footer et connexion
 
 Zone réservée en tête de footer pour la flèche SVG centrée et les préférences cookies, sans doublon ni recouvrement des liens ; bannière initiale indépendante et retour de focus. Footer commun compact, sans ancres sociales fictives, avec disposition en colonnes et ancrage bas de viewport sur une page courte. Bouton email avec enveloppe ; Google identifié mais désactivé, aucun OAuth simulé.
 

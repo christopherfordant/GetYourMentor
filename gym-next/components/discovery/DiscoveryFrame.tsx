@@ -11,7 +11,7 @@ export const discoverySports = [
   ["metiers-de-la-forme", "Fitness"], ["sports-de-combat", "Sports de combat"],
 ] as const;
 
-export function DiscoveryFrame({ children, page, demo = false }: { children: ReactNode; page: "search" | "directory" | "profile"; demo?: boolean }) {
+export function DiscoveryFrame({ children, page, demo = false }: { children: ReactNode; page: "search" | "directory" | "profile" | "slot" | "recap"; demo?: boolean }) {
   return <div id="gym-discovery" className="discovery-editorial" data-gym-discovery={page}>
     <header className="de-header" id="top">
       <a className="de-brand" href={nextRoutes.home} aria-label="GetYourMentor"><b aria-hidden="true">GYM<span>↗</span></b><span>GetYourMentor</span></a>

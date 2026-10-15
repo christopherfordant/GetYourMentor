@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import fs from "node:fs";
-import path from "node:path";
+import "../gym-booking-design.css";
 import { ChoixCoachCreneauLegacyPage } from "@/components/reservation-legacy/ChoixCoachCreneauLegacyPage";
 import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
 import { getBookingGate } from "@/lib/booking-gates";
@@ -32,11 +31,6 @@ export async function generateMetadata({ searchParams }: CreneauPageProps): Prom
 
 export default async function CreneauPage({ searchParams }: CreneauPageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
-  const legacyStyles = fs
-    .readFileSync(stylesheetPath, "utf8")
-    .replaceAll("../design_assets/", "/design_assets/");
-
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
@@ -46,5 +40,5 @@ export default async function CreneauPage({ searchParams }: CreneauPageProps) {
     return <ProductionUnavailable title="Créneau indisponible" description="Ce calendrier sera affiché dès qu’un coach vérifié et ses disponibilités réelles seront configurés." />;
   }
 
-  return <ChoixCoachCreneauLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
+  return <ChoixCoachCreneauLegacyPage demo={gate.mode === "demo"} params={normalizedParams} />;
 }
