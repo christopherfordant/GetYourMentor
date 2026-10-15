@@ -4,7 +4,7 @@ Référence : maquette HTML validée dans son ensemble ; les références Emerge
 
 Largeurs : 320, 390, 430, 621, 768, 900, 1024, 1280, 1440 px. Mesure : scrollWidth <= clientWidth, sans couper globalement le contenu. Vérifier zoom/reflow, textes longs, clavier/tactile et reduced-motion.
 
-Accueil : six sections de la maquette, bande de valeurs, image/étiquette, trois profils, trois panneaux, trois offres, feuille de route, sources adaptées, FAQ existante, footer et navigation mobile. Vérifier tous les onglets, les cinq catégories de dialogues, Échap/retour de focus, la variante verte et le retour au violet.
+Accueil : six sections de la maquette, bande de valeurs, image/étiquette, trois profils, trois panneaux, trois offres, feuille de route, sources adaptées, FAQ existante, footer et navigation mobile. Vérifier tous les onglets, les cinq catégories de dialogues, Échap/retour de focus et la palette violette fixe, y compris après rechargement. Aucun contrôle de changement de coloris ne doit apparaître.
 
 Liens : CTA de recherche, quatre disciplines, Mon compte accessible sur mobile, CGU/CGV/confidentialité et ancres historiques parcours/tarifs/FAQ. Préférence de langue maintenue dans le footer.
 

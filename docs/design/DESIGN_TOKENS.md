@@ -12,7 +12,7 @@
 | --gym-line | #DEDBE3 | Bordures |
 | --gym-focus | #3863F2 | Focus clavier |
 
-L’accueil reprend les dimensions du CSS HTML validé : enveloppe 1240 px, hero texte/photo, cartes en trois colonnes puis pile mobile. Les rayons et espacements varient par famille de composants comme dans la référence ; ne pas imposer un rayon unique à tous les blocs. L’alias --purple du composant reprend --gym-primary ; la variante verte ne change pas les tokens globaux.
+L’accueil reprend les dimensions du CSS HTML validé : enveloppe 1240 px, hero texte/photo, cartes en trois colonnes puis pile mobile. Les rayons et espacements varient par famille de composants comme dans la référence ; ne pas imposer un rayon unique à tous les blocs. L’alias --purple du composant reprend --gym-primary. La palette violette est fixe ; la variante verte de comparaison est retirée de l’application.
 
 Les surfaces foncées sont réservées aux zones prévues dans la maquette. Typographie de référence : pile Arial/Helvetica pour le corps, pile condensée système du CSS source pour les titres. Aucune nouvelle police téléchargée.
 

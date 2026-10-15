@@ -45,12 +45,17 @@ test("aperçus natifs, Échap et retour du focus sans opération commerciale", a
   expect(writes).toEqual([]);
 });
 
-test("forfaits documentés, variante locale et FAQ existante", async ({ page }) => {
+test("forfaits documentés, palette validée fixe et FAQ existante", async ({ page }) => {
   await page.goto("/"); await dismissCookies(page);
   await expect(page.locator("#forfaits")).toContainText("19,99"); await expect(page.locator("#forfaits")).toContainText("29,99");
   await expect(page.locator(".pricing-footnote")).toContainText("15 %"); await expect(page.locator(".pricing-footnote")).toContainText("ne sont pas appliqués");
-  const palette=page.locator("#palette"); await palette.click(); await expect(palette).toHaveAttribute("aria-pressed","true");
-  await expect(page.locator("#gym-editorial")).toHaveClass("green"); await palette.click(); await expect(palette).toHaveAttribute("aria-pressed","false");
+  await expect(page.getByRole("button", { name: /Comparer avec le vert|Revenir au violet/ })).toHaveCount(0);
+  await expect(page.locator("#palette")).toHaveCount(0);
+  await expect(page.locator("#gym-editorial")).not.toHaveClass(/green/);
+  const primary = page.locator("#gym-editorial .button.primary").first();
+  await expect(primary).toHaveCSS("background-color", "rgb(135, 43, 191)");
+  await page.reload(); await dismissCookies(page);
+  await expect(primary).toHaveCSS("background-color", "rgb(135, 43, 191)");
   const language = page.getByRole("combobox", { name: "Langue", exact: true });
   await expect(language).toBeVisible(); await language.selectOption("en"); await expect(language).toHaveValue("en");
   const question=page.locator("#faq summary").first(); await question.focus(); await question.press("Enter");

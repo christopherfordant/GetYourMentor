@@ -1,6 +1,20 @@
-> **  chaque prompt :** lire `../AGENTS.md` et la procedure obligatoire de `../BRANCH_STRATEGY_GYM.md`. Livrer les lots verifi s avec documentation, commit et push cibl' sur la branche appropriee avant la reponse finale ; confirmer la reference distante. Les changements anterieurs non verifi s restent preserv s.
+> **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
-## Reprise active — accueil issu de la maquette HTML complète
+## Dernier lot — palette fixe, audit et contrats alignés
+
+Instruction actuelle : poursuivre la refonte par phases et retirer de l’accueil le changement de coloris. Retrait du bouton `#palette`, de l’état React et des dix règles CSS de variante/comparaison. Violet validé conservé ; prototype original intact. Contrats, tokens et recette alignés ; consignes de reprise corrigées après un défaut d’encodage de leur première écriture.
+
+[Audit des écarts et phases suivantes](AUDIT_ECARTS_REFONTE_2026-10-15.md) : PDF Stratégie perplexity consulté directement, divergences p. 4 et 6 consignées. Les propositions 50/200 € et l’exclusion des paiements ne remplacent pas les sources prioritaires. RAG distant non configuré ici ; recherche locale et évaluation lexicale 8/8, sans nouvelle couche d’outils.
+
+Recette : build et typage PASS en worktree isolé, trois fichiers de code/test strictement identiques par SHA-256. Accueil : 10/10 tests développement, puis 10/10 production isolée, un worker ; neuf largeurs de 320 à 1440 px, profils, dialogues, Échap/focus, palette fixe après rechargement, langue, FAQ, cookies et accès compte. Playwright MCP a examiné le rendu local avant/après puis le build isolé. Configuration Netlify, secrets suivis, frontière client/serveur et schéma Supabase statique PASS. Les avertissements CSS autoprefixer historiques restent présents.
+
+Preuves : [avant desktop](assets/alignement-accueil/avant-1440.png), [production desktop](assets/alignement-accueil/production-1440.png), [production mobile](assets/alignement-accueil/production-390.png), [haut mobile](assets/alignement-accueil/production-top390.png), [empreintes et résultats](assets/alignement-accueil/verification.json).
+
+Périmètre : aucun changement de route, API, autorisation, RLS, paiement, commission ou donnée. Pas de validation RLS en base distante, de certification SEO/sécurité globale ni de CI distante déclenchée sur cette branche. Changements métier antérieurs préservés et exclus du lot. Aucun déploiement. Branche de livraison : `design/refonte-progressive-lot1` ; SHA de livraison à vérifier dans Git, sans inscription auto-référente dans son propre commit.
+
+Prochain lot : composition et typographie éditoriales sur recherche/annuaire/fiches, avec maquettes pour toute évolution importante dépassant la référence, maintien des paramètres et recette du passage vers `/creneau`. V2/V3 restent incomplètes. Retour arrière : revert du lot ciblé, sans reset des travaux locaux.
+
+## Historique — accueil issu de la maquette HTML complète
 
 La nouvelle validation porte sur l’ensemble de `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html` et remplace la direction « recolorer en clair » comme méthode de refonte. Le HTML, son CSS et son JavaScript ont été lus ; Playwright MCP a examiné desktop/mobile, panneaux coach/structure, dialogue Premium et variante verte.
 
@@ -29,7 +43,7 @@ La nouvelle validation porte sur l’ensemble de `GetYourMentor_Audit_Design_202
 | Pied de page | Footer éditorial | Texte adapté ; langue native conservée | Intégré / adapté |
 | Navigation mobile | Barre de la maquette | Ancres, accès compte en header ; cookies séparés | Intégré / adapté |
 | Dialogues sportif/coach/club/réservation/suivi | Dialog HTML natif | Échap, fermeture, focus ; aucun POST commercial | Intégré |
-| Comparaison verte | Bouton de variante | Portée locale à l’accueil, violet par défaut | Intégré |
+| Comparaison verte | Retirée par la demande utilisateur suivante | Palette violette fixe, aucun contrôle de coloris | Retiré du site ; prototype original préservé |
 | Nouvelles pages non représentées dans le HTML | Lots suivants | Déclinaisons desktop/mobile avant changement important | Prévu |
 
 ### Socle, sources et limites

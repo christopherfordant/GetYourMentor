@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-15",
+  "baseCommit": "0a67b45ee36ae6ee5ec7289a364f475e03cf2afd",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "Fixed purple homepage palette; contract alignment; audit",
+  "sourceSha256": {
+    "gym-next/components/home/EditorialHome.tsx": "5f8b6c2e38f6e92b453e4c64200ef4aa1e7594e0aabef3a067fdd4f3b5aa41bd",
+    "gym-next/app/gym-editorial-design.css": "598b64615f94527597b0c6f84d77dcbe80fd26fb080ca799dce537e709149be6",
+    "gym-next/tests/editorial-home.spec.ts": "4bdf5ae9cca5e8bfb4d3b068cc4ac3e76ce5c75c78ae68e845cca31200b41412"
+  },
+  "build": "PASS isolated production build and types",
+  "tests": {
+    "development": {
+      "passed": 10,
+      "total": 10
+    },
+    "isolatedProduction": {
+      "passed": 10,
+      "total": 10
+    },
+    "workers": 1,
+    "widths": [
+      320,
+      390,
+      430,
+      621,
+      768,
+      900,
+      1024,
+      1280,
+      1440
+    ]
+  },
+  "checks": {
+    "ragCorpus": "PASS 8 documents",
+    "lexicalEvaluation": "PASS 8 cases",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS",
+    "clientSecretBoundary": "PASS isolated production bundle",
+    "supabaseSchema": "PASS static check only"
+  },
+  "limitations": [
+    "No live RLS validation",
+    "No full security or SEO audit",
+    "No CI run triggered on this branch",
+    "Existing unrelated local changes excluded",
+    "Historical CSS autoprefixer warnings remain"
+  ],
+  "deployment": false
+}

@@ -1,6 +1,6 @@
 # GetYourMentor — Document de relais architecture et continuité
 
-> **Reprise obligatoire actualis'e au 15 octobre 2026 :** lire deabord `AGENTS.md` et la procedure de `BRANCH_STRATEGY_GYM.md` a chaque prompt. Verifier la branche reelle dans Git ; les noms historiques ci-dessous ne sont pas une instruction de changement de branche. Verifier, documenter, commiter et pousser chaque lot livrable avant la reponse finale, puis confirmer le SHA distant.
+> **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
 > Document destiné à une autre conversation ou à un autre agent afin de reprendre le projet sans perdre le contexte.
 > Dernière mise à jour : 2026-09-28.

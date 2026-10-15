@@ -3,7 +3,6 @@
 #gym-editorial *{box-sizing:border-box}
 html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
-#gym-editorial.green{--purple:#b6ed39;--purple-deep:#d4ff70;--lavender:#eaf2da}
 #gym-editorial a{color:inherit;text-decoration:none}
 #gym-editorial button,#gym-editorial input{font:inherit}
 #gym-editorial button,#gym-editorial a{-webkit-tap-highlight-color:transparent}
@@ -15,7 +14,6 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial .review-bar{padding:9px 28px;background:#e8e3ed;display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:11px;letter-spacing:.025em}
 #gym-editorial .review-bar span{display:flex;align-items:center;gap:8px}
 #gym-editorial .review-bar i{width:6px;height:6px;border-radius:50%;background:var(--purple)}
-#gym-editorial .review-bar button{background:transparent;border:0;text-decoration:underline;color:var(--ink);font-size:11px;padding:4px}
 #gym-editorial .header{padding:22px 40px;display:flex;align-items:center;justify-content:space-between;gap:28px;border-bottom:1px solid var(--line)}
 #gym-editorial .logo{display:flex;align-items:center;gap:13px;white-space:nowrap}
 #gym-editorial .logo b{font-family:Impact,'Arial Narrow',sans-serif;font-size:32px;letter-spacing:-1px;background:var(--ink);color:white;padding:1px 7px;line-height:1.3}
@@ -31,12 +29,10 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial h1,#gym-editorial h2{font-family:Impact,'Arial Narrow',Arial,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:-.025em}
 #gym-editorial h1{font-size:clamp(48px,5.25vw,80px);line-height:1.04;margin-bottom:26px}
 #gym-editorial .sticker{display:inline-block;color:white;background:var(--purple);padding:4px 12px 10px;margin-top:10px;margin-left:-12px}
-#gym-editorial.green .sticker{color:var(--ink)}
 #gym-editorial .intro{color:var(--muted);font-size:17px;max-width:400px;margin-bottom:28px}
 #gym-editorial .hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 #gym-editorial .button{min-height:48px;display:inline-flex;align-items:center;justify-content:space-between;gap:22px;border-radius:6px;border:1px solid transparent;padding:13px 20px;font-weight:700;font-size:12px}
 #gym-editorial .button.primary{background:var(--purple);color:white}
-#gym-editorial.green .button.primary{color:var(--ink)}
 #gym-editorial .button.dark{background:var(--ink);color:white}
 #gym-editorial .button.outline{border-color:var(--line);background:transparent;color:var(--ink)}
 #gym-editorial .text-link{font-size:11px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
@@ -80,7 +76,6 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial .role-tabs{display:flex;flex-direction:column;gap:7px}
 #gym-editorial .role-tabs button{color:#c6c2cd;padding:13px 14px;border:0;background:none;border-radius:5px;text-align:left;font-size:12px}
 #gym-editorial .role-tabs button[aria-selected=true]{color:white;background:var(--purple)}
-#gym-editorial.green .role-tabs button[aria-selected=true]{color:var(--ink)}
 #gym-editorial .side-caption{margin-top:auto;padding-top:40px;color:#b5afbf;font-size:10px}
 #gym-editorial .side-caption svg{margin-bottom:8px}
 #gym-editorial .side-caption p{margin:0}
@@ -103,7 +98,6 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial .steps li::before{content:counter(step);background:var(--lavender);color:var(--purple-deep);width:22px;height:22px;display:grid;place-items:center;border-radius:50%;font-size:9px}
 #gym-editorial .steps li:first-child{color:var(--ink);font-weight:700}
 #gym-editorial .purple-card{background:var(--purple);color:white;display:flex;flex-direction:column;align-items:start}
-#gym-editorial.green .purple-card{color:var(--ink)}
 #gym-editorial .tag.light{border-color:#ffffff60;color:inherit}
 #gym-editorial .purple-card>svg{width:35px;height:35px;margin-block:24px 16px}
 #gym-editorial .purple-card h4{font-size:25px;line-height:1.15;letter-spacing:-.04em;margin-bottom:12px}
@@ -123,7 +117,6 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial .price-card{border:1px solid var(--line);background:white;border-radius:8px;padding:28px;position:relative;display:flex;flex-direction:column}
 #gym-editorial .price-card.featured{border:2px solid var(--purple);padding:27px}
 #gym-editorial .ribbon{background:var(--purple);color:white;font-size:8px;letter-spacing:.07em;position:absolute;top:-12px;left:24px;right:24px;text-align:center;padding:5px;border-radius:4px}
-#gym-editorial.green .ribbon{color:var(--ink)}
 #gym-editorial .price-label{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.1em;font-weight:700;color:var(--muted);margin-bottom:25px}
 #gym-editorial .price-label svg{color:var(--purple-deep);width:23px;height:23px}
 #gym-editorial .price-card h3{font-size:20px;letter-spacing:-.035em;min-height:55px;max-width:250px;margin-bottom:12px}
@@ -185,7 +178,6 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial{padding-bottom:90px}
 #gym-editorial .wrap{width:calc(100% - 36px)}
 #gym-editorial .review-bar{padding:10px 18px;align-items:start;flex-direction:column;gap:3px;font-size:9px}
-#gym-editorial .review-bar button{font-size:9px;padding:0}
 #gym-editorial .header{padding:16px 18px;gap:14px}
 #gym-editorial .header .logo>span{display:none}
 #gym-editorial .header .logo b{font-size:29px}
@@ -286,11 +278,9 @@ html:has(#gym-editorial){scroll-behavior:smooth;scroll-padding-top:24px}
 #gym-editorial .white-card,#gym-editorial .purple-card{padding:16px}
 #gym-editorial .price-card,#gym-editorial .price-card.featured{padding:22px}
 #gym-editorial .review-bar{font-size:8px}
-#gym-editorial .review-bar button{font-size:8px}
 }
 @media(prefers-reduced-motion:reduce){html:has(#gym-editorial){scroll-behavior:auto}
 }
-#gym-editorial.green{--purple-deep:#415b11}
 
 /* Application adaptations: account access, legal links, cookies and touch. */
 body:has(#gym-editorial) { background: #f6f4f0 !important; --mobile-navigation-space: 0px; padding-bottom: calc(var(--mobile-navigation-space) + var(--cookie-controls-height,0px) + 80px) !important; }

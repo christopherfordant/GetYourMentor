@@ -1,8 +1,10 @@
 # Documentation GetYourMentor
 
-> **Lecture obligatoire a chaque prompt :** `../AGENTS.md` et la procedure de `../BRANCH_STRATEGY_GYM.md` avant les travaux ; verification, documentation, commit et push cibl' avant la reponse finale de livraison.
+> **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
 ## Entrées principales
+
+- [`AUDIT_ECARTS_REFONTE_2026-10-15.md`](AUDIT_ECARTS_REFONTE_2026-10-15.md) - audit des divergences, sources et phases de refonte ;
 
 - [`REFONTE_PROGRESSIVE_2026-10-15.md`](REFONTE_PROGRESSIVE_2026-10-15.md) — maquette validée, lots de migration, tests et livraison du design ;
 

@@ -14,3 +14,6 @@ Adaptations : recherche et disciplines réelles, accès au compte conservé sur 
 - Préservation : logique de parcours, contenu, scroll, nettoyage GSAP et routes inchangés.
 - Preuve attendue : typecheck, build, Playwright et snapshots aux cinq viewports.
 - Retour arrière : revert du commit portant `VIS-001`.
+# 15 octobre 2026 — palette fixe de l’accueil
+
+Retrait du bouton de comparaison verte, de son état React et des règles CSS associées, conformément à la dernière instruction utilisateur. Violet validé conservé ; aucune modification du prototype original, des routes ou du métier. Contrats actifs et recette alignés. Audit des divergences et phases : `docs/AUDIT_ECARTS_REFONTE_2026-10-15.md`.

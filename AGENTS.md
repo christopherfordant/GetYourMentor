@@ -1,7 +1,7 @@
-# GetYourMentor - consignes obligatoires de reprise
+# GetYourMentor — consignes obligatoires de reprise
 
-Avant toute intervention sur ce depot, lire la   Procedure obligatoire a chaque demande   de [BRANCH_STRATEGY_GYM.md](BRANCH_STRATEGY_GYM.md), puis les documents qu elle designe.
+Avant toute intervention, lire la « Procédure obligatoire à chaque demande » de [BRANCH_STRATEGY_GYM.md](BRANCH_STRATEGY_GYM.md), puis les documents qu’elle désigne.
 
-Appliquer cette procedure a chaque prompt : inventaire Git et documentaire au depart ; verification, documentation, commit cibl' et push sur la branche appropriee avant la reponse finale de livraison ; preuve de synchronisation distante. Preserver les changements anterieurs non verifi s. Aucun commit vide pour une simple discussion.
+À chaque prompt : inventaire Git et documentaire au départ ; vérification, documentation, commit ciblé et push sur la branche appropriée avant la réponse finale de livraison ; confirmation du SHA distant. Préserver les changements antérieurs non vérifiés. Aucun commit vide pour une simple discussion.
 
-Les mises a jour interm diaires restent possibles. Si le push est bloqu , le signaler precisement sans contourner les contr les. Aucun force-push, fusion ou deploiement en production n'est autoris' par cette regle.
+Les mises à jour intermédiaires restent possibles. Si le push est bloqué, le signaler précisément sans contourner les contrôles. Aucun force-push, fusion ou déploiement en production n’est autorisé par cette règle.

@@ -149,3 +149,12 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Pourquoi : il fallait rendre les pages MVP plus trouvables et plus propres semantiquement sans casser la parite prototype / Next
 - Impact : les pages home, recherche, annuaire, fiche coach, creneau, recapitulatif, compte, paiement et inscription club ont maintenant une couche SEO route par route ; le build Next est valide et le tunnel metier reste `10 / 10` apres la passe SEO
 - Sources : `gym-next/lib/seo.ts`, `gym-next/app/layout.tsx`, `gym-next/app/coach/page.tsx`, `governance/ai/CYCLE_014_SEO_METADATA_GYM.md`
+
+
+## 2026-10-15 - Palette fixe et audit des divergences
+
+- Decision utilisateur : retirer le changement de coloris de l'accueil ; conserver la direction HTML validee et la decliner par phases sur les autres pages.
+- Realisation : retrait du bouton, de son etat et des styles de comparaison ; contrats et recette alignes.
+- Sources : Strategie perplexity p. 4 et 6 reste secondaire face au MVP p. 1 et Business Plan p. 35-36. Pas de nouveaux tarifs 50/200 EUR ni suppression des paiements.
+- Preuves : docs/AUDIT_ECARTS_REFONTE_2026-10-15.md, docs/REFONTE_PROGRESSIVE_2026-10-15.md et docs/assets/alignement-accueil/verification.json.
+- Verification : build/type isoles PASS ; accueil 10/10 developpement puis 10/10 production isolee. Aucun deploiement, paiement reel ou changement de droits.
