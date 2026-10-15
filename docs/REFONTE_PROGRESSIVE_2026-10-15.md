@@ -1,4 +1,4 @@
-> **? chaque prompt :** lire `../AGENTS.md` et la proc?dure obligatoire de `../BRANCH_STRATEGY_GYM.md`. Livrer les lots v?rifi?s avec documentation, commit et push cibl? sur la branche appropri?e avant la r?ponse finale ; confirmer la r?f?rence distante. Les changements ant?rieurs non v?rifi?s restent pr?serv?s.
+> **  chaque prompt :** lire `../AGENTS.md` et la procedure obligatoire de `../BRANCH_STRATEGY_GYM.md`. Livrer les lots verifi s avec documentation, commit et push cibl' sur la branche appropriee avant la reponse finale ; confirmer la reference distante. Les changements anterieurs non verifi s restent preserv s.
 
 ## Reprise active — accueil issu de la maquette HTML complète
 

@@ -1,6 +1,6 @@
 # Documentation GetYourMentor
 
-> **Lecture obligatoire ? chaque prompt :** `../AGENTS.md` et la proc?dure de `../BRANCH_STRATEGY_GYM.md` avant les travaux ; v?rification, documentation, commit et push cibl? avant la r?ponse finale de livraison.
+> **Lecture obligatoire a chaque prompt :** `../AGENTS.md` et la procedure de `../BRANCH_STRATEGY_GYM.md` avant les travaux ; verification, documentation, commit et push cibl' avant la reponse finale de livraison.
 
 ## Entrées principales
 

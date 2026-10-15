@@ -1,17 +1,17 @@
 # GetYourMentor - Strategie de branches
 
-## Proc?dure obligatoire ? chaque demande ? 15 octobre 2026
+## Procedure obligatoire a chaque demande   15 octobre 2026
 
-Cette proc?dure s?applique ? chaque nouveau prompt concernant GetYourMentor, avant les travaux et avant la r?ponse finale. Une mise ? jour interm?diaire peut ?tre envoy?e imm?diatement.
+Cette procedure s'applique a chaque nouveau prompt concernant GetYourMentor, avant les travaux et avant la reponse finale. Une mise a jour interm diaire peut  tre envoy e imm diatement.
 
-1. Lire `AGENTS.md`, cette proc?dure, `DOCUMENT_MAITRE_GYM.md`, `docs/README.md`, l??tat de reprise `docs/REFONTE_PROGRESSIVE_2026-10-15.md` et les contrats pertinents pour la demande. Consulter les d?cisions r?centes et appliquer les instructions utilisateur les plus r?centes.
-2. V?rifier le d?p?t, la branche active, les worktrees, les modifications index?es/non index?es, le distant et l?upstream. Lire `BRANCH_STRATEGY_GYM.md`. Choisir une branche correspondant au chantier ; ne pas pousser automatiquement sur `main` ni recopier le travail sur plusieurs branches. Pour la refonte actuelle, poursuivre `design/refonte-progressive-lot1` ; sa documentation et ses preuves restent avec le code du lot. Les anciens noms de branches dans les relais sont historiques : v?rifier Git.
-3. Pr?server et identifier les modifications ant?rieures. R?aliser des lots cibl?s, v?rifier les changements et mettre ? jour les documents canoniques et la reprise. Ne pas ajouter tout le d?p?t ni publier des secrets, donn?es personnelles ou fichiers temporaires.
-4. Avant chaque r?ponse finale de livraison, commiter le travail valid? de la demande et le pousser sur la branche appropri?e. Au d?but de la demande suivante, v?rifier ?galement que les commits livrables pr?c?dents sont synchronis?s. Un ?change sans modification n?exige pas de commit vide. Les modifications ant?rieures non v?rifi?es ne sont pas automatiquement livrables.
-5. V?rifier le succ?s du push et comparer le SHA local avec la r?f?rence distante. Rapporter la branche, le commit, les v?rifications et les ?ventuels changements restant locaux. Ne jamais annoncer ? pouss? ? sans preuve distante.
-6. Si une v?rification, un conflit ou l?acc?s au distant bloque, pr?server le travail, expliquer pr?cis?ment le blocage et demander uniquement l?intervention indispensable. Ne pas forcer le push, d?sactiver les contr?les ou pr?tendre la livraison termin?e.
+1. Lire `AGENTS.md`, cette procedure, `DOCUMENT_MAITRE_GYM.md`, `docs/README.md`, l'etat de reprise `docs/REFONTE_PROGRESSIVE_2026-10-15.md` et les contrats pertinents pour la demande. Consulter les decisions recentes et appliquer les instructions utilisateur les plus recentes.
+2. Verifier le depot, la branche active, les worktrees, les modifications indexees/non indexees, le distant et l'upstream. Lire `BRANCH_STRATEGY_GYM.md`. Choisir une branche correspondant au chantier ; ne pas pousser automatiquement sur `main` ni recopier le travail sur plusieurs branches. Pour la refonte actuelle, poursuivre `design/refonte-progressive-lot1` ; sa documentation et ses preuves restent avec le code du lot. Les anciens noms de branches dans les relais sont historiques : verifier Git.
+3. Preserver et identifier les modifications anterieures. Realiser des lots cibl's, verifier les changements et mettre a jour les documents canoniques et la reprise. Ne pas ajouter tout le depot ni publier des secrets, donnees personnelles ou fichiers temporaires.
+4. Avant chaque reponse finale de livraison, commiter le travail valide de la demande et le pousser sur la branche appropriee. Au debut de la demande suivante, verifier  galement que les commits livrables precedents sont synchronis's. Un  change sans modification n'exige pas de commit vide. Les modifications anterieures non verifi es ne sont pas automatiquement livrables.
+5. Verifier le succ s du push et comparer le SHA local avec la reference distante. Rapporter la branche, le commit, les verifications et les eventuels changements restant locaux. Ne jamais annoncer   pouss'   sans preuve distante.
+6. Si une verification, un conflit ou l'acces au distant bloque, preserver le travail, expliquer precisement le blocage et demander uniquement l'intervention indispensable. Ne pas forcer le push, desactiver les contr les ou pretendre la livraison termin e.
 
-Cette autorisation concerne les commits et pushes cibl?s. Elle n?autorise ni fusion, ni force-push, ni d?ploiement en production. V?rifier les d?clencheurs CI/CD avant de changer de branche ou de cible distante ; conserver l?isolation de d?monstration. Le push de code et le d?ploiement sont deux ?tats distincts.
+Cette autorisation concerne les commits et pushes cibl's. Elle n'autorise ni fusion, ni force-push, ni deploiement en production. Verifier les declencheurs CI/CD avant de changer de branche ou de cible distante ; conserver l'isolation de demonstration. Le push de code et le deploiement sont deux etats distincts.
 
 
 ## Principe
