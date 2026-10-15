@@ -1,0 +1,27 @@
+{
+  "codeCommit": "ac8e8e4d83954fe66c01f9282ab94524de893796",
+  "branch": "design/refonte-progressive-lot1",
+  "remoteVerified": true,
+  "verifiedAt": "2026-10-15T09:11:32.857070+00:00",
+  "isolatedCommit": {
+    "types": "PASS",
+    "build": "PASS",
+    "testsPassed": 18,
+    "testsFailed": 0,
+    "dependenciesReused": true,
+    "nextLockedAndInstalled": "15.5.27"
+  },
+  "integratedWorktree": {
+    "distinctScenariosValidated": 38,
+    "initialCampaignPassed": 36,
+    "initialCampaignFailed": 2,
+    "correctedTestRerunPassed": 2
+  },
+  "headerLabelsAndDestinationsPreserved": true,
+  "productionSafety": "PASS",
+  "clientSecretBoundary": "PASS",
+  "productionDeployCommandExecuted": false,
+  "priorWorkPreserved": true,
+  "langchainAdded": false,
+  "langgraphAdded": false
+}
