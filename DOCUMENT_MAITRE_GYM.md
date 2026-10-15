@@ -1,5 +1,7 @@
 # GetYourMentor - Document Maitre v1
 
+> **Validation d’ensemble de la maquette HTML — 15 octobre 2026.** La référence visuelle prioritaire devient `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html`, avec ses sections, compositions et interactions. Les surfaces foncées ciblées de cette maquette sont admises ; l’ancienne prescription d’une interface exclusivement claire devient historique. Exigences métier et sécurité inchangées, commission de référence 15 % administrable et historiques préservés. Correspondance, preuves et reprise : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
 > **Arbitrage complémentaire du 15 octobre 2026 :** interface claire et uniforme, y compris header, menus et comptes. Les fonds sombres de la maquette ne sont pas validés. Les noms, ordre logique et destinations du header sont conservés ; réorganisation mobile et burger autorisés. Cette consigne remplace les passages historiques contradictoires. Suivi et reprise : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
 > Refonte validée le 15 octobre 2026 : la maquette locale violet/noir/papier du dossier `GetYourMentor_Audit_Design_2026-10-15` devient la direction d'implémentation progressive. Le header conserve noms, ordre, destinations et organisation ; chaque famille de pages est migrée par lot vérifié. Commission 15 % et droits métier préservés. État, périmètre V2/V3 et preuves : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.

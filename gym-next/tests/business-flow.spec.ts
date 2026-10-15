@@ -4,12 +4,9 @@ test.describe("parcours metier principaux", () => {
   test("home vers recherche puis annuaire coachs", async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle" });
 
-    await page.locator('[data-home-sport-input]').fill("football");
-    await page.locator('[data-home-city-input]').fill("Paris");
-    await page.getByRole("button", { name: "Rechercher" }).click();
-
-    await page.waitForURL("**/recherche?sport=football&city=Paris");
-    await expect(page).toHaveURL(/\/recherche\?sport=football&city=Paris$/);
+    await page.getByRole("link", { name: "Trouver mon coach", exact: true }).click();
+    await page.waitForURL("**/recherche?sport=football");
+    await expect(page).toHaveURL(/\/recherche\?sport=football$/);
     await expect(page.locator("body")).toContainText("Trouver un coach de football qui te correspond");
 
     await page.getByText("Coachs de Football - Paris").click();

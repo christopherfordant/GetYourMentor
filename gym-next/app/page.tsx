@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { HomePageClient } from "@/components/home/HomePageClient";
-import { isDemoFallbackAllowed } from "@/lib/runtime";
+import { EditorialHome } from "@/components/home/EditorialHome";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -10,5 +9,5 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  return <HomePageClient allowDemoFallback={isDemoFallbackAllowed()} />;
+  return <EditorialHome />;
 }

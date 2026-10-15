@@ -1,3 +1,11 @@
+> **Direction active : maquette HTML intégralement validée.** La référence est `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html`, son CSS et ses interactions. Reprendre sa composition complète, ses panneaux, ses sections et ses surfaces foncées ciblées, avec textes adaptés au fonctionnement réel. La prescription précédente d’une interface exclusivement claire est historique. Le violet reste la variante par défaut ; la comparaison verte reste locale à l’accueil.
+
+Palette active : papier #F6F4F0, blanc #FFFFFF, encre #141316, texte secondaire #625E69, violet #872BBF, violet profond #612087, lavande #EEE4F7, bordure #DEDBE3, focus #3863F2. Tokens `--gym-primary-hover` et `--gym-line` alignés ; les données et comportements des comptes ne changent pas.
+
+Composition active : enveloppe maximale de 1240 px, hero en deux colonnes puis pile mobile, cartes de profils/offres en trois colonnes puis pile, espace de travail avec côté sombre puis onglets horizontaux. Détails de dimensions et typographies : CSS source approuvé, transposé sous `#gym-editorial`. Source et image d’illustration préservées, sans nouvel asset externe.
+
+Les instructions ci-dessous restent historiques lorsque leur apparence contredit cette référence. Les règles métier et d’accessibilité restent applicables. Matrice d’intégration : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
 > **Précision validée le 15 octobre 2026 :** direction claire et uniforme, surfaces blanches/papier, accents violets. Le thème sombre historique ci-dessous est remplacé sur les pages migrées. Le header conserve ses noms, ordre logique et destinations ; sa présentation mobile peut évoluer. Référence active : `gym-next/app/gym-design-tokens.css` et suivi `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
 # GetYourMentor - Design system v1

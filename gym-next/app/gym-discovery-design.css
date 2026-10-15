@@ -76,7 +76,8 @@ body:has(#gym-discovery) { --mobile-navigation-space: 0px; background: var(--gym
 #gym-discovery .booking-profile-top { display: block !important; }
 #gym-discovery .booking-profile-meta { display: flex; flex-wrap: wrap; gap: 16px; color: var(--gym-muted); }
 #gym-discovery .booking-address { color: var(--gym-muted) !important; }
-#gym-discovery .booking-profile-lead { background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line); border-radius: 16px; box-shadow: none !important; }
+#gym-discovery .booking-profile-lead { padding: 24px !important; background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line); border-radius: 16px; box-shadow: none !important; }
+#gym-discovery .booking-profile-lead h2 { font-size: clamp(24px,3vw,34px); line-height: 1.2; }
 #gym-discovery .booking-gallery-profile { position: relative; }
 #gym-discovery .booking-gallery-caption { position: absolute; bottom: 8px; left: 8px; right: 8px; padding: 8px; border-radius: 8px; background: white; color: var(--gym-muted) !important; font-size: 12px; }
 #gym-discovery .booking-followers-pill { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
@@ -108,6 +109,7 @@ body:has(#gym-discovery) { --mobile-navigation-space: 0px; background: var(--gym
 #gym-discovery [data-gym-ui=main] { padding-top: 0 !important; }
 #gym-discovery [data-gym-ui=hero] { display: grid !important; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); grid-template-areas: "copy photo"; align-items: center; gap: 48px; min-height: 0 !important; padding: 48px 0 !important; background: transparent !important; overflow: visible; }
 #gym-discovery [data-gym-ui=heroBackdrop] { grid-area: photo; position: relative !important; inset: auto !important; height: 480px; border-radius: 20px; overflow: hidden; }
+#gym-discovery [data-gym-ui=heroImage] { opacity: 1 !important; filter: none !important; mix-blend-mode: normal; }
 #gym-discovery [data-gym-ui=heroOverlay] { display: none; }
 #gym-discovery [data-gym-ui=heroContent] { grid-area: copy; width: 100%; padding: 0 !important; margin: 0; text-align: left; }
 #gym-discovery [data-gym-ui=heroTitle] { font-size: clamp(36px,4.5vw,64px) !important; line-height: 1.08 !important; max-width: 18ch; margin: 20px 0; color: var(--gym-ink) !important; }
@@ -126,17 +128,19 @@ body:has(#gym-discovery) { --mobile-navigation-space: 0px; background: var(--gym
 #gym-discovery [data-gym-ui=experienceCaption] { position: relative !important; inset: auto !important; padding: 24px; background: white; }
 #gym-discovery .role-journeys { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
 #gym-discovery .role-journeys article { min-width: 0; padding: 24px; background: white !important; border: 1px solid var(--gym-line); border-radius: 16px; }
-#gym-discovery :is([data-gym-ui=section],[data-gym-ui=sportRail],[data-gym-ui=metricsSection],[data-gym-ui=recruitSection],[data-gym-ui=faqSection]) { width: 100%; max-width: none; margin: 0; padding: 48px 0 !important; color: var(--gym-ink); background: transparent !important; }
+#gym-discovery :is([data-gym-ui=section],[data-gym-ui=sportRail],[data-gym-ui=metricsSection],[data-gym-ui=recruitSection],[data-gym-ui=faqSection]) { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 48px 0 !important; color: var(--gym-ink); background: transparent !important; }
 #gym-discovery [data-gym-ui=sectionHeading] { margin-bottom: 28px; }
 #gym-discovery :is([data-gym-ui=sectionHeading],[data-gym-ui=popularCoachesHeading],[data-gym-ui=recruitCopy],[data-gym-ui=faqSection]) h2 { font-size: clamp(28px,3vw,40px) !important; line-height: 1.2; }
-#gym-discovery [data-gym-ui=sportRailGrid] { display: grid !important; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; }
+#gym-discovery [data-gym-ui=sportRailGrid] { display: grid !important; width: 100% !important; max-width: 100%; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; }
 #gym-discovery [data-gym-ui=sportRailCard] { position: relative; display: flex !important; flex-direction: column; min-height: 0 !important; height: 310px !important; border: 1px solid var(--gym-line); border-radius: 16px; background: white !important; overflow: hidden; }
 #gym-discovery [data-gym-ui=sportRailImage] { height: 200px !important; bottom: auto !important; object-fit: cover; }
 #gym-discovery [data-gym-ui=sportRailShade] { display: none; }
 #gym-discovery [data-gym-ui=sportRailCopy] { position: relative !important; inset: auto !important; display: grid; gap: 6px; margin-top: 200px; padding: 16px; background: white; color: var(--gym-ink); }
 #gym-discovery :is([data-gym-ui=sportRailLabel],[data-gym-ui=sportRailAction],[data-gym-ui=sportRailIndex]) { color: var(--gym-ink) !important; font-size: 16px; }
 #gym-discovery :is([data-gym-ui=carouselViewport],[data-gym-ui=stepCard],[data-gym-ui=miniScreen],[data-gym-ui=progressVisual],[data-gym-ui=slotVisual],[data-gym-ui=paymentVisual],[data-gym-ui=insightCard],[data-gym-ui=localeColumn],[data-gym-ui=faqItem],[data-gym-ui=experienceControls]) { background: white !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; box-shadow: none !important; }
-#gym-discovery [data-gym-ui=howGrid] { max-width: 100%; }
+#gym-discovery [data-gym-ui=carouselViewport] { width: 100% !important; min-width: 0 !important; max-width: 100% !important; }
+#gym-discovery [data-gym-ui=howGrid] { display: flex !important; width: 100% !important; min-width: 0 !important; max-width: 100% !important; overflow-x: auto !important; overflow-y: hidden !important; scroll-snap-type: x mandatory; touch-action: pan-x pan-y; transform: none !important; gap: 20px; }
+#gym-discovery [data-gym-ui=stepCard] { flex: 0 0 min(100%,540px) !important; width: min(100%,540px) !important; min-width: 0 !important; max-width: 100% !important; scroll-snap-align: start; }
 #gym-discovery :is([data-gym-ui=slideContent],[data-gym-ui=progressVisual],[data-gym-ui=paymentVisual],[data-gym-ui=recruitCopy],[data-gym-ui=faqItem]) :is(h3,h4,strong,summary) { color: var(--gym-ink) !important; }
 #gym-discovery :is([data-gym-ui=procedureIcon],[data-gym-ui=pill],[data-gym-ui=slotButton],[data-gym-ui=stepNumber],[data-gym-ui=arrowButton],[data-gym-ui=carouselButton]) { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
 #gym-discovery [data-gym-ui=mobileNav] { display: none !important; background: white !important; border-color: var(--gym-line) !important; }

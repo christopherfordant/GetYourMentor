@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 
 const routes = [
-  ["accueil", "/"],
   ["recherche", "/recherche?sport=football"],
   ["annuaire", "/coachs?sport=football&city=Paris"],
   ["fiche", "/coach?sport=football&city=Paris&coach=Madison%20Seck"],
@@ -19,7 +18,7 @@ for (const [name, url] of routes) {
     ]);
     for (const width of [320, 390, 430, 621, 768, 900, 1024, 1280, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
-      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
       await expect(header.getByRole("link", { name: "Mon compte", exact: true })).toBeVisible();
       await expect(header.getByRole("link", { name: "Je suis coach", exact: true })).toBeVisible();
       await expect(header).toHaveCSS("background-color", "rgb(255, 255, 255)");
@@ -35,9 +34,9 @@ for (const [name, url] of routes) {
     await language.selectOption("fr"); await language.press("ArrowDown"); await language.press("Enter");
     await expect(language).toHaveValue("en");
     await page.setViewportSize({ width: 720, height: 900 }); // CSS viewport equivalent to 1440 px at 200% zoom.
-    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
     await header.getByRole("link", { name: "Je suis coach", exact: true }).evaluate(e => { e.textContent = "Accéder à mon espace professionnel de coaching"; });
-    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   });
 }
 
@@ -71,26 +70,3 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   await expect(page.locator("[data-content-unlock]")).toHaveText("Prévisualisation de démo");
 });
 
-test("navigation mobile et cookies restent séparés", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 900 }); await page.goto("/");
-  const nav = page.locator('[data-gym-ui="mobileNav"]');
-  const banner = page.locator(".cookie-consent-banner");
-  await expect(banner).toBeVisible();
-  await expect.poll(async () => (await banner.boundingBox())!.y + (await banner.boundingBox())!.height <= (await nav.boundingBox())!.y).toBe(true);
-  await page.getByRole("button", { name: "Refuser le non nécessaire", exact: true }).click();
-  const preferences = page.getByRole("button", { name: "Préférences cookies", exact: true });
-  await expect(preferences).toBeVisible();
-  expect((await preferences.boundingBox())!.y + (await preferences.boundingBox())!.height).toBeLessThanOrEqual((await nav.boundingBox())!.y);
-  await page.setViewportSize({ width: 1440, height: 900 }); await expect(nav).toBeHidden();
-});
-
-test("accueil: profils issus du catalogue et parcours illustratif explicite", async ({ page }) => {
-  await page.goto("/");
-  const card = page.locator("[data-discovery-coach]").first();
-  await expect(card).toBeAttached();
-  await expect(page.getByText("Illustration du parcours :", { exact: false })).toBeAttached();
-  const id = await card.getAttribute("data-discovery-coach");
-  await card.getByRole("link", { name: "Voir le profil" }).click();
-  await expect(page).toHaveURL(new RegExp(`coach=${id}`));
-  await expect(page.locator("[data-booking-price]")).toBeVisible();
-});

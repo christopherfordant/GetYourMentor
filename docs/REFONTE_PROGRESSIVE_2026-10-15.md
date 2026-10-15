@@ -1,3 +1,53 @@
+## Reprise active — accueil issu de la maquette HTML complète
+
+La nouvelle validation porte sur l’ensemble de `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html` et remplace la direction « recolorer en clair » comme méthode de refonte. Le HTML, son CSS et son JavaScript ont été lus ; Playwright MCP a examiné desktop/mobile, panneaux coach/structure, dialogue Premium et variante verte.
+
+État initial : branche `design/refonte-progressive-lot1`, dernier push connu `1e8a6df`, commit local `64ad4e8` non poussé (37/38 tests isolés), corrections de dimensions/carrousel indexées. Le lot de découverte n’était pas livré. Ses correctifs utiles sont conservés ; l’ancien accueil est remplacé sur la route principale, pas effacé avec les travaux antérieurs.
+
+### Correspondance de tous les éléments de la maquette
+
+| Élément source | Intégration dans l’application | Comportement / dépendance | Statut |
+| --- | --- | --- | --- |
+| Bande de revue | Bande de présentation | Texte adapté ; offres sans achat | Intégré / adapté |
+| Logo et header | Header éditorial | Trois ancres ; Mon compte vers /compte, y compris mobile | Intégré / adapté |
+| Hero, étiquette violette, photo et carte superposée | Haut de l’accueil | CTA vers recherche réelle ; visuel d’illustration | Intégré |
+| Quatre disciplines | Puces du hero | Liens vers recherche avec sport conservé | Intégré / adapté |
+| Bande de valeurs | Sous le hero | Surface encre et SVG source | Intégré |
+| Trois cartes de profils | Section profils | Sélectionne le panneau correspondant | Intégré |
+| Espace sportif | Panneau indépendant de la session | Étapes de réservation expliquées, aucune séance inventée | Aperçu intégré |
+| Espace coach | Panneau coach | Demande illustrative ; états financiers distingués | Aperçu intégré |
+| Espace structure | Panneau structure | Affiliation et planning illustratifs ; aucune équipe réelle créée | Aperçu intégré |
+| Modules suivi/contenus/multi-coachs | Cartes, étiquettes et dialogues | Droits, facturation et critères restent à développer | Présentation intégrée / métier prévu |
+| Forfait sportif 0 % | Carte dédiée | Pas de frais ajoutés au sportif ; séance toujours payante | Présentation documentée |
+| Premium coach 19,99 €/mois | Carte dédiée | 0 % séances et 20 % contenus prévus, non activés | Présentation documentée / activation prévue |
+| Structure 29,99 €/mois, +3,99 € | Carte dédiée | Deux coachs ; périodicité du supplément à confirmer | Présentation documentée / activation prévue |
+| Feuille de route | Section suite | Ordre de progression, pas une annonce de V2/V3 terminée | Intégré |
+| Sources | Section de projet | Texte de validation actualisé ; liens légaux réels, PDF locaux non publiés | Intégré / adapté |
+| FAQ existante | Sous la section de projet | Accordéons natifs, ancres historiques préservées | Fonction conservée |
+| Pied de page | Footer éditorial | Texte adapté ; langue native conservée | Intégré / adapté |
+| Navigation mobile | Barre de la maquette | Ancres, accès compte en header ; cookies séparés | Intégré / adapté |
+| Dialogues sportif/coach/club/réservation/suivi | Dialog HTML natif | Échap, fermeture, focus ; aucun POST commercial | Intégré |
+| Comparaison verte | Bouton de variante | Portée locale à l’accueil, violet par défaut | Intégré |
+| Nouvelles pages non représentées dans le HTML | Lots suivants | Déclinaisons desktop/mobile avant changement important | Prévu |
+
+### Socle, sources et limites
+
+Le composant `EditorialHome.tsx` reprend la structure source en React ; `gym-editorial-design.css` est transposé et borné par `#gym-editorial`. Les anciennes feuilles de l’accueil ne sont plus utilisées par la route / ; leurs composants restent conservés pour ne pas supprimer le travail local. Pas de framework, agent ou installation supplémentaire.
+
+L’image est réutilisée à l’identique depuis `public/design_assets/content_library/football/football-coach-rain.jpg`, déjà suivie dans le dépôt. SHA-256 : `933cd2875e09e925e03701384dcb7c2637f4978fc4abd635c14d5db229627027`. Aucun nouveau droit de licence attribué et aucun document transmis à un service externe. Les fichiers originaux de la maquette restent intacts.
+
+Sources commerciales : Business Plan p. 30 et 35–36, pitch p. 13–16, MVP p. 1. Commission de référence 15 %, réglage administrable et historiques inchangés. Offres, outils et données illustratives restent explicitement distingués des fonctions réelles. HT/TTC, engagement, résiliation et supplément structure restent à préciser avant activation.
+
+Les contrats VISUAL_REFERENCE_CONTRACT, DESIGN_SYSTEM et VISUAL_ACCEPTANCE sont alignés sur cette validation. Le header de la maquette est clair ; ses surfaces foncées ciblées sont maintenant admises. Cette décision ne rétablit pas le thème bleu nuit/lime. Les anciennes décisions restent visibles comme historique.
+
+### Recette et livraison
+
+État de recette : EN COURS. Aucun nouveau push ou déploiement annoncé avant vérification du commit isolé. La première recette de développement a passé 5/5 tests avant les dernières adaptations de langue et de tokens ; elle ne vaut pas recette finale.
+
+Retour arrière : revert des commits éditoriaux, sans reset des données ni suppression des modifications métier locales. Prochain lot : déclinaison de cette référence sur recherche/annuaire/fiches ; consolider leurs contrôles puis comptes et tunnel. La refonte complète, V2 et V3 ne sont pas déclarées terminées.
+
+---
+
 # Refonte progressive GetYourMentor — état de reprise
 
 ## Décision et références

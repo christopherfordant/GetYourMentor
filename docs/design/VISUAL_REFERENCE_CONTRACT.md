@@ -1,3 +1,20 @@
+## Référence active — maquette HTML intégralement validée, 15 octobre 2026
+
+Source : `C:/Users/cashe/Documents/GetYourMentor_Audit_Design_2026-10-15/maquette/index.html`, avec `style.css` et `app.js`. La validation actuelle porte sur l’ensemble de cette maquette et remplace les prescriptions incompatibles ci-dessous. Elle ne se réduit pas à une palette claire appliquée à l’ancien site.
+
+- Base papier #F6F4F0, blanc, encre #141316, violet #872BBF, violet profond #612087, lavande #EEE4F7 et bordures #DEDBE3.
+- Le header original est clair. Bande de valeurs, côté de l’espace de travail, feuille de route et navigation mobile reprennent les surfaces foncées prévues dans la maquette ; le refus antérieur d’un thème entièrement sombre ne les interdit plus. Aucun retour au bleu nuit/lime d’Emergent.
+- Reprendre les compositions : hero texte/photo, étiquette violette, trois profils, trois panneaux de travail, trois cartes d’offres, feuille de route, sources adaptées et pied de page.
+- Typographie, SVG, rythmes, espacements et rapports de colonnes dérivent du CSS source ; aucune police distante ni nouvelle bibliothèque.
+- Onglets : sélection, flèches, Home/End, focus et panneaux masqués sémantiquement. Dialogues natifs : Échap, fermeture et retour du focus. Variante verte isolée dans l’accueil ; violet par défaut.
+- Fonctions existantes conservées par liens réels : recherche, quatre disciplines, compte, préférence de langue dans le footer, FAQ et pages légales. L’accueil adopte la navigation de la maquette ; le contrat des sept liens reste applicable aux pages héritées non encore reconstruites.
+- Les offres et outils futurs restent descriptifs. Les aperçus ne créent ni achat, compte, message, abonnement ou réservation. Commission de référence 15 %, réglage administrable et montants historiques inchangés.
+- Validation : 320, 390, 430, 621, 768, 900, 1024, 1280 et 1440 px. Mesurer le débordement avec clientWidth, pas innerWidth. Comparer maquette et application avec Playwright MCP et capturer les états interactifs.
+
+Implémentation du premier lot : `EditorialHome.tsx`, `gym-editorial-design.css`, tokens partagés. Les règles sont bornées par `#gym-editorial`. Suivi et correspondance exhaustive dans `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
+### Historique des références remplacées
+
 > **Arbitrage utilisateur du 15 octobre 2026 — refonte claire.** Les fonds sombres, le bleu nuit/lime et la disposition mobile figée sont remplacés pour les pages migrées par des surfaces claires, textes contrastés et accents violets. Les noms, ordre logique et destinations du header restent identiques ; adaptation mobile et burger autorisés. Les règles de sécurité, métier, reduced-motion et validation restent actives. Les prescriptions historiques ci-dessous ne doivent pas réintroduire un thème sombre. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
 # Contrat visuel GetYourMentor

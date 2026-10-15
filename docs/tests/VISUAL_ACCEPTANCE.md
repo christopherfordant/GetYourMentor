@@ -1,3 +1,19 @@
+## Recette active — accueil éditorial et migrations suivantes
+
+Référence : maquette HTML validée dans son ensemble ; les références Emergent et les décisions de recoloration restent historiques.
+
+Largeurs : 320, 390, 430, 621, 768, 900, 1024, 1280, 1440 px. Mesure : scrollWidth <= clientWidth, sans couper globalement le contenu. Vérifier zoom/reflow, textes longs, clavier/tactile et reduced-motion.
+
+Accueil : six sections de la maquette, bande de valeurs, image/étiquette, trois profils, trois panneaux, trois offres, feuille de route, sources adaptées, FAQ existante, footer et navigation mobile. Vérifier tous les onglets, les cinq catégories de dialogues, Échap/retour de focus, la variante verte et le retour au violet.
+
+Liens : CTA de recherche, quatre disciplines, Mon compte accessible sur mobile, CGU/CGV/confidentialité et ancres historiques parcours/tarifs/FAQ. Préférence de langue maintenue dans le footer.
+
+Les outils et offres prévus sont explicitement descriptifs : aucun POST commercial lors des aperçus et aucune activation Premium. Tester les cookies ouverts/fermés et leur séparation de la barre mobile. Contrôler un seul header et un seul footer.
+
+Captures Playwright MCP : source et application aux mêmes dimensions ; conserver aussi les panneaux coach/structure, une offre ouverte et les grands écrans mobiles. Une preuve de build doit porter autant que possible sur le commit isolé, pas seulement sur un arbre comportant des correctifs antérieurs.
+
+### Historique de recette
+
 # Validation visuelle
 
 ## Viewports obligatoires

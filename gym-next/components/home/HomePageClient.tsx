@@ -103,7 +103,13 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
   const journeyViewportRef = useRef<HTMLDivElement>(null);
   const journeyTrackRef = useRef<HTMLDivElement>(null);
 
-  const goToJourney = (index: number) => setJourneyIndex(Math.max(0, Math.min(3, index)));
+  const goToJourney = (index: number) => {
+    const next = Math.max(0, Math.min(3, index));
+    setJourneyIndex(next);
+    const track = journeyTrackRef.current;
+    const slide = track?.querySelectorAll<HTMLElement>("[data-journey-slide]")[next];
+    if (track && slide) track.scrollTo({ left: slide.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  };
 
   const goToExperience = (index: number) => {
     setExperienceIndex((index + experienceSlides.length) % experienceSlides.length);
@@ -318,7 +324,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
           </div>
           <p className="discovery-note">Illustration du parcours : les profils, créneaux et montants des exemples ci-dessous sont fictifs. Consulte le catalogue pour les informations disponibles.</p>
           <div className={styles.howGrid} data-gym-ui="howGrid" ref={journeyTrackRef}>
-            <article className={styles.stepCard} data-gym-ui="stepCard" data-gsap-card data-journey-slide data-active={journeyIndex === 0}>
+            <article className={styles.stepCard} data-gym-ui="stepCard" data-journey-slide data-gsap-card data-journey-slide data-active={journeyIndex === 0}>
               <div className={styles.procedureVisual} data-gym-ui="procedureVisual"><div className={styles.procedureIcon} data-gym-ui="procedureIcon"><JourneyIcon type="users" /></div><div className={styles.procedureNumber} data-gym-ui="procedureNumber">01</div><h3>Choisis ton coach</h3><p>Parcours les profils vérifiés, compare tarifs et disponibilités.</p></div>
               <div className={styles.stepHead} data-gym-ui="stepHead">
                 <span className={styles.stepNumber} data-gym-ui="stepNumber">1</span>
@@ -361,7 +367,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard} data-gym-ui="stepCard" data-gsap-card data-journey-slide data-active={journeyIndex === 1}>
+            <article className={styles.stepCard} data-gym-ui="stepCard" data-journey-slide data-gsap-card data-journey-slide data-active={journeyIndex === 1}>
               <div className={styles.procedureVisual} data-gym-ui="procedureVisual"><div className={styles.procedureIcon} data-gym-ui="procedureIcon"><JourneyIcon type="calendar" /></div><div className={styles.procedureNumber} data-gym-ui="procedureNumber">02</div><h3>Bloque tes créneaux</h3><p>Réserve en 2 clics selon ton emploi du temps.</p></div>
               <div className={styles.stepHead} data-gym-ui="stepHead">
                 <span className={styles.stepNumber} data-gym-ui="stepNumber">2</span>
@@ -407,7 +413,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
               </div>
             </article>
 
-            <article className={styles.stepCard} data-gym-ui="stepCard" data-gsap-card data-journey-slide data-active={journeyIndex === 2}>
+            <article className={styles.stepCard} data-gym-ui="stepCard" data-journey-slide data-gsap-card data-journey-slide data-active={journeyIndex === 2}>
               <div className={styles.procedureVisual} data-gym-ui="procedureVisual"><div className={styles.procedureIcon} data-gym-ui="procedureIcon"><JourneyIcon type="check" /></div><div className={styles.procedureNumber} data-gym-ui="procedureNumber">03</div><h3>Valide ta session</h3><p>Paiement simulé sécurisé, confirmation instantanée.</p></div>
               <div className={styles.stepHead} data-gym-ui="stepHead">
                 <span className={styles.stepNumber} data-gym-ui="stepNumber">3</span>
@@ -446,7 +452,7 @@ export function HomePageClient({ allowDemoFallback = false }: { allowDemoFallbac
                 </div>
               </div>
             </article>
-            <article className={styles.stepCard} data-gym-ui="stepCard" data-gsap-card data-journey-slide data-active={journeyIndex === 3}>
+            <article className={styles.stepCard} data-gym-ui="stepCard" data-journey-slide data-gsap-card data-journey-slide data-active={journeyIndex === 3}>
               <div className={styles.procedureVisual} data-gym-ui="procedureVisual"><div className={styles.procedureIcon} data-gym-ui="procedureIcon"><JourneyIcon type="trend" /></div><div className={styles.procedureNumber} data-gym-ui="procedureNumber">04</div><h3>Progresse avec ton coach</h3><p>Suivi personnalisé, objectifs atteints, résultats réels.</p></div>
               <div className={styles.stepHead} data-gym-ui="stepHead">
                 <span className={styles.stepNumber} data-gym-ui="stepNumber">4</span>

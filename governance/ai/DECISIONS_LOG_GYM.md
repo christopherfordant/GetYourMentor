@@ -1,5 +1,12 @@
 # Decisions Log GYM
 
+## 2026-10-15 — Maquette HTML intégralement validée
+
+- La validation actuelle porte sur tous les éléments de la maquette, pas sur une recoloration de l’ancien accueil.
+- Référence prioritaire pour les compositions et surfaces ; surfaces foncées ciblées autorisées, sans retour au thème Emergent.
+- Premier lot : accueil, trois rôles, trois offres documentées, dialogues, variante de palette, liens utiles et FAQ. Aucune activation Premium ni paiement.
+- Les corrections locales de découverte et les travaux métier antérieurs sont préservés. Recette et tableau exhaustif : docs/REFONTE_PROGRESSIVE_2026-10-15.md.
+
 ## 2026-10-15 à Harmonisation claire du socle comptes
 
 - Instruction utilisateur prioritaire : remplacer le sombre historique par blanc/papier/violet ; présentation mobile adaptable sans changer les liens ni leurs noms.
