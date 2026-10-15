@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { EmailIcon, UnavailableGoogleButton } from "./AuthProviderPresentation";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { CoachRequestsPanel } from "@/components/account-legacy/CoachRequestsPanel";
@@ -235,12 +236,10 @@ function AccountAuthShell({
               Mot de passe oublié ?
             </a>
             <button className="auth-primary" type="submit" data-account-login>
-              Se connecter
+              <EmailIcon /> Se connecter
             </button>
           </form>
-          <button className="auth-pill-button" type="button">
-            Se connecter avec Gmail
-          </button>
+          <UnavailableGoogleButton />
           <button className="auth-pill-button auth-pill-button-light" type="button" data-account-signup onClick={onOpenSignup}>
             Nouveau ? Inscription
           </button>
@@ -337,9 +336,7 @@ function AccountAuthShell({
               Continuer
             </button>
           </form>
-          <button className="auth-pill-button" type="button">
-            Connectez-vous avec Google
-          </button>
+          <UnavailableGoogleButton />
           <div className="auth-step-actions">
             <button className="auth-inline-button" type="button" data-account-back="signin" onClick={() => onBack("signin")}>
               Retour

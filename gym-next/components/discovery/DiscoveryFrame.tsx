@@ -1,5 +1,7 @@
 "use client";
 
+import { FooterUtilitySlot } from "@/components/FooterUtilities";
+import { SocialLinks } from "@/components/SocialLinks";
 import type { ReactNode } from "react";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
@@ -18,7 +20,7 @@ export function DiscoveryFrame({ children, page, demo = false }: { children: Rea
     </header>
     {demo && <p className="de-demo" role="note">Démonstration · profils, notes et tarifs de test. Aucun paiement réel.</p>}
     {children}
-    <footer className="de-footer">
+    <footer className="de-footer"><FooterUtilitySlot /><SocialLinks />
       <a className="de-brand" href="/" aria-label="GetYourMentor"><b aria-hidden="true">GYM<span>↗</span></b><span>GetYourMentor</span></a>
       <p>Le coaching, à ton rythme.</p>
       <nav aria-label="Informations"><a href="/#espace">Comment ça marche</a><a href="/#forfaits">Les offres</a><a href="/#faq">FAQ</a><a href="/legal/cgu">CGU</a><a href="/legal/cgv">CGV</a><a href="/legal/confidentialite">Confidentialité</a></nav>

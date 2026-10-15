@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const CONSENT_KEY = "gym-cookie-consent-v1";
 
-export function CookieConsentBanner() {
+export function CookieConsentBanner({ preferencesTarget }: { preferencesTarget?: HTMLElement | null } = {}) {
   const [visible, setVisible] = useState<boolean | null>(null);
+  const openedFromPreference = useRef(false);
+  useEffect(() => {
+    if (visible === false && openedFromPreference.current) {
+      (preferencesTarget ?? document).querySelector<HTMLButtonElement>(".cookie-preferences-trigger")?.focus();
+      openedFromPreference.current = false;
+    }
+  }, [visible, preferencesTarget]);
 
   useEffect(() => {
     setVisible(window.localStorage.getItem(CONSENT_KEY) === null);
@@ -19,11 +27,11 @@ export function CookieConsentBanner() {
   if (visible === null) return null;
 
   if (!visible) {
-    return (
+    const preferenceButton = (
       <button
         type="button"
         className="cookie-preferences-trigger"
-        onClick={() => setVisible(true)}
+        onClick={() => { openedFromPreference.current = true; setVisible(true); }}
         aria-haspopup="dialog"
         aria-expanded="false"
         aria-controls="cookie-consent-banner"
@@ -31,6 +39,7 @@ export function CookieConsentBanner() {
         Préférences cookies
       </button>
     );
+    return preferencesTarget ? createPortal(preferenceButton, preferencesTarget) : preferenceButton;
   }
 
   return (

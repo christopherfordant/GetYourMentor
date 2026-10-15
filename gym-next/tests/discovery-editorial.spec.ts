@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 async function refuseCookies(page: import("@playwright/test").Page) {
+  await expect(page.locator(".cookie-consent-banner,.cookie-preferences-trigger")).toHaveCount(1);
   const button = page.getByRole("button", { name: "Refuser le non nécessaire", exact: true });
   if (await button.isVisible()) await button.click();
 }

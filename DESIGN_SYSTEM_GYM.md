@@ -8,6 +8,8 @@ Déclinaison découverte : `/recherche`, `/coachs`, `/coach` utilisent `Discover
 
 Les instructions ci-dessous restent historiques lorsque leur apparence contredit cette référence. Les règles métier et d’accessibilité restent applicables. Matrice d’intégration : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
+**Arbitrage footer le plus récent :** préférences cookies et retour en haut dans une zone réservée au début du footer, avant ses liens. Cette règle remplace leur placement précédent après le footer. Zone dans le flux, z-index 2, sans recouvrement ; footer extensible vers le bas du viewport sur les pages courtes, contenu normal sur les longues. Flèche SVG centrée sur une cible de 44 px. Bannière initiale indépendante. Liens sociaux uniquement après confirmation de leurs URL ; aucune ancre fictive. Connexion email avec enveloppe, Google identifié par son asset officiel mais explicitement désactivé tant qu’OAuth est absent. Rapport : `docs/FOOTER_CONNEXION_2026-10-15.md`.
+
 > **Précision validée le 15 octobre 2026 :** direction claire et uniforme, surfaces blanches/papier, accents violets. Le thème sombre historique ci-dessous est remplacé sur les pages migrées. Le header conserve ses noms, ordre logique et destinations ; sa présentation mobile peut évoluer. Référence active : `gym-next/app/gym-design-tokens.css` et suivi `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
 # GetYourMentor - Design system v1

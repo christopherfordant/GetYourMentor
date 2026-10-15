@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-15",
+  "baseCommit": "8d021d398851f84da4a580121d3019089d0779d9",
+  "branch": "design/refonte-progressive-lot1",
+  "source": "Git index, excluding unrelated pre-existing working-tree changes",
+  "sourceSha256": {
+    "gym-next/app/gym-discovery-design.css": "e969bdc4e50d68ddd812ada8a24d1bc31ca908204451b11328e97a65cdfcd7e2",
+    "gym-next/app/gym-footer-design.css": "11eb4f7a578a3451e27df13301fc21056ed41512fb73ef26e655c5e2a41b3e11",
+    "gym-next/app/layout.tsx": "0c0ecaa684442bef052cc8285b80949fa0bfde954d6c9d217675a4f777619d24",
+    "gym-next/components/BackToTopButton.tsx": "5b22ca21f373a459e98cc10e486094532daf37357d7173ddd64278f06be3c6a4",
+    "gym-next/components/CookieConsentBanner.tsx": "26f9184f222cd13e9975ae1811b59796c43dc29471f702479e6615a8d5105802",
+    "gym-next/components/FooterUtilities.tsx": "96fbef44a4df01dce298403740713cf95208449b4902fc5503e144b7c5f54578",
+    "gym-next/components/SiteFooter.tsx": "c9aa7c62bc2cc2c8bb6e1bab0b42fc89ec4e5eb67b76721345c26929d72a3105",
+    "gym-next/components/SocialLinks.tsx": "ae0cb91e2c8c33eff3994f7bd7b3fb4f0960f4aa37ddf2dc04b418cc8864ffcc",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "cec9938fb524a78b1940b1a0bbff0ebd28fcd5378186d61374f1f8c2380f262f",
+    "gym-next/components/account-legacy/AuthProviderPresentation.tsx": "abc2fa0b8b27cd632ad8ef4fb4b4002afcbc540474353b5a5a3ae54564203c6e",
+    "gym-next/components/discovery/DiscoveryFrame.tsx": "6c51d494a4e5b75b1b085c302bccc93ddc7580641a4e9163106a51febb36ff29",
+    "gym-next/components/home/EditorialHome.tsx": "5257169cb84b80e36f9d9aa091418535780f04e2dd3bfdf570cb2d46a5c669fe",
+    "gym-next/lib/social-links.ts": "3c6a4cda197e195cef83f6f07165f33d2114d90e62630e5ef1487c4c78d0c0c6",
+    "gym-next/public/design_assets/providers/README.md": "7c0f13a69b7e777d268457e91941143a3080eb8edb97a9757bcd6e6dbeb27ee7",
+    "gym-next/public/design_assets/providers/google-g.png": "d1ce9c2af0b10a7333abc99bc706f9a6a199e5b65bf3e3009624f076b8638e6a",
+    "gym-next/tests/discovery-editorial.spec.ts": "d2a19d87fc1bd4cd1a143d708bad6ec743cb69d5865d0b17610579df5144430c",
+    "gym-next/tests/editorial-home.spec.ts": "d9bb1e649d55276e5b361c138ee42b64c3d044487fbcc5e96dc9ce4febff88d4",
+    "gym-next/tests/footer-auth.spec.ts": "328e3b0162ee7b737781a7b0c60a3cde6db5df7414a298cfda9a1f05d4c24fe9"
+  },
+  "buildAndTypes": "PASS isolated reviewed candidate",
+  "tests": {
+    "fullCampaign": {
+      "passed": 56,
+      "total": 56
+    },
+    "finalTargeted": {
+      "passed": 20,
+      "total": 20
+    },
+    "note": "Final targeted campaign after removing duplicate home return link and shortening footer tagline.",
+    "workers": 1,
+    "footerWidths": [
+      320,
+      390,
+      768,
+      1440
+    ]
+  },
+  "checks": {
+    "clientSecretBoundary": "PASS",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS"
+  },
+  "knownMissing": {
+    "officialSocialUrls": "Not present in project sources; asked owner; no fabricated links",
+    "googleOAuth": "No integration in application; disabled presentation only"
+  },
+  "boundaries": [
+    "No live OAuth or personal-account login tested",
+    "No production deployment",
+    "No API, payment, commission or RLS change"
+  ],
+  "assetSource": "https://developers.google.com/static/identity/images/g-logo.png"
+}

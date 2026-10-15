@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 async function dismissCookies(page: import("@playwright/test").Page) {
+  await expect(page.locator(".cookie-consent-banner,.cookie-preferences-trigger")).toHaveCount(1);
   const refuse = page.getByRole("button", { name: "Refuser le non nécessaire", exact: true });
   if (await refuse.isVisible()) await refuse.click();
 }
@@ -68,6 +69,8 @@ test("cookies, compte et navigation mobile sans chevauchement", async ({ page })
   await expect(banner).toBeVisible();
   await expect.poll(async()=>{const a=await banner.boundingBox();const b=await nav.boundingBox();return !!a&&!!b&&a.y+a.height<=b.y;}).toBe(true);
   await dismissCookies(page); const preferences=page.getByRole("button",{name:"Préférences cookies",exact:true});
+  await preferences.scrollIntoViewIfNeeded();
+  await expect(page.locator("[data-footer-utilities] .cookie-preferences-trigger")).toHaveCount(1);
   await expect.poll(async()=>{const a=await preferences.boundingBox();const b=await nav.boundingBox();return !!a&&!!b&&a.y+a.height<=b.y;}).toBe(true);
   await page.locator(".header-cta").click(); await expect(page).toHaveURL(/\/compte$/);
 });

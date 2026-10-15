@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { InternalNavigationEnhancer } from "@/components/InternalNavigationEnhancer";
-import { CookieConsentBanner } from "@/components/CookieConsentBanner";
+import { FooterUtilities } from "@/components/FooterUtilities";
 import { ClientEnhancers } from "@/components/ClientEnhancers";
-import { BackToTopButton } from "@/components/BackToTopButton";
 import "./globals.css";
 import "./redesign-2026.css";
 import "./final-motion-overrides.css";
 import "./gym-account-design.css";
+import "./gym-footer-design.css";
 
 const manrope = Manrope({
   subsets: ["latin", "latin-ext"],
@@ -89,8 +89,7 @@ export default function RootLayout({
         <InternalNavigationEnhancer />
         <ClientEnhancers />
         {children}
-        <CookieConsentBanner />
-        <BackToTopButton />
+        <FooterUtilities />
       </body>
     </html>
   );

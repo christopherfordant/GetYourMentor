@@ -15,7 +15,10 @@ Implémentation du premier lot : `EditorialHome.tsx`, `gym-editorial-design.css`
 
 Déclinaison découverte : trois pages sous `#gym-discovery.discovery-editorial`, classes `de-*` et feuille partagée `gym-discovery-design.css`. Recherche texte/formulaire, annuaire résultats/proximité et fiche photo/informations reprennent le rythme éditorial, sans copier toutes les sections de l’accueil. Header commun avec noms, ordre DOM et sept destinations inchangés ; les groupes se réorganisent sur mobile. Sélecteurs natifs accessibles, panneaux de profil avec boutons d’état et sections masquées sémantiquement. Planning indicatif en colonnes réorganisées sur mobile, sans masquer les jours. Utilitaires cookies/retour en haut placés après le footer pour éviter le recouvrement des CTA. Aucun changement d’autorisation, de commission ou de paiement.
 
+Précision active avant lecture des historiques : le lot footer place maintenant les utilitaires dans une zone réservée en tête de footer, et non après lui. La zone reste dans le flux, sans liens couverts ; SVG centré, cible 44 px, focus visible et retour en haut compatible avec reduced-motion. Les URL sociales non confirmées sont absentes de l’interface. Le bouton Google non branché est désactivé et expliqué ; Gmail ne constitue pas un fournisseur distinct. Voir `docs/FOOTER_CONNEXION_2026-10-15.md`.
+
 ### Historique des références remplacées
+
 
 > **Arbitrage utilisateur du 15 octobre 2026 — refonte claire.** Les fonds sombres, le bleu nuit/lime et la disposition mobile figée sont remplacés pour les pages migrées par des surfaces claires, textes contrastés et accents violets. Les noms, ordre logique et destinations du header restent identiques ; adaptation mobile et burger autorisés. Les règles de sécurité, métier, reduced-motion et validation restent actives. Les prescriptions historiques ci-dessous ne doivent pas réintroduire un thème sombre. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 

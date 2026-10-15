@@ -1,6 +1,14 @@
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
-## Dernier lot — découverte éditoriale
+## Dernier lot — footer et connexion
+
+Zone réservée en tête de footer pour la flèche SVG centrée et les préférences cookies, sans doublon ni recouvrement des liens ; bannière initiale indépendante et retour de focus. Footer commun compact, sans ancres sociales fictives, avec disposition en colonnes et ancrage bas de viewport sur une page courte. Bouton email avec enveloppe ; Google identifié mais désactivé, aucun OAuth simulé.
+
+[Rapport, preuves et informations manquantes](FOOTER_CONNEXION_2026-10-15.md). Les URL officielles des réseaux sociaux restent à fournir ; configuration commune prête, aucune adresse inventée. Build/typage isolés et vérifications consignés dans le rapport et son JSON de preuves. Branche : `design/refonte-progressive-lot1`. Modifications antérieures de layout, cookies et comptes préservées hors du commit ciblé ; aucun paiement réel, changement de droits ou déploiement.
+
+La suite reste la déclinaison des créneaux et du récapitulatif. Ce lot n’active pas Google OAuth, ne certifie pas les services de production et ne remplace pas les décisions métier.
+
+## Historique — découverte éditoriale
 
 Recherche, annuaire et fiche déclinent le design de l’accueil : cadre partagé, typographies communes, palette violette fixe, compositions responsive, données de catalogue et sept destinations du header préservées. Les trois injections de CSS hérité sont retirées ; classes `de-*`, sans modification des CSS comptes/paiements locaux. Préférences cookies et retour en haut après le footer ; validation des disciplines inconnues et états de chargement/erreur ajoutés.
 
