@@ -69,7 +69,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
   const demoAllowed = isDemoFallbackAllowed();
-  const persistedCoaches = hasPersistentCoachCatalog
+  const persistedCoaches = (hasPersistentCoachCatalog || demoAllowed)
     ? await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm, gender, practice, level, format, availability, minRating, maxPrice })
     : null;
   const initialCoaches = persistedCoaches?.map((coach) => ({

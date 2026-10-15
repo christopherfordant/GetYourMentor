@@ -344,7 +344,7 @@ export function RechercheCoachLegacyPage({
   return (
     <>
       <style jsx global>{legacyStyles}</style>
-      <div className="site-shell sport-page-shell">
+      <div className="site-shell sport-page-shell" id="gym-discovery" data-gym-discovery="search">
         <RechercheHeader />
         <main className="sport-page" data-sport-page data-sport-theme={sportSlug}>
           <RechercheHeroSection

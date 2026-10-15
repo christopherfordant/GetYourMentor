@@ -1915,26 +1915,3 @@
   .experienceDots { flex-direction: row; }
   .experienceDots button[aria-current="true"] { width: 30px; height: 6px; }
 }
-
-/* Final reference palette overrides */
-.page { background: #07101f !important; color: #f4f7ff !important; }
-.topbar, .topbarScrolled { background: rgba(10,22,40,.8) !important; color: #f4f7ff !important; border-bottom-color: rgba(255,255,255,.05) !important; }
-.brandName, .sportLink, .topbarLink { color: #f4f7ff !important; }
-.hero { background: #07101f !important; }
-.heroOverlay { background: radial-gradient(circle at center, rgba(7,16,31,.08), rgba(7,16,31,.82) 66%, #07101f 88%) !important; }
-.heroTitle, .sectionHeading h2, .recruitCopy h2, .faqSection h2, .stepHead h3, .slideContent h4, .paymentStrong, .faqItem summary { color: #f4f7ff !important; }
-.heroCopy, .sectionIntro, .carouselHint, .recruitCopy p, .slideMeta, .slideDetail, .slideCaption, .slotSelection, .paymentRow, .metric span, .insightCard p, .localeColumn p, .faqItem p { color: #aebbd1 !important; }
-.searchCard { background: rgba(15,27,53,.9) !important; border-color: rgba(219,230,255,.18) !important; }
-.field { background: rgba(34,52,84,.72) !important; }
-.fieldLabel { color: #caff3d !important; }
-.fieldInput { color: #fff !important; }
-.accountButton, .searchButton, .softButton, .insightButton, .darkButton, .darkButtonLink { background: #caff3d !important; color: #07101f !important; }
-.carouselViewport { background: rgba(15,27,53,.72) !important; }
-.stepCard, .insightCard, .localeColumn { background: rgba(17,31,57,.94) !important; border-color: rgba(219,230,255,.14) !important; }
-.carouselButton, .arrowButton { background: #172943 !important; color: #fff !important; border-color: rgba(219,230,255,.25) !important; }
-.stepNumber, .slotButton { background: #24395d !important; color: #caff3d !important; }
-.slotSelected { background: #caff3d !important; color: #07101f !important; }
-.metricsGrid, .metric, .faqItem, .siteFooter { border-color: rgba(219,230,255,.13) !important; }
-.metric strong, .localeLinks, .footerLinks { color: #caff3d !important; }
-.siteFooter { background: #07101f !important; color: #aebbd1 !important; }
-.footerBrand { color: #f4f7ff !important; }

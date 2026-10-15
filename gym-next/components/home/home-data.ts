@@ -5,10 +5,10 @@ export type SportSlug =
   | "sports-de-combat";
 
 export const sportLinks: Array<{ label: string; slug: SportSlug; coachCount: string }> = [
-  { label: "Football", slug: "football", coachCount: "248 coachs" },
-  { label: "Basketball", slug: "basketball", coachCount: "132 coachs" },
-  { label: "Fitness", slug: "metiers-de-la-forme", coachCount: "415 coachs" },
-  { label: "Sports de combat", slug: "sports-de-combat", coachCount: "96 coachs" },
+  { label: "Football", slug: "football", coachCount: "Explorer les profils" },
+  { label: "Basketball", slug: "basketball", coachCount: "Explorer les profils" },
+  { label: "Fitness", slug: "metiers-de-la-forme", coachCount: "Explorer les profils" },
+  { label: "Sports de combat", slug: "sports-de-combat", coachCount: "Explorer les profils" },
 ];
 
 export const profileSlides = [
@@ -105,9 +105,9 @@ export const paymentSlides = [
 ];
 
 export const metrics = [
-  { value: "890+", label: "coachs certifiés" },
-  { value: "12k", label: "sportifs actifs" },
-  { value: "4.9★", label: "note moyenne" },
+  { value: "4", label: "disciplines" },
+  { value: "3", label: "profils accompagnés" },
+  { value: "En ligne", label: "recherche et réservation" },
 ];
 
 export const insights = [

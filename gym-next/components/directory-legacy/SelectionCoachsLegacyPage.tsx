@@ -356,7 +356,7 @@ function DirectoryToolbar({
         <div className="directory-filter-panel" data-directory-filter-panel>
           <label>
             Genre
-            <select value={filters.gender} onChange={(event) => onFiltersChange({ ...filters, gender: event.target.value as DirectoryFilters["gender"] })}>
+            <select aria-label="Genre" value={filters.gender} onChange={(event) => onFiltersChange({ ...filters, gender: event.target.value as DirectoryFilters["gender"] })}>
               <option value="all">Tous</option>
               <option value="femme">Femme</option>
               <option value="homme">Homme</option>
@@ -364,7 +364,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Lieu de pratique
-            <select value={filters.practice} onChange={(event) => onFiltersChange({ ...filters, practice: event.target.value as DirectoryFilters["practice"] })}>
+            <select aria-label="Lieu de pratique" value={filters.practice} onChange={(event) => onFiltersChange({ ...filters, practice: event.target.value as DirectoryFilters["practice"] })}>
               <option value="all">Tous</option>
               <option value="interieur">Intérieur</option>
               <option value="exterieur">Extérieur</option>
@@ -372,7 +372,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Niveau
-            <select value={filters.level} onChange={(event) => onFiltersChange({ ...filters, level: event.target.value as DirectoryFilters["level"] })}>
+            <select aria-label="Niveau" value={filters.level} onChange={(event) => onFiltersChange({ ...filters, level: event.target.value as DirectoryFilters["level"] })}>
               <option value="all">Tous</option>
               <option value="debutant">Débutant</option>
               <option value="intermediaire">Intermédiaire</option>
@@ -381,7 +381,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Format
-            <select value={filters.format} onChange={(event) => onFiltersChange({ ...filters, format: event.target.value as DirectoryFilters["format"] })}>
+            <select aria-label="Format" value={filters.format} onChange={(event) => onFiltersChange({ ...filters, format: event.target.value as DirectoryFilters["format"] })}>
               <option value="all">Tous</option>
               <option value="presentiel">Présentiel</option>
               <option value="visio">Visio</option>
@@ -389,7 +389,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Disponibilité
-            <select value={filters.availability} onChange={(event) => onFiltersChange({ ...filters, availability: event.target.value as DirectoryFilters["availability"] })}>
+            <select aria-label="Disponibilité" value={filters.availability} onChange={(event) => onFiltersChange({ ...filters, availability: event.target.value as DirectoryFilters["availability"] })}>
               <option value="all">Toutes</option>
               <option value="morning">Matin</option>
               <option value="afternoon">Après-midi</option>
@@ -397,7 +397,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Budget
-            <select value={filters.budget} onChange={(event) => onFiltersChange({ ...filters, budget: event.target.value as DirectoryFilters["budget"] })}>
+            <select aria-label="Budget" value={filters.budget} onChange={(event) => onFiltersChange({ ...filters, budget: event.target.value as DirectoryFilters["budget"] })}>
               <option value="all">Tous</option>
               <option value="under-40">Moins de 40 €</option>
               <option value="40-60">40 à 60 €</option>
@@ -406,7 +406,7 @@ function DirectoryToolbar({
           </label>
           <label>
             Note minimale
-            <select value={filters.rating} onChange={(event) => onFiltersChange({ ...filters, rating: event.target.value as DirectoryFilters["rating"] })}>
+            <select aria-label="Note minimale" value={filters.rating} onChange={(event) => onFiltersChange({ ...filters, rating: event.target.value as DirectoryFilters["rating"] })}>
               <option value="all">Toutes</option>
               <option value="4">4+</option>
               <option value="4.5">4,5+</option>
@@ -465,6 +465,7 @@ function CoachResultCard({
           <div className="coach-result-address">{coach.address}</div>
           {coach.distanceKm != null ? <div className="coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
           <div className="coach-result-meta">{coach.meta}</div>
+          {coach.price != null ? <p data-coach-price>À partir de {coach.price} EUR</p> : null}
         </div>
         <div className="coach-result-slots">
           {Array.from(dayMap.values()).map((entry) => (
@@ -535,10 +536,6 @@ function DirectoryContent({
   return (
     <section className="coach-directory-content">
       <div className="coach-directory-list">
-        <header className="directory-heading">
-          <h1 data-directory-title>{title}</h1>
-          <p data-directory-subtitle>{subtitle}</p>
-        </header>
 
         <div className="coach-results" data-coach-results>
           {visibleCoaches.map((coach, index) => (
@@ -563,6 +560,7 @@ function DirectoryContent({
 
       <aside className="coach-directory-map" aria-label="Apercu de proximite des coachs">
         <div className="coach-map-panel">
+          <p className="discovery-note">Vue schématique : les positions dessinées ne localisent pas les coachs.</p>
           <div className="coach-map-grid"></div>
           <div className="coach-map-water"></div>
           <div className="coach-map-summary">
@@ -666,9 +664,13 @@ export function SelectionCoachsLegacyPage({
   return (
     <>
       <style jsx global>{legacyStyles}</style>
-      <div className="site-shell coach-profile-shell">
+      <div className="site-shell coach-profile-shell" id="gym-discovery" data-gym-discovery="directory">
         <DirectoryHeader />
         <main className="coach-directory-page" data-coach-directory-page>
+          <header className="directory-heading">
+            <h1 data-directory-title>{currentDirectory.getTitle()}</h1>
+            <p data-directory-subtitle>{currentDirectory.getSubtitle(cityValue)}</p>
+          </header>
           <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} isLocating={isLocating} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
           <DirectoryContent
             sportSlug={sportSlug}

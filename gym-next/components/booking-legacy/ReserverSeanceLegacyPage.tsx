@@ -1,11 +1,11 @@
 "use client";
 
-import type { CSSProperties, RefObject } from "react";
+import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { ContactCoachForm } from "@/components/booking-legacy/ContactCoachForm";
-import { findCoach, type CoachProfile } from "@/lib/domain";
+import { coachProfiles, type CoachProfile } from "@/lib/domain";
 
 type ReserverSeanceLegacyPageProps = {
   legacyStyles: string;
@@ -19,42 +19,11 @@ type WeekDay = {
   slots: string[];
 };
 
-const bookingProfileDictionary = {
-  football: {
-    followers: "22 joueurs suivis",
-    specialty: "Specialite football",
-    bio: "Bonjour, je m'appelle Bryce et je partage une experience de terrain fondee sur l'exigence, la lecture du jeu et la repetition utile. Mon objectif est d'aider chaque joueur a progresser avec plus de clarte, de confiance et de regularite.",
-    reviews: "284 avis verifies",
-    qualification: "Coach premium football",
-    diploma: "BEF / UEFA B",
-  },
-  basketball: {
-    followers: "18 joueurs suivis",
-    specialty: "Specialite basketball",
-    bio: "Bonjour, je m'appelle Sarah et j'accompagne les joueurs qui veulent gagner en mecanique, en rythme et en constance. Chaque seance est construite pour transformer rapidement les automatismes en vrai niveau de jeu.",
-    reviews: "192 avis verifies",
-    qualification: "Coach premium basketball",
-    diploma: "CQP Technicien sportif",
-  },
-  "metiers-de-la-forme": {
-    followers: "31 clients suivis",
-    specialty: "Specialite remise en forme",
-    bio: "Bonjour, je m'appelle Julien et je propose un accompagnement premium pour reprendre, accelerer ou structurer votre routine. Le cadre est progressif, lisible et adapte a votre energie comme a vos objectifs.",
-    reviews: "318 avis verifies",
-    qualification: "Coach premium forme",
-    diploma: "BPJEPS Activites de la forme",
-  },
-  "sports-de-combat": {
-    followers: "16 athletes suivis",
-    specialty: "Specialite sports de combat",
-    reviews: "167 avis verifies",
-    qualification: "Coach premium combat",
-    diploma: "Diplome federale / BPJEPS",
-    bio: "Bonjour, je m'appelle Ines et je conçois des sessions precises pour travailler technique, garde, placement et confiance. L'idee est d'allier intensite, securite et progression concrete a chaque rendez-vous.",
-  },
-} as const;
+const bookingProfileDictionary = { football: true, basketball: true, "metiers-de-la-forme": true, "sports-de-combat": true } as const;
 
 type BookingProfile = {
+  ratingValue?: string;
+  priceFrom?: number;
   followers: string;
   specialty: string;
   bio: string;
@@ -69,7 +38,7 @@ type BookingProfile = {
 const bookingVisualDictionary = {
   football: {
     hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("/design_assets/content_library/football/football-field-mentor.jpg") center 18% / cover no-repeat',
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("/design_assets/content_library/web_reference/football-coaching.jpg") center 18% / cover no-repeat',
   },
   basketball: {
     hero:
@@ -164,19 +133,15 @@ function BookingScorePanel({
     <section className="booking-score-panel booking-score-panel-side">
       <p className="booking-score-label">Note :</p>
       <div className="booking-score-display" data-booking-score-large>
-        5 / 5
+        {profile.ratingValue ?? "Pas encore de note"}
       </div>
       <p className="booking-score-meta" data-booking-score-copy>
         {profile.reviews}
       </p>
-      <div className="booking-score-breakdown">
-        <div>Accompagnement <strong>5 / 5</strong></div>
-        <div>Pedagogie <strong>5 / 5</strong></div>
-        <div>Qualite terrain <strong>5 / 5</strong></div>
-      </div>
+      <p className="booking-score-breakdown">Note du catalogue ; sous-notes non disponibles.</p>
       <div className="booking-score-facts">
         <div className="booking-score-fact">
-          <span>Joueurs suivis</span>
+          <span>Activité</span>
           <strong data-booking-score-followers>{profile.followers}</strong>
         </div>
         <div className="booking-score-fact">
@@ -199,9 +164,6 @@ function BookingHeroSection({
   heroBackground,
   activeTab,
   onTabChange,
-  tabsFixed,
-  tabsInlineStyle,
-  tabsRef,
   galleryMainRef,
 }: {
   coach: string;
@@ -210,9 +172,6 @@ function BookingHeroSection({
   heroBackground: string;
   activeTab: "apropos" | "planning" | "contenus";
   onTabChange: (value: "apropos" | "planning" | "contenus") => void;
-  tabsFixed: boolean;
-  tabsInlineStyle?: CSSProperties;
-  tabsRef: RefObject<HTMLElement | null>;
   galleryMainRef: RefObject<HTMLDivElement | null>;
 }) {
   return (
@@ -222,11 +181,9 @@ function BookingHeroSection({
           <h1 data-booking-name>{coach}</h1>
         </div>
 
+        <p data-booking-price>À partir de {profile.priceFrom} EUR</p>
         <div className="booking-profile-meta" data-booking-geo-hover>
-          <div className="booking-followers-pill" data-booking-followers>
-            {profile.followers}
-          </div>
-          <div className="booking-address" data-booking-address>{`9e arrondissement, ${city}`}</div>
+          <div className="booking-address" data-booking-address>{city}</div>
         </div>
       </div>
 
@@ -245,6 +202,7 @@ function BookingHeroSection({
             <button className="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
             ›
             </button>
+            <span className="booking-gallery-caption">Visuel d’illustration, sans identification du coach.</span>
           </div>
 
           <aside className="booking-profile-score-wrap">
@@ -264,10 +222,8 @@ function BookingHeroSection({
       </div>
 
       <nav
-        ref={tabsRef}
         className="booking-tabs booking-tabs-profile"
         aria-label="Sections du profil"
-        style={tabsFixed ? tabsInlineStyle : undefined}
       >
         <button
           className={`booking-tab${activeTab === "apropos" ? " is-active" : ""}`}
@@ -376,11 +332,11 @@ function BookingAProposPane({
               </div>
               <div className="booking-practical-item">
                 <span>Confirmation</span>
-                <strong>Validation immediate du creneau choisi</strong>
+                <strong>Confirmation après acceptation du coach</strong>
               </div>
               <div className="booking-practical-item">
                 <span>Paiement</span>
-                <strong>Reservation securisee en ligne</strong>
+                <strong>Paiement après acceptation</strong>
               </div>
               <div className="booking-practical-item">
                 <span>Annulation</span>
@@ -457,6 +413,7 @@ function BookingPlanningPane({
   return (
     <section className={`booking-pane${isActive ? " is-active" : ""}`} data-booking-pane="planning" id="booking-planning-section">
       <div className="booking-planning-shell">
+        <p className="discovery-note">Planning indicatif de présentation. Les créneaux, la durée et le prix de la prestation sont vérifiés à l’étape de réservation. Toute demande reste soumise à l’acceptation du coach.</p>
         <header className="booking-section-head booking-section-head-planning">
           <h2>Date et heure</h2>
           <p>Choisissez directement votre creneau disponible.</p>
@@ -515,10 +472,12 @@ function BookingPlanningPane({
 }
 
 function BookingContenusPane({
+  allowDemoPreview,
   isActive,
   coach,
   specialty,
 }: {
+  allowDemoPreview: boolean;
   isActive: boolean;
   coach: string;
   specialty: string;
@@ -540,16 +499,14 @@ function BookingContenusPane({
             type="button"
             data-content-unlock
             onClick={() => setUnlocked(true)}
-            disabled={unlocked}
+            disabled={!allowDemoPreview || unlocked}
           >
-            {unlocked ? "Abonnement actif" : "S'abonner pour 9,99 EUR / mois"}
+            {unlocked ? "Prévisualisation de démo" : allowDemoPreview ? "Prévisualiser les contenus (simulation)" : "Fonction à venir"}
           </button>
         </div>
 
         <div className="booking-content-lock-note" data-content-lock-note>
-          {unlocked
-            ? "Abonnement actif. Tous les contenus du coach sont maintenant visibles."
-            : "Contenus verrouilles au debut. Une fois abonne, on peut tout voir."}
+          Aperçu de contenus en préparation. Aucun abonnement actif, aucun avantage Premium et aucun paiement déclenché.
         </div>
 
         <div className={`booking-content-feed ${unlocked ? "is-unlocked" : "is-locked"}`} data-content-feed>
@@ -591,13 +548,13 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
 
   const coach = params.coach || "Studio Form Marseille";
   const city = params.city || "Paris";
-  const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? findCoach(coach) : null);
+  const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? coachProfiles.find(item => item.id === coach || item.name.toLowerCase() === coach.toLowerCase()) ?? null : null);
   useEffect(() => {
     let active = true;
     fetch(`/api/coaches/${encodeURIComponent(coach)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
       .then((payload) => {
-        if (active && payload.data) setCoachData(payload.data as CoachProfile);
+        if (active && payload.data && (payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) setCoachData(payload.data as CoachProfile);
       })
       .catch(() => undefined);
     return () => {
@@ -605,7 +562,11 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
     };
   }, [coach]);
   const profile = {
-    ...bookingProfileDictionary[sportSlug],
+    followers: "Activité non publiée",
+    qualification: coachData?.verified ? "Profil vérifié" : "Vérification à confirmer",
+    reviews: coachData?.reviewCount ? `${coachData.reviewCount} avis` : "Pas encore d’avis",
+    ratingValue: coachData?.reviewCount ? `${coachData.rating.toFixed(1)} / 5` : "Pas encore de note",
+    priceFrom: coachData?.priceFrom,
     specialty: coachData?.specialty ?? "",
     bio: coachData?.description ?? "",
     diploma: coachData?.diplomas?.replace(/\s+—\s+à compléter$/i, "") ?? "",
@@ -613,84 +574,30 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
     sessionTypes: coachData?.sessionTypes ?? "",
     availability: coachData?.availability ?? "",
   };
-  const visual = bookingVisualDictionary[sportSlug];
+  const coachLabel = coachData?.name ?? coach;
+  const coachCity = coachData?.city ?? city;
+  const resolvedSport = coachData?.sport === "fitness" ? "metiers-de-la-forme" : coachData?.sport ?? sportSlug;
+  const visual = bookingVisualDictionary[resolvedSport];
   const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
   const confirmHref = useMemo(
     () =>
       buildNextPath(nextRoutes.slot, {
-        sport: sportSlug,
-        city,
-        coach,
-        service: "Coaching remise en forme",
+        sport: resolvedSport,
+        city: coachCity,
+        coach: coachData?.id ?? coach,
+        service: coachData?.specialty ?? "Coaching",
         duration: "45min",
-        price: "48 EUR",
+        price: String(coachData?.priceFrom ?? ""),
         slot: selectedSlot,
         mentor: coach,
       }),
-    [sportSlug, city, coach, selectedSlot],
+    [resolvedSport, coachCity, coach, coachData, selectedSlot],
   );
   const [activeTab, setActiveTab] = useState<"apropos" | "planning" | "contenus">("apropos");
   const [weekIndex, setWeekIndex] = useState(0);
-  const [tabsFixed, setTabsFixed] = useState(false);
-  const [tabsInlineStyle, setTabsInlineStyle] = useState<CSSProperties | undefined>(undefined);
-  const tabsRef = useRef<HTMLElement | null>(null);
   const galleryMainRef = useRef<HTMLDivElement | null>(null);
   const hasMountedRef = useRef(false);
 
-  useEffect(() => {
-    const onScroll = () => {
-      const isCompactLayout = window.matchMedia("(max-width: 900px)").matches;
-
-      if (isCompactLayout) {
-        setTabsFixed(false);
-        setTabsInlineStyle(undefined);
-        return;
-      }
-
-      const scrollY = window.scrollY;
-      const headerOffset = 78;
-      let tabsSafeTop = Math.max(headerOffset - 14, 24);
-      const shouldDockTabsToBottom = scrollY <= 8;
-      const shouldFixTabs = scrollY > 8;
-      setTabsFixed(shouldDockTabsToBottom || shouldFixTabs);
-
-      if (tabsRef.current) {
-        const rect = tabsRef.current.getBoundingClientRect();
-
-        if (shouldDockTabsToBottom) {
-          setTabsInlineStyle({
-            position: "fixed",
-            left: `${Math.round(rect.left)}px`,
-            bottom: "0",
-            top: "auto",
-            width: `${Math.round(rect.width)}px`,
-            zIndex: 18,
-          });
-        } else if (shouldFixTabs) {
-          tabsSafeTop = headerOffset + Math.round(rect.height) + 14;
-          setTabsInlineStyle({
-            position: "fixed",
-            top: `${headerOffset}px`,
-            left: `${Math.round(rect.left)}px`,
-            bottom: "auto",
-            width: `${Math.round(rect.width)}px`,
-            zIndex: 18,
-          });
-        } else {
-          setTabsInlineStyle(undefined);
-        }
-      }
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [activeTab]);
 
   useEffect(() => {
     if (!hasMountedRef.current) {
@@ -705,16 +612,16 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
     } as const;
 
     const target = document.getElementById(targets[activeTab]);
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    target?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
   }, [activeTab]);
 
   return (
     <>
       <style jsx global>{legacyStyles}</style>
-      <div className="site-shell booking-shell">
+      <div className="site-shell booking-shell" id="gym-discovery" data-gym-discovery="profile">
         <BookingHeader />
         <main className="booking-page booking-profile-page" data-booking-page>
-          {!coachData && !allowDemoFallback ? (
+          {!coachData ? (
             <section className="booking-card" data-coach-unavailable>
               <h1>Profil coach indisponible</h1>
               <p>Cette fiche sera accessible après la configuration du catalogue de préproduction.</p>
@@ -722,18 +629,15 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
           ) : (
             <>
               <BookingHeroSection
-                coach={coach}
-                city={city}
+                coach={coachLabel}
+                city={coachCity}
                 profile={profile}
                 heroBackground={visual.hero}
                 activeTab={activeTab}
                 onTabChange={setActiveTab}
-                tabsFixed={tabsFixed}
-                tabsInlineStyle={tabsInlineStyle}
-                tabsRef={tabsRef}
                 galleryMainRef={galleryMainRef}
               />
-              <BookingAProposPane coach={coach} profile={profile} isActive={activeTab === "apropos"} />
+              <BookingAProposPane coach={coachLabel} profile={profile} isActive={activeTab === "apropos"} />
               <BookingPlanningPane
                 isActive={activeTab === "planning"}
                 weekIndex={weekIndex}
@@ -743,7 +647,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
                 onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
                 onSelectSlot={setSelectedSlot}
               />
-              <BookingContenusPane isActive={activeTab === "contenus"} coach={coach} specialty={profile.specialty} />
+              <BookingContenusPane allowDemoPreview={allowDemoFallback} isActive={activeTab === "contenus"} coach={coachLabel} specialty={profile.specialty} />
             </>
           )}
         </main>

@@ -1,4 +1,5 @@
 @import "./gym-design-tokens.css";
+@import "./gym-discovery-design.css";
 
 /* Lot 1: one opt-in account boundary supersedes the injected legacy rules.
    IDs give a stable scope; !important is limited to properties already forced
