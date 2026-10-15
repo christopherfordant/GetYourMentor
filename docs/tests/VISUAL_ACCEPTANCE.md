@@ -6,6 +6,8 @@ Largeurs : 320, 390, 430, 621, 768, 900, 1024, 1280, 1440 px. Mesure : scrollWid
 
 Accueil : six sections de la maquette, bande de valeurs, image/étiquette, trois profils, trois panneaux, trois offres, feuille de route, sources adaptées, FAQ existante, footer et navigation mobile. Vérifier tous les onglets, les cinq catégories de dialogues, Échap/retour de focus et la palette violette fixe, y compris après rechargement. Aucun contrôle de changement de coloris ne doit apparaître.
 
+Découverte : recherche, annuaire et fiche doivent employer les typographies de l’accueil, la palette fixe et un header partagé aux sept destinations inchangées. Tester les neuf largeurs, les quatre disciplines, ville/retour arrière, tri, budget/réinitialisation, identité/prix/avis du catalogue, passage vers `/creneau`, sections du profil, état de chargement/erreur, descriptions/canonical et ancres du footer. Les préférences cookies restent accessibles après le footer sans se superposer aux actions ; tester réouverture et retour en haut à 320 px. Vérifier que le planning indicatif montre tous les jours sans débordement de page. Les profils/avis de test portent une mention de démonstration. Ne pas confondre ces tests avec une certification RLS distante, un audit SEO exhaustif ou une recette physique mobile.
+
 Liens : CTA de recherche, quatre disciplines, Mon compte accessible sur mobile, CGU/CGV/confidentialité et ancres historiques parcours/tarifs/FAQ. Préférence de langue maintenue dans le footer.
 
 Les outils et offres prévus sont explicitement descriptifs : aucun POST commercial lors des aperçus et aucune activation Premium. Tester les cookies ouverts/fermés et leur séparation de la barre mobile. Contrôler un seul header et un seul footer.

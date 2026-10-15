@@ -21,6 +21,7 @@ for (const [name, url] of routes) {
       await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
       await expect(header.getByRole("link", { name: "Mon compte", exact: true })).toBeVisible();
       await expect(header.getByRole("link", { name: "Je suis coach", exact: true })).toBeVisible();
+      await expect(header.getByRole("link", { name: "GetYourMentor", exact: true })).toBeVisible();
       await expect(header).toHaveCSS("background-color", "rgb(255, 255, 255)");
       if ([390, 1440].includes(width)) {
         await page.evaluate(() => scrollTo(0, 0));
@@ -46,7 +47,7 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   const { data } = await response.json(); expect(data.length).toBeGreaterThan(0);
   const coach = data[0];
   await page.goto("/coachs?sport=football&city=Paris");
-  const card = page.locator(".coach-result-card").filter({ has: page.getByRole("heading", { name: coach.name, exact: true }) });
+  const card = page.locator("[data-coach-card]").filter({ has: page.getByRole("heading", { name: coach.name, exact: true }) });
   await expect(card.locator("[data-coach-price]")).toContainText(`${coach.priceFrom} EUR`);
   await page.getByRole("combobox", { name: "Trier les coachs" }).selectOption("price-asc");
   await page.getByRole("button", { name: "Filtres", exact: true }).click();
@@ -54,7 +55,7 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   await page.getByLabel("Budget", { exact: true }).selectOption("under-40");
   await expect(card).toHaveCount(0);
   await page.getByLabel("Budget", { exact: true }).selectOption("all");
-  await card.locator(".coach-book-button").click();
+  await card.locator("[data-coach-link]").click();
   await expect(page.locator("[data-booking-name]")).toHaveText(coach.name);
   await expect(page.locator("[data-booking-address]")).toHaveText(coach.city);
   await expect(page.locator("[data-booking-price]")).toContainText(`${coach.priceFrom} EUR`);

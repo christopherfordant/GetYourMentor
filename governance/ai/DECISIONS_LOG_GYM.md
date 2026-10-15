@@ -158,3 +158,13 @@ Ce journal ne recense que les decisions structurantes ayant un impact sur :
 - Sources : Strategie perplexity p. 4 et 6 reste secondaire face au MVP p. 1 et Business Plan p. 35-36. Pas de nouveaux tarifs 50/200 EUR ni suppression des paiements.
 - Preuves : docs/AUDIT_ECARTS_REFONTE_2026-10-15.md, docs/REFONTE_PROGRESSIVE_2026-10-15.md et docs/assets/alignement-accueil/verification.json.
 - Verification : build/type isoles PASS ; accueil 10/10 developpement puis 10/10 production isolee. Aucun deploiement, paiement reel ou changement de droits.
+
+
+## 2026-10-15 - Decouverte editoriale : recherche, annuaire, fiche
+
+- Instruction : decliner l'accueil valide sur les trois pages, sans changer les routes ni les droits.
+- Livraison : DiscoveryFrame partage, classes de-* et typographies communes, retrait des trois injections CSS legacy, donnees du catalogue et sept destinations conservees.
+- Corrections observees : controles cookies et retour en haut apres le footer ; chargement/erreur ; suppression de galerie inerte et de profils de secours synthetiques ; validation Object.hasOwn des disciplines.
+- Preuves : docs/REFONTE_DECOUVERTE_EDITORIALE_2026-10-15.md et docs/assets/decouverte-editoriale/verification.json.
+- Verification : build/type isoles PASS, 40/40 tests puis 6/6 controles cibles apres ajustement du nom accessible du logo. Aucun paiement reel ni changement de commission/RLS.
+- Suite : creneaux et recapitulatif. Pas de fusion ni deploiement ; changements metier anterieurs exclus.

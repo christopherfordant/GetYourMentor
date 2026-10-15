@@ -1,5 +1,7 @@
 /* Approved pitch direction, 15 October 2026. Opt-in: existing pages keep their theme. */
 :root {
+  --gym-font-body: Arial, Helvetica, sans-serif;
+  --gym-font-display: Impact, "Arial Narrow", Arial, sans-serif;
   --gym-paper: #f6f4f0;
   --gym-surface: #ffffff;
   --gym-ink: #141316;

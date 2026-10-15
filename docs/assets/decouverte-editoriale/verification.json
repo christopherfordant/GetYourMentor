@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-15",
+  "branch": "design/refonte-progressive-lot1",
+  "baseCommit": "ede432f8e7809ab6ad35a6ec1b865be89fba63a0",
+  "scope": [
+    "/recherche",
+    "/coachs",
+    "/coach"
+  ],
+  "sourceSha256": {
+    "gym-next/app/recherche/page.tsx": "ab8eb02bd6d4b3f113ff2d700129a13d855a8408ee5180e9d9eeed16e57c4262",
+    "gym-next/app/coachs/page.tsx": "637927b2f7b17b7f79478439ef8309134a4969efb93e84b6ec1e4f6682951913",
+    "gym-next/app/coach/page.tsx": "633e56a7cc9c47a2486b79764832e0283158c2044c17f2f5dc12c1511b0a5bda",
+    "gym-next/app/gym-discovery-design.css": "6193073de5539cc6f87192bb4b7ed04321386edcc2db2fab079d6b3eaedc4081",
+    "gym-next/app/gym-design-tokens.css": "f6e2faccb167a8a4fd2b370de3553bcde8b79f1c064101cdf5bd987135e2d62a",
+    "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx": "0e7e2ba238a06beafe6a5770af73e2ecd25e9f7c2818d8638c048fa747a28235",
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": "6aabdfd9c135c49fc42bfa917437b3986304a0164021c02a52546725d5535aa7",
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": "ff6dc796c6e10524c443c5bf979ee1fab4d0b4ac2609b69a9cae6ea7f9669ab7",
+    "gym-next/components/booking-legacy/ContactCoachForm.tsx": "bae70d358cc12bb6c7f3d17d86b9f6e9e25566f047583d2b3210e5d54d4a743c",
+    "gym-next/components/discovery/DiscoveryFrame.tsx": "366ea59fbb921cc138b86f37b6c51b8eb9f601926ec444f3ccf30e49c2c0d604",
+    "gym-next/components/discovery/CoachDetails.tsx": "ad4c642ddf03da8c2ef95cfaa6eb1f5f4287d64a62e313698e39fd2fdfb61a39",
+    "gym-next/tests/discovery-design.spec.ts": "9fbedf9953b6830fe15d9559d522e3cb3f93c0f180148efd7f797fa414050dcc",
+    "gym-next/tests/business-flow.spec.ts": "16e5e88f8bb1a30b4377697f8f209828622e57406c0201ebf8ae675c4a491df4",
+    "gym-next/tests/discovery-editorial.spec.ts": "965169c57aef71f9069f91ddde1a573e673c09a2bd4017dd882e91551cba3a68"
+  },
+  "build": "PASS isolated, including types",
+  "tests": {
+    "initialResponsive": {
+      "passed": 6,
+      "total": 6
+    },
+    "productionCampaign": {
+      "passed": 40,
+      "total": 40
+    },
+    "finalAccessibleLogoRegression": {
+      "passed": 6,
+      "total": 6
+    },
+    "note": "Full campaign before the final aria-label addition; final build and targeted responsive regression verify that addition.",
+    "workers": 1,
+    "widths": [
+      320,
+      390,
+      430,
+      621,
+      768,
+      900,
+      1024,
+      1280,
+      1440
+    ]
+  },
+  "legacyCssSourceBytesNoLongerInjected": 115749,
+  "nextRouteBundleKB": {
+    "search": 3.2,
+    "directory": 6.17,
+    "profile": 7.8
+  },
+  "checks": {
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS",
+    "clientSecretBoundary": "PASS",
+    "supabaseSchema": "PASS static only",
+    "ragCorpus": "PASS 8 documents",
+    "lexicalEvaluation": "PASS 8 cases"
+  },
+  "visualEvidence": {
+    "before": "Local server without catalog configuration",
+    "after": "Existing acceptance fixtures, visibly marked as demo",
+    "MCPFinal": {
+      "logoAccessibleName": "GetYourMentor",
+      "preferencesPosition": "static",
+      "overflowAt390": false
+    }
+  },
+  "limits": [
+    "No live RLS audit",
+    "Existing local backend changes excluded",
+    "No physical mobile test or full SEO/Web Vitals audit",
+    "No automatic GitHub CI on this branch under current workflow"
+  ],
+  "deployedByAgent": false
+}

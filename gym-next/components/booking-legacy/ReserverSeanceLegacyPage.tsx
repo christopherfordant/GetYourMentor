@@ -3,12 +3,11 @@
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
-import { ContactCoachForm } from "@/components/booking-legacy/ContactCoachForm";
+import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
+import { CoachDetails } from "@/components/discovery/CoachDetails";
 import { coachProfiles, type CoachProfile } from "@/lib/domain";
 
 type ReserverSeanceLegacyPageProps = {
-  legacyStyles: string;
   params: Record<string, string | undefined>;
   allowDemoFallback?: boolean;
 };
@@ -75,54 +74,6 @@ const weekSets: WeekDay[][] = [
   ],
 ];
 
-function BookingHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
-          GetYourMentor
-        </a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
-          Football
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
-          Basketball
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Fitness
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
-          Sports de combat
-        </a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis coach
-        </a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path
-                d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
 
 function BookingScorePanel({
   profile,
@@ -130,25 +81,25 @@ function BookingScorePanel({
   profile: BookingProfile;
 }) {
   return (
-    <section className="booking-score-panel booking-score-panel-side">
-      <p className="booking-score-label">Note :</p>
-      <div className="booking-score-display" data-booking-score-large>
+    <section className="de-booking-score-panel de-booking-score-panel-side">
+      <p className="de-booking-score-label">Note :</p>
+      <div className="de-booking-score-display" data-booking-score-large>
         {profile.ratingValue ?? "Pas encore de note"}
       </div>
-      <p className="booking-score-meta" data-booking-score-copy>
+      <p className="de-booking-score-meta" data-booking-score-copy>
         {profile.reviews}
       </p>
-      <p className="booking-score-breakdown">Note du catalogue ; sous-notes non disponibles.</p>
-      <div className="booking-score-facts">
-        <div className="booking-score-fact">
+      <p className="de-booking-score-breakdown">Note du catalogue ; sous-notes non disponibles.</p>
+      <div className="de-booking-score-facts">
+        <div className="de-booking-score-fact">
           <span>Activité</span>
           <strong data-booking-score-followers>{profile.followers}</strong>
         </div>
-        <div className="booking-score-fact">
+        <div className="de-booking-score-fact">
           <span>Qualification</span>
           <strong data-booking-qualification>{profile.qualification}</strong>
         </div>
-        <div className="booking-score-fact">
+        <div className="de-booking-score-fact">
           <span>Diplome</span>
           <strong data-booking-diploma>{profile.diploma}</strong>
         </div>
@@ -175,218 +126,77 @@ function BookingHeroSection({
   galleryMainRef: RefObject<HTMLDivElement | null>;
 }) {
   return (
-    <section className="booking-profile-hero">
-      <div className="booking-profile-top">
-        <div className="booking-title-wrap">
+    <section className="de-booking-profile-hero">
+      <div className="de-booking-profile-top">
+        <p className="de-eyebrow">03 / TON COACH, TA PROCHAINE SÉANCE</p>
+        <div className="de-booking-title-wrap">
           <h1 data-booking-name>{coach}</h1>
         </div>
 
         <p data-booking-price>À partir de {profile.priceFrom} EUR</p>
-        <div className="booking-profile-meta" data-booking-geo-hover>
-          <div className="booking-address" data-booking-address>{city}</div>
+        <div className="de-booking-profile-meta" data-booking-geo-hover>
+          <div className="de-booking-address" data-booking-address>{city}</div>
         </div>
       </div>
 
-      <div className="booking-profile-showcase">
-        <div className="booking-profile-showcase-grid">
-          <div className="booking-gallery booking-gallery-profile">
-            <button className="booking-gallery-arrow booking-gallery-arrow-left" type="button" aria-label="Image precedente">
-            ‹
-            </button>
+      <div className="de-booking-profile-showcase">
+        <div className="de-booking-profile-showcase-grid">
+          <div className="de-booking-gallery de-booking-gallery-profile">
             <div
               ref={galleryMainRef}
-              className="booking-gallery-main"
+              className="de-booking-gallery-main"
               data-booking-gallery-main
               style={{ background: heroBackground }}
             ></div>
-            <button className="booking-gallery-arrow booking-gallery-arrow-right" type="button" aria-label="Image suivante">
-            ›
-            </button>
-            <span className="booking-gallery-caption">Visuel d’illustration, sans identification du coach.</span>
+            <span className="de-booking-gallery-caption">Visuel d’illustration, sans identification du coach.</span>
           </div>
 
-          <aside className="booking-profile-score-wrap">
+          <aside className="de-booking-profile-score-wrap">
             <BookingScorePanel profile={profile} />
           </aside>
         </div>
       </div>
 
-      <div className="booking-profile-lead">
+      <div className="de-booking-profile-lead">
         <div>
           <strong data-booking-heading>{`Construis ta prochaine session avec ${coach}`}</strong>
           <p>Choisis ton objectif, propose tes disponibilités et reçois la validation du coach.</p>
         </div>
-        <button className="booking-primary-action" type="button" onClick={() => onTabChange("planning")}>
-          Reserver
+        <button className="de-booking-primary-action" type="button" onClick={() => onTabChange("planning")}>
+          Réserver
         </button>
       </div>
 
       <nav
-        className="booking-tabs booking-tabs-profile"
+        className="de-booking-tabs de-booking-tabs-profile"
         aria-label="Sections du profil"
       >
         <button
-          className={`booking-tab${activeTab === "apropos" ? " is-active" : ""}`}
+          className={`de-booking-tab${activeTab === "apropos" ? " is-active" : ""}`}
           type="button"
-          data-booking-tab="apropos"
+          data-booking-tab="apropos" aria-pressed={activeTab === "apropos"} aria-controls="booking-apropos-section"
           onClick={() => onTabChange("apropos")}
         >
           A propos
         </button>
         <button
-          className={`booking-tab${activeTab === "planning" ? " is-active" : ""}`}
+          className={`de-booking-tab${activeTab === "planning" ? " is-active" : ""}`}
           type="button"
-          data-booking-tab="planning"
+          data-booking-tab="planning" aria-pressed={activeTab === "planning"} aria-controls="booking-planning-section"
           onClick={() => onTabChange("planning")}
         >
           Planning
         </button>
         <button
-          className={`booking-tab${activeTab === "contenus" ? " is-active" : ""}`}
+          className={`de-booking-tab${activeTab === "contenus" ? " is-active" : ""}`}
           type="button"
-          data-booking-tab="contenus"
+          data-booking-tab="contenus" aria-pressed={activeTab === "contenus"} aria-controls="booking-contenus-section"
           onClick={() => onTabChange("contenus")}
         >
           Contenus
         </button>
       </nav>
-      <div className="booking-tabs-spacer" data-booking-tabs-spacer aria-hidden="true"></div>
-    </section>
-  );
-}
-
-function BookingAProposPane({
-  coach,
-  profile,
-  isActive,
-}: {
-  coach: string;
-  profile: BookingProfile;
-  isActive: boolean;
-}) {
-  return (
-    <section className={`booking-pane${isActive ? " is-active" : ""}`} data-booking-pane="apropos" id="booking-apropos-section">
-      <div className="booking-pane-grid">
-        <div className="booking-pane-main booking-pane-main-wide">
-          <article className="booking-story-card">
-            <h2>
-              A propos de <span data-booking-short-name>{coach.split(" ").slice(-1)[0] || coach}</span>
-            </h2>
-            <p data-booking-bio>{profile.bio}</p>
-            <div className="booking-story-points">
-              <div className="booking-story-point">
-                <strong>Disciplines</strong>
-                <span data-booking-disciplines>{profile.disciplines ?? profile.specialty}</span>
-              </div>
-              <div className="booking-story-point">
-                <strong>Formats de séance</strong>
-                <span data-booking-session-types>{profile.sessionTypes ?? "Individuel, présentiel"}</span>
-              </div>
-              <div className="booking-story-point">
-                <strong>Diplômes</strong>
-                <span data-booking-public-diplomas>{profile.diploma}</span>
-              </div>
-              <div className="booking-story-point">
-                <strong>Disponibilités indicatives</strong>
-                <span data-booking-availability>{profile.availability ?? "Sur demande"}</span>
-              </div>
-            </div>
-            <p>
-              L'approche reste volontairement simple : comprendre vite votre besoin, cadrer une seance utile, puis vous faire repartir avec des reperes clairs. Le but n'est pas de surcharger la session, mais d'installer un vrai rythme de progression que vous pouvez tenir dans la duree.
-            </p>
-            <p>
-              Selon votre niveau, la seance peut etre plus technique, plus physique ou davantage orientee prise de confiance. Chaque detail est pense pour garder une sensation premium, lisible et credible du debut a la fin.
-            </p>
-          </article>
-
-          <article className="booking-story-card">
-            <h3>La seance</h3>
-            <p>
-              Chaque rendez-vous est pense pour rester simple, lisible et efficace. On commence par un point rapide sur votre niveau, votre energie du jour et votre objectif principal, puis on construit une seance claire avec des exercices vraiment utiles.
-            </p>
-            <div className="booking-story-points">
-              <div className="booking-story-point">
-                <strong>Avant la seance</strong>
-                <span>Brief rapide, objectif du jour, adaptation au niveau et au contexte.</span>
-              </div>
-              <div className="booking-story-point">
-                <strong>Pendant la seance</strong>
-                <span>Exercices corriges, rythme progressif, feedback direct et concret.</span>
-              </div>
-              <div className="booking-story-point">
-                <strong>Apres la seance</strong>
-                <span>Mini bilan, points forts, axes de progression et recommandation suivante.</span>
-              </div>
-            </div>
-          </article>
-
-          <article className="booking-story-card">
-            <h3>Infos pratiques</h3>
-            <p>
-              Tout est organise pour que la reservation reste fluide : choix du creneau, confirmation, preparation et rappel des conditions. Vous savez donc tres vite comment la seance va se derouler et ce que vous devez prevoir avant d'arriver.
-            </p>
-            <div className="booking-practical-grid">
-              <div className="booking-practical-item">
-                <span>Format</span>
-                <strong>Individuel, duo ou visio selon le coach</strong>
-              </div>
-              <div className="booking-practical-item">
-                <span>Confirmation</span>
-                <strong>Confirmation après acceptation du coach</strong>
-              </div>
-              <div className="booking-practical-item">
-                <span>Paiement</span>
-                <strong>Paiement après acceptation</strong>
-              </div>
-              <div className="booking-practical-item">
-                <span>Annulation</span>
-                <strong>Report possible selon les disponibilites</strong>
-              </div>
-            </div>
-          </article>
-
-          <article className="booking-story-card">
-            <h3>Ce que vous allez travailler</h3>
-            <p>
-              Le contenu de la seance s'adapte a votre objectif du moment. On peut etre sur une logique de progression technique, de reprise, de performance ou simplement de remise en confiance avec un cadre clair et rassurant.
-            </p>
-            <div className="booking-story-columns">
-              <div className="booking-story-check">
-                <strong>Axes possibles</strong>
-                <span>Technique, rythme, coordination, intensite, lecture du jeu ou execution.</span>
-              </div>
-              <div className="booking-story-check">
-                <strong>Adaptation</strong>
-                <span>Le coach ajuste le contenu selon votre niveau, votre energie et vos disponibilites.</span>
-              </div>
-            </div>
-          </article>
-
-          <article className="booking-story-card">
-            <h3>Suivi et progression</h3>
-            <p>
-              L'interet de la plateforme n'est pas seulement de reserver une fois. La page est aussi pensee pour montrer qu'il peut y avoir une suite logique : recommandations, prochaine seance, et visibilite sur votre progression si vous continuez avec le meme coach.
-            </p>
-            <div className="booking-story-sequence">
-              <div className="booking-story-sequence-item">
-                <span>01</span>
-                <strong>Observation du niveau et du besoin reel</strong>
-              </div>
-              <div className="booking-story-sequence-item">
-                <span>02</span>
-                <strong>Seance cadre avec exercices utiles et retours directs</strong>
-              </div>
-              <div className="booking-story-sequence-item">
-                <span>03</span>
-                <strong>Prochaine etape recommandee pour garder une progression claire</strong>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <ContactCoachForm coach={coach} />
-
-      </div>
+      <div className="de-booking-tabs-spacer" data-booking-tabs-spacer aria-hidden="true"></div>
     </section>
   );
 }
@@ -411,48 +221,43 @@ function BookingPlanningPane({
   const currentWeek = weekSets[weekIndex];
 
   return (
-    <section className={`booking-pane${isActive ? " is-active" : ""}`} data-booking-pane="planning" id="booking-planning-section">
-      <div className="booking-planning-shell">
-        <p className="discovery-note">Planning indicatif de présentation. Les créneaux, la durée et le prix de la prestation sont vérifiés à l’étape de réservation. Toute demande reste soumise à l’acceptation du coach.</p>
-        <header className="booking-section-head booking-section-head-planning">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="planning" id="booking-planning-section">
+      <div className="de-booking-planning-shell">
+        <p className="de-discovery-note">Planning indicatif de présentation. Les créneaux, la durée et le prix de la prestation sont vérifiés à l’étape de réservation. Toute demande reste soumise à l’acceptation du coach.</p>
+        <header className="de-booking-section-head de-booking-section-head-planning">
           <h2>Date et heure</h2>
-          <p>Choisissez directement votre creneau disponible.</p>
+          <p>Explore cet aperçu indicatif, puis choisis un créneau vérifié à l’étape suivante.</p>
         </header>
 
-        <div className="reservation-calendar-card booking-calendar-card">
-          <div className="reservation-calendar-head">
-            <button className="calendar-arrow" type="button" aria-label="Semaine precedente" data-booking-calendar-prev onClick={onPrevWeek}>
+        <div className="de-reservation-calendar-card de-booking-calendar-card">
+          <div className="de-reservation-calendar-head">
+            <button className="de-calendar-arrow" type="button" aria-label="Semaine precedente" data-booking-calendar-prev onClick={onPrevWeek}>
               ‹
             </button>
-            <div className="reservation-days" data-booking-days>
-              {currentWeek.map((item) => (
-                <div className="reservation-day" key={`${item.day}-${item.date}`}>
-                  <strong>{item.day}</strong>
-                  <span>{item.date}</span>
-                </div>
-              ))}
-            </div>
-            <button className="calendar-arrow" type="button" aria-label="Semaine suivante" data-booking-calendar-next onClick={onNextWeek}>
+            <strong data-booking-days aria-live="polite">Exemple · {currentWeek[0].date} – {currentWeek[6].date}</strong>
+            <button className="de-calendar-arrow" type="button" aria-label="Semaine suivante" data-booking-calendar-next onClick={onNextWeek}>
               ›
             </button>
           </div>
-          <div className="reservation-slots-grid" data-booking-slots-grid>
+          <div className="de-reservation-slots-grid" data-booking-slots-grid>
             {currentWeek.map((item) => (
-              <div className="reservation-slot-column" key={`${item.day}-${item.date}-slots`}>
+              <div className="de-reservation-slot-column" key={`${item.day}-${item.date}-slots`}>
+                <div className="de-reservation-day"><strong>{item.day}</strong><span>{item.date}</span></div>
                 {item.slots.length ? (
                   item.slots.map((slot) => (
                     <button
                       key={`${item.day}-${slot}`}
-                      className={`reservation-slot${slot === selectedSlot ? " is-selected" : ""}`}
+                      className={`de-reservation-slot${slot === selectedSlot ? " is-selected" : ""}`}
                       type="button"
                       data-booking-slot={slot}
+                      aria-pressed={slot === selectedSlot}
                       onClick={() => onSelectSlot(slot)}
                     >
                       {slot}
                     </button>
                   ))
                 ) : (
-                  <button className="reservation-slot" type="button" disabled>
+                  <button className="de-reservation-slot" type="button" disabled>
                     -
                   </button>
                 )}
@@ -461,8 +266,8 @@ function BookingPlanningPane({
           </div>
         </div>
 
-        <div className="reservation-cta-row booking-cta-row">
-          <a className="reservation-confirm-button" href={confirmHref} data-booking-confirm>
+        <div className="de-reservation-cta-row de-booking-cta-row">
+          <a className="de-reservation-confirm-button" href={confirmHref} data-booking-confirm>
             Reserver mon creneau
           </a>
         </div>
@@ -485,17 +290,17 @@ function BookingContenusPane({
   const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <section className={`booking-pane${isActive ? " is-active" : ""}`} data-booking-pane="contenus" id="booking-contenus-section">
-      <section className="booking-content-social" data-content-lock-root>
-        <div className="booking-content-profile">
-          <div className="booking-content-cover"></div>
-          <div className="booking-content-avatar"></div>
-          <div className="booking-content-profile-copy">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="contenus" id="booking-contenus-section">
+      <section className="de-booking-content-social" data-content-lock-root>
+        <div className="de-booking-content-profile">
+          <div className="de-booking-content-cover"></div>
+          <div className="de-booking-content-avatar"></div>
+          <div className="de-booking-content-profile-copy">
             <strong data-content-coach-name>{coach}</strong>
             <span data-content-specialty>{specialty}</span>
           </div>
           <button
-            className="booking-content-subscribe"
+            className="de-booking-content-subscribe"
             type="button"
             data-content-unlock
             onClick={() => setUnlocked(true)}
@@ -505,28 +310,28 @@ function BookingContenusPane({
           </button>
         </div>
 
-        <div className="booking-content-lock-note" data-content-lock-note>
+        <div className="de-booking-content-lock-note" data-content-lock-note>
           Aperçu de contenus en préparation. Aucun abonnement actif, aucun avantage Premium et aucun paiement déclenché.
         </div>
 
-        <div className={`booking-content-feed ${unlocked ? "is-unlocked" : "is-locked"}`} data-content-feed>
-          <article className="booking-content-tile booking-content-tile-1">
-            <span className="booking-content-lock">Verrouille</span>
+        <div className={`de-booking-content-feed ${unlocked ? "is-unlocked" : "is-locked"}`} data-content-feed>
+          <article className="de-booking-content-tile de-booking-content-tile-1">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
-          <article className="booking-content-tile booking-content-tile-2">
-            <span className="booking-content-lock">Verrouille</span>
+          <article className="de-booking-content-tile de-booking-content-tile-2">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
-          <article className="booking-content-tile booking-content-tile-3">
-            <span className="booking-content-lock">Verrouille</span>
+          <article className="de-booking-content-tile de-booking-content-tile-3">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
-          <article className="booking-content-tile booking-content-tile-4">
-            <span className="booking-content-lock">Verrouille</span>
+          <article className="de-booking-content-tile de-booking-content-tile-4">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
-          <article className="booking-content-tile booking-content-tile-5">
-            <span className="booking-content-lock">Verrouille</span>
+          <article className="de-booking-content-tile de-booking-content-tile-5">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
-          <article className="booking-content-tile booking-content-tile-6">
-            <span className="booking-content-lock">Verrouille</span>
+          <article className="de-booking-content-tile de-booking-content-tile-6">
+            <span className="de-booking-content-lock">Verrouille</span>
           </article>
         </div>
       </section>
@@ -534,13 +339,11 @@ function BookingContenusPane({
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function BookingFooter() { return <SiteFooter />; }
 
-export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallback = false }: ReserverSeanceLegacyPageProps) {
+export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: ReserverSeanceLegacyPageProps) {
   const sportSlug = useMemo(() => {
     const sport = params.sport;
-    if (sport && sport in bookingProfileDictionary) {
+    if (sport && Object.hasOwn(bookingProfileDictionary, sport)) {
       return sport as keyof typeof bookingProfileDictionary;
     }
     return "metiers-de-la-forme";
@@ -549,14 +352,16 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
   const coach = params.coach || "Studio Form Marseille";
   const city = params.city || "Paris";
   const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? coachProfiles.find(item => item.id === coach || item.name.toLowerCase() === coach.toLowerCase()) ?? null : null);
+  const [profileState, setProfileState] = useState<"loading" | "ready" | "error">(() => coachData ? "ready" : "loading");
   useEffect(() => {
     let active = true;
     fetch(`/api/coaches/${encodeURIComponent(coach)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
       .then((payload) => {
-        if (active && payload.data && (payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) setCoachData(payload.data as CoachProfile);
+        if (!payload.data || !(payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) throw new Error("Profil indisponible");
+        if (active) { setCoachData(payload.data as CoachProfile); setProfileState("ready"); }
       })
-      .catch(() => undefined);
+      .catch(() => { if (active) setProfileState("error"); });
     return () => {
       active = false;
     };
@@ -617,14 +422,13 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
 
   return (
     <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell booking-shell" id="gym-discovery" data-gym-discovery="profile">
-        <BookingHeader />
-        <main className="booking-page booking-profile-page" data-booking-page>
+      <DiscoveryFrame page="profile" demo={allowDemoFallback}>
+        <main className="de-booking-page de-booking-profile-page" data-booking-page>
           {!coachData ? (
-            <section className="booking-card" data-coach-unavailable>
-              <h1>Profil coach indisponible</h1>
-              <p>Cette fiche sera accessible après la configuration du catalogue de préproduction.</p>
+            <section className="de-booking-card" data-coach-unavailable role="status" aria-busy={profileState === "loading"}>
+              <h1>{profileState === "loading" ? "Chargement du profil…" : "Profil coach indisponible"}</h1>
+              <p>{profileState === "loading" ? "Nous récupérons les informations du catalogue." : "Ce profil est introuvable ou le catalogue est momentanément indisponible."}</p>
+              {profileState === "error" && <a className="de-button" href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city })}>Revenir aux coachs</a>}
             </section>
           ) : (
             <>
@@ -637,7 +441,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
                 onTabChange={setActiveTab}
                 galleryMainRef={galleryMainRef}
               />
-              <BookingAProposPane coach={coachLabel} profile={profile} isActive={activeTab === "apropos"} />
+              <CoachDetails coach={coachLabel} profile={profile} isActive={activeTab === "apropos"} />
               <BookingPlanningPane
                 isActive={activeTab === "planning"}
                 weekIndex={weekIndex}
@@ -651,8 +455,7 @@ export function ReserverSeanceLegacyPage({ legacyStyles, params, allowDemoFallba
             </>
           )}
         </main>
-        <BookingFooter />
-      </div>
+      </DiscoveryFrame>
     </>
   );
 }

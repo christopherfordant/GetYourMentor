@@ -1,3 +1,7 @@
+## 2026-10-15 — Déclinaison éditoriale de la découverte
+
+Recherche, annuaire et fiche : cadre/header/footer communs, typographies de l’accueil, palette fixe, cartes et colonnes responsive. Injections CSS héritées et profils de secours synthétiques retirés ; données du catalogue préservées. Préférences cookies et retour en haut après le footer, planning mobile complet, chargement/erreur et discipline inconnue traités. Pas de nouvelle dépendance, d’activation Premium ou de changement métier financier. Preuves, contrôles et rollback : `docs/REFONTE_DECOUVERTE_EDITORIALE_2026-10-15.md`.
+
 ## 2026-10-15 — Validation intégrale de la maquette HTML
 
 Référence prioritaire : maquette/index.html de l’audit du 15 octobre, CSS et JavaScript inclus. L’accueil est reconstruit à partir de sa composition complète. Contrat, tokens, design system et recette actualisés ; les anciennes consignes « entièrement clair » et Emergent deviennent historiques.

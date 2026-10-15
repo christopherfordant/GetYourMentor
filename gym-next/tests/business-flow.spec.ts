@@ -28,7 +28,7 @@ test.describe("parcours metier principaux", () => {
   test("annuaire vers fiche coach", async ({ page }) => {
     await page.goto("/coachs?sport=football&city=Paris", { waitUntil: "networkidle" });
 
-    const firstBookingLink = page.locator("a.coach-book-button").first();
+    const firstBookingLink = page.locator("a[data-coach-link]").first();
     await expect(firstBookingLink).toBeVisible();
     await firstBookingLink.click();
 

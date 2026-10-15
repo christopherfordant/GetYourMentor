@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import fs from "node:fs";
-import path from "node:path";
 import { SelectionCoachsLegacyPage } from "@/components/directory-legacy/SelectionCoachsLegacyPage";
 import { filterStoredCoaches } from "@/lib/coaches";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
@@ -34,11 +32,6 @@ export async function generateMetadata({ searchParams }: CoachsPageProps): Promi
 
 export default async function CoachsPage({ searchParams }: CoachsPageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
-  const legacyStyles = fs
-    .readFileSync(stylesheetPath, "utf8")
-    .replaceAll("../design_assets/", "/design_assets/");
-
   const sportParam = params.sport;
   const cityParam = params.city;
   const latitudeParam = params.latitude;
@@ -69,9 +62,15 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
   const demoAllowed = isDemoFallbackAllowed();
-  const persistedCoaches = (hasPersistentCoachCatalog || demoAllowed)
-    ? await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm, gender, practice, level, format, availability, minRating, maxPrice })
-    : null;
+  let catalogUnavailable = !hasPersistentCoachCatalog && !demoAllowed;
+  let persistedCoaches: Awaited<ReturnType<typeof filterStoredCoaches>> = [];
+  if (!catalogUnavailable) {
+    try {
+      persistedCoaches = await filterStoredCoaches({ sport, city, latitude, longitude, radiusKm, gender, practice, level, format, availability, minRating, maxPrice });
+    } catch {
+      catalogUnavailable = true;
+    }
+  }
   const initialCoaches = persistedCoaches?.map((coach) => ({
     id: coach.id,
     name: coach.name,
@@ -90,7 +89,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     practice: coach.practice,
     level: coach.level,
     availability: coach.availabilityTags?.[0],
-  })) ?? (demoAllowed ? undefined : []);
+  }));
 
-  return <SelectionCoachsLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} initialCoaches={initialCoaches} />;
+  return <SelectionCoachsLegacyPage key={`${sport ?? "football"}:${city ?? "Paris"}`} sport={sport} city={city} initialCoaches={initialCoaches} demo={demoAllowed} catalogUnavailable={catalogUnavailable} />;
 }

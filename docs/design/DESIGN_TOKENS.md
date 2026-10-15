@@ -14,6 +14,8 @@
 
 L’accueil reprend les dimensions du CSS HTML validé : enveloppe 1240 px, hero texte/photo, cartes en trois colonnes puis pile mobile. Les rayons et espacements varient par famille de composants comme dans la référence ; ne pas imposer un rayon unique à tous les blocs. L’alias --purple du composant reprend --gym-primary. La palette violette est fixe ; la variante verte de comparaison est retirée de l’application.
 
+Typographies partagées pour les pages de découverte : `--gym-font-body: Arial, Helvetica, sans-serif` ; `--gym-font-display: Impact, "Arial Narrow", Arial, sans-serif`. Valeurs identiques à la maquette et à l’accueil, sans nouvelle police distante. Titres éditoriaux en capitales ; noms de coachs dans les cartes en casse naturelle. Rayons 6 px pour les contrôles et 10 px pour les cartes de découverte. Colonnes en `minmax(0,1fr)`, réorganisation à 1100, 760 et 480 px.
+
 Les surfaces foncées sont réservées aux zones prévues dans la maquette. Typographie de référence : pile Arial/Helvetica pour le corps, pile condensée système du CSS source pour les titres. Aucune nouvelle police téléchargée.
 
 ## Historique remplacé

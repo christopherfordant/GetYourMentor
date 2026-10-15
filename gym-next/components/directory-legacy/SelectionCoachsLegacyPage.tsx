@@ -2,13 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { DiscoveryFrame, DiscoveryIntro, DiscoverySteps, discoverySports } from "@/components/discovery/DiscoveryFrame";
 
 type SelectionCoachsLegacyPageProps = {
-  legacyStyles: string;
   sport?: string;
   city?: string;
   initialCoaches?: CoachEntry[];
+  demo?: boolean;
+  catalogUnavailable?: boolean;
 };
 
 type CoachEntry = {
@@ -56,111 +57,10 @@ const defaultDirectoryFilters: DirectoryFilters = {
 };
 
 const directoryDictionary = {
-  football: {
-    name: "Football",
-    chips: ["Coach individuel", "Préparation match", "Centre indoor"],
-    getTitle: () => "Trouve ton coach de football",
-    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
-    getCoaches: (city: string): CoachEntry[] => [
-      {
-        name: "Thomas Dubois",
-        address: `5 Rue du Stade, ${city}`,
-        meta: "4.9 (33 avis)  Technique / Tactique / U16",
-        morning: ["Jeu. 26"],
-        afternoon: ["Ven. 27"],
-        cta: "Voir le profil",
-      },
-      {
-        name: "Mehdi Rahal",
-        address: `7 Avenue des Appuis, ${city}`,
-        meta: "4.8 (19 avis)  Performance / Retour blessure",
-        morning: ["Lun. 30"],
-        afternoon: ["Mar. 31"],
-        cta: "Voir le coach",
-      },
-    ],
-  },
-  basketball: {
-    name: "Basketball",
-    chips: ["Shooting", "Défense", "Condition physique"],
-    getTitle: () => "Trouve ton coach de basketball",
-    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
-    getCoaches: (city: string): CoachEntry[] => [
-      {
-        name: "Sarah Benali",
-        address: `12 Rue des Arceaux, ${city}`,
-        meta: "5.0 (21 avis)  Shooting / Défense / U18",
-        morning: ["Jeu. 26"],
-        afternoon: ["Sam. 28"],
-        cta: "Voir le profil",
-      },
-      {
-        name: "Nolan Vasseur",
-        address: `18 Quai Central, ${city}`,
-        meta: "4.7 (12 avis)  Junior / Pro / Analyse vidéo",
-        morning: ["Ven. 27"],
-        afternoon: ["Lun. 30"],
-        cta: "Voir le coach",
-      },
-    ],
-  },
-  "metiers-de-la-forme": {
-    name: "Fitness",
-    chips: ["Coach individuel", "Salle premium", "Programme forme"],
-    getTitle: () => "Trouve ton coach fitness",
-    getSubtitle: (city: string) =>
-      `Les meilleurs coachs et studios aux alentours de ${city} : réservation en ligne`,
-    getCoaches: (city: string): CoachEntry[] => [
-      {
-        name: "Studio Form Marseille",
-        address: `5 Rue de la Forme, ${city}`,
-        meta: "5 (33 avis)  Individuel / Small group",
-        morning: ["Jeu. 26"],
-        afternoon: ["Jeu. 26"],
-        cta: "Voir le profil",
-      },
-      {
-        name: "Kenza Training Club",
-        address: `7 Rue de la République, ${city}`,
-        meta: "4.9 (189 avis)  Club / Transformation",
-        morning: ["Ven. 27"],
-        afternoon: ["Sam. 28"],
-        cta: "Voir le profil",
-      },
-      {
-        name: "Pulse Mobility",
-        address: `22 Place du Centre, ${city}`,
-        meta: "4.8 (41 avis)  Visio / Mobilité",
-        morning: ["Lun. 30"],
-        afternoon: ["Mar. 31"],
-        cta: "Voir le coach",
-      },
-    ],
-  },
-  "sports-de-combat": {
-    name: "Sports de combat",
-    chips: ["Boxe", "MMA", "Self-défense"],
-    getTitle: () => "Trouve ton coach de sports de combat",
-    getSubtitle: (city: string) => `Les meilleurs coachs à proximité de ${city} : réservation en ligne`,
-    getCoaches: (city: string): CoachEntry[] => [
-      {
-        name: "Ines Caron Fight Club",
-        address: `4 Boulevard Arena, ${city}`,
-        meta: "4.9 (26 avis)  Boxe / Self-défense / Débuta",
-        morning: ["Jeu. 26"],
-        afternoon: ["Ven. 27"],
-        cta: "Voir le profil",
-      },
-      {
-        name: "Combat Lab",
-        address: `14 Rue des Champions, ${city}`,
-        meta: "4.8 (17 avis)  MMA / Cardio boxing / Confirmé",
-        morning: ["Sam. 28"],
-        afternoon: ["Lun. 30"],
-        cta: "Voir le coach",
-      },
-    ],
-  },
+  football: { name: "Football", getTitle: () => "Trouve ton coach de football" },
+  basketball: { name: "Basketball", getTitle: () => "Trouve ton coach de basketball" },
+  "metiers-de-la-forme": { name: "Fitness", getTitle: () => "Trouve ton coach fitness" },
+  "sports-de-combat": { name: "Sports de combat", getTitle: () => "Trouve ton coach de sports de combat" },
 } as const;
 
 const normalize = (value = "") =>
@@ -201,54 +101,6 @@ const navigateToSearch = (sportValue: string, cityValue: string) => {
   window.location.href = buildNextPath(nextRoutes.search, { sport: sportSlug });
 };
 
-function DirectoryHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>
-          GetYourMentor
-        </a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>
-          Football
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>
-          Basketball
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Fitness
-        </a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>
-          Sports de combat
-        </a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis coach
-        </a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path
-                d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
 
 function DirectoryToolbar({
   sportLabel,
@@ -280,9 +132,9 @@ function DirectoryToolbar({
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   return (
-    <section className="coach-directory-toolbar">
+    <section className="de-coach-directory-toolbar">
       <form
-        className="coach-directory-search"
+        className="de-coach-directory-search"
         aria-label="Recherche coach"
         data-directory-form
         onSubmit={(event) => {
@@ -290,16 +142,16 @@ function DirectoryToolbar({
           navigateToSearch(sportInput, cityInput);
         }}
       >
-        <label className="directory-field">
+        <label className="de-directory-field">
           <span>Discipline</span>
-          <input
-            type="text"
+          <select
+            aria-label="Discipline"
             data-directory-sport-input
             value={sportInput}
             onChange={(event) => setSportInput(event.target.value)}
-          />
+          >{discoverySports.map(([slug, label]) => <option key={slug} value={label}>{label}</option>)}</select>
         </label>
-        <label className="directory-field">
+        <label className="de-directory-field">
           <span>Zone d’entraînement</span>
           <input
             type="text"
@@ -308,11 +160,11 @@ function DirectoryToolbar({
             onChange={(event) => setCityInput(event.target.value)}
           />
         </label>
-        <label className="directory-field">
-          <span>Quand t’entraîner ?</span>
-          <input type="text" value="Quand tu veux" data-directory-availability-input readOnly />
+        <label className="de-directory-field">
+          <span>Disponibilités</span>
+          <input type="text" value="À préciser dans les filtres" data-directory-availability-input readOnly />
         </label>
-        <button className="directory-search-button" type="submit" aria-label="Rechercher">
+        <button className="de-directory-search-button" type="submit" aria-label="Rechercher">
           <svg viewBox="0 0 24 24" focusable="false">
             <circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
             <path
@@ -326,11 +178,11 @@ function DirectoryToolbar({
         </button>
       </form>
 
-      <div className="directory-chip-row" aria-label="Filtres">
-        <button className="directory-chip directory-chip-secondary" type="button" onClick={onLocate} disabled={isLocating} data-directory-locate>
+      <div className="de-directory-chip-row" aria-label="Filtres">
+        <button className="de-directory-chip de-directory-chip-secondary" type="button" onClick={onLocate} disabled={isLocating} data-directory-locate>
           {isLocating ? "Recherche…" : "Utiliser ma position"}
         </button>
-        <label className="directory-chip directory-chip-secondary">
+        <label className="de-directory-chip de-directory-chip-secondary">
           Rayon
           <select value={radiusKm} onChange={(event) => onRadiusChange(Number(event.target.value))} aria-label="Rayon de recherche">
             <option value="1">1 km</option>
@@ -338,10 +190,10 @@ function DirectoryToolbar({
             <option value="10">10 km</option>
           </select>
         </label>
-        <button className="directory-chip directory-chip-filter" type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen}>
+        <button className="de-directory-chip de-directory-chip-filter" type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} aria-controls="directory-filters">
           Filtres
         </button>
-        <label className="directory-chip directory-chip-secondary">
+        <label className="de-directory-chip de-directory-chip-secondary">
           Trier par
           <select value={sort} onChange={(event) => onSortChange(event.target.value as DirectorySort)} aria-label="Trier les coachs">
             <option value="relevance">Pertinence</option>
@@ -351,9 +203,9 @@ function DirectoryToolbar({
           </select>
         </label>
       </div>
-      {locationStatus ? <p className="directory-location-status" role="status" aria-live="polite" data-directory-location-status>{locationStatus}</p> : null}
+      {locationStatus ? <p className="de-directory-location-status" role="status" aria-live="polite" data-directory-location-status>{locationStatus}</p> : null}
       {filtersOpen ? (
-        <div className="directory-filter-panel" data-directory-filter-panel>
+        <div className="de-directory-filter-panel" id="directory-filters" data-directory-filter-panel>
           <label>
             Genre
             <select aria-label="Genre" value={filters.gender} onChange={(event) => onFiltersChange({ ...filters, gender: event.target.value as DirectoryFilters["gender"] })}>
@@ -412,7 +264,7 @@ function DirectoryToolbar({
               <option value="4.5">4,5+</option>
             </select>
           </label>
-          <label className="directory-filter-check">
+          <label className="de-directory-filter-check">
             <input type="checkbox" checked={filters.verified} onChange={(event) => onFiltersChange({ ...filters, verified: event.target.checked })} />
             Coach vérifié
           </label>
@@ -455,25 +307,27 @@ function CoachResultCard({
   });
 
   return (
-    <article className={`coach-result-card coach-result-card--${sportSlug}`}>
+    <article className="de-coach-result-card" data-coach-card>
       <div
-        className={`coach-result-media coach-result-media--${sportSlug} coach-result-media--${sportSlug}-${index + 1}`}
-      ></div>
-      <div className="coach-result-body">
-        <div className="coach-result-top">
+        className="de-coach-result-media"
+        aria-hidden="true"
+      ><span>{coach.name.split(" ").map(part => part[0]).slice(0, 2).join("")}</span><small>{directoryDictionary[sportSlug as keyof typeof directoryDictionary]?.name}</small></div>
+      <div className="de-coach-result-body">
+        <div className="de-coach-result-top">
           <h2>{coach.name}</h2>
-          <div className="coach-result-address">{coach.address}</div>
-          {coach.distanceKm != null ? <div className="coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
-          <div className="coach-result-meta">{coach.meta}</div>
-          {coach.price != null ? <p data-coach-price>À partir de {coach.price} EUR</p> : null}
+          <div className="de-coach-result-address">{coach.address}</div>
+          {coach.distanceKm != null ? <div className="de-coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
+          <div className="de-coach-result-meta">{coach.meta}</div>
+          {coach.price != null ? <p className="de-coach-price" data-coach-price>À partir de <strong>{coach.price} EUR</strong></p> : <p>Tarif à confirmer</p>}
         </div>
-        <div className="coach-result-slots">
+        <div className="de-coach-result-slots">
+          {!dayMap.size && <p className="de-note">Consulte la fiche pour proposer tes disponibilités.</p>}
           {Array.from(dayMap.values()).map((entry) => (
-            <div className="coach-day-card" key={`${coach.name}-${entry.day}`}>
+            <div className="de-coach-day-card" key={`${coach.name}-${entry.day}`}>
               <strong>{entry.day}</strong>
-              <div className="coach-day-periods">
+              <div className="de-coach-day-periods">
                 {entry.periods.map((period) => (
-                  <span className="coach-day-period" key={`${entry.day}-${period}`}>
+                  <span className="de-coach-day-period" key={`${entry.day}-${period}`}>
                     {period}
                   </span>
                 ))}
@@ -481,11 +335,11 @@ function CoachResultCard({
             </div>
           ))}
         </div>
-        <div className="coach-result-footer">
-          <a className="coach-more-link" href={detailsLink}>
+        <div className="de-coach-result-footer">
+          <a className="de-coach-more-link" href={detailsLink}>
             Plus d'informations
           </a>
-          <a className="coach-book-button" href={detailsLink}>
+          <a className="de-coach-book-button" data-coach-link href={detailsLink}>
             {coach.cta}
           </a>
         </div>
@@ -497,8 +351,6 @@ function CoachResultCard({
 function DirectoryContent({
   sportSlug,
   city,
-  title,
-  subtitle,
   coaches,
   filters,
   sort,
@@ -506,8 +358,6 @@ function DirectoryContent({
 }: {
   sportSlug: string;
   city: string;
-  title: string;
-  subtitle: string;
   coaches: CoachEntry[];
   filters: DirectoryFilters;
   sort: DirectorySort;
@@ -534,10 +384,10 @@ function DirectoryContent({
   });
 
   return (
-    <section className="coach-directory-content">
-      <div className="coach-directory-list">
-
-        <div className="coach-results" data-coach-results>
+    <section className="de-coach-directory-content">
+      <div className="de-coach-directory-list">
+        <p className="de-results-count" role="status" aria-live="polite">{visibleCoaches.length} profil{visibleCoaches.length > 1 ? "s" : ""} correspondant aux filtres</p>
+        <div className="de-coach-results" data-coach-results>
           {visibleCoaches.map((coach, index) => (
             <CoachResultCard
               key={`${coach.name}-${index}`}
@@ -548,8 +398,8 @@ function DirectoryContent({
             />
           ))}
           {visibleCoaches.length === 0 ? (
-            <div className="directory-empty-state" data-directory-empty role="status">
-              <span className="directory-empty-icon" aria-hidden="true">⌕</span>
+            <div className="de-directory-empty-state" data-directory-empty role="status">
+              <span className="de-directory-empty-icon" aria-hidden="true">⌕</span>
               <strong>Aucun coach ne correspond à ces filtres.</strong>
               <p>Élargissez la zone de recherche ou retirez un filtre pour voir davantage de profils.</p>
               <button type="button" onClick={onResetFilters}>Effacer les filtres</button>
@@ -558,41 +408,39 @@ function DirectoryContent({
         </div>
       </div>
 
-      <aside className="coach-directory-map" aria-label="Apercu de proximite des coachs">
-        <div className="coach-map-panel">
-          <p className="discovery-note">Vue schématique : les positions dessinées ne localisent pas les coachs.</p>
-          <div className="coach-map-grid"></div>
-          <div className="coach-map-water"></div>
-          <div className="coach-map-summary">
-            <strong>Proximite autour de {city || "votre recherche"}</strong>
+      <aside className="de-coach-directory-map" aria-label="Proximité des coachs">
+        <div className="de-coach-map-panel">
+          <p className="de-eyebrow">TON PÉRIMÈTRE</p>
+          <div className="de-coach-map-summary">
+            <strong>Autour de {city || "ta recherche"}</strong>
             <span>{visibleCoaches.length} coach{visibleCoaches.length > 1 ? "s" : ""} correspondant aux filtres</span>
           </div>
-          <div className="coach-map-distance-list" aria-label="Distances des coachs">
+          <div className="de-coach-map-distance-list" aria-label="Distances des coachs">
             {visibleCoaches.slice(0, 5).map((coach) => (
-              <div className="coach-map-distance-row" key={`distance-${coach.name}`}>
+              <div className="de-coach-map-distance-row" key={`distance-${coach.name}`}>
                 <span>{coach.name}</span>
-                <strong>{coach.distanceKm != null ? `${coach.distanceKm.toFixed(1)} km` : "Zone indiquee"}</strong>
+                <strong>{coach.distanceKm != null ? `${coach.distanceKm.toFixed(1)} km` : "Distance non calculée"}</strong>
               </div>
             ))}
             {visibleCoaches.length === 0 ? <span>Aucun resultat dans ce rayon.</span> : null}
           </div>
+          <p className="de-note">La position est demandée uniquement lorsque tu choisis « Utiliser ma position ». Aucun emplacement n’est dessiné arbitrairement.</p>
         </div>
       </aside>
     </section>
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function DirectoryFooter() { return <SiteFooter />; }
 
 export function SelectionCoachsLegacyPage({
-  legacyStyles,
   sport,
   city,
   initialCoaches,
+  demo = false,
+  catalogUnavailable = false,
 }: SelectionCoachsLegacyPageProps) {
   const sportSlug = useMemo(() => {
-    if (sport && sport in directoryDictionary) {
+    if (sport && Object.hasOwn(directoryDictionary, sport)) {
       return sport as keyof typeof directoryDictionary;
     }
 
@@ -607,23 +455,7 @@ export function SelectionCoachsLegacyPage({
   const [locationStatus, setLocationStatus] = useState("");
   const [isLocating, setIsLocating] = useState(false);
   const [locatedCoaches, setLocatedCoaches] = useState<CoachEntry[] | null>(null);
-  const coaches = useMemo(
-    () => {
-      if (initialCoaches) return initialCoaches;
-      return currentDirectory.getCoaches(cityValue).map<CoachEntry>((coach, index) => ({
-        ...coach,
-        gender: (index % 2 === 0 ? "femme" : "homme") as CoachEntry["gender"],
-        practice: (index % 2 === 0 ? "interieur" : "exterieur") as CoachEntry["practice"],
-        level: (index % 3 === 0 ? "debutant" : index % 3 === 1 ? "intermediaire" : "confirme") as CoachEntry["level"],
-        format: (index % 2 === 0 ? "presentiel" : "visio") as CoachEntry["format"],
-        availability: (index % 2 === 0 ? "morning" : "afternoon") as CoachEntry["availability"],
-        price: index === 0 ? 40 : 65,
-        rating: index === 0 ? 4.9 : 4.2,
-        verified: index === 0,
-      }));
-    },
-    [cityValue, currentDirectory, initialCoaches],
-  );
+  const coaches = initialCoaches ?? [];
   const visibleCoaches = locatedCoaches ?? coaches;
 
   const locateSportist = () => {
@@ -663,28 +495,21 @@ export function SelectionCoachsLegacyPage({
 
   return (
     <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell coach-profile-shell" id="gym-discovery" data-gym-discovery="directory">
-        <DirectoryHeader />
-        <main className="coach-directory-page" data-coach-directory-page>
-          <header className="directory-heading">
-            <h1 data-directory-title>{currentDirectory.getTitle()}</h1>
-            <p data-directory-subtitle>{currentDirectory.getSubtitle(cityValue)}</p>
-          </header>
+      <DiscoveryFrame page="directory" demo={demo}>
+        <main className="de-coach-directory-page" data-coach-directory-page>
+          <div className="de-directory-intro"><DiscoveryIntro step="02 / TROUVE TON MENTOR" title={currentDirectory.getTitle()}>Compare les profils de {currentDirectory.name.toLowerCase()} à {cityValue}. Le bon cadre pour ton prochain objectif.</DiscoveryIntro><DiscoverySteps active={1} /></div>
+          {catalogUnavailable && <p className="de-discovery-note" role="status">Le catalogue est momentanément indisponible ou non configuré dans cet environnement. Aucun profil n’est inventé pour remplacer les résultats manquants.</p>}
           <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} isLocating={isLocating} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
           <DirectoryContent
             sportSlug={sportSlug}
             city={cityValue}
-            title={currentDirectory.getTitle()}
-            subtitle={currentDirectory.getSubtitle(cityValue)}
             coaches={visibleCoaches}
             filters={filters}
             sort={sort}
             onResetFilters={() => setFilters(defaultDirectoryFilters)}
           />
         </main>
-        <DirectoryFooter />
-      </div>
+      </DiscoveryFrame>
     </>
   );
 }

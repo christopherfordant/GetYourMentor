@@ -1,6 +1,14 @@
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.
 
-## Dernier lot — palette fixe, audit et contrats alignés
+## Dernier lot — découverte éditoriale
+
+Recherche, annuaire et fiche déclinent le design de l’accueil : cadre partagé, typographies communes, palette violette fixe, compositions responsive, données de catalogue et sept destinations du header préservées. Les trois injections de CSS hérité sont retirées ; classes `de-*`, sans modification des CSS comptes/paiements locaux. Préférences cookies et retour en haut après le footer ; validation des disciplines inconnues et états de chargement/erreur ajoutés.
+
+Livraison détaillée, limites, captures desktop/mobile et retour arrière : [lot découverte](REFONTE_DECOUVERTE_EDITORIALE_2026-10-15.md). Build et typage isolés PASS ; 40/40 tests de production (découverte, tunnel et accueil), puis 6/6 contrôles responsive après le dernier ajustement du libellé accessible du logo, un worker. Aucun paiement réel, changement de commission, de droits, de RLS ni déploiement. Branche : `design/refonte-progressive-lot1`.
+
+Prochain lot : créneaux et récapitulatif selon la même identité, avant le paiement. Catalogue local non configuré : les captures de profils complets utilisent les fixtures de recette existantes. Changements antérieurs préservés et non inclus automatiquement. RLS distante et audit SEO/performance exhaustif non certifiés par ce lot.
+
+## Historique — palette fixe, audit et contrats alignés
 
 Instruction actuelle : poursuivre la refonte par phases et retirer de l’accueil le changement de coloris. Retrait du bouton `#palette`, de l’état React et des dix règles CSS de variante/comparaison. Violet validé conservé ; prototype original intact. Contrats, tokens et recette alignés ; consignes de reprise corrigées après un défaut d’encodage de leur première écriture.
 

@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import fs from "node:fs";
-import path from "node:path";
 import { RechercheCoachLegacyPage } from "@/components/search-legacy/RechercheCoachLegacyPage";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
 
@@ -32,15 +30,10 @@ export async function generateMetadata({ searchParams }: RecherchePageProps): Pr
 
 export default async function RecherchePage({ searchParams }: RecherchePageProps) {
   const params = await searchParams;
-  const stylesheetPath = path.join(process.cwd(), "app", "legacy-prototype.css");
-  const legacyStyles = fs
-    .readFileSync(stylesheetPath, "utf8")
-    .replaceAll("../design_assets/", "/design_assets/");
-
   const sportParam = params.sport;
   const sport = Array.isArray(sportParam) ? sportParam[0] : sportParam;
   const cityParam = params.city;
   const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
 
-  return <RechercheCoachLegacyPage legacyStyles={legacyStyles} sport={sport} city={city} />;
+  return <RechercheCoachLegacyPage sport={sport} city={city} />;
 }

@@ -1,204 +1,215 @@
-/* Lot 2: one explicit migration boundary for discovery routes.
-   Legacy !important rules are superseded here, not copied into each page. */
-body:has(#gym-discovery) { --mobile-navigation-space: 0px; background: var(--gym-paper) !important; color: var(--gym-ink); padding-bottom: calc(var(--mobile-navigation-space) + var(--cookie-controls-height,0px) + 96px) !important; }
-#gym-discovery { width: 100%; max-width: none !important; margin: 0 !important; padding: 0 !important; min-height: 100vh; background: var(--gym-paper) !important; color: var(--gym-ink) !important; overflow: visible !important; }
+/* One shared editorial sheet for search, directory and profile.
+   These routes no longer inject legacy-prototype.css. The ID contains global legacy rules. */
+body:has(#gym-discovery.discovery-editorial) { background: var(--gym-paper) !important; --mobile-navigation-space: 0px; padding-bottom: calc(var(--cookie-controls-height,0px) + 92px) !important; }
+html:has(#gym-discovery.discovery-editorial) { scroll-padding-top: 20px; scroll-padding-bottom: 24px; }
+#gym-discovery.discovery-editorial { width: 100%; min-height: 100vh; margin: 0; padding: 0; color: var(--gym-ink); background: var(--gym-paper); font-family: var(--gym-font-body); line-height: 1.5; isolation: isolate; }
 #gym-discovery *, #gym-discovery *::before, #gym-discovery *::after { box-sizing: border-box; }
-#gym-discovery :is(h1,h2,h3,h4,p,strong,span,label,summary,small,legend) { color: inherit; word-break: normal; overflow-wrap: break-word; }
-#gym-discovery :is(h1,h2,h3,h4) { color: var(--gym-ink) !important; letter-spacing: -.035em; }
-#gym-discovery p { color: var(--gym-muted) !important; line-height: 1.65; }
-#gym-discovery a { text-decoration: none; }
-#gym-discovery :is(a,button,input,select,textarea,summary,[tabindex]):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
-#gym-discovery :is(button,a[role=button]) { min-height: 44px; cursor: pointer; }
-#gym-discovery :is(button,input,select):disabled { opacity: .6; cursor: not-allowed; }
-#gym-discovery :is(input,select,textarea) { min-width: 0; max-width: 100%; min-height: 44px; border: 1px solid #9b91a5 !important; border-radius: 10px !important; padding: 12px 14px !important; color: var(--gym-ink) !important; background: white !important; font: inherit; color-scheme: light; }
-#gym-discovery :is(input,select,textarea):hover { border-color: var(--gym-primary) !important; }
-#gym-discovery :is(input,select,textarea)[aria-invalid=true] { border-color: #b42318 !important; background: #fff4f2 !important; }
-#gym-discovery option { background: white; color: var(--gym-ink); }
-#gym-discovery :is(.search-button,.directory-search-button,.coach-book-button,.reservation-confirm-button,.booking-primary-action,[data-gym-ui=accountButton],[data-gym-ui=searchButton],[data-gym-ui=darkButton],[data-gym-ui=softButton],[data-gym-ui=darkButtonLink],[data-gym-ui=insightButton]) { min-height: 44px; border: 1px solid var(--gym-primary) !important; border-radius: 10px !important; padding: 12px 18px; background: var(--gym-primary) !important; color: white !important; font-weight: 650; white-space: normal; text-align: center; }
-#gym-discovery :is(.coach-book-button,.search-button,.directory-search-button,[data-gym-ui=searchButton]):hover { background: var(--gym-primary-hover) !important; }
-#gym-discovery > :is(.topbar,[data-gym-ui=topbar]) { position: relative !important; inset: auto !important; display: flex !important; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; width: 100%; height: auto !important; min-height: 80px; padding: 16px 24px !important; margin: 0 !important; background: white !important; border: 0 !important; border-bottom: 1px solid var(--gym-line) !important; box-shadow: 0 2px 12px #14131608 !important; }
-#gym-discovery > header :is(a,[data-gym-ui=brandAccent]) { color: var(--gym-ink) !important; }
-#gym-discovery > header :is(.sports-nav,[data-gym-ui=sportsNav],.topbar-actions,[data-gym-ui=topbarActions]) { display: flex !important; align-items: center; flex-wrap: wrap; gap: 12px 18px; min-width: 0; }
-#gym-discovery > header :is(.sport-link,[data-gym-ui=sportLink],.topbar-link,[data-gym-ui=topbarLink]) { display: inline-flex !important; align-items: center; min-height: 44px; white-space: normal; font-size: 14px; }
-#gym-discovery > header :is(.account-button,[data-gym-ui=accountButton]) { display: inline-flex !important; align-items: center; min-height: 44px; padding: 12px 16px; background: var(--gym-primary) !important; color: white !important; border-radius: 10px; }
-#gym-discovery > header :is(.account-button,[data-gym-ui=accountButton]) span { color: inherit !important; }
-#gym-discovery > header :is(.brand-name,[data-gym-ui=brandName]) { font-size: 20px; font-weight: 800; white-space: nowrap; }
-#gym-discovery [data-gym-ui=brandIcon] { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
-#gym-discovery [data-gym-ui=brandName]::before { content: none; }
-#gym-discovery .language-selector-native { background: transparent !important; border: 0 !important; width: 110px; min-width: 0; }
+#gym-discovery :is(h1,h2,h3,h4,p) { margin: 0; color: inherit; overflow-wrap: anywhere; word-break: normal; }
+#gym-discovery :is(h1,h2) { font-family: var(--gym-font-display); font-weight: 400; text-transform: uppercase; letter-spacing: -.025em; line-height: 1.08; }
+#gym-discovery h1 { font-size: clamp(38px,4.6vw,66px); }
+#gym-discovery h2 { font-size: clamp(28px,3vw,42px); }
+#gym-discovery h3 { font-size: 20px; line-height: 1.3; }
+#gym-discovery :is(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 4px; }
+#gym-discovery a { color: inherit; text-decoration: none; }
+#gym-discovery :is(button,input,select,textarea) { font: inherit; }
+#gym-discovery :is(button,a) { -webkit-tap-highlight-color: transparent; }
+#gym-discovery button { cursor: pointer; }
+#gym-discovery :is(button,input,select,textarea):disabled { opacity: .55; cursor: not-allowed; }
+#gym-discovery [hidden] { display: none !important; }
+#gym-discovery label { display: grid; gap: 9px; min-width: 0; font-size: 13px; font-weight: 700; }
+#gym-discovery :is(input,select,textarea) { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; border: 1px solid #9b91a5; border-radius: 6px; background: white; color: var(--gym-ink); color-scheme: light; }
+#gym-discovery :is(input,select,textarea):hover { border-color: var(--gym-primary); }
+#gym-discovery input[readonly] { background: var(--gym-paper); color: var(--gym-muted); }
+#gym-discovery input[type=checkbox] { width: 20px; min-height: 20px; accent-color: var(--gym-primary); }
+#gym-discovery option { color: var(--gym-ink); background: white; }
+#gym-discovery :is(.de-button,.de-directory-search-button,.de-coach-book-button,.de-booking-primary-action,.de-reservation-confirm-button,.de-booking-contact-submit,.de-booking-content-subscribe) { display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 48px; padding: 13px 20px; border: 1px solid var(--gym-primary); border-radius: 6px; background: var(--gym-primary); color: white; font-size: 13px; font-weight: 700; text-align: center; }
+#gym-discovery :is(.de-button,.de-directory-search-button,.de-coach-book-button,.de-booking-primary-action,.de-reservation-confirm-button,.de-booking-contact-submit,.de-booking-content-subscribe):hover:not(:disabled) { background: var(--gym-primary-hover); }
+#gym-discovery .de-header { position: relative; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 22px 40px; border-bottom: 1px solid var(--gym-line); background: white; }
+#gym-discovery .de-brand { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 12px; font-weight: 700; }
+#gym-discovery .de-brand b { font-family: var(--gym-font-display); font-size: 32px; line-height: 1.3; padding: 1px 7px; background: var(--gym-ink); color: white; letter-spacing: -1px; }
+#gym-discovery .de-brand b span { color: #d5a5f1; }
+#gym-discovery :is(.de-sports,.de-actions) { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; min-width: 0; font-size: 12px; font-weight: 700; }
+#gym-discovery .de-header a { display: inline-flex; align-items: center; min-height: 44px; }
+#gym-discovery .de-header a:hover { color: var(--gym-primary-hover); }
+#gym-discovery .de-account { gap: 14px; padding: 8px 0; border-bottom: 1px solid var(--gym-ink); }
+#gym-discovery .language-selector-native { width: 110px; min-width: 0; padding: 0; border: 0; background: transparent; }
 #gym-discovery .language-selector-native :is(.language-selector-trigger,.language-selector-menu) { display: none !important; }
-#gym-discovery .language-selector-native select { position: static !important; opacity: 1 !important; width: 100% !important; height: auto !important; margin: 0 !important; clip: auto !important; clip-path: none !important; pointer-events: auto !important; overflow: visible !important; white-space: normal !important; border-color: var(--gym-line) !important; background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
-#gym-discovery > header > * { order: 0 !important; }
-#gym-discovery > header :is(.topbar-actions,[data-gym-ui=topbarActions],.sports-nav,[data-gym-ui=sportsNav]) { justify-content: flex-start !important; }
-#gym-discovery > header :is(.topbar-link,[data-gym-ui=topbarLink]) { padding: 10px 12px; background: var(--gym-primary-soft) !important; border: 1px solid var(--gym-line); border-radius: 10px; }
-#gym-discovery > header .brand-name::first-letter { color: var(--gym-ink) !important; }
-#gym-discovery :is(.sport-search-field,.directory-field) { width: 100% !important; max-width: none !important; align-items: stretch !important; justify-items: stretch; text-align: left; }
-#gym-discovery :is(.coach-directory-toolbar,.sport-hero) { box-shadow: none !important; border: 0 !important; }
-#gym-discovery .sport-search-card { box-shadow: none !important; }
-#gym-discovery .sport-hero::after { color: var(--gym-primary-hover) !important; }
-#gym-discovery [data-gym-ui=eyebrow] { background: var(--gym-primary-soft) !important; border-color: var(--gym-line) !important; }
-#gym-discovery [data-gym-ui=fieldIcon] { color: var(--gym-primary-hover) !important; }
-#gym-discovery :is(.sport-page,.coach-directory-page,.booking-profile-page,[data-gym-ui=main]) { width: 100% !important; max-width: 1280px !important; height: auto !important; margin-inline: auto !important; padding: 36px 24px !important; background: transparent !important; }
-#gym-discovery :is(.sport-hero,.coach-directory-toolbar,.booking-profile-hero) { height: auto !important; min-height: 0 !important; padding: 24px 0 !important; margin: 0 0 32px !important; background: transparent !important; }
-#gym-discovery .sport-hero::before { content: none !important; }
-#gym-discovery :is(.sport-title,.directory-heading h1,.booking-title-wrap h1) { font-size: clamp(30px,4vw,48px) !important; line-height: 1.15; max-width: 24ch; margin: 0 0 24px; text-align: left; }
-#gym-discovery :is(.sport-search-card,.coach-directory-search,[data-gym-ui=searchCard]) { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) auto; align-items: end; gap: 16px; width: 100% !important; max-width: none !important; margin: 24px 0 0 !important; padding: 20px !important; background: white !important; border: 1px solid var(--gym-line) !important; border-radius: 16px !important; box-shadow: none !important; }
-#gym-discovery .coach-directory-search { grid-template-columns: repeat(3,minmax(0,1fr)) 56px; }
-#gym-discovery :is(.sport-search-field,.directory-field,[data-gym-ui=field]) { display: grid; gap: 8px; min-width: 0; padding: 0 !important; background: transparent !important; border: 0 !important; }
-#gym-discovery :is(.sport-search-field,.directory-field,[data-gym-ui=field]) > span { color: var(--gym-muted) !important; font-size: 14px; letter-spacing: 0 !important; text-transform: none; }
-#gym-discovery :is(.sport-search-field,.directory-field,[data-gym-ui=field]) input { width: 100%; }
-#gym-discovery :is(.sport-card-grid,.directory-filter-panel) { display: grid !important; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
-#gym-discovery .sport-city-card { display: flex; flex-direction: column; min-height: 0 !important; border: 1px solid var(--gym-line); border-radius: 16px; background: white !important; overflow: hidden; cursor: pointer; }
-#gym-discovery .sport-city-media { position: relative !important; inset: auto !important; width: 100%; height: 200px !important; min-height: 0 !important; }
-#gym-discovery .sport-city-copy { position: relative !important; inset: auto !important; padding: 20px !important; background: white !important; }
-#gym-discovery .sport-city-copy :is(p,h2) { color: var(--gym-ink) !important; }
-#gym-discovery .sport-city-copy h2 { font-size: 22px; line-height: 1.3; }
-#gym-discovery :is(.sport-kicker,.coach-more-link,.directory-location-status) { color: var(--gym-primary-hover) !important; }
-#gym-discovery .directory-chip-row { display: flex !important; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
-#gym-discovery :is(.directory-chip,.directory-filter-panel,.directory-empty-state,.coach-map-panel) { background: white !important; border: 1px solid var(--gym-line) !important; border-radius: 12px; color: var(--gym-ink) !important; }
-#gym-discovery .directory-chip { display: inline-flex !important; align-items: center; gap: 8px; min-height: 44px; padding: 10px 14px; max-width: 100%; white-space: normal; }
-#gym-discovery .directory-chip select { padding: 8px !important; }
-#gym-discovery .directory-filter-panel { padding: 20px; margin-bottom: 24px; }
-#gym-discovery .directory-filter-panel label { display: grid; gap: 8px; min-width: 0; }
-#gym-discovery .directory-filter-panel select { width: 100%; }
-#gym-discovery .coach-directory-content { display: grid !important; grid-template-columns: minmax(0,2fr) minmax(260px,1fr); gap: 24px; align-items: start; }
-#gym-discovery .coach-directory-list { min-width: 0; }
-#gym-discovery .coach-results { display: grid; gap: 24px; }
-#gym-discovery .coach-result-card { display: grid !important; grid-template-columns: 190px minmax(0,1fr); min-width: 0; padding: 0 !important; border: 1px solid var(--gym-line) !important; border-radius: 16px; background: white !important; overflow: hidden; box-shadow: none !important; }
-#gym-discovery .coach-result-media { position: relative !important; inset: auto !important; width: 100%; height: 100%; min-height: 240px; }
-#gym-discovery .coach-result-body { min-width: 0; padding: 24px !important; }
-#gym-discovery .coach-result-top h2 { font-size: 24px !important; line-height: 1.25; }
-#gym-discovery :is(.coach-result-address,.coach-result-meta,.coach-result-distance) { color: var(--gym-muted) !important; line-height: 1.6; }
-#gym-discovery .coach-result-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 20px; }
-#gym-discovery :is(.coach-day-card,.coach-map-summary,.coach-map-distance-row,.booking-score-fact,.booking-practical-item,.booking-story-check,.booking-story-sequence-item) { color: var(--gym-ink) !important; background: var(--gym-primary-soft) !important; border-color: var(--gym-line) !important; }
-#gym-discovery .coach-directory-map { position: relative !important; inset: auto !important; min-width: 0; }
-#gym-discovery .coach-map-panel { padding: 20px; }
-#gym-discovery .booking-profile-top { display: block !important; }
-#gym-discovery .booking-profile-meta { display: flex; flex-wrap: wrap; gap: 16px; color: var(--gym-muted); }
-#gym-discovery .booking-address { color: var(--gym-muted) !important; }
-#gym-discovery .booking-profile-lead { padding: 24px !important; background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line); border-radius: 16px; box-shadow: none !important; }
-#gym-discovery .booking-profile-lead h2 { font-size: clamp(24px,3vw,34px); line-height: 1.2; }
-#gym-discovery .booking-gallery-profile { position: relative; }
-#gym-discovery .booking-gallery-caption { position: absolute; bottom: 8px; left: 8px; right: 8px; padding: 8px; border-radius: 8px; background: white; color: var(--gym-muted) !important; font-size: 12px; }
-#gym-discovery .booking-followers-pill { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
-#gym-discovery .booking-profile-showcase-grid { display: grid !important; grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); gap: 24px; }
-#gym-discovery .booking-gallery-profile { min-width: 0; height: 400px !important; border-radius: 16px; }
-#gym-discovery :is(.booking-score-panel,.booking-story-card,.booking-card,.booking-content-profile,.booking-content-lock-note,.reservation-calendar-card) { height: auto !important; min-width: 0; padding: 24px !important; border: 1px solid var(--gym-line) !important; border-radius: 16px; background: white !important; color: var(--gym-ink) !important; box-shadow: none !important; }
-#gym-discovery .booking-score-display { color: var(--gym-primary-hover) !important; font-size: 42px; }
-#gym-discovery :is(.booking-score-label,.booking-score-meta,.booking-score-fact span,.booking-score-fact strong) { color: var(--gym-ink) !important; }
-#gym-discovery .booking-tabs { position: relative !important; inset: auto !important; width: 100% !important; display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; padding: 12px !important; border: 1px solid var(--gym-line) !important; border-radius: 12px; background: white !important; box-shadow: none !important; }
-#gym-discovery .booking-tab { min-height: 44px; padding: 12px 18px; color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; border: 1px solid var(--gym-line) !important; border-radius: 10px; }
-#gym-discovery .booking-tab.is-active { background: var(--gym-primary) !important; color: white !important; }
-#gym-discovery .booking-tabs-spacer { display: none !important; }
-#gym-discovery .booking-pane-grid { display: block !important; }
-#gym-discovery .booking-pane-main { width: 100% !important; display: grid; gap: 24px; }
-#gym-discovery :is(.booking-story-points,.booking-practical-grid,.booking-story-columns,.booking-story-sequence) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
-#gym-discovery .booking-story-point { min-width: 0; }
-#gym-discovery .booking-story-point span { color: var(--gym-muted) !important; }
-#gym-discovery .booking-story-card h3 { font-size: 24px; margin-bottom: 16px; }
-#gym-discovery .booking-contact-card { padding: 24px; background: white !important; color: var(--gym-ink); border: 1px solid var(--gym-line); border-radius: 16px; }
-#gym-discovery .booking-contact-card textarea { width: 100%; }
-#gym-discovery .booking-content-subscribe { min-height: 44px; padding: 12px 18px; color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; border-color: var(--gym-line) !important; }
-#gym-discovery :is(.reservation-slot,.calendar-arrow) { min-width: 0; min-height: 44px; background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
-#gym-discovery .reservation-slot.is-selected { background: var(--gym-primary) !important; color: white !important; }
-#gym-discovery .reservation-calendar-card { overflow-x: auto; }
-#gym-discovery :is(.reservation-calendar-head,.reservation-slots-grid) { min-width: 580px; }
-#gym-discovery .discovery-note { display: block; margin: 16px 0; padding: 14px 18px; border-left: 3px solid var(--gym-primary); background: var(--gym-primary-soft); border-radius: 8px; font-size: 14px; line-height: 1.6; color: var(--gym-primary-hover) !important; }
-
-/* Home composition: text and image sit side by side, then stack naturally. */
-#gym-discovery [data-gym-ui=main] { padding-top: 0 !important; }
-#gym-discovery [data-gym-ui=hero] { display: grid !important; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); grid-template-areas: "copy photo"; align-items: center; gap: 48px; min-height: 0 !important; padding: 48px 0 !important; background: transparent !important; overflow: visible; }
-#gym-discovery [data-gym-ui=heroBackdrop] { grid-area: photo; position: relative !important; inset: auto !important; height: 480px; border-radius: 20px; overflow: hidden; }
-#gym-discovery [data-gym-ui=heroImage] { opacity: 1 !important; filter: none !important; mix-blend-mode: normal; }
-#gym-discovery [data-gym-ui=heroOverlay] { display: none; }
-#gym-discovery [data-gym-ui=heroContent] { grid-area: copy; width: 100%; padding: 0 !important; margin: 0; text-align: left; }
-#gym-discovery [data-gym-ui=heroTitle] { font-size: clamp(36px,4.5vw,64px) !important; line-height: 1.08 !important; max-width: 18ch; margin: 20px 0; color: var(--gym-ink) !important; }
-#gym-discovery [data-gym-ui=heroTitle] span { color: inherit; }
-#gym-discovery :is([data-gym-ui=heroAccent],[data-gym-ui=sectionKicker],[data-gym-ui=eyebrow],[data-gym-ui=procedureNumber]) { color: var(--gym-primary-hover) !important; }
-#gym-discovery [data-gym-ui=heroCopy] { max-width: 54ch; font-size: 18px; line-height: 1.65; }
-#gym-discovery [data-gym-ui=searchCard] { grid-template-columns: minmax(0,1fr); }
-#gym-discovery [data-gym-ui=heroMetrics] { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 24px; }
-#gym-discovery [data-gym-ui=heroMetric] { min-width: 100px; }
-#gym-discovery [data-gym-ui=heroMetric] strong { color: var(--gym-primary-hover) !important; font-size: 26px; }
-#gym-discovery [data-gym-ui=heroMetric] span { color: var(--gym-muted) !important; }
-#gym-discovery [data-gym-ui=experienceCarousel] { background: white !important; border: 1px solid var(--gym-line); border-radius: 16px; }
-#gym-discovery [data-gym-ui=experienceMedia] { display: grid; grid-template-rows: 340px auto; min-height: 0 !important; height: auto !important; }
-#gym-discovery [data-gym-ui=experienceStage] { position: relative !important; inset: auto !important; height: 340px; }
-#gym-discovery [data-gym-ui=experienceShade] { display: none; }
-#gym-discovery [data-gym-ui=experienceCaption] { position: relative !important; inset: auto !important; padding: 24px; background: white; }
-#gym-discovery .role-journeys { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
-#gym-discovery .role-journeys article { min-width: 0; padding: 24px; background: white !important; border: 1px solid var(--gym-line); border-radius: 16px; }
-#gym-discovery :is([data-gym-ui=section],[data-gym-ui=sportRail],[data-gym-ui=metricsSection],[data-gym-ui=recruitSection],[data-gym-ui=faqSection]) { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 48px 0 !important; color: var(--gym-ink); background: transparent !important; }
-#gym-discovery [data-gym-ui=sectionHeading] { margin-bottom: 28px; }
-#gym-discovery :is([data-gym-ui=sectionHeading],[data-gym-ui=popularCoachesHeading],[data-gym-ui=recruitCopy],[data-gym-ui=faqSection]) h2 { font-size: clamp(28px,3vw,40px) !important; line-height: 1.2; }
-#gym-discovery [data-gym-ui=sportRailGrid] { display: grid !important; width: 100% !important; max-width: 100%; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; }
-#gym-discovery [data-gym-ui=sportRailCard] { position: relative; display: flex !important; flex-direction: column; min-height: 0 !important; height: 310px !important; border: 1px solid var(--gym-line); border-radius: 16px; background: white !important; overflow: hidden; }
-#gym-discovery [data-gym-ui=sportRailImage] { height: 200px !important; bottom: auto !important; object-fit: cover; }
-#gym-discovery [data-gym-ui=sportRailShade] { display: none; }
-#gym-discovery [data-gym-ui=sportRailCopy] { position: relative !important; inset: auto !important; display: grid; gap: 6px; margin-top: 200px; padding: 16px; background: white; color: var(--gym-ink); }
-#gym-discovery :is([data-gym-ui=sportRailLabel],[data-gym-ui=sportRailAction],[data-gym-ui=sportRailIndex]) { color: var(--gym-ink) !important; font-size: 16px; }
-#gym-discovery :is([data-gym-ui=carouselViewport],[data-gym-ui=stepCard],[data-gym-ui=miniScreen],[data-gym-ui=progressVisual],[data-gym-ui=slotVisual],[data-gym-ui=paymentVisual],[data-gym-ui=insightCard],[data-gym-ui=localeColumn],[data-gym-ui=faqItem],[data-gym-ui=experienceControls]) { background: white !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; box-shadow: none !important; }
-#gym-discovery [data-gym-ui=carouselViewport] { width: 100% !important; min-width: 0 !important; max-width: 100% !important; }
-#gym-discovery [data-gym-ui=howGrid] { display: flex !important; width: 100% !important; min-width: 0 !important; max-width: 100% !important; overflow-x: auto !important; overflow-y: hidden !important; scroll-snap-type: x mandatory; touch-action: pan-x pan-y; transform: none !important; gap: 20px; }
-#gym-discovery [data-gym-ui=stepCard] { flex: 0 0 min(100%,540px) !important; width: min(100%,540px) !important; min-width: 0 !important; max-width: 100% !important; scroll-snap-align: start; }
-#gym-discovery :is([data-gym-ui=slideContent],[data-gym-ui=progressVisual],[data-gym-ui=paymentVisual],[data-gym-ui=recruitCopy],[data-gym-ui=faqItem]) :is(h3,h4,strong,summary) { color: var(--gym-ink) !important; }
-#gym-discovery :is([data-gym-ui=procedureIcon],[data-gym-ui=pill],[data-gym-ui=slotButton],[data-gym-ui=stepNumber],[data-gym-ui=arrowButton],[data-gym-ui=carouselButton]) { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border-color: var(--gym-line) !important; }
-#gym-discovery [data-gym-ui=mobileNav] { display: none !important; background: white !important; border-color: var(--gym-line) !important; }
-#gym-discovery [data-gym-ui=mobileNav] a { color: var(--gym-ink) !important; }
-#gym-discovery [data-gym-ui=mobileNav] a[aria-current=page] { color: var(--gym-primary-hover) !important; }
-
-#gym-discovery .global-footer { background: white !important; color: var(--gym-muted) !important; border-top: 1px solid var(--gym-line); }
-#gym-discovery .global-footer :is(a,h2,strong,small) { color: var(--gym-ink) !important; }
-#gym-discovery .global-footer :is(.global-footer-mark,.global-footer-social) { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
-#gym-discovery .global-footer-main { grid-template-columns: minmax(0,1.5fr) repeat(4,minmax(0,1fr)); gap: 24px; }
-#gym-discovery .global-footer-column { min-width: 0; }
-body:has(#gym-discovery) :is(.cookie-consent-banner,.cookie-preferences-trigger,.back-to-top) { background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
-body:has(#gym-discovery) .cookie-consent-banner :is(p,strong) { color: var(--gym-ink) !important; }
-body:has(#gym-discovery) .cookie-consent-primary { background: var(--gym-primary) !important; color: white !important; }
-body:has(#gym-discovery) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
-body:has(#gym-discovery) :is(.cookie-controls,.cookie-preferences-trigger,.cookie-consent-banner) { bottom: calc(var(--mobile-navigation-space) + 12px + env(safe-area-inset-bottom,0px)) !important; }
-body:has(#gym-discovery) .cookie-controls > :is(.cookie-preferences-trigger,.cookie-consent-banner) { bottom: auto !important; }
-body:has(#gym-discovery) .cookie-consent-banner { max-height: 42dvh; overflow-y: auto; }
-body:has(#gym-discovery) .back-to-top { bottom: calc(var(--mobile-navigation-space) + var(--cookie-controls-height,0px) + 64px) !important; }
-body:has(#gym-discovery):has(.cookie-consent-banner) .back-to-top { display: none !important; }
-.discovery-coach-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 24px; }
-.discovery-coach-card { min-width: 0; padding: 24px; border: 1px solid var(--gym-line); border-radius: 16px; background: white; }
-.discovery-coach-card h3 { font-size: 24px; }
-.discovery-coach-card a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border-radius: 10px; background: var(--gym-primary); color: white; }
+#gym-discovery .language-selector-native select { position: static !important; opacity: 1 !important; clip: auto !important; clip-path: none !important; pointer-events: auto !important; width: 100% !important; height: auto !important; margin: 0 !important; overflow: visible !important; white-space: normal !important; padding: 8px; border: 1px solid var(--gym-line) !important; border-radius: 6px !important; background: white !important; color: var(--gym-ink) !important; }
+#gym-discovery .de-demo { padding: 10px 24px; color: var(--gym-primary-hover); background: var(--gym-primary-soft); font-size: 12px; text-align: center; }
+#gym-discovery :is(.de-main,.de-coach-directory-page,.de-booking-profile-page) { width: min(1240px,calc(100% - 80px)); max-width: 1240px; margin: 0 auto; padding: 56px 0; min-height: 55vh; background: transparent; }
+#gym-discovery .de-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; font-size: 10px; font-weight: 700; letter-spacing: .18em; color: var(--gym-muted); text-transform: uppercase; }
+#gym-discovery .de-eyebrow::before { content: ""; width: 20px; height: 2px; background: var(--gym-primary); flex-shrink: 0; }
+#gym-discovery .de-intro h1 { max-width: 19ch; }
+#gym-discovery .de-intro-copy { max-width: 52ch; margin-top: 24px; color: var(--gym-muted); font-size: 16px; line-height: 1.7; }
+#gym-discovery .de-steps { display: flex; flex-wrap: wrap; gap: 20px; padding: 0; margin: 32px 0 0; list-style: none; font-size: 12px; }
+#gym-discovery .de-steps li { display: flex; align-items: center; gap: 8px; color: var(--gym-muted); }
+#gym-discovery .de-steps li[aria-current] { color: var(--gym-primary-hover); font-weight: 700; }
+#gym-discovery .de-steps span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--gym-line); border-radius: 50%; font-size: 10px; }
+#gym-discovery .de-steps [aria-current] span { background: var(--gym-primary); color: white; border-color: var(--gym-primary); }
+#gym-discovery .de-search-hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 64px; padding: 12px 0 56px; }
+#gym-discovery .de-search-form { display: grid; gap: 22px; padding: 32px; border: 1px solid var(--gym-line); border-radius: 10px; background: white; }
+#gym-discovery .de-search-form .de-eyebrow { margin: 0; }
+#gym-discovery .de-note { color: var(--gym-muted); font-size: 12px; line-height: 1.65; }
+#gym-discovery .de-city-section { border-top: 1px solid var(--gym-line); padding-top: 48px; }
+#gym-discovery .de-section-heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 28px; }
+#gym-discovery .de-section-heading>p { max-width: 340px; font-size: 14px; color: var(--gym-muted); }
+#gym-discovery .de-city-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+#gym-discovery .de-city-card { display: grid; grid-template-columns: 1fr auto; gap: 24px; padding: 26px; border: 1px solid var(--gym-line); border-radius: 10px; background: white; }
+#gym-discovery .de-city-card:hover { border-color: var(--gym-primary); background: var(--gym-primary-soft); }
+#gym-discovery .de-city-number { grid-column: 1/-1; color: var(--gym-primary); font-family: var(--gym-font-display); font-size: 34px; }
+#gym-discovery .de-city-card h3 { margin-top: 8px; font-size: 19px; }
+#gym-discovery .de-city-arrow { align-self: end; font-size: 26px; color: var(--gym-primary); }
+#gym-discovery .de-directory-intro { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+#gym-discovery .de-coach-directory-toolbar { padding: 0; margin-bottom: 32px; }
+#gym-discovery .de-coach-directory-search { display: grid; grid-template-columns: 1fr 1fr 1fr 56px; gap: 18px; align-items: end; padding: 24px; background: white; border: 1px solid var(--gym-line); border-radius: 10px; }
+#gym-discovery .de-directory-search-button { padding: 12px; justify-content: center; }
+#gym-discovery .de-directory-search-button svg { width: 24px; height: 24px; }
+#gym-discovery .de-directory-chip-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 18px; }
+#gym-discovery .de-directory-chip { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 8px 14px; border: 1px solid var(--gym-line); border-radius: 6px; background: white; font-size: 13px; font-weight: 700; }
+#gym-discovery .de-directory-chip select { width: auto; min-height: 40px; border: 0; padding: 6px; }
+#gym-discovery .de-directory-chip[aria-expanded=true] { color: var(--gym-primary-hover); background: var(--gym-primary-soft); border-color: var(--gym-primary); }
+#gym-discovery .de-directory-filter-panel { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; padding: 24px; margin-top: 18px; border: 1px solid var(--gym-line); border-radius: 10px; background: white; }
+#gym-discovery .de-directory-filter-check { display: flex; align-items: center; }
+#gym-discovery :is(.de-directory-filter-panel>button,.de-directory-empty-state button) { min-height: 44px; padding: 10px 16px; border: 1px solid var(--gym-line); border-radius: 6px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); }
+#gym-discovery .de-directory-location-status { margin-top: 12px; color: var(--gym-primary-hover); }
+#gym-discovery .de-coach-directory-content { display: grid; grid-template-columns: minmax(0,2.2fr) minmax(240px,1fr); gap: 32px; align-items: start; }
+#gym-discovery .de-results-count { margin: 0 0 18px; color: var(--gym-muted); font-size: 13px; }
+#gym-discovery .de-coach-results { display: grid; gap: 20px; }
+#gym-discovery .de-coach-result-card { display: grid; grid-template-columns: 150px minmax(0,1fr); overflow: hidden; border: 1px solid var(--gym-line); border-radius: 10px; background: white; }
+#gym-discovery .de-coach-result-media { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; min-height: 210px; padding: 20px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); text-align: center; }
+#gym-discovery .de-coach-result-media>span { display: grid; place-items: center; width: 74px; height: 74px; background: white; border-radius: 50%; font-family: var(--gym-font-display); font-size: 32px; }
+#gym-discovery .de-coach-result-media small { font-size: 10px; }
+#gym-discovery .de-coach-result-body { padding: 26px; min-width: 0; }
+#gym-discovery .de-coach-result-top h2 { font-family: var(--gym-font-body); font-weight: 700; text-transform: none; font-size: 24px; letter-spacing: -.03em; margin-bottom: 8px; }
+#gym-discovery :is(.de-coach-result-address,.de-coach-result-meta,.de-coach-result-distance) { color: var(--gym-muted); font-size: 13px; line-height: 1.7; }
+#gym-discovery .de-coach-price { margin-top: 16px; font-size: 12px; }
+#gym-discovery .de-coach-price strong { display: block; color: var(--gym-primary-hover); font-size: 23px; }
+#gym-discovery .de-coach-result-slots { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+#gym-discovery .de-coach-day-card { padding: 8px; border: 1px solid var(--gym-line); border-radius: 6px; font-size: 12px; }
+#gym-discovery .de-coach-day-periods { display: flex; gap: 8px; color: var(--gym-muted); }
+#gym-discovery .de-coach-result-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-top: 24px; }
+#gym-discovery .de-coach-more-link { min-height: 44px; display: inline-flex; align-items: center; color: var(--gym-primary-hover); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+#gym-discovery .de-directory-empty-state { display: grid; gap: 20px; padding: 32px; border: 1px solid var(--gym-line); background: white; border-radius: 10px; }
+#gym-discovery .de-directory-empty-icon { font-size: 30px; color: var(--gym-primary); }
+#gym-discovery .de-coach-map-panel { padding: 26px; border: 1px solid var(--gym-line); border-radius: 10px; background: white; }
+#gym-discovery .de-coach-map-summary { display: grid; gap: 12px; }
+#gym-discovery .de-coach-map-summary strong { font-size: 23px; line-height: 1.25; }
+#gym-discovery .de-coach-map-summary span { font-size: 12px; color: var(--gym-muted); }
+#gym-discovery .de-coach-map-distance-list { margin: 20px 0; }
+#gym-discovery .de-coach-map-distance-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-top: 1px solid var(--gym-line); padding: 14px 0; font-size: 12px; }
+#gym-discovery .de-booking-profile-top { display: block; margin-bottom: 28px; }
+#gym-discovery .de-booking-profile-top h1 { margin: 0 0 20px; }
+#gym-discovery .de-booking-profile-top [data-booking-price] { color: var(--gym-primary-hover); font-weight: 700; margin-bottom: 8px; }
+#gym-discovery .de-booking-address { color: var(--gym-muted); }
+#gym-discovery .de-booking-profile-showcase-grid { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); gap: 24px; }
+#gym-discovery .de-booking-gallery-profile { position: relative; height: 420px; overflow: hidden; border-radius: 10px; }
+#gym-discovery .de-booking-gallery-main { width: 100%; height: 100%; }
+#gym-discovery .de-booking-gallery-caption { position: absolute; bottom: 14px; left: 14px; right: 14px; padding: 10px; background: white; border-radius: 6px; font-size: 11px; }
+#gym-discovery :is(.de-booking-score-panel,.de-booking-story-card,.de-booking-contact-card,.de-booking-card,.de-booking-content-profile,.de-booking-content-lock-note,.de-reservation-calendar-card) { min-width: 0; padding: 28px; border: 1px solid var(--gym-line); border-radius: 10px; background: white; color: var(--gym-ink); box-shadow: none; }
+#gym-discovery .de-booking-score-panel { height: 100%; }
+#gym-discovery .de-booking-score-display { margin: 12px 0; font-family: var(--gym-font-display); font-size: 40px; color: var(--gym-primary-hover); }
+#gym-discovery :is(.de-booking-score-label,.de-booking-score-meta,.de-booking-score-breakdown) { font-size: 12px; color: var(--gym-muted); }
+#gym-discovery .de-booking-score-facts { display: grid; gap: 16px; margin-top: 24px; }
+#gym-discovery .de-booking-score-fact { display: grid; gap: 4px; padding-top: 12px; border-top: 1px solid var(--gym-line); font-size: 13px; }
+#gym-discovery .de-booking-score-fact>span { color: var(--gym-muted); font-size: 11px; }
+#gym-discovery .de-booking-profile-lead { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 0; }
+#gym-discovery .de-booking-profile-lead strong { font-size: 22px; }
+#gym-discovery .de-booking-profile-lead p { margin-top: 10px; font-size: 14px; color: var(--gym-muted); }
+#gym-discovery .de-booking-tabs { display: flex; flex-wrap: wrap; gap: 8px; position: relative; padding: 12px; margin: 0 0 28px; border: 1px solid var(--gym-line); border-radius: 10px; background: var(--gym-ink); }
+#gym-discovery .de-booking-tab { min-height: 44px; padding: 12px 22px; border: 1px solid transparent; border-radius: 6px; background: transparent; color: white; font-size: 13px; }
+#gym-discovery .de-booking-tab.is-active { background: var(--gym-primary); }
+#gym-discovery .de-booking-tabs-spacer { display: none; }
+#gym-discovery .de-booking-pane { scroll-margin-top: 24px; }
+#gym-discovery .de-booking-pane:not(.is-active) { display: none; }
+#gym-discovery .de-booking-pane-grid { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(280px,1fr); gap: 24px; align-items: start; }
+#gym-discovery .de-booking-pane-main { display: grid; gap: 24px; min-width: 0; }
+#gym-discovery .de-booking-story-card :is(h2,h3) { margin-bottom: 20px; }
+#gym-discovery .de-booking-story-card p { color: var(--gym-muted); line-height: 1.75; font-size: 14px; margin-top: 16px; max-width: 70ch; }
+#gym-discovery :is(.de-booking-story-points,.de-booking-practical-grid,.de-booking-story-columns,.de-booking-story-sequence) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 24px; }
+#gym-discovery :is(.de-booking-story-point,.de-booking-practical-item,.de-booking-story-check,.de-booking-story-sequence-item) { display: grid; gap: 8px; padding: 16px; border: 1px solid var(--gym-line); border-radius: 6px; font-size: 13px; }
+#gym-discovery :is(.de-booking-story-point span,.de-booking-practical-item span,.de-booking-story-check span) { color: var(--gym-muted); }
+#gym-discovery .de-booking-contact-heading { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; color: var(--gym-primary-hover); font-size: 11px; }
+#gym-discovery .de-booking-contact-title-row { display: flex; gap: 12px; margin-bottom: 24px; }
+#gym-discovery .de-booking-contact-avatar { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--gym-primary-soft); color: var(--gym-primary-hover); font-weight: 700; }
+#gym-discovery .de-booking-contact-title-row p { margin-top: 10px; color: var(--gym-muted); font-size: 13px; }
+#gym-discovery .de-booking-contact-prompts { display: grid; gap: 8px; margin-bottom: 20px; }
+#gym-discovery .de-booking-contact-prompts button { min-height: 44px; padding: 10px; border: 1px solid var(--gym-line); border-radius: 6px; background: var(--gym-paper); color: var(--gym-ink); font-size: 12px; text-align: left; }
+#gym-discovery textarea { min-height: 130px; resize: vertical; }
+#gym-discovery .de-booking-contact-form-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 12px 0; font-size: 11px; color: var(--gym-muted); }
+#gym-discovery .de-booking-contact-error { margin-top: 12px; color: #b42318; }
+#gym-discovery .de-booking-section-head p { margin: 16px 0 24px; color: var(--gym-muted); }
+#gym-discovery .de-discovery-note { margin-bottom: 24px; padding: 16px; background: var(--gym-primary-soft); border-radius: 6px; color: var(--gym-primary-hover); font-size: 13px; }
+#gym-discovery .de-reservation-calendar-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+#gym-discovery .de-reservation-calendar-head>strong { text-align: center; font-size: 13px; }
+#gym-discovery .de-reservation-day { display: grid; text-align: center; gap: 6px; font-size: 11px; }
+#gym-discovery .de-calendar-arrow { min-width: 44px; height: 44px; border: 1px solid var(--gym-line); border-radius: 6px; background: white; color: var(--gym-primary-hover); font-size: 24px; }
+#gym-discovery .de-reservation-slots-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 12px; padding-top: 24px; }
+#gym-discovery .de-reservation-slot-column { display: grid; align-content: start; gap: 8px; }
+#gym-discovery .de-reservation-slot { min-height: 44px; border: 1px solid var(--gym-line); border-radius: 6px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); font-size: 12px; }
+#gym-discovery .de-reservation-slot.is-selected { background: var(--gym-primary); color: white; }
+#gym-discovery .de-reservation-cta-row { margin-top: 24px; }
+#gym-discovery .de-booking-content-profile { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+#gym-discovery .de-booking-content-profile-copy { display: grid; gap: 8px; flex: 1; }
+#gym-discovery .de-booking-content-lock-note { margin-top: 20px; color: var(--gym-muted); font-size: 14px; }
+#gym-discovery .de-booking-content-feed { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-top: 20px; }
+#gym-discovery .de-booking-content-tile { display: grid; place-items: center; min-height: 140px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); border: 1px solid var(--gym-line); border-radius: 10px; font-size: 13px; }
+#gym-discovery .de-footer { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; margin: 0 auto; width: min(1240px,calc(100% - 80px)); padding: 32px 0; border-top: 1px solid var(--gym-line); font-size: 12px; }
+#gym-discovery .de-footer nav { display: flex; flex-wrap: wrap; gap: 16px; margin-left: auto; }
+#gym-discovery .de-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+body:has(#gym-discovery.discovery-editorial) :is(.cookie-consent-banner,.cookie-preferences-trigger,.back-to-top) { background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
+body:has(#gym-discovery.discovery-editorial) .cookie-consent-banner :is(p,strong) { color: var(--gym-ink) !important; }
+body:has(#gym-discovery.discovery-editorial) .cookie-consent-primary { background: var(--gym-primary) !important; color: white !important; }
+body:has(#gym-discovery.discovery-editorial) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
+body:has(#gym-discovery.discovery-editorial) .cookie-consent-banner { max-height: 42dvh; overflow-y: auto; }
+/* Preferences and return-to-top follow the footer, rather than covering the page. */
+body:has(#gym-discovery.discovery-editorial) .cookie-controls:not(:has(.cookie-consent-banner)) { position: static !important; width: min(1240px,calc(100% - 36px)); max-height: none; margin: 0 auto; overflow: visible; }
+body:has(#gym-discovery.discovery-editorial) .cookie-preferences-trigger { position: static !important; display: flex; margin: 0 18px 16px auto !important; min-height: 44px; width: fit-content; }
+body:has(#gym-discovery.discovery-editorial) .back-to-top { position: static !important; display: flex; margin: 0 18px 16px auto; transform: none; }
+body:has(#gym-discovery.discovery-editorial):has(.cookie-consent-banner) .back-to-top { display: none !important; }
 @media(max-width:1100px) {
- #gym-discovery .global-footer-main { grid-template-columns: repeat(2,minmax(0,1fr)); }
- #gym-discovery .global-footer-brand { grid-column: 1 / -1; }
- #gym-discovery .coach-directory-content { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .coach-directory-map { max-width: 100%; }
- #gym-discovery [data-gym-ui=sportRailGrid] { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #gym-discovery .de-header { gap: 8px 24px; padding: 18px 28px; }
+  #gym-discovery .de-sports { order: 3; flex-basis: 100%; }
+  #gym-discovery .de-actions { margin-left: auto; }
+  #gym-discovery .de-search-hero { gap: 32px; }
+  #gym-discovery .de-coach-directory-content { grid-template-columns: minmax(0,1fr); }
+  #gym-discovery .de-booking-pane-grid { grid-template-columns: minmax(0,1fr); }
 }
-@media(max-width:900px) {
- #gym-discovery > header :is(.brand-lockup,[data-gym-ui=brandLockup],.sports-nav,[data-gym-ui=sportsNav]) { flex-basis: 100%; }
- #gym-discovery > header :is(.topbar-actions,[data-gym-ui=topbarActions]) { flex-basis: 100%; }
- #gym-discovery :is(.sport-page,.coach-directory-page,.booking-profile-page,[data-gym-ui=main]) { padding: 24px 18px !important; }
- #gym-discovery [data-gym-ui=hero] { grid-template-columns: minmax(0,1fr); grid-template-areas: "copy" "photo"; gap: 24px; padding: 24px 0 !important; }
- #gym-discovery [data-gym-ui=heroBackdrop] { height: 340px; }
- #gym-discovery :is(.sport-search-card,.coach-directory-search) { grid-template-columns: repeat(2,minmax(0,1fr)); }
- #gym-discovery .booking-profile-showcase-grid { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .booking-gallery-profile { height: 300px !important; }
- #gym-discovery .sport-card-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
- .discovery-coach-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+@media(max-width:760px) {
+  #gym-discovery :is(.de-main,.de-coach-directory-page,.de-booking-profile-page,.de-footer) { width: calc(100% - 36px); padding-block: 32px; }
+  #gym-discovery .de-header { padding: 16px 18px; }
+  #gym-discovery .de-brand>span { display: none; }
+  #gym-discovery .de-actions { gap: 8px 14px; }
+  #gym-discovery .de-sports { justify-content: space-between; gap: 8px; font-size: 11px; }
+  #gym-discovery .de-search-hero { grid-template-columns: minmax(0,1fr); gap: 32px; padding-bottom: 32px; }
+  #gym-discovery .de-search-form { padding: 24px; }
+  #gym-discovery .de-section-heading, #gym-discovery .de-directory-intro { display: block; }
+  #gym-discovery .de-section-heading>p { margin-top: 20px; }
+  #gym-discovery .de-city-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #gym-discovery .de-coach-directory-search, #gym-discovery .de-directory-filter-panel { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #gym-discovery .de-booking-profile-showcase-grid { grid-template-columns: minmax(0,1fr); }
+  #gym-discovery .de-reservation-slots-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px 12px; }
+  #gym-discovery .de-booking-gallery-profile { height: 340px; }
+  #gym-discovery .de-booking-profile-lead { align-items: start; flex-direction: column; }
+  #gym-discovery :is(input,select,textarea) { font-size: 16px; }
+  #gym-discovery .de-footer nav { margin-left: 0; }
 }
-@media(max-width:620px) {
- body:has(#gym-discovery [data-gym-ui=mobileNav]) { --mobile-navigation-space: 94px; }
- #gym-discovery [data-gym-ui=mobileNav] { display: flex !important; justify-content: space-around; align-items: center; position: fixed; left: 12px; right: 12px; bottom: 12px; height: 70px; z-index: 100; }
- #gym-discovery > :is(.topbar,[data-gym-ui=topbar]) { padding: 12px 18px !important; gap: 8px; }
- #gym-discovery > header :is(.sports-nav,[data-gym-ui=sportsNav]) { gap: 4px 14px; }
- #gym-discovery :is(.sport-search-card,.coach-directory-search,.sport-card-grid,.directory-filter-panel,.booking-story-points,.booking-practical-grid,.booking-story-columns,.booking-story-sequence) { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .coach-result-card { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .coach-result-media { height: 200px; min-height: 0; }
- #gym-discovery .coach-result-body { padding: 20px !important; }
- #gym-discovery .directory-chip-row { display: grid !important; grid-template-columns: minmax(0,1fr); }
- #gym-discovery .directory-chip { justify-content: space-between; width: 100%; }
- #gym-discovery :is(input,select,textarea) { font-size: 16px; }
- #gym-discovery :is(.booking-score-panel,.booking-story-card,.reservation-calendar-card) { padding: 20px !important; }
- #gym-discovery [data-gym-ui=sportRailGrid] { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .global-footer-main, .discovery-coach-grid { grid-template-columns: minmax(0,1fr); }
- #gym-discovery .role-journeys { grid-template-columns: minmax(0,1fr); }
+@media(max-width:480px) {
+  #gym-discovery .de-actions { flex: 1; justify-content: end; }
+  #gym-discovery .language-selector-native { width: 100px; }
+  #gym-discovery .de-actions>a { font-size: 11px; }
+  #gym-discovery .de-header { gap: 8px 12px; }
+  #gym-discovery .de-city-grid, #gym-discovery .de-coach-directory-search, #gym-discovery .de-directory-filter-panel { grid-template-columns: minmax(0,1fr); }
+  #gym-discovery .de-coach-result-card { grid-template-columns: minmax(0,1fr); }
+  #gym-discovery .de-coach-result-media { min-height: 0; flex-direction: row; justify-content: start; padding: 18px 24px; }
+  #gym-discovery .de-coach-result-media>span { width: 48px; height: 48px; font-size: 24px; }
+  #gym-discovery .de-directory-chip-row { display: grid; grid-template-columns: minmax(0,1fr); }
+  #gym-discovery .de-directory-chip select { max-width: 65%; }
+  #gym-discovery :is(.de-booking-story-points,.de-booking-practical-grid,.de-booking-story-columns,.de-booking-story-sequence) { grid-template-columns: minmax(0,1fr); }
+  #gym-discovery :is(.de-booking-story-card,.de-booking-contact-card,.de-booking-score-panel,.de-reservation-calendar-card) { padding: 20px; }
+  #gym-discovery .de-booking-tabs { gap: 4px; padding: 8px; }
+  #gym-discovery .de-booking-tab { flex: 1; padding: 10px 6px; font-size: 12px; }
+  #gym-discovery .de-booking-content-feed { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #gym-discovery .de-reservation-slots-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #gym-discovery .de-steps { gap: 10px; font-size: 11px; }
 }
 @media(prefers-reduced-motion:reduce) { #gym-discovery *, #gym-discovery *::before, #gym-discovery *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
