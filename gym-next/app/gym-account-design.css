@@ -232,3 +232,11 @@ body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary
 #gym-account .auth-link { color: var(--gym-primary-hover) !important; }
 
 #gym-account .coach-home-requests > button { max-width: 100%; min-width: 0; box-sizing: border-box; white-space: normal !important; overflow-wrap: break-word; min-height: 44px; padding: 10px 14px; border: 1px solid var(--gym-line); border-radius: 10px; background: var(--gym-primary-soft); color: var(--gym-primary-hover); font: inherit; cursor: pointer; }
+
+/* Shared session action, in flow above every authenticated profile. */
+#gym-account .account-session-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; padding:16px; border:1px solid var(--gym-line); border-radius:12px; background:var(--gym-surface); }
+#gym-account .account-session-controls :is(a,button) { min-height:44px; display:inline-flex; align-items:center; font:inherit; }
+#gym-account .account-session-controls button { padding:10px 16px; background:var(--gym-primary); color:white; border:0; border-radius:8px; cursor:pointer; }
+#gym-account .account-session-controls p { flex-basis:100%; margin:0; color:#b42318; }
+#gym-account .account-session-controls :is(a,button):focus-visible { outline:3px solid var(--gym-focus); outline-offset:3px; }
+#gym-account #account-content { scroll-margin-top:24px; }

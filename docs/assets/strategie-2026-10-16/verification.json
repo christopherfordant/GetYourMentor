@@ -1,0 +1,116 @@
+{
+  "baseline": "1b1d9aa421811855a37c0acb3423b6e7714d3695",
+  "branch": "design/refonte-progressive-lot1",
+  "build": "PASS",
+  "tests_final": {
+    "passed": 40,
+    "failed": 0
+  },
+  "tests_mcp_support": {
+    "passed": 18,
+    "failed": 0,
+    "overlaps_final": true
+  },
+  "mcp_viewports": {
+    "sportif": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "coach": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "club": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ],
+    "admin": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ]
+  },
+  "files": {
+    "gym-next/app/compte/page.tsx": "9ac97ff81c2f2dacfda1012b985deb04811c3a1ac4392053e9b763e018f42ceb",
+    "gym-next/app/gym-account-design.css": "2daa441e6023a62344a1856ea70412c5f755af43e9d174bca2dad9ed86a4c4be",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "a2ce7ab584ba310a64418972ff44de6c36d12f18ca8e657641441c3e9804459a",
+    "gym-next/components/account-legacy/AccountSessionControls.tsx": "6d1c535f9079fdb61f84bfda4ab0de3e47130f8a9e66cf48b7e80eb1ae850743",
+    "gym-next/tests/account-session-controls.spec.ts": "9cb60f356ca9d84cf3cd7b06c8f02552f1dba7d2fa53b706eb3fde013b1a91b5"
+  },
+  "source_pdf_sha256": "81f48972b0d943d9b356b01c7f24377d9485c29bf28b318b88b92aa244e1d92d",
+  "deploy": "NOT_DEPLOYED",
+  "versions": "V2/V3 incomplete",
+  "limits": "Tests locaux de démo, pas certification distante RLS/OAuth/Stripe/Supabase ; autres correctifs antérieurs exclus",
+  "hash_normalization": "UTF-8 LF"
+}

@@ -25,3 +25,6 @@ Cette matrice sert a maintenir le fil rouge, a garder la logique de reservation 
 - si une page change mais qu'aucune user story ou source prioritaire n'est mobilisee, il faut lever une alerte
 - si le code actif diverge des documents sources, la divergence doit etre explicitement arbitree
 - toute modification du tunnel de reservation doit rappeler la story, la page et la source prioritaire mobilisee
+
+## Lot comptes et Stratégie Perplexity — 16 octobre 2026
+Compte `/compte` : US-SPORTIF-07, US-COACH-01, US-CLUB-01 et rôle admin du MVP PDF p.1/devis p.1. Une seule déconnexion UI réutilise l’API existante ; contrôle serveur des paramètres du compte, erreurs et navigation. Les 25 pages du PDF secondaire sont rattachées aux sources maîtres dans `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Cette analyse n’active aucun mécanisme V2/V3 en production ni paiement ; les démarches commerciales restent distinctes du MVP et de la réservation.

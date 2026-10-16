@@ -8,6 +8,7 @@ import { LanguageSelector } from "@/components/common/LanguageSelector";
 import { CoachRequestsPanel } from "@/components/account-legacy/CoachRequestsPanel";
 import { CoachProfileEditor } from "@/components/account-legacy/CoachProfileEditor";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
+import { AccountSessionControls } from "@/components/account-legacy/AccountSessionControls";
 import { AthleteDashboard } from "@/components/account-legacy/AthleteDashboard";
 import { AdminDashboard } from "@/components/account-legacy/AdminDashboard";
 import { PhoneVerificationPanel } from "@/components/account-legacy/PhoneVerificationPanel";
@@ -397,12 +398,11 @@ function CoachDashboard({
 
   return (
     <section className="account-dashboard coach-home" data-account-dashboard="coach">
+      {!coachId ? <section className="account-dashboard-card" id="coach-documents"><h3>Vérification du profil</h3><p>Connectez-vous avec votre compte coach pour retrouver vos justificatifs.</p></section> : null}
       <PhoneVerificationPanel />
       {coachId ? <CoachDocumentsPanel coachId={coachId} /> : null}
       <aside className="coach-home-sidebar">
-        <button className="coach-home-nav-main is-active" type="button">
-          Accueil
-        </button>
+        <a className="coach-home-nav-main is-active" href="#account-content">Accueil</a>
         <div className="coach-home-nav-group">
           <div className="coach-home-nav-heading">Organisation</div>
           <a href="#coach-planning">Planning</a>
@@ -417,9 +417,7 @@ function CoachDashboard({
           <a href="#coach-documents">Vérification</a>
         </div>
         <div className="coach-home-nav-footer">
-          <a href="#coach-invitations">Invitation</a>
           <a href="#coach-help">Conseils et aides</a>
-          <a href={nextRoutes.home} onClick={async (event) => { event.preventDefault(); await fetch("/api/auth/sign-out", { method: "POST" }); window.location.assign(nextRoutes.home); }}>Déconnexion</a>
         </div>
       </aside>
       <section className="coach-home-planning account-dashboard-card" id="coach-planning">
@@ -427,15 +425,7 @@ function CoachDashboard({
           <h3>Mon planning</h3>
           <span>Aujourd'hui</span>
         </div>
-        <div className="coach-home-day-switch">
-          <button type="button" aria-label="Jour précédent">
-            ‹
-          </button>
-          <strong>Aujourd'hui</strong>
-          <button type="button" aria-label="Jour suivant">
-            ›
-          </button>
-        </div>
+        <p>Les horaires ci-dessous sont indicatifs. La navigation par date n’est pas encore disponible.</p>
         <div className="coach-home-schedule">
           {allowDemoFallback ? coachSessions.map((demoSession) => (
             <article key={demoSession.name}>
@@ -476,12 +466,17 @@ function CoachDashboard({
           availabilityTags={coachProfile.availabilityTags}
         />
       ) : (
-        <section className="account-dashboard-card" data-coach-profile-unavailable>
+        <section className="account-dashboard-card" id="coach-profile-editor" data-coach-profile-unavailable>
           <h3>Profil coach indisponible</h3>
           <p>Votre profil sera affiché dès qu’il aura été créé et vérifié par l’administrateur.</p>
         </section>
       )}
       <MessageInbox recipientName={coachName} />
+      <section className="account-dashboard-card" id="coach-help">
+        <h3>Conseils et aides</h3>
+        <p>Complétez votre profil, consultez les demandes puis acceptez uniquement les séances que vous pouvez assurer. Retrouvez vos échanges dans la messagerie.</p>
+        <a href="#coach-requests">Consulter mes demandes</a>
+      </section>
       <section className="account-dashboard-card coach-home-summary" data-coach-summary>
         <div className="coach-home-card-head">
           <h3>Mon activité</h3>
@@ -563,7 +558,7 @@ function CoachDashboard({
         <div className="coach-home-standalone-cta">
           <a
             className="coach-home-inline-link coach-home-inline-link--ghost coach-home-inline-link-prominent"
-            href={buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: coachName })}
+            href={buildNextPath(nextRoutes.coach, { sport: coachProfile?.sport, city: coachProfile?.city, coach: coachName })}
           >
             Voir mon profil en ligne
           </a>
@@ -659,45 +654,27 @@ function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
 
   return (
     <section className="account-dashboard coach-home club-home" data-account-dashboard="club">
+      <p role="note">Démonstration : les données de cette présentation de structure sont illustratives. Aucun paiement, message ou abonnement réel n’est déclenché.</p>
       <aside className="coach-home-sidebar club-home-sidebar">
-        <button className="coach-home-nav-main is-active" type="button">
-          Accueil
-        </button>
+        <a className="coach-home-nav-main is-active" href="#account-content">Accueil</a>
         <div className="coach-home-nav-group">
           <div className="coach-home-nav-heading">Organisation</div>
           <a href="#club-planning">Planning du club</a>
           <a href="#club-messages">Messagerie</a>
-          <a href="#club-coaches">Mes coachs affiliés</a>
-          <a href="#club-contents">Mes contenus</a>
-          <a href="#club-templates">Mes templates</a>
         </div>
         <div className="coach-home-nav-group">
           <div className="coach-home-nav-heading">Mes données</div>
           <a href="#club-overview">Tableau de bord</a>
           <a href="#club-payments">Mes paiements</a>
-          <a href="#club-rib">Mon RIB</a>
-          <a href="#club-subscription">Mon abonnement</a>
-          <a href="#club-bills">Mes factures</a>
         </div>
-        <div className="coach-home-nav-footer">
-          <a href="#club-help">Conseils et aides</a>
-          <a href={nextRoutes.home} onClick={async (event) => { event.preventDefault(); await fetch("/api/auth/sign-out", { method: "POST" }); window.location.assign(nextRoutes.home); }}>Déconnexion</a>
-        </div>
+
       </aside>
       <section className="coach-home-planning account-dashboard-card club-home-planning" id="club-planning">
         <div className="coach-home-card-head">
           <h3>Planning du club</h3>
           <span>Aujourd'hui</span>
         </div>
-        <div className="coach-home-day-switch">
-          <button type="button" aria-label="Jour précédent">
-            ‹
-          </button>
-          <strong>Aujourd'hui</strong>
-          <button type="button" aria-label="Jour suivant">
-            ›
-          </button>
-        </div>
+        <p>Les horaires ci-dessous sont indicatifs. La navigation par date n’est pas encore disponible.</p>
         <div className="coach-home-schedule">
           <article>
             <strong>18h - 19h</strong>
@@ -938,7 +915,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
     [params],
   );
 
-  const coachName = params.coach || authenticatedCoachName || "Steven Fordant";
+  const coachName = authenticatedCoachName || params.coach || "Steven Fordant";
 
   const revealDashboard = (modeToShow: DashboardMode) => {
     if (!modeToShow) return;
@@ -958,6 +935,8 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
         <AccountHeader />
         <main className={`account-page${dashboardMode ? " is-coach-mode" : ""}`} data-account-page>
           <section className="account-panel">
+            {dashboardMode ? <AccountSessionControls role={dashboardMode} onSignedOut={() => { setDashboardMode(null); setAuthenticatedCoachName(""); setPendingSignup(null); }} /> : null}
+            <div id="account-content" />
             {!dashboardMode ? (
               <AccountAuthShell
                 step={step}
@@ -976,24 +955,14 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                     setStatus(payload.error ?? "Connexion impossible");
                     return;
                   }
-                  if (isCoachMode && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
-                  if (redirect === "paiement") {
+                  if (payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
+                  const resolvedRole = payload.data?.role as DashboardMode;
+                  if (redirect === "paiement" && resolvedRole === "sportif") {
                     window.location.href = paymentTarget;
                     return;
                   }
-                  if (isCoachMode) {
-                    revealDashboard("coach");
-                    return;
-                  }
-                  if (isClubMode) {
-                    revealDashboard("club");
-                    return;
-                  }
-                  if (isAdminMode) {
-                    revealDashboard("admin");
-                    return;
-                  }
-                  revealDashboard("sportif");
+                  revealDashboard(resolvedRole);
+
                 }}
                 onOpenSignup={() => {
                   if (redirect === "paiement") {

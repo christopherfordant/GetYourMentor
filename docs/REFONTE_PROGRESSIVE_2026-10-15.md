@@ -222,3 +222,6 @@ Tests sur l'arbre local avec correctifs métier antérieurs ; commit ciblé sans
 Branche : `design/refonte-progressive-lot1`. Le commit ciblé du design et de ses preuves constitue cette livraison ; les changements backend antérieurs restent locaux. Aucun déploiement, aucune fusion, aucun force-push. Retour arrière : revert de ce commit ; les originaux documentaires et données restent préservés.
 
 Prochain lot : découverte (accueil, recherche, annuaire, fiche coach), puis réservation/récapitulatif/paiement, structures/administration selon le tableau des lots. V2/V3 restent incomplets. Les limites de ce lot incluent la vérification visuelle approfondie des écrans sportif/structure/admin et une recette complète de zoom navigateur et de traductions longues ; aucun résultat non testé n'est revendiqué.
+
+## Reprise stratégie — 16 octobre 2026
+Les versions techniques de ce journal ne redéfinissent pas le Business Plan p.49–51/62–64. La nouvelle mission autorise des lots de démonstration progressifs, sans agents supplémentaires ni lancement commercial. Matrice des 25 pages, priorités et critères : [couverture Stratégie Perplexity](STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md). Premier lot : session UI et navigation ; services distants et V2/V3 non certifiés.

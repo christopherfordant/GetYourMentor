@@ -1,3 +1,5 @@
+> **Lot stratégie et comptes — 16 octobre 2026 :** couverture des 25 pages de Stratégie Perplexity, rapprochement avec les PDF prioritaires et séquençage des lots jusqu’au périmètre V3. Déconnexion partagée des quatre rôles, rôle serveur prioritaire, URL non authentifiante et menus coach corrigés. Le PDF stratégique ne remplace ni les prix ni la commission de 15 %. Détails, contradictions, limites et reprise : `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. V2/V3 restent incomplets, aucun paiement réel ni déploiement production.
+
 > **Dernier lot — 16 octobre 2026 :** [textes visiteurs, accès réels et inventaire des limites](AUDIT_TEXTES_ACTIONS_2026-10-16.md). Prochaine priorité : déconnexion UI et menus des comptes.
 
 # Documentation GetYourMentor

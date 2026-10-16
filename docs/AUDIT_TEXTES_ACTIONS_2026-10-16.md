@@ -69,3 +69,6 @@ Build/typage PASS, 74+6 tests PASS. Configuration Netlify et frontière client/s
 - [Inventaire pages](assets/textes-actions-2026-10-16/inventaire-pages.json) · [comptes](assets/textes-actions-2026-10-16/inventaire-comptes.json) · [empreintes et résultats](assets/textes-actions-2026-10-16/verification.json).
 
 Push ciblé sur `design/refonte-progressive-lot1` après contrôle des secrets suivis et comparaison SHA distant. Aucune fusion, force-push ou publication en production. La CI GitHub existante ne se déclenche pas sur cette branche de design ; la configuration ne prouve pas un déploiement. Retour arrière par revert du commit du lot, sans reset des corrections locales ou des données. Prochain lot : déconnexion UI et menus inertes des comptes, puis réservation datée et services.
+
+## Rectification et lot suivant — 16 octobre 2026
+La base Git 1b1d9aa contient déjà un handler de déconnexion coach/club (POST sign-out). Le lien n’était donc pas seulement une navigation vers `/` : le diagnostic P0 ci-dessus était inexact. Le nouveau lot fiabilise l’erreur, partage l’action entre quatre rôles et protège l’affichage contre les paramètres URL. Preuves et périmètre : `STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Les autres limites de ce rapport restent actives tant qu’un lot ne les traite pas explicitement.
