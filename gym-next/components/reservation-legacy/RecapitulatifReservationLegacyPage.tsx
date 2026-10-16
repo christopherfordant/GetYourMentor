@@ -1,5 +1,6 @@
 "use client";
 
+import { formatBookingSlot } from "@/lib/domain/booking-time";
 import { useMemo } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
@@ -101,7 +102,7 @@ function RecapDatetimeSection({
         <span>2.</span> Horaire demandé
       </h2>
       <div className="bk-recap-date-card">
-        <div data-recap-datetime>{`${slot} · Horaire de démonstration, date à confirmer`}</div>
+        <div data-recap-datetime>{`${formatBookingSlot(slot)} · Europe/Paris · Démonstration`}</div>
         <a href={editHref} className="bk-recap-link" data-recap-edit>
           Modifier
         </a>

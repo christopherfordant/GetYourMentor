@@ -1,4 +1,6 @@
+import { normalizeSlots } from "@/lib/domain/booking-time";
 import { NextResponse } from "next/server";
+import { randomUUID } from "node:crypto";
 import { currentSession } from "@/lib/auth";
 import type { Reservation } from "@/lib/domain";
 import { getCoach } from "@/lib/coaches";
@@ -6,12 +8,31 @@ import { createReservation, hasSlotConflict, listReservations, ReservationSlotCo
 import { parseReservationInput } from "@/lib/domain/validation/reservation-input";
 import { bodyExceedsLimit, rateLimit } from "@/lib/request-guards";
 import { reservationClaimToken } from "@/lib/reservation-claims";
+import { getStructureOffer } from "@/lib/structure-offers";
+import { isDemoFallbackAllowed } from "@/lib/runtime";
 
 export async function POST(request: Request) {
   const limit = rateLimit(request, "reservation-create", 60, 60_000);
   if (!limit.allowed) return NextResponse.json({ error: "Trop de demandes, réessayez plus tard" }, { status: 429, headers: { "Retry-After": String(limit.retryAfter) } });
   if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
+  const session = await currentSession();
+  if (session && session.role !== "sportif") return NextResponse.json({ error: "Seul un sportif peut demander une réservation" }, { status: 403 });
   const body = await request.json().catch(() => null);
+  let structureOfferId: string | undefined;
+  if (body?.structureOfferId !== undefined) {
+    if (!isDemoFallbackAllowed() || typeof body.structureOfferId !== "string" || body.structureOfferId.length > 128) return NextResponse.json({ error: "Séance de structure indisponible" }, { status: 400 });
+    if ((await currentSession())?.role !== "sportif") return NextResponse.json({ error: "Connexion élève requise pour réserver cette séance" }, { status: 401 });
+    let offer;
+    try { offer = await getStructureOffer(body.structureOfferId); }
+    catch { return NextResponse.json({ error: "Séance temporairement indisponible" }, { status: 503 }); }
+    if (!offer) return NextResponse.json({ error: "Séance introuvable" }, { status: 404 });
+    if (body.coachId && body.coachId !== offer.coachId) return NextResponse.json({ error: "Coach incohérent avec la séance" }, { status: 403 });
+    if (Array.isArray(body.slots) && body.slots.every((s: unknown) => typeof s === "string")) body.slots = normalizeSlots(body.slots) ?? [];
+    if (!Array.isArray(body.slots) || body.slots.length !== 1 || body.slots.some((slot: unknown) => typeof slot !== "string" || !offer.slots.includes(slot) || Date.parse(slot) <= Date.now())) return NextResponse.json({ error: "Choisissez un créneau futur proposé par la structure" }, { status: 400 });
+    structureOfferId = offer.id;
+    body.coachId = offer.coachId; body.service = offer.title; body.duration = offer.duration;
+    body.appointmentAt = body.slots[0];
+  }
   const input = parseReservationInput(body);
   if (!input.ok) return NextResponse.json({ error: input.error }, { status: 400 });
   const coach = await getCoach(input.data.coachId);
@@ -20,7 +41,7 @@ export async function POST(request: Request) {
   if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
 
   try {
-    if (await hasSlotConflict(coach.id, slots)) {
+    if (await hasSlotConflict(coach.id, slots, undefined, duration, structureOfferId)) {
       return NextResponse.json({ error: "Un des créneaux est déjà demandé ou réservé" }, { status: 409 });
     }
   } catch (error) {
@@ -28,8 +49,8 @@ export async function POST(request: Request) {
   }
 
   const reservation: Reservation = {
-    id: `res-${Date.now()}`,
-    ownerEmail: (await currentSession())?.email,
+    id: `res-${randomUUID()}`,
+    ownerEmail: session?.email,
     coachId: coach.id || coachId,
     coachName: coach.name,
     sport: coach.sport,
@@ -42,6 +63,7 @@ export async function POST(request: Request) {
     status: "requested",
     createdAt: new Date().toISOString(),
     appointmentAt: appointmentAt ?? slots[0],
+    ...(structureOfferId ? { structureOfferId } : {}),
   };
 
   try {
@@ -68,7 +90,7 @@ export async function GET(request: Request) {
     if (!session && requestedProfile) {
       const reservations = await listReservations({ coachId: requestedProfile.id });
       return NextResponse.json({
-        data: reservations.map((reservation: Reservation) => ({ status: reservation.status, slots: reservation.slots })),
+        data: reservations.map((reservation: Reservation) => ({ status: reservation.status, slots: reservation.slots, duration: reservation.duration })),
       });
     }
     if (!session) return NextResponse.json({ error: "Connexion requise" }, { status: 401 });
@@ -84,7 +106,7 @@ export async function GET(request: Request) {
       if (requestedProfile) {
         const reservations = await listReservations({ coachId: requestedProfile.id });
         return NextResponse.json({
-          data: reservations.map((reservation: Reservation) => ({ status: reservation.status, slots: reservation.slots })),
+          data: reservations.map((reservation: Reservation) => ({ status: reservation.status, slots: reservation.slots, duration: reservation.duration })),
         });
       }
       return NextResponse.json({ data: await listReservations({ ownerEmail: session.email }) });

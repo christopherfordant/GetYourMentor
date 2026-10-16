@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { demoCalendarWeeks, BOOKING_TIME_ZONE, intervalsOverlap } from "@/lib/domain/booking-time";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type ChoixCoachCreneauLegacyPageProps = {
   demo: boolean;
+  calendarNow: number;
   params: Record<string, string | undefined>;
 };
 
@@ -15,34 +17,7 @@ type WeekDay = {
   slots: string[];
 };
 
-const weekSets: WeekDay[][] = [
-  [
-    { day: "jeudi", date: "26 mars", slots: ["10:00", "11:00", "11:30", "12:00", "13:30"] },
-    { day: "vendredi", date: "27 mars", slots: ["10:00", "10:30", "11:00", "13:30", "14:00"] },
-    { day: "samedi", date: "28 mars", slots: ["10:00", "17:30", "18:00"] },
-    { day: "dimanche", date: "29 mars", slots: [] },
-    { day: "lundi", date: "30 mars", slots: [] },
-    { day: "mardi", date: "31 mars", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
-    { day: "mercredi", date: "01 avr.", slots: ["10:00", "10:30", "11:00", "11:30", "12:00"] },
-  ],
-  [
-    { day: "jeudi", date: "02 avr.", slots: ["09:30", "10:30", "11:30", "12:30"] },
-    { day: "vendredi", date: "03 avr.", slots: ["10:00", "11:00", "16:00"] },
-    { day: "samedi", date: "04 avr.", slots: ["09:00", "10:00", "11:00"] },
-    { day: "dimanche", date: "05 avr.", slots: ["09:30", "10:30"] },
-    { day: "lundi", date: "06 avr.", slots: [] },
-    { day: "mardi", date: "07 avr.", slots: ["10:00", "12:00", "14:00"] },
-    { day: "mercredi", date: "08 avr.", slots: ["09:30", "10:30", "11:30"] },
-  ],
-];
 
-const coaches = [
-  { id: "SP", name: "Sans preference" },
-  { id: "M", name: "Mika" },
-  { id: "T", name: "Titi" },
-  { id: "Y", name: "Yullia" },
-  { id: "S", name: "Sabine" },
-];
 
 function ReservationMainHeader({
   coach,
@@ -100,9 +75,9 @@ function ReservationSelectedStep({
         </div>
 
         <div className="bk-reservation-coach-choice">
-          <p>Choisir avec qui ?</p>
+          <p>Votre coach</p>
           <div className="bk-reservation-coach-grid" data-multi-coaches>
-            {coaches.map((item) => (
+            {[{ id: selectedMentor.charAt(0), name: selectedMentor }].map((item) => (
               <button
                 key={item.name}
                 className={`bk-reservation-coach-option${item.name === selectedMentor ? " is-active" : ""}`}
@@ -129,6 +104,7 @@ function ReservationSelectedStep({
 
 function ReservationCalendarStep({
   weekIndex,
+  weeks,
   selectedSlot,
   onPrevWeek,
   onNextWeek,
@@ -143,6 +119,7 @@ function ReservationCalendarStep({
   onRetry,
 }: {
   weekIndex: number;
+  weeks: WeekDay[][];
   selectedSlot: string;
   onPrevWeek: () => void;
   onNextWeek: () => void;
@@ -156,7 +133,7 @@ function ReservationCalendarStep({
   availabilityError: string;
   onRetry: () => void;
 }) {
-  const currentWeek = weekSets[weekIndex];
+  const currentWeek = weeks[weekIndex];
 
   return (
     <section className="bk-reservation-step">
@@ -199,7 +176,7 @@ function ReservationCalendarStep({
                     disabled={bookedSlots.includes(slot)}
                     onClick={() => onSelectSlot(slot)}
                   >
-                    {bookedSlots.includes(slot) ? `${slot} (pris)` : slot}
+                    {new Intl.DateTimeFormat("fr-FR", { timeZone: BOOKING_TIME_ZONE, hour: "2-digit", minute: "2-digit" }).format(new Date(slot))}{bookedSlots.includes(slot) ? " (pris)" : ""}
                   </button>
                 ))
               ) : (
@@ -231,6 +208,7 @@ function ReservationCalendarStep({
 
 export function ChoixCoachCreneauLegacyPage({
   demo,
+  calendarNow,
   params,
 }: ChoixCoachCreneauLegacyPageProps) {
   const sport = params.sport || "metiers-de-la-forme";
@@ -243,8 +221,9 @@ export function ChoixCoachCreneauLegacyPage({
   const format = params.format || "";
   const packageLabel = params.package || "";
 
-  const [selectedSlot, setSelectedSlot] = useState(params.slot || "10:00");
-  const [selectedMentor, setSelectedMentor] = useState(params.mentor || "Sans preference");
+  const [selectedSlot, setSelectedSlot] = useState(params.slot && Number.isFinite(Date.parse(params.slot)) ? params.slot : "");
+  const [selectedMentor, setSelectedMentor] = useState(coach);
+  const [weeks] = useState<WeekDay[][]>(() => demoCalendarWeeks(calendarNow));
   const [weekIndex, setWeekIndex] = useState(0);
   const [availabilityAttempt, setAvailabilityAttempt] = useState(0);
   const [bookedSlots, setBookedSlots] = useState<string[]>([]);
@@ -262,9 +241,8 @@ export function ChoixCoachCreneauLegacyPage({
     fetch(`/api/reservations?coachId=${encodeURIComponent(coach)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Disponibilités indisponibles"))))
       .then((payload) => {
-        const slots = (payload.data as Array<{ status: string; slots: string[] }>)
-          .filter((item) => ["requested", "accepted", "paid"].includes(item.status))
-          .flatMap((item) => item.slots);
+        const active = (payload.data as Array<{ status: string; slots: string[]; duration?: string }>).filter(item => ["requested", "accepted", "paid"].includes(item.status));
+        const slots = weeks.flatMap(week => week.flatMap(day => day.slots)).filter(slot => active.some(item => intervalsOverlap([slot], duration, item.slots, item.duration ?? "1 heure")));
         setBookedSlots(slots);
         setSelectedSlot((current) => (slots.includes(current) ? "" : current));
       })
@@ -273,7 +251,7 @@ export function ChoixCoachCreneauLegacyPage({
       setAvailabilityError("Les disponibilités n’ont pas pu être vérifiées. Vous pouvez réessayer.");
     })
     .finally(() => setAvailabilityLoading(false));
-  }, [coach, availabilityAttempt]);
+  }, [coach, availabilityAttempt, duration, weeks]);
 
   const confirmHref = useMemo(
     () =>
@@ -364,7 +342,7 @@ export function ChoixCoachCreneauLegacyPage({
         <main className="bk-reservation-page bk-reservation-page-wide" data-reservation-multi-page>
           <p className="booking-eyebrow">01 / LA DEMANDE DE SÉANCE</p>
           <ReservationMainHeader coach={coach} city={city} />
-          <p className="booking-note">Calendrier de démonstration : les dates de mars et avril 2026 et les mentors ci-dessous sont des exemples. Ces horaires ne permettent pas de réserver une séance réelle.</p>
+          <p className="booking-note">Calendrier de démonstration : horaires affichés dans le fuseau Europe/Paris. Les disponibilités proposées sont simulées ; aucune séance réelle n’est réservée.</p>
           <ReservationSelectedStep
             service={service}
             serviceMeta={serviceMeta}
@@ -377,9 +355,10 @@ export function ChoixCoachCreneauLegacyPage({
           />
           <ReservationCalendarStep
             weekIndex={weekIndex}
+            weeks={weeks}
             selectedSlot={selectedSlot}
-            onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weekSets.length - 1 : current - 1))}
-            onNextWeek={() => setWeekIndex((current) => (current + 1) % weekSets.length)}
+            onPrevWeek={() => setWeekIndex((current) => (current === 0 ? weeks.length - 1 : current - 1))}
+            onNextWeek={() => setWeekIndex((current) => (current + 1) % weeks.length)}
             onSelectSlot={(slot) => {
               setSelectedSlot(slot);
               setError("");

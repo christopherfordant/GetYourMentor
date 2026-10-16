@@ -2,7 +2,7 @@ import { createHmac } from "node:crypto";
 import { expect, test } from "@playwright/test";
 
 test("le webhook Stripe signé confirme une réservation", async ({ request }, testInfo) => {
-  const slot = `stripe-${testInfo.project.name}-${Date.now()}`;
+  const slot = new Date(Date.now() + (150 + (testInfo.project.name.includes("mobile") ? 1 : 0)) * 86400000).toISOString();
   const created = await request.post("/api/reservations", {
     data: { coachId: "steven-fordant", service: "Webhook Stripe", duration: "1 heure", price: 35, slots: [slot] },
   });

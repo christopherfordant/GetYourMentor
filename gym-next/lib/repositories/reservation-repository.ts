@@ -1,5 +1,8 @@
+import { intervalsOverlap } from "@/lib/domain/booking-time";
+import { memoryStructureOffers, type StructureOffer } from "@/lib/structure-offers";
 import type { Reservation } from "@/lib/domain";
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 import { claimReservationSlots, releaseReservationSlots, ReservationSlotConflictError } from "@/lib/repositories/reservation-slot-repository";
 import { reservationFromRow, reservationToRow } from "@/lib/repositories/reservation-mapper";
 
@@ -18,30 +21,40 @@ function headers(config: ReservationPersistenceConfig, extra: Record<string, str
   return { apikey: config.key, Authorization: `Bearer ${config.key}`, ...extra };
 }
 
-export async function hasReservationSlotConflict(coachId: string, slots: string[], excludeId?: string) {
-  const config = reservationPersistenceConfig();
-  if (!config) {
-    return memoryReservations.some((reservation) =>
-      reservation.coachId === coachId &&
-      reservation.id !== excludeId &&
-      ["requested", "accepted", "paid"].includes(reservation.status) &&
-      reservation.slots.some((slot) => slots.includes(slot)),
-    );
+function conflicts(reservations: Reservation[], candidate: Pick<Reservation, "id" | "coachId" | "slots" | "duration" | "structureOfferId" | "ownerEmail">, offers: StructureOffer[]) {
+  const active = reservations.filter(r => r.id !== candidate.id && r.coachId === candidate.coachId && ["requested", "accepted", "paid"].includes(r.status));
+  const offer = offers.find(o => o.id === candidate.structureOfferId);
+  let seats = 1;
+  for (const r of active) {
+    if (!intervalsOverlap(r.slots, r.duration, candidate.slots, candidate.duration)) continue;
+    if (!offer || r.structureOfferId !== offer.id || r.slots.length !== 1 || candidate.slots.length !== 1 || r.slots[0] !== candidate.slots[0]) return true;
+    if (candidate.ownerEmail && r.ownerEmail === candidate.ownerEmail) return true;
+    seats++;
   }
-  const response = await fetch(
-    `${config.url}/rest/v1/gym_reservations?coach_id=eq.${encodeURIComponent(coachId)}&status=in.(requested,accepted,paid)&select=id,slots${excludeId ? `&id=neq.${encodeURIComponent(excludeId)}` : ""}`,
-    { headers: headers(config), cache: "no-store" },
-  );
-  if (!response.ok) throw new Error(`Supabase reservation error (${response.status})`);
-  const rows = await response.json();
-  return rows.some((row: { slots?: unknown }) => Array.isArray(row.slots) && row.slots.some((slot) => slots.includes(String(slot))));
+  return seats > (offer?.capacity ?? 1);
+}
+
+export async function hasReservationSlotConflict(coachId: string, slots: string[], excludeId?: string, duration = "1 heure", structureOfferId?: string) {
+  const config = reservationPersistenceConfig();
+  const candidate = { id: excludeId ?? "", coachId, slots, duration, structureOfferId };
+  if (!config) {
+    const state = isHostedDemo() ? await readDemoState() : null;
+    return conflicts(state?.reservations ?? memoryReservations, candidate, state?.structureOffers ?? memoryStructureOffers);
+  }
+  const reservations = await listPersistedReservations({ coachId });
+  return conflicts(reservations, candidate, []);
 }
 
 export async function createPersistedReservation(reservation: Reservation) {
   const config = reservationPersistenceConfig();
   if (!config) {
-    memoryReservations.push(reservation);
-    return reservation;
+    const add = (reservations: Reservation[], offers: StructureOffer[]) => {
+      if (conflicts(reservations, reservation, offers)) throw new ReservationSlotConflictError();
+      reservations.push(reservation);
+      return reservation;
+    };
+    if (isHostedDemo()) return mutateDemoState((s) => add(s.reservations, s.structureOffers ?? []));
+    return add(memoryReservations, memoryStructureOffers);
   }
   const response = await fetch(`${config.url}/rest/v1/gym_reservations`, {
     method: "POST",
@@ -63,7 +76,8 @@ export async function createPersistedReservation(reservation: Reservation) {
 export async function listPersistedReservations(options: { coachId?: string; ownerEmail?: string } = {}) {
   const config = reservationPersistenceConfig();
   if (!config) {
-    return memoryReservations.filter((reservation) =>
+    const reservations = isHostedDemo() ? (await readDemoState()).reservations : memoryReservations;
+    return reservations.filter((reservation) =>
       (!options.coachId || reservation.coachId === options.coachId) &&
       (!options.ownerEmail || reservation.ownerEmail === options.ownerEmail),
     );
@@ -80,7 +94,7 @@ export async function listPersistedReservations(options: { coachId?: string; own
 
 export async function getPersistedReservation(id: string) {
   const config = reservationPersistenceConfig();
-  if (!config) return memoryReservations.find((reservation) => reservation.id === id) ?? null;
+  if (!config) return (isHostedDemo() ? (await readDemoState()).reservations : memoryReservations).find((reservation) => reservation.id === id) ?? null;
   const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}&select=*`, {
     headers: headers(config),
     cache: "no-store",
@@ -97,11 +111,16 @@ export async function updatePersistedReservation(
 ) {
   const config = reservationPersistenceConfig();
   if (!config) {
-    const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    if (index < 0) return null;
-    if (expectedStatus && memoryReservations[index].status !== expectedStatus) return null;
-    memoryReservations[index] = { ...memoryReservations[index], ...patch } as Reservation;
-    return memoryReservations[index];
+    const update = (reservations: Reservation[], offers: StructureOffer[]) => {
+      const index = reservations.findIndex((reservation) => reservation.id === id);
+      if (index < 0 || (expectedStatus && reservations[index].status !== expectedStatus)) return null;
+      const next = reservationFromRow({ ...reservationToRow(reservations[index]), ...patch });
+      if (["requested", "accepted", "paid"].includes(next.status) && conflicts(reservations, next, offers)) throw new ReservationSlotConflictError();
+      reservations[index] = next;
+      return next;
+    };
+    if (isHostedDemo()) return mutateDemoState((s) => update(s.reservations, s.structureOffers ?? []));
+    return update(memoryReservations, memoryStructureOffers);
   }
   const statusFilter = expectedStatus ? `&status=eq.${encodeURIComponent(expectedStatus)}` : "";
   const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}${statusFilter}`, {
@@ -117,6 +136,7 @@ export async function updatePersistedReservation(
 export async function deletePersistedReservation(id: string) {
   const config = reservationPersistenceConfig();
   if (!config) {
+    if (isHostedDemo()) return mutateDemoState((s) => { s.reservations = s.reservations.filter((r) => r.id !== id); });
     const index = memoryReservations.findIndex((reservation) => reservation.id === id);
     if (index >= 0) memoryReservations.splice(index, 1);
     return;

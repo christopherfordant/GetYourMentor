@@ -6,12 +6,16 @@ import { canEditCoachProfile, canViewPrivateCoach } from "@/lib/policies/authori
 import { validateCoachProfileInput } from "@/lib/domain/validation/coach-profile-input";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
-  const coach = await getCoach((await params).id);
-  if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
-  const session = await currentSession();
-  const isAuthorizedPrivateView = canViewPrivateCoach(session, coach.id);
-  if (!coach.verified && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
-  return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
+  try {
+    const coach = await getCoach((await params).id);
+    if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
+    const session = await currentSession();
+    const isAuthorizedPrivateView = canViewPrivateCoach(session, coach.id);
+    if (!coach.verified && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
+    return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
+  } catch {
+    return NextResponse.json({ error: "Profil coach temporairement indisponible" }, { status: 503 });
+  }
 }
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {

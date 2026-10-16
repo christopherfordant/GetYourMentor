@@ -1,7 +1,8 @@
+import { futureSlot } from "./booking-fixtures";
 import { expect, test } from "@playwright/test";
 
 test("le parcours crée une demande avant tout paiement", async ({ request }, testInfo) => {
-  const slots = testInfo.project.name === "mobile-chromium" ? ["2026-09-23 18:00", "2026-09-24 18:00"] : ["2026-09-21 18:00", "2026-09-22 18:00"];
+  const slots = testInfo.project.name === "mobile-chromium" ? [futureSlot("2026-09-23 18:00"), futureSlot("2026-09-24 18:00")] : [futureSlot("2026-09-21 18:00"), futureSlot("2026-09-22 18:00")];
   const coaches = await request.get("/api/coaches?sport=basketball&city=Marseille");
   expect(coaches.ok()).toBeTruthy();
   const { data } = await coaches.json();
@@ -88,7 +89,7 @@ test("le remboursement suit la fenêtre d’annulation", async ({ request }) => 
 });
 
 test("un créneau déjà demandé est bloqué pour le même coach", async ({ request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2026-09-28 10:00" : "2026-09-27 10:00";
+  const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-09-28 10:00") : futureSlot("2026-09-27 10:00");
   const first = await request.post("/api/reservations", {
     data: { coachId: "madison-seck", service: "Coaching football", duration: "1 heure", price: 40, slots: [slot] },
   });
@@ -101,7 +102,7 @@ test("un créneau déjà demandé est bloqué pour le même coach", async ({ req
 });
 
 test("un paiement sans session sportif est refusé", async ({ request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2026-11-04 18:00" : "2026-11-03 18:00";
+  const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-11-04 18:00") : futureSlot("2026-11-03 18:00");
   const created = await request.post("/api/reservations", {
     data: { coachId: "studio-form-marseille", service: "Coaching fitness", duration: "1 heure", price: 35, slots: [slot] },
   });
@@ -122,13 +123,13 @@ test("un profil coach inconnu renvoie une réponse 404", async ({ request }) => 
 
 test("une réservation vers un coach inconnu est refusée", async ({ request }) => {
   const response = await request.post("/api/reservations", {
-    data: { coachId: "coach-inconnu", service: "Coaching", duration: "1 heure", price: 35, slots: ["2026-12-22 10:00"] },
+    data: { coachId: "coach-inconnu", service: "Coaching", duration: "1 heure", price: 35, slots: [futureSlot("2026-12-22 10:00")] },
   });
   expect(response.status()).toBe(404);
 });
 
 test("un coach ne peut pas traiter la réservation d'un autre coach", async ({ request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2026-12-24 10:00" : "2026-12-21 10:00";
+  const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-12-24 10:00") : futureSlot("2026-12-21 10:00");
   const created = await request.post("/api/reservations", {
     data: { coachId: "madison-seck", service: "Coaching football", duration: "1 heure", price: 40, slots: [slot] },
   });
@@ -179,8 +180,8 @@ test("les champs de créneau sont bornés côté serveur", async ({ request }) =
 });
 
 test("un sportif peut déplacer une réservation acceptée vers un créneau libre", async ({ request }, testInfo) => {
-  const sourceSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 10:00" : "2026-12-19 10:00";
-  const targetSlot = testInfo.project.name === "mobile-chromium" ? "2026-12-20 11:00" : "2026-12-19 11:00";
+  const sourceSlot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-12-20 10:00") : futureSlot("2026-12-19 10:00");
+  const targetSlot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-12-20 11:00") : futureSlot("2026-12-19 11:00");
   const athlete = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const athleteCookie = athlete.headers()["set-cookie"].split(";")[0];
   const created = await request.post("/api/reservations", {

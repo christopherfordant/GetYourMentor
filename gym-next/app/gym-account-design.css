@@ -240,3 +240,7 @@ body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary
 #gym-account .account-session-controls p { flex-basis:100%; margin:0; color:#b42318; }
 #gym-account .account-session-controls :is(a,button):focus-visible { outline:3px solid var(--gym-focus); outline-offset:3px; }
 #gym-account #account-content { scroll-margin-top:24px; }
+
+/* Reservation information remains grouped and readable on every viewport. */
+#gym-account [data-athlete-reservation] { display: grid; gap: 8px; padding: 20px 0; border-bottom: 1px solid var(--gym-line); min-width: 0; }
+#gym-account [data-athlete-reservation] :is(button,a,input) { max-width: 100%; justify-self: start; }

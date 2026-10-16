@@ -1,3 +1,5 @@
+import { normalizeSlots, durationMinutes, slotInstant } from "@/lib/domain/booking-time";
+
 export type ReservationInput = {
   coachId: string;
   service: string;
@@ -41,6 +43,10 @@ export function parseReservationInput(body: unknown): ValidationResult {
     slots.length < 1 ||
     slots.length > 3;
 
+  if (!Array.isArray(body.slots) || body.slots.length > 3 || (body.appointmentAt !== undefined && typeof body.appointmentAt !== "string") || body.slots.some(slot => typeof slot !== "string")) return { ok: false, error: "Créneaux invalides" };
   if (invalid) return { ok: false, error: "coachId, service, duration et 1 à 3 créneaux sont requis" };
-  return { ok: true, data: { coachId, service, duration, slots, appointmentAt } };
+  const normalized = normalizeSlots(slots);
+  if (!normalized || !durationMinutes(duration)) return { ok: false, error: "Indiquez des dates futures avec fuseau et une durée valide (1 à 480 minutes)" };
+  if (appointmentAt !== undefined && slotInstant(appointmentAt) !== slotInstant(normalized[0])) return { ok: false, error: "La date du rendez-vous doit correspondre au premier créneau" };
+  return { ok: true, data: { coachId, service, duration, slots: normalized, appointmentAt: normalized[0] } };
 }

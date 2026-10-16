@@ -1,3 +1,4 @@
+import { normalizeSlots } from "@/lib/domain/booking-time";
 import type { ReservationStatus } from "@/lib/domain";
 
 export const ACTIVE_RESERVATION_STATUSES: ReadonlySet<ReservationStatus> = new Set([
@@ -12,11 +13,8 @@ export function hasOverlappingSlot(slots: readonly string[], candidateSlots: rea
 }
 
 export function validateReservationSlots(slots: readonly string[]) {
-  const uniqueSlots = Array.from(new Set(slots));
-  return {
-    valid: uniqueSlots.length >= 1 && uniqueSlots.length <= 3 && uniqueSlots.every((slot) => slot.trim().length > 0),
-    slots: uniqueSlots,
-  } as const;
+  const normalized = normalizeSlots(slots);
+  return { valid: normalized !== null, slots: normalized ?? [] } as const;
 }
 
 export function canTransitionReservation(status: ReservationStatus, nextStatus: "accepted" | "rejected" | "cancelled") {

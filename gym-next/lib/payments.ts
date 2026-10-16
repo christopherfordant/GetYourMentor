@@ -1,5 +1,8 @@
+import { validateReservationSlots } from "@/lib/domain/booking-rules";
 import type { Reservation } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { eurosToCents } from "@/lib/domain/commission";
+import { updatePersistedReservation } from "@/lib/repositories/reservation-repository";
 
 type CheckoutResult = { checkoutUrl: string; sessionId: string };
 
@@ -15,6 +18,8 @@ function stripeConfig() {
 }
 
 export async function createCheckoutSession(reservation: Reservation): Promise<CheckoutResult | null> {
+  if (reservation.status !== "accepted") throw new Error("Le paiement est disponible après acceptation du coach");
+  if (!validateReservationSlots(reservation.slots).valid) throw new Error("Ce créneau est passé ou invalide");
   const config = stripeConfig();
   if (!config) return null;
 
@@ -35,19 +40,21 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   form.set("customer_email", reservation.ownerEmail ?? "");
   form.set("line_items[0][quantity]", "1");
   form.set("line_items[0][price_data][currency]", "eur");
-  form.set("line_items[0][price_data][unit_amount]", String(Math.round(reservation.price * 100)));
+  form.set("line_items[0][price_data][unit_amount]", String(reservation.financials?.grossCents ?? eurosToCents(reservation.price)));
   form.set("line_items[0][price_data][product_data][name]", reservation.service);
   form.set("line_items[0][price_data][product_data][description]", `${reservation.coachName} — ${reservation.duration}`);
   form.set("metadata[reservation_id]", reservation.id);
 
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
-    headers: { Authorization: `Bearer ${config.secretKey}`, "Content-Type": "application/x-www-form-urlencoded" },
+    headers: { Authorization: `Bearer ${config.secretKey}`, "Content-Type": "application/x-www-form-urlencoded", "Idempotency-Key": `gym-checkout-${reservation.id}` },
     body: form,
   });
   if (!response.ok) throw new Error("Création de la session de paiement impossible");
   const payload = await response.json();
   if (typeof payload.url !== "string" || typeof payload.id !== "string") throw new Error("Session Stripe invalide");
+  const saved = await updatePersistedReservation(reservation.id, { stripe_checkout_session_id: payload.id, owner_email: reservation.ownerEmail ?? null }, "accepted");
+  if (!saved) throw new Error("La réservation n’est plus payable");
   return { checkoutUrl: payload.url, sessionId: payload.id };
 }
 

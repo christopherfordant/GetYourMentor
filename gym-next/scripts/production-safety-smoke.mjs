@@ -64,9 +64,13 @@ try {
     (response, body) => response.status === 503 && /degraded/i.test(body),
     "La santé production doit être dégradée sans services réels",
   );
-  for (const route of ["/creneau", "/recapitulatif", "/paiement", "/coach?coach=Steven%20Fordant"]) {
+  for (const route of ["/creneau", "/recapitulatif", "/paiement"]) {
     await assertResponse(route, (response, body) => response.status === 200 && /indisponible/i.test(body), `La route ${route} doit refuser les données de démonstration`);
   }
+  await assertResponse("/coach?coach=Steven%20Fordant", (response, body) => response.status === 200 && body.includes("data-coach-unavailable") && !body.includes("data-booking-bio"), "La fiche SSR doit attendre un vrai catalogue sans profil fictif");
+  await assertResponse("/api/coaches/steven-fordant", response => response.status === 503, "Le profil API doit rester fermé sans services configurés");
+  await assertResponse("/api/structures/offers", response => response.status === 503, "Les offres structure sont fermées hors démo");
+  await assertResponse("/structures", response => response.status === 404, "La page structure démo est absente en production");
   await assertResponse(
     "/coachs",
     (response, body) => response.status === 200 && !body.includes("Steven Fordant"),

@@ -37,8 +37,9 @@ export async function PATCH(request: Request, { params }: Params) {
     return NextResponse.json({ error: "Statut coach invalide" }, { status: 400 });
   }
 
+  if (body.appointmentAt !== undefined && typeof body.appointmentAt !== "string") return NextResponse.json({ error: "Créneau invalide" }, { status: 400 });
   try {
-    const reservation = await transitionReservation((await params).id, body.status);
+    const reservation = await transitionReservation((await params).id, body.status, body.appointmentAt);
     return reservation ? NextResponse.json({ data: reservation }) : NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Transition impossible" }, { status: 409 });

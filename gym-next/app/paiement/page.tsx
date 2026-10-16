@@ -46,5 +46,5 @@ export default async function PaiementPage({ searchParams }: PaiementPageProps) 
     return <ProductionUnavailable title="Paiement indisponible" description="Aucun paiement ne peut être présenté sans réservation réelle, coach vérifié et configuration de paiement active." />;
   }
 
-  return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} />;
+  return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} provider={process.env.PAYMENT_PROVIDER === "stripe" ? "stripe" : "local"} />;
 }

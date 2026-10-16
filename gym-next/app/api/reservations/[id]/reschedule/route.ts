@@ -8,6 +8,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
   if (!session || session.role !== "sportif") return NextResponse.json({ error: "Connexion sportif requise" }, { status: 401 });
   if (bodyExceedsLimit(request, 16 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   const body = await request.json().catch(() => null);
+  if (!Array.isArray(body?.slots) || body.slots.some((slot: unknown) => typeof slot !== "string")) return NextResponse.json({ error: "Créneaux invalides" }, { status: 400 });
   const slots = Array.isArray(body?.slots) ? body.slots.filter((slot: unknown) => typeof slot === "string" && slot.trim()).map((slot: string) => slot.trim()) : [];
   try {
     const reservation = await rescheduleReservation((await params).id, session.email, slots);

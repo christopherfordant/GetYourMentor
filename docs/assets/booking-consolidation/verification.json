@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-16",
+  "baseline": "f28eb907fc5c7c7b0a2f32c427370e655bad48be",
+  "branch": "design/refonte-progressive-lot1",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "business_campaign": 94,
+    "after_visual_fixes": 54,
+    "after_profile_error_fix": 28,
+    "counts_overlap": true,
+    "workers": 1
+  },
+  "production_fail_closed": "PASS",
+  "netlify_contract": "PASS",
+  "client_secret_boundary": "PASS",
+  "mcp_viewports": [
+    {
+      "role": "club",
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "role": "club",
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "role": "club",
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "role": "club",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    },
+    {
+      "role": "coach",
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "role": "coach",
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "role": "coach",
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "role": "coach",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    },
+    {
+      "role": "sportif",
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "role": "sportif",
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "role": "sportif",
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "role": "sportif",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    },
+    {
+      "role": "admin",
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "role": "admin",
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "role": "admin",
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "role": "admin",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    },
+    {
+      "role": "calendar",
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "role": "calendar",
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "role": "calendar",
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "role": "calendar",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    }
+  ],
+  "normalized_lf_sha256": {
+    "gym-next/app/api/admin/commission/route.ts": "78596a0ef24e47e5f8f757459c37865ab4735cc561470123d53c9b5fd7b25b13",
+    "gym-next/app/api/coaches/[id]/route.ts": "d8793f10d5958cf9219f899394454e2cd35fd99d565d9ca8802dfdeeecf68e1f",
+    "gym-next/app/api/reservations/[id]/cancel/route.ts": "241a52b42b69b51c45a630dfbf54985d0af0d137292901ef0a237c592f4e0530",
+    "gym-next/app/api/reservations/[id]/payment/route.ts": "0ab21a9a95bca3afb0f4455ee94ddedf502b70e0a0a75185f75c88a258fccc4e",
+    "gym-next/app/api/reservations/[id]/reschedule/route.ts": "6a27a395fe7163351bd2f870ef41e89bac306833be1e5e3de24616b2af4a4891",
+    "gym-next/app/api/reservations/[id]/route.ts": "c691b234db362dbab72cc95c5529bf05ce7172698444a401469d5fed902c2408",
+    "gym-next/app/api/reservations/route.ts": "9a90c7f0a5e3abb1a4ea656413083ea55f9d42ed35a11a269ea8bff8e5a671b7",
+    "gym-next/app/api/structures/offers/route.ts": "82d762ce9e9d9620af3e7bee37f6ac6234d1aa77d42b179560365ccf9c83f239",
+    "gym-next/app/api/structures/reservations/route.ts": "1da9bbf0f1df7ee3c0b8e56ec585ec82c7a1f5ad495c82d4c2d9802c0342f978",
+    "gym-next/app/creneau/page.tsx": "fa832ee05c0e9b5c936b7b41e19f2672d9f9d064f58dda08ed0e9029bc01bbae",
+    "gym-next/app/gym-account-design.css": "3d00fd417e28c1fedc6c25cc117a1fef16cc1c1b57339ce792a1dfa0dc7347fb",
+    "gym-next/app/paiement/page.tsx": "734a86a818148bcabc116f247d8e639e5d41adc5778c46ece7f214820c14fb64",
+    "gym-next/app/structures/page.tsx": "a19a6ae7b8d11b67fd7b5e886ae6b5da93c4eeee268a9ad7c44ed7e985574ed6",
+    "gym-next/components/ScrollParticleReveal.tsx": "478b314f85de87dd502092bbecc7d8786cb845a97867650fff2b275ba8ecfebe",
+    "gym-next/components/StructureOffers.tsx": "593401fa26ad4673cbecf7476548819ca69aabb7b2209a5a35c02c1167aced74",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "355c1b89c191af40264b49c045ee08d721fc19b3344abaad1361d6394200c879",
+    "gym-next/components/account-legacy/AdminDashboard.tsx": "a5861851c91cb84ed4cf87346847baac94110e5aced8fcfc787ba4e9b3107b02",
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "cc9353ce7216eb1766155f698c5835dab8039ebd65c76a803ca8b6a7e79fd27d",
+    "gym-next/components/account-legacy/CoachRequestsPanel.tsx": "196f635eeaeaf2c340069b5fd76df8688d4bcae72e6c57e4a8a1e1423ad06cee",
+    "gym-next/components/account-legacy/CommissionSettings.tsx": "715aa6a0bb33b94c02b46d2127bc162c95c4bed6d392403c1374a9f312b340a3",
+    "gym-next/components/account-legacy/StructureSessions.tsx": "e6f4c26d06be8224f9af6c65adf7deff43bf2e10f1e6a36c91e30a73878362d3",
+    "gym-next/components/payment-legacy/PaiementLegacyPage.tsx": "f687e33cfb16b278b21ff61f4f060daf50b9b936fa9ef8db180fb33ca5d57bb9",
+    "gym-next/components/reservation-legacy/ChoixCoachCreneauLegacyPage.tsx": "26395ed9e32247b0f58ceef6b8938ef7932c4db5ebda0ba7397996aaf67f5a2e",
+    "gym-next/components/reservation-legacy/RecapitulatifReservationLegacyPage.tsx": "a723c0cbc8b444f0df0b46609425f4040f08aeb1a51daee7a47e445ec3afe1e5",
+    "gym-next/lib/auth.ts": "1b297a5ae37e0fb0dab3237552f9b31e020df5ededfd158b7934bd7a832a06e9",
+    "gym-next/lib/coaches.ts": "4f717e1066d88cee3759fddfd6c97e850bd0d309b7c143b36fea995c6e40719c",
+    "gym-next/lib/domain.ts": "97a9397f7815afdca6c063991e505f4273889d54466c9d25dcead5622af2d98c",
+    "gym-next/lib/domain/booking-rules.ts": "92c81fc36a2260a9b52342bf285a30214383096aecb08d5c99eb1db09a17b8c1",
+    "gym-next/lib/domain/booking-time.ts": "206796581c450b58eecf2fe8d41e01e089c80170e821807428402487e844dca0",
+    "gym-next/lib/domain/commission.ts": "deac2333e305459c84171b0409cc987d635529753957b6976a4ad07834fae105",
+    "gym-next/lib/domain/validation/reservation-input.ts": "a2b6c12503400d3fe66b0838e52254f5d0f889fb88ed1d70374e79137981469d",
+    "gym-next/lib/payments.ts": "5a173504ee6741a196a9d31496f7a65e0884cc769935bf932206ea0fac857a40",
+    "gym-next/lib/repositories/commission-repository.ts": "c32f1beae8d16ba48901921e89554b347a4afc28b74db7f00332b41289732b25",
+    "gym-next/lib/repositories/demo-state.ts": "7bad9c7f43c9baf77d7b1cd0a8513c0ffd7b9ab7249441c7db4ec326240becbf",
+    "gym-next/lib/repositories/reservation-mapper.ts": "b7ee81d1dbbd3039d414dff4e5ca67d7b22d7f89986179eca5fbd2770d35278d",
+    "gym-next/lib/repositories/reservation-repository.ts": "3418d4376329b82423bd5d558affdf60a91395ba21bda5bea39d89f46c98fd04",
+    "gym-next/lib/reservations.ts": "86be18a6b9a6f8a3139f653cd055dc253dbf8e8bb537d16513ab6012323a6ef3",
+    "gym-next/lib/runtime.ts": "867b2face3fd9bb904739dd18f9a4c1e5507702e7e821dfd6a5a63dda8ea8c9a",
+    "gym-next/lib/structure-offers.ts": "7925c1b293d77c341df3fd0ba098a674ad57cebbfe797dc1ea657e74e745795d",
+    "gym-next/package-lock.json": "b7ef665c94e1f05d185c01413103459ea130c82abcefcdbe05fefb5bde4e9486",
+    "gym-next/package.json": "88a3dd5dc8c0faeb065d1ac2f17f5be1e8086def8d46d2072a35ddbcc8833390",
+    "gym-next/scripts/production-safety-smoke.mjs": "11ca4550a15f8afde8d86fa0b07d2caf96b72ea3c61117e6c9d221d604a8a25c",
+    "gym-next/tests/admin-dashboard.spec.ts": "d07a46e9963ed5fc7d1eae6f842eaab26e79853426f031497f1e75109b1670b6",
+    "gym-next/tests/api-flow.spec.ts": "a79eb4dc20ed68fcb4dfe85c32b219c4da818e4baf63568242b2f042cf88e758",
+    "gym-next/tests/availability-ui.spec.ts": "50b5b656157e0029af73a436d89b8331728b450462f66443257c82daeb3b5e95",
+    "gym-next/tests/booking-consolidation.spec.ts": "b390376e4b2116226ac6691fe842bfd53bbc148cddd161e37858e59f2e1bb8c0",
+    "gym-next/tests/booking-editorial.spec.ts": "23e2dd63589b221fef6763100f5876216ed10db4551d5d1d69e07d77941a7d3a",
+    "gym-next/tests/booking-fixtures.ts": "e6e837cf2e509d7b61dbdb39c6da3ca2d9511ffc99a9ca381b7518524e5eb3a4",
+    "gym-next/tests/coach-dashboard.spec.ts": "26130dbd9c3332bf7356f991f2dc06f33d9820f25cbd03de2fe4b29f7673f56d",
+    "gym-next/tests/commission.spec.ts": "797acf2f7cd9c2a8ed7043d24f15e56333544ea801b09a2d3e3a61e46365079f",
+    "gym-next/tests/loyalty-flow.spec.ts": "dde724acd82be915d6152fb425d96c5922db97cc2d66b43896a23e36721a1039",
+    "gym-next/tests/reviews-flow.spec.ts": "12c3407e396fd158a9748a06ced18e4ed2dfcda4ef757ed8e833a092e6faa7f9",
+    "gym-next/tests/stripe-webhook.spec.ts": "5e8e0e77742e05ca7606f428d31de08e3e3b4d067e19ae86f77517fbcd7a7dd2",
+    "gym-next/tests/structure-flow.spec.ts": "8275ea5a562d20aa4543a7eaca3909340b91797c11a39ff2bf9b0ba6abfbccea"
+  },
+  "limits": [
+    "Local demo validated; hosted CAS/multi-instance not remotely tested",
+    "RLS and SQL migration not executed remotely",
+    "Group bookings for other participants remain separate lot",
+    "No deployment, real payment, Premium activation or external message"
+  ],
+  "fil_rouge": "CONFORME",
+  "tracked_secrets": "PASS"
+}

@@ -22,9 +22,13 @@ export function reservationFromRow(row: ReservationRow): Reservation {
     refundPercent: row.refund_percent,
     refundAmount: row.refund_amount,
     stripePaymentIntentId: row.stripe_payment_intent_id,
+    stripeCheckoutSessionId: row.stripe_checkout_session_id,
+    structureOfferId: row.structure_offer_id,
     stripeRefundId: row.stripe_refund_id,
     refundStatus: row.refund_status,
     cancelledAt: row.cancelled_at,
+    financials: row.financial_snapshot ?? undefined,
+    refundedPlatformFeeCents: row.refunded_platform_fee_cents ?? undefined,
   } as Reservation;
 }
 
@@ -43,5 +47,17 @@ export function reservationToRow(reservation: Reservation) {
     status: reservation.status,
     created_at: reservation.createdAt,
     appointment_at: reservation.appointmentAt,
+    reservation_code: reservation.reservationCode ?? null,
+    accepted_at: reservation.acceptedAt ?? null,
+    cancelled_at: reservation.cancelledAt ?? null,
+    refund_percent: reservation.refundPercent ?? 0,
+    refund_amount: reservation.refundAmount ?? 0,
+    stripe_payment_intent_id: reservation.stripePaymentIntentId ?? null,
+    stripe_checkout_session_id: reservation.stripeCheckoutSessionId ?? null,
+    ...(reservation.structureOfferId ? { structure_offer_id: reservation.structureOfferId } : {}),
+    stripe_refund_id: reservation.stripeRefundId ?? null,
+    refund_status: reservation.refundStatus ?? "not_required",
+    financial_snapshot: reservation.financials ?? null,
+    refunded_platform_fee_cents: reservation.refundedPlatformFeeCents ?? null,
   };
 }

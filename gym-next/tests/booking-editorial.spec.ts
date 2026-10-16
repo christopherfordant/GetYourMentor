@@ -1,3 +1,4 @@
+import { demoCalendarWeeks } from "../lib/domain/booking-time";
 import { expect, test } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
@@ -31,11 +32,12 @@ test("créneaux et récapitulatif restent lisibles aux petites et grandes largeu
 });
 
 test("une erreur de disponibilités bloque l’envoi et permet de réessayer", async ({ page }) => {
+  const booked = demoCalendarWeeks(Date.now())[0][0].slots[0];
   let attempts = 0;
   let posts = 0;
   await page.route("**/api/reservations?*", route => {
     attempts++;
-    return attempts === 1 ? route.fulfill({ status: 503, json: { error: "unavailable" } }) : route.fulfill({ json: { data: [{ status: "paid", slots: ["10:00"] }] } });
+    return attempts === 1 ? route.fulfill({ status: 503, json: { error: "unavailable" } }) : route.fulfill({ json: { data: [{ status: "paid", slots: [booked], duration: "30min" }] } });
   });
   await page.route("**/api/reservations", route => {
     posts++;
@@ -51,8 +53,9 @@ test("une erreur de disponibilités bloque l’envoi et permet de réessayer", a
   await page.keyboard.press("Enter");
   expect(posts).toBe(0);
   await page.getByRole("button", { name: "Réessayer les disponibilités" }).click();
+  await expect(page.locator(`[data-slot="${booked}"]`).first()).toBeDisabled();
+  await page.locator("[data-slot]:not(:disabled)").first().click();
   await expect(confirm).toHaveAttribute("aria-disabled", "false");
-  await expect(page.locator('[data-slot="10:00"]').first()).toBeDisabled();
   await confirm.click();
   await expect(page.locator(".bk-reservation-error")).toContainText("n'a pas pu être envoyée");
   expect(posts).toBe(1);
@@ -74,11 +77,11 @@ test("le récapitulatif garde la réservation et le contexte vers le compte et l
 test("le clavier choisit un mentor et un horaire avec un focus visible", async ({ page }) => {
   await page.route("**/api/reservations?*", route => route.fulfill({ json: { data: [] } }));
   await page.goto(`/creneau?${selection}`);
-  const mentor = page.locator('[data-mentor="Sabine"]');
+  const mentor = page.locator("[data-mentor]").first();
   await mentor.focus();
   await page.keyboard.press("Enter");
   await expect(mentor).toHaveAttribute("aria-pressed", "true");
-  const slot = page.locator('[data-slot="11:30"]').first();
+  const slot = page.locator("[data-slot]:not(:disabled)").first();
   await slot.focus();
   await page.keyboard.press("Space");
   await expect(slot).toHaveAttribute("aria-pressed", "true");

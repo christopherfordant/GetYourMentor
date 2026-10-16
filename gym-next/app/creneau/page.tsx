@@ -1,3 +1,4 @@
+import { getCoach } from "@/lib/coaches";
 import type { Metadata } from "next";
 import "../gym-booking-design.css";
 import { ChoixCoachCreneauLegacyPage } from "@/components/reservation-legacy/ChoixCoachCreneauLegacyPage";
@@ -40,5 +41,7 @@ export default async function CreneauPage({ searchParams }: CreneauPageProps) {
     return <ProductionUnavailable title="Créneau indisponible" description="Ce calendrier sera affiché dès qu’un coach vérifié et ses disponibilités réelles seront configurés." />;
   }
 
-  return <ChoixCoachCreneauLegacyPage demo={gate.mode === "demo"} params={normalizedParams} />;
+  const profile = gate.coach ?? await getCoach(normalizedParams.coach ?? "steven-fordant");
+  if (!profile?.verified) return <ProductionUnavailable title="Coach indisponible" description="Choisissez un coach disponible depuis la recherche." />;
+  return <ChoixCoachCreneauLegacyPage calendarNow={Date.now()} demo={gate.mode === "demo"} params={{ ...normalizedParams, coach: profile.name, city: profile.city, sport: profile.sport, price: String(profile.priceFrom), service: normalizedParams.service || profile.specialty }} />;
 }

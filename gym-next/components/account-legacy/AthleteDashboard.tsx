@@ -1,4 +1,5 @@
 "use client";
+import { formatBookingSlot } from "@/lib/domain/booking-time";
 
 import { useEffect, useState } from "react";
 import type { Reservation } from "@/lib/domain";
@@ -43,7 +44,7 @@ export function AthleteDashboard() {
     const response = await fetch(`/api/reservations/${id}/reschedule`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slots: [slot] }),
+      body: JSON.stringify({ slots: [new Date(slot).toISOString()] }),
     });
     const payload = await response.json();
     if (!response.ok) {
@@ -98,14 +99,16 @@ export function AthleteDashboard() {
           <article key={reservation.id} data-athlete-reservation={reservation.id}>
             <strong>{reservation.service}</strong>
             <span>{reservation.coachName} · {reservation.price} EUR</span>
+            <span>{reservation.slots.map(formatBookingSlot).join(" · ")} · Europe/Paris</span>
             <span data-athlete-reservation-status>Statut : {reservation.status}</span>
             {reservation.reservationCode ? <span>Code : {reservation.reservationCode}</span> : null}
+            {reservation.status === "accepted" ? <a className="reservation-payment-link" href={`/paiement?reservationId=${encodeURIComponent(reservation.id)}`}>Payer ma séance</a> : null}
             {reservation.status === "paid" || reservation.status === "accepted" || reservation.status === "requested" ? (
               <button type="button" onClick={() => cancel(reservation.id)}>Annuler la réservation</button>
             ) : null}
-            {reservation.status === "paid" || reservation.status === "accepted" ? (
+            {!reservation.structureOfferId && (reservation.status === "paid" || reservation.status === "accepted") ? (
               <div data-athlete-reschedule={reservation.id}>
-                <input type="text" data-reschedule-slot placeholder="Nouveau créneau" aria-label="Nouveau créneau" />
+                <input type="datetime-local" data-reschedule-slot placeholder="Nouveau créneau" aria-label="Nouveau créneau" />
                 <button type="button" onClick={(event) => reschedule(reservation.id, event.currentTarget.parentElement?.querySelector<HTMLInputElement>("[data-reschedule-slot]") as HTMLInputElement)}>Déplacer</button>
               </div>
             ) : null}

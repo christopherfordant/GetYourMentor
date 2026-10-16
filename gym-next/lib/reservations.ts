@@ -10,23 +10,19 @@ import {
   getPersistedReservation,
   hasReservationSlotConflict,
   listPersistedReservations,
-  memoryReservations,
   reservationPersistenceConfig,
   updatePersistedReservation,
 } from "@/lib/repositories/reservation-repository";
 import { sendReservationConfirmation } from "@/lib/notifications";
 import { refundStripePayment } from "@/lib/payments";
+import { financialSnapshot, eurosToCents, refundedCommissionCents } from "@/lib/domain/commission";
+import { getCommissionSettings } from "@/lib/repositories/commission-repository";
 
 function supabaseConfig() {
   return reservationPersistenceConfig();
 }
 
-export class ReservationSlotConflictError extends Error {
-  constructor() {
-    super("Un des créneaux est déjà demandé ou réservé");
-    this.name = "ReservationSlotConflictError";
-  }
-}
+export const ReservationSlotConflictError = RepositoryReservationSlotConflictError;
 
 async function claimReservationSlots(config: { url: string; key: string }, reservationId: string, coachId: string, slots: string[]) {
   try {
@@ -41,12 +37,13 @@ async function releaseReservationSlots(config: { url: string; key: string }, res
   await releaseReservationSlotsRepository(config, reservationId, slots);
 }
 
-export async function hasSlotConflict(coachId: string, slots: string[], excludeId?: string) {
-  return hasReservationSlotConflict(coachId, slots, excludeId);
+export async function hasSlotConflict(coachId: string, slots: string[], excludeId?: string, duration = "1 heure", structureOfferId?: string) {
+  return hasReservationSlotConflict(coachId, slots, excludeId, duration, structureOfferId);
 }
 
 export async function createReservation(reservation: Reservation) {
-  return createPersistedReservation(reservation);
+  const settings = await getCommissionSettings();
+  return createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) });
 }
 
 export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}) {
@@ -57,27 +54,29 @@ export async function getReservation(id: string) {
   return getPersistedReservation(id);
 }
 
-export async function transitionReservation(id: string, status: "accepted" | "rejected" | "cancelled") {
+export async function transitionReservation(id: string, status: "accepted" | "rejected" | "cancelled", selectedSlot?: string) {
   const current = await getReservation(id);
   if (!current) return null;
+  if (status === "accepted" && !validateReservationSlots(current.slots).valid) throw new Error("Créneau passé ou invalide : demandez une nouvelle réservation");
   if (current.status !== "requested") throw new Error(`Transition impossible depuis ${current.status}`);
 
+  const chosen = selectedSlot ? validateReservationSlots([selectedSlot]).slots[0] : current.slots[0];
+  if (status === "accepted" && !current.slots.includes(chosen)) throw new Error("Choisissez un créneau de cette demande");
   const acceptedAt = status === "accepted" ? new Date().toISOString() : undefined;
   const reservationCode = status === "accepted" ? `GYM-${id.slice(-6).toUpperCase()}` : undefined;
-  const next = { ...current, status, acceptedAt, reservationCode } as Reservation;
   const config = supabaseConfig();
-  if (!config) {
-    const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    memoryReservations[index] = next;
-    return next;
-  }
   const saved = await updatePersistedReservation(id, {
     status,
+    ...(status === "accepted" ? { slots: [chosen], appointment_at: chosen } : {}),
     accepted_at: acceptedAt ?? null,
     reservation_code: reservationCode ?? null,
   }, "requested");
   if (!saved) return null;
-  if (status !== "accepted") await releaseReservationSlots(config, id);
+  if (config && status !== "accepted") await releaseReservationSlots(config, id);
+  if (config && status === "accepted") {
+    const unused = current.slots.filter(slot => slot !== chosen);
+    if (unused.length) await releaseReservationSlots(config, id, unused);
+  }
   return saved;
 }
 
@@ -85,6 +84,7 @@ export async function payReservation(id: string, ownerEmail?: string, stripePaym
   const current = await getReservation(id);
   if (!current) return null;
   if (current.status === "paid") return current;
+  if (!validateReservationSlots(current.slots).valid) throw new Error("Ce créneau est passé ou invalide");
   if (current.status !== "accepted") throw new Error("Le paiement est disponible après acceptation du coach");
 
   const next: Reservation = {
@@ -93,14 +93,6 @@ export async function payReservation(id: string, ownerEmail?: string, stripePaym
     ownerEmail: current.ownerEmail ?? ownerEmail,
     stripePaymentIntentId: current.stripePaymentIntentId ?? stripePaymentIntentId,
   };
-  const config = supabaseConfig();
-  if (!config) {
-    const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    memoryReservations[index] = next;
-    const confirmation = await sendReservationConfirmation(next).catch(() => ({ status: "skipped" as const }));
-    return { ...next, confirmationStatus: confirmation.status };
-  }
-
   // Le filtre expectedStatus rend le webhook Stripe idempotent côté repository.
   const saved = await updatePersistedReservation(id, {
     status: "paid",
@@ -130,6 +122,7 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
   const current = await getReservation(id);
   if (!current) return null;
   if (current.ownerEmail && ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
+  if (current.status === "cancelled") return current;
   if (!["requested", "accepted", "paid"].includes(current.status)) {
     throw new Error(`Annulation impossible depuis ${current.status}`);
   }
@@ -141,7 +134,8 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
     status: "cancelled" as const,
     cancelledAt: new Date().toISOString(),
     refundPercent,
-    refundAmount: Number(((current.price * refundPercent) / 100).toFixed(2)),
+    refundAmount: Math.round(eurosToCents(current.price) * refundPercent / 100) / 100,
+    refundedPlatformFeeCents: current.financials ? refundedCommissionCents(current.financials, Math.round(eurosToCents(current.price) * refundPercent / 100)) : undefined,
     refundStatus: refundPercent > 0 ? ("pending" as const) : ("not_required" as const),
   };
   let stripeRefundId: string | undefined;
@@ -164,22 +158,18 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
     }
   }
   const config = supabaseConfig();
-  if (!config) {
-    const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    memoryReservations[index] = { ...next, stripeRefundId };
-    return memoryReservations[index];
-  }
-
   const saved = await updatePersistedReservation(id, {
     status: "cancelled",
+    owner_email: next.ownerEmail ?? null,
     cancelled_at: next.cancelledAt,
     refund_percent: refundPercent,
     refund_amount: next.refundAmount,
     stripe_refund_id: stripeRefundId ?? null,
     refund_status: next.refundStatus,
-  });
+    refunded_platform_fee_cents: next.refundedPlatformFeeCents ?? null,
+  }, current.status);
   if (!saved) return null;
-  await releaseReservationSlots(config, id);
+  if (config) await releaseReservationSlots(config, id);
   return { ...saved, stripeRefundId };
 }
 
@@ -189,26 +179,21 @@ export async function rescheduleReservation(id: string, ownerEmail: string, slot
   if (current.ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
   if (!current.ownerEmail) throw new Error("La réservation n'est pas rattachée à un compte sportif");
   if (!["accepted", "paid"].includes(current.status)) throw new Error("Cette réservation ne peut pas être déplacée dans son état actuel");
+  if (current.structureOfferId) throw new Error("Annulez puis demandez un autre créneau publié par la structure");
   const validatedSlots = validateReservationSlots(slots);
   if (!validatedSlots.valid) throw new Error("Un à trois créneaux sont requis");
-  if (await hasSlotConflict(current.coachId, validatedSlots.slots, id)) throw new Error("Un des nouveaux créneaux est déjà demandé ou réservé");
+  if (await hasSlotConflict(current.coachId, validatedSlots.slots, id, current.duration)) throw new Error("Un des nouveaux créneaux est déjà demandé ou réservé");
 
   const next = { ...current, slots: validatedSlots.slots, appointmentAt: validatedSlots.slots[0] };
   const config = supabaseConfig();
-  if (!config) {
-    const index = memoryReservations.findIndex((reservation) => reservation.id === id);
-    memoryReservations[index] = next;
-    return next;
-  }
-
   const addedSlots = validatedSlots.slots.filter((slot) => !current.slots.includes(slot));
-  await claimReservationSlots(config, id, current.coachId, addedSlots);
-  const saved = await updatePersistedReservation(id, { slots: validatedSlots.slots, appointment_at: next.appointmentAt });
+  if (config) await claimReservationSlots(config, id, current.coachId, addedSlots);
+  const saved = await updatePersistedReservation(id, { slots: validatedSlots.slots, appointment_at: next.appointmentAt }, current.status);
   if (!saved) {
-    await releaseReservationSlots(config, id, addedSlots).catch(() => undefined);
+    if (config) await releaseReservationSlots(config, id, addedSlots).catch(() => undefined);
     throw new Error("Supabase reservation error (reservation update failed)");
   }
   const releasedSlots = current.slots.filter((slot) => !validatedSlots.slots.includes(slot));
-  if (releasedSlots.length) await releaseReservationSlots(config, id, releasedSlots);
+  if (config && releasedSlots.length) await releaseReservationSlots(config, id, releasedSlots);
   return saved;
 }

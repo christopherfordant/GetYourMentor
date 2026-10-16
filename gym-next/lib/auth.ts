@@ -1,8 +1,9 @@
 import { cookies } from "next/headers";
-import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID } from "node:crypto";
+import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID, scryptSync, timingSafeEqual } from "node:crypto";
 import { coachIdForName, coachProfiles, createCoachProfile } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 
 export type UserRole = "sportif" | "coach" | "club" | "admin";
 export type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
@@ -100,6 +101,17 @@ export async function signIn(email: string, password: string, role: Session["rol
     const profile = await profileResponse.json();
     resolvedRole = supabaseRole(profile);
     coachId = supabaseCoachId(profile);
+  } else if (isHostedDemo()) {
+    const fixtures: Record<string, { role: UserRole; coachId?: string }> = {
+      "sportif@example.com": { role: "sportif" }, "coach@example.com": { role: "coach", coachId: "steven-fordant" },
+      "club@example.com": { role: "club" }, "admin@example.com": { role: "admin" },
+    };
+    const fixture = fixtures[email];
+    const user = (await readDemoState()).users[email];
+    if (fixture && password === "demo-password") { resolvedRole = fixture.role; coachId = fixture.coachId; }
+    else if (user && typeof password === "string" && password.length <= 256
+      && timingSafeEqual(Buffer.from(user.passwordHash, "hex"), scryptSync(password, user.salt, 32))) { resolvedRole = user.role; coachId = user.coachId; }
+    else throw new Error("Utilisez un compte de démonstration valide");
   } else if (!email || !password) {
     throw new Error("Identifiant et mot de passe requis");
   } else if (localUsers.has(email)) {
@@ -114,7 +126,8 @@ export async function signIn(email: string, password: string, role: Session["rol
   const sessionId = encodeSession({ email, role: resolvedRole, coachId, accessToken });
   const cookieStore = await cookies();
   cookieStore.set(COOKIE_NAME, sessionId, { httpOnly: true, sameSite: "lax", secure: process.env.NODE_ENV === "production", maxAge: SESSION_MAX_AGE, path: "/" });
-  const coachName = coachId ? coachProfiles.find((coach) => coach.id === coachId)?.name : undefined;
+  const availableCoaches = isHostedDemo() ? (await readDemoState()).coaches : coachProfiles;
+  const coachName = coachId ? availableCoaches.find((coach) => coach.id === coachId)?.name : undefined;
   return { email, role: resolvedRole, coachId, coachName };
 }
 
@@ -146,6 +159,20 @@ export async function signUp(email: string, password: string, role: UserRole, pr
       if (!metadataResponse.ok) throw new Error("Profil de rôle indisponible");
     }
     if (coachId && profile) await createStoredCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`.trim(), city: profile.city });
+  } else if (isHostedDemo()) {
+    if (!/^[^@\s]+@example\.com$/.test(email) || ["sportif@example.com", "coach@example.com", "club@example.com", "admin@example.com"].includes(email)) throw new Error("Utilisez une adresse fictive unique @example.com");
+    if (role === "admin") throw new Error("Inscription administrateur interdite");
+    const salt = randomBytes(16).toString("hex");
+    const passwordHash = scryptSync(password, salt, 32).toString("hex");
+    const coachId = role === "coach" && profile ? coachIdForName(`${profile.firstName} ${profile.lastName}`) : undefined;
+    await mutateDemoState((s) => {
+      if (s.users[email]) throw new Error("Cette adresse est déjà inscrite");
+      s.users[email] = { passwordHash, salt, role, coachId };
+      if (coachId && profile) {
+        const coach = createCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`, city: profile.city });
+        if (!s.coaches.some((c) => c.id === coachId)) s.coaches.push(coach);
+      }
+    });
   } else {
     if (localUsers.has(email)) throw new Error("Cette adresse est déjà inscrite");
     const coach = role === "coach" && profile ? createCoachProfile({ name: `${profile.firstName} ${profile.lastName}`.trim() }) : null;

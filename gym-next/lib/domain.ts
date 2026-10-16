@@ -49,10 +49,14 @@ export type Reservation = {
   refundPercent?: number;
   refundAmount?: number;
   stripePaymentIntentId?: string;
+  stripeCheckoutSessionId?: string;
+  structureOfferId?: string;
   stripeRefundId?: string;
   refundStatus?: "not_required" | "pending" | "succeeded";
   cancelledAt?: string;
   confirmationStatus?: "sent" | "queued" | "skipped";
+  financials?: import("@/lib/domain/commission").FinancialSnapshot;
+  refundedPlatformFeeCents?: number;
 };
 
 export function canonicalSportSlug(value?: string) {

@@ -28,3 +28,6 @@ Cette matrice sert a maintenir le fil rouge, a garder la logique de reservation 
 
 ## Lot comptes et Stratégie Perplexity — 16 octobre 2026
 Compte `/compte` : US-SPORTIF-07, US-COACH-01, US-CLUB-01 et rôle admin du MVP PDF p.1/devis p.1. Une seule déconnexion UI réutilise l’API existante ; contrôle serveur des paramètres du compte, erreurs et navigation. Les 25 pages du PDF secondaire sont rattachées aux sources maîtres dans `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Cette analyse n’active aucun mécanisme V2/V3 en production ni paiement ; les démarches commerciales restent distinctes du MVP et de la réservation.
+
+## Consolidation réservation démonstration — 16 octobre 2026
+US-SPORTIF-05/06/07/08, US-COACH-01 et US-CLUB-01 : dates/fuseau, capacité et plannings selon MVP PDF p.1, devis p.1–2, Business Plan p.35–36/49–50 et document maître §5. Contrôles serveur, snapshots 15 % et refus/annulation libérant les places. Extension structure limitée au coach affilié et paiement sportif. Rapport : `docs/CONSOLIDATION_RESERVATION_2026-10-16.md`. Aucun abonnement activé, nouvelle couche d’agents, paiement réel ni validation RLS distante.

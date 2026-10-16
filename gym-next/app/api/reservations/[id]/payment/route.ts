@@ -18,6 +18,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     if (!current.ownerEmail && !isReservationClaimTokenValid(current.id, request.headers.get("x-reservation-claim-token"))) {
       return NextResponse.json({ error: "Reservation claim token required" }, { status: 403 });
     }
+    if (current.status === "paid") return NextResponse.json({ data: current });
     const checkout = await createCheckoutSession({ ...current, ownerEmail: current.ownerEmail ?? session.email });
     if (checkout) return NextResponse.json({ data: { ...checkout, provider: "stripe", status: "pending" } });
     const reservation = await payReservation(reservationId, session.email);

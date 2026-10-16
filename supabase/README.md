@@ -16,3 +16,6 @@ Références :
 - [`../PREPRODUCTION_RUNBOOK_GYM.md`](../PREPRODUCTION_RUNBOOK_GYM.md)
 
 Les fichiers `.temp/` sont générés par la CLI Supabase et ne constituent pas des migrations applicatives.
+
+## Préparation de la commission historique
+`migrations/20261014_commission.sql` est une migration additive à relire puis appliquer uniquement en base de test dédiée avant utilisation des snapshots avec Supabase. Aucune application distante ni recette RLS incluse dans le lot de consolidation du 16 octobre. Les séances structure collectives de ce lot utilisent le stockage démonstration isolé, pas un nouveau modèle bancaire.

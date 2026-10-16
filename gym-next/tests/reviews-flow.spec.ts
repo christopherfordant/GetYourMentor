@@ -1,7 +1,8 @@
+import { futureSlot } from "./booking-fixtures";
 import { expect, test } from "@playwright/test";
 
 test("un avis est possible uniquement après paiement", async ({ request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2026-09-27 18:00" : "2026-09-26 18:00";
+  const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-09-27 18:00") : futureSlot("2026-09-26 18:00");
   const created = await request.post("/api/reservations", {
     data: { coachId: "steven-fordant", service: "Coaching", duration: "1 heure", price: 40, slots: [slot] },
   });
@@ -46,7 +47,7 @@ test("un avis est possible uniquement après paiement", async ({ request }, test
 });
 
 test("un sportif ne peut pas noter la réservation payée d'un autre compte", async ({ request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2027-05-13 10:00" : "2027-05-12 10:00";
+  const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2027-05-13 10:00") : futureSlot("2027-05-12 10:00");
   const created = await request.post("/api/reservations", {
     data: { coachId: "steven-fordant", service: "Avis propriétaire", duration: "1 heure", price: 35, slots: [slot] },
   });

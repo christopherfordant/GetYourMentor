@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CommissionSettings } from "@/components/account-legacy/CommissionSettings";
 
 type Overview = {
   coaches: number;
@@ -74,6 +75,7 @@ export function AdminDashboard() {
         <p>Contrôlez les coachs référencés et l’activité du parcours de réservation.</p>
       </div>
       {error ? <p role="alert">{error}</p> : null}
+      <CommissionSettings />
       <section className="account-dashboard-card" data-admin-overview>
         <h2>Vue d’ensemble</h2>
         {overview ? (

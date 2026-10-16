@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 test("le coach peut traiter une demande depuis son tableau de bord", async ({ page, request }, testInfo) => {
-  const slot = testInfo.project.name === "mobile-chromium" ? "2026-12-11 18:00" : "2026-12-10 18:00";
+  const slot = new Date(Date.now() + (100 + (testInfo.project.name.includes("mobile") ? 1 : 0)) * 86400000).toISOString();
   const created = await request.post("/api/reservations", {
     data: {
       coachId: "steven-fordant",

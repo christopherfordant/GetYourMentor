@@ -1,8 +1,9 @@
+import { futureSlot } from "./booking-fixtures";
 import { expect, test } from "@playwright/test";
 
 test("l’espace sportif affiche la progression fidélité", async ({ page, request }, testInfo) => {
   const athleteEmail = `loyalty-${Date.now()}@example.com`;
-  const slots = testInfo.project.name === "mobile-chromium" ? ["2026-10-11 18:00", "2026-10-12 18:00", "2026-10-13 18:00"] : ["2026-10-01 18:00", "2026-10-02 18:00", "2026-10-03 18:00"];
+  const slots = testInfo.project.name === "mobile-chromium" ? [futureSlot("2026-10-11 18:00"), futureSlot("2026-10-12 18:00"), futureSlot("2026-10-13 18:00")] : [futureSlot("2026-10-01 18:00"), futureSlot("2026-10-02 18:00"), futureSlot("2026-10-03 18:00")];
   for (const slot of slots) {
     const created = await request.post("/api/reservations", {
       data: { coachId: "steven-fordant", service: "Coaching", duration: "1 heure", price: 35, slots: [slot] },
@@ -23,7 +24,7 @@ test("l’espace sportif affiche la progression fidélité", async ({ page, requ
   await expect(page.locator("[data-athlete-dashboard]")).toBeVisible();
   const firstReservation = page.locator("[data-athlete-reservation]").first();
   await expect(firstReservation.locator("[data-athlete-reschedule]")).toBeVisible();
-  await firstReservation.locator("[data-reschedule-slot]").fill(testInfo.project.name === "mobile-chromium" ? "2026-10-11 19:00" : "2026-10-01 19:00");
+  await firstReservation.locator("[data-reschedule-slot]").fill(futureSlot(testInfo.project.name.includes("mobile") ? "2026-10-21 19:00" : "2026-10-20 19:00").slice(0,16));
   const rescheduleResponse = page.waitForResponse((response) => response.url().includes("/reschedule") && response.request().method() === "POST");
   await firstReservation.getByRole("button", { name: "Déplacer", exact: true }).click();
   expect((await rescheduleResponse).status()).toBe(200);

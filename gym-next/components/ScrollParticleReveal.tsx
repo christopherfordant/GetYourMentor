@@ -38,7 +38,9 @@ export function ScrollParticleReveal() {
   useEffect(() => {
     document.documentElement.classList.add("scroll-reveal-ready");
 
-    const cards = Array.from(document.querySelectorAll<HTMLElement>(CARD_SELECTOR));
+    // Business forms and dashboards must remain readable regardless of scroll/height.
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(CARD_SELECTOR))
+      .filter(card => !card.closest("#gym-account, .payment-shell"));
     cards.forEach((card, index) => {
       card.classList.add("scroll-particle-card");
       card.style.setProperty("--particle-delay", `${Math.min(index % 5, 4) * 150}ms`);

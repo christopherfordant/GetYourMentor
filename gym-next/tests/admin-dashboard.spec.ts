@@ -1,3 +1,4 @@
+import { futureSlot } from "./booking-fixtures";
 import { expect, test } from "@playwright/test";
 
 test("le tableau de bord admin expose les indicateurs MVP", async ({ page, request }, testInfo) => {
@@ -17,7 +18,7 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
   expect(clubLeadResponse.status()).toBe(201);
   const clubLeadId = (await clubLeadResponse.json()).data.id as string;
   const created = await request.post("/api/reservations", {
-    data: { coachId: "steven-fordant", service: "Admin demo reservation", duration: "1 heure", price: 35, slots: [testInfo.project.name === "mobile-chromium" ? "2027-01-04 10:00" : "2027-01-03 10:00"] },
+    data: { coachId: "steven-fordant", service: "Admin demo reservation", duration: "1 heure", price: 35, slots: [testInfo.project.name === "mobile-chromium" ? futureSlot("2027-01-04 10:00") : futureSlot("2027-01-03 10:00")] },
   });
   expect(created.status()).toBe(201);
 
@@ -36,7 +37,7 @@ test("le tableau de bord admin expose les indicateurs MVP", async ({ page, reque
   await expect(page.locator("[data-admin-verified]")).toHaveText("2");
   expect((await request.get("/api/coaches/steven-fordant")).status()).toBe(404);
   expect((await request.post("/api/reservations", {
-    data: { coachId: "steven-fordant", service: "Profil non vérifié", duration: "1 heure", slots: ["2027-01-05 10:00"] },
+    data: { coachId: "steven-fordant", service: "Profil non vérifié", duration: "1 heure", slots: [futureSlot("2027-01-05 10:00")] },
   })).status()).toBe(404);
   await expect(page.locator("[data-admin-reservation-list]")).toBeVisible();
   const clubLead = page.locator(`[data-admin-club-lead="${clubLeadId}"]`);

@@ -1,5 +1,6 @@
 import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 import { supabaseHeaders } from "@/lib/supabase";
 import { distanceKm, isWithinCoachServiceRadius, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
 import { normalizeSearchFilters, type SearchFilters } from "@/lib/domain/validation/search-filters";
@@ -167,7 +168,7 @@ function findLocalCoach(idOrName?: string) {
 
 export async function listCoaches() {
   const config = supabaseConfig();
-  if (!config) return coachProfiles;
+  if (!config) return isHostedDemo() ? (await readDemoState()).coaches : coachProfiles;
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?select=*&order=name.asc`, {
     headers: supabaseHeaders(config.key),
     cache: "no-store",
@@ -183,7 +184,12 @@ export async function listCoaches() {
 
 export async function getCoach(idOrName?: string) {
   const config = supabaseConfig();
-  if (!config) return findLocalCoach(idOrName);
+  if (!config) {
+    if (!isHostedDemo()) return findLocalCoach(idOrName);
+    const coaches = (await readDemoState()).coaches;
+    const normalized = decodeURIComponent(idOrName ?? "").toLowerCase();
+    return idOrName ? coaches.find((c) => c.id === normalized || c.name.toLowerCase() === normalized) ?? null : coaches[0] ?? null;
+  }
   const normalized = decodeURIComponent(idOrName ?? "");
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?select=*&or=(id.eq.${encodeURIComponent(normalized)},name.ilike.*${encodeURIComponent(normalized)}*)&limit=1`, {
     headers: supabaseHeaders(config.key),
@@ -200,7 +206,13 @@ export async function getCoach(idOrName?: string) {
 
 export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm" | "gender" | "practice" | "level" | "format" | "availabilityTags">> & { latitude?: number | null; longitude?: number | null }) {
   const config = supabaseConfig();
-  if (!config) return updateCoachProfile(id, updates);
+  if (!config) {
+    if (isHostedDemo()) return mutateDemoState((s) => {
+      const coach = s.coaches.find((c) => c.id === id); if (!coach) return null;
+      Object.assign(coach, updates); return coach;
+    });
+    return updateCoachProfile(id, updates);
+  }
   const body = Object.fromEntries(Object.entries(updates).map(([key, value]) => [
     key === "priceFrom" ? "price_from" : key === "sessionTypes" ? "session_types" : key === "photoUrl" ? "photo_url" : key === "bankAccountLast4" ? "bank_account_last4" : key === "serviceRadiusKm" ? "service_radius_km" : key === "format" ? "session_format" : key === "availabilityTags" ? "availability_tags" : key,
     value,
@@ -253,7 +265,13 @@ export async function createStoredCoachProfile(input: { name: string; id?: strin
 
 export async function setStoredCoachVerification(id: string, verified: boolean) {
   const config = supabaseConfig();
-  if (!config) return setCoachVerification(id, verified);
+  if (!config) {
+    if (isHostedDemo()) return mutateDemoState((s) => {
+      const coach = s.coaches.find((c) => c.id === id); if (!coach) return null;
+      coach.verified = verified; coach.verificationStatus = verified ? "approved" : "pending"; return coach;
+    });
+    return setCoachVerification(id, verified);
+  }
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?id=eq.${encodeURIComponent(id)}`, {
     method: "PATCH",
     headers: supabaseHeaders(config.key, { "Content-Type": "application/json", Prefer: "return=representation" }),

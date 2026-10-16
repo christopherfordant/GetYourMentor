@@ -5,8 +5,25 @@ function isAcceptanceTestMode() {
 }
 
 export function isDemoFallbackAllowed() {
-  return isAcceptanceTestMode()
+  return isHostedDemo()
+    || isAcceptanceTestMode()
     || (process.env.NODE_ENV !== "production" && process.env.GETYOURMENTOR_ALLOW_DEMO === "true");
+}
+
+// A hosted demo is deliberately isolated: no Supabase, Stripe or email credentials.
+// GETYOURMENTOR_ALLOW_DEMO alone still never enables fallbacks in production.
+export function isHostedDemo() {
+  let hostname = "";
+  try { hostname = new URL(process.env.NEXT_PUBLIC_APP_URL ?? "").hostname; } catch { return false; }
+  return process.env.DEPLOY_ENV === "demo"
+    && process.env.GETYOURMENTOR_ALLOW_DEMO === "true"
+    && process.env.PAYMENT_PROVIDER === "local"
+    && Boolean(process.env.SESSION_SECRET && process.env.SESSION_SECRET.length >= 32)
+    && Boolean(process.env.SITE_ID)
+    && hostname.endsWith(".netlify.app")
+    && (process.env.NEXT_PUBLIC_APP_URL ?? "").startsWith("https://")
+    && ![process.env.SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY,
+      process.env.SUPABASE_ANON_KEY, process.env.STRIPE_SECRET_KEY, process.env.STRIPE_WEBHOOK_SECRET, process.env.RESEND_API_KEY].some(Boolean);
 }
 
 export function assertDemoFallbackAllowed(resource: string) {
