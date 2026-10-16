@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-16",
+  "scope": "local prototype only",
+  "engine": "Playwright Chromium Edge headless",
+  "results": [
+    {
+      "width": 320,
+      "client": 320,
+      "scroll": 320
+    },
+    {
+      "width": 390,
+      "client": 390,
+      "scroll": 390
+    },
+    {
+      "width": 768,
+      "client": 768,
+      "scroll": 768
+    },
+    {
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440
+    }
+  ],
+  "checks": [
+    "accept via keyboard",
+    "reject prevents selection",
+    "reset",
+    "safe text summary",
+    "no HTTP requests"
+  ],
+  "applicationTests": "not rerun: application unchanged"
+}

@@ -82,3 +82,14 @@ Pour :
 - travail commun design : `design/figma-planity-like`
 
 La branche `docs/project-foundation` peut servir a consolider les documents transverses.
+
+## Efficacité et ressources — consigne utilisateur du 16 octobre 2026
+
+- Lire d’abord la reprise récente et les index obligatoires ; cibler ensuite `rg` et les passages pertinents. Regrouper les lectures indépendantes et éviter les sorties massives/tronquées, les relectures et les interrogations sans nouvelle information. Garder les contrôles nécessaires de sécurité et de rendu.
+- PC i5-9300HF / 8 Go : un serveur applicatif, un build et un worker Playwright à la fois. Aucun build sur les fichiers générés utilisés par un serveur actif. Réutiliser les dépendances ; avancer sur la documentation indépendante pendant une vérification. Ne relancer un contrôle réussi que pour un changement, une erreur ou une incertitude pertinente.
+- Fermer uniquement les processus temporaires créés pour le lot. Préserver VS Code, campagnes, sessions connectées et processus de provenance inconnue. Ne pas promettre un gain de RAM ou de temps sans mesure comparable.
+- Usage/Billing : consulter uniquement les informations réellement accessibles ; séparer abonnement/quotas Codex et éventuelle facturation API. Ne pas lire les secrets pour tenter de reconstruire la facturation. Aucun achat ni modification d’abonnement/plafond. Consommation, crédit et renouvellement inconnus restent explicitement inconnus.
+- Adapter modèle/effort aux tâches si le client le permet ; sinon distinguer configuration locale, modèle effectif et recommandation. Aucun changement de modèle prétendu. Pas de sous-agents ni nouvelle orchestration. Recommandation vérifiée le 16 octobre : Luna pour tâches bornées/répétables si disponible ; GPT-6.1 Sol pour développement complexe, effort ajusté. Vérifier la disponibilité réelle plutôt que déduire les droits du compte de cette recommandation.
+- Sources officielles : https://learn.chatgpt.com/docs/models et https://learn.chatgpt.com/docs/pricing. Les paramètres locaux observés ne prouvent pas une facturation ou le modèle effectif de la session.
+
+Reprise du sous-lot affiliations : `docs/RESERVATIONS_GROUPES_2026-10-16.md`, section « Préparation affiliations multi-coachs ». Maquette indépendante ; aucune intégration métier annoncée par son existence.

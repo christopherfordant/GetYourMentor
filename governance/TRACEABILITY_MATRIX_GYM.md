@@ -34,3 +34,6 @@ US-SPORTIF-05/06/07/08, US-COACH-01 et US-CLUB-01 : dates/fuseau, capacité et p
 
 ## Réservations groupées — 16 octobre 2026
 US-SPORTIF-05/07/08, US-COACH-01 et US-CLUB-01 : MVP p.1 et devis p.1–2. Prix total par taille décidé par l’utilisateur ; capacité pondérée du moteur existant, identité des participants et confidentialité. Aucun autre moteur, bénéficiaire bancaire, abonnement ou consentement parental simulé. Rapport : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.
+
+## Préparation affiliations multi-coachs — 16 octobre 2026
+US-CLUB-01 / US-COACH-01, document maître §5 (post-MVP), Business Plan p.49–50 et reprise réservations groupées : maquette locale, rôles et dépendances du rattachement, pas d’activation métier. Reprise et sources : `docs/RESERVATIONS_GROUPES_2026-10-16.md`. La validation du coach est proposée, pas attribuée à une exigence PDF. Procédure ressources et modèle dans `BRANCH_STRATEGY_GYM.md` ; aucun nouvel agent, stockage ou gouvernance ajouté.
