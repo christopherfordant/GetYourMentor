@@ -1,3 +1,5 @@
+> **Recette démo hébergée — 17 octobre 2026 :** persistance après deux déploiements distincts, concurrence et isolation entre comptes vérifiées sur le site démo dédié. Empaquetage Windows corrigé, health stockage et robots qualifiés ; aucun déploiement du site historique. Reprise : `RECETTE_DEMO_HEBERGEE_2026-10-17.md`.
+
 > **Séances collectives coach — 16 octobre 2026 :** les coachs validés peuvent proposer leurs propres séances en démonstration, sans affiliation obligatoire. Origine coach/structure distinguée dans le moteur existant ; réservation depuis la fiche coach, tarifs totaux par taille et capacité pondérée réutilisés. Reprise et limites : `RESERVATIONS_GROUPES_2026-10-16.md`, section Séances collectives propres aux coachs. Aucun paiement réel ni déploiement.
 
 > **Affiliations à consentement réciproque — 16 octobre 2026 :** demandes initiées par le coach ou la structure, deux accords requis et choix du coach affilié pour une séance de démonstration. Voir `RESERVATIONS_GROUPES_2026-10-16.md`, section Intégration du consentement réciproque. Les anciennes attentes d’arbitrage sont résolues.

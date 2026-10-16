@@ -1,3 +1,5 @@
+> **Recette démo hébergée — 17 octobre 2026 :** persistance après deux déploiements distincts, concurrence et isolation entre comptes vérifiées sur le site démo dédié. Empaquetage Windows corrigé, health stockage et robots qualifiés ; aucun déploiement du site historique. Reprise : `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md`.
+
 > **Couverture actualisée — 16 octobre 2026 :** séances collectives coach indépendantes des structures, depuis fiche/compte, dans le moteur existant. Capacité, prix total par taille, plannings et paiements simulés réutilisés. Voir `RESERVATIONS_GROUPES_2026-10-16.md`, dernière section. Le PDF stratégique reste secondaire ; services distants et V2/V3 complets non validés.
 
 > **Réservations groupées — 16 octobre 2026 :** prix total défini par le coach selon la taille, informations des participants supplémentaires, capacité pondérée, confidentialité par rôle et remboursements historiques simulés. Parcours collectif des structures ; limites mineurs et services distants conservées. Reprise : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.

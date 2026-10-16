@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
+import { isHostedDemo } from "@/lib/runtime";
 
 export default function robots(): MetadataRoute.Robots {
+  if (isHostedDemo()) return { rules: { userAgent: "*", disallow: "/" } };
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
 
   return {

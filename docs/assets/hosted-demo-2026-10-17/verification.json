@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-17",
+  "sourceBase": "46f3450b3981173cd6398e76218fb4e9e5ab1a43",
+  "applicationChanges": [
+    "health verifies hosted demo storage",
+    "robots disallows hosted demo crawling"
+  ],
+  "siteID": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+  "url": "https://getyourmentor-demo-20261014.netlify.app",
+  "baselineWorkingDeploy": "6ad2ac4fed11f47a6e901548",
+  "finalDeploy": "6ad2ad63b8e082659be8bb15",
+  "historicalSiteUnchangedDeploy": "6aad6d3cdf85630008dfd0e1",
+  "buildID": "9vMtlcGkVesHQbicfMBaf",
+  "build": "PASS via Netlify CLI before packaging",
+  "types": "PASS",
+  "clientBoundary": "PASS",
+  "netlifyConfig": "PASS",
+  "remoteAPI": "PASS; assertions and fictitious IDs in recipe.json",
+  "remoteVisuals": "PASS: two roles, four widths, focus target not obscured; full panel captures use adapted height",
+  "testsUsed": "local Playwright against remote app; no new MCP proof",
+  "persistence": "fresh sign-ins after two distinct published deployment IDs; physical cold-start not claimed",
+  "concurrency": "two parallel HTTP two-seat requests against capacity three: one 201, one 409",
+  "RLS": "NOT VALIDATED; hosted demo uses Blobs, not Supabase",
+  "realPayments": "NOT ENABLED",
+  "sourceSha256": {
+    "gym-next/app/api/health/route.ts": "0d1f36b84d1cca56065d20755e64a60fe8b06cb02eaafe9a301e81ee53879b5c",
+    "gym-next/app/robots.ts": "36816cf9f6d7f6ca099bbf4fe544be790f5357e93be345f41514b5f46aaaf850",
+    "gym-next/scripts/prepare-netlify-runtime.py": "e680168242e53d8de82a8ad9d96a7bef5f4700760f0fca877953986ac9f263e0",
+    "gym-next/scripts/deploy-isolated-demo.py": "eb8a097c4a6bd2f7838a8cd48cd7e1714a7b5d6c374c6191ed8267cf6038d12c",
+    "gym-next/scripts/hosted-demo-recipe.py": "346b825ea0aefcd766d9a1bc1a1650f491d00048825b9c5182a868edd6b7b2c1",
+    "gym-next/scripts/hosted-demo-visual.cjs": "d684695be9651b3226dd3eaea7bff1461dad4f38d7a3a86b8bdd7e9e6f43dabb"
+  },
+  "runtimeArchiveSha256": "5947de2677bc4f80c3a1d47e8fb202b294598c9fc70d3ddc2833afdedb59b22b",
+  "dataCleanup": "none; retained fictitious records enumerated in recipe.json"
+}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-17",
+  "baseURL": "https://getyourmentor-demo-20261014.netlify.app",
+  "checks": [
+    "runtime isolated demo",
+    "robots disallow crawling",
+    "commission remains 15 percent",
+    "bilateral consent, isolation and idempotence",
+    "concurrent two-seat claims: one success, one conflict",
+    "public capacity and privacy",
+    "historical refund after price change",
+    "repeat cancellation idempotent",
+    "places freed after cancellation and refusal; individual structure request",
+    "fresh-session profile and tariff persistence",
+    "fresh-session affiliation persistence",
+    "coach session persistence",
+    "structure session persistence",
+    "reservation status and historical amount persistence",
+    "fresh-session profile and tariff persistence",
+    "fresh-session affiliation persistence",
+    "coach session persistence",
+    "structure session persistence",
+    "reservation status and historical amount persistence",
+    "coach cannot read participant emails",
+    "structure cannot read private coach sessions",
+    "administrator cannot replace consent; foreign coach edit denied",
+    "persistence across distinct deployment and new sign-ins",
+    "fresh-session profile and tariff persistence",
+    "fresh-session affiliation persistence",
+    "coach session persistence",
+    "structure session persistence",
+    "reservation status and historical amount persistence",
+    "coach cannot read participant emails",
+    "structure cannot read private coach sessions",
+    "administrator cannot replace consent; foreign coach edit denied",
+    "persistence across distinct deployment and new sign-ins"
+  ],
+  "created": {
+    "coach": {
+      "email": "coach-1792191706@example.com",
+      "role": "coach",
+      "coachId": "coach-coach1792191706-fictif"
+    },
+    "club": {
+      "email": "club-1792191706@example.com",
+      "role": "club",
+      "coachId": null
+    },
+    "second": {
+      "email": "second-1792191706@example.com",
+      "role": "club",
+      "coachId": null
+    },
+    "athletea": {
+      "email": "athletea-1792191706@example.com",
+      "role": "sportif",
+      "coachId": null
+    },
+    "athleteb": {
+      "email": "athleteb-1792191706@example.com",
+      "role": "sportif",
+      "coachId": null
+    },
+    "affiliation": "decf5bf1-b3a6-4cc5-bbd6-94d062d8005d",
+    "reverseAffiliation": "2543c66c-9c20-44b7-b9b7-fc8660c9ab9d",
+    "coachOffer": "offer-8202c2be-e977-4e5c-a448-b8a979ac821d",
+    "structureOffer": "offer-6698a61f-d699-46aa-956b-3d0eda4e21e3",
+    "reservation": "res-b8dafdbc-d65d-4c86-8ae7-aa5bda51ba45",
+    "replacementReservation": "res-676a74da-c5cf-4e70-a5b1-a673cdcf8a0f",
+    "individualReservation": "res-247bea43-2fe3-4145-b42e-2f38105fc08b"
+  },
+  "phase": "after-redeploy",
+  "winner": "athletea",
+  "baselineDeploy": "6ad2ac4fed11f47a6e901548",
+  "verifiedDeploy": "6ad2ad63b8e082659be8bb15"
+}

@@ -46,3 +46,6 @@ US-CLUB-01 / US-COACH-01 / US-SPORTIF-05 : décision utilisateur bilatérale, de
 
 ## Séances collectives propres aux coachs — 16 octobre 2026
 US-COACH-01 / US-SPORTIF-05/06/07/08 : MVP PDF p.1 et devis p.1–2, prix total par taille décidé par l’utilisateur. Origine coach dans le stockage d’offres existant, publication réservée au propriétaire validé, réservation depuis fiche, capacité pondérée et montants historiques. Structures et consentements bilatéraux conservés, pas de nouveau moteur ni paiement réel. Maquette, limites et preuves : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.
+
+## Recette démo hébergée — 17 octobre 2026
+US-COACH-01 / US-CLUB-01 / US-SPORTIF-05/07/08 : persistance profils/tarifs/affiliations/offres/réservations entre deux déploiements, concurrence HTTP, droits et snapshots simulés. MVP/devis p.1–2 et décisions utilisateur conservés. Défaut d’empaquetage et health/robots corrigés ; aucun nouveau moteur ni RLS distante revendiquée. Rapport : `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md`.

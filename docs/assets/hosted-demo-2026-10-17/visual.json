@@ -1,0 +1,61 @@
+{
+  "engine": "local Playwright Edge headless, remote app",
+  "results": [
+    {
+      "role": "coach",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "controlNotObscured": true
+    },
+    {
+      "role": "coach",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "controlNotObscured": true
+    },
+    {
+      "role": "coach",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "controlNotObscured": true
+    },
+    {
+      "role": "coach",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "controlNotObscured": true
+    },
+    {
+      "role": "athletea",
+      "width": 320,
+      "client": 320,
+      "scroll": 320,
+      "controlNotObscured": true
+    },
+    {
+      "role": "athletea",
+      "width": 390,
+      "client": 390,
+      "scroll": 390,
+      "controlNotObscured": true
+    },
+    {
+      "role": "athletea",
+      "width": 768,
+      "client": 768,
+      "scroll": 768,
+      "controlNotObscured": true
+    },
+    {
+      "role": "athletea",
+      "width": 1440,
+      "client": 1440,
+      "scroll": 1440,
+      "controlNotObscured": true
+    }
+  ]
+}
