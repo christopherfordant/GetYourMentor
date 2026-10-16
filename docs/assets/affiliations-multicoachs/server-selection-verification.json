@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-16",
+  "base": "30ecf1f",
+  "build": "PASS",
+  "types": "PASS",
+  "playwright": "10/10 PASS, 1 worker",
+  "scope": "server coach selection guard only; confirmation decision pending",
+  "sourceSha256": {
+    "gym-next/lib/structure-offers.ts": "e4a21f41ec84dd13c82db796a044c254499914ea53475a11661570cdefeca93e",
+    "gym-next/app/api/structures/offers/route.ts": "012284770e08a99b7e6a0004d5138431f812e9457a6cc4022b20f19e6d224c23",
+    "gym-next/tests/structure-flow.spec.ts": "8910a04bb017ed9b53bff258f5972bd4069edb2d01d03722641ebcdd53f35384",
+    "gym-next/tests/structure-coach-selection.spec.ts": "76b5d78dd24ff987ea656f8a7cf38930b477d45972f93e5385ede76036dffcaf"
+  }
+}

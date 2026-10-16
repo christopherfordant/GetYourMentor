@@ -24,9 +24,10 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   if (typeof body?.title !== "string" || !body.title.trim() || body.title.length > 120 || typeof body?.duration !== "string" || !body.duration.trim() || body.duration.length > 80
     || !Array.isArray(body?.slots) || body.slots.length < 1 || body.slots.length > 3 || body.slots.some((s: unknown) => typeof s !== "string" || s.length > 80 || !Number.isFinite(Date.parse(s)) || Date.parse(s) <= Date.now())) return NextResponse.json({ error: "Indiquez un titre, une durée et un à trois créneaux futurs valides" }, { status: 400 });
+  if (body.coachId !== undefined && (typeof body.coachId !== "string" || !body.coachId || body.coachId.length > 120)) return NextResponse.json({ error: "Coach invalide" }, { status: 400 });
   const slots = normalizeSlots(body.slots);
   const capacity = body.capacity ?? 1;
   if (!slots || !durationMinutes(body.duration) || !Number.isInteger(capacity) || capacity < 1 || capacity > 50) return NextResponse.json({ error: "Dates, durée ou capacité invalides (1 à 50 places en démo)" }, { status: 400 });
-  try { return NextResponse.json({ data: publicStructureOffer(await createStructureOffer(session.email, body.title.trim(), body.duration.trim(), slots, capacity)) }, { status: 201 }); }
+  try { return NextResponse.json({ data: publicStructureOffer(await createStructureOffer(session.email, body.title.trim(), body.duration.trim(), slots, capacity, body.coachId)) }, { status: 201 }); }
   catch { return NextResponse.json({ error: "Publication impossible : vérifiez l'affiliation de votre coach" }, { status: 409 }); }
 }

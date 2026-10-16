@@ -75,7 +75,9 @@ test("structure : affiliation, données et prix ne sont pas choisis par le navig
   const clubHeaders = { Cookie: login.headers()["set-cookie"].split(";")[0] };
   const slots = [new Date(Date.now() + 30 * 86400000 + (info.project.name.includes("mobile") ? 3600000 : 0)).toISOString()];
   const published = await request.post("/api/structures/offers", { headers: clubHeaders, data: { title: "Séance de contrôle", duration: "1 heure", slots, coachId: "madison-seck", ownerEmail: "other@example.com", price: 0 } });
-  expect(published.status()).toBe(201); const offer = (await published.json()).data; expect(offer.coachId).toBe("steven-fordant"); expect(offer.ownerEmail).toBeUndefined();
+  expect(published.status()).toBe(409);
+  const valid = await request.post("/api/structures/offers", { headers: clubHeaders, data: { title: "Séance de contrôle", duration: "1 heure", slots, ownerEmail: "other@example.com", price: 0 } });
+  expect(valid.status()).toBe(201); const offer = (await valid.json()).data; expect(offer.coachId).toBe("steven-fordant"); expect(offer.ownerEmail).toBeUndefined();
   const athlete = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
   const athleteHeaders = { Cookie: athlete.headers()["set-cookie"].split(";")[0] };
   expect((await request.get("/api/structures/reservations", { headers: athleteHeaders })).status()).toBe(401);

@@ -19,9 +19,10 @@ export async function listStructureOffers(ownerEmail?: string) {
 
 export async function getStructureOffer(id: string) { return (await listStructureOffers()).find((offer) => offer.id === id) ?? null; }
 
-export async function createStructureOffer(email: string, title: string, duration: string, slots: string[], capacity = 1) {
+export async function createStructureOffer(email: string, title: string, duration: string, slots: string[], capacity = 1, selectedCoachId?: string) {
   assertDemoFallbackAllowed("Séances de structure (démonstration)");
   const coachId = associatedDemoCoach(email);
+  if (selectedCoachId !== undefined && selectedCoachId !== coachId) throw new Error("Coach non affilié à cette structure.");
   if (!coachId) throw new Error("Un coach doit être affilié à votre structure avant de proposer une séance.");
   const offer: StructureOffer = { id: `offer-${randomUUID()}`, ownerEmail: email, coachId, title, duration, slots, capacity, createdAt: new Date().toISOString() };
   if (isHostedDemo()) return mutateDemoState((state) => { (state.structureOffers ??= []).push(offer); return offer; });
