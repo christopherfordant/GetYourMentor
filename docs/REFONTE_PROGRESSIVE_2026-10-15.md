@@ -1,3 +1,5 @@
+> **Réservations groupées — 16 octobre 2026 :** prix total défini par le coach selon la taille, informations des participants supplémentaires, capacité pondérée, confidentialité par rôle et remboursements historiques simulés. Parcours collectif des structures ; limites mineurs et services distants conservées. Reprise : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.
+
 > **Consolidation réservation — 16 octobre 2026 :** calendrier daté UTC/Europe-Paris, chevauchements par durée, capacité des séances structure, confirmation d’un créneau et libération des alternatives, commission historique et annulation simulée. Périmètre, preuves, limites et reprise : `docs/CONSOLIDATION_RESERVATION_2026-10-16.md`. Réservation pour plusieurs tiers et RLS distante restent à traiter ; aucun déploiement ni paiement réel.
 
 > **Reprise obligatoire a chaque prompt :** lire AGENTS.md et la procedure de BRANCH_STRATEGY_GYM.md (a la racine du depot). Verifier, documenter, commiter et pousser les lots valides sur la branche appropriee avant la reponse finale ; confirmer le SHA distant. Preserver les travaux anterieurs non verifies.

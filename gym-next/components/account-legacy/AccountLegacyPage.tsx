@@ -14,6 +14,7 @@ import { AthleteDashboard } from "@/components/account-legacy/AthleteDashboard";
 import { AdminDashboard } from "@/components/account-legacy/AdminDashboard";
 import { PhoneVerificationPanel } from "@/components/account-legacy/PhoneVerificationPanel";
 import { CoachDocumentsPanel } from "@/components/account-legacy/CoachDocumentsPanel";
+import { GroupPrices } from "@/components/account-legacy/GroupPrices";
 import { StructureSessions } from "@/components/account-legacy/StructureSessions";
 import { findCoach, type CoachProfile, type Reservation } from "@/lib/domain";
 
@@ -440,6 +441,7 @@ function CoachDashboard({
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />
+      {allowDemoFallback ? <GroupPrices coachId={coachId} /> : null}
       {coachProfile ? (
         <CoachProfileEditor
           coachId={coachProfile.id}

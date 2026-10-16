@@ -1,3 +1,4 @@
+import { reservedPlaces } from "@/lib/domain/participants";
 import { intervalsOverlap } from "@/lib/domain/booking-time";
 import { memoryStructureOffers, type StructureOffer } from "@/lib/structure-offers";
 import type { Reservation } from "@/lib/domain";
@@ -21,15 +22,15 @@ function headers(config: ReservationPersistenceConfig, extra: Record<string, str
   return { apikey: config.key, Authorization: `Bearer ${config.key}`, ...extra };
 }
 
-function conflicts(reservations: Reservation[], candidate: Pick<Reservation, "id" | "coachId" | "slots" | "duration" | "structureOfferId" | "ownerEmail">, offers: StructureOffer[]) {
+function conflicts(reservations: Reservation[], candidate: Pick<Reservation, "id" | "coachId" | "slots" | "duration" | "structureOfferId" | "ownerEmail" | "participantCount">, offers: StructureOffer[]) {
   const active = reservations.filter(r => r.id !== candidate.id && r.coachId === candidate.coachId && ["requested", "accepted", "paid"].includes(r.status));
   const offer = offers.find(o => o.id === candidate.structureOfferId);
-  let seats = 1;
+  let seats = reservedPlaces(candidate);
   for (const r of active) {
     if (!intervalsOverlap(r.slots, r.duration, candidate.slots, candidate.duration)) continue;
     if (!offer || r.structureOfferId !== offer.id || r.slots.length !== 1 || candidate.slots.length !== 1 || r.slots[0] !== candidate.slots[0]) return true;
     if (candidate.ownerEmail && r.ownerEmail === candidate.ownerEmail) return true;
-    seats++;
+    seats += reservedPlaces(r);
   }
   return seats > (offer?.capacity ?? 1);
 }
@@ -56,6 +57,7 @@ export async function createPersistedReservation(reservation: Reservation) {
     if (isHostedDemo()) return mutateDemoState((s) => add(s.reservations, s.structureOffers ?? []));
     return add(memoryReservations, memoryStructureOffers);
   }
+  if (reservedPlaces(reservation) > 1) throw new Error("Réservations groupées limitées au stockage de démonstration");
   const response = await fetch(`${config.url}/rest/v1/gym_reservations`, {
     method: "POST",
     headers: headers(config, { "Content-Type": "application/json", Prefer: "return=representation" }),

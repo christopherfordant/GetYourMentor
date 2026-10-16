@@ -99,6 +99,7 @@ export function AthleteDashboard() {
           <article key={reservation.id} data-athlete-reservation={reservation.id}>
             <strong>{reservation.service}</strong>
             <span>{reservation.coachName} · {reservation.price} EUR</span>
+            {(reservation.participantCount ?? 1) > 1 ? <details><summary>{reservation.participantCount} participants · prix total du groupe</summary><p>Vous êtes le réservant et participez à la séance.</p><ul>{reservation.additionalParticipants?.map((person, i) => <li key={i}>{person.firstName} {person.lastName} · {person.age} ans · {person.email}</li>)}</ul><p>L’annulation concerne le groupe entier.</p></details> : null}
             <span>{reservation.slots.map(formatBookingSlot).join(" · ")} · Europe/Paris</span>
             <span data-athlete-reservation-status>Statut : {reservation.status}</span>
             {reservation.reservationCode ? <span>Code : {reservation.reservationCode}</span> : null}

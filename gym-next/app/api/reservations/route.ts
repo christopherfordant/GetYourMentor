@@ -1,3 +1,4 @@
+import { reservationForRole } from "@/lib/domain/reservation-privacy";
 import { normalizeSlots } from "@/lib/domain/booking-time";
 import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
@@ -35,11 +36,14 @@ export async function POST(request: Request) {
   }
   const input = parseReservationInput(body);
   if (!input.ok) return NextResponse.json({ error: input.error }, { status: 400 });
+  if (input.data.participantCount > 1 && (!isDemoFallbackAllowed() || process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_SERVICE_ROLE_KEY || !structureOfferId || session?.role !== "sportif")) return NextResponse.json({ error: "Choisissez une séance collective publiée et connectez-vous comme sportif" }, { status: 409 });
   const coach = await getCoach(input.data.coachId);
   const { coachId, service, duration, slots, appointmentAt } = input.data;
 
   if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
 
+  const groupPrice = input.data.participantCount > 1 ? coach.groupPrices?.find(p => p.participantCount === input.data.participantCount) : undefined;
+  if (input.data.participantCount > 1 && !groupPrice) return NextResponse.json({ error: "Le coach n’a pas encore défini de tarif total pour cette taille de groupe" }, { status: 409 });
   try {
     if (await hasSlotConflict(coach.id, slots, undefined, duration, structureOfferId)) {
       return NextResponse.json({ error: "Un des créneaux est déjà demandé ou réservé" }, { status: 409 });
@@ -58,7 +62,8 @@ export async function POST(request: Request) {
     service,
     duration,
     // Le tarif est une donnée métier serveur : ne jamais faire confiance au montant envoyé par le navigateur.
-    price: coach.priceFrom,
+    price: groupPrice ? groupPrice.totalCents / 100 : coach.priceFrom,
+    ...(input.data.participantCount > 1 ? { participantCount: input.data.participantCount, additionalParticipants: input.data.additionalParticipants } : {}),
     slots,
     status: "requested",
     createdAt: new Date().toISOString(),
@@ -100,7 +105,7 @@ export async function GET(request: Request) {
       if (requestedProfile && requestedProfile.id !== session.coachId) {
         return NextResponse.json({ error: "Accès aux réservations refusé" }, { status: 403 });
       }
-      return NextResponse.json({ data: await listReservations({ coachId: session.coachId }) });
+      return NextResponse.json({ data: (await listReservations({ coachId: session.coachId })).map((r: Reservation) => reservationForRole(r, session.role)) });
     }
     if (session.role === "sportif") {
       if (requestedProfile) {

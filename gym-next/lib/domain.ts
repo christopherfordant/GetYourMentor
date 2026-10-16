@@ -9,6 +9,7 @@ export type CoachProfile = {
   rating: number;
   reviewCount: number;
   priceFrom: number;
+  groupPrices?: Array<{ participantCount: number; totalCents: number }>;
   verified: boolean;
   verificationStatus?: "pending" | "approved" | "rejected";
   description: string;
@@ -33,6 +34,8 @@ export type ReservationStatus = "requested" | "accepted" | "rejected" | "cancell
 export type Reservation = {
   id: string;
   ownerEmail?: string;
+  participantCount?: number;
+  additionalParticipants?: import("@/lib/domain/participants").AdditionalParticipant[];
   coachId: string;
   coachName: string;
   sport: SportSlug;

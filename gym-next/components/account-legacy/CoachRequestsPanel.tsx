@@ -71,6 +71,7 @@ export function CoachRequestsPanel({ coachName, onReservationsChanged }: { coach
           <article key={reservation.id} data-coach-request={reservation.id}>
             <strong>{reservation.service}</strong>
             <span>{reservation.slots.map(formatBookingSlot).join(" · ")} — {reservation.price} EUR</span>
+            {(reservation.participantCount ?? 1) > 1 ? <details><summary>Groupe de {reservation.participantCount} participants · montant total</summary><ul>{reservation.additionalParticipants?.map((person, i) => <li key={i}>{person.firstName} {person.lastName} · {person.age} ans</li>)}</ul></details> : null}
             <span data-request-status>Statut : {reservation.status}</span>
             {reservation.status === "accepted" ? <span>En attente du paiement de l’élève</span> : null}
             {reservation.status === "paid" ? <span>Paiement élève confirmé. {reservation.financials ? `Part coach : ${(reservation.financials.coachAmountCents / 100).toFixed(2)} EUR ; commission historique : ${reservation.financials.commissionBps / 100} %.` : ""} Aucun reversement bancaire n’est effectué en démo.</span> : null}

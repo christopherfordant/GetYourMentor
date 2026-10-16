@@ -6,6 +6,8 @@ export function reservationFromRow(row: ReservationRow): Reservation {
   return {
     id: row.id,
     ownerEmail: row.owner_email,
+    participantCount: row.participant_count ?? undefined,
+    additionalParticipants: row.additional_participants ?? undefined,
     coachId: row.coach_id,
     coachName: row.coach_name,
     sport: row.sport,
@@ -36,6 +38,8 @@ export function reservationToRow(reservation: Reservation) {
   return {
     id: reservation.id,
     owner_email: reservation.ownerEmail ?? null,
+    ...(reservation.participantCount !== undefined ? { participant_count: reservation.participantCount } : {}),
+    ...(reservation.additionalParticipants !== undefined ? { additional_participants: reservation.additionalParticipants } : {}),
     coach_id: reservation.coachId,
     coach_name: reservation.coachName,
     sport: reservation.sport,

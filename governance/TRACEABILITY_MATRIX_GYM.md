@@ -31,3 +31,6 @@ Compte `/compte` : US-SPORTIF-07, US-COACH-01, US-CLUB-01 et rôle admin du MVP 
 
 ## Consolidation réservation démonstration — 16 octobre 2026
 US-SPORTIF-05/06/07/08, US-COACH-01 et US-CLUB-01 : dates/fuseau, capacité et plannings selon MVP PDF p.1, devis p.1–2, Business Plan p.35–36/49–50 et document maître §5. Contrôles serveur, snapshots 15 % et refus/annulation libérant les places. Extension structure limitée au coach affilié et paiement sportif. Rapport : `docs/CONSOLIDATION_RESERVATION_2026-10-16.md`. Aucun abonnement activé, nouvelle couche d’agents, paiement réel ni validation RLS distante.
+
+## Réservations groupées — 16 octobre 2026
+US-SPORTIF-05/07/08, US-COACH-01 et US-CLUB-01 : MVP p.1 et devis p.1–2. Prix total par taille décidé par l’utilisateur ; capacité pondérée du moteur existant, identité des participants et confidentialité. Aucun autre moteur, bénéficiaire bancaire, abonnement ou consentement parental simulé. Rapport : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.

@@ -3,7 +3,7 @@ import { formatBookingSlot } from "@/lib/domain/booking-time";
 import { useEffect, useState } from "react";
 import type { StructureOffer } from "@/lib/structure-offers";
 
-type Summary = { id: string; coachName: string; service: string; slots: string[]; status: string; price: number; reservationCode?: string };
+type Summary = { id: string; coachName: string; service: string; slots: string[]; status: string; price: number; participantCount?: number; reservationCode?: string };
 
 export function StructureSessions() {
   const [offers, setOffers] = useState<Omit<StructureOffer, "ownerEmail">[]>([]);
@@ -47,6 +47,6 @@ export function StructureSessions() {
     <h3>Mes séances proposées</h3>
     {offers.length ? offers.map((offer) => <article key={offer.id}><strong>{offer.title}</strong><p>Capacité : {offer.capacity ?? 1} place(s)</p><p>{offer.slots.map((s) => formatBookingSlot(s)).join(" · ")}</p></article>) : <p>Aucune séance publiée.</p>}
     <h3>Demandes et paiements des élèves</h3>
-    {reservations.length ? reservations.map((r) => <article key={r.id} data-structure-reservation={r.id}><strong>{r.service}</strong><p>{r.coachName} · {r.price} EUR</p><p>{r.slots.map((s) => formatBookingSlot(s)).join(" · ")}</p><p data-structure-status>Statut : {r.status}</p>{r.reservationCode ? <p>Code : {r.reservationCode}</p> : null}</article>) : <p>Aucune demande pour vos séances.</p>}
+    {reservations.length ? reservations.map((r) => <article key={r.id} data-structure-reservation={r.id}><strong>{r.service}</strong><p>{r.coachName} · {r.price} EUR</p><p>{r.slots.map((s) => formatBookingSlot(s)).join(" · ")}</p><p>{r.participantCount ?? 1} participant(s)</p><p data-structure-status>Statut : {r.status}</p>{r.reservationCode ? <p>Code : {r.reservationCode}</p> : null}</article>) : <p>Aucune demande pour vos séances.</p>}
   </section>;
 }

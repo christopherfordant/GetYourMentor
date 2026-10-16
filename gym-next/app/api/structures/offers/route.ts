@@ -1,4 +1,5 @@
 import { normalizeSlots, durationMinutes } from "@/lib/domain/booking-time";
+import { getCoach } from "@/lib/coaches";
 import { NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
@@ -10,7 +11,7 @@ export async function GET(request: Request) {
   const own = new URL(request.url).searchParams.get("mine") === "1";
   const session = own ? await requireRole("club") : null;
   if (own && !session) return NextResponse.json({ error: "Connexion structure requise" }, { status: 401 });
-  try { return NextResponse.json({ data: (await listStructureOffers(session?.email)).map(publicStructureOffer) }); }
+  try { return NextResponse.json({ data: await Promise.all((await listStructureOffers(session?.email)).map(async offer => { const coach = await getCoach(offer.coachId); return { ...publicStructureOffer(offer), individualPrice: coach?.priceFrom, groupPrices: coach?.groupPrices ?? [] }; })) }); }
   catch { return NextResponse.json({ error: "Séances indisponibles" }, { status: 503 }); }
 }
 

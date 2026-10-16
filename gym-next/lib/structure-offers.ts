@@ -31,7 +31,7 @@ export async function createStructureOffer(email: string, title: string, duratio
 export async function structureReservationSummaries(email: string) {
   const ids = new Set((await listStructureOffers(email)).map((offer) => offer.id));
   const reservations: Reservation[] = await listReservations();
-  return reservations.filter((r) => r.structureOfferId && ids.has(r.structureOfferId)).map((r) => ({ id: r.id, structureOfferId: r.structureOfferId, coachName: r.coachName, service: r.service, slots: r.slots, status: r.status, price: r.price, reservationCode: ["accepted", "paid"].includes(r.status) ? r.reservationCode : undefined }));
+  return reservations.filter((r) => r.structureOfferId && ids.has(r.structureOfferId)).map((r) => ({ id: r.id, structureOfferId: r.structureOfferId, coachName: r.coachName, participantCount: r.participantCount ?? 1, service: r.service, slots: r.slots, status: r.status, price: r.price, reservationCode: ["accepted", "paid"].includes(r.status) ? r.reservationCode : undefined }));
 }
 
 export function publicStructureOffer({ ownerEmail: _ownerEmail, ...offer }: StructureOffer) { return offer; }

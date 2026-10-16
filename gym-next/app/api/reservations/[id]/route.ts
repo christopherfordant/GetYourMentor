@@ -1,3 +1,4 @@
+import { reservationForRole } from "@/lib/domain/reservation-privacy";
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
 import { getReservation, transitionReservation } from "@/lib/reservations";
@@ -16,7 +17,7 @@ export async function GET(request: Request, { params }: Params) {
       const error = session.role === "coach" ? "Cette réservation appartient à un autre coach" : session.role === "sportif" ? (reservation.ownerEmail ? "Cette réservation appartient à un autre compte" : "Reservation claim token required") : "Accès à la réservation refusé";
       return NextResponse.json({ error }, { status: 403 });
     }
-    return reservation ? NextResponse.json({ data: reservation }) : NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
+    return reservation ? NextResponse.json({ data: reservationForRole(reservation, session.role) }) : NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Erreur de lecture" }, { status: 502 });
   }
@@ -40,7 +41,7 @@ export async function PATCH(request: Request, { params }: Params) {
   if (body.appointmentAt !== undefined && typeof body.appointmentAt !== "string") return NextResponse.json({ error: "Créneau invalide" }, { status: 400 });
   try {
     const reservation = await transitionReservation((await params).id, body.status, body.appointmentAt);
-    return reservation ? NextResponse.json({ data: reservation }) : NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
+    return reservation ? NextResponse.json({ data: reservationForRole(reservation, session.role) }) : NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Transition impossible" }, { status: 409 });
   }

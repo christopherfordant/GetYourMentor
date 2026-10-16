@@ -1,6 +1,7 @@
+import { parseBookingParty, type BookingParty } from "@/lib/domain/participants";
 import { normalizeSlots, durationMinutes, slotInstant } from "@/lib/domain/booking-time";
 
-export type ReservationInput = {
+export type ReservationInput = BookingParty & {
   coachId: string;
   service: string;
   duration: string;
@@ -48,5 +49,7 @@ export function parseReservationInput(body: unknown): ValidationResult {
   const normalized = normalizeSlots(slots);
   if (!normalized || !durationMinutes(duration)) return { ok: false, error: "Indiquez des dates futures avec fuseau et une durée valide (1 à 480 minutes)" };
   if (appointmentAt !== undefined && slotInstant(appointmentAt) !== slotInstant(normalized[0])) return { ok: false, error: "La date du rendez-vous doit correspondre au premier créneau" };
-  return { ok: true, data: { coachId, service, duration, slots: normalized, appointmentAt: normalized[0] } };
+  const party = parseBookingParty(body.participantCount, body.additionalParticipants);
+  if (!party) return { ok: false, error: "Renseignez le nombre de participants et les informations de chaque personne supplémentaire" };
+  return { ok: true, data: { ...party, coachId, service, duration, slots: normalized, appointmentAt: normalized[0] } };
 }

@@ -1,0 +1,93 @@
+{
+  "baseline": "e1311ec82fd49b9f617307947bb234f695eb3266",
+  "branch": "design/refonte-progressive-lot1",
+  "pricing_decision": "Coach sets total price by group size; no automatic individual-price multiplication",
+  "build": "PASS",
+  "types": "PASS",
+  "production_safety": "PASS",
+  "tests": {
+    "campaign": 72,
+    "final_targeted": 10,
+    "overlapping_scenarios": true,
+    "workers": 1
+  },
+  "visual_mcp": {
+    "prototype": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      },
+      {
+        "case": "5 participants",
+        "fields": 4
+      }
+    ],
+    "application": [
+      {
+        "width": 320,
+        "client": 320,
+        "scroll": 320
+      },
+      {
+        "width": 390,
+        "client": 390,
+        "scroll": 390
+      },
+      {
+        "width": 768,
+        "client": 768,
+        "scroll": 768
+      },
+      {
+        "width": 1440,
+        "client": 1440,
+        "scroll": 1440
+      }
+    ]
+  },
+  "normalized_lf_sha256": {
+    "gym-next/app/api/coaches/group-prices/route.ts": "9d36a0935dc95dd119a96ecf9c15c038a3254d89c3f64245afcb84de0b36d57e",
+    "gym-next/app/api/reservations/[id]/route.ts": "30223bed9ab19c7ad9558333c4968484e669d3a9b1d2b51d103c5b849e0dee72",
+    "gym-next/app/api/reservations/route.ts": "e19e6af00e2a84ff00ef5da74ff7214db37a4de0709eec5fb998cbd0c91dab87",
+    "gym-next/app/api/structures/offers/route.ts": "4f0f9a6cb70d42933e6c39f42680d276cb23d0c81980c6aacfc141dbfc243711",
+    "gym-next/components/StructureOffers.tsx": "1a09e2af02b47b2cdeebc1220c7625ad05e8b4dc26221ac87c91b0f50d1bd432",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "098b848e8c488f703fb6db185616dc35f686bfbee79f5815d1efd3741e94fc31",
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "8c1b9ad97856368dcd339f5a5929b195087735b9f6a08f509077f7f828952993",
+    "gym-next/components/account-legacy/CoachRequestsPanel.tsx": "d415d239202117f6b174a6060065ce0f1bcb8c37f60ac64ce47cdc10615ee837",
+    "gym-next/components/account-legacy/GroupPrices.tsx": "8ee384386c9e87543c46a8e091e01acd35b08de58d09fdaf5456e687ae5e017b",
+    "gym-next/components/account-legacy/StructureSessions.tsx": "cec44d139858613a61e10b8efbf918eebb476030895ad6e258bdada2f17c3580",
+    "gym-next/components/group-booking.module.css": "37a24b11d02bbc8b883bc1ad335d5b947a87c5e708491c279f84472fda7faa7c",
+    "gym-next/lib/coaches.ts": "da8289355885d3750983d2ef20f85b25a57003b79adf19710128f19198cf1209",
+    "gym-next/lib/domain.ts": "cd775eaebb036ce3c29eb74be19f269ebe9e25c2c7445927fe5738656439acdc",
+    "gym-next/lib/domain/participants.ts": "eb795c22e37406340942bf7329c3135caa91c2521173eeed4312d522f5be7822",
+    "gym-next/lib/domain/reservation-privacy.ts": "79183a0e67fd3aedd117296d7a0757ae91a3e282fb148ddb2ad8cbc56c80601b",
+    "gym-next/lib/domain/validation/reservation-input.ts": "5b9e15864017b6d0ad362fae3275f6677b2f673e9de7b1a93e8723569bb8375a",
+    "gym-next/lib/repositories/reservation-mapper.ts": "4c05c7850fd7cd5d71762f94e02729c77c2d0ef82887e2a4132387f9c0286f68",
+    "gym-next/lib/repositories/reservation-repository.ts": "8023022ac03d8536bd50d0bbaf82e0b94fc083600d93363058e3d85ee4a11181",
+    "gym-next/lib/structure-offers.ts": "a27f6d1af7c0b97700fff7aff85709111d5dffc983b496bc117f6ca051a11724",
+    "gym-next/tests/group-booking-flow.spec.ts": "e0d72af384a4df5c47d635394a0d455670034a27ccdf408429ce3d962e2cac6d",
+    "gym-next/tests/group-booking-foundation.spec.ts": "9f2bd2af345fa80be42091652f2b7f9a0a9d9e4568a6576b789c6a867157aa76"
+  },
+  "limits": [
+    "Demo structure sessions only",
+    "No production deployment or real transactions",
+    "Minor conditions and remote RLS not certified",
+    "Hosted CAS not remotely validated"
+  ]
+}
