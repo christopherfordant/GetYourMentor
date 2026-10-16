@@ -49,9 +49,9 @@ export async function createCoachSession(email: string, coachId: string, input: 
   if (!coach || coach.id !== coachId || !coach.verified) throw new Error("Profil coach validé requis");
   return persistOffer({ id: `offer-${randomUUID()}`, ownerEmail: email, coachId, ...input, source: "coach", sport: coach.sport, createdAt: new Date().toISOString() });
 }
-export async function publicSessionOffer(offer: StructureOffer) {
-  const coach = await getCoach(offer.coachId);
-  const reservations: Reservation[] = await listReservations();
+export async function publicSessionOffer(offer: StructureOffer, projection?: { coach: Awaited<ReturnType<typeof getCoach>>; reservations: Reservation[] }) {
+  const coach = projection ? projection.coach : await getCoach(offer.coachId);
+  const reservations: Reservation[] = projection ? projection.reservations : await listReservations();
   const active = reservations.filter(r => r.coachId === offer.coachId && ["requested", "accepted", "paid"].includes(r.status));
   const availability = offer.slots.map(slot => {
     let remaining = offer.capacity ?? 1;

@@ -10,7 +10,7 @@ export async function GET(request: Request) {
   const own = new URL(request.url).searchParams.get("mine") === "1";
   const session = own ? await requireRole("club") : null;
   if (own && !session) return NextResponse.json({ error: "Connexion structure requise" }, { status: 401 });
-  try { return NextResponse.json({ data: await Promise.all((await listStructureOffers(session?.email)).filter(o => o.source !== "coach").map(publicSessionOffer)) }, { headers: { "Cache-Control": "no-store" } }); }
+  try { return NextResponse.json({ data: await Promise.all((await listStructureOffers(session?.email)).filter(o => o.source !== "coach").map(offer => publicSessionOffer(offer))) }, { headers: { "Cache-Control": "no-store" } }); }
   catch { return NextResponse.json({ error: "Séances indisponibles" }, { status: 503 }); }
 }
 

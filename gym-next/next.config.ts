@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
+  experimental: { cpus: 2 },
   reactStrictMode: true,
   devIndicators: false,
   poweredByHeader: false,

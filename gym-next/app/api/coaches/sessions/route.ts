@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   try {
     const coach = await getCoach(coachId);
     const offers = (await listStructureOffers(mine ? session!.email : undefined)).filter(o => o.source === "coach" && o.coachId === coachId);
-    return NextResponse.json({ data: mine || coach?.verified ? await Promise.all(offers.map(publicSessionOffer)) : [] }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json({ data: mine || coach?.verified ? await Promise.all(offers.map(offer => publicSessionOffer(offer))) : [] }, { headers: { "Cache-Control": "no-store" } });
   } catch { return NextResponse.json({ error: "Séances indisponibles" }, { status: 503 }); }
 }
 export async function POST(request: Request) {

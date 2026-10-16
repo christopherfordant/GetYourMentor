@@ -6,7 +6,7 @@ import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 
 const cities = ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille", "Nice"];
 
-export function RechercheCoachLegacyPage({ sport, city }: { sport?: string; city?: string }) {
+export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?: string; city?: string; demo?: boolean }) {
   const initial = discoverySports.find(([slug]) => slug === sport) ?? discoverySports[0];
   const [sportSlug, setSportSlug] = useState<string>(initial[0]);
   const [cityValue, setCityValue] = useState(city || "Paris");
@@ -19,6 +19,7 @@ export function RechercheCoachLegacyPage({ sport, city }: { sport?: string; city
         <div>
           <DiscoveryIntro step="01 / TON SPORT, TON TERRAIN" title={title}>Un objectif, une discipline, un lieu. Fais le premier pas vers le coach qui te correspond.</DiscoveryIntro>
           <DiscoverySteps active={0} />
+          {demo ? <p><a href={`/seances?${new URLSearchParams({ sport: sportSlug, city: cityValue.trim() })}`}>Explorer les séances collectives</a></p> : null}
         </div>
         <form className="de-search-form" data-sport-search-form onSubmit={event => {
           event.preventDefault();

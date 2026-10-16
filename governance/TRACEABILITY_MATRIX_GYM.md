@@ -49,3 +49,6 @@ US-COACH-01 / US-SPORTIF-05/06/07/08 : MVP PDF p.1 et devis p.1–2, prix total 
 
 ## Recette démo hébergée — 17 octobre 2026
 US-COACH-01 / US-CLUB-01 / US-SPORTIF-05/07/08 : persistance profils/tarifs/affiliations/offres/réservations entre deux déploiements, concurrence HTTP, droits et snapshots simulés. MVP/devis p.1–2 et décisions utilisateur conservés. Défaut d’empaquetage et health/robots corrigés ; aucun nouveau moteur ni RLS distante revendiquée. Rapport : `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md`.
+
+## Découverte collective — 17 octobre 2026
+US-SPORTIF-05 / US-COACH-01 / US-CLUB-01 : MVP p.1, Business Plan p.28–31/49–51. Catalogue des offres existantes ; filtres quatre sports/ville du coach/origine/taille, dates, capacités restantes et tarifs totaux. Projection sans participants, moteur de réservation réutilisé, commission historique conservée. Rapport : `docs/DECOUVERTE_COLLECTIVE_2026-10-17.md`.

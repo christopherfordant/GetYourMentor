@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { RechercheCoachLegacyPage } from "@/components/search-legacy/RechercheCoachLegacyPage";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
+import { isDemoFallbackAllowed } from "@/lib/runtime";
 
 type RecherchePageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -35,5 +36,5 @@ export default async function RecherchePage({ searchParams }: RecherchePageProps
   const cityParam = params.city;
   const city = Array.isArray(cityParam) ? cityParam[0] : cityParam;
 
-  return <RechercheCoachLegacyPage sport={sport} city={city} />;
+  return <RechercheCoachLegacyPage sport={sport} city={city} demo={isDemoFallbackAllowed() && !process.env.SUPABASE_URL && !process.env.NEXT_PUBLIC_SUPABASE_URL && !process.env.SUPABASE_SERVICE_ROLE_KEY} />;
 }

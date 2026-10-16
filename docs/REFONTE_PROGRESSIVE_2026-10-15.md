@@ -1,3 +1,5 @@
+> **Reprise autonome et découverte collective — 17 octobre 2026 :** catalogue partagé `/seances`, filtres URL et moteur de réservation existant. Rapport : `docs/DECOUVERTE_COLLECTIVE_2026-10-17.md`. V1/V2/V3 restent incomplets.
+
 > **Recette démo hébergée — 17 octobre 2026 :** persistance après deux déploiements distincts, concurrence et isolation entre comptes vérifiées sur le site démo dédié. Empaquetage Windows corrigé, health stockage et robots qualifiés ; aucun déploiement du site historique. Reprise : `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md`.
 
 > **Séances collectives coach — 16 octobre 2026 :** les coachs validés peuvent proposer leurs propres séances en démonstration, sans affiliation obligatoire. Origine coach/structure distinguée dans le moteur existant ; réservation depuis la fiche coach, tarifs totaux par taille et capacité pondérée réutilisés. Reprise et limites : `docs/RESERVATIONS_GROUPES_2026-10-16.md`, section Séances collectives propres aux coachs. Aucun paiement réel ni déploiement.

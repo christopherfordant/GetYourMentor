@@ -82,3 +82,22 @@ Contrats Netlify, secrets suivis et frontière client/serveur PASS. Aucun change
 Le compte club historique reste une présentation de démonstration signalée ; son affiliation opérationnelle et l’extension structures antérieure restent à qualifier dans un lot métier séparé. Les raccourcis sans section sont retirés, pas remplacés par de faux services. Aucun forum, CRM, newsletter ou programme Premium doublonné créé.
 
 Reprise : lot bêta/retours p.12–13/Business Plan p.49, après maquette ; qualifier les correctifs locaux réservation/structures sans les pousser en bloc. V2/V3 non terminées. Retour arrière : revert du commit ciblé ; données et modifications locales antérieures préservées.
+
+## Reprise autonome V1/V2/V3 — 17 octobre 2026
+Mandat utilisateur : poursuivre les lots documentés sans confirmation technique courante, commits ciblés et pushs vérifiés. Les 5 pages du PDF méthodologique V5 ont été lues : revue, scénarios réalistes, traçabilité et contrôle de complexité sont réutilisés dans les documents/tests existants. Aucun moteur d’agents, mémoire vectorielle ou collecte comportementale ajouté. L’autorisation utilisateur de développement prévaut sur les arrêts génériques du PDF dans le périmètre démo. Les choix techniques restent identifiés comme tels, pas comme des validations humaines/expertes fictives.
+
+| Périmètre / source | État à la reprise | Critères et dépendances |
+| --- | --- | --- |
+| Comptes/profils/recherche, MVP p.1 ; BP p.49–50 | Auth, rôles, profils et catalogue existants | Recette transversale des quatre rôles avant clôture globale ; inscription démo ≠ diplôme réellement vérifié |
+| Séances/groupes/structures, MVP p.1 ; BP p.28–31/50 | Réservation, capacité et persistance hébergée déjà vérifiées ; découverte améliorée dans ce lot | `/seances`, filtres URL, capacité, tarif total et demande testés ; politiques de modification/retrait non inventées |
+| Messages/avis, BP p.29/32/50 | APIs présentes ; stockage messages mémoire dans la base livrée, correctifs Blobs locaux non encore qualifiés | Examiner les correctifs antérieurs, persistance, isolation et réponse coach ; avis après séance, aucun faux avis |
+| Bêta suggestions/votes, BP p.49 ; Perplexity p.12–13 | Pas d’endpoint feedback repéré | Maquette séparée puis formulaire, vote unique et tri admin ; auth/stockage réutilisés |
+| Premium V1, BP p.35–36/50 | Descriptif commercial, droits/abonnements non validés | Simulation explicite séparée, pas de changement implicite de commission ; supplément 3,99 EUR : périodicité non précisée avant facturation réelle |
+| Contenus/packs V1, BP p.29–30/33/50 | Pas de moteur de vente de contenus repéré | Création propriétaire, accès autorisé, achat simulé et historique ; pas de licences/prix commerciaux inventés |
+| Suivi/recommandations/templates V1/V2, BP p.29/32/50–51 | Recette opérationnelle absente | Maquettes puis données fictives identifiées, recommandations explicables, templates modifiables ; aucune prescription médicale |
+| Communauté/événements V1/V2/V3, BP p.31–33/50–51/63 | Séances collectives présentes, forum interne vs Discord contradictoires | Réutiliser dates/capacité ; pas de second réseau social ; partage manuel et liens autorisés uniquement |
+| Membres/statistiques/localisation V2/V3, BP p.31–32/51/63–64 | Affiliations bilatérales livrées, autres fonctions non validées | Isolation par structure, métriques calculées/dénominateurs ; langue sélectionnée ≠ traduction complète |
+| Assistant/vidéo/optimisation/intégrations V3 et suivantes, BP p.62–64 | Versions regroupées, services réels absents | Démonstrations scénarisées identifiées, aucune analyse réelle prétendue, synchronisation tierce fictive ou acceptation automatique ; arbitrages actuels prioritaires |
+| Sécurité/CI/performance/SEO | Contrôles locaux présents, workflow principal ne suit pas la branche | Tests, secrets/frontière client, noindex démo ; CI distante séparée ; RLS réelle hors recette Blobs |
+
+Suite : découverte collective → messages/avis/persistance → bêta/retours → abonnements/contenus/suivi simulés → gestion/statistiques et maquettes avancées. Rapport : `DECOUVERTE_COLLECTIVE_2026-10-17.md`. V1/V2/V3 non terminées ; séparation V3/V4/V5 du Business Plan encore incomplète, aucun critère de clôture inventé.

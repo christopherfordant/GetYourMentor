@@ -1,0 +1,40 @@
+{
+  "sourceBase": "9493e095ab8890c32ae1cae119982bed07b1e1ee",
+  "build": "PASS",
+  "typecheck": "PASS",
+  "tests": {
+    "final": "26/26 PASS",
+    "files": [
+      "session-discovery.spec.ts",
+      "coach-collective.spec.ts",
+      "discovery-editorial.spec.ts"
+    ],
+    "workers": 1
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "deployment": "not deployed in this lot",
+  "remoteRLS": "not tested",
+  "realPayments": false,
+  "applicationSHA256": {
+    "gym-next/app/api/coaches/sessions/route.ts": "792e476a411eeb38c23793bbfd56959a3410af8b3fdc09f50382f2fcdf9e231e",
+    "gym-next/app/api/structures/offers/route.ts": "3c1227123110e9b6107724fdbfbfd5ab81f23add416d8aae9f6600f684849e08",
+    "gym-next/app/recherche/page.tsx": "b85e7951cdcd9e4768d59b4c1d5afca188cc6ad62ca32925504c03bab4d29d32",
+    "gym-next/app/structures/page.tsx": "232132054121f3f33adeab71691a87082f986c1fceb25fd43ff2988bd1f1d04b",
+    "gym-next/components/StructureOffers.tsx": "06592bdc2b424c14a8043c917e01e06f56da1ae4648d9569814d358f9b152368",
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": "2e698d1f6e5e4c6073afd890d6ded5a4e3c909acaba086150115aa0124c786d5",
+    "gym-next/components/group-booking.module.css": "41cdb21b49235d5f28a537426e150f941117f517feb05dd80a7d45cbe0a8bb91",
+    "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx": "d4012742e34b5018f7186eae3128860fead390023df99043ca25b329f8cc892f",
+    "gym-next/lib/structure-offers.ts": "8a80f451c6f9cbdd14b9f56a38187381acd762e7ac7cd4d8b8b2652a694c451b",
+    "gym-next/next.config.ts": "558b41defa6a1b9c8f83c9cbea48e19556843cbfbfb1acf424a361bfdb405096",
+    "gym-next/app/api/sessions/route.ts": "1bc4d1d1e74ce62ad690efbf53490de8171162906418e99d282a379096f5e375",
+    "gym-next/app/seances/page.tsx": "282fd5053ae8e71a6cbd52190c817d68303a7755f317a7451e9f7032af9d33dd",
+    "gym-next/lib/domain/session-discovery.ts": "1f894ec2674c13a2d99eba7fa809b14b33fdc6bc69198405b319d32d549d5999"
+  },
+  "captureReplay": "3/3 PASS (same desktop scenarios, not additional coverage)",
+  "prepush": "CONFORME"
+}

@@ -498,6 +498,7 @@ export function SelectionCoachsLegacyPage({
       <DiscoveryFrame page="directory" demo={demo}>
         <main className="de-coach-directory-page" data-coach-directory-page>
           <div className="de-directory-intro"><DiscoveryIntro step="02 / TROUVE TON MENTOR" title={currentDirectory.getTitle()}>Compare les profils de {currentDirectory.name.toLowerCase()} à {cityValue}. Le bon cadre pour ton prochain objectif.</DiscoveryIntro><DiscoverySteps active={1} /></div>
+          {demo ? <p><a href={`/seances?${new URLSearchParams({ sport: sportSlug, city: cityValue })}`}>Explorer les séances collectives</a></p> : null}
           {catalogUnavailable && <p className="de-discovery-note" role="status">Le catalogue est momentanément indisponible ou non configuré dans cet environnement. Aucun profil n’est inventé pour remplacer les résultats manquants.</p>}
           <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} isLocating={isLocating} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />
           <DirectoryContent
