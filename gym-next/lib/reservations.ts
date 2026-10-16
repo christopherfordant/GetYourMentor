@@ -179,7 +179,7 @@ export async function rescheduleReservation(id: string, ownerEmail: string, slot
   if (current.ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
   if (!current.ownerEmail) throw new Error("La réservation n'est pas rattachée à un compte sportif");
   if (!["accepted", "paid"].includes(current.status)) throw new Error("Cette réservation ne peut pas être déplacée dans son état actuel");
-  if (current.structureOfferId) throw new Error("Annulez puis demandez un autre créneau publié par la structure");
+  if (current.structureOfferId) throw new Error("Annulez puis demandez un autre créneau publié pour cette séance collective");
   const validatedSlots = validateReservationSlots(slots);
   if (!validatedSlots.valid) throw new Error("Un à trois créneaux sont requis");
   if (await hasSlotConflict(current.coachId, validatedSlots.slots, id, current.duration)) throw new Error("Un des nouveaux créneaux est déjà demandé ou réservé");

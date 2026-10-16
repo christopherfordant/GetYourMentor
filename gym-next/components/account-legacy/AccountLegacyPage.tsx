@@ -442,7 +442,7 @@ function CoachDashboard({
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />
-      {allowDemoFallback ? <><Affiliations role="coach" /><GroupPrices coachId={coachId} /></> : null}
+      {allowDemoFallback ? <><Affiliations role="coach" /><GroupPrices coachId={coachId} /><StructureSessions coach /></> : null}
       {coachProfile ? (
         <CoachProfileEditor
           coachId={coachProfile.id}

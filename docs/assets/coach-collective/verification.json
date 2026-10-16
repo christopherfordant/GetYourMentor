@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-16",
+  "base": "a42d20a5fa024d5d2dd4bfe382e91dc62658e0ce",
+  "scope": "coach-owned collective sessions in isolated demo, shared booking engine",
+  "build": "PASS",
+  "types": "PASS",
+  "playwright": "34/34 PASS; then 8/8 overlapping targeted scenarios PASS, one worker",
+  "tests": [
+    "affiliations.spec.ts",
+    "booking-consolidation.spec.ts",
+    "coach-collective.spec.ts",
+    "group-booking-foundation.spec.ts",
+    "group-booking-flow.spec.ts",
+    "structure-flow.spec.ts"
+  ],
+  "rateLimits": "unchanged; test clients isolated by project",
+  "clientBoundary": "PASS",
+  "netlifyConfig": "PASS",
+  "productionSafety": "PASS",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "prototype": "4 widths PASS, unconfigured price disables request",
+  "mcp": "No new MCP proof; authorized local Playwright fallback used",
+  "remoteRls": "NOT VALIDATED",
+  "deployment": "NOT INITIATED",
+  "sourceSha256": {
+    "gym-next/lib/structure-offers.ts": "2ee67b2a09e796e065ebcf897595dd6c787949e238d6bce13c651f6ca9b04eb3",
+    "gym-next/lib/domain/published-session.ts": "3bb5a61befb572c1f77e612f6e3764cec651aca3c546a67917cf50153ccb9bfa",
+    "gym-next/lib/reservations.ts": "cce4e08c2d5d22c230477e3717ebaa1e8e9fa84ac332fb400f8f4af86b2cf02b",
+    "gym-next/app/api/coaches/sessions/route.ts": "bf8f94f2fb194edd313347ac270e0f76f321d478b55573b7d39d040dc3e7a7d0",
+    "gym-next/app/api/structures/offers/route.ts": "d200da88db31bc223be7d4c83b1098b4dd618cf77a8f99f7d4e4cb319c164433",
+    "gym-next/app/api/reservations/route.ts": "8b49d0ef5a13453c87b9951346bd9d78739f0ff4945b7ac096f544a3719896da",
+    "gym-next/components/StructureOffers.tsx": "b6b8b37d54cdef308d62c5c374335271c61cc7f9ccf2a7fb4890aa07451e65d0",
+    "gym-next/components/account-legacy/StructureSessions.tsx": "567955dcd059ec48ba5465f585cdd2190fe717165cee926ddb041957b5da9e76",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "7d35f8db3169c9cacd3b4650fc4f25065f141beca4648c45ceff63b13268a68e",
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": "3e66431d47a6c7d91ece999e5990aa81fa5cbbacbd015aad20ddc94a0f50f77e",
+    "gym-next/tests/coach-collective.spec.ts": "10032b11bf9d1dbc3feb97cd991a1764cc8937580526689488b25fa88f06eba4"
+  }
+}

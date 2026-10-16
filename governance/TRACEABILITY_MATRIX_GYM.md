@@ -43,3 +43,6 @@ US-CLUB-01 / US-COACH-01 : session serveur, coach choisi explicitement autorisé
 
 ## Affiliations à consentement réciproque — 16 octobre 2026
 US-CLUB-01 / US-COACH-01 / US-SPORTIF-05 : décision utilisateur bilatérale, deux initiateurs possibles, aucun administrateur substitué aux accords ; point d’autorité unique et stockage démo existant. Choix du coach de séance contrôlé serveur, prix total et réservations historiques préservés. Sources : document maître §5 (post-MVP), MVP/devis p.1–2 pour les rôles et réservations, décision utilisateur pour le consentement. Reprise/limites/preuves : `docs/RESERVATIONS_GROUPES_2026-10-16.md`. Aucune activation Premium, infrastructure IA ou RLS distante revendiquée.
+
+## Séances collectives propres aux coachs — 16 octobre 2026
+US-COACH-01 / US-SPORTIF-05/06/07/08 : MVP PDF p.1 et devis p.1–2, prix total par taille décidé par l’utilisateur. Origine coach dans le stockage d’offres existant, publication réservée au propriétaire validé, réservation depuis fiche, capacité pondérée et montants historiques. Structures et consentements bilatéraux conservés, pas de nouveau moteur ni paiement réel. Maquette, limites et preuves : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.

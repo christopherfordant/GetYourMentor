@@ -1,4 +1,5 @@
 "use client";
+import { StructureOffers } from "@/components/StructureOffers";
 
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -452,6 +453,7 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
                 onSelectSlot={setSelectedSlot}
               />
               <BookingContenusPane allowDemoPreview={allowDemoFallback} isActive={activeTab === "contenus"} coach={coachLabel} specialty={profile.specialty} />
+              {allowDemoFallback && coachData ? <section id="collective-sessions"><h2>Séances collectives de ce coach</h2><p>Choisissez votre groupe et consultez le prix total. Paiements simulés en démonstration.</p><StructureOffers coachId={coachData.id} /></section> : null}
             </>
           )}
         </main>

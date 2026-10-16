@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
   let structureOfferId: string | undefined;
   if (body?.structureOfferId !== undefined) {
-    if (!isDemoFallbackAllowed() || typeof body.structureOfferId !== "string" || body.structureOfferId.length > 128) return NextResponse.json({ error: "Séance de structure indisponible" }, { status: 400 });
+    if (!isDemoFallbackAllowed() || typeof body.structureOfferId !== "string" || body.structureOfferId.length > 128) return NextResponse.json({ error: "Séance collective indisponible" }, { status: 400 });
     if ((await currentSession())?.role !== "sportif") return NextResponse.json({ error: "Connexion élève requise pour réserver cette séance" }, { status: 401 });
     let offer;
     try { offer = await getStructureOffer(body.structureOfferId); }
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     if (!offer) return NextResponse.json({ error: "Séance introuvable" }, { status: 404 });
     if (body.coachId && body.coachId !== offer.coachId) return NextResponse.json({ error: "Coach incohérent avec la séance" }, { status: 403 });
     if (Array.isArray(body.slots) && body.slots.every((s: unknown) => typeof s === "string")) body.slots = normalizeSlots(body.slots) ?? [];
-    if (!Array.isArray(body.slots) || body.slots.length !== 1 || body.slots.some((slot: unknown) => typeof slot !== "string" || !offer.slots.includes(slot) || Date.parse(slot) <= Date.now())) return NextResponse.json({ error: "Choisissez un créneau futur proposé par la structure" }, { status: 400 });
+    if (!Array.isArray(body.slots) || body.slots.length !== 1 || body.slots.some((slot: unknown) => typeof slot !== "string" || !offer.slots.includes(slot) || Date.parse(slot) <= Date.now())) return NextResponse.json({ error: "Choisissez un créneau futur proposé pour cette séance" }, { status: 400 });
     structureOfferId = offer.id;
     body.coachId = offer.coachId; body.service = offer.title; body.duration = offer.duration;
     body.appointmentAt = body.slots[0];
@@ -41,6 +41,8 @@ export async function POST(request: Request) {
   const { coachId, service, duration, slots, appointmentAt } = input.data;
 
   if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
+
+  if (structureOfferId && input.data.participantCount === 1 && coach.priceFrom <= 0) return NextResponse.json({ error: "Le coach doit définir un tarif pour un participant" }, { status: 409 });
 
   const groupPrice = input.data.participantCount > 1 ? coach.groupPrices?.find(p => p.participantCount === input.data.participantCount) : undefined;
   if (input.data.participantCount > 1 && !groupPrice) return NextResponse.json({ error: "Le coach n’a pas encore défini de tarif total pour cette taille de groupe" }, { status: 409 });
