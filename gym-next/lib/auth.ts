@@ -202,3 +202,10 @@ export async function requireRole(role: Session["role"]) {
   if (!session || session.role !== role) return null;
   return session;
 }
+
+// Only used by the isolated demo affiliation route, after its demo guard.
+export async function demoStructureExists(email: string) {
+  assertDemoFallbackAllowed("Annuaire structures de démonstration");
+  if (email === "club@example.com") return true;
+  return isHostedDemo() ? (await readDemoState()).users[email]?.role === "club" : localUsers.get(email)?.role === "club";
+}

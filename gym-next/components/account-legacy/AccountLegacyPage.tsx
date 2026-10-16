@@ -1,4 +1,5 @@
 "use client";
+import { Affiliations } from "@/components/account-legacy/Affiliations";
 import { formatBookingSlot } from "@/lib/domain/booking-time";
 
 import { useEffect, useMemo, useState } from "react";
@@ -441,7 +442,7 @@ function CoachDashboard({
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />
-      {allowDemoFallback ? <GroupPrices coachId={coachId} /> : null}
+      {allowDemoFallback ? <><Affiliations role="coach" /><GroupPrices coachId={coachId} /></> : null}
       {coachProfile ? (
         <CoachProfileEditor
           coachId={coachProfile.id}
@@ -648,7 +649,7 @@ function ClubLeadPanel() {
 }
 
 function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
-  return <section className="account-dashboard" data-account-dashboard="club"><ClubLeadPanel />{allowDemoFallback ? <StructureSessions /> : null}</section>;
+  return <section className="account-dashboard" data-account-dashboard="club"><ClubLeadPanel />{allowDemoFallback ? <><Affiliations role="club" /><StructureSessions /></> : null}</section>;
 }
 
 // Historical presentation kept for reference; never rendered as operational UI.

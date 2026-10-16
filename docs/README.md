@@ -1,3 +1,5 @@
+> **Affiliations à consentement réciproque — 16 octobre 2026 :** demandes initiées par le coach ou la structure, deux accords requis et choix du coach affilié pour une séance de démonstration. Voir `RESERVATIONS_GROUPES_2026-10-16.md`, section Intégration du consentement réciproque. Les anciennes attentes d’arbitrage sont résolues.
+
 > **Réservations groupées — 16 octobre 2026 :** prix total défini par le coach selon la taille, informations des participants supplémentaires, capacité pondérée, confidentialité par rôle et remboursements historiques simulés. Parcours collectif des structures ; limites mineurs et services distants conservées. Reprise : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.
 
 > **Consolidation réservation — 16 octobre 2026 :** calendrier daté UTC/Europe-Paris, chevauchements par durée, capacité des séances structure, confirmation d’un créneau et libération des alternatives, commission historique et annulation simulée. Périmètre, preuves, limites et reprise : `docs/CONSOLIDATION_RESERVATION_2026-10-16.md`. Réservation pour plusieurs tiers et RLS distante restent à traiter ; aucun déploiement ni paiement réel.

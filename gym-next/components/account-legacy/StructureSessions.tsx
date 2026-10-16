@@ -8,22 +8,26 @@ type Summary = { id: string; coachName: string; service: string; slots: string[]
 export function StructureSessions() {
   const [offers, setOffers] = useState<Omit<StructureOffer, "ownerEmail">[]>([]);
   const [reservations, setReservations] = useState<Summary[]>([]);
+  const [coaches, setCoaches] = useState<Array<{ id: string; name: string }>>([]);
+  const [coachId, setCoachId] = useState("");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
   async function load() {
     try {
-      const [a, b] = await Promise.all([fetch("/api/structures/offers?mine=1"), fetch("/api/structures/reservations")]);
-      if (!a.ok || !b.ok) throw new Error("Chargement du planning impossible");
+      const [a, b, c] = await Promise.all([fetch("/api/structures/offers?mine=1"), fetch("/api/structures/reservations"), fetch("/api/affiliations", { cache: "no-store" })]);
+      if (!a.ok || !b.ok || !c.ok) throw new Error("Chargement du planning impossible");
       setOffers((await a.json()).data); setReservations((await b.json()).data);
+      const active = (await c.json()).data.filter((r: { status: string; structureConsent: boolean; coachConsent: boolean }) => r.status === "accepted" && r.structureConsent && r.coachConsent).map((r: { coachId: string; coachName: string }) => ({ id: r.coachId, name: r.coachName }));
+      setCoaches(active); setCoachId(previous => active.some((c: { id: string }) => c.id === previous) ? previous : active[0]?.id ?? "");
     } catch (error) { setMessage(error instanceof Error ? error.message : "Planning indisponible"); }
   }
-  useEffect(() => { void load(); }, []);
+  useEffect(() => { void load(); const reload = () => { void load(); }; window.addEventListener("gym-affiliations-updated", reload); return () => window.removeEventListener("gym-affiliations-updated", reload); }, []);
   async function publish(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); setBusy(true); setMessage("");
     const values = new FormData(event.currentTarget);
     try {
       const slot = String(values.get("slot"));
-      const response = await fetch("/api/structures/offers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title: values.get("title"), duration: "1 heure", capacity: Number(values.get("capacity")), slots: [new Date(slot).toISOString()] }) });
+      const response = await fetch("/api/structures/offers", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ coachId, title: values.get("title"), duration: "1 heure", capacity: Number(values.get("capacity")), slots: [new Date(slot).toISOString()] }) });
       const payload = await response.json(); if (!response.ok) throw new Error(payload.error);
       await load(); setMessage("Séance publiée. Un élève peut maintenant la demander.");
     } catch (error) { setMessage(error instanceof Error ? error.message : "Publication impossible"); }
@@ -32,14 +36,16 @@ export function StructureSessions() {
   return <section className="account-dashboard-card" id="structure-sessions" data-structure-sessions>
     <h2>Séances et planning de ma structure</h2>
     <p>Proposez une séance avec votre coach affilié. L’élève fait sa demande, le coach accepte, puis l’élève paie. Vous suivez la réservation dans ce planning.</p>
-    <p>Démo : Steven Fordant est affilié au compte club@example.com. Les autres structures doivent d’abord faire valider leur affiliation. Le tarif et la commission proviennent du profil coach ; aucun reversement réel n’est effectué.</p>
+    <p>Seuls les coachs ayant un accord réciproque peuvent être choisis. Le tarif du coach sélectionné est appliqué ; aucun reversement réel n’est effectué en démo.</p>
     <form onSubmit={publish} data-structure-publish>
+      <label className="auth-field">Coach responsable<select name="coachId" value={coachId} onChange={e => setCoachId(e.target.value)} required disabled={busy || !coaches.length}><option value="">Choisir un coach affilié</option>{coaches.map(c => <option value={c.id} key={c.id}>{c.name}</option>)}</select></label>
+      {!coaches.length ? <p>Un accord réciproque avec un coach est nécessaire avant publication.</p> : null}
       <label className="auth-field">Nom de la séance<input name="title" required maxLength={120} /></label>
       <label className="auth-field">Créneau de la séance<input name="slot" type="datetime-local" required /></label>
       <label className="auth-field">Places disponibles<input name="capacity" type="number" min="1" max="50" defaultValue="1" required /></label>
-      <p>Une demande = une place. Saisie horaire dans le fuseau de votre appareil ; planning affiché en Europe/Paris.</p>
+      <p>Chaque participant occupe une place, y compris dans une réservation groupée. Saisie horaire dans le fuseau de votre appareil ; planning affiché en Europe/Paris.</p>
       <p>Durée : 1 heure. Tarif du coach appliqué à la demande.</p>
-      <button type="submit" className="auth-primary" disabled={busy}>{busy ? "Publication…" : "Publier la séance"}</button>
+      <button type="submit" className="auth-primary" disabled={busy || !coachId}>{busy ? "Publication…" : "Publier la séance"}</button>
     </form>
     {message ? <p role="status">{message}</p> : null}
     <p><a href="/structures">Voir les séances proposées aux élèves</a></p>

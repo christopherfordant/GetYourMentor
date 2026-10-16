@@ -1,3 +1,4 @@
+import type { Affiliation } from "@/lib/affiliations";
 import { getStore } from "@netlify/blobs";
 import { coachProfiles, type CoachProfile, type Reservation } from "@/lib/domain";
 import { isHostedDemo } from "@/lib/runtime";
@@ -17,6 +18,7 @@ export type DemoState = {
   reviews: Review[];
   commission?: CommissionSettings;
   structureOffers?: StructureOffer[];
+  affiliations?: Affiliation[];
 };
 
 function store() {

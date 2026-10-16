@@ -1,3 +1,4 @@
+import { activeCoachIds, listAffiliations } from "@/lib/affiliations";
 import { randomUUID } from "node:crypto";
 import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
@@ -8,8 +9,6 @@ export type StructureOffer = { id: string; ownerEmail: string; coachId: string; 
 export const memoryStructureOffers: StructureOffer[] = [];
 const memory = memoryStructureOffers;
 
-// Demonstration association only: never grants ownership of other coaches.
-export function associatedDemoCoach(email: string) { return email === "club@example.com" ? "steven-fordant" : null; }
 
 export async function listStructureOffers(ownerEmail?: string) {
   assertDemoFallbackAllowed("Séances de structure (démonstration)");
@@ -21,8 +20,9 @@ export async function getStructureOffer(id: string) { return (await listStructur
 
 export async function createStructureOffer(email: string, title: string, duration: string, slots: string[], capacity = 1, selectedCoachId?: string) {
   assertDemoFallbackAllowed("Séances de structure (démonstration)");
-  const coachId = associatedDemoCoach(email);
-  if (selectedCoachId !== undefined && selectedCoachId !== coachId) throw new Error("Coach non affilié à cette structure.");
+  const allowed = activeCoachIds(await listAffiliations({ role: "club", email }), email);
+  const coachId = selectedCoachId ?? (allowed.includes("steven-fordant") ? "steven-fordant" : allowed.length === 1 ? allowed[0] : undefined);
+  if (selectedCoachId !== undefined && !allowed.includes(selectedCoachId)) throw new Error("Coach non affilié à cette structure.");
   if (!coachId) throw new Error("Un coach doit être affilié à votre structure avant de proposer une séance.");
   const offer: StructureOffer = { id: `offer-${randomUUID()}`, ownerEmail: email, coachId, title, duration, slots, capacity, createdAt: new Date().toISOString() };
   if (isHostedDemo()) return mutateDemoState((state) => { (state.structureOffers ??= []).push(offer); return offer; });

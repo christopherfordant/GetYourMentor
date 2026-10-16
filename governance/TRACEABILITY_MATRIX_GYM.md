@@ -40,3 +40,6 @@ US-CLUB-01 / US-COACH-01, document maître §5 (post-MVP), Business Plan p.49–
 
 ## Contrôle préalable du choix coach — 16 octobre 2026
 US-CLUB-01 / US-COACH-01 : session serveur, coach choisi explicitement autorisé par l’affiliation existante, conservation des anciennes offres. MVP PDF p.1/devis p.1–2 ; confirmation d’affiliation non spécifiée, arbitrage en attente. Aucun nouveau rattachement intégré avant réponse. Reprise : `docs/RESERVATIONS_GROUPES_2026-10-16.md`.
+
+## Affiliations à consentement réciproque — 16 octobre 2026
+US-CLUB-01 / US-COACH-01 / US-SPORTIF-05 : décision utilisateur bilatérale, deux initiateurs possibles, aucun administrateur substitué aux accords ; point d’autorité unique et stockage démo existant. Choix du coach de séance contrôlé serveur, prix total et réservations historiques préservés. Sources : document maître §5 (post-MVP), MVP/devis p.1–2 pour les rôles et réservations, décision utilisateur pour le consentement. Reprise/limites/preuves : `docs/RESERVATIONS_GROUPES_2026-10-16.md`. Aucune activation Premium, infrastructure IA ou RLS distante revendiquée.

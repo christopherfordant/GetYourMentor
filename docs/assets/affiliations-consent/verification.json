@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-16",
+  "base": "dcda9fc9104f818ed949a434c73804c08b1be9f1",
+  "scope": "isolated demonstration, bilateral coach/structure consent",
+  "build": "PASS",
+  "types": "PASS",
+  "playwright": "28/28 then 4/4 overlapping scenarios, one worker",
+  "productionSafety": "PASS",
+  "clientBoundary": "PASS",
+  "netlifyConfig": "PASS",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "mcp": "No new MCP proof; local Playwright used after prior nonresponsive MCP attempt",
+  "remoteRls": "NOT VALIDATED",
+  "deployment": "NOT INITIATED",
+  "sourceSha256": {
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "f6a5dd7289a3c314beb252726c0e8ba37c24f63a1d50c66f79f0e92b526670e5",
+    "gym-next/components/account-legacy/StructureSessions.tsx": "1f99b9b02914cc5024a8f5f55b8f7e74023cb75cea0b54e2de05ae2f9b5dd0ef",
+    "gym-next/components/account-legacy/Affiliations.tsx": "38f6f7ee5114ad33ad4c34149b884054c06b08fce97ff867b0ab55ec4a928b55",
+    "gym-next/lib/auth.ts": "f33a00c9af1ff3b846582527e5df7f3da041c1e93ac63ada31401eadf4a946c6",
+    "gym-next/lib/repositories/demo-state.ts": "db53e8990684f41e5bd9f8c52a14ccb30ab7e2106f75df8814e3c42e13938af5",
+    "gym-next/lib/structure-offers.ts": "039e459fb7f6d523b2e5171d43c761314086ffad40e88ef9fea8e4e2725e3f34",
+    "gym-next/lib/affiliations.ts": "82ef1ea9639da7ff6be95eb95c8c695d2900480188c7cf709cbfbacc8e171bc6",
+    "gym-next/app/api/affiliations/route.ts": "e90a624d4bf46bec7800cf2360b12fac19a35cef4a206620ae387963ad268219",
+    "gym-next/tests/affiliations.spec.ts": "e1f58714d9e14447315f921fa8fd32c529b589c02d333c1d963bd7ac16ef130f"
+  }
+}
