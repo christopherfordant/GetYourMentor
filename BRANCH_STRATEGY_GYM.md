@@ -104,4 +104,10 @@ Usage Codex : compteurs de quota, crédits, renouvellements et tokens inconnus r
 
 Usage Netlify : validation locale prioritaire ; aucun déploiement à chaque commit, documentation ou capture. Vérifier les déclencheurs Git avant push ; ne pas activer de nouveaux builds automatiques. Regrouper un candidat démo vérifié uniquement quand une validation distante est nécessaire. Réutiliser un paquet préparé seulement si sources/ZIP/BUILD_ID sont identiques. Pas de polling serré, crawl massif ni charge distante sans budget/périmètre dédiés. Lire les compteurs uniquement s’ils sont réellement disponibles ; ne jamais déduire le solde d’un succès de déploiement. Aucun changement de plan, plafond, suppression de stockage ou pause de site pour économiser sans instruction. Si le budget nécessaire est inconnu, continuer localement et documenter le besoin distant.
 
-Dernier relais : `docs/MESSAGERIE_DEMO_2026-10-17.md` pour structures/fidélité et `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md` pour preuves hébergées. Ne pas confondre état poussé, état déployé et validation des services réels.
+Relais historique des lots précédents : `docs/MESSAGERIE_DEMO_2026-10-17.md` pour structures/fidélité et `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md` pour preuves hébergées. Ne pas confondre état poussé, état déployé et validation des services réels.
+
+## Relais courant et complément REA — 17 octobre 2026
+
+Après la procédure et les documents maîtres, lire obligatoirement `docs/ETAT_REPRISE_COURANT.md`, puis ses sources ciblées. Il contient résultats, limites, prochaine action et prochain prompt ; vérifier Git pour les SHA réellement livrés. Ce relais ne remplace pas les sources métier ni la hiérarchie ci-dessus.
+
+Décision utilisateur complémentaire : REA et Playwright sont complémentaires, pas interchangeables. REA doit être évalué pour ses capacités d’investigation confirmées ; Playwright vérifie navigation/rendu/parcours. Essai CLI statique isolé réalisé, décrit dans `docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md` ; aucun agent ni setup MCP permanent ajouté. Les résultats partiels et inconnus ne valent pas preuves d’exécution, d’autorisation ou de capacité serveur.

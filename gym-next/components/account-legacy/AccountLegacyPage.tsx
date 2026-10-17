@@ -867,6 +867,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                 }}
               />
             ) : null}
+            {allowDemoFallback && dashboardMode ? <p><a href="/beta">Retours bêta et suggestions</a></p> : null}
             {dashboardMode === "sportif" ? <AthleteDashboard demo={allowDemoFallback} /> : null}
             {dashboardMode === "admin" ? <AdminDashboard /> : null}
             {dashboardMode === "coach" ? (

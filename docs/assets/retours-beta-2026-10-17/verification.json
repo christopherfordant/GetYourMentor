@@ -1,0 +1,45 @@
+{
+  "baseCommit": "cb03d12f68c3f8142d07324906b70575faf466fe",
+  "build": "PASS",
+  "types": "PASS",
+  "beta": {
+    "passed": 4,
+    "failed": 0,
+    "file": "beta-feedback.spec.ts",
+    "includes": [
+      "three user roles and admin",
+      "private original and moderated summary",
+      "20 concurrent requests by one voter",
+      "idempotent retry after response loss",
+      "foreign origin rejection",
+      "keyboard Tab focus",
+      "120-character unbroken title",
+      "viewports 320/390/768/1440"
+    ]
+  },
+  "regression": {
+    "passed": 34,
+    "failed": 0,
+    "files": [
+      "account-session-controls.spec.ts",
+      "structure-messages.spec.ts",
+      "structure-flow.spec.ts",
+      "review-rules.spec.ts"
+    ]
+  },
+  "workers": 1,
+  "newNetlifyDeployments": 0,
+  "remotePersistenceOfFeedbackValidated": false,
+  "remoteRlsValidated": false,
+  "quotaCounters": "not accessible through tools used; no estimate",
+  "sourceSha256": {
+    "gym-next/lib/feedback.ts": "9ee16ef6cfab43615cf383fe21fbb26591d864c6f0ee5dfc16cb07dfc282fb2b",
+    "gym-next/app/api/feedback/route.ts": "2a1b72569f39ad593fcdbd5cd2018517949f77a4dd4faa6679667149196a5a12",
+    "gym-next/app/beta/page.tsx": "4100bf3deebd8e897f096b75d9e872757636b790d32186d28b129a2f9494381f",
+    "gym-next/components/BetaFeedback.tsx": "ac400307b2a089da420cf608e3e961df12eb719cbe53026558138f406152602d",
+    "gym-next/components/beta-feedback.module.css": "d5a04eda513fdcb91873a68be25620a55bf7b81b2ca7c80afda6ea9af3a143bf",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "b70b9996dd2d572a58e35f09da47932f7342a25a078fffa1323dd4a332b29a45",
+    "gym-next/lib/repositories/demo-state.ts": "a29cf12e76ecc52564c4ad4ce71c78bfc03a679114fa59672bcb541f5e99f846",
+    "gym-next/tests/beta-feedback.spec.ts": "34c81279e5ee5dbdf66726294565103db19f30054006b1b479919f2e75654a43"
+  }
+}

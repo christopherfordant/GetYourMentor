@@ -130,3 +130,11 @@ Contradictions résolues dans BRANCH_STRATEGY : décisions utilisateur actuelles
 ### Reprise après consolidation
 
 Avis/messages/demandes hébergés conservés après deux versions distinctes, voir le complément `AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`. Messagerie structure/coach et fidélité : voir `MESSAGERIE_DEMO_2026-10-17.md`. Prochaine tranche documentée : maquette bêta suggestions/votes (BP p.49, Perplexity p.12–13), puis auth, vote unique et modération démo dans les services existants. Aucun nouveau déploiement demandé pour la seule documentation ; contrôles locaux avant besoin distant. Les anciennes mentions « à recetter » restent l’historique du commit concerné.
+
+## Lot actif — retours bêta et complément REA, 17 octobre 2026
+
+Business Plan p.49 / Perplexity p.12–13 : `/beta` et `/api/feedback`, retours privés des trois profils, suivi et modération admin, résumé de suggestion partagé seulement aux membres connectés, vote unique. Aucun service parallèle, métrique de rétention inventée ou communication externe. Reprise/critères/preuves/limites : `RETOURS_BETA_2026-10-17.md`. Les anciennes lignes « pas d’endpoint repéré » décrivent leur base historique ; elles ne sont pas l’état actuel après ce lot.
+
+Le PDF V3 reste complément méthodologique. La dernière demande précise REA en complément de Playwright ; pilote statique CLI réellement exécuté, pas remplacement du navigateur ni nouvelle couche d’agents. `REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md` distingue provenance, couverture, inconnues et tests dynamiques. Aucun déploiement du module bêta, RLS ou stockage distant de ce module non validés.
+
+Lecture de reprise : `ETAT_REPRISE_COURANT.md` ; prochaine tranche offres/abonnements/droits simulés à cadrer depuis les PDF prioritaires, avant contenus/suivi avancés. Conserver 15 % et historiques, aucune activation implicite d’un plan. V1/V2/V3 restent incomplets ; pas de clôture déduite du nom du PDF méthodologique.

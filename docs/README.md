@@ -1,3 +1,5 @@
+> **Retours bêta — 17 octobre 2026 :** saisie privée, modération, résumé partagé et vote unique en démo locale ; rapport `RETOURS_BETA_2026-10-17.md`. Essai REA statique complémentaire à Playwright documenté. Relais obligatoire : `ETAT_REPRISE_COURANT.md`. Aucun nouveau déploiement Netlify ; V1/V2/V3 incomplets.
+
 > **Reprise consolidée — 17 octobre 2026 :** PDF maître V3 et annexes intégrés comme source paginée ; décisions 15 %, maquette HTML et autonomie démo conservées. Preuves hébergées archivées dans `AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md` ; messagerie structures/fidélité dans `MESSAGERIE_DEMO_2026-10-17.md`. Procédure usage Codex/Netlify et lecture obligatoire : `../BRANCH_STRATEGY_GYM.md`. Code du nouveau lot poussé après recette locale, pas de nouveau déploiement ; V1/V2/V3 incomplets.
 
 > **Avis et structures — 17 octobre 2026 :** stockage durable des demandes et avis, avis après la fin prévue, notes calculées et déploiement lié au commit vérifié. Rapport : `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`. Recette distante chronométrée à poursuivre ; V1/V2/V3 non terminées.

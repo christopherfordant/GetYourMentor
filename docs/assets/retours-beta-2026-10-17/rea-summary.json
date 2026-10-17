@@ -1,0 +1,46 @@
+{
+  "reaVersion": "6.5.0",
+  "exitCode": 0,
+  "elapsedSeconds": 6.62,
+  "evidenceId": "ev_7a37b019e6559e4a1855a1bbec1a1eda1e7fbfd1f2360fb9815c86fbd31c1cbe",
+  "artifactSha256": "a65c19955e598b1ab3ba54d3abafb961a553ab51b7e9cdcc53cb40c5b8e0621d",
+  "selectedSources": [
+    "lib/feedback.ts",
+    "app/api/feedback/route.ts",
+    "components/BetaFeedback.tsx"
+  ],
+  "sourceSha256": {
+    "lib/feedback.ts": "9ee16ef6cfab43615cf383fe21fbb26591d864c6f0ee5dfc16cb07dfc282fb2b",
+    "app/api/feedback/route.ts": "2a1b72569f39ad593fcdbd5cd2018517949f77a4dd4faa6679667149196a5a12",
+    "components/BetaFeedback.tsx": "ac400307b2a089da420cf608e3e961df12eb719cbe53026558138f406152602d"
+  },
+  "structuralNodes": 45,
+  "structuralEdges": 52,
+  "semanticNodes": 1611,
+  "semanticRelations": 1682,
+  "unknowns": 520,
+  "statistics": {
+    "relevant_files": 5,
+    "nested_asar_containers": 0,
+    "text_bytes_read": 15611,
+    "invalid_utf8_files": 0,
+    "parsed_javascript_files": 3,
+    "visited_ast_nodes": 3016,
+    "findings": 44,
+    "modules": 0,
+    "parse_failures": 0
+  },
+  "limitations": [
+    "Caller-selected source analysis leaves 2 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+  ],
+  "maxAnalyzerHeapMb": 256,
+  "peakMemoryMeasured": false,
+  "rawEvidence": "local candidate gym-next/rea-feedback-evidence.json; not uploaded",
+  "runtimeProof": "Playwright tests separately; no runtime inferred from graph"
+}
