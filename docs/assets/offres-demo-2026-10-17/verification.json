@@ -1,0 +1,57 @@
+{
+  "baseCommit": "e80682bdb9227f6876e93aa4c5df9fa0fc965baf",
+  "build": "PASS",
+  "types": "PASS",
+  "finalCampaign": {
+    "passed": 40,
+    "failed": 0,
+    "files": [
+      "offer-previews",
+      "editorial-home",
+      "commission",
+      "payment-flow",
+      "beta-feedback",
+      "review-rules",
+      "structure-messages"
+    ],
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "workers": 1
+  },
+  "paymentCaptureReplay": {
+    "passed": 2,
+    "includedInFinalCampaign": true
+  },
+  "externalClientContractChecks": 5,
+  "externalClientLiveRequests": 0,
+  "newNetlifyDeployments": 0,
+  "hostedOfferPersistenceValidated": false,
+  "remoteRlsValidated": false,
+  "quotas": "unknown",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "sourceSha256": {
+    "gym-next/lib/offers-catalog.ts": "aa4cb67f07a8c9ee7652def24bf81966e55a7043a1384a5b694490d779e7ea71",
+    "gym-next/lib/offer-previews.ts": "9ab9483f19260d6de57eb21cf85e6fbf018cf6675b64c0ea9ed49b31857dd320",
+    "gym-next/lib/repositories/demo-state.ts": "5d5f613148271ffd90bae4cbdee590187009eb4769fe24e0c5caa6fe44953001",
+    "gym-next/app/api/offers/preview/route.ts": "49d310af8eb9cd4b8b19c4a881e7ea1c4c7a5d8ef3b289871d04f96bcca87d1c",
+    "gym-next/app/offres/page.tsx": "c4d94a85406cfb33ba68df8e02ade5d170f5495924eac2022f299beb30637b44",
+    "gym-next/components/OfferExplorer.tsx": "45c9a28435eb59b0fc735fd1edc2d32fcfe66bab163e2c09899550da904bd8f0",
+    "gym-next/components/offer-explorer.module.css": "bc51b029e15809c3cb96b28522252c2297fd9ecea3e6a5f2414a45d4d4d290be",
+    "gym-next/components/home/EditorialHome.tsx": "4860c4fea7bb17efa55e8506ed0b998bb5cd6bfead68edfac9e8d2c1292a8864",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "c6726cecb2124fe8ebadf64d17189b31b5ece4850d6a501acff037ac34ae4bc5",
+    "gym-next/components/payment-legacy/PaiementLegacyPage.tsx": "84f1ee98482da6d317457d60c31019a6a9a7394b6fea7c96cf939c5aff9e58cb",
+    "gym-next/app/redesign-2026.css": "48adb8d5f3a33ce4d0f6778cbcf8ea45f974b35a0832b696d86435bc130a3ec5",
+    "gym-next/tests/offer-previews.spec.ts": "c88d0ab3f208c16a4f9a5e1cdbb7d44707b835ac5fa45b0c136b49c495b678b6",
+    "gym-next/tests/payment-flow.spec.ts": "cf225238fae26ec6aa9957e41ab76a5b4fe5d64386f65382026c9731ad0b6771"
+  },
+  "deletedUnusedFiles": [
+    "gym-next/components/payment-legacy/ReviewForm.tsx"
+  ]
+}

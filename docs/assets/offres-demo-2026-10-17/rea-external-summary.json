@@ -1,0 +1,44 @@
+{
+  "reaVersion": "6.5.0",
+  "target": "@netlify/blobs",
+  "targetVersion": "11.1.4",
+  "authorization": "MIT license of installed package; local inert analysis only",
+  "selectedSources": [
+    "dist/main.js",
+    "dist/chunk-SQCJ2S3G.js"
+  ],
+  "sourceSha256": {
+    "dist/main.js": "a3e87df475e96b235edc5a54f6fac2024370c226ec1250f12c244b1e1489384e",
+    "dist/chunk-SQCJ2S3G.js": "94fe879676f6f9c22290bd63739a61a4e0748a67e8c5505dc41e845ba86497f1"
+  },
+  "licenseSha256": "b8fefb795bff133adafb51079d6f977e22b1439901cd4187b70805aca524412c",
+  "exitCode": 0,
+  "elapsedSeconds": 7.25,
+  "evidenceId": "ev_aa5977dd07f2abc80188fd68805928008211475b8a7b66356b643d934c918f93",
+  "statistics": {
+    "relevant_files": 3,
+    "nested_asar_containers": 0,
+    "text_bytes_read": 33231,
+    "invalid_utf8_files": 0,
+    "parsed_javascript_files": 2,
+    "visited_ast_nodes": 4471,
+    "findings": 59,
+    "modules": 0,
+    "parse_failures": 0
+  },
+  "semanticNodes": 2780,
+  "unknowns": 920,
+  "limitations": [
+    "Caller-selected source analysis leaves 1 inventoried files outside analysis scope. Inventory identity covers the complete artifact; relationships through unselected sources remain unknown.",
+    "CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.",
+    "Graph coverage is incomplete; unavailable facts remain explicit and must not be read as absence.",
+    "JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.",
+    "Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.",
+    "Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.",
+    "Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code."
+  ],
+  "rawResult": "local GYM-offers-demo/rea-blobs-raw.json; not uploaded",
+  "liveNetlifyRequests": 0,
+  "maxAnalyzerHeapMb": 256,
+  "peakMemoryMeasured": false
+}

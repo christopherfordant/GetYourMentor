@@ -837,7 +837,7 @@
   .account-page.is-coach-mode [data-coach-profile-editor] { grid-area: profile; }
   .account-page.is-coach-mode [data-phone-verification] { grid-area: phone; }
   .account-page.is-coach-mode [data-coach-documents] { grid-area: documents; }
-  .account-page.is-coach-mode [data-message-inbox] { grid-area: inbox; }
+  .account-page.is-coach-mode .coach-home [data-message-inbox] { grid-area: inbox; }
 
   .account-page.is-coach-mode .coach-home-schedule article,
   .account-page.is-coach-mode .coach-home-request-list article,
@@ -1381,7 +1381,7 @@ html { scroll-behavior: auto !important; }
   .account-page.is-coach-mode .coach-home-summary { grid-area: summary; }
   .account-page.is-coach-mode .coach-home-focus { grid-area: focus; }
   .account-page.is-coach-mode [data-coach-profile-editor] { grid-area: profile; }
-  .account-page.is-coach-mode [data-message-inbox] { grid-area: inbox; }
+  .account-page.is-coach-mode .coach-home [data-message-inbox] { grid-area: inbox; }
 
   .account-page.is-coach-mode .coach-home-focus {
     grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 0.8fr));

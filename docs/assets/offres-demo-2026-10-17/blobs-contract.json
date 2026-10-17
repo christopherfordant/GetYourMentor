@@ -1,0 +1,23 @@
+{
+  "target": "@netlify/blobs@11.1.4",
+  "mode": "fake fetch only; no Netlify network",
+  "checks": [
+    "onlyIfMatch becomes if-match",
+    "412 returns modified false",
+    "onlyIfNew becomes if-none-match star",
+    "200 returns modified true",
+    "mutually exclusive conditions rejected before fetch"
+  ],
+  "calls": [
+    {
+      "method": "put",
+      "ifMatch": "local-version-1",
+      "ifNoneMatch": null
+    },
+    {
+      "method": "put",
+      "ifMatch": null,
+      "ifNoneMatch": "*"
+    }
+  ]
+}

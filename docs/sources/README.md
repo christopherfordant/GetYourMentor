@@ -10,4 +10,4 @@ Copie binaire identique au fichier fourni dans Downloads ; original utilisateur 
 
 Lecture obligatoire selon [BRANCH_STRATEGY_GYM.md](../../BRANCH_STRATEGY_GYM.md). Consulter le PDF lorsque la structure visuelle importe ; utiliser l’extraction pour les recherches sans extraction répétée. Arbitrages et couverture dans [la matrice existante](../STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md), section « Prompt maître V3 » : commission 15 %, maquette HTML, consentements bilatéraux, lots démo autorisés, aucune nouvelle couche d’agents. Les prescriptions historiques divergentes ne révoquent pas ces décisions.
 
-État de reprise : [messagerie et prochain lot bêta](../MESSAGERIE_DEMO_2026-10-17.md). Aucune clôture V1/V2/V3 ni validation commerciale déduite du PDF. L’ajout de cette source ne nécessite aucun build ou déploiement Netlify.
+État de reprise : [état de reprise courant et prochain prompt](../ETAT_REPRISE_COURANT.md). Aucune clôture V1/V2/V3 ni validation commerciale déduite du PDF. L’ajout de cette source ne nécessite aucun build ou déploiement Netlify.

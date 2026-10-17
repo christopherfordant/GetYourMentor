@@ -106,8 +106,8 @@ Usage Netlify : validation locale prioritaire ; aucun déploiement à chaque com
 
 Relais historique des lots précédents : `docs/MESSAGERIE_DEMO_2026-10-17.md` pour structures/fidélité et `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md` pour preuves hébergées. Ne pas confondre état poussé, état déployé et validation des services réels.
 
-## Relais courant et complément REA — 17 octobre 2026
+## Relais courant et rôle de REA — 17 octobre 2026
 
 Après la procédure et les documents maîtres, lire obligatoirement `docs/ETAT_REPRISE_COURANT.md`, puis ses sources ciblées. Il contient résultats, limites, prochaine action et prochain prompt ; vérifier Git pour les SHA réellement livrés. Ce relais ne remplace pas les sources métier ni la hiérarchie ci-dessus.
 
-Décision utilisateur complémentaire : REA et Playwright sont complémentaires, pas interchangeables. REA doit être évalué pour ses capacités d’investigation confirmées ; Playwright vérifie navigation/rendu/parcours. Essai CLI statique isolé réalisé, décrit dans `docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md` ; aucun agent ni setup MCP permanent ajouté. Les résultats partiels et inconnus ne valent pas preuves d’exécution, d’autorisation ou de capacité serveur.
+Décision utilisateur corrigée : REA et Playwright ont des fonctions distinctes. REA sert principalement à comprendre des mécanismes externes autorisés ; Playwright vérifie navigation/rendu/parcours. Aucun couplage systématique, ni recours obligatoire à REA pour chaque lot. Une cible externe exige provenance, droits, périmètre et limites vérifiés. Essai CLI statique isolé réalisé, décrit dans `docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md` ; aucun agent ni setup MCP permanent ajouté. Les résultats partiels et inconnus ne valent pas preuves d’exécution, d’autorisation ou de capacité serveur.

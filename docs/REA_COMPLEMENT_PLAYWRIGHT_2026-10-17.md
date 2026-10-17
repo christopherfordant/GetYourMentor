@@ -1,4 +1,6 @@
-# REA en complément de Playwright — 17 octobre 2026
+> **Décision utilisateur actuelle :** REA sert principalement à comprendre des mécanismes externes autorisés. Playwright pilote et teste les interfaces. Aucun couplage systématique ni utilisation obligatoire de REA à chaque lot. Le nom historique de ce fichier reste conservé pour ses liens ; le pilote sur notre code décrit ci-dessous était une analyse interne, pas une investigation externe.
+
+# REA et Playwright — rôles distincts et historique du 17 octobre 2026
 
 ## Périmètre et sources officielles
 REA identifié : [morluto/rea](https://github.com/morluto/rea), site [rea.tools](https://rea.tools/), paquet npm `rea-agents@6.5.0`. Homonymes et forks non utilisés. Licence MIT vérifiée dans LICENSE et paquet ; provenance repository conforme. Documentation [JavaScript](https://github.com/morluto/rea/blob/main/docs/javascript-application-workflows.md), [README](https://github.com/morluto/rea/blob/main/README.md) et manifest package consultés le 17 octobre. Version npm relevée 6.5.0 ; la documentation main peut décrire des fonctions plus récentes, seules les commandes testées sont revendiquées utilisables. Le projet évolue ; version épinglée, pas de mise à jour automatique.
@@ -26,3 +28,7 @@ Désinstallation éventuelle : vérifier le chemin absolu exact du dossier isol�
 ## Playwright MCP et limites
 MCP a ouvert la maquette par HTTP local et effectué le passage à 390 px. file: était refusé ; le serveur statique propriétaire a été arrêté. L’appel evaluate suivant est resté sans réponse et a été interrompu : aucune mesure ni capture issue de cet appel n’est revendiquée. Un favicon 404 est la seule erreur console observée à l’ouverture de la maquette.
 Les recettes applicatives utilisent les dépendances Playwright existantes, un worker et le serveur de test géré par le harness ; ce fallback est identifié, pas présenté comme une exécution MCP. Les captures et mesures finales doivent être vérifiées dans le rapport du lot.
+
+## Investigation externe distincte — offres du 17 octobre 2026
+
+Paquet MIT @netlify/blobs 11.1.4 réellement examiné avec REA pour comprendre les écritures conditionnelles. Analyse statique de deux sources et cinq contrôles locaux avec fetch factice, aucune requête au service Netlify. Détails, droits, provenance, mécanisme et limites dans [OFFRES_ABONNEMENTS_DEMO_2026-10-17.md](OFFRES_ABONNEMENTS_DEMO_2026-10-17.md). Ce cas externe ne transforme pas l’ancien pilote sur notre code en investigation externe, et ne rend pas REA obligatoire pour les autres lots.

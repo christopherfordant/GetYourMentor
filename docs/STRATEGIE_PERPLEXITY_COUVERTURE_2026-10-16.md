@@ -138,3 +138,9 @@ Business Plan p.49 / Perplexity p.12–13 : `/beta` et `/api/feedback`, retours 
 Le PDF V3 reste complément méthodologique. La dernière demande précise REA en complément de Playwright ; pilote statique CLI réellement exécuté, pas remplacement du navigateur ni nouvelle couche d’agents. `REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md` distingue provenance, couverture, inconnues et tests dynamiques. Aucun déploiement du module bêta, RLS ou stockage distant de ce module non validés.
 
 Lecture de reprise : `ETAT_REPRISE_COURANT.md` ; prochaine tranche offres/abonnements/droits simulés à cadrer depuis les PDF prioritaires, avant contenus/suivi avancés. Conserver 15 % et historiques, aucune activation implicite d’un plan. V1/V2/V3 restent incomplets ; pas de clôture déduite du nom du PDF méthodologique.
+
+## Lot offres — état courant du 17 octobre 2026
+
+Business Plan p.35–36 et MVP p.1 relus : catalogue des offres prévues, page /offres et choix personnel réversible en démonstration. Prix principaux 19,99/29,99 EUR mensuels réutilisés par l’accueil ; supplément 3,99 EUR non totalisé sans périodicité. Pas de souscription, expiration, droits Premium, badge ou 0 % activés ; taux serveur/historiques préservés. Matrice par profil, conditions inconnues, preuves et rollback : OFFRES_ABONNEMENTS_DEMO_2026-10-17.md.
+
+Correction active REA : investigation de mécanismes externes autorisés, fonction distincte de Playwright, pas d’usage obligatoire par lot. Paquet installé MIT @netlify/blobs examiné localement, sans connexion au service ; l’ancien essai sur notre code reste historique/interne. Relais : ETAT_REPRISE_COURANT.md. Aucun déploiement de ce lot, persistance distante du nouveau champ non validée. V1/V2/V3 incomplets.

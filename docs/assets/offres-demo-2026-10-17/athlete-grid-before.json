@@ -1,0 +1,86 @@
+{
+  "baseCommit": "e80682b",
+  "viewport": 1440,
+  "elements": [
+    {
+      "tag": "SECTION",
+      "display": "grid",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "0px 572px 572px",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "auto",
+      "gridRow": "auto",
+      "width": 1192,
+      "height": 4337.546875
+    },
+    {
+      "tag": "DIV",
+      "display": "block",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "none",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "auto",
+      "gridRow": "auto",
+      "width": 50,
+      "height": 3230.5625
+    },
+    {
+      "tag": "SECTION",
+      "display": "block",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "none",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "auto",
+      "gridRow": "auto",
+      "width": 572,
+      "height": 271.984375
+    },
+    {
+      "tag": "SECTION",
+      "display": "block",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "none",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "auto",
+      "gridRow": "auto",
+      "width": 572,
+      "height": 321.203125
+    },
+    {
+      "tag": "SECTION",
+      "display": "block",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "none",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "auto",
+      "gridRow": "auto",
+      "width": 50,
+      "height": 1064.984375
+    },
+    {
+      "tag": "SECTION",
+      "display": "block",
+      "visibility": "visible",
+      "contentVisibility": "visible",
+      "columns": "none",
+      "areas": "none",
+      "flow": "row",
+      "gridColumn": "inbox",
+      "gridRow": "inbox",
+      "width": 572,
+      "height": 192.390625
+    }
+  ],
+  "cause": "grid-area inbox applied to non-coach dashboard",
+  "captureState": "working candidate with offer changes, before grid correction; not pristine base checkout"
+}

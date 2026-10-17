@@ -2,7 +2,6 @@
 import { formatBookingSlot } from "@/lib/domain/booking-time";
 
 import { useEffect, useMemo, useState } from "react";
-import { ReviewForm } from "@/components/payment-legacy/ReviewForm";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 
@@ -217,7 +216,7 @@ function PaymentSide({
           <a className="payment-secondary-link" href={nextRoutes.home}>Retour a l&apos;accueil</a>
           <a className="payment-primary-link" href={nextRoutes.account}>Voir mon compte</a>
         </div>
-        {reservationId ? <ReviewForm reservationId={reservationId} /> : null}
+        {reservationId ? <p data-review-after-session>Votre avis sera disponible après la fin prévue de la séance. <a href={nextRoutes.account}>Retrouver la séance dans mon compte</a></p> : null}
       </section>
     </aside>
   );
