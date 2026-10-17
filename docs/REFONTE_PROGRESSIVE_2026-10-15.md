@@ -1,3 +1,5 @@
+> **Montants coach — 18 octobre 2026 :** mois de création Europe/Paris explicite, snapshots historiques et remboursements, données manquantes signalées. Rapport `FINANCES_COACH_2026-10-18.md`. Aucun encaissement réel attesté, autre tableau refondu ou déploiement.
+
 > **Suivi personnel — 17 octobre 2026 :** objectif privé et synthèse des réservations en démo ; un créneau écoulé n’atteste pas une présence réelle. Rapport `SUIVI_PERSONNEL_DEMO_2026-10-17.md`. Trois tranches enchaînées avec contenus et gestion propriétaire, aucune activation Premium ou publication Netlify.
 
 > **Contenus — 17 octobre 2026 :** catalogue, brouillons privés, achat et bibliothèque simulés avec droits serveur ; texte TXT uniquement, aucun Premium ou paiement réel. Rapport `CONTENUS_DEMO_2026-10-17.md`. Commission contenus fictive 20 % distincte des séances à 15 %. Aucun déploiement.

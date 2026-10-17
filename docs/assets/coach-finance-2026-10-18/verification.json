@@ -1,0 +1,47 @@
+{
+  "base": "9df62d1f536cc6f69c87cbb9e735d3b7f9f6ba21",
+  "date": "2026-10-18 Europe/Madrid",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "distinctProjectCasesPassed": 16,
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "files": [
+      "coach-finance.spec.ts",
+      "commission.spec.ts",
+      "payment-flow.spec.ts"
+    ],
+    "captureReplayPassed": 2,
+    "replaysAreNotExtraCoverage": true
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "browserTimezone": "America/Los_Angeles",
+  "periodTimezone": "Europe/Paris",
+  "cohortDate": "createdAt; not paidAt or bank settlement date",
+  "visualFixtures": "Synthetic protected-route responses; actual API owner isolation checked separately",
+  "mcp": "Navigation to coach account login succeeded; authenticated monetary tests/captures from local Playwright, not MCP",
+  "controls": [
+    "netlify config PASS",
+    "client secret boundary PASS",
+    "pre-push CONFORME"
+  ],
+  "initialFailure": "Build caught second paidRevenue use in overview; fixed by one shared calculation for card and overview.",
+  "deployment": "none",
+  "remoteRlsTested": false,
+  "usageQuotas": "inaccessible",
+  "sourceSha256": {
+    "gym-next/lib/domain/coach-finance.ts": "7f980f468d6bf34c403756940abe44dd23e5fcae9abfdb9ce19dfbea99afeb16",
+    "gym-next/components/account-legacy/CoachFinanceSummary.tsx": "97ce8a59c566d46a13d1c8f985247a4652103a0d0f423c393b7f92fcf9e9912c",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "861780433b8169a781ee876a3b93c02a517f8cb27964def7fce0d0f35a02fa52",
+    "gym-next/tests/coach-finance.spec.ts": "e5cbb8b1fa22a2b69af5aac07f155e66f8c66374ff8b02ed8d09c96d2281854a"
+  }
+}

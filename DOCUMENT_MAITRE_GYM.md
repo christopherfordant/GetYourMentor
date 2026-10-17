@@ -1,3 +1,5 @@
+> **Montants coach — 18 octobre 2026 :** mois de création Europe/Paris explicite, snapshots historiques et remboursements, données manquantes signalées. Rapport `docs/FINANCES_COACH_2026-10-18.md`. Aucun encaissement réel attesté, autre tableau refondu ou déploiement.
+
 > **Priorités actives — 18 octobre 2026 :** maîtrise de l’usage, puis préservation du contexte, puis lot métier. Sans compteur fiable : un lot borné par tour. Relais court : [docs/ETAT_REPRISE_COURANT.md](docs/ETAT_REPRISE_COURANT.md). Les anciennes consignes d’enchaînement indéfini sont remplacées ; archives à consulter au besoin, pas de second maître.
 
 > **Suivi personnel — 17 octobre 2026 :** objectif privé et synthèse des réservations en démo ; un créneau écoulé n’atteste pas une présence réelle. Rapport `docs/SUIVI_PERSONNEL_DEMO_2026-10-17.md`. Trois tranches enchaînées avec contenus et gestion propriétaire, aucune activation Premium ou publication Netlify.

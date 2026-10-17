@@ -1,4 +1,6 @@
 "use client";
+import { coachMonthlyFinance,formatFinanceCents } from "@/lib/domain/coach-finance";
+import { CoachFinanceSummary } from "./CoachFinanceSummary";
 import { Affiliations } from "@/components/account-legacy/Affiliations";
 import { formatBookingSlot } from "@/lib/domain/booking-time";
 
@@ -371,6 +373,8 @@ function CoachDashboard({
   const [messageContacts, setMessageContacts] = useState<Array<{ value: string; label: string }>>([]);
   const [coachProfile, setCoachProfile] = useState<CoachProfile | null>(() => allowDemoFallback ? findCoach(coachName) : null);
   const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [financeLoading,setFinanceLoading]=useState(true);
+  const [financeError,setFinanceError]=useState(false);
 
   useEffect(() => {
     fetch(`/api/coaches/${encodeURIComponent(coachId ?? coachName)}`)
@@ -382,25 +386,20 @@ function CoachDashboard({
   }, [allowDemoFallback, coachId, coachName]);
 
   useEffect(() => {
+    setFinanceLoading(true);setFinanceError(false);
     fetch("/api/reservations")
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Chargement impossible"))))
-      .then((payload) => setReservations((payload.data as Reservation[]).filter((reservation) => reservation.coachName.toLowerCase() === coachName.toLowerCase())))
-      .catch(() => setReservations([]));
-  }, [coachName]);
+      .then((payload) => { if(!Array.isArray(payload.data))throw new Error("Réponse invalide");setReservations(payload.data.filter((reservation:Reservation) => reservation.coachId === coachId)); })
+      .catch(() => {setFinanceError(true);setReservations([]);})
+      .finally(()=>setFinanceLoading(false));
+  }, [coachId]);
 
+  const monthlyFinance=coachId?coachMonthlyFinance(reservations,coachId):null;
   const nextReservation = reservations.find((reservation) => ["accepted", "paid"].includes(reservation.status)) ?? reservations[0];
 
   const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
   const acceptedCount = reservations.filter((reservation) => ["accepted", "paid"].includes(reservation.status)).length;
-  const now = new Date();
-  const currentMonthLabel = now.toLocaleDateString("fr-FR", { month: "long" });
-  const paidRevenue = reservations
-    .filter((reservation) => {
-      if (reservation.status !== "paid") return false;
-      const createdAt = new Date(reservation.createdAt);
-      return createdAt.getFullYear() === now.getFullYear() && createdAt.getMonth() === now.getMonth();
-    })
-    .reduce((total, reservation) => total + reservation.price, 0);
+
 
   return (
     <section className="account-dashboard coach-home" data-account-dashboard="coach">
@@ -486,7 +485,7 @@ function CoachDashboard({
         <div className="coach-home-profile-preview-grid">
           <div><span>Demandes à traiter</span><strong data-coach-request-count>{requestedCount}</strong></div>
           <div><span>Réservations confirmées</span><strong data-coach-accepted-count>{acceptedCount}</strong></div>
-          <div><span>Volume des séances payées</span><strong data-coach-paid-count>{paidRevenue} EUR</strong></div>
+          <div><span>Part coach documentée · créations du mois (Paris)</span><strong data-coach-finance-overview>{financeLoading?"Chargement…":financeError||!monthlyFinance?.totals?"Indisponible":formatFinanceCents(monthlyFinance.totals.coachCents)}</strong></div>
         </div>
       </section>
       <div className="coach-home-focus">
@@ -515,11 +514,9 @@ function CoachDashboard({
         </article>
         <article className="account-dashboard-card coach-home-revenue" id="coach-payments" data-coach-display-block="revenue">
           <div className="coach-home-card-head">
-            <h3>Séances payées ce mois-ci</h3>
-            <span>{currentMonthLabel}</span>
+            <h3>Montants des réservations</h3>
           </div>
-          <div className="coach-home-revenue-amount">{paidRevenue} EUR</div>
-          <p>Montant payé par les élèves. La part coach et la commission historique figurent dans chaque réservation ; aucun reversement bancaire n’est effectué en démo.</p>
+          <CoachFinanceSummary summary={monthlyFinance} loading={financeLoading} error={financeError} demo={allowDemoFallback} />
         </article>
         <article className="account-dashboard-card coach-home-profile-preview" data-coach-display-block="profile-preview">
           <div className="coach-home-editorial-image coach-home-editorial-image--profile" aria-hidden="true">
