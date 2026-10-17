@@ -1,3 +1,4 @@
+import type { DemoContent, DemoContentPurchase } from "@/lib/demo-contents";
 import type { Affiliation } from "@/lib/affiliations";
 import type { Feedback } from "@/lib/feedback";
 import type { OfferPreview } from "@/lib/offer-previews";
@@ -23,6 +24,8 @@ export type DemoState = {
   affiliations?: Affiliation[];
   feedback?: Feedback[];
   offerPreviews?: OfferPreview[];
+  contents?: DemoContent[];
+  contentPurchases?: DemoContentPurchase[];
 };
 
 function store() {

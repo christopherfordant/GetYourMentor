@@ -1,0 +1,47 @@
+{
+  "base": "a516fb7d2f46a56f0b24ff554b6b6aa88ddaaf56",
+  "build": "PASS",
+  "types": "PASS",
+  "testCampaigns": [
+    {
+      "file": "content-tests.log",
+      "passed": 10
+    },
+    {
+      "file": "content-final-tests.log",
+      "passed": 20
+    },
+    {
+      "file": "content-targeted-final2.log",
+      "passed": 4
+    }
+  ],
+  "distinctProjectCases": 26,
+  "replaysNotAdditionalCoverage": true,
+  "controls": [
+    "netlify config",
+    "client secret boundary",
+    "pre-push conforme"
+  ],
+  "earlierFailure": "Two added unverified-coach cases used local sign-in alias mapping to Steven. Fixture replaced by actual coach signup; guard not loosened. Both pass in final replay.",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "mcp": "Navigation succeeded; screenshot timed out; favicon.ico 404. Captures local Playwright.",
+  "deployment": "none",
+  "remoteRlsTested": false,
+  "sourceSha256": {
+    "gym-next/lib/demo-contents.ts": "9fe4230e426c1ababda01e353952c599036ea802a0ed6fbf2e530ba248d4cded",
+    "gym-next/lib/repositories/demo-state.ts": "44b60494bc25f450aafd18347fdcfa9c0650cc79c8e79174015164400a3d3cf1",
+    "gym-next/app/api/contents/route.ts": "af7b9635941827e83dbe61eab6ddb939935ab0237f98f5c155d7b00043ecfab8",
+    "gym-next/app/api/contents/[id]/route.ts": "e3d479aaadea2e62692ced2271d3412893e7667d2ae1f500a7062aa545b4db79",
+    "gym-next/app/contenus/page.tsx": "1f37960342a1068d6b3768a370be7da08602bfa231c67c32e8d90e82e23cba0d",
+    "gym-next/components/ContentExplorer.tsx": "05e18725a56c42bf1473db9523a9497be0716f7e80cbf672061ae7112d653b96",
+    "gym-next/components/content-explorer.module.css": "8c081d5b75e4dd338d2c8661b6a9e30b356039aaef42b1927ab37f445dcc171e",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "39ed69cf6fd536d03508b0205b1e2f3ec89cd1c9ea8878a8d1d7ccaca310d5f1",
+    "gym-next/tests/demo-contents.spec.ts": "95ada340bbee5b1b089589b22e9de782a0fc7ecbef2a87729885efd07d2b9255"
+  }
+}
