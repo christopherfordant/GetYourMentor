@@ -13,6 +13,14 @@ Cette procedure s'applique a chaque prompt GetYourMentor, avant les travaux et a
 
 Cette autorisation couvre les commits et pushes cibles, sans fusion, force-push ni deploiement en production. Verifier les declencheurs CI/CD et conserver l'isolation de demonstration. Code pousse et code deploye sont deux etats distincts.
 
+## Priorités obligatoires — décision utilisateur du 18 octobre 2026
+
+1. **Usage avant ampleur du lot.** Lire uniquement les compteurs réellement accessibles. Ne pas confondre quotas Codex, crédits, facturation API et fenêtre de contexte. Sans compteur fiable : un seul lot court, vérifiable et documentable par tour ; pas d’enchaînement indéfini, de nouvelle délégation ou de polling. Réduire volume/relectures/reprises, pas les contrôles nécessaires. Aucune garantie de ne jamais atteindre une limite, aucun compteur ou changement de modèle prétendu. Aucun achat/plafond/abonnement modifié ni attente artificielle.
+2. **Contexte avant extension du périmètre.** Le relais court `docs/ETAT_REPRISE_COURANT.md` est le point de reprise opérationnel existant. Lire ensuite les seuls rapports/sources pertinents et leurs dépendances ; consulter les archives au besoin. Aucun second maître concurrent. Avant fin/interruption : état terminé/en cours/non testé, preuves, branche/SHA vérifié, déploiement distinct, contradictions et prochaine action.
+3. **Un lot complet.** Conserver audit/réemploi, vérifications proportionnées, documentation et commit/push ciblés avec SHA distant confirmé. Si compteur fiable proche d’une limite, préparer un point de reprise sûr ; ne pas pousser du code non vérifié. Ne pas prétendre poursuivre après la réponse finale.
+
+Ces priorités remplacent l’ancien enchaînement sans borne ; les exigences métier, autorisations et protections restent applicables. Référence officielle sur les limites et leur suivi : https://learn.chatgpt.com/docs/pricing (consultée le 18 octobre 2026). Cette documentation publique ne fournit pas les compteurs privés de la session.
+
 ## Principe
 
 `main` reste la branche de reference.

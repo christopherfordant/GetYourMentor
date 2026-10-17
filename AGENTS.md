@@ -5,3 +5,8 @@ Avant toute intervention, lire la « Procédure obligatoire à chaque demande »
 À chaque prompt : inventaire Git et documentaire au départ ; vérification, documentation, commit ciblé et push sur la branche appropriée avant la réponse finale de livraison ; confirmation du SHA distant. Préserver les changements antérieurs non vérifiés. Aucun commit vide pour une simple discussion.
 
 Les mises à jour intermédiaires restent possibles. Si le push est bloqué, le signaler précisément sans contourner les contrôles. Aucun force-push, fusion ou déploiement en production n’est autorisé par cette règle.
+
+## Priorités actives — 18 octobre 2026
+1. Maîtriser l’usage : compteurs seulement si réellement accessibles ; sinon un seul lot borné par tour, recherches et sorties ciblées, aucun enchaînement illimité. Aucun quota/changement de modèle inventé, achat ou attente artificielle. Conserver les contrôles nécessaires.
+2. Préserver le contexte : lire le relais court `docs/ETAT_REPRISE_COURANT.md`, puis les sources spécialisées indiquées pour le lot. Actualiser ce relais avant fin/interruption ; les archives ne sont pas des consignes actives.
+3. Réaliser le lot métier selon les décisions prioritaires et dépendances établies. Ces priorités remplacent les anciennes consignes d’enchaînement sans borne ; elles ne remplacent pas les protections métier, Git et sécurité.
