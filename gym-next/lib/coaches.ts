@@ -1,9 +1,12 @@
-import { coachIdForName, coachProfiles, createCoachProfile, filterCoaches, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
+import { coachIdForName, coachProfiles, createCoachProfile, setCoachVerification, updateCoachProfile, type CoachProfile } from "@/lib/domain";
 import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 import { supabaseHeaders } from "@/lib/supabase";
 import { distanceKm, isWithinCoachServiceRadius, parseCoordinates, normalizeRadiusKm, type Coordinates } from "@/lib/location";
 import { normalizeSearchFilters, type SearchFilters } from "@/lib/domain/validation/search-filters";
+import { withReviewStats } from "@/lib/domain/review-rules";
+import { listReviews } from "@/lib/reviews";
+import { listReservations } from "@/lib/reservations";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
 export type CoachDocumentKind = "identity" | "diploma";
@@ -160,15 +163,12 @@ function fromRow(row: Record<string, unknown>): CoachProfile {
   };
 }
 
-function findLocalCoach(idOrName?: string) {
-  if (!idOrName) return coachProfiles[0] ?? null;
-  const normalized = decodeURIComponent(idOrName).toLowerCase();
-  return coachProfiles.find((coach) => coach.id === normalized || coach.name.toLowerCase() === normalized) ?? null;
-}
-
 export async function listCoaches() {
   const config = supabaseConfig();
-  if (!config) return isHostedDemo() ? (await readDemoState()).coaches : coachProfiles;
+  if (!config) {
+    if (isHostedDemo()) { const state = await readDemoState(); return withReviewStats(state.coaches, state.reviews, state.reservations); }
+    return withReviewStats(coachProfiles, await listReviews(), await listReservations());
+  }
   const response = await fetch(`${config.url}/rest/v1/gym_coaches?select=*&order=name.asc`, {
     headers: supabaseHeaders(config.key),
     cache: "no-store",
@@ -185,8 +185,7 @@ export async function listCoaches() {
 export async function getCoach(idOrName?: string) {
   const config = supabaseConfig();
   if (!config) {
-    if (!isHostedDemo()) return findLocalCoach(idOrName);
-    const coaches = (await readDemoState()).coaches;
+    const coaches = await listCoaches();
     const normalized = decodeURIComponent(idOrName ?? "").toLowerCase();
     return idOrName ? coaches.find((c) => c.id === normalized || c.name.toLowerCase() === normalized) ?? null : coaches[0] ?? null;
   }
@@ -287,7 +286,6 @@ export async function filterStoredCoaches(filters: SearchFilters) {
   const coaches = await listCoaches();
   const origin = parseCoordinates(normalizedFilters.latitude, normalizedFilters.longitude);
   const radiusKm = normalizeRadiusKm(normalizedFilters.radiusKm);
-  if (coaches === coachProfiles) return filterCoaches(normalizedFilters).map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }));
   const canonicalSport = normalizedFilters.sport;
   return coaches
     .map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }))

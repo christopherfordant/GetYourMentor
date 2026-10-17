@@ -5,11 +5,24 @@ export type Review = {
   rating: number;
   comment: string;
   createdAt: string;
+  coachId?: string;
 };
 
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 
 const memoryReviews: Review[] = [];
+
+export async function listReviews(authorEmail?: string): Promise<Review[]> {
+  const config = supabaseConfig();
+  if (!config) {
+    const rows = isHostedDemo() ? (await readDemoState()).reviews : memoryReviews;
+    return rows.filter(row => !authorEmail || row.authorEmail === authorEmail);
+  }
+  const response = await fetch(`${config.url}/rest/v1/gym_reviews?select=*&order=created_at.desc${authorEmail ? `&author_email=eq.${encodeURIComponent(authorEmail)}` : ""}`, { headers: { apikey: config.key, Authorization: `Bearer ${config.key}` }, cache: "no-store" });
+  if (!response.ok) throw new Error("Avis indisponibles");
+  return (await response.json()).map((row: Record<string, unknown>) => ({ id: row.id, reservationId: row.reservation_id, authorEmail: row.author_email, rating: row.rating, comment: row.comment, createdAt: row.created_at })) as Review[];
+}
 
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -48,6 +61,10 @@ export async function createReview(review: Review) {
     return { ...review, id: saved.id ?? review.id, createdAt: saved.created_at ?? review.createdAt };
   }
 
+  if (isHostedDemo()) return mutateDemoState((s) => {
+    if (s.reviews.some((r) => r.reservationId === review.reservationId)) throw new Error("Un avis existe déjà pour cette réservation");
+    s.reviews.push(review); return review;
+  });
   memoryReviews.push(review);
   return review;
 }

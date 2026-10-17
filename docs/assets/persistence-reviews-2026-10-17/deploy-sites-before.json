@@ -1,0 +1,18 @@
+{
+  "demo": {
+    "id": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+    "url": "https://getyourmentor-demo-20261014.netlify.app",
+    "deployId": "6ad2ad63b8e082659be8bb15",
+    "state": "ready",
+    "repoBranch": null,
+    "linkedRepository": false
+  },
+  "historical": {
+    "id": "f6c7143f-b1fe-4940-8bbe-faca06219596",
+    "url": "https://gregarious-fox-fff605.netlify.app",
+    "deployId": "6aad6d3cdf85630008dfd0e1",
+    "state": "ready",
+    "repoBranch": "feat/nextjs-migration",
+    "linkedRepository": true
+  }
+}

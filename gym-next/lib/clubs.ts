@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 
 export type ClubLead = {
   id: string;
@@ -147,6 +148,7 @@ function fromRow(row: Record<string, unknown>): ClubLead {
 }
 
 export async function createClubLead(input: ClubLeadInput) {
+  if (isHostedDemo() && !/^[^@\s]+@example\.com$/.test(input.email)) throw new Error("Utilisez une adresse fictive @example.com");
   const config = supabaseConfig();
   const storage = storageConfig();
   const lead: ClubLead = {
@@ -200,6 +202,7 @@ export async function createClubLead(input: ClubLeadInput) {
       throw error;
     }
   }
+  if (isHostedDemo()) return mutateDemoState((s) => { s.clubs.push(lead); return lead; });
   clubLeads.push(lead);
   return lead;
 }
@@ -214,7 +217,7 @@ export async function listClubLeads() {
     if (!response.ok) throw new Error(`Supabase club lead error (${response.status})`);
     return ((await response.json()) as Record<string, unknown>[]).map(fromRow);
   }
-  return [...clubLeads];
+  return isHostedDemo() ? (await readDemoState()).clubs : [...clubLeads];
 }
 
 export async function getClubLeadForEmail(email: string) {
@@ -229,7 +232,7 @@ export async function getClubLeadForEmail(email: string) {
     const [row] = (await response.json()) as Record<string, unknown>[];
     return row ? fromRow(row) : null;
   }
-  return [...clubLeads]
+  return [...(isHostedDemo() ? (await readDemoState()).clubs : clubLeads)]
     .reverse()
     .find((lead) => lead.email.trim().toLowerCase() === normalizedEmail) ?? null;
 }
@@ -246,6 +249,7 @@ export async function updateClubLeadStatus(id: string, status: ClubLead["status"
     const [row] = (await response.json()) as Record<string, unknown>[];
     return row ? fromRow(row) : null;
   }
+  if (isHostedDemo()) return mutateDemoState((s) => { const lead = s.clubs.find((l) => l.id === id); if (!lead) return null; lead.status = status; return lead; });
   const lead = clubLeads.find((entry) => entry.id === id);
   if (!lead) return null;
   lead.status = status;

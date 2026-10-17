@@ -46,7 +46,7 @@ export async function createReservation(reservation: Reservation) {
   return createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) });
 }
 
-export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}) {
+export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}): Promise<Reservation[]> {
   return listPersistedReservations(options);
 }
 

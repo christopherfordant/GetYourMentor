@@ -22,7 +22,7 @@ test("un compte club retrouve sa demande d'affiliation", async ({ page }) => {
     for (const [key, value] of Object.entries(formValues)) form.append(key, value);
     const response = await fetch("/api/clubs/leads", { method: "POST", body: form });
     return { status: response.status, payload: await response.json() };
-  }, { clubName: "Club Horizon", managerName: "Camille Martin", email, phone: "0600000000" });
+  }, { clubName: "Club Horizon", managerName: "Camille Martin", email: email.toUpperCase(), phone: "0600000000" });
   expect(lead.status).toBe(201);
 
   const currentLead = await page.evaluate(async () => {

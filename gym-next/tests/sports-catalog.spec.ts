@@ -9,7 +9,7 @@ test("le catalogue visible respecte les quatre sports du MVP", async ({ page, re
   await expect(page.getByText("Métiers de la forme", { exact: true })).toHaveCount(0);
 
   await page.goto("/recherche?sport=metiers-de-la-forme");
-  await expect(page.locator("[data-sport-title]")).toContainText("coach fitness");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("coach fitness");
 
   const coaches = await request.get("/api/coaches?sport=metiers-de-la-forme");
   expect(coaches.ok()).toBeTruthy();

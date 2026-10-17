@@ -1,17 +1,16 @@
 import { futureSlot } from "./booking-fixtures";
 import { expect, test } from "@playwright/test";
 
-test("un avis est possible uniquement après paiement", async ({ request }, testInfo) => {
+test("un avis reste refusé après paiement tant que la séance est future", async ({ request }, testInfo) => {
+  const sportif = await request.post("/api/auth/sign-in", { data: { email: "sportif@example.com", password: "demo-password", role: "sportif" } });
+  const sportifCookie = sportif.headers()["set-cookie"].split(";")[0];
   const slot = testInfo.project.name === "mobile-chromium" ? futureSlot("2026-09-27 18:00") : futureSlot("2026-09-26 18:00");
   const created = await request.post("/api/reservations", {
+    headers: { Cookie: sportifCookie },
     data: { coachId: "steven-fordant", service: "Coaching", duration: "1 heure", price: 40, slots: [slot] },
   });
   const reservation = (await created.json()).data;
 
-  const sportif = await request.post("/api/auth/sign-in", {
-    data: { email: "sportif@example.com", password: "demo-password", role: "sportif" },
-  });
-  const sportifCookie = sportif.headers()["set-cookie"].split(";")[0];
   const beforePayment = await request.post("/api/reviews", {
     headers: { Cookie: sportifCookie },
     data: { reservationId: reservation.id, rating: 5, comment: "Très bonne séance" },
@@ -36,8 +35,8 @@ test("un avis est possible uniquement après paiement", async ({ request }, test
     headers: { Cookie: sportifCookie },
     data: { reservationId: reservation.id, rating: 5, comment: "Très bonne séance" },
   });
-  expect(review.status()).toBe(201);
-  expect((await review.json()).data.rating).toBe(5);
+  expect(review.status()).toBe(409);
+  expect((await review.json()).error).toContain("fin");
 
   const duplicate = await request.post("/api/reviews", {
     headers: { Cookie: sportifCookie },

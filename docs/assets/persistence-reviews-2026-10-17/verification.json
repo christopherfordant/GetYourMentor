@@ -1,0 +1,26 @@
+{
+  "base": "3b4c145da6ce3376b2a8ec65518a874054dd5e55",
+  "build": "PASS",
+  "typecheck": "PASS",
+  "extendedTests": "50/50 PASS",
+  "boundaryTests": "18/18 PASS (overlap, not additive coverage)",
+  "captureReplay": "8/8 PASS (same scenarios)",
+  "positiveReviewHTTP": "pending real-clock hosted recipe",
+  "sourceGuard": "rejects unreviewed source before Netlify access",
+  "applicationSHA256": {
+    "gym-next/app/api/clubs/leads/route.ts": "ad8a131eed56124269a79871aadb99bd7f4b777bc7d22523f4b6c62504ebfe76",
+    "gym-next/app/api/reviews/route.ts": "36199d30d4cee410823ba3bb7ad305c3d6fd8d42968191abd6d361d4cb1dc149",
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "7b960092d3641b9894e8fc1c4bc948655e7f6369e8a662959c6aebe2b538c70f",
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": "fe051132b8476e96e310dd2eee6c30b3788ea255ac75b7fba6e0883517eb39f8",
+    "gym-next/lib/clubs.ts": "7e79b007b450f663e64362c9fb4d338c55665ae091c5ede1e5104196b7503aff",
+    "gym-next/lib/coaches.ts": "be06d5a888f21e9741ebe1089544c7c53a21e9a0d6b74e694f9dec2caafc78de",
+    "gym-next/lib/domain/session-discovery.ts": "a4aec6bb95db6bb8b1ea58d5824a956b2aa830c67eab9c30e5c9381b4d497a22",
+    "gym-next/lib/reservations.ts": "4aff1eb75d093525e86eae42a9478bce04e91d88ab671d7f0703c9a64c5213bc",
+    "gym-next/lib/reviews.ts": "d399130aa6ee8a6617a2b54e5fa4de06c8739b79542f7f572932352785dc5444",
+    "gym-next/scripts/deploy-isolated-demo.py": "becf2ac9dffccd3f5bf9802864a8f86558dde482419732a29817f336d8ef0d3c",
+    "gym-next/lib/domain/review-rules.ts": "ab55af873ae7cb8f0d8b88abcf1f0e2bd87686513adce255a54b5f5ed3c0e71a",
+    "gym-next/components/account-legacy/ReservationReview.tsx": "792a2a6e17a0564ff2788dfdcfbef708fb9dbf354f81eea1c2de645777fe96ec",
+    "gym-next/components/discovery/CoachReviews.tsx": "7a1be8f4f0ddfde86cf4f334bdf6d58f01f3d03192399621b193779858f68f03",
+    "gym-next/scripts/hosted-core-completion-recipe.py": "45082a3e12dc8a7bcda607a6247f28c25f82db48ac78e0eac0f062e5ee8f5e40"
+  }
+}

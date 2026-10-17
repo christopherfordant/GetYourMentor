@@ -4,12 +4,20 @@ import { formatBookingSlot } from "@/lib/domain/booking-time";
 import { useEffect, useState } from "react";
 import type { Reservation } from "@/lib/domain";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
+import { ReservationReview } from "@/components/account-legacy/ReservationReview";
 
 export function AthleteDashboard() {
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [locationStatus, setLocationStatus] = useState("");
+  const [reviewIds, setReviewIds] = useState<string[]>([]);
+  const [reviewsReady, setReviewsReady] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/api/reviews", { signal: controller.signal, cache: "no-store" }).then(async response => { if (!response.ok) throw new Error(); return response.json(); }).then(payload => { if (!Array.isArray(payload.data)) throw new Error(); setReviewIds(payload.data.map((row: { reservationId: string }) => row.reservationId)); setReviewsReady(true); }).catch(() => { if (!controller.signal.aborted) setReviewsReady(false); });
+    return () => controller.abort();
+  }, []);
 
   useEffect(() => {
     fetch("/api/reservations")
@@ -114,6 +122,7 @@ export function AthleteDashboard() {
               </div>
             ) : null}
             {reservation.status === "cancelled" ? <span>Remboursement : {reservation.refundPercent ?? 0}% ({reservation.refundAmount ?? 0} EUR)</span> : null}
+            {reservation.status === "paid" ? <ReservationReview reservation={reservation} reviewed={reviewIds.includes(reservation.id)} ready={reviewsReady} onCreated={() => setReviewIds(ids => [...ids, reservation.id])} /> : null}
           </article>
         ))}
       </section>

@@ -1,3 +1,5 @@
+> **Avis et structures — 17 octobre 2026 :** stockage durable des demandes et avis, avis après la fin prévue, notes calculées et déploiement lié au commit vérifié. Rapport : `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`. Recette distante chronométrée à poursuivre ; V1/V2/V3 non terminées.
+
 > **Messagerie démo — 17 octobre 2026 :** réponses coach/sportif, isolation, répétitions protégées et stockage Blobs existant. Rapport : `docs/MESSAGERIE_DEMO_2026-10-17.md`. Aucun message externe ni clôture V1/V2/V3.
 
 > **Reprise autonome et découverte collective — 17 octobre 2026 :** catalogue partagé `/seances`, filtres URL et moteur de réservation existant. Rapport : `docs/DECOUVERTE_COLLECTIVE_2026-10-17.md`. V1/V2/V3 restent incomplets.

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClubLead } from "@/lib/clubs";
 import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
+import { isHostedDemo } from "@/lib/runtime";
 
 export async function POST(request: Request) {
   const limit = rateLimit(request, "club-lead", 20, 60_000);
@@ -11,7 +12,7 @@ export async function POST(request: Request) {
 
   const clubName = String(form.get("clubName") ?? "").trim();
   const managerName = String(form.get("managerName") ?? "").trim();
-  const email = String(form.get("email") ?? "").trim();
+  const email = String(form.get("email") ?? "").trim().toLowerCase();
   const phone = String(form.get("phone") ?? "").trim();
   const addressLabel = String(form.get("addressLabel") ?? "").trim();
   const latitudeValue = String(form.get("latitude") ?? "").trim();
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     return NextResponse.json({ error: "Adresse mail invalide" }, { status: 400 });
   }
+  if (isHostedDemo() && !/^[^@\s]+@example\.com$/.test(email)) return NextResponse.json({ error: "Mode démonstration : utilisez une adresse fictive @example.com" }, { status: 400 });
   if ((latitude !== undefined && (!Number.isFinite(latitude) || latitude < -90 || latitude > 90)) || (longitude !== undefined && (!Number.isFinite(longitude) || longitude < -180 || longitude > 180))) {
     return NextResponse.json({ error: "Coordonnées de localisation invalides" }, { status: 400 });
   }

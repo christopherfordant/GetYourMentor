@@ -1,9 +1,29 @@
 """Build, verify runtime packaging, then deploy ONLY the existing isolated demo."""
-import json, os, subprocess, sys, urllib.request, zipfile
+import hashlib, io, json, os, re, subprocess, sys, tarfile, urllib.request, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 SITE="86e0379e-4d1a-4cf0-936c-1439397354f4"
 URL="https://getyourmentor-demo-20261014.netlify.app"
+source_commit=os.environ.get("GYM_DEMO_SOURCE_COMMIT") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
+assert re.fullmatch(r"[0-9a-f]{40}",source_commit), "A full source commit is required"
+with tarfile.open(fileobj=io.BytesIO(subprocess.check_output(["git","archive",source_commit,"gym-next"],cwd=ROOT)),mode="r:") as snapshot:
+    assert not any(member.issym() or member.islnk() for member in snapshot.getmembers()), "Unreviewed source symlinks: abort"
+    expected_files={member.name:snapshot.extractfile(member).read() for member in snapshot.getmembers() if member.isfile()}
+def source_hashes():
+    paths=sorted(expected_files)
+    extras=subprocess.check_output(["git","ls-files","--others","--exclude-standard","gym-next/app","gym-next/components","gym-next/lib","gym-next/public"],cwd=ROOT,text=True).splitlines()
+    assert not set(extras)-set(paths), "Unreviewed application files: abort"
+    hashes={}
+    text_extensions={".ts",".tsx",".js",".jsx",".mjs",".cjs",".json",".css",".md",".html",".svg",".txt",".toml",".yml",".yaml",".py",".example",""}
+    for path in paths:
+        actual=(ROOT/path).read_bytes()
+        expected=expected_files[path]
+        if Path(path).suffix in text_extensions: actual=actual.replace(b"\r\n",b"\n");expected=expected.replace(b"\r\n",b"\n")
+        assert actual==expected, "Source differs from reviewed commit: "+path
+        hashes[path]=hashlib.sha256(actual).hexdigest()
+    return hashes
+verified_sources=source_hashes()
+assert not any(path.is_file() and not path.name.endswith(".example") for folder in [ROOT,ROOT/"gym-next"] for path in folder.glob(".env*")), "Unreviewed local environment file: abort"
 config=json.loads((Path(os.environ["APPDATA"])/"netlify/Config/config.json").read_text(encoding="utf-8"))
 user=config["users"][config["userId"]]
 token=user["auth"] if isinstance(user["auth"],str) else user["auth"]["token"]
@@ -16,7 +36,8 @@ variables=get("accounts/"+site["account_id"]+"/env?site_id="+SITE)
 allowed={"DEPLOY_ENV","GETYOURMENTOR_ALLOW_DEMO","PAYMENT_PROVIDER","NEXT_PUBLIC_APP_URL","SESSION_SECRET","PLATFORM_COMMISSION_BPS"}
 assert {item["key"] for item in variables}==allowed, "Unexpected environment: abort"
 env=dict(os.environ)
-for key in ["SUPABASE_URL","NEXT_PUBLIC_SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY","SUPABASE_ANON_KEY","STRIPE_SECRET_KEY","STRIPE_WEBHOOK_SECRET","RESEND_API_KEY"]: env.pop(key,None)
+for key in list(env):
+    if key.startswith(("SUPABASE_","NEXT_PUBLIC_SUPABASE_","STRIPE_","RESEND_","LEGAL_")) or key in ["OPENAI_API_KEY","ANTHROPIC_API_KEY","GEMINI_API_KEY","GETYOURMENTOR_ACCEPTANCE_MODE"]: env.pop(key,None)
 for item in variables:
     values=[v for v in item["values"] if v.get("context") in ("all","production")]
     assert values and values[0].get("value"), "Missing demo environment variable"
@@ -33,14 +54,21 @@ temporary.write_text(base,encoding="utf-8")
 try:
     if "--prepared" not in sys.argv:
         subprocess.run(["node",str(cli),"build","--context","production"],cwd=app,env=env,check=True)
+        subprocess.run(["node",str(app/"scripts/check-client-secret-boundary.mjs")],cwd=app,env=env,check=True)
         subprocess.run([sys.executable,str(app/"scripts/prepare-netlify-runtime.py")],cwd=ROOT,check=True)
     archive=app/".netlify/functions/___netlify-server-handler.zip"
     with zipfile.ZipFile(archive) as bundle:
         assert "node_modules/next/dist/server/lib/start-server.js" in bundle.namelist(), "Missing Next runtime: publication blocked"
         assert sum(i.file_size for i in bundle.infolist())<250*1024*1024, "Runtime package too large"
     assert (app/".netlify/static/_next/static").is_dir()
+    proof={"sourceCommit":source_commit,"sources":verified_sources,"archiveSHA256":hashlib.sha256(archive.read_bytes()).hexdigest(),"buildId":(app/".next/BUILD_ID").read_text().strip()}
+    assert source_hashes()==verified_sources, "Source changed during preparation: abort"
+    manifest=app/".netlify/verified-source.json"
+    if "--prepared" in sys.argv:
+        assert manifest.is_file() and json.loads(manifest.read_text())==proof, "Prepared artifact is stale or unverified: abort"
+    else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
     temporary.write_text(base+'\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n',encoding="utf-8")
     print("Publishing verified package to the isolated demo only",flush=True)
-    subprocess.run(["node",str(cli),"deploy","--site",SITE,"--prod","--no-build","--dir",str(app/".netlify/static"),"--message","GetYourMentor isolated demo: source 46f3450 + storage health / demo robots; verified runtime package"],cwd=app,env=env,check=True)
+    subprocess.run(["node",str(cli),"deploy","--site",SITE,"--prod","--no-build","--dir",str(app/".netlify/static"),"--message","GetYourMentor isolated demo: verified source "+source_commit],cwd=app,env=env,check=True)
 finally:
     temporary.unlink()

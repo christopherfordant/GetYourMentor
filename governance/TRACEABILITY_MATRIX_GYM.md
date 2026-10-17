@@ -55,3 +55,6 @@ US-SPORTIF-05 / US-COACH-01 / US-CLUB-01 : MVP p.1, Business Plan p.28–31/49�
 
 ## Messagerie bilatérale démo — 17 octobre 2026
 Business Plan p.29/50 : sportif contacte coach, réponses authentifiées, recherche et historique. Stockage existant et projection liée aux identités serveur, répétition identique idempotente. États de panne/réessai, aucune notification externe. Preuves : `docs/MESSAGERIE_DEMO_2026-10-17.md`.
+
+## Avis après séance et persistance — 17 octobre 2026
+MVP p.1, Business Plan p.32/49–50 et maître « avis après séance » : propriété sportive stricte, paiement et fin prévue nécessaires, un avis par réservation, projection publique sans identité. Notes depuis les avis enregistrés, stockage démo existant réutilisé pour demandes structures/avis. Recette et limites : `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`.

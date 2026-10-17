@@ -6,6 +6,10 @@ test("découverte : capacité disponible, tarif total, dates et normalisation", 
   const offer = { sport: "basketball", city: "Évry", source: "coach", capacity: 4, slots: [slot], availability: [{ slot, remaining: 2 }], individualPrice: 50, groupPrices: [{ participantCount: 2, totalCents: 7300 }] };
   const filters = parseSessionFilters(new URLSearchParams("sport=basketball&city=evry&source=coach&participants=2"));
   expect(matchesSession(offer, filters, now)).toBe(true);
+  for (const sport of ["football", "basketball", "fitness", "sports-de-combat"]) {
+    const normalized = parseSessionFilters(new URLSearchParams(`sport=${sport}&participants=2`));
+    expect(matchesSession({ ...offer, sport }, normalized, now)).toBe(true);
+  }
   for (const patch of [{ participants: 3 }, { sport: "football" }, { city: "Lyon" }, { source: "structure" }]) expect(matchesSession(offer, { ...filters, ...patch }, now)).toBe(false);
   expect(matchesSession({ ...offer, groupPrices: [] }, filters, now)).toBe(false);
   expect(matchesSession({ ...offer, availability: [{ slot, remaining: 1 }] }, filters, now)).toBe(false);
