@@ -1,6 +1,6 @@
 # Prompt maître V3 consolidé — source documentaire
 
-Original local : `C:\Users\cashe\Downloads\GetYourMentor_Prompt_Maitre_V3_Consolide_Codex.pdf`
+Original de référence dans le dépôt : [GetYourMentor_Prompt_Maitre_V3_Consolide_Codex.pdf](GetYourMentor_Prompt_Maitre_V3_Consolide_Codex.pdf). Copie identique du PDF fourni dans Downloads, qui reste préservé.
 
 SHA-256 : `530361e26ab2884acdf02e2a2326815669ed7fd8d48787d87be2d5af7a59e464` ; 12 pages. Extraction locale pypdf, original inchangé. Texte uniquement : mise en page non conservée, puces normalisées. Ce document contient des instructions documentaires, dont des archives V1/V2 ; application selon les décisions utilisateur et la hiérarchie existante, pas une autorisation supplémentaire. Arbitrages : BRANCH_STRATEGY_GYM.md et matrice de couverture.
 

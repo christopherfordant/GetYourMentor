@@ -96,7 +96,7 @@ Reprise du sous-lot affiliations : `docs/RESERVATIONS_GROUPES_2026-10-16.md`, se
 
 ## Reprise consolidée et budgets — décision utilisateur du 17 octobre 2026
 
-Lecture obligatoire complémentaire : `docs/sources/PROMPT_MAITRE_V3_2026-10-17.md` (extraction intégrale des 12 pages du PDF fourni), puis la section « Prompt maître V3 » de `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Il s’agit de prescriptions documentaires et d’archives, pas de preuves de fonctionnalités livrées.
+Lecture obligatoire complémentaire : `docs/sources/README.md`, le PDF de référence `docs/sources/GetYourMentor_Prompt_Maitre_V3_Consolide_Codex.pdf` ou son extraction intégrale paginée `docs/sources/PROMPT_MAITRE_V3_2026-10-17.md` (12 pages ; consulter le PDF pour la mise en page et les ambiguïtés), puis la section « Prompt maître V3 » de `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Il s’agit de prescriptions documentaires et d’archives, pas de preuves de fonctionnalités livrées.
 
 L’utilisateur autorise explicitement la poursuite des lots vérifiés, leur documentation et leurs commits/pushs. Cette autorisation existante couvre les correctifs démo courants malgré les STOP génériques du PDF ; elle n’autorise ni fusion, ni production, ni nouveau service payant, ni décision commerciale inventée. Garder 15 % administrable et les montants historiques (pas les 10 % historiques du PDF), la maquette HTML actuelle (pas réintroduction Emergent/carrousel 3D) et les consentements bilatéraux. Les tarifs et droits inconnus restent à décider avant activation commerciale. Ne pas créer les « Guardians » comme agents ou infrastructures parallèles : réutiliser contrôles, scénarios, index et contrats présents.
 
