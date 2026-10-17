@@ -79,3 +79,8 @@ export function getRuntimeReadiness() {
     checks,
   } as const;
 }
+
+// Shared gate for personal demo modules; never mixes their state with Supabase.
+export function isIsolatedDemoFeatureEnabled() {
+  return isDemoFallbackAllowed() && ![process.env.SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY].some(Boolean);
+}

@@ -1,3 +1,4 @@
+import type { PersonalGoal } from "@/lib/personal-progress";
 import type { DemoContent, DemoContentPurchase } from "@/lib/demo-contents";
 import type { Affiliation } from "@/lib/affiliations";
 import type { Feedback } from "@/lib/feedback";
@@ -24,6 +25,7 @@ export type DemoState = {
   affiliations?: Affiliation[];
   feedback?: Feedback[];
   offerPreviews?: OfferPreview[];
+  personalGoals?: PersonalGoal[];
   contents?: DemoContent[];
   contentPurchases?: DemoContentPurchase[];
 };

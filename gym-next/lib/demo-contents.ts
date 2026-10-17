@@ -2,10 +2,9 @@ import { randomUUID } from "node:crypto";
 import type { Session } from "@/lib/auth";
 import { getCoach } from "@/lib/coaches";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
-import { offerPreviewsEnabled } from "@/lib/offer-previews";
-import { isHostedDemo } from "@/lib/runtime";
+import { isHostedDemo, isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 
-export const demoContentsEnabled = offerPreviewsEnabled;
+export const demoContentsEnabled = isIsolatedDemoFeatureEnabled;
 export type DemoContent = { id: string; owner: string; author: string; title: string; summary: string; body: string; priceCents: number; version: number; published: boolean; createdAt: string; requestId: string; downloads: number };
 export type DemoContentPurchase = { id: string; buyer: string; contentId: string; title: string; priceCents: number; commissionCents: number; sellerCents: number; commissionBps: 2000; purchasedAt: string; contentVersion: number };
 type Store = { contents: DemoContent[]; contentPurchases: DemoContentPurchase[] };

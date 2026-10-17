@@ -2,11 +2,11 @@ import type { Session } from "@/lib/auth";
 import { offersCatalog } from "@/lib/offers-catalog";
 import { getCommissionSettings } from "@/lib/repositories/commission-repository";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
-import { isDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { isIsolatedDemoFeatureEnabled, isHostedDemo } from "@/lib/runtime";
 
 export type OfferPreview = { owner: string; planId: string | null; version: number; updatedAt: string; requestId: string; action: "select" | "clear" };
 const local: OfferPreview[] = [];
-export const offerPreviewsEnabled = () => isDemoFallbackAllowed() && ![process.env.SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY].some(Boolean);
+export const offerPreviewsEnabled = isIsolatedDemoFeatureEnabled;
 export class OfferPreviewError extends Error { constructor(message: string, public status = 400) { super(message); } }
 const ownerKey = (session: Session) => `${session.role}:${session.email.toLowerCase()}`;
 function guard() { if (!offerPreviewsEnabled()) throw new OfferPreviewError("Aperçus disponibles en démonstration isolée uniquement", 503); }

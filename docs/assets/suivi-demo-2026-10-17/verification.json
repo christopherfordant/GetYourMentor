@@ -1,0 +1,59 @@
+{
+  "base": "589ab11dc1a4c25fe2446cb39afe1430d5192e6f",
+  "recordedAt": "2026-10-17T15:35:11.877713+00:00",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "passed": 42,
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "files": [
+      "personal-progress.spec.ts",
+      "demo-contents.spec.ts",
+      "offer-previews.spec.ts",
+      "payment-flow.spec.ts",
+      "review-rules.spec.ts",
+      "discovery-editorial.spec.ts"
+    ],
+    "finalLog": "personal-progress-tests-final.log",
+    "earlier30PassedNotAdditionalCoverage": true
+  },
+  "controls": [
+    "Netlify config PASS",
+    "Client secret boundary PASS",
+    "Pre-push CONFORME"
+  ],
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "visualInspection": [
+    "sportif-390.png",
+    "sportif-1440.png"
+  ],
+  "mcp": "Anonymous page navigation successful; authenticated click unstable, timeout 30s. Authenticated flows and screenshots from local Playwright.",
+  "attendanceVerified": false,
+  "deployment": "none",
+  "remoteRlsTested": false,
+  "usageQuotas": "not accessible",
+  "sourceSha256": {
+    "gym-next/lib/runtime.ts": "531502405e5ad791965d84152b4f527f7b8ffb70c45abd850e0f2813b8fdc9e0",
+    "gym-next/lib/offer-previews.ts": "46b46260e12e60e7d1c4eba18da1afc1585759b3c5eaf9a76d3742b15d75bc10",
+    "gym-next/lib/demo-contents.ts": "8193345798bc8755c99ff828f3003890737e44af2c429d8fd116efadd14c7a15",
+    "gym-next/lib/repositories/demo-state.ts": "212eb87b9ab0e6f034a63a125e0e5282c0245b99c1d24a47c9c1d22f75dc590b",
+    "gym-next/lib/domain/progress-summary.ts": "36b297bea1e230acef82eb4f737e912c59796a4e6c5e3b3eae6eafe4824b30b8",
+    "gym-next/lib/personal-progress.ts": "f0accd97ecb4121826c3ef5dabc8387f31d39815a7ed9c2a24d30d34244e728c",
+    "gym-next/app/api/progress/route.ts": "166ee26a8eff06dd0b05889f301509e2ca04c2adc4082af678f9b3c1434829ea",
+    "gym-next/app/suivi/page.tsx": "8a5f86fa6cc40c11e91ad6f393fa3c70f1c4eb5479180937d04b263262eb9a15",
+    "gym-next/components/PersonalProgress.tsx": "f5d1f8becbff9da4573f0f1c518c32e8b2c270cab8a0e26173c133bacd003bd5",
+    "gym-next/components/personal-progress.module.css": "7e60e60c712aba37fb84065338bd30c647db4ebf9f6e475588060da1677e008d",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "3175bac0b58571d2739d8bc1c569ff929a4307e858b2eff2f6732e783f2cceba",
+    "gym-next/app/gym-discovery-design.css": "c81b45779e45fdf81b530f2664491e7d68e61640d451750b32c4ded4a386ec5a",
+    "gym-next/tests/personal-progress.spec.ts": "2d8f562f010a9cedf05bd7cb3a9c716098288335a28cce138a18edb869069982"
+  }
+}
