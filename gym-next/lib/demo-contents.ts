@@ -41,6 +41,16 @@ export async function modifyDemoContent(session:Session,input:Record<string,unkn
    });
  }
  const id=identifier(input.id);
+ if(input.action==="delete") {
+   if(session.role!=="coach") throw new ContentError("Suppression réservée à l’auteur",403);
+   return change(state=>{
+     const index=state.contents.findIndex(row=>row.id===id && row.owner===key);if(index<0)throw new ContentError("Ressource introuvable",404);
+     const row=state.contents[index];
+     if(input.expectedVersion!==row.version)throw new ContentError("La ressource a changé. Actualise avant de réessayer.",409);
+     if(row.published || state.contentPurchases.some(p=>p.contentId===id))throw new ContentError("Retire la ressource du catalogue ; les contenus déjà acquis doivent être conservés.",409);
+     state.contents.splice(index,1);return {deleted:true};
+   });
+ }
  if(input.action==="publish" || input.action==="withdraw") {
    if(session.role!=="coach") throw new ContentError("Action réservée à l’auteur",403);
    const published=input.action==="publish";

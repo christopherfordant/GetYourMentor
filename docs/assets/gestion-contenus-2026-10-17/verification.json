@@ -1,0 +1,34 @@
+{
+  "base": "921047cd1604abb624cdf42e5da49f3a0d660b5f",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "passed": 12,
+    "files": [
+      "demo-contents.spec.ts",
+      "offer-previews.spec.ts"
+    ],
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "workers": 1
+  },
+  "downloadRequestsPerProject": {
+    "HEAD": 1,
+    "acceptedGET": 30,
+    "rejectedGET": 1
+  },
+  "cloudRequests": 0,
+  "deployment": "none",
+  "limitations": [
+    "Memory rate limiter is not distributed quota",
+    "No remote RLS or Blobs validation"
+  ],
+  "sourceSha256": {
+    "gym-next/lib/demo-contents.ts": "7289e66fcf30b9367b04a74d35a793571244b578f5d051a739146be991a647b1",
+    "gym-next/app/api/contents/[id]/route.ts": "e669b2cb590d76f01e1ddf6769f4751087a78542b07442879833e0e6a95b0e87",
+    "gym-next/components/ContentExplorer.tsx": "cfe39e0577505d6489b09f5b54e0df59a0288cec2d7005cdf630702585c5f060",
+    "gym-next/tests/demo-contents.spec.ts": "2540afa6501a62990a35be1a0853efc8bb28e2960c7fcec37789ac9ca191c310"
+  }
+}

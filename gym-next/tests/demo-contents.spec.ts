@@ -51,4 +51,39 @@ test("contenus : création, publication et bibliothèque sur quatre largeurs",as
  const dl=page.waitForEvent("download");await library.getByRole("link",{name:"Télécharger le texte"}).click();expect((await dl).suggestedFilename()).toMatch(/^ressource-demo-.*\.txt$/);
  for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:1000});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth)).toBe(true);if(info.project.name==="desktop-chromium"&&[390,1440].includes(width))await page.screenshot({path:`../docs/assets/contenus-demo-2026-10-17/sportif-${width}.png`,fullPage:true});}
  await page.reload();await expect(library.getByRole("button",{name:"Lire la ressource"})).toBeVisible();
+ await login("coach","coach@example.com");await page.reload();await expect(root).toHaveAttribute("aria-busy","false");
+ await root.getByLabel("Titre",{exact:true}).fill(`Brouillon UI à supprimer ${info.project.name}`);await root.getByLabel("Présentation publique").fill("Présentation fictive");await root.getByLabel("Texte réservé aux accès autorisés").fill("Texte de test supprimable.");await root.getByLabel("Prix fictif en euros").fill("1,00");await root.getByLabel("Je confirme une ressource fictive",{exact:false}).check();await root.getByRole("button",{name:"Enregistrer le brouillon"}).click();
+ const draft=root.locator("article").filter({has:page.getByRole("heading",{name:`Brouillon UI à supprimer ${info.project.name}`,exact:true})});await expect(draft).toBeVisible();
+ if(info.project.name==="desktop-chromium")for(const width of [390,1440]){await page.setViewportSize({width,height:1000});await page.screenshot({path:`../docs/assets/gestion-contenus-2026-10-17/brouillon-${width}.png`,fullPage:true});}
+ page.once("dialog",dialog=>dialog.dismiss());await draft.getByRole("button",{name:"Supprimer le brouillon"}).click();await expect(draft).toBeVisible();
+ page.once("dialog",dialog=>dialog.accept());await draft.getByRole("button",{name:"Supprimer le brouillon"}).click();await expect(draft).toHaveCount(0);
+
+});
+
+
+test("contenus : suppression propriétaire et téléchargements bornés",async({request},info)=>{
+ const login=async(role:string,email=`${role}@example.com`)=>{const r=await request.post("/api/auth/sign-in",{data:{role,email,password:"demo-password"}});expect(r.status()).toBe(200);return {Cookie:r.headers()["set-cookie"].split(";")[0],"x-forwarded-for":info.project.name.includes("mobile")?"192.0.2.125":"192.0.2.124"};};
+ const coach=await login("coach"),foreign=await login("coach",`delete-foreign-${info.project.name}@example.com`),buyer=await login("sportif",`download-buyer-${info.project.name}@example.com`);
+ const create=await request.post("/api/contents",{headers:coach,data:{action:"create",requestId:`delete-${info.project.name}`,title:`Brouillon supprimable ${info.project.name}`,summary:"Exemple de démonstration",body:"Texte fictif sans données personnelles.",priceCents:1500,demoAcknowledged:true}});expect(create.status()).toBe(200);const row=(await create.json()).data.owned.find((r:{title:string})=>r.title===`Brouillon supprimable ${info.project.name}`);
+ const input={action:"delete",id:row.id,expectedVersion:1};
+ expect((await request.post("/api/contents",{headers:foreign,data:input})).status()).toBe(404);
+ expect((await request.post("/api/contents",{headers:buyer,data:input})).status()).toBe(403);
+ expect((await request.post("/api/contents",{headers:coach,data:{...input,expectedVersion:0}})).status()).toBe(409);
+ expect((await request.post("/api/contents",{headers:coach,data:{...input,action:"publish"}})).status()).toBe(200);
+ expect((await request.post("/api/contents",{headers:coach,data:{...input,expectedVersion:2}})).status()).toBe(409);
+ expect((await request.post("/api/contents",{headers:coach,data:{...input,action:"withdraw",expectedVersion:2}})).status()).toBe(200);
+ expect((await request.post("/api/contents",{headers:coach,data:{...input,expectedVersion:3}})).status()).toBe(200);
+ expect((await request.get(`/api/contents/${row.id}`,{headers:coach})).status()).toBe(404);
+ const fresh=await request.post("/api/contents",{headers:coach,data:{action:"create",requestId:`retained-${info.project.name}`,title:`Texte acquis conservé ${info.project.name}`,summary:"Exemple de démonstration",body:"Texte fictif conservé après retrait.",priceCents:1500,demoAcknowledged:true}});const retained=(await fresh.json()).data.owned.find((r:{title:string})=>r.title===`Texte acquis conservé ${info.project.name}`);
+ expect((await request.post("/api/contents",{headers:coach,data:{action:"publish",id:retained.id,expectedVersion:1}})).status()).toBe(200);
+ expect((await request.post("/api/contents",{headers:buyer,data:{action:"purchase",id:retained.id,expectedVersion:2,expectedPriceCents:1500,demoAcknowledged:true}})).status()).toBe(200);
+ const endpoint=`/api/contents/${retained.id}?download=1`;
+ const head=await request.head(endpoint,{headers:buyer});expect(head.status()).toBe(200);expect(await head.body()).toHaveLength(0);
+ let own=(await(await request.get("/api/contents",{headers:coach})).json()).data.owned.find((r:{id:string})=>r.id===retained.id);expect(own.downloads).toBe(0);
+ for(let i=0;i<30;i++)expect((await request.get(endpoint,{headers:buyer})).status()).toBe(200);
+ expect((await request.get(endpoint,{headers:buyer})).status()).toBe(429);
+ own=(await(await request.get("/api/contents",{headers:coach})).json()).data.owned.find((r:{id:string})=>r.id===retained.id);expect(own.downloads).toBe(30);
+ expect((await request.post("/api/contents",{headers:coach,data:{action:"withdraw",id:retained.id,expectedVersion:2}})).status()).toBe(200);
+ expect((await request.post("/api/contents",{headers:coach,data:{action:"delete",id:retained.id,expectedVersion:3}})).status()).toBe(409);
+ expect((await request.get(`/api/contents/${retained.id}`,{headers:buyer})).status()).toBe(200);
 });

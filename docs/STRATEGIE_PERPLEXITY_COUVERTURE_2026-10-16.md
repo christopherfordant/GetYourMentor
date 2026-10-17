@@ -147,3 +147,5 @@ Correction active REA : investigation de mécanismes externes autorisés, foncti
 
 ## Tranche contenus — 17 octobre 2026
 BP p.29–30/33/35/50 : boutique et droits désormais partiellement implémentés dans `/contenus`, brouillons privés et publication coach validé, accès après achat fictif unique, téléchargement TXT protégé et suivi fictif auteur. Prix choisis par le coach en démo, pas une grille commerciale. Source Premium ambiguë : aucun droit réel activé. Commission contenus 20 % simulée, commission séances administrable inchangée. Formats binaires, abonnements exclusifs, packs et suppression définitive non livrés. Rapport `CONTENUS_DEMO_2026-10-17.md`, preuves et limites locales ; aucun déploiement/recette RLS distante.
+
+Suite gestion contenus : suppression des brouillons sans acquisition protégée par propriétaire/version/état ; téléchargements bornés, HEAD sans incrément. Rapport `GESTION_CONTENUS_DEMO_2026-10-17.md`. Uploads binaires/abonnements exclusifs/packs toujours absents ; aucun déploiement.
