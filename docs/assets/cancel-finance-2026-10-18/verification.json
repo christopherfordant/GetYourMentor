@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-18 Europe/Madrid",
+  "base": "ba25fa916f29c18e9e51be7b1cfbca45070c1ddf",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "distinctProjectCasesPassed": 28,
+    "finalFinancialReplayPassed": 14,
+    "replaysNotExtraCoverage": true,
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "initialFiles": [
+      "coach-cancel-finance.spec.ts",
+      "coach-finance.spec.ts",
+      "demo-payment-proof.spec.ts",
+      "commission.spec.ts",
+      "payment-flow.spec.ts"
+    ],
+    "finalFiles": [
+      "coach-cancel-finance.spec.ts",
+      "coach-finance.spec.ts"
+    ]
+  },
+  "integration": {
+    "mode": "actual local demo HTTP flow and account; no route interception",
+    "paidThenCancelledHoursAhead": 6,
+    "refundCents": 0,
+    "grossCents": 3500,
+    "feeCents": 525,
+    "coachCents": 2975,
+    "unpaidCancellationExcluded": true,
+    "coachIsolationChecked": true,
+    "clientSubmittedProofIgnored": true
+  },
+  "proofValidation": "server-origin data structural and temporal consistency; not a cryptographic or bank receipt",
+  "compatibility": "acceptedAt null and undefined treated as absent; provided invalid dates rejected",
+  "period": "createdAt Europe/Paris, unchanged",
+  "targetedCaptures": [
+    390,
+    1440
+  ],
+  "existingUiRegressionViewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "historicalRecordsModified": false,
+  "serverApiChanged": false,
+  "deployment": "none",
+  "remoteValidation": false,
+  "quota": "inaccessible",
+  "controls": [
+    "Netlify config PASS",
+    "Client secret boundary PASS",
+    "pre-push CONFORME"
+  ],
+  "sourceSha256": {
+    "gym-next/lib/domain/coach-finance.ts": "c3b1eea6e8f9a5529fd3f1904689ada7a9572447e7d4d3adf66993f046eeffdb",
+    "gym-next/tests/coach-cancel-finance.spec.ts": "c72bc7f254015c28a7d4c1cdd7df657e781503a355f7c0d9dad440d8d2f7e75b"
+  }
+}

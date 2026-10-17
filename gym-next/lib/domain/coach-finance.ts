@@ -3,6 +3,18 @@ import { eurosToCents, refundedCommissionCents } from "./commission";
 import { BOOKING_TIME_ZONE, slotInstant } from "./booking-time";
 const monthKey=(instant:number)=>new Intl.DateTimeFormat("en-CA",{timeZone:BOOKING_TIME_ZONE,year:"numeric",month:"2-digit"}).format(new Date(instant));
 const cents=(n:unknown):n is number=>typeof n==="number" && Number.isSafeInteger(n) && n>=0;
+// Structural/chronological check of trusted server data, not a signature or bank receipt.
+export function hasCoherentDemoPayment(row:Reservation,now=Date.now()) {
+ const proof:unknown=row.demoPaymentConfirmation;
+ if(!proof || typeof proof!=="object" || Array.isArray(proof))return false;
+ const value=proof as Record<string,unknown>;
+ if(value.mode!=="simulated" || typeof value.reference!=="string" || !/^demo-pay-[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(value.reference) || typeof value.confirmedAt!=="string")return false;
+ const confirmed=slotInstant(value.confirmedAt),created=slotInstant(row.createdAt);
+ if(confirmed===null || created===null || new Date(confirmed).toISOString()!==value.confirmedAt || confirmed<created || confirmed>now)return false;
+ if(row.acceptedAt!=null){const accepted=slotInstant(row.acceptedAt);if(accepted===null || accepted<created || confirmed<accepted)return false;}
+ if(row.status==="cancelled") {const cancelled=slotInstant(row.cancelledAt ?? "");if(cancelled===null || cancelled<confirmed || cancelled>now)return false;}
+ return true;
+}
 export function coachMonthlyFinance(rows:Reservation[],coachId:string,now=Date.now()) {
  const period=monthKey(now),label=new Intl.DateTimeFormat("fr-FR",{timeZone:BOOKING_TIME_ZONE,month:"long",year:"numeric"}).format(new Date(now));
  let documented=0,missing=0,ambiguousCancelled=0,undated=0,pendingRefunds=0;
@@ -11,7 +23,7 @@ export function coachMonthlyFinance(rows:Reservation[],coachId:string,now=Date.n
   if(row.coachId!==coachId || seen.has(row.id))continue;seen.add(row.id);
   if(row.status!=="paid" && row.status!=="cancelled")continue;
   const instant=slotInstant(row.createdAt);if(instant===null){undated++;continue;}if(monthKey(instant)!==period)continue;
-  if(row.status==="cancelled" && !row.stripePaymentIntentId && !((row.refundStatus==="succeeded" || row.refundStatus==="pending") && typeof row.refundAmount==="number" && row.refundAmount>0)){ambiguousCancelled++;continue;}
+  if(row.status==="cancelled" && !hasCoherentDemoPayment(row,now) && !row.stripePaymentIntentId && !((row.refundStatus==="succeeded" || row.refundStatus==="pending") && typeof row.refundAmount==="number" && row.refundAmount>0)){ambiguousCancelled++;continue;}
   const s=row.financials;
   if(!s || s.currency!=="eur" || ![s.grossCents,s.platformFeeCents,s.coachAmountCents].every(cents) || !Number.isSafeInteger(s.commissionBps) || s.commissionBps<0 || s.commissionBps>10000 || !Number.isSafeInteger(s.commissionVersion) || s.commissionVersion<1 || s.platformFeeCents+s.coachAmountCents!==s.grossCents){missing++;continue;}
   let refund=0,feeRefund=0;
