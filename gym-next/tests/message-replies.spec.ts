@@ -18,8 +18,10 @@ test("réponses : identité serveur, isolation, répétition et réservation ét
     expect(response.status()).toBe(200); expect((await response.json()).data.some((row: { id: string }) => row.id === original.id)).toBe(false);
     expect((await request.post("/api/messages", { headers, data: { replyToId: original.id, body: "Intrusion" } })).status()).toBe(403);
   }
-  expect((await request.get("/api/messages", { headers: club })).status()).toBe(403);
-  for (const headers of [club, admin, { Cookie: "" }]) expect((await request.post("/api/messages", { headers, data: { replyToId: original.id, body: "Intrusion" } })).status()).toBe(401);
+  const clubInbox = await request.get("/api/messages", { headers: club }); expect(clubInbox.status()).toBe(200);
+  expect((await clubInbox.json()).data.some((row: { id: string }) => row.id === original.id)).toBe(false);
+  expect((await request.post("/api/messages", { headers: club, data: { replyToId: original.id, body: "Intrusion" } })).status()).toBe(403);
+  for (const headers of [admin, { Cookie: "" }]) expect((await request.post("/api/messages", { headers, data: { replyToId: original.id, body: "Intrusion" } })).status()).toBe(401);
   const reply = { replyToId: original.id, body: "Réponse fictive du coach", requestId: `repeat-${Date.now()}` };
   const answers = await Promise.all([request.post("/api/messages", { headers: coach, data: reply }), request.post("/api/messages", { headers: coach, data: reply })]);
   for (const answer of answers) expect(answer.status()).toBe(201);

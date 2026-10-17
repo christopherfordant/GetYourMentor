@@ -1,0 +1,60 @@
+{
+  "baseURL": "https://getyourmentor-demo-20261014.netlify.app",
+  "scheduledEnd": "2026-10-17T01:02:13.365000+00:00",
+  "loginViaUI": true,
+  "publicationClicked": true,
+  "viewports": [
+    {
+      "page": "account-review",
+      "viewport": 320,
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "page": "account-review",
+      "viewport": 390,
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "page": "account-review",
+      "viewport": 768,
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "page": "account-review",
+      "viewport": 1440,
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "page": "public-review",
+      "viewport": 320,
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "page": "public-review",
+      "viewport": 390,
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "page": "public-review",
+      "viewport": 768,
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "page": "public-review",
+      "viewport": 1440,
+      "width": 1440,
+      "scroll": 1440
+    }
+  ],
+  "reviewId": "review-53e3df04-0c40-45bf-90e3-4e04af79d882",
+  "publishedAt": "2026-10-17T01:05:28.968Z",
+  "rating": 5,
+  "reviewCount": 1
+}

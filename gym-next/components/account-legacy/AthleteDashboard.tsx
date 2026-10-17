@@ -6,7 +6,7 @@ import type { Reservation } from "@/lib/domain";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
 import { ReservationReview } from "@/components/account-legacy/ReservationReview";
 
-export function AthleteDashboard() {
+export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -87,10 +87,10 @@ export function AthleteDashboard() {
         <p>Retrouvez vos demandes, vos séances confirmées et votre progression.</p>
       </div>
       <section className="account-dashboard-card" data-loyalty-card>
-        <h2>Fidélité</h2>
+        <h2>{demo ? "Fidélité — aperçu de démonstration" : "Mes séances payées"}</h2>
         <p data-loyalty-count>{loading ? "Chargement..." : `${paidCount} séance${paidCount > 1 ? "s" : ""} payée${paidCount > 1 ? "s" : ""}`}</p>
-        <progress max={target} value={progress} aria-label="Progression fidélité" />
-        <p>{paidCount >= target ? "Avantage fidélité disponible." : `${target - progress} séance${target - progress > 1 ? "s" : ""} avant le prochain avantage.`}</p>
+        {demo ? <progress max={target} value={progress} aria-label="Progression fidélité de démonstration" /> : null}
+        {demo ? <p>Palier indicatif de {target} paiements simulés : {progress}/{target}. Aucun avantage commercial ni réduction n’est activé.</p> : null}
       </section>
       <section className="account-dashboard-card" data-athlete-location>
         <h2>Trouver un coach près de moi</h2>

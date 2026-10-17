@@ -93,3 +93,15 @@ La branche `docs/project-foundation` peut servir a consolider les documents tran
 - Sources officielles : https://learn.chatgpt.com/docs/models et https://learn.chatgpt.com/docs/pricing. Les paramètres locaux observés ne prouvent pas une facturation ou le modèle effectif de la session.
 
 Reprise du sous-lot affiliations : `docs/RESERVATIONS_GROUPES_2026-10-16.md`, section « Préparation affiliations multi-coachs ». Maquette indépendante ; aucune intégration métier annoncée par son existence.
+
+## Reprise consolidée et budgets — décision utilisateur du 17 octobre 2026
+
+Lecture obligatoire complémentaire : `docs/sources/PROMPT_MAITRE_V3_2026-10-17.md` (extraction intégrale des 12 pages du PDF fourni), puis la section « Prompt maître V3 » de `docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md`. Il s’agit de prescriptions documentaires et d’archives, pas de preuves de fonctionnalités livrées.
+
+L’utilisateur autorise explicitement la poursuite des lots vérifiés, leur documentation et leurs commits/pushs. Cette autorisation existante couvre les correctifs démo courants malgré les STOP génériques du PDF ; elle n’autorise ni fusion, ni production, ni nouveau service payant, ni décision commerciale inventée. Garder 15 % administrable et les montants historiques (pas les 10 % historiques du PDF), la maquette HTML actuelle (pas réintroduction Emergent/carrousel 3D) et les consentements bilatéraux. Les tarifs et droits inconnus restent à décider avant activation commerciale. Ne pas créer les « Guardians » comme agents ou infrastructures parallèles : réutiliser contrôles, scénarios, index et contrats présents.
+
+Usage Codex : compteurs de quota, crédits, renouvellements et tokens inconnus restent inconnus. Estimation qualitative par lot, contrôles proportionnés et état de reprise avant opération longue ; aucune promesse de contourner un plafond. Pas de changement d’abonnement, plafond, achat ou modèle prétendu. Réduire les relectures et sorties, conserver les tests nécessaires.
+
+Usage Netlify : validation locale prioritaire ; aucun déploiement à chaque commit, documentation ou capture. Vérifier les déclencheurs Git avant push ; ne pas activer de nouveaux builds automatiques. Regrouper un candidat démo vérifié uniquement quand une validation distante est nécessaire. Réutiliser un paquet préparé seulement si sources/ZIP/BUILD_ID sont identiques. Pas de polling serré, crawl massif ni charge distante sans budget/périmètre dédiés. Lire les compteurs uniquement s’ils sont réellement disponibles ; ne jamais déduire le solde d’un succès de déploiement. Aucun changement de plan, plafond, suppression de stockage ou pause de site pour économiser sans instruction. Si le budget nécessaire est inconnu, continuer localement et documenter le besoin distant.
+
+Dernier relais : `docs/MESSAGERIE_DEMO_2026-10-17.md` pour structures/fidélité et `docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md` pour preuves hébergées. Ne pas confondre état poussé, état déployé et validation des services réels.

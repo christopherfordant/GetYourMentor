@@ -1,0 +1,47 @@
+{
+  "baseCommit": "a4f71cf0581742aa63fcf07fefec2cdfce960cc8",
+  "mode": "isolated local demonstration",
+  "build": "PASS; existing production build, no app source change since build",
+  "types": "PASS",
+  "targeted": {
+    "passed": 20,
+    "failed": 0,
+    "files": [
+      "structure-messages",
+      "message-replies",
+      "contact-flow",
+      "club-dashboard",
+      "loyalty-flow"
+    ]
+  },
+  "regression": {
+    "passed": 22,
+    "failed": 0,
+    "files": [
+      "affiliations",
+      "account-session-controls"
+    ]
+  },
+  "workers": 1,
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "newNetlifyDeployments": 0,
+  "hostedNewLotValidated": false,
+  "remoteRlsValidated": false,
+  "usageCounters": "unknown; not measured",
+  "sourceSha256": {
+    "gym-next/app/api/messages/route.ts": "e447380e77f2b64d813e6ced284512f82b45fab831086213c8a893982a52f5ee",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "930ed3b43a76ba0d9924f846d071e2bdf2f0a22ee0834ed702a679ec2e38874a",
+    "gym-next/components/account-legacy/Affiliations.tsx": "3e9b7f3a017d727505dc88fe041e65b4bfa8195a0612a4ce9df2d0313d043019",
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "f3f519e8a346953a367c55831dd697e80ae4303d08a7cfa8d6dcd6cb95aa677f",
+    "gym-next/components/account-legacy/MessageInbox.tsx": "860b3071413a3673300a221663a14ace7484b03040cd442ff14d20b941b190ec",
+    "gym-next/lib/messages.ts": "e332013c70bacdaf65bbff2949ebad88bdbaac2f995403a1a44af24255e07205",
+    "gym-next/tests/club-dashboard.spec.ts": "b9c7ecec9dc4efbaaef1c9675e82fc697a6f845599713470651149ef74d8b01d",
+    "gym-next/tests/message-replies.spec.ts": "2fce1d21a366e31a6c2fc3b905ed49d2b85dbf41f651ae66e2f2642e4728f33b",
+    "gym-next/tests/structure-messages.spec.ts": "fb17b1a45c219479aef8a8d4abeadc59fce0dc1515ce3fdd6873bfdc3509a9a3"
+  }
+}

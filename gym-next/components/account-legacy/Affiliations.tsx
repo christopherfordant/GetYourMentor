@@ -4,7 +4,7 @@ import type { Affiliation } from "@/lib/affiliations";
 import styles from "@/components/group-booking.module.css";
 
 type Row = Affiliation & { coachName: string };
-export function Affiliations({ role }: { role: "club" | "coach" }) {
+export function Affiliations({ role, onActiveChange }: { role: "club" | "coach"; onActiveChange?: (contacts: Array<{ value: string; label: string }>) => void }) {
   const [rows, setRows] = useState<Row[]>([]);
   const [candidates, setCandidates] = useState<Array<{ id: string; name: string }>>([]);
   const [message, setMessage] = useState("");
@@ -14,8 +14,10 @@ export function Affiliations({ role }: { role: "club" | "coach" }) {
     const res = await fetch("/api/affiliations", { cache: "no-store" });
     const body = await res.json();
     if (!res.ok) throw new Error(body.error ?? "Affiliations indisponibles");
+    if (!Array.isArray(body.data)) throw new Error("Affiliations indisponibles");
     setRows(body.data); setCandidates(body.candidates); setLoaded(true);
-  }, []);
+    onActiveChange?.((body.data as Row[]).filter(row => row.status === "accepted" && row.coachConsent && row.structureConsent).map(row => ({ value: role === "club" ? row.coachId : row.structureEmail, label: role === "club" ? row.coachName : row.structureEmail })));
+  }, [role, onActiveChange]);
   useEffect(() => { void load().catch(e => setMessage(e.message)); }, [load]);
   async function save(method: "POST" | "PATCH", body: object) {
     setBusy(true); setMessage("");

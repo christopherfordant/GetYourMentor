@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-17T13:29:24.894045+00:00",
+  "operations": "two read-only site metadata requests; no deploy, build or data mutation",
+  "usageCounters": "not retrieved; no consumption or remaining credit inferred",
+  "sites": [
+    {
+      "siteId": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+      "url": "https://getyourmentor-demo-20261014.netlify.app",
+      "deployId": "6ad2cabc5fae491ff7f706a0",
+      "state": "ready",
+      "linkedRepository": false,
+      "branch": null
+    },
+    {
+      "siteId": "f6c7143f-b1fe-4940-8bbe-faca06219596",
+      "url": "https://gregarious-fox-fff605.netlify.app",
+      "deployId": "6aad6d3cdf85630008dfd0e1",
+      "state": "ready",
+      "linkedRepository": true,
+      "branch": "feat/nextjs-migration"
+    }
+  ]
+}

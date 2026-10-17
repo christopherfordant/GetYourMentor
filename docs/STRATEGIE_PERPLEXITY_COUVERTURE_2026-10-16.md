@@ -107,3 +107,26 @@ Messages persistants via le store Blobs existant, réponses des deux rôles, rec
 
 ### Avis/structures — 17 octobre 2026
 Adaptateurs locaux clubs/reviews examinés puis repris, règles d’avis alignées sur BP p.32 et maître (après fin prévue d’une séance payée, pas dès paiement). Notes de présentation remplacées par agrégats d’avis enregistrés dans les parcours de démo. Formulaire sportif et lecture publique ajoutés ; création HTTP positive et persistance distante encore à recetter après une séance fictive réellement écoulée. Découverte fitness corrigée en réutilisant canonicalSportSlug. Source de déploiement et paquet préparé contrôlés par empreintes. Rapport : `AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`. V1/V2/V3 incomplets ; prochaines priorités : messagerie structures réelle, fidélité honnête, retours bêta puis abonnements/contenus/suivi simulés.
+
+## Prompt maître V3 consolidé — intégration documentaire du 17 octobre 2026
+
+Les 12 pages, annexes V1/V2 incluses, ont été extraites localement et lues. Source complète paginée, chemin et SHA-256 : `sources/PROMPT_MAITRE_V3_2026-10-17.md`. L’original n’a pas été modifié ni envoyé à un convertisseur externe. Mise en page non reproduite ; puces normalisées. Le PDF propose des exigences/méthodes, pas une preuve de leur présence dans le code. Ce tableau rattache ses domaines aux documents existants ; la qualification détaillée de chaque sous-exigence reste ouverte, sans revendication de traçabilité exhaustive achevée.
+
+| Source PDF physique | Domaine / équivalent réutilisé | État et prochaine vérification |
+| --- | --- | --- |
+| p.1 §0–1 ; p.4–7 ; p.8–9 | Audit, préservation, sources, non-régression : AGENTS, BRANCH_STRATEGY, maître, présent index | Inventaire Git/distant effectué ; changements locaux exclus. Poursuite démo déjà autorisée, pas de nouvelle orchestration ni REA installé |
+| p.1 §2 ; p.9 UI/UX | Parcours, frictions et mesures : refonte, contrat visuel, audits existants | Captures différentielles et parcours ciblés ; audit exhaustif pages/zoom/lecteur d’écran et baseline de métriques restent à qualifier. Aucun analytics installé |
+| p.1–2 §3 ; p.10 revenue | Règles financières : réservations, commissions, paiements historiques | 15 % confirmé par décision utilisateur ; 10 % PDF historique non appliqué. Règles déterministes existantes, nouveaux plans/Connect/apporteurs non activés |
+| p.2 §4 ; p.10 booking ; p.11 simulateur | Scénarios métier : consolidation, groupes, recette hébergée | Concurrence/isolation et recette démo déjà documentées ; aucun test 1 000 simultanés ou Stripe distant revendiqué |
+| p.2 §5 ; p.10 assistant | Aide, sport/nutrition, sources et permissions | Assistant avancé non livré. Réutiliser corpus autorisé et contrats ; aucune action financière LLM, aucun conseil médical généré dans ce lot |
+| p.2 §6 ; p.5–6 UI/UX | Tokens, composants partagés, clavier/mobile, anomalies | Référence HTML actuelle prioritaire ; pas réintroduction Emergent/3D. Largeurs 320/390/768/1440 contrôlées dans le lot, WCAG complète non certifiée |
+| p.2 §7 ; p.5 REA | Investigation facultative | Playwright et code propre suffisent au lot ; aucune installation ou étude de système tiers |
+| p.3 §8 ; p.10 access ; p.11 sécurité | Accès, RLS, qualité, coûts et observabilité | Contrôles locaux et isolation démo ; RLS distante, conformité juridique, SLO et capacité restent non certifiés. Budget Netlify inconnu, tests locaux prioritaires |
+| p.3 §9–10 ; p.6–7 ; p.11–12 | Livraisons, mémoire, risques et critères de fin | Documents existants enrichis, preuves archivées, commits ciblés. Périmètre commercial non inventé ; V1/V2/V3 non déclarées terminées |
+| p.10 clubs ; p.12 questions | Structures, affiliations et arbitrages | Deux consentements et prix total par taille déjà décidés ; initiation coach/structure et droits testés. Rémunération d’apporteur, vendeur contractuel et règles réelles nouvelles restent à valider avant activation |
+
+Contradictions résolues dans BRANCH_STRATEGY : décisions utilisateur actuelles > archives PDF (15 %, maquette HTML, autonomie des lots démo). Les demandes de fusion, production ou nouvelles règles commerciales ne sont pas autorisées par l’ajout du PDF. Le PDF méthodologique V3 ne définit pas à lui seul la clôture produit V3.
+
+### Reprise après consolidation
+
+Avis/messages/demandes hébergés conservés après deux versions distinctes, voir le complément `AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md`. Messagerie structure/coach et fidélité : voir `MESSAGERIE_DEMO_2026-10-17.md`. Prochaine tranche documentée : maquette bêta suggestions/votes (BP p.49, Perplexity p.12–13), puis auth, vote unique et modération démo dans les services existants. Aucun nouveau déploiement demandé pour la seule documentation ; contrôles locaux avant besoin distant. Les anciennes mentions « à recetter » restent l’historique du commit concerné.

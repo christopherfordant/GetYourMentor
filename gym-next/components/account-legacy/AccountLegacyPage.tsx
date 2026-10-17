@@ -368,6 +368,7 @@ function CoachDashboard({
   coachId?: string;
   allowDemoFallback: boolean;
 }) {
+  const [messageContacts, setMessageContacts] = useState<Array<{ value: string; label: string }>>([]);
   const [coachProfile, setCoachProfile] = useState<CoachProfile | null>(() => allowDemoFallback ? findCoach(coachName) : null);
   const [reservations, setReservations] = useState<Reservation[]>([]);
 
@@ -442,7 +443,7 @@ function CoachDashboard({
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />
-      {allowDemoFallback ? <><Affiliations role="coach" /><GroupPrices coachId={coachId} /><StructureSessions coach /></> : null}
+      {allowDemoFallback ? <><Affiliations role="coach" onActiveChange={setMessageContacts} /><GroupPrices coachId={coachId} /><StructureSessions coach /></> : null}
       {coachProfile ? (
         <CoachProfileEditor
           coachId={coachProfile.id}
@@ -471,7 +472,7 @@ function CoachDashboard({
           <p>Votre profil sera affiché dès qu’il aura été créé et vérifié par l’administrateur.</p>
         </section>
       )}
-      <MessageInbox recipientName={coachName} />
+      <MessageInbox recipientName={coachName} contacts={allowDemoFallback ? messageContacts : undefined} contactKind="structure" />
       <section className="account-dashboard-card" id="coach-help">
         <h3>Conseils et aides</h3>
         <p>Complétez votre profil, consultez les demandes puis acceptez uniquement les séances que vous pouvez assurer. Retrouvez vos échanges dans la messagerie.</p>
@@ -649,180 +650,8 @@ function ClubLeadPanel() {
 }
 
 function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
-  return <section className="account-dashboard" data-account-dashboard="club"><ClubLeadPanel />{allowDemoFallback ? <><Affiliations role="club" /><StructureSessions /></> : null}</section>;
-}
-
-// Historical presentation kept for reference; never rendered as operational UI.
-function LegacyClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
-  if (!allowDemoFallback) return <ClubLeadPanel />;
-
-  return (
-    <section className="account-dashboard coach-home club-home" data-account-dashboard="club">
-      <aside className="coach-home-sidebar club-home-sidebar">
-        <a className="coach-home-nav-main is-active" href="#account-content">Accueil</a>
-        <div className="coach-home-nav-group">
-          <div className="coach-home-nav-heading">Organisation</div>
-          <a href="#club-planning">Planning du club</a>
-          <a href="#club-messages">Messagerie</a>
-          <a href="#club-coaches">Mes coachs affiliés</a>
-        </div>
-        <div className="coach-home-nav-group">
-          <div className="coach-home-nav-heading">Mes données</div>
-          <a href="#club-overview">Tableau de bord</a>
-          <a href="#club-payments">Mes paiements</a>
-        </div>
-        <div className="coach-home-nav-footer">
-        </div>
-      </aside>
-      <section className="coach-home-planning account-dashboard-card club-home-planning" id="club-planning">
-        <div className="coach-home-card-head">
-          <h3>Planning du club</h3>
-          <span>Aujourd'hui</span>
-        </div>
-        <p>Horaires Europe/Paris. Les demandes, confirmations et annulations sont actualisées avec le suivi des réservations.</p>
-        <div className="coach-home-schedule">
-          <article>
-            <strong>18h - 19h</strong>
-            <span>Steven Fordant - groupe U17</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "football", city: "Marseille", coach: "Steven Fordant" })}>Voir fiche</a>
-          </article>
-          <article>
-            <strong>19h - 20h</strong>
-            <span>Kenza Training - séance cardio</span>
-            <a href={buildNextPath(nextRoutes.coach, { sport: "metiers-de-la-forme", city: "Lille", coach: "Kenza Training Club" })}>Voir fiche</a>
-          </article>
-          <article>
-            <strong>20h - 21h</strong>
-            <span>Créneau libre pour un nouveau coach</span>
-            <a href={buildNextPath(nextRoutes.clubSignup, { source: "compte" })}>Gérer</a>
-          </article>
-        </div>
-      </section>
-      <div className="coach-home-focus club-home-focus">
-        <article className="account-dashboard-card coach-home-next-session club-home-next-session" id="club-overview" data-coach-display-block="next-session">
-          <div className="coach-home-card-head">
-            <h3>Prochaines séances</h3>
-            <div className="coach-home-next-head-actions">
-              <span>05/04</span>
-              <button className="coach-home-next-arrow" type="button" aria-label="Séance suivante">
-                ›
-              </button>
-            </div>
-          </div>
-          <div className="coach-home-next-copy coach-home-next-copy--plain">
-            <strong>Steven Fordant</strong>
-            <span>Football - groupe U17</span>
-            <span>Responsable : Christopher Fordant</span>
-            <span>Lieu : Complexe sportif Marseille Est</span>
-            <span>18h - 19h</span>
-          </div>
-          <a className="coach-home-inline-link" href={buildNextPath(nextRoutes.coach, { sport: "football", city: "Marseille", coach: "Steven Fordant" })}>
-            Voir la séance
-          </a>
-        </article>
-        <article className="account-dashboard-card club-home-summary-card" data-coach-display-block="rating">
-          <div className="coach-home-card-head">
-            <h3>Mes coachs affiliés</h3>
-            <span>4 actifs</span>
-          </div>
-          <div className="club-home-stat-grid">
-            <div>
-              <span>Coachs actifs</span>
-              <strong>4</strong>
-            </div>
-            <div>
-              <span>Séances ce mois</span>
-              <strong>28</strong>
-            </div>
-            <div>
-              <span>Structures suivies</span>
-              <strong>2</strong>
-            </div>
-            <div>
-              <span>Taux d'occupation</span>
-              <strong>81%</strong>
-            </div>
-          </div>
-        </article>
-        <article className="account-dashboard-card coach-home-revenue club-home-revenue" id="club-payments" data-coach-display-block="revenue">
-          <div className="coach-home-card-head">
-            <h3>Revenus du club</h3>
-            <span>Mars</span>
-          </div>
-          <div className="coach-home-revenue-amount">2 450 EUR</div>
-          <p>Montant validé sur les séances facturées, les coachs affiliés et les encaissements confirmés du mois.</p>
-        </article>
-        <article className="account-dashboard-card club-home-profile-preview">
-          <div className="coach-home-card-head">
-            <h3>Aperçu de la structure</h3>
-            <span>Vue publique</span>
-          </div>
-          <div className="coach-home-profile-preview-head">
-            <strong>Club Horizon Marseille</strong>
-            <span>Football, préparation physique, accompagnement jeune</span>
-          </div>
-          <div className="club-home-preview-badges">
-            <span>4 coachs certifiés</span>
-            <span>7 créneaux cette semaine</span>
-            <span>Dès 29 EUR</span>
-          </div>
-          <div className="coach-home-profile-preview-grid">
-            <div>
-              <span>Disciplines</span>
-              <strong>Football, prépa physique, reprise</strong>
-            </div>
-            <div>
-              <span>Formats</span>
-              <strong>Individuel, petits groupes, stages</strong>
-            </div>
-            <div>
-              <span>Lieu</span>
-              <strong>Marseille Est, accès facile et parking</strong>
-            </div>
-            <div>
-              <span>Rythme</span>
-              <strong>Cours chaque semaine et planning visible</strong>
-            </div>
-          </div>
-          <p className="coach-home-profile-preview-copy">
-            Comme sur les sites de forme, l'idée est de montrer tout de suite ce qu'on pratique, avec qui, à quel rythme et à partir de quel niveau de prix.
-          </p>
-          <div className="club-home-preview-actions">
-            <a className="coach-home-inline-link" href={`${nextRoutes.search}?sport=football&city=Marseille`}>
-              Voir le club en ligne
-            </a>
-            <a className="coach-home-inline-link coach-home-inline-link--ghost" href={`${nextRoutes.search}?sport=football&city=Marseille`}>
-              Voir les coachs affiliés
-            </a>
-          </div>
-        </article>
-      </div>
-      <section className="account-dashboard-card coach-home-messages club-home-messages" id="club-messages">
-        <div className="coach-home-card-head">
-          <h3>Messagerie</h3>
-          <span>5 conversations</span>
-        </div>
-        <div className="coach-home-message-list">
-          <article>
-            <strong>Steven Fordant</strong>
-            <span>Demande de validation pour le créneau U17 de jeudi soir.</span>
-          </article>
-          <article>
-            <strong>Madison Seck</strong>
-            <span>Question sur l'affiliation d'un nouveau coach pour la structure.</span>
-          </article>
-          <article>
-            <strong>Parent - Eliott Vazquez</strong>
-            <span>Besoin d'informations sur les séances et les disponibilités du club.</span>
-          </article>
-          <article>
-            <strong>Christopher Fordant</strong>
-            <span>Suivi du paiement de mars et ajustement du RIB de la structure.</span>
-          </article>
-        </div>
-      </section>
-    </section>
-  );
+  const [messageContacts, setMessageContacts] = useState<Array<{ value: string; label: string }>>([]);
+  return <section className="account-dashboard" data-account-dashboard="club"><ClubLeadPanel />{allowDemoFallback ? <><Affiliations role="club" onActiveChange={setMessageContacts} /><StructureSessions /><MessageInbox contacts={messageContacts} /></> : null}</section>;
 }
 
 import { SiteFooter } from "@/components/SiteFooter";
@@ -1038,7 +867,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                 }}
               />
             ) : null}
-            {dashboardMode === "sportif" ? <AthleteDashboard /> : null}
+            {dashboardMode === "sportif" ? <AthleteDashboard demo={allowDemoFallback} /> : null}
             {dashboardMode === "admin" ? <AdminDashboard /> : null}
             {dashboardMode === "coach" ? (
               <CoachDashboard

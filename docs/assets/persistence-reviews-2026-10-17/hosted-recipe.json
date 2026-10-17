@@ -1,0 +1,52 @@
+{
+  "baseURL": "https://getyourmentor-demo-20261014.netlify.app",
+  "checks": [
+    "isolated demo with no real integrations",
+    "commission unchanged at 15 percent",
+    "club request stored and normalized",
+    "coach reply is idempotent",
+    "review rejected before scheduled session end",
+    "review accepted after real scheduled end and duplicate refused",
+    "athlete retains original and coach reply",
+    "foreign account sees no conversation",
+    "coach retains authored reply",
+    "club retains request status",
+    "public review excludes identities and reservation IDs",
+    "rating calculated from recorded review",
+    "private review retained",
+    "records survive distinct redeployment and fresh sign-ins"
+  ],
+  "created": {
+    "coach": {
+      "email": "core-coach-bf111f87dd@example.com",
+      "role": "coach",
+      "coachId": "coach-fictifcoachbf111f87dd-recette"
+    },
+    "athlete": {
+      "email": "core-athlete-bf111f87dd@example.com",
+      "role": "sportif",
+      "coachId": null
+    },
+    "other": {
+      "email": "core-other-bf111f87dd@example.com",
+      "role": "sportif",
+      "coachId": null
+    },
+    "club": {
+      "email": "core-club-bf111f87dd@example.com",
+      "role": "club",
+      "coachId": null
+    },
+    "leadId": "1bc83f12-64ec-4359-a7eb-e0dec29ab887",
+    "messageId": "message-2b6e1271-0253-41a3-abb4-ac0abba03d98",
+    "replyId": "message-15885f01-18c9-459b-a359-954618440945",
+    "offerId": "offer-67bf951b-6a1f-430c-b25d-0ca57f7de1ff",
+    "reservationId": "res-c21b0e84-e09f-49a5-816a-4b180b9a3932",
+    "reviewId": "review-53e3df04-0c40-45bf-90e3-4e04af79d882"
+  },
+  "phase": "verified-after-redeployment",
+  "baselineDeploy": "6ad2c78ba397b6258a9df84d",
+  "sourceCommit": "a4f71cf0581742aa63fcf07fefec2cdfce960cc8",
+  "reviewAt": "2026-10-17T01:02:13.365000+00:00",
+  "verifiedDeploy": "6ad2cabc5fae491ff7f706a0"
+}

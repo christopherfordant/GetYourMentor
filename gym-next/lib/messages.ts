@@ -6,7 +6,8 @@ export type Message = {
   body: string;
   createdAt: string;
   coachId?: string;
-  authorRole?: "sportif" | "coach";
+  authorRole?: "sportif" | "coach" | "club";
+  ownerRole?: "sportif" | "club";
   replyToId?: string;
   requestId?: string;
 };
@@ -28,7 +29,7 @@ export async function createMessage(message: Message) {
   const config = supabaseConfig();
   if (!config) {
     const save = (messages: Message[]) => {
-      const previous = message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole) : undefined;
+      const previous = message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole && (row.ownerRole ?? "sportif") === (message.ownerRole ?? "sportif")) : undefined;
       if (previous) {
         if (previous.body !== message.body || previous.replyToId !== message.replyToId) throw new Error("Cette demande a déjà été utilisée pour un autre message");
         return previous;
