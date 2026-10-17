@@ -1,5 +1,6 @@
 "use client";
-import { coachMonthlyFinance,formatFinanceCents } from "@/lib/domain/coach-finance";
+import financeFilterStyles from "./coach-finance-filter.module.css";
+import { coachMonthlyFinance,formatFinanceCents,coachMonthKey,isCoachMonth } from "@/lib/domain/coach-finance";
 import { CoachFinanceSummary } from "./CoachFinanceSummary";
 import { Affiliations } from "@/components/account-legacy/Affiliations";
 import { formatBookingSlot } from "@/lib/domain/booking-time";
@@ -375,6 +376,10 @@ function CoachDashboard({
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [financeLoading,setFinanceLoading]=useState(true);
   const [financeError,setFinanceError]=useState(false);
+  const [financePeriod,setFinancePeriod]=useState(()=>coachMonthKey());
+  const [financeMonthDraft,setFinanceMonthDraft]=useState(()=>coachMonthKey());
+  const [financeMonthError,setFinanceMonthError]=useState("");
+  useEffect(()=>{const month=coachMonthKey();setFinancePeriod(month);setFinanceMonthDraft(month);setFinanceMonthError("");},[coachId]);
 
   useEffect(() => {
     fetch(`/api/coaches/${encodeURIComponent(coachId ?? coachName)}`)
@@ -394,7 +399,7 @@ function CoachDashboard({
       .finally(()=>setFinanceLoading(false));
   }, [coachId]);
 
-  const monthlyFinance=coachId?coachMonthlyFinance(reservations,coachId):null;
+  const monthlyFinance=coachId?coachMonthlyFinance(reservations,coachId,Date.now(),financePeriod):null;
   const nextReservation = reservations.find((reservation) => ["accepted", "paid"].includes(reservation.status)) ?? reservations[0];
 
   const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
@@ -485,7 +490,7 @@ function CoachDashboard({
         <div className="coach-home-profile-preview-grid">
           <div><span>Demandes à traiter</span><strong data-coach-request-count>{requestedCount}</strong></div>
           <div><span>Réservations confirmées</span><strong data-coach-accepted-count>{acceptedCount}</strong></div>
-          <div><span>Part coach documentée · créations du mois (Paris)</span><strong data-coach-finance-overview>{financeLoading?"Chargement…":financeError||!monthlyFinance?.totals?"Indisponible":formatFinanceCents(monthlyFinance.totals.coachCents)}</strong></div>
+          <div><span>Part coach documentée · créations en {monthlyFinance?.label} (Paris)</span><strong data-coach-finance-overview>{financeLoading?"Chargement…":financeError||!monthlyFinance?.totals?"Indisponible":formatFinanceCents(monthlyFinance.totals.coachCents)}</strong></div>
         </div>
       </section>
       <div className="coach-home-focus">
@@ -516,6 +521,15 @@ function CoachDashboard({
           <div className="coach-home-card-head">
             <h3>Montants des réservations</h3>
           </div>
+          <form className={financeFilterStyles.filter} aria-label="Période des montants coach" onSubmit={event=>{event.preventDefault();if(!isCoachMonth(financeMonthDraft)){setFinanceMonthError("Choisis un mois valide entre 2000 et 9999.");return;}setFinancePeriod(financeMonthDraft);setFinanceMonthError("");}}>
+            <label className={financeFilterStyles.month}>Mois de création
+              <input type="month" min="2000-01" max="9999-12" required value={financeMonthDraft} aria-describedby="coach-finance-period-hint" onInvalid={()=>setFinanceMonthError("Choisis un mois valide entre 2000 et 9999.")} onChange={event=>{setFinanceMonthDraft(event.target.value);setFinanceMonthError("");}} />
+            </label>
+            <button className="auth-secondary" type="submit">Appliquer le mois</button>
+            <button className="auth-secondary" type="button" onClick={()=>{const month=coachMonthKey();setFinancePeriod(month);setFinanceMonthDraft(month);setFinanceMonthError("");}}>Mois courant</button>
+          </form>
+          <p id="coach-finance-period-hint">Le mois et l’année sont appliqués après validation. Filtre de création en Europe/Paris, sans changement des données.</p>
+          {financeMonthError?<p role="alert">{financeMonthError}</p>:null}
           <CoachFinanceSummary summary={monthlyFinance} loading={financeLoading} error={financeError} demo={allowDemoFallback} />
         </article>
         <article className="account-dashboard-card coach-home-profile-preview" data-coach-display-block="profile-preview">

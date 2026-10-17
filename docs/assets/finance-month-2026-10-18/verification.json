@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-18",
+  "base": "a99edb8f33c80c20505db7999868f7db5af7297a",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "coach monthly creation filter only",
+  "timezone": "Europe/Paris",
+  "browserTimezoneForNewTests": "America/Los_Angeles",
+  "checks": {
+    "build": "PASS",
+    "types": "PASS",
+    "netlifyConfigStatic": "PASS",
+    "clientSecretBoundary": "PASS",
+    "prePushFilRouge": "CONFORME"
+  },
+  "playwright": {
+    "runner": "local Playwright, not MCP",
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "files": [
+      "coach-finance-month.spec.ts",
+      "coach-finance.spec.ts",
+      "coach-cancel-finance.spec.ts"
+    ],
+    "expectedCases": 20,
+    "finalResult": "20 passed (34.7s)",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "workers": 1,
+    "fixtures": "Monthly UI GET intercepted with synthetic rows; separate existing HTTP payment/cancellation regression runs against real local endpoints and repository, without network interception. No remote persistence validation.",
+    "initialRun": "20 passed; year range validation subsequently corrected and final suite repeated, not counted as additional coverage"
+  },
+  "invariants": [
+    "Creation month, not payment or payout",
+    "now remains actual evidence validation instant",
+    "Same summary result for top and detailed card",
+    "Snapshots and historical commissions unchanged",
+    "No reservation mutation or URL change",
+    "Missing dates, partial data and network errors distinct from empty month",
+    "No backfill, rights expansion or production activity"
+  ],
+  "usageCounters": "inaccessible; no precise quota or token estimate",
+  "remoteValidation": false,
+  "deployed": false,
+  "sha256LF": {
+    "gym-next/lib/domain/coach-finance.ts": "1aac1ba6339fe5f2f9fb9dcc63943456d0040269e15bd698ec1bd6665f61dd75",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "bf0fb34d253c4403ca404c117de33f9a42506256406166d2de98346168970e2b",
+    "gym-next/components/account-legacy/CoachFinanceSummary.tsx": "11673b6850835e3bd139284c86693f52f93fb4e4455f4301d9a57d9869bf338e",
+    "gym-next/components/account-legacy/coach-finance-filter.module.css": "193c0e86dea19c037fd424a193bfaa88d5877a141b5070b41c7d5ee6aa9cf968",
+    "gym-next/tests/coach-finance-month.spec.ts": "f97141204617a8ddb234d23cbe742edfc9acf21679866ea3c82b48bb185248ea"
+  }
+}

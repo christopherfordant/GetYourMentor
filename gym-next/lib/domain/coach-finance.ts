@@ -1,7 +1,7 @@
 import type { Reservation } from "@/lib/domain";
 import { eurosToCents, refundedCommissionCents } from "./commission";
 import { BOOKING_TIME_ZONE, slotInstant } from "./booking-time";
-const monthKey=(instant:number)=>new Intl.DateTimeFormat("en-CA",{timeZone:BOOKING_TIME_ZONE,year:"numeric",month:"2-digit"}).format(new Date(instant));
+export const coachMonthKey=(instant=Date.now())=>new Intl.DateTimeFormat("en-CA",{timeZone:BOOKING_TIME_ZONE,year:"numeric",month:"2-digit"}).format(new Date(instant));
 const cents=(n:unknown):n is number=>typeof n==="number" && Number.isSafeInteger(n) && n>=0;
 // Structural/chronological check of trusted server data, not a signature or bank receipt.
 export function hasCoherentDemoPayment(row:Reservation,now=Date.now()) {
@@ -15,14 +15,21 @@ export function hasCoherentDemoPayment(row:Reservation,now=Date.now()) {
  if(row.status==="cancelled") {const cancelled=slotInstant(row.cancelledAt ?? "");if(cancelled===null || cancelled<confirmed || cancelled>now)return false;}
  return true;
 }
-export function coachMonthlyFinance(rows:Reservation[],coachId:string,now=Date.now()) {
- const period=monthKey(now),label=new Intl.DateTimeFormat("fr-FR",{timeZone:BOOKING_TIME_ZONE,month:"long",year:"numeric"}).format(new Date(now));
+export function isCoachMonth(value:unknown):value is string {
+ return typeof value==="string" && /^[2-9][0-9]{3}-(?:0[1-9]|1[0-2])$/.test(value);
+}
+export function coachMonthlyFinance(rows:Reservation[],coachId:string,now=Date.now(),selectedPeriod?:unknown) {
+ const invalidPeriod=selectedPeriod!==undefined && !isCoachMonth(selectedPeriod);
+ const period=isCoachMonth(selectedPeriod)?selectedPeriod:coachMonthKey(now);
+ const [year,month]=period.split("-").map(Number);
+ const label=new Intl.DateTimeFormat("fr-FR",{timeZone:BOOKING_TIME_ZONE,month:"long",year:"numeric"}).format(new Date(Date.UTC(year,month-1,15,12)));
+
  let documented=0,missing=0,ambiguousCancelled=0,undated=0,pendingRefunds=0;
  const totals={grossCents:0,refundCents:0,feeCents:0,coachCents:0};const seen=new Set<string>();
  for(const row of rows){
   if(row.coachId!==coachId || seen.has(row.id))continue;seen.add(row.id);
   if(row.status!=="paid" && row.status!=="cancelled")continue;
-  const instant=slotInstant(row.createdAt);if(instant===null){undated++;continue;}if(monthKey(instant)!==period)continue;
+  const instant=slotInstant(row.createdAt);if(instant===null){undated++;continue;}if(coachMonthKey(instant)!==period)continue;
   if(row.status==="cancelled" && !hasCoherentDemoPayment(row,now) && !row.stripePaymentIntentId && !((row.refundStatus==="succeeded" || row.refundStatus==="pending") && typeof row.refundAmount==="number" && row.refundAmount>0)){ambiguousCancelled++;continue;}
   const s=row.financials;
   if(!s || s.currency!=="eur" || ![s.grossCents,s.platformFeeCents,s.coachAmountCents].every(cents) || !Number.isSafeInteger(s.commissionBps) || s.commissionBps<0 || s.commissionBps>10000 || !Number.isSafeInteger(s.commissionVersion) || s.commissionVersion<1 || s.platformFeeCents+s.coachAmountCents!==s.grossCents){missing++;continue;}
@@ -41,6 +48,6 @@ export function coachMonthlyFinance(rows:Reservation[],coachId:string,now=Date.n
   if(Object.keys(totals).some(k=>!Number.isSafeInteger(totals[k as keyof typeof totals]+next[k as keyof typeof next]))){missing++;continue;}
   for(const k of Object.keys(totals) as (keyof typeof totals)[])totals[k]+=next[k];documented++;
  }
- return {period,label,timeZone:BOOKING_TIME_ZONE,documented,missing,ambiguousCancelled,undated,pendingRefunds,totals:documented===0 && (missing+ambiguousCancelled+undated)>0?null:totals};
+ return {period,label,invalidPeriod,timeZone:BOOKING_TIME_ZONE,documented,missing,ambiguousCancelled,undated,pendingRefunds,totals:documented===0 && (missing+ambiguousCancelled+undated)>0?null:totals};
 }
 export const formatFinanceCents=(value:number)=>new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(value/100);
