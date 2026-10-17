@@ -101,3 +101,6 @@ Mandat utilisateur : poursuivre les lots documentés sans confirmation technique
 | Sécurité/CI/performance/SEO | Contrôles locaux présents, workflow principal ne suit pas la branche | Tests, secrets/frontière client, noindex démo ; CI distante séparée ; RLS réelle hors recette Blobs |
 
 Suite : découverte collective → messages/avis/persistance → bêta/retours → abonnements/contenus/suivi simulés → gestion/statistiques et maquettes avancées. Rapport : `DECOUVERTE_COLLECTIVE_2026-10-17.md`. V1/V2/V3 non terminées ; séparation V3/V4/V5 du Business Plan encore incomplète, aucun critère de clôture inventé.
+
+### Messagerie — lot du 17 octobre 2026
+Messages persistants via le store Blobs existant, réponses des deux rôles, recherche et protections testées localement ; preuve de conservation distante après redéploiement encore à effectuer. Le champ historique senderEmail conserve l’identité du sportif de la conversation ; authorRole identifie l’auteur réel. Nouveaux messages liés au coachId serveur, anciens résolus par leur destinataire historique. Structures, pièces jointes, lecture instantanée/push et templates restent à traiter. Correctifs locaux reviews/clubs non inclus automatiquement. Rapport : `MESSAGERIE_DEMO_2026-10-17.md`.

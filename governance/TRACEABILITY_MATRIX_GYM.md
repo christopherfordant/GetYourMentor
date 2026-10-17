@@ -52,3 +52,6 @@ US-COACH-01 / US-CLUB-01 / US-SPORTIF-05/07/08 : persistance profils/tarifs/affi
 
 ## Découverte collective — 17 octobre 2026
 US-SPORTIF-05 / US-COACH-01 / US-CLUB-01 : MVP p.1, Business Plan p.28–31/49–51. Catalogue des offres existantes ; filtres quatre sports/ville du coach/origine/taille, dates, capacités restantes et tarifs totaux. Projection sans participants, moteur de réservation réutilisé, commission historique conservée. Rapport : `docs/DECOUVERTE_COLLECTIVE_2026-10-17.md`.
+
+## Messagerie bilatérale démo — 17 octobre 2026
+Business Plan p.29/50 : sportif contacte coach, réponses authentifiées, recherche et historique. Stockage existant et projection liée aux identités serveur, répétition identique idempotente. États de panne/réessai, aucune notification externe. Preuves : `docs/MESSAGERIE_DEMO_2026-10-17.md`.

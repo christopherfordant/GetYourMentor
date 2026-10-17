@@ -1,31 +1,36 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useRef, useState } from "react";
 
 export function ContactCoachForm({ coach }: { coach: string }) {
   const [body, setBody] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
   const [sending, setSending] = useState(false);
+  const inFlight = useRef(false);
+  const requestId = useRef("");
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!body.trim() || sending) return;
+    if (!body.trim() || inFlight.current) return;
+    inFlight.current = true;
+    requestId.current ||= crypto.randomUUID();
     setError("");
     setSending(true);
+    try {
     const response = await fetch("/api/messages", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ recipientName: coach, body }),
+      body: JSON.stringify({ recipientName: coach, body, requestId: requestId.current }),
     });
     const payload = await response.json();
     if (!response.ok) {
-      setError(payload.error ?? "Message impossible");
-      setSending(false);
-      return;
+      throw new Error(payload.error ?? "Message impossible");
     }
     setSent(true);
-    setSending(false);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Envoi non confirmé. Réessayez ce message.");
+    } finally { inFlight.current = false; setSending(false); }
   }
 
   return (
@@ -48,11 +53,11 @@ export function ContactCoachForm({ coach }: { coach: string }) {
               "Quel créneau vous conviendrait ?",
               "La séance est-elle adaptée à mon niveau ?",
               "Quel objectif pouvons-nous travailler ?",
-            ].map((prompt) => <button key={prompt} type="button" onClick={() => setBody(prompt)}>{prompt}</button>)}
+            ].map((prompt) => <button key={prompt} type="button" disabled={sending} onClick={() => { setBody(prompt); requestId.current = ""; }}>{prompt}</button>)}
           </div>
           <label className="de-booking-contact-field">
             <span>Votre message</span>
-            <textarea value={body} maxLength={500} onChange={(event) => setBody(event.target.value)} placeholder="Posez votre question en quelques mots…" />
+            <textarea value={body} disabled={sending} maxLength={500} onChange={(event) => { setBody(event.target.value); requestId.current = ""; }} placeholder="Posez votre question en quelques mots…" />
           </label>
           <div className="de-booking-contact-form-meta"><span>Réponse selon les disponibilités du coach</span><span>{body.length}/500</span></div>
           <button className="de-booking-contact-submit" type="submit" disabled={!body.trim() || sending}>{sending ? "Envoi en cours…" : "Envoyer le message"}<span aria-hidden="true">↗</span></button>

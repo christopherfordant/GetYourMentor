@@ -1,0 +1,23 @@
+# Messagerie bilatérale en démonstration — 17 octobre 2026
+
+Base 739b87b vérifiée sur GitHub, checkout isolé GYM-messaging-completion. Sources : Business Plan p.29/50 (messages/historique/modèles/recherche), contrat visuel et comptes existants. Le correctif local messages.ts qui relie Blobs a été examiné et repris ; autres correctifs locaux clubs/reviews exclus.
+
+## Changements
+Le sportif contacte un coach validé depuis sa fiche. Coach et sportif répondent depuis la messagerie du compte, avec recherche locale, dates Europe/Paris, actualisation et erreurs visibles. Aucun nouvel écran ni design indépendant : extension des cartes de compte existantes. Aucun email/SMS ni abonnement activé.
+Identités imposées serveur, pas celles du JSON. Une réponse exige une conversation accessible ; autre sportif/autre coach refusés. Club/admin ne peuvent envoyer de réponse. Lecture admin conservée. Référence de réservation initiale autorisée seulement à son propriétaire et pour le bon coach. UUID serveur, textes bornés, limite 60 messages/minute par clé client (limite technique démo, pas offre commerciale).
+Stockage Message existant : senderEmail conserve le propriétaire sportif historique ; coachId et authorRole précisent conversation et auteur. Anciens messages restent lisibles via résolution du destinataire historique ; aucun champ Supabase ajouté ni réponse coach activée sur fournisseur réel. requestId/replyToId facultatifs, répétition du même envoi renvoyant le même message, contenu différent pour la même clé refusé. Atomicité Blobs réutilisée, aucune seconde base. En mémoire locale, insertion synchrone ; en hébergement, lecture/écriture via readDemoState/mutateDemoState.
+Formulaire de contact : erreur réseau libère le bouton, pas de succès fictif ; identifiant conservé pour réessai identique, nouvelle saisie vaut nouveau message. Réponse compte : garde synchrone contre double soumission, brouillon conservé après erreur. Pas de polling supplémentaire.
+
+## Vérifications
+Build et typage PASS ; campagne 16/16 PASS : message-replies/contact-flow/club-dashboard/signout, desktop/mobile, un worker. Contrat Netlify et frontière client/serveur PASS. Contrôle final secrets et pré-push avant livraison. Rejeu message-replies pour captures et contrôle du champ non masqué : consigné après résultat, pas de couverture ajoutée artificiellement.
+Scénarios : identité forgée ignorée, autres comptes exclus, rôle non autorisé, répétitions parallèles sans doublon, clé réutilisée avec contenu différent 409, référence étrangère 403, coach répond via UI puis sportif retrouve sa réponse, recherche vide, réseau interrompu sans faux succès, panne de lecture avec réessai, déconnexion.
+Largeurs 320/390/768/1440 sans débordement ; champ de réponse testé via elementFromPoint après focus. Première capture révélait une bannière cookies apparue après un test isVisible trop précoce : recette corrigée pour attendre la présence du contrôle cookies puis refuser avant captures. Pas de conclusion basée sur la première capture masquée.
+Captures finales : [coach mobile](assets/messages-demo-2026-10-17/coach-390.png), [coach desktop](assets/messages-demo-2026-10-17/coach-1440.png). Données exclusivement fictives @example.com. MCP a ouvert le compte local, mais sa connexion ne montrait pas la messagerie : aucune preuve de compte connecté MCP revendiquée ; UI réellement vérifiée par Playwright de test.
+
+## Limites et suite
+Push ciblé sur design/refonte-progressive-lot1, SHA distant confirmé séparément. Pas encore déployé ; persistance Blobs implémentée mais conservation distante des messages après redéploiement non encore validée. RLS Supabase/notifications externes non validées. Club, pièces jointes, regroupement conversationnel avancé et temps réel ne sont pas livrés. Historique par nom ancien : attribution au profil résolu actuellement, sans réattribution automatique si renommé ; nouveaux échanges utilisent coachId stable.
+Retour arrière : revert ciblé, conserver messages et champs supplémentaires ; ne pas restaurer aveuglément une vieille démo qui ignore authorRole. Déploiement futur uniquement sur site démo 86e0379e-4d1a-4cf0-936c-1439397354f4.
+Suite autonome : persistance avis/clubs et recette distante, puis retours bêta/suggestions/votes documentés. V1/V2/V3 restent incomplets.
+
+### Résultat complémentaire
+Rejeu final 8/8 PASS de message-replies après stabilisation des sélecteurs accessibles (textbox par rôle, le texte saisi ne doit pas changer la recherche du label). Captures renouvelées, champ non masqué aux quatre largeurs. La campagne intermédiaire 6/8 n’est pas comptée comme une réussite. Pré-push CONFORME sur candidat isolé.

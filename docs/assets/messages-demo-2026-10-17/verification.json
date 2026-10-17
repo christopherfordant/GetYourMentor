@@ -1,0 +1,21 @@
+{
+  "base": "739b87b3580cd23ac537688bde1c18c82c22f725",
+  "build": "PASS",
+  "typecheck": "PASS",
+  "tests": "16/16 PASS",
+  "captureReplay": "8/8 PASS (same scenarios plus focus assertions, not additive coverage)",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "prepush": "CONFORME",
+  "hostedPersistence": "implemented, remote redeployment not yet verified",
+  "applicationSHA256": {
+    "gym-next/app/api/messages/route.ts": "bfaec73f3b52e07f965575c09118c7975983e6702749395301d91f55796dee7b",
+    "gym-next/lib/messages.ts": "490671fc682c10b4e6f8752a409e9d1bea5c51a717a7aa72a1d87d156cecb7b1",
+    "gym-next/components/account-legacy/MessageInbox.tsx": "f015cb6ffcf2cefa9a44e30177b4c60179ef3869dd761814bc81f916c5e8b08d",
+    "gym-next/components/booking-legacy/ContactCoachForm.tsx": "88bcacf3df9070cd0bb5e57f1e9357eb48849093da2eb7a4cc829517d27f6a33"
+  }
+}

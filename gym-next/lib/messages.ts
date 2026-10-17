@@ -5,9 +5,14 @@ export type Message = {
   reservationId?: string;
   body: string;
   createdAt: string;
+  coachId?: string;
+  authorRole?: "sportif" | "coach";
+  replyToId?: string;
+  requestId?: string;
 };
 
-import { assertDemoFallbackAllowed } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 
 const memoryMessages: Message[] = [];
 
@@ -22,8 +27,16 @@ function supabaseConfig() {
 export async function createMessage(message: Message) {
   const config = supabaseConfig();
   if (!config) {
-    memoryMessages.push(message);
-    return message;
+    const save = (messages: Message[]) => {
+      const previous = message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole) : undefined;
+      if (previous) {
+        if (previous.body !== message.body || previous.replyToId !== message.replyToId) throw new Error("Cette demande a déjà été utilisée pour un autre message");
+        return previous;
+      }
+      messages.push(message); return message;
+    };
+    if (isHostedDemo()) return mutateDemoState(state => save(state.messages));
+    return save(memoryMessages);
   }
 
   const response = await fetch(`${config.url}/rest/v1/gym_messages`, {
@@ -51,7 +64,7 @@ export async function createMessage(message: Message) {
 export async function listMessages(options: { senderEmail?: string; recipientName?: string } = {}) {
   const config = supabaseConfig();
   if (!config) {
-    return memoryMessages.filter((message) =>
+    return (isHostedDemo() ? (await readDemoState()).messages : memoryMessages).filter((message) =>
       (!options.senderEmail || message.senderEmail === options.senderEmail) &&
       (!options.recipientName || message.recipientName.toLowerCase() === options.recipientName.toLowerCase()),
     );

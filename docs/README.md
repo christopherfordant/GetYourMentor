@@ -1,3 +1,5 @@
+> **Messagerie démo — 17 octobre 2026 :** réponses coach/sportif, isolation, répétitions protégées et stockage Blobs existant. Rapport : `docs/MESSAGERIE_DEMO_2026-10-17.md`. Aucun message externe ni clôture V1/V2/V3.
+
 > **Reprise autonome et découverte collective — 17 octobre 2026 :** catalogue partagé `/seances`, filtres URL et moteur de réservation existant. Rapport : `docs/DECOUVERTE_COLLECTIVE_2026-10-17.md`. V1/V2/V3 restent incomplets.
 
 > **Recette démo hébergée — 17 octobre 2026 :** persistance après deux déploiements distincts, concurrence et isolation entre comptes vérifiées sur le site démo dédié. Empaquetage Windows corrigé, health stockage et robots qualifiés ; aucun déploiement du site historique. Reprise : `RECETTE_DEMO_HEBERGEE_2026-10-17.md`.
