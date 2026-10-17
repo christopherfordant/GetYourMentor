@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-18 Europe/Madrid",
+  "base": "9df45d2eb83e00582b057175a110ed1a353154b1",
+  "build": "PASS",
+  "types": "PASS",
+  "tests": {
+    "distinctProjectCasesPassed": 24,
+    "targetedFinalReplayPassed": 6,
+    "replaysNotAdditionalCoverage": true,
+    "workers": 1,
+    "files": [
+      "demo-payment-proof.spec.ts",
+      "payment-flow.spec.ts",
+      "stripe-webhook.spec.ts",
+      "commission.spec.ts",
+      "coach-finance.spec.ts"
+    ],
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ]
+  },
+  "adapterTest": {
+    "mode": "actual installed SDK + demo-state mutation with fully fake fetch",
+    "allowedOrigin": "https://blobs.invalid",
+    "concurrentConfirmations": 4,
+    "forcedConflictStatus": 412,
+    "allWritesFailureTested": true,
+    "actualNetlifyRequests": 0,
+    "remoteValidation": false
+  },
+  "httpConcurrentConfirmations": 6,
+  "legacyBackfilled": false,
+  "financialSnapshotsChanged": false,
+  "coachPeriodChanged": false,
+  "sqlSchemaChanged": false,
+  "stripeRealPaymentTested": false,
+  "ui": "Existing Playwright payment/acceptance/cancellation path. No new UI or additional visual campaign. Existing replayed images excluded from commit.",
+  "controls": [
+    "Netlify configuration PASS",
+    "client secret boundary PASS",
+    "pre-push CONFORME"
+  ],
+  "deployment": "none",
+  "quota": "inaccessible",
+  "sourceSha256": {
+    "gym-next/lib/domain.ts": "7b5efa0cc8427013ce78fdc72cc389ea01bfeccb930f1006a8f8e6b14af26795",
+    "gym-next/lib/repositories/reservation-repository.ts": "58caac555ebd52c9367fd339cc473695aaf5c7ec3b3ebd37ee9cb800a7fde231",
+    "gym-next/lib/reservations.ts": "f91d2c794b04390f0ba1ef5ac0c9a1d067d169eac6bb8a6ae976a0d62fade0a2",
+    "gym-next/tests/demo-payment-proof.spec.ts": "61e0204952b674645d15ecb1397deac979a3a81c65a509363d1303fbe778b616"
+  }
+}

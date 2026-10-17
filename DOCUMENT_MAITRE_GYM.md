@@ -1,3 +1,5 @@
+> **Confirmation simulée — 18 octobre 2026 :** date UTC et référence serveur enregistrées atomiquement pour les nouveaux paiements de la démo isolée ; anciennes lignes non reconstituées, preuve conservée après annulation. Rapport `docs/PREUVE_PAIEMENT_DEMO_2026-10-18.md`. Période du tableau coach inchangée ; aucun paiement ou déploiement réel.
+
 > **Montants coach — 18 octobre 2026 :** mois de création Europe/Paris explicite, snapshots historiques et remboursements, données manquantes signalées. Rapport `docs/FINANCES_COACH_2026-10-18.md`. Aucun encaissement réel attesté, autre tableau refondu ou déploiement.
 
 > **Priorités actives — 18 octobre 2026 :** maîtrise de l’usage, puis préservation du contexte, puis lot métier. Sans compteur fiable : un lot borné par tour. Relais court : [docs/ETAT_REPRISE_COURANT.md](docs/ETAT_REPRISE_COURANT.md). Les anciennes consignes d’enchaînement indéfini sont remplacées ; archives à consulter au besoin, pas de second maître.

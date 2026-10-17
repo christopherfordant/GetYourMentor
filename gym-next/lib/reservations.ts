@@ -1,3 +1,4 @@
+import { isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 import type { Reservation } from "@/lib/domain";
 import { refundPercentForAppointment, validateReservationSlots } from "@/lib/domain/booking-rules";
 import {
@@ -6,6 +7,7 @@ import {
   ReservationSlotConflictError as RepositoryReservationSlotConflictError,
 } from "@/lib/repositories/reservation-slot-repository";
 import {
+  confirmDemoReservationPayment,
   createPersistedReservation,
   getPersistedReservation,
   hasReservationSlotConflict,
@@ -83,35 +85,31 @@ export async function transitionReservation(id: string, status: "accepted" | "re
 export async function payReservation(id: string, ownerEmail?: string, stripePaymentIntentId?: string) {
   const current = await getReservation(id);
   if (!current) return null;
+  if (current.ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
   if (current.status === "paid") return current;
   if (!validateReservationSlots(current.slots).valid) throw new Error("Ce créneau est passé ou invalide");
   if (current.status !== "accepted") throw new Error("Le paiement est disponible après acceptation du coach");
-
-  const next: Reservation = {
-    ...current,
-    status: "paid" as const,
-    ownerEmail: current.ownerEmail ?? ownerEmail,
-    stripePaymentIntentId: current.stripePaymentIntentId ?? stripePaymentIntentId,
-  };
-  // Le filtre expectedStatus rend le webhook Stripe idempotent côté repository.
-  const saved = await updatePersistedReservation(id, {
-    status: "paid",
-    owner_email: next.ownerEmail ?? null,
-    stripe_payment_intent_id: next.stripePaymentIntentId ?? null,
-  }, "accepted");
-  if (!saved) {
-    const latest = await getReservation(id);
-    if (latest?.status === "paid") return latest;
+  const simulated = !stripePaymentIntentId && process.env.PAYMENT_PROVIDER !== "stripe" && isIsolatedDemoFeatureEnabled();
+  let saved:Reservation|null;let confirmedNow=true;
+  if(simulated){
+    const outcome=await confirmDemoReservationPayment(id,ownerEmail);
+    saved=outcome?.reservation ?? null;confirmedNow=outcome?.confirmedNow ?? false;
+  }else{
+    // Existing Stripe path: no simulated evidence or unprovisioned SQL column.
+    saved=await updatePersistedReservation(id,{
+      status:"paid",owner_email:current.ownerEmail ?? ownerEmail ?? null,
+      stripe_payment_intent_id:current.stripePaymentIntentId ?? stripePaymentIntentId ?? null,
+    },"accepted");
+  }
+  if(!saved){
+    const latest=await getReservation(id);
+    if(latest?.ownerEmail && latest.ownerEmail!==ownerEmail)throw new Error("Cette réservation appartient à un autre compte");
+    if(latest?.status==="paid")return latest;
     throw new Error("La réservation n’est plus payable dans son état actuel");
   }
-  const paidReservation = {
-    ...next,
-    ownerEmail: saved.ownerEmail ?? next.ownerEmail,
-    status: "paid" as const,
-    stripePaymentIntentId: next.stripePaymentIntentId,
-  };
-  const confirmation = await sendReservationConfirmation(paidReservation).catch(() => ({ status: "skipped" as const }));
-  return { ...paidReservation, confirmationStatus: confirmation.status };
+  if(!confirmedNow)return saved;
+  const confirmation=await sendReservationConfirmation(saved).catch(()=>({status:"skipped" as const}));
+  return {...saved,confirmationStatus:confirmation.status};
 }
 
 export function refundPercentFor(appointmentAt: string, now = new Date()) {

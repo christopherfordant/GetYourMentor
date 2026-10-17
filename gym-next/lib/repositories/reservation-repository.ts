@@ -1,8 +1,10 @@
+import { randomUUID } from "node:crypto";
+import { validateReservationSlots } from "@/lib/domain/booking-rules";
 import { reservedPlaces } from "@/lib/domain/participants";
 import { intervalsOverlap } from "@/lib/domain/booking-time";
 import { memoryStructureOffers, type StructureOffer } from "@/lib/structure-offers";
 import type { Reservation } from "@/lib/domain";
-import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
+import { assertDemoFallbackAllowed, isHostedDemo, isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 import { claimReservationSlots, releaseReservationSlots, ReservationSlotConflictError } from "@/lib/repositories/reservation-slot-repository";
 import { reservationFromRow, reservationToRow } from "@/lib/repositories/reservation-mapper";
@@ -117,6 +119,8 @@ export async function updatePersistedReservation(
       const index = reservations.findIndex((reservation) => reservation.id === id);
       if (index < 0 || (expectedStatus && reservations[index].status !== expectedStatus)) return null;
       const next = reservationFromRow({ ...reservationToRow(reservations[index]), ...patch });
+      // Demo evidence is outside the SQL mapper and immutable through ordinary updates.
+      if (reservations[index].demoPaymentConfirmation) next.demoPaymentConfirmation = reservations[index].demoPaymentConfirmation;
       if (["requested", "accepted", "paid"].includes(next.status) && conflicts(reservations, next, offers)) throw new ReservationSlotConflictError();
       reservations[index] = next;
       return next;
@@ -151,3 +155,22 @@ export async function deletePersistedReservation(id: string) {
 }
 
 export { releaseReservationSlots, ReservationSlotConflictError };
+
+// Status, owner and evidence share the existing demo document CAS. No SQL columns.
+export async function confirmDemoReservationPayment(id:string,ownerEmail?:string) {
+  if(!isIsolatedDemoFeatureEnabled() || process.env.PAYMENT_PROVIDER === "stripe")throw new Error("Confirmation simulée indisponible pour cet environnement");
+  const confirm=(reservations:Reservation[],offers:StructureOffer[])=>{
+    const index=reservations.findIndex(row=>row.id===id);if(index<0)return null;
+    const current=reservations[index];
+    if(current.ownerEmail && current.ownerEmail!==ownerEmail)throw new Error("Cette réservation appartient à un autre compte");
+    if(current.status==="paid")return {reservation:current,confirmedNow:false}; // Never backfill legacy rows.
+    if(current.status!=="accepted")throw new Error("Le paiement est disponible après acceptation du coach");
+    if(!validateReservationSlots(current.slots).valid)throw new Error("Ce créneau est passé ou invalide");
+    if(current.demoPaymentConfirmation)throw new Error("Confirmation préexistante incompatible avec l’état de la réservation");
+    const next:Reservation={...current,status:"paid",ownerEmail:current.ownerEmail ?? ownerEmail,
+      demoPaymentConfirmation:{mode:"simulated",confirmedAt:new Date().toISOString(),reference:`demo-pay-${randomUUID()}`}};
+    if(conflicts(reservations,next,offers))throw new ReservationSlotConflictError();
+    reservations[index]=next;return {reservation:next,confirmedNow:true};
+  };
+  return isHostedDemo()?mutateDemoState(state=>confirm(state.reservations,state.structureOffers ?? [])):confirm(memoryReservations,memoryStructureOffers);
+}

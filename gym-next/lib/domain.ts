@@ -59,6 +59,7 @@ export type Reservation = {
   cancelledAt?: string;
   confirmationStatus?: "sent" | "queued" | "skipped";
   financials?: import("@/lib/domain/commission").FinancialSnapshot;
+  demoPaymentConfirmation?: Readonly<{ mode: "simulated"; confirmedAt: string; reference: string }>;
   refundedPlatformFeeCents?: number;
 };
 
