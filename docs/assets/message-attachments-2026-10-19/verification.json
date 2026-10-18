@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-19",
+  "base": "b2330d0114b61c20b308d00d582d32e1a6364a68",
+  "branch": "design/refonte-progressive-lot1",
+  "delivered": "Qualification and explicit refusal of unsupported attachments; binary upload/download NOT implemented",
+  "sources": [
+    {
+      "file": "Bussiness Plan.pdf",
+      "sha256": "eb89c0dcde91d1514d363924583ef33a9c0d0bbd9d81708482d3b1ef72bc3cf5"
+    },
+    {
+      "file": "Copie de Devis DEV - GetYourMentor.pdf",
+      "sha256": "d1ad681395af853cf9c4cb34211fe7f62eb66a7d56ae61fe0874fd51c98223a0"
+    },
+    {
+      "file": "GetYourMentor MVP_V1 - Fonctionnalités générales.pdf",
+      "sha256": "2c9d579b5b16d6c682ff08e2591c6c6fb704b30e4da1a5092e9ad659cdc2d8e6"
+    },
+    {
+      "file": "Stratégie/Stratégie_/Stratégie perplexity.pdf",
+      "sha256": "81f48972b0d943d9b356b01c7f24377d9485c29bf28b318b88b92aa244e1d92d"
+    }
+  ],
+  "source_scope": "Targeted PDF text search and pertinent passages; no exhaustive historical inventory or visual PDF audit. BP content formats are not chat formats. Current user request authorizes qualification.",
+  "technical_findings": {
+    "binary_sdk": "Installed declarations accept ArrayBuffer/Blob and return arrayBuffer/blob/stream; static capacity, not a storage test",
+    "demo_messages": "Local memory or hosted JSON state; no protected attachment upload/download implementation",
+    "existing_uploads": "Supabase coach/club administrative documents, separate permissions; not activated or reused for chats",
+    "true_blocker": "Missing integrated private attachment flow and its tests, not a global project blocker or demonstrated need for production credentials"
+  },
+  "checks": {
+    "new_tests": "6/6 passed, local API, two Chromium projects; JSON attachment fields including null/empty, multipart, no partial message, size 413, auth 401, retry key preserved, coach reply refused",
+    "regressions": "26/26 passed: message-filters, message-replies, message-templates, structure-messages",
+    "build": "passed; non-blocking CSS/webpack cache warnings, unrelated styles not changed",
+    "types": "passed: tsc --noEmit --incremental false",
+    "client_secret_boundary": "passed against built client assets",
+    "netlify_config": "static check passed, no deployment",
+    "fil_rouge": "CONFORME in isolated worktree",
+    "ui": "unchanged; existing UI regression tests run, no new captures included"
+  },
+  "test_scope": {
+    "data": "Synthetic @example.com users/messages, real local endpoints; no externally stored file",
+    "playwright": "local, one worker, no MCP claim",
+    "remote": "No Supabase/RLS, Stripe, Netlify deployment/persistence or antivirus validation"
+  },
+  "limitations": [
+    "Known upload-intent JSON fields and multipart refused; not full JSON schema validation",
+    "Existing body size guard relies on Content-Length; future upload requires bounded actual stream reads",
+    "No uploaded file, safe format detection, malware scanning or private download implemented",
+    "No new infrastructure, dependency, AI, real subscription or notification"
+  ],
+  "code_sha256": {
+    "gym-next/app/api/messages/route.ts": "80da685c6b792200e0bda1179ec5c72a22c1490cf4147d52516ef72e17918b9e",
+    "gym-next/tests/message-attachments-unavailable.spec.ts": "0ce5c1af53a971896d2122c5a8cb4b50dc6543bca68ae308fe77d0a6902f2d7e"
+  }
+}

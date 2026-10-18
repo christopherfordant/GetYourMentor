@@ -1,3 +1,5 @@
+> **Pièces jointes — qualification du 19 octobre 2026 :** formats de contenus distincts du chat ; SDK binaire disponible mais aucun parcours de fichiers privé recetté. Refus API explicite des intentions de pièce jointe, sans message partiel. Rapport `QUALIFICATION_PIECES_JOINTES_2026-10-19.md`. Transfert non livré ; aucun déploiement.
+
 > **Modèles de messages coach — 19 octobre 2026 :** bibliothèque sélectionnable et prévisualisable, insertion modifiable et confirmation avant remplacement du brouillon. Business Plan p.29 ; rapport `MODELES_MESSAGES_COACH_2026-10-19.md`. Envoi explicite et déduplication existante conservés ; aucun service externe ni déploiement.
 
 > **Classement de la messagerie — 19 octobre 2026 :** filtre par correspondant, tri chronologique et recherche combinée dans MessageInbox existant. Source Business Plan p.29 ; rapport `FILTRES_MESSAGERIE_2026-10-18.md`, preuves `assets/message-filters-2026-10-18/verification.json`. Aucun nouvel accès, service externe ni déploiement.

@@ -199,3 +199,7 @@ Lacune Business Plan p.29 confrontée au code : recherche déjà présente, clas
 ## Modèles de messages coach — 19 octobre 2026
 
 Business Plan p.29 : bibliothèque de trois suggestions dans la messagerie existante, aperçu, insertion explicite, confirmation avant remplacement et édition. Modèle d’accueil historique réutilisé. Aucun envoi automatique ni nouveau service. Rapport : [MODELES_MESSAGES_COACH_2026-10-19.md](MODELES_MESSAGES_COACH_2026-10-19.md), preuves et captures dans `assets/message-templates-2026-10-19/`. Cette recette locale ne valide pas les autres sous-exigences de suivi/recommandations ni la persistance distante. Les mentions historiques « templates à traiter » ci-dessus sont remplacées pour ce seul périmètre.
+
+## Qualification des pièces jointes — 19 octobre 2026
+
+[Rapport](QUALIFICATION_PIECES_JOINTES_2026-10-19.md) : BP p.29/33/35 distingue contenus et messagerie ; aucune règle de format chat établie dans les quatre sources ciblées. SDK Blobs binaire disponible statiquement, parcours privé upload/message/download absent. Refus API explicite des champs de fichier et multipart ajouté pour éviter une réussite partielle du texte. **Pièces jointes non implémentées** : prochaine tranche, adaptateur privé réutilisant le fournisseur existant, liaison atomique/idempotence, accès conversationnel et recette binaire. Aucun besoin de clé réelle ni blocage global démontré. Preuves locales dans `assets/message-attachments-2026-10-19/verification.json`.

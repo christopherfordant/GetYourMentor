@@ -42,7 +42,15 @@ export async function POST(request: Request) {
   if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   if (!rateLimit(request, "messages", 60, 60000).allowed) return NextResponse.json({ error: "Trop de messages. Réessayez dans un instant." }, { status: 429 });
 
+  // No attachment storage/download contract exists in this endpoint yet.
+  // Refuse an upload explicitly rather than returning success for its text alone.
+  const attachmentError = () => NextResponse.json({
+    error: "Les pièces jointes ne sont pas disponibles dans la messagerie. Aucun fichier ni message n’a été enregistré.",
+    code: "MESSAGE_ATTACHMENTS_UNAVAILABLE",
+  }, { status: 415 });
+  if (request.headers.get("content-type")?.toLowerCase().startsWith("multipart/form-data")) return attachmentError();
   const body = await request.json().catch(() => null);
+  if (body && typeof body === "object" && ["attachment", "attachments", "file", "files"].some(key => Object.prototype.hasOwnProperty.call(body, key))) return attachmentError();
   if (body?.requestId !== undefined && (typeof body.requestId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(body.requestId))) return NextResponse.json({ error: "Identifiant de demande invalide" }, { status: 400 });
   if (textExceedsLimit(body?.recipientName, 160) || textExceedsLimit(body?.body, 4000) || textExceedsLimit(body?.reservationId, 128) || textExceedsLimit(body?.replyToId, 128) || textExceedsLimit(body?.requestId, 80)) {
     return NextResponse.json({ error: "Message trop long" }, { status: 400 });

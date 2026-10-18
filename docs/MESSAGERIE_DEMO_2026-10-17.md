@@ -58,3 +58,7 @@ Classement par correspondant/date avec recherche combinée dans le même composa
 ## Extension du 19 octobre 2026
 
 Bibliothèque de modèles coach, sans nouvel endpoint ni envoi automatique : [rapport](MODELES_MESSAGES_COACH_2026-10-19.md). Le modèle d’accueil existant est conservé ; aperçu et confirmation de remplacement protègent le brouillon. Les limites distantes de la messagerie restent inchangées.
+
+## Pièces jointes — qualification du 19 octobre 2026
+
+[Qualification et limites](QUALIFICATION_PIECES_JOINTES_2026-10-19.md). Aucun upload disponible ; demandes multipart ou JSON avec champs de fichier connus explicitement refusées, sans enregistrer seulement le texte. La prise en charge binaire et les téléchargements privés restent à implémenter et recetter.
