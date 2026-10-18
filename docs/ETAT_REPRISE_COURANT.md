@@ -55,8 +55,13 @@ Base local/distant vérifiée `8c6c3b4741258f7e71a849df48e20d49c2c53302`, candid
 Panneau protégé par verrou d'envoi, choix conservé, validation d'identité/statut/créneau/montants de la confirmation. Refus/conflit/erreur technique/résultat incertain distincts, demande incertaine bloquée jusqu'à relecture valide. Requêtes annulées et résultats tardifs ignorés au démontage/changement de coach ; filtrage coachId. onReservationsChanged ne transmet que des données vérifiées et annule la lecture initiale résiduelle du tableau ; mêmes planning/prochaine séance/finances, aucune règle métier changée.
 Fixtures UI et parcours intégré local distingués dans la preuve. Aucun déploiement ou validation distante ; travail local antérieur préservé.
 
+## Reprise du paiement simulé — 18 octobre
+Base local/distant vérifiée `d1d4ec0431f4914062d11ce39a6c07a290c0baa1`, candidat `C:/Users/cashe/Documents/GYM-demo-payment-recovery`. Rapport `REPRISE_PAIEMENT_SIMULE_2026-10-18.md`, preuves/captures `assets/payment-recovery-2026-10-18/verification.json`. SHA livré à vérifier par HEAD/distant.
+Interface locale : verrou, validation de preuve/identité/montants, vérification explicite après résultat incertain, aucun POST automatique. paid sans preuve ne devient pas un succès confirmé ; repère d'onglet par identité/réservation distingue une tentative récente connue, sans valeur d'autorisation. Mécanismes atomiques serveur et références conservés, chemin Stripe distinct, aucun service réel activé.
+Recette injectée distinguée de l'écriture réelle locale suivie d'une lecture indépendante puis réponse masquée. Déconnexion multi-onglets, reprise et isolation contrôlées ; résultats définitifs dans la preuve. Aucun déploiement/validation distante ou modification de remboursement.
+
 ## Prochain lot métier borné
-Qualifier le parcours de paiement simulé côté sportif face à une réponse perdue : retrouver composants et tests, vérifier confirmation serveur et reprise, puis corriger uniquement une lacune démontrée. Pas de nouvel envoi automatique, d'activation de paiement réel ou de refonte des comptes. Un seul lot borné.
+Qualifier la reprise d'une annulation simulée côté sportif après réponse perdue : examiner d'abord les garanties actuelles, puis corriger uniquement une lacune démontrée. Conserver les délais, snapshots et montants historiques de remboursement ; aucun transfert réel, nouvel envoi automatique ou refonte globale. Un seul lot borné.
 
 ## Limites, outils et historique
 Mémoire locale volatile ; persistance distante des modules récents et RLS non recettées. Abonnements exclusifs, fichiers binaires, packs et suivi médical/partagé non livrés ; pas de taux de rétention/présence inventé. L’admin ne reçoit pas les objectifs privés par défaut.

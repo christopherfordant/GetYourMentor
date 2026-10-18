@@ -1,7 +1,9 @@
 "use client";
-import { formatBookingSlot } from "@/lib/domain/booking-time";
+import {useDemoPayment} from "./useDemoPayment";
+import recoveryStyles from "./payment-recovery.module.css";
+import { formatBookingSlot, reservationStart } from "@/lib/domain/booking-time";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type RefObject } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 
@@ -9,6 +11,7 @@ type PaiementLegacyPageProps = {
   legacyStyles: string;
   params: Record<string, string | undefined>;
   provider?: "local" | "stripe";
+  athleteEmail?:string;
 };
 
 function PaymentHeader() {
@@ -54,38 +57,38 @@ function PaymentMain({
   return (
     <section className="payment-main">
       <div className="payment-intro">
-        <p className="payment-kicker">Paiement securise</p>
+        <p className="payment-kicker">{provider==="local"?"Paiement simulé":"Paiement securise"}</p>
         <h1>Finaliser votre reservation</h1>
         <p className="payment-subcopy">Choisissez votre mode de paiement pour confirmer votre seance GetYourMentor.</p>
         <div className="payment-intro-visual" aria-hidden="true">
           <div className="payment-intro-shot payment-intro-shot-main"></div>
           <div className="payment-intro-shot payment-intro-shot-secondary"></div>
-          <div className="payment-intro-badge">Coach confirme</div>
+          <div className="payment-intro-badge">{provider==="local"?"Démonstration":"Coach confirme"}</div>
         </div>
       </div>
 
       <section className="payment-card">
         <header className="payment-card-head">
-          <h2>Moyen de paiement</h2>
+          <h2>{provider==="local"?"Simulation du paiement":"Moyen de paiement"}</h2>
           <p>{provider === "stripe" ? "Les coordonnées bancaires sont saisies uniquement sur la page sécurisée Stripe." : "Paiement de démonstration : aucun débit réel. Ne saisissez aucune donnée bancaire."}</p>
         </header>
 
-        {provider === "local" ? <div className="payment-methods">
+        {provider === "local" ? <div className="payment-methods" aria-label="Modes illustratifs, tous utilisent la même simulation">
           <button className={`payment-method${selectedMethod === "card" ? " is-active" : ""}`} type="button" data-method="card" onClick={() => onSelectMethod("card")}>
-            <strong>Carte bancaire</strong>
+            <strong>Carte fictive</strong>
             <span>Visa, Mastercard, CB</span>
           </button>
           <button className={`payment-method${selectedMethod === "apple-pay" ? " is-active" : ""}`} type="button" data-method="apple-pay" onClick={() => onSelectMethod("apple-pay")}>
             <strong>Apple Pay</strong>
-            <span>Paiement rapide</span>
+            <span>Illustration sans service externe</span>
           </button>
           <button className={`payment-method${selectedMethod === "google-pay" ? " is-active" : ""}`} type="button" data-method="google-pay" onClick={() => onSelectMethod("google-pay")}>
             <strong>Google Pay</strong>
-            <span>Validation instantanee</span>
+            <span>Illustration sans service externe</span>
           </button>
           <button className={`payment-method${selectedMethod === "onsite" ? " is-active" : ""}`} type="button" data-method="onsite" onClick={() => onSelectMethod("onsite")}>
             <strong>Sur place</strong>
-            <span>Selon les conditions du coach</span>
+            <span>Illustration de démonstration</span>
           </button>
         </div> : null}
 
@@ -140,6 +143,7 @@ function PaymentSide({
   processing,
   awaitingConfirmation,
   appointmentLabel,
+  demo=false,legacy=false,onCheck,checking=false,proofReference,statusRef,statusError=false,
 }: {
   coach: string;
   city: string;
@@ -162,11 +166,12 @@ function PaymentSide({
   processing: boolean;
   awaitingConfirmation: boolean;
   appointmentLabel: string;
+  demo?:boolean;legacy?:boolean;onCheck?:()=>void;checking?:boolean;proofReference?:string;statusRef?:RefObject<HTMLParagraphElement|null>;statusError?:boolean;
 }) {
   const summaryDuration = [duration, format, objective, packageLabel].filter(Boolean).join(" • ");
 
   return (
-    <aside className="payment-side">
+    <aside className={`payment-side ${demo ? recoveryStyles.side : ""}`}>
       <section className="payment-summary-card">
         <div className="payment-summary-visual" aria-hidden="true"></div>
         <h2>Recapitulatif</h2>
@@ -198,20 +203,22 @@ function PaymentSide({
           className="payment-submit"
           type="button"
           disabled={!paymentReady || success || processing}
-          aria-label={success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : undefined}
+          aria-label={demo ? (success?"Paiement simulé confirmé":legacy?"Statut payé enregistré":undefined) : success ? (selectedMethod === "onsite" ? "Reservation enregistree" : "Paiement confirme") : undefined}
           onClick={onSubmit}
         >
-          {processing ? "Traitement en cours…" : success ? (selectedMethod === "onsite" ? "Réservation enregistrée" : "Paiement confirmé") : paymentReady ? "Payer et confirmer" : "Paiement indisponible"}
+          {demo ? (processing?"Simulation en cours…":success?"Paiement simulé confirmé":legacy?"Statut payé enregistré":paymentReady?"Simuler le paiement":"Paiement indisponible") : processing ? "Traitement en cours…" : success ? (selectedMethod === "onsite" ? "Réservation enregistrée" : "Paiement confirmé") : paymentReady ? "Payer et confirmer" : "Paiement indisponible"}
         </button>
-        <p className="payment-note" data-payment-status>
+        <p className={`payment-note ${recoveryStyles.message}`} data-payment-status ref={statusRef} tabIndex={demo?-1:undefined} role={demo?(statusError?"alert":"status"):undefined}>
           {paymentError || (success ? "Paiement confirmé." : awaitingConfirmation ? "Confirmation en cours. Le retour de Stripe ne confirme pas encore votre réservation." : reservationStatus === "requested" ? "En attente de validation par le coach." : reservationStatus === "accepted" ? "Demande acceptée : vous pouvez payer." : "Réservation introuvable.")}
         </p>
+        {demo?<button type="button" className={`payment-secondary-link ${recoveryStyles.check}`} disabled={processing||checking} onClick={onCheck}>{checking?"Vérification…":"Vérifier l’état du paiement"}</button>:null}
+        {proofReference?<p className={recoveryStyles.reference} data-demo-payment-reference>Référence de simulation : {proofReference}</p>:null}
         {reservationCode ? <p data-payment-code>Code de réservation : {reservationCode}</p> : null}
       </section>
 
       <section className="payment-success-card" hidden={!success}>
-        <h3>Reservation confirmee</h3>
-        <p>Votre paiement est valide et votre seance est confirmee.</p>
+        <h3>{demo?"Paiement simulé confirmé":"Reservation confirmee"}</h3>
+        <p>{demo?"La confirmation est enregistrée en démonstration. Aucun débit ni reversement bancaire réel.":"Votre paiement est valide et votre seance est confirmee."}</p>
         <div className="payment-success-actions">
           <a className="payment-secondary-link" href={nextRoutes.home}>Retour a l&apos;accueil</a>
           <a className="payment-primary-link" href={nextRoutes.account}>Voir mon compte</a>
@@ -225,29 +232,38 @@ function PaymentSide({
 import { SiteFooter } from "@/components/SiteFooter";
 function PaymentFooter() { return <SiteFooter />; }
 
-export function PaiementLegacyPage({ legacyStyles, params, provider = "local" }: PaiementLegacyPageProps) {
-  const [serverReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
-  const coach = serverReservation?.coachName || params.coach || "Studio Form Marseille";
-  const city = serverReservation?.city || params.city || "Marseille";
-  const service = serverReservation?.service || params.service || "Coaching remise en forme";
-  const duration = serverReservation?.duration || params.duration || "30min";
-  const price = serverReservation ? `${serverReservation.price.toFixed(2)} EUR` : params.price || "35 ";
+export function PaiementLegacyPage(props:PaiementLegacyPageProps){return <PaymentPage key={`${props.provider}:${props.athleteEmail ?? ""}:${props.params.reservationId ?? ""}:${props.params.claimToken ?? ""}`} {...props}/>;}
+function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
+  const demo=useDemoPayment(provider==="local",params.reservationId || "",params.claimToken || "",athleteEmail);
+  const [stripeReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
+  const serverReservation=provider==="local"?demo.reservation:stripeReservation;
+  const coach = provider==="local"?(serverReservation?.coachName || "À vérifier"):serverReservation?.coachName || params.coach || "Studio Form Marseille";
+  const city = provider==="local"?(serverReservation?.city || "À vérifier"):serverReservation?.city || params.city || "Marseille";
+  const service = provider==="local"?(serverReservation?.service || "À vérifier"):serverReservation?.service || params.service || "Coaching remise en forme";
+  const duration = provider==="local"?(serverReservation?.duration || "À vérifier"):serverReservation?.duration || params.duration || "30min";
+  const price = serverReservation ? `${serverReservation.price.toFixed(2)} EUR` : provider==="local"?"À vérifier":params.price || "35 ";
   const objective = params.objective || "";
   const format = params.format || "";
   const packageLabel = params.package || "";
   const slot = params.slot || "10:00";
-  const mentor = params.mentor || "Coach confirme";
+  const mentor = serverReservation?.coachName || (provider==="local"?"À vérifier":params.mentor || "Coach confirme");
   const reservationId = params.reservationId || "";
   const claimToken = params.claimToken || "";
   const [selectedMethod, setSelectedMethod] = useState("card");
-  const [success, setSuccess] = useState(false);
-  const [reservationStatus, setReservationStatus] = useState("");
-  const [reservationCode, setReservationCode] = useState("");
-  const [paymentError, setPaymentError] = useState("");
-  const [processing, setProcessing] = useState(false);
-  const awaitingConfirmation = params.payment === "success" && !success;
+  const [stripeSuccess, setSuccess] = useState(false);
+  const [stripeReservationStatus, setReservationStatus] = useState("");
+  const [stripeReservationCode, setReservationCode] = useState("");
+  const [stripePaymentError, setPaymentError] = useState("");
+  const [stripeProcessing, setProcessing] = useState(false);
+  const success=provider==="local"?(demo.success):stripeSuccess;
+  const reservationStatus=provider==="local"?(demo.reservation?.status ?? ""):stripeReservationStatus;
+  const reservationCode=provider==="local"?(demo.reservation?.reservationCode ?? ""):stripeReservationCode;
+  const paymentError=provider==="local"?(demo.message):stripePaymentError;
+  const processing=provider==="local"?(demo.processing):stripeProcessing;
+  const awaitingConfirmation = provider==="stripe" && params.payment === "success" && !success;
 
   useEffect(() => {
+    if(provider!=="stripe")return;
     if (!reservationId) {
       setPaymentError("Cette réservation ne possède pas encore d’identifiant.");
       return;
@@ -262,10 +278,10 @@ export function PaiementLegacyPage({ legacyStyles, params, provider = "local" }:
         if (payload.data.status === "paid") setSuccess(true);
       })
       .catch((error) => setPaymentError(error instanceof Error ? error.message : "Réservation introuvable."));
-  }, [claimToken, reservationId]);
+  }, [claimToken, reservationId,provider]);
 
   useEffect(() => {
-    if (!reservationId || params.payment !== "success") return;
+    if (provider!=="stripe" || !reservationId || params.payment !== "success") return;
     let attempts = 0;
     const interval = window.setInterval(async () => {
       attempts += 1;
@@ -282,13 +298,14 @@ export function PaiementLegacyPage({ legacyStyles, params, provider = "local" }:
       if (attempts >= 15) window.clearInterval(interval);
     }, 2000);
     return () => window.clearInterval(interval);
-  }, [claimToken, params.payment, reservationId]);
+  }, [claimToken, params.payment, reservationId,provider]);
 
   useEffect(() => {
-    if (params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
-  }, [params.payment]);
+    if (provider==="stripe" && params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
+  }, [params.payment,provider]);
 
   async function handlePayment() {
+    if(provider==="local"){await demo.pay();return;}
     if (!reservationId || processing) return;
     setProcessing(true);
     setPaymentError("");
@@ -338,14 +355,15 @@ export function PaiementLegacyPage({ legacyStyles, params, provider = "local" }:
             selectedMethod={selectedMethod}
             success={success}
             onSubmit={handlePayment}
-            paymentReady={reservationStatus === "accepted" && !paymentError && !awaitingConfirmation}
+            paymentReady={provider==="local"?demo.ready && !demo.loading:reservationStatus === "accepted" && !paymentError && !awaitingConfirmation}
             paymentError={paymentError}
             reservationStatus={reservationStatus}
             reservationCode={reservationCode}
             reservationId={reservationId}
             processing={processing}
+            demo={provider==="local"} legacy={demo.legacy} checking={demo.loading} onCheck={demo.check} proofReference={demo.reference} statusRef={provider==="local"?demo.statusRef:undefined} statusError={demo.error}
             awaitingConfirmation={awaitingConfirmation}
-            appointmentLabel={`${formatBookingSlot(serverReservation?.appointmentAt || serverReservation?.slots[0] || slot)} · Europe/Paris`}
+            appointmentLabel={provider==="local"?serverReservation && reservationStart(serverReservation)!==null?`${formatBookingSlot(new Date(reservationStart(serverReservation)!).toISOString())} · Europe/Paris`:"Horaire à vérifier":`${formatBookingSlot(serverReservation?.appointmentAt || serverReservation?.slots[0] || slot)} · Europe/Paris`}
           />
         </main>
 

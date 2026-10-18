@@ -1,3 +1,5 @@
+> **Reprise du paiement simulé — 18 octobre 2026 :** preuve serveur vérifiée, résultat incertain bloquant jusqu’à relecture, reprise sans nouvel envoi automatique et distinction des dossiers sans preuve. Rapport `docs/REPRISE_PAIEMENT_SIMULE_2026-10-18.md`, preuves `docs/assets/payment-recovery-2026-10-18/verification.json`. Aucun débit réel ou déploiement.
+
 > **Actions des demandes coach — 18 octobre 2026 :** Accepter/Refuser protégés contre double envoi, confirmations vérifiées, résultats incertains soumis à relecture et relais cohérent vers le compte. Rapport `docs/ACTIONS_DEMANDES_COACH_2026-10-18.md`, preuves `docs/assets/coach-actions-2026-10-18/verification.json`. Règles serveur et historiques conservés ; aucun déploiement.
 
 > **Créneaux du planning coach — 18 octobre 2026 :** propositions distinctes du rendez-vous retenu, historique explicite, horaires ambigus signalés et chargement/erreur/vide séparés. Rapport `docs/CRENEAUX_PLANNING_COACH_2026-10-18.md`, preuves `docs/assets/planning-slots-2026-10-18/verification.json`. Aucune mutation ou modification financière, aucun déploiement.

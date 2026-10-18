@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-18",
+  "base": "d1d4ec0431f4914062d11ce39a6c07a290c0baa1",
+  "branch": "design/refonte-progressive-lot1",
+  "checks": {
+    "build": "PASS final production build incl. type checking",
+    "standalone_types": "PASS before final CSS-only correction; final build also checks updated tests",
+    "full_suite": "18/18 PASS, desktop/mobile, 1 worker, 1.1m",
+    "final_css_regression": "4/4 PASS, nominal + errors desktop/mobile, 31.0s",
+    "client_secret_boundary": "PASS final build",
+    "netlify_config": "PASS static configuration only",
+    "prepush": "PASS"
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "visual_review": "Three captures inspected; summary values, status, reference and success text have tested contrast >=4.5; no horizontal overflow at four widths. Captures crop the affected panel, not the entire page.",
+  "test_evidence": {
+    "injected": "Nominal, double clicks, refusals, malformed/empty/wrong booking responses, network/GET errors, legacy/known-new missing proof, late response and cross-tab logout.",
+    "integrated": "Real local API creation/acceptance, real POST via route.fetch; independent authenticated GET confirms persisted paid/proof/financials BEFORE abort masks reply. Manual reread and reload recover same reference without POST. Explicit repeated/concurrent API POSTs preserve proof and amounts; foreign user denied.",
+    "existing_regressions": "Demo proof repository/memory, offline mocked-fetch Blobs SDK CAS (not remote), local payment/account/cancellation flow."
+  },
+  "limits": [
+    "No remote RLS, Stripe or Netlify validation/deployment. Local demonstration only.",
+    "Session marker is per-tab expectation, never proof/authorization. New tab without marker labels paid without proof neutrally, never confirmed.",
+    "Silent HttpOnly-cookie reassignment without navigation/logout event is not instantly detected; server authorization remains enforced.",
+    "Codex private usage counters unavailable; no quota or token counts invented."
+  ],
+  "sha256": {
+    "gym-next/app/paiement/page.tsx": "9ef8dc8d63f8e6e6ac6644ae0902f525b417689c77b24da008c34f7d57741bf3",
+    "gym-next/components/payment-legacy/PaiementLegacyPage.tsx": "3f136e9756a287ddd306ece594d15c0b86ef1521dd87ebe38a68de2d72c5cbdd",
+    "gym-next/components/payment-legacy/demo-payment-data.ts": "f62a539e1fd69b1eabe889007cae07f02824d58bd33cd116da4c7c6085c0f05c",
+    "gym-next/components/payment-legacy/useDemoPayment.ts": "8ae10371bab16381bcbc414299ee8e4fa9eac811d234df455e26b0305b76dd02",
+    "gym-next/components/payment-legacy/payment-recovery.module.css": "55293e9e25179c56c1aba24d68190a9b30177b00ee58b2077fd3e89f407fa6eb",
+    "gym-next/tests/demo-payment-recovery.spec.ts": "4b3c3d9696fb275c83c84e501e1f3af4f1aa9a2ca42fa816c2c9a540c1f0f07e",
+    "gym-next/tests/payment-flow.spec.ts": "2bfbe1c157f7cd6383f05e70ba3e16b132c7d7e6209b76dc5eb5fac4cd90180f",
+    "DOCUMENT_MAITRE_GYM.md": "bc2e564c26a38c549752a7032bd8f40c6edfb34fc1e650588763fa27850c478b",
+    "docs/README.md": "062ae587a8fac2de005574b2064b96edd7294e558f8ab6ed7663a43086b56c25",
+    "docs/REFONTE_PROGRESSIVE_2026-10-15.md": "e626fdd86a470b611025c5813a62cad086f757326b6a44f5ca38c3df0f927b72",
+    "docs/ETAT_REPRISE_COURANT.md": "5911b1ffb6ecc5fb2ced170d53f190279123b6aea7a89fcb905db352f5e099f2",
+    "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md": "cd1a24fe4301c971d43a26dab181b41f612b5a56b954cd60ac60ed368c3316fe",
+    "docs/REPRISE_PAIEMENT_SIMULE_2026-10-18.md": "3be6aed0d7009b24e687e7d2e9a1292fdc5585564c28186a8d2a41b543ced49f",
+    "docs/assets/payment-recovery-2026-10-18/confirme-390.png": "8c504d78ad01f2e42affc003828faa35edd901a99122ba4a3e3fabd8e787d4f8",
+    "docs/assets/payment-recovery-2026-10-18/confirme-1440.png": "71b3bc8c1742fd5bb070e39b6ed799862fbdd65564d6abb6bed0c1e70dc59d64",
+    "docs/assets/payment-recovery-2026-10-18/non-confirme-390.png": "7b8ad7250b9b5209e126554299ee70a006b460fc8c402529827091261e8f9efa"
+  }
+}

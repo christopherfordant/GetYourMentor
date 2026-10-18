@@ -35,11 +35,11 @@ test("le paiement est verrouillé avant acceptation puis confirmé après", asyn
   expect(accepted.status()).toBe(200);
 
   await page.reload({ waitUntil: "networkidle" });
-  await expect(page.getByRole("button", { name: "Payer et confirmer" })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Simuler le paiement" })).toBeEnabled();
   const paymentResponse = page.waitForResponse((response) => response.url().includes(`/api/reservations/${reservation.id}/payment`) && response.request().method() === "POST");
-  await page.getByRole("button", { name: "Payer et confirmer" }).click();
+  await page.getByRole("button", { name: "Simuler le paiement" }).click();
   await expect((await paymentResponse).json()).resolves.toMatchObject({ data: { confirmationStatus: "queued" } });
-  await expect(page.getByRole("button", { name: "Paiement confirme" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Paiement simulé confirmé" })).toBeVisible();
   await expect(page.locator('[data-review-after-session]')).toContainText("après la fin prévue");
   await expect(page.locator('[data-review-form]')).toHaveCount(0);
   const athleteCookie = (await page.context().cookies()).find(cookie => cookie.name === "gym_session");

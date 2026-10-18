@@ -1,3 +1,4 @@
+import { currentSession } from "@/lib/auth";
 import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
@@ -46,5 +47,6 @@ export default async function PaiementPage({ searchParams }: PaiementPageProps) 
     return <ProductionUnavailable title="Paiement indisponible" description="Aucun paiement ne peut être présenté sans réservation réelle, coach vérifié et configuration de paiement active." />;
   }
 
-  return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} provider={process.env.PAYMENT_PROVIDER === "stripe" ? "stripe" : "local"} />;
+  const session=await currentSession();
+  return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} provider={process.env.PAYMENT_PROVIDER === "stripe" ? "stripe" : "local"} athleteEmail={session?.role==="sportif"?session.email:undefined} />;
 }

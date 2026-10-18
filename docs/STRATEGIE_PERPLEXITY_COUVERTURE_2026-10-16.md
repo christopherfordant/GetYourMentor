@@ -172,3 +172,6 @@ Planning métier existant (BP p.28/31) : « Mon planning » distingue désormais
 
 ## Actions des demandes coach — 18 octobre 2026
 Fiabilité du parcours de réservation existant : Accepter/Refuser sérialisés, réponses validées, résultat incertain soumis à lecture serveur, choix et droits conservés. Panneau/tableau partagent la validation et le relais vérifié, sans nouveau moteur financier. Voir ACTIONS_DEMANDES_COACH_2026-10-18.md et sa preuve locale ; aucune validation distante ou clôture V1/V2/V3.
+
+## Reprise du paiement simulé — 18 octobre 2026
+Parcours sportif fiabilisé côté interface : preuve existante réutilisée, relecture après résultat incertain, distinction des dossiers sans preuve et aucun nouvel envoi automatique. Rapport REPRISE_PAIEMENT_SIMULE_2026-10-18.md, preuve locale distinguant données injectées et écriture réelle avant réponse masquée. Références/règles financières serveur inchangées, aucune intégration bancaire activée ; V1/V2/V3 incomplets.
