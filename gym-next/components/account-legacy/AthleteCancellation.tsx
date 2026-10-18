@@ -5,7 +5,7 @@ import { readDemoPayment, sameDemoBooking } from "@/components/payment-legacy/de
 import { coherentCancellation, cancellationRefundLabel } from "./athlete-cancellation-data";
 import styles from "./athlete-cancellation.module.css";
 
-export function AthleteCancellation({reservation,email,demo,onChanged,children,externalBusy,acquire,release}:{reservation:Reservation;email:string;demo:boolean;onChanged:(row:Reservation)=>void;children:(blocked:boolean)=>ReactNode;externalBusy:boolean;acquire:()=>boolean;release:()=>void}) {
+export function AthleteCancellation({reservation,email,demo,onChanged,children,externalBusy,acquire,release}:{reservation:Reservation;email:string;demo:boolean;onChanged:(row:Reservation)=>void;children:(blocked:boolean,ownBlocked:boolean)=>ReactNode;externalBusy:boolean;acquire:()=>boolean;release:()=>void}) {
   const [state,setState]=useState({busy:false,uncertain:false,error:false,message:""});
   const life=useRef({alive:false,generation:0,busy:false,controller:null as AbortController|null});const message=useRef<HTMLParagraphElement>(null);
   useEffect(()=>{const c=life.current;c.alive=true;const logout=(e:StorageEvent)=>{if(e.key!=="gym-session-ended")return;c.alive=false;c.generation++;c.controller?.abort();setState({busy:false,uncertain:true,error:true,message:"La session a changé. Reconnecte-toi pour vérifier l’annulation."});};const restored=(e:PageTransitionEvent)=>{if(e.persisted)window.location.reload();};window.addEventListener("storage",logout);window.addEventListener("pageshow",restored);return()=>{c.alive=false;c.generation++;c.controller?.abort();window.removeEventListener("storage",logout);window.removeEventListener("pageshow",restored);};},[email,reservation.id]);
@@ -32,7 +32,7 @@ export function AthleteCancellation({reservation,email,demo,onChanged,children,e
     {["paid","accepted","requested"].includes(reservation.status)?<button className="auth-secondary" type="button" disabled={blocked} onClick={()=>void run(false)}>Annuler la réservation</button>:null}
     {state.message?<p className={styles.message} ref={message} tabIndex={-1} role={state.error?"alert":"status"} data-cancellation-status>{state.message}</p>:null}
     {state.message||reservation.status==="cancelled"?<button className="auth-secondary" type="button" disabled={state.busy||externalBusy} onClick={()=>void run(true)}>Vérifier l’état de l’annulation</button>:null}
-    {children(blocked)}
+    {children(blocked,state.busy||state.uncertain)}
     {reservation.status==="cancelled"?<p className={styles.message} data-cancellation-refund>{cancellationRefundLabel(reservation,demo)}</p>:null}
   </div>;
 }

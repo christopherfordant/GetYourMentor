@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-18",
+  "base": "1b174db7ef74e6ab139dda2022ce47375f5bc0da",
+  "branch": "design/refonte-progressive-lot1",
+  "checks": {
+    "integrated_and_regressions": "40/40 PASS desktop/mobile, 1 worker",
+    "storage": "2/2 PASS, direct memory/CAS precondition and offline fake-fetch SQL filter; no server started",
+    "build": "PASS production Next build",
+    "types": "PASS explicit tsc after final test additions",
+    "client_secret_boundary": "PASS",
+    "netlify_config": "PASS static only",
+    "prepush": "PASS"
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "evidence": {
+    "mocked": "HTTP error matrix, double click/shared lock, input retained, explicit GET failure/recovery to old/other/rejected, logout and foreign identity; screenshots cropped to fake booking; keyboard/focus/contrast >=4.5/overflow. Browser timezone America/Los_Angeles, input explicitly Europe/Paris.",
+    "integrated": "Actual local APIs create/accept/pay; real POST via route.fetch. Independent authenticated GET verifies new target, proof, snapshot BEFORE route.abort hides response. UI GET and reload without POST; replay unchanged, old slot reusable/new occupied, coach API sees same target. Concurrent targets with identical expected schedule yield 200/409, finance/proof unchanged.",
+    "storage_limits": "Memory conditional mutation and SQL query construction checked, not remote PostgREST/RLS. Existing offline Blobs tests use fake fetch. Hosted slot cleanup not certified remotely."
+  },
+  "limits": [
+    "No production/Netlify deployment, real transfer, message, Premium or new infrastructure.",
+    "DST double/missing Paris wall times rejected; no explicit first/second occurrence selector.",
+    "Silent cookie changes without navigation/logout event not instantly detected; server authorization enforced.",
+    "All inter-process/storage failure scenarios and remote slot cleanup remain unqualified.",
+    "Private Codex/Netlify usage counters unavailable; no invented quota or cost."
+  ],
+  "sha256": {
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "ef6a6344bf0d55dcc6414651d6bbbca2bc7c60a9b0cc71bf0719c9a995ae499c",
+    "gym-next/components/account-legacy/AthleteCancellation.tsx": "1d84ec1787b54f88742ba0430fb3da3e26f9780af29798349d74193e04a56d54",
+    "gym-next/components/account-legacy/AthleteReschedule.tsx": "3777c3200e8a4089db38cee85cd5fa2c147f500a0059f0aa8b0b80903dc4bb04",
+    "gym-next/components/account-legacy/athlete-reschedule-data.ts": "3c39aa7a9fa7de521cbd3ada33b9d0c29108c35ced0c5fb582f01a190be0d449",
+    "gym-next/app/api/reservations/[id]/reschedule/route.ts": "e29161a25d030829c386e094090983e0763113eb3584910d50e7701760ec56c2",
+    "gym-next/lib/reservations.ts": "f5fa2550818fa3d00deb53577b58837042b4ab048a0e9598da888ff979f2f2b8",
+    "gym-next/lib/repositories/reservation-repository.ts": "7bf22bd85a693b4fd3fbda561b4c5e25efa73b79c3c77b5f32e8902f9657a420",
+    "gym-next/tests/athlete-reschedule-recovery.spec.ts": "5019ef6bd7383f115fc6fb8c315ef143f79f1133bce905290957de0ebeede02e",
+    "gym-next/tests/athlete-reschedule-storage.spec.ts": "3a81c946d904c0848e178fac558eb63ef3b4488053d0863ed9afe24ce8944fa8",
+    "DOCUMENT_MAITRE_GYM.md": "7a635f5172a7c20f6f8c5d35c361d2d0f722050b0487909d3ec8c774c3020193",
+    "docs/README.md": "5e1ab659b157860a140e6db0db4f5c541ecc54b0239dff91ab39b3e937009e43",
+    "docs/ETAT_REPRISE_COURANT.md": "18b2a8e623e3be5f3977fcd3a1a937a2f77ad2db852c1cde4e32daa208e5c7ec",
+    "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md": "810fc835e9d241cb7bfb67184ef3ce43b7c56767bf3a5339544098409979c257",
+    "docs/REPRISE_DEPLACEMENT_SPORTIF_2026-10-18.md": "9689a378cb19dbaafd1722133a3da6bfaafa613074e38ad6cf2aa970f176f4ee",
+    "docs/assets/reschedule-recovery-2026-10-18/confirme-390.png": "81ed9c4600abfd662a8df72d7fc0d6792aaa06e0ea7f67d87263a6cb390f4e04",
+    "docs/assets/reschedule-recovery-2026-10-18/confirme-1440.png": "48492909d0bca19600bc92db713cd4f191560cefb403b6a9e1708fe4fabde052",
+    "docs/assets/reschedule-recovery-2026-10-18/non-confirme-390.png": "80dd5754d9d77111763697fd8a4a83ec375de18c05ac8d56dd496fd1dd984205"
+  }
+}

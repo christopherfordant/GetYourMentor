@@ -112,12 +112,14 @@ export async function updatePersistedReservation(
   id: string,
   patch: Record<string, unknown>,
   expectedStatus?: Reservation["status"],
+  expectedSchedule?: {slots:string[];appointmentAt:string|null},
 ) {
   const config = reservationPersistenceConfig();
   if (!config) {
     const update = (reservations: Reservation[], offers: StructureOffer[]) => {
       const index = reservations.findIndex((reservation) => reservation.id === id);
       if (index < 0 || (expectedStatus && reservations[index].status !== expectedStatus)) return null;
+      if (expectedSchedule && (JSON.stringify(reservations[index].slots)!==JSON.stringify(expectedSchedule.slots) || (reservations[index].appointmentAt??null)!==expectedSchedule.appointmentAt)) return null;
       const next = reservationFromRow({ ...reservationToRow(reservations[index]), ...patch });
       // Demo evidence is outside the SQL mapper and immutable through ordinary updates.
       if (reservations[index].demoPaymentConfirmation) next.demoPaymentConfirmation = reservations[index].demoPaymentConfirmation;
@@ -129,7 +131,8 @@ export async function updatePersistedReservation(
     return update(memoryReservations, memoryStructureOffers);
   }
   const statusFilter = expectedStatus ? `&status=eq.${encodeURIComponent(expectedStatus)}` : "";
-  const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}${statusFilter}`, {
+  const scheduleFilter=expectedSchedule ? `&slots=eq.${encodeURIComponent(JSON.stringify(expectedSchedule.slots))}&appointment_at=${expectedSchedule.appointmentAt===null?"is.null":`eq.${encodeURIComponent(expectedSchedule.appointmentAt)}`}` : "";
+  const response = await fetch(`${config.url}/rest/v1/gym_reservations?id=eq.${encodeURIComponent(id)}${statusFilter}${scheduleFilter}`, {
     method: "PATCH",
     headers: headers(config, { "Content-Type": "application/json", Prefer: "return=representation" }),
     body: JSON.stringify(patch),

@@ -171,7 +171,7 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
   return { ...saved, stripeRefundId };
 }
 
-export async function rescheduleReservation(id: string, ownerEmail: string, slots: string[]) {
+export async function rescheduleReservation(id: string, ownerEmail: string, slots: string[], expected?: {slots:string[];appointmentAt:string|null}) {
   const current = await getReservation(id);
   if (!current) return null;
   if (current.ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
@@ -180,16 +180,20 @@ export async function rescheduleReservation(id: string, ownerEmail: string, slot
   if (current.structureOfferId) throw new Error("Annulez puis demandez un autre créneau publié pour cette séance collective");
   const validatedSlots = validateReservationSlots(slots);
   if (!validatedSlots.valid) throw new Error("Un à trois créneaux sont requis");
+  if (JSON.stringify(current.slots)===JSON.stringify(validatedSlots.slots) && current.appointmentAt===validatedSlots.slots[0]) return current;
+  if (expected && (JSON.stringify(current.slots)!==JSON.stringify(expected.slots)||(current.appointmentAt??null)!==expected.appointmentAt)) throw new Error("Réservation modifiée : vérifiez son état avant de poursuivre");
   if (await hasSlotConflict(current.coachId, validatedSlots.slots, id, current.duration)) throw new Error("Un des nouveaux créneaux est déjà demandé ou réservé");
 
   const next = { ...current, slots: validatedSlots.slots, appointmentAt: validatedSlots.slots[0] };
   const config = supabaseConfig();
   const addedSlots = validatedSlots.slots.filter((slot) => !current.slots.includes(slot));
   if (config) await claimReservationSlots(config, id, current.coachId, addedSlots);
-  const saved = await updatePersistedReservation(id, { slots: validatedSlots.slots, appointment_at: next.appointmentAt }, current.status);
+  const saved = await updatePersistedReservation(id, { slots: validatedSlots.slots, appointment_at: next.appointmentAt }, current.status, {slots:current.slots,appointmentAt:current.appointmentAt??null});
   if (!saved) {
-    if (config) await releaseReservationSlots(config, id, addedSlots).catch(() => undefined);
-    throw new Error("Supabase reservation error (reservation update failed)");
+    const latest=await getReservation(id);
+    if (latest && latest.status===current.status && JSON.stringify(latest.slots)===JSON.stringify(validatedSlots.slots) && latest.appointmentAt===next.appointmentAt) return latest;
+    if (config && latest) await releaseReservationSlots(config, id, addedSlots.filter(slot=>!latest.slots.includes(slot))).catch(() => undefined);
+    throw new Error("Réservation modifiée : vérifiez son état avant de poursuivre");
   }
   const releasedSlots = current.slots.filter((slot) => !validatedSlots.slots.includes(slot));
   if (config && releasedSlots.length) await releaseReservationSlots(config, id, releasedSlots);

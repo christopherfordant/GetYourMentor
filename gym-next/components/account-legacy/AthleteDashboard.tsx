@@ -3,6 +3,7 @@ import { formatBookingSlot } from "@/lib/domain/booking-time";
 
 import { useEffect, useRef, useState } from "react";
 import type { Reservation } from "@/lib/domain";
+import { AthleteReschedule } from "./AthleteReschedule";
 import { AthleteCancellation } from "./AthleteCancellation";
 import { isCoachReservation } from "./coach-request-data";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
@@ -13,6 +14,8 @@ export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean;
   const [,refreshLocks]=useState(0);
   function lock(id:string){if(locks.current.has(id))return false;locks.current.add(id);refreshLocks(v=>v+1);return true;}
   function unlock(id:string){locks.current.delete(id);refreshLocks(v=>v+1);}
+  const [moveBlocked,setMoveBlocked]=useState<Set<string>>(new Set());
+  function blockMove(id:string,value:boolean){setMoveBlocked(old=>{if(old.has(id)===value)return old;const next=new Set(old);if(value)next.add(id);else next.delete(id);return next;});}
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -34,30 +37,6 @@ export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean;
   const paidCount = reservations.filter((item) => item.status === "paid").length;
   const target = 5;
   const progress = Math.min(paidCount, target);
-
-  async function reschedule(id: string, input: HTMLInputElement) {
-    setError("");
-    const slot = input.value.trim();
-    if (!slot) {
-      setError("Indiquez un nouveau créneau.");
-      return;
-    }
-    if(!lock(id))return;
-    try {
-    const response = await fetch(`/api/reservations/${id}/reschedule`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slots: [new Date(slot).toISOString()] }),
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      setError(payload.error ?? "Déplacement impossible");
-      return;
-    }
-    setReservations((current) => current.map((item) => item.id === id ? payload.data : item));
-    input.value = "";
-    }catch{setError("Déplacement non confirmé. Actualisez la page avant de poursuivre.");}finally{unlock(id);}
-  }
 
   function searchNearby(radiusKm: number) {
     if (!navigator.geolocation) {
@@ -107,14 +86,9 @@ export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean;
             <span>{reservation.slots.map(formatBookingSlot).join(" · ")} · Europe/Paris</span>
             <span data-athlete-reservation-status>Statut : {reservation.status}</span>
             {reservation.reservationCode ? <span>Code : {reservation.reservationCode}</span> : null}
-            <AthleteCancellation key={`${email}:${reservation.id}`} reservation={reservation} email={email} demo={demo} externalBusy={locks.current.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}>{blocked=><>
+            <AthleteCancellation key={`${email}:${reservation.id}`} reservation={reservation} email={email} demo={demo} externalBusy={locks.current.has(reservation.id)||moveBlocked.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}>{(blocked,cancelBlocked)=><>
             {reservation.status === "accepted" && !blocked ? <a className="reservation-payment-link" href={`/paiement?reservationId=${encodeURIComponent(reservation.id)}`}>Payer ma séance</a> : null}
-            {!reservation.structureOfferId && (reservation.status === "paid" || reservation.status === "accepted") ? (
-              <div data-athlete-reschedule={reservation.id}>
-                <input type="datetime-local" disabled={blocked} data-reschedule-slot placeholder="Nouveau créneau" aria-label="Nouveau créneau" />
-                <button type="button" disabled={blocked} onClick={(event) => reschedule(reservation.id, event.currentTarget.parentElement?.querySelector<HTMLInputElement>("[data-reschedule-slot]") as HTMLInputElement)}>Déplacer</button>
-              </div>
-            ) : null}
+            <AthleteReschedule reservation={reservation} email={email} disabled={cancelBlocked||locks.current.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onBlocked={value=>blockMove(reservation.id,value)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}/>
             </>}</AthleteCancellation>
             {reservation.status === "paid" ? <ReservationReview reservation={reservation} reviewed={reviewIds.includes(reservation.id)} ready={reviewsReady} onCreated={() => setReviewIds(ids => [...ids, reservation.id])} /> : null}
           </article>
