@@ -1,3 +1,5 @@
+> **Reprise active :** `docs/ETAT_REPRISE_COURANT.md` est le relais unique du chantier courant ; ce contexte RAG conserve son historique et ses repères spécialisés. Hiérarchie active dans BRANCH_STRATEGY_GYM.md ; les anciens classements et prochaines missions ci-dessous ne remplacent pas les décisions récentes. Fonctionnement RAG/MemPalace non revérifié par le lot documentaire du 18 octobre.
+
 # Contexte RAG Local GYM
 
 > Ce fichier est le contexte opérationnel compact. L’architecture mémoire/RAG de référence est `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`.

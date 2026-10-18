@@ -1,3 +1,5 @@
+> **Périmètre historique :** contrat du runner pour sa mission assignée, pas procédure générale de toutes les sessions Codex. Pour la session courante, appliquer AGENTS.md et BRANCH_STRATEGY_GYM.md : leurs autorisations récentes de lots démo V2/V3 et de push ciblé remplacent les interdictions générales contradictoires ci-dessous. Aucun runner/agent activé par cette clarification ; les obligations de sécurité sont conservées.
+
 # Contrat d execution agent GYM
 
 Tu es l agent d execution du projet GetYourMentor. Tu travailles uniquement sur la mission fournie par `governance/ai/NEXT_MISSION_GYM.md`.

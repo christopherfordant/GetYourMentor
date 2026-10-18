@@ -1,3 +1,5 @@
+> **Périmètre et priorité actuels — 18 octobre :** hiérarchie dans BRANCH_STRATEGY_GYM.md. Les restrictions historiques MVP ci-dessous ne révoquent pas les lots démo V2/V3 autorisés ; elles restent pertinentes pour empêcher les extensions commerciales non décidées. Aucun élargissement fonctionnel dans cette consolidation.
+
 # Fil Rouge Operatoire GYM
 
 ## Vision

@@ -2,6 +2,30 @@
 
 # REA et Playwright — rôles distincts et historique du 17 octobre 2026
 
+## Catalogue de compétences REA — décision utilisateur du 18 octobre 2026
+REA ne réalise pas à lui seul les métiers du projet. Il aide à investiguer des logiciels et des mécanismes externes autorisés ; les constats doivent devenir des exigences originales puis des tests. Cette table est une aide documentaire à la sélection, pas une orchestration exécutable, une installation ou une promesse de gain.
+
+| Problème / déclencheur | Recours à REA et état de preuve | Preuves demandées | Outils complémentaires | Validation / limites |
+|---|---|---|---|---|
+| Mécanisme d’écriture conditionnelle/concurrence d’un SDK accessible et licencié | Pertinent si documentation/code ne suffisent pas ; essai externe @netlify/blobs déjà documenté | Version/empreintes, sources/relations, hypothèses, cas conflit/répétition/échec, résultats reproductibles | Lecture SDK, tests contractuels avec fetch factice, puis recette intégrée autorisée | Test hors ligne ≠ service Netlify ; pas de charge ni clé réelle sans périmètre |
+| Graphe de modules, dépendances ou chemin de données difficile à comprendre | Analyse statique : pilote interne historique, pas preuve d’exécution ; usage externe à qualifier par cible | Fichiers exacts, relations et zones non résolues, lien entre symptôme et mécanisme | rg, revue de code, tests unitaires/intégration | Aucun code privé transmis à un service externe ; ne pas déduire les droits serveur du graphe |
+| Réservation, annulation ou abonnement d’un logiciel de référence | Étude conditionnelle ; aucune capacité tierce validée par cette table | Droit d’étude, scénario, observations séparées des hypothèses, mécanisme serveur inconnu explicitement | Documentation publique, Playwright sur périmètre autorisé, tests de notre implémentation | Pas d’accès implicite à un compte tiers, contournement ou copie protégée ; décision commerciale humaine si absente |
+| Paiement, webhook, reprise après coupure | Utiliser seulement pour une question externe précise ; garanties actives à vérifier dans notre serveur | Ordre des événements, identifiants masqués, invariants financiers, cas dupliqué/hors ordre/échec | Tests API/intégration, simulateurs locaux, Playwright pour retour utilisateur | Aucun paiement/remboursement réel ; garder idempotence et snapshots ; preuve UI ≠ preuve bancaire |
+| Contraste, débordement, focus, menu ou composition responsive | REA généralement inutile : question visuelle déjà couverte | Route/rôle/viewport, captures, styles calculés, reproduction et contrat concerné | Playwright, DOM/CSS, clavier, revue visuelle | Pas de changement de direction validée sans arbitrage ; émulation ≠ appareil réel |
+| Exécutable, protocole ou mécanisme inaccessible aux outils testés | Capacité NON QUALIFIÉE dans ce projet ; pas de lancement par défaut | Autorisation explicite, licence, outil/version requis, périmètre, données et risques | Documentation et inspection autorisée ; alternative légère | Aucun moteur binaire/traceur/privilège installé ; demander l’autorisation manquante |
+
+### Protocole de sélection et de preuve
+1. Énoncer une question et vérifier si documents, rg, code et tests existants suffisent. Si oui, ne pas lancer REA.
+2. Vérifier cible, droits, provenance/licence, versions, données autorisées et outils réellement disponibles. Seules les commandes précédemment testées sont qualifiées ; installation présente ≠ service actif.
+3. Fixer un périmètre court de fichiers/scénarios, une borne de temps/itérations et un résultat attendu adaptés aux 8 Go. Aucun budget de tokens précis sans indicateur fiable.
+4. Dans le rapport existant du lot : cible/version/source, droit, hypothèses, commande/outils, observations et inconnues, empreintes, état de sortie, coûts réellement mesurés ou inconnus. Matrice mécanisme → exigence GYM → risque → test → preuve.
+5. Confronter l’analyse aux tests et aux observations ; ne pas inventer l’algorithme serveur. Réutiliser les scénarios/contrats existants ; capitaliser seulement les leçons vérifiées, datées et révocables.
+6. Arrêter si droits absents, source sensible, capacités non qualifiées, boucle sans preuve nouvelle ou coût disproportionné. Continuer les travaux indépendants avec une alternative légère. Demander uniquement l’autorisation/décision indispensable.
+
+Pas de nouvelle investigation externe exécutée dans ce lot. Pas de comparaison de gain avec/sans REA mesurée : la valeur du catalogue reste à évaluer sur une question concrète. PDF d’origine : `sources/Prompt_Maitre_Codex_REA_UIUX_GetYourMentor.pdf`, p.1–2 droits/capacités, p.3–4 UIUX/mémoire/pipeline, p.5 livrables ; les listes de livrables s’adossent aux fichiers existants, sans duplication de registres.
+
+## Historique des essais — ne vaut pas disponibilité actuelle
+
 ## Périmètre et sources officielles
 REA identifié : [morluto/rea](https://github.com/morluto/rea), site [rea.tools](https://rea.tools/), paquet npm `rea-agents@6.5.0`. Homonymes et forks non utilisés. Licence MIT vérifiée dans LICENSE et paquet ; provenance repository conforme. Documentation [JavaScript](https://github.com/morluto/rea/blob/main/docs/javascript-application-workflows.md), [README](https://github.com/morluto/rea/blob/main/README.md) et manifest package consultés le 17 octobre. Version npm relevée 6.5.0 ; la documentation main peut décrire des fonctions plus récentes, seules les commandes testées sont revendiquées utilisables. Le projet évolue ; version épinglée, pas de mise à jour automatique.
 

@@ -17,22 +17,11 @@ Le RAG est une capacité d’assistance documentaire. Il ne devient pas une nouv
 
 ## 2. Hiérarchie des sources
 
-En cas de contradiction, appliquer cet ordre :
+Hiérarchie active : [BRANCH_STRATEGY_GYM.md](../../BRANCH_STRATEGY_GYM.md), section « Hiérarchie et contexte progressif ». Instructions/autorisations/sécurité → décisions humaines récentes → PDF métier et synthèse arbitrée → contrats approuvés → méthodes V3/V5/REA → recommandations/archives. L’ancien classement « maître avant tout PDF » est remplacé ; une synthèse n’écrase pas sa source sans arbitrage explicite. Le code/tests établissent l’état réel, pas une décision commerciale.
 
-1. `DOCUMENT_MAITRE_GYM.md` ;
-2. les sources métier prioritaires :
-   - `Bussiness Plan.pdf` ;
-   - `GetYourMentor MVP_V1 - Fonctionnalites generales.pdf` ;
-   - `Copie de Devis DEV - GetYourMentor.pdf` ;
-3. les spécifications produit, UX et migration : `MVP_ECRANS_GYM.md`, `DESIGN_SYSTEM_GYM.md`, `MIGRATION_NEXT_GYM.md` ;
-4. ce document et les décisions validées dans `governance/ai/DECISIONS_LOG_GYM.md` ;
-5. le contexte opérationnel compact `governance/ai/CONTEXT_RAG_GYM.md` ;
-6. le code actif et ses tests ;
-7. les archives, exports, captures et notes historiques.
+## 3. État documenté historique — disponibilité à vérifier par tâche
 
-Une source historique peut expliquer l’origine d’une décision, mais ne peut pas remplacer une source prioritaire sans décision explicite et journalisée.
-
-## 3. Ce qui existe réellement aujourd’hui
+La consolidation du 18 octobre n’a pas exécuté MemPalace, le RAG ou n8n. Les états décrits ci-dessous sont historiques, non une validation courante ; consultation directe des fichiers utilisée. Aucun nouveau système installé.
 
 ### 3.1 Mémoire locale active : MemPalace
 

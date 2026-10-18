@@ -14,15 +14,7 @@ Il sert a :
 
 ## Source de verite
 
-Ordre de priorite :
-
-1. `DOCUMENT_MAITRE_GYM.md`
-2. `Bussiness Plan.pdf`
-3. `GetYourMentor MVP_V1 - Fonctionnalites generales.pdf`
-4. `Copie de Devis DEV - GetYourMentor.pdf`
-5. les fichiers socle markdown a la racine
-6. les README metiers de ce dossier
-7. le code
+Hiérarchie active : [BRANCH_STRATEGY_GYM.md](../BRANCH_STRATEGY_GYM.md), section « Hiérarchie et contexte progressif ». Instructions/autorisations/sécurité → décisions humaines récentes → PDF métier et synthèse arbitrée → contrats approuvés → méthodes V3/V5/REA → recommandations/archives. L’ancien classement « maître avant tout PDF » est remplacé ; une synthèse n’écrase pas sa source sans arbitrage explicite. Le code/tests établissent l’état réel, pas une décision commerciale.
 
 ## Fil rouge actuel
 
@@ -133,3 +125,6 @@ Le superviseur ne peut pas :
 ## Premiere mission prioritaire
 
 Stabiliser la gouvernance entre produit, design, technique et IA avant de poursuivre les evolutions UI ou code majeures.
+
+## Compétences et preuves — 18 octobre 2026
+Catalogue de sélection REA dans [le document existant](../docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md), sans nouveau moteur, routeur ou registre. Il indique problème, preuve, outils complémentaires et validation. Sources méthodologiques : [index PDF](../docs/sources/README.md). Les rôles métier sont des angles de revue, pas 24 métiers exécutés par REA. [Le relais courant](../docs/ETAT_REPRISE_COURANT.md) contient la prochaine action ; les anciennes missions spécialisées ne remplacent pas la demande utilisateur.
