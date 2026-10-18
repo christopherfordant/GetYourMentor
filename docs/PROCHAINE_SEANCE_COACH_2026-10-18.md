@@ -25,3 +25,5 @@ Modifications locales préexistantes exclues ; commit ciblé et push sur branche
 Prochaine action bornée : fiabiliser séparément les états de chargement/erreur du planning collectif existant StructureSessions, où une erreur de lecture peut encore coexister avec « Aucune séance publiée ». Examiner d'abord les tests et contrats de ce composant, sans refondre le compte structure ni changer la publication ou les droits. V1/V2/V3 restent incomplets.
 
 R?sultat final : build et typage PASS, contr?les configuration et secrets client PASS, pr?-push CONFORME. Suite corrig?e prochaine s?ance : 8/8 PASS ; r?gressions inchang?es avis/suivi/filtre mensuel : 22/22 d?j? PASS. Soit 30 cas projet distincts couverts, sans compter les replays comme couverture additionnelle. Captures desktop/mobile finales relues.
+
+Complément de preuve : la capture mobile initiale du rejeu était prise avant chargement de la photo ; attente explicite image.decode ajoutée au test, deux cas UI rejoués PASS et captures archivées avec photo chargée. Aucun changement applicatif ; couverture distincte inchangée.

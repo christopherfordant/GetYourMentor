@@ -35,7 +35,8 @@
       "Initial 28/30 passed; two integrated fixtures refused unverified coach",
       "Focused two-case attempt after profile initialization still refused unverified coach",
       "Fixture corrected to verify via real admin endpoint; no production permission changes",
-      "Final next-session suite: 8/8 passed; unaffected review/progress/month regression 22/22 retained, not replayed"
+      "Final next-session suite: 8/8 passed; unaffected review/progress/month regression 22/22 retained, not replayed",
+      "Final visual proof corrected to await image.decode; two UI project cases replayed and passed (17.1s), not additional unique coverage."
     ]
   },
   "semantics": [
@@ -57,10 +58,10 @@
     "gym-next/lib/domain/booking-time.ts": "8c0831995adbbd94c676c4497d7b9e44c307664e598734c9258736d15bae4577",
     "gym-next/lib/domain/review-rules.ts": "5c66f20cbb9ac0679aebc99a30cd0699b9524bb36e9a9da8ed9d26b4fe3fe8c6",
     "gym-next/lib/domain/coach-next-session.ts": "2ed72e5a6e1e3bc3845fa17760046a96eaa4c95af29726fc1910f5eba130183e",
-    "gym-next/tests/coach-next-session.spec.ts": "be62d8739a5b0fcfa204256e3bf741eb71731dd97352d1a86e266a2c41d82650"
+    "gym-next/tests/coach-next-session.spec.ts": "a4764aced4e0e84453fc87811d61fa47896712486ea2fc30dfa5d2a0c17bd21d"
   },
   "sha256Captures": {
     "docs\\assets\\coach-next-2026-10-18\\carte-1440.png": "5b6bda3119ae886720eb83c66eb9ae7f1afc7726af8c9849df5c4d9f1771bf77",
-    "docs\\assets\\coach-next-2026-10-18\\carte-390.png": "eafc3d97916f0a70dad00ec2251936a60ea00c2e997180588e09a8731a67af35"
+    "docs\\assets\\coach-next-2026-10-18\\carte-390.png": "f3cf8b906d24b65e11ff85067fa2ccfb5b349c041ac21f21e85ffdde046047f0"
   }
 }
