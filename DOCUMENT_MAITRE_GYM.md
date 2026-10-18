@@ -1,3 +1,5 @@
+> **Classement de la messagerie — 19 octobre 2026 :** filtre par correspondant, tri chronologique et recherche combinée dans MessageInbox existant. Source Business Plan p.29 ; rapport `docs/FILTRES_MESSAGERIE_2026-10-18.md`, preuves `docs/assets/message-filters-2026-10-18/verification.json`. Aucun nouvel accès, service externe ni déploiement.
+
 > **Reprise du déplacement sportif — 18 octobre 2026 :** relecture après résultat incertain, saisie Europe/Paris conservée, verrou partagé et écriture conditionnée au calendrier initial. Rapport `docs/REPRISE_DEPLACEMENT_SPORTIF_2026-10-18.md`, preuves `docs/assets/reschedule-recovery-2026-10-18/verification.json`. Historiques conservés ; aucun paiement réel ou déploiement.
 
 > **Reprise d’annulation simulée — 18 octobre 2026 :** verrou par réservation, réponse vérifiée, relecture explicite après résultat incertain et remboursement inconnu distinct de zéro. Rapport `docs/REPRISE_ANNULATION_SIMULEE_2026-10-18.md`, preuves `docs/assets/cancel-recovery-2026-10-18/verification.json`. Aucun service bancaire réel ni déploiement.

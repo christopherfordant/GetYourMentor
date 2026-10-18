@@ -51,3 +51,6 @@ Contrats Netlify, frontière client/serveur et secrets suivis PASS, conformité 
 Retour arrière : revert ciblé sur la branche de travail, sans purge du store ni suppression des conversations ; conserver ownerRole dans les sauvegardes. Une version antérieure refuse l’accès club à l’API ; ne pas promettre l’accès aux échanges après ce retour. Déploiement isolé seulement quand une recette distante justifie son usage et budget.
 
 Prochain lot : maquette séparée des retours bêta/suggestions/votes (Business Plan p.49, Perplexity p.12–13), puis tranche limitée avec auth existante, validation, vote unique et modération admin dans DemoState, avant abonnements/contenus/suivi simulés. L’état et les dépendances sont dans la matrice de couverture existante. PDF maître V3 complet dans docs/sources ; aucune infrastructure Guardian/REA ajoutée.
+
+## Complément livré — 19 octobre 2026
+Classement par correspondant/date avec recherche combinée dans le même composant : [rapport du lot](FILTRES_MESSAGERIE_2026-10-18.md). Droits et stockage inchangés ; aucune nouvelle messagerie, notification externe, pagination ou pièce jointe. Les preuves historiques ci-dessus restent datées ; recette de ce complément dans son propre rapport.

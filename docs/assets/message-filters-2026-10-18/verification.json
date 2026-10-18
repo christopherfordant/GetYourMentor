@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-19",
+  "lot_started": "2026-10-18",
+  "base": "29be22b0243625635563808c04b7853af9d9ea8b",
+  "branch": "design/refonte-progressive-lot1",
+  "source": "Bussiness Plan.pdf physical page 29, directly read; existing message component/API and matrix compared",
+  "checks": {
+    "tests": "20/20 PASS (55.2s), message-filters + existing replies + structure messaging, desktop/mobile, one worker",
+    "build": "PASS final Next production build",
+    "types": "PASS final explicit tsc",
+    "client_secret_boundary": "PASS final compiled client assets",
+    "prepush": "PASS",
+    "diff_check": "PASS"
+  },
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "evidence": {
+    "unit": "Correspondent grouping by role/identity, same-name coaches disambiguated, stable dates/order, invalid date last, query intersection, no input mutation.",
+    "mocked_ui": "Native select, keyboard, search + correspondent + date, no extra GET, drafts retained, missing correspondent after refresh, failure vs empty, malformed data, contrast >=4.5 and no horizontal overflow.",
+    "integrated": "Real local athlete A/B messages + persisted coach reply. Coach filters A and sees its history; account B does not receive A messages even with recipientName query and cannot reply to A. Existing affiliation consent, both initiators, message repetition and network-error regressions also pass.",
+    "visual": "Two cropped screenshots inspected on fake data; Playwright local, not MCP; no private records or tokens in assets."
+  },
+  "limits": [
+    "Manual refresh, no subject metadata filter, pagination, attachment or realtime notification added.",
+    "Selections are in memory, not URL/localStorage; full reload resets them.",
+    "Historical messages without coachId are not silently merged with identified same-name coaches.",
+    "No remote RLS/Supabase/Netlify validation, new service or deployment. No external email/SMS, payments or Premium activation.",
+    "Codex private usage counters unavailable; no quota/cost guarantee."
+  ],
+  "sha256": {
+    "gym-next/components/account-legacy/MessageInbox.tsx": "bcf57a8189e3262fc267df973c5f5bd47e4ebebd3d2e5ca4e3127066efa0f66f",
+    "gym-next/components/account-legacy/message-view.ts": "b0caad5c15bd3bcdb175372aa3d309090ed9c662022d261c82cef087960a67a3",
+    "gym-next/components/account-legacy/message-filters.module.css": "5b8f29a0098c49faa8a66fd538d4c0f79350072e478eabc708ae9b9e430fc7d8",
+    "gym-next/tests/message-filters.spec.ts": "de4b47290df23451cfeb2511982949e23982b51b6bedf667bad6fc2cec010e4b",
+    "DOCUMENT_MAITRE_GYM.md": "383eb1523ce411ae32362593d9310443f1e8f3e63b1d69b671febe4e6f8f2afb",
+    "docs/README.md": "64b4c5f219047b5e047065ba5065dbf5907a24cb7e4e470f94bd287cf80807b8",
+    "docs/ETAT_REPRISE_COURANT.md": "3dff6c2ee94e5cff0620f0f489798a2ff7277bd2f28af690124db2f09fe37515",
+    "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md": "fe71dd26f6a1dd98bdec26820e56ca8bfd94432d56e5a16560f43dfef0887ca5",
+    "docs/MESSAGERIE_DEMO_2026-10-17.md": "bf8d6caa567f1a9bcc87befd63460a752f3bb698a286f1fd1db955cb36eab67a",
+    "docs/FILTRES_MESSAGERIE_2026-10-18.md": "3624b8a430176ed564893a64414d97b3e5a90e92c3c0c17f39df7c37a1fdf836",
+    "docs/assets/message-filters-2026-10-18/correspondant-390.png": "2cac2ea86210a06bef37025ba5448ee18b0f3e27d510de38e2d20dad336c0425",
+    "docs/assets/message-filters-2026-10-18/correspondant-1440.png": "6fa6b044d556da09e649da0e4624bb4d272abbe42a429a80e77596168ea52d7c"
+  }
+}
