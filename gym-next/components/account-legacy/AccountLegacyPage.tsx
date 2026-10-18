@@ -1,4 +1,5 @@
 "use client";
+import { CoachPlanningSchedule } from "./CoachPlanningSchedule";
 import { coachNextSession } from "@/lib/domain/coach-next-session";
 import financeFilterStyles from "./coach-finance-filter.module.css";
 import { coachMonthlyFinance,formatFinanceCents,coachMonthKey,isCoachMonth } from "@/lib/domain/coach-finance";
@@ -441,13 +442,7 @@ function CoachDashboard({
         </div>
         <p>Horaires Europe/Paris. Les demandes, confirmations et annulations sont actualisées avec le suivi des réservations.</p>
         <div className="coach-home-schedule">
-          {reservations.length ? reservations.map((reservation) => (
-            <article key={reservation.id}>
-              <strong>{reservation.slots.map(formatBookingSlot).join(" · ")}</strong>
-              <span>{reservation.service}</span>
-              <span>Statut : {reservation.status}</span>
-            </article>
-          )) : <p data-coach-schedule-empty>Aucune séance enregistrée.</p>}
+          <CoachPlanningSchedule reservations={reservations} coachId={coachId} loading={financeLoading} error={financeError} />
         </div>
       </section>
       <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />

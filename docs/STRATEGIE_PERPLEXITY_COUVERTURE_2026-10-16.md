@@ -166,3 +166,6 @@ Les anciennes lignes « à recetter » restent historiques ; les résultats loca
 | --- | --- | --- |
 | Planning coach/structure existant, BP p.28/31 et parcours réservation | StructureSessions distingue chargement, actualisation, vide réel et erreurs ; snapshot cohérent, réponse périmée ignorée, affiliations non vérifiées bloquantes et confirmation de publication séparée. Voir ETATS_PLANNING_COLLECTIF_2026-10-18.md | Recette locale ; pas de calendrier externe, idempotence serveur ajoutée ou RLS distante |
 Les exigences commerciales, consentements, tarifs et capacités ne changent pas. Prochaine tranche : libellés d'horaires retenus/proposés du planning coach existant. V1/V2/V3 incomplets.
+
+## Libellés du planning coach — 18 octobre 2026
+Planning métier existant (BP p.28/31) : « Mon planning » distingue désormais propositions requested, rendez-vous accepté/payé et historique annulé/refusé. appointmentAt initial ne vaut pas acceptation ; résolution partagée, erreurs/absence de dates explicites. Rapport CRENEAUX_PLANNING_COACH_2026-10-18.md, recette locale dans la preuve ; aucune mutation ou réimplémentation financière. V1/V2/V3 incomplets. Prochaine tranche : erreurs et double envoi des actions Accepter/Refuser de CoachRequestsPanel.

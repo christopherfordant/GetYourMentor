@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-18",
+  "base": "e258106e75a643e7096a200a1620fd3cce53c241",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "existing coach planning labels and states, no data mutation",
+  "checks": {
+    "build": "PASS",
+    "types": "PASS (final)",
+    "netlifyConfigStatic": "PASS",
+    "clientSecretBoundary": "PASS",
+    "prePushFilRouge": "CONFORME",
+    "tests": "PASS: 24 initial project cases, final affected UI replay 2/2 passed after contrast fix; 24 distinct coverage cases, not 26"
+  },
+  "playwright": {
+    "runner": "local, not MCP",
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "browserTimezoneForNewUI": "America/Los_Angeles",
+    "uniqueProjectCases": 24,
+    "initial": "24 passed (48.0s)",
+    "distinction": "UI tests inject synthetic reservation GET rows; separate integrated test uses actual local endpoints and memory repository, no interception, for request with two proposed slots, second chosen, simulated payment, cancellation, foreign-coach denial. Not remote persistence validation.",
+    "finalContrastReplay": "2 passed (13.8s), contrast >=4.5:1 at all four widths"
+  },
+  "semantics": [
+    "appointmentAt exists at request creation and is not acceptance evidence",
+    "requested proposals distinguished from accepted/paid appointment",
+    "reservationStart and formatBookingSlot reused, Paris timezone",
+    "cancelled/rejected kept as neutral history in existing order",
+    "invalid appointed date does not fall back to valid proposal",
+    "empty, loading and error distinct, no second fetch",
+    "no mutation, owner filtering, existing financial/next-session rules preserved"
+  ],
+  "limits": [
+    "No Netlify deployment or remote RLS/Stripe validation",
+    "No real payments, Premium activation or notifications",
+    "Historical single-slot fallback retained, no backfill",
+    "Codex private quotas inaccessible"
+  ],
+  "sha256LF": {
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "cc8e6c5e916380f5c8d1dc422ebd9b6831bafce629e6f8728e0417340eb910a7",
+    "gym-next/components/account-legacy/CoachPlanningSchedule.tsx": "676d94977afe3520fde8690b0fba3ac24d676868c68f644b9ade3ffde4162ab2",
+    "gym-next/lib/domain/reservation-planning.ts": "29d0fcd30d8df4b5d9d2596e38217b6de1e7cd30df1c110288df1c2555e1aef5",
+    "gym-next/app/gym-account-design.css": "2f0bee45da5b04a09f98db7f5c8e8ece6fd9158d2ccc26235d044e9816efe4ef",
+    "gym-next/tests/coach-planning-slots.spec.ts": "513306ebb7f09c1a7a46cc24c21b7d3a7e406ce94048c498a78694dd6c4c4f76"
+  },
+  "sha256Captures": {
+    "docs/assets/planning-slots-2026-10-18/planning-1440.png": "1decd3e3d66b3fd03a43774b3c7a82ab02ab7977f92f8fc0cee56dc534ba4027",
+    "docs/assets/planning-slots-2026-10-18/planning-390.png": "50df07fcf7600f3f1cbe3eb363cef77486bfedaceb5ef4982ce9f36384890417"
+  }
+}

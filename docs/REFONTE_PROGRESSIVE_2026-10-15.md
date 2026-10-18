@@ -1,3 +1,5 @@
+> **Créneaux du planning coach — 18 octobre 2026 :** propositions distinctes du rendez-vous retenu, historique explicite, horaires ambigus signalés et chargement/erreur/vide séparés. Rapport `docs/CRENEAUX_PLANNING_COACH_2026-10-18.md`, preuves `docs/assets/planning-slots-2026-10-18/verification.json`. Aucune mutation ou modification financière, aucun déploiement.
+
 > **États du planning collectif — 18 octobre 2026 :** chargement/erreur/vide distincts, données anciennes signalées, affiliations revérifiées, lectures annulables et résultat de publication séparé. Rapport `docs/ETATS_PLANNING_COLLECTIF_2026-10-18.md`, preuves `docs/assets/planning-states-2026-10-18/verification.json`. Aucun changement métier ou déploiement.
 
 > **Prochaine séance coach — 18 octobre 2026 :** carte existante triée par horaire convenu, séances en cours/à venir acceptées ou payées, inconnues et erreurs explicites. Rapport `docs/PROCHAINE_SEANCE_COACH_2026-10-18.md`, preuves `docs/assets/coach-next-2026-10-18/verification.json`. Aucun changement financier, synchronisation externe ou déploiement.

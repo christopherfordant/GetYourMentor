@@ -45,8 +45,13 @@ Base vérifiée local/distant `4b7b11056136d035de01637a19950a0026e43276`, candid
 StructureSessions coach/structure : snapshot atomique validé, chargement/vide/erreur distincts, anciennes données averties, publication bloquée si affiliations non vérifiées. Lectures remplacées/démontage annulés ; publication et lecture séparées, double envoi protégé, résultat incertain sans relance automatique. Événement d'affiliation pendant publication invalidant et actualisation différée unique. Aucun changement d'API, données ou règles métier.
 Recette : réponses injectées distinguées des parcours intégrés existants dans le repository mémoire local ; résultats définitifs et captures dans la preuve. Aucun déploiement ou validation distante ; modifications antérieures préservées.
 
+## Créneaux du planning coach — 18 octobre
+Base local/distant vérifiée `e258106e75a643e7096a200a1620fd3cce53c241`, candidat `C:/Users/cashe/Documents/GYM-planning-slots`. Rapport `CRENEAUX_PLANNING_COACH_2026-10-18.md`, preuves/captures `assets/planning-slots-2026-10-18/verification.json`. SHA livré à vérifier par HEAD/distant.
+Mon planning distingue requested/propositions, accepted/paiement en attente, paid et historique cancelled/rejected ; appointmentAt initial n'est pas une acceptation. Résolution reservationStart réutilisée, Horaire à vérifier si inexploitable, Europe/Paris, ordre conservé et isolation coach. États existants loading/error réutilisés, aucune requête ou mutation nouvelle. Prochaine séance et finances inchangées.
+Recette : fixtures UI distinguées du parcours intégré local deux propositions → second choix accepté → paiement simulé → annulation, avec refus d'accès étranger. Résultats et limites dans la preuve ; aucun déploiement.
+
 ## Prochain lot métier borné
-Fiabiliser les libellés de créneaux dans « Mon planning » du coach : aujourd'hui slots est affiché même lorsqu'un appointmentAt est retenu. Réutiliser reservationStart, distinguer propositions/rendez-vous confirmé et conserver l'historique, sans modification des finances, statuts ou règles de réservation. Examiner les tests existants avant correction. Un seul lot borné.
+Fiabiliser les actions Accepter/Refuser de CoachRequestsPanel : transition n'a actuellement ni try/catch ni verrou d'envoi. Traiter erreurs réseau/réponses et double clic, conserver la sélection du créneau, les données et les validations serveur. Pas de refonte globale, de nouvelles règles de réservation ou de paiement réel. Un seul lot borné.
 
 ## Limites, outils et historique
 Mémoire locale volatile ; persistance distante des modules récents et RLS non recettées. Abonnements exclusifs, fichiers binaires, packs et suivi médical/partagé non livrés ; pas de taux de rétention/présence inventé. L’admin ne reçoit pas les objectifs privés par défaut.

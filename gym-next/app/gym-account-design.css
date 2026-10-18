@@ -137,7 +137,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .coach-home-editorial-image img { position: absolute !important; object-fit: cover; }
 #gym-account :is(.coach-home-rating-score,.coach-home-revenue-amount) { color: var(--gym-primary-hover) !important; font-size: 36px !important; line-height: 1.2; }
 #gym-account .coach-home-inline-link { display: inline-flex; align-items: center; flex-wrap: wrap; min-height: 44px; max-width: 100%; padding: 10px 14px !important; border-radius: 7px; color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; font-size: 14px !important; }
-#gym-account .coach-home-schedule article { padding: 14px !important; border: 1px solid var(--gym-line) !important; background: var(--gym-paper) !important; border-radius: 8px; }
+#gym-account .coach-home-schedule article { color: var(--gym-ink); padding: 14px !important; border: 1px solid var(--gym-line) !important; background: var(--gym-paper) !important; border-radius: 8px; }
 #gym-account :is(.coach-home-card-head,.account-inline-actions) { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; min-width: 0; }
 
 @media (max-width: 900px) {
