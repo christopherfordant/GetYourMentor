@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {isDisplayMessage,messageContacts,selectMessages,type MessageOrder} from "./message-view";
 import styles from "./message-filters.module.css";
+import {MessageTemplates} from "./MessageTemplates";
 import type { Message } from "@/lib/messages";
 
 export function MessageInbox({ recipientName, contacts, contactKind = "coach" }: { recipientName?: string; contacts?: Array<{ value: string; label: string }>; contactKind?: "coach" | "structure" }) {
@@ -20,6 +21,13 @@ export function MessageInbox({ recipientName, contacts, contactKind = "coach" }:
   const [order,setOrder]=useState<MessageOrder>("newest");
   const sending = useRef(false);
   const requestId = useRef("");
+  const bodyRef=useRef<HTMLTextAreaElement>(null);
+  function insertTemplate(text:string){
+    if(sending.current||busy)return;
+    if(body.trim()&&body!==text&&!window.confirm("Remplacer le brouillon actuel par ce modèle ? Votre texte sera remplacé."))return;
+    if(body!==text){setBody(text);requestId.current=crypto.randomUUID();}
+    setFeedback("");requestAnimationFrame(()=>bodyRef.current?.focus());
+  }
 
   useEffect(() => {
     const controller = new AbortController();
@@ -81,8 +89,8 @@ export function MessageInbox({ recipientName, contacts, contactKind = "coach" }:
       ))}</>}
       {selected && canReply ? <form onSubmit={reply} aria-label={selected.startsWith("contact:") ? "Démarrer un échange" : "Répondre au message"}>
         <p>{selected.startsWith("contact:") ? "Message au contact affilié sélectionné." : "Réponse dans la conversation sélectionnée."} Aucun email ou SMS externe n’est envoyé.</p>
-        {recipientName ? <button className="auth-secondary" type="button" disabled={busy} onClick={() => { setBody("Bonjour, merci pour votre message. Précisez votre objectif et vos disponibilités pour préparer notre échange."); requestId.current = crypto.randomUUID(); }}>Utiliser le modèle d’accueil</button> : null}
-        <label className="auth-field">Votre réponse<textarea required maxLength={4000} rows={4} value={body} onChange={event => { setBody(event.target.value); requestId.current = crypto.randomUUID(); }} disabled={busy} /></label>
+        {recipientName ? <MessageTemplates key={selected} disabled={busy} onInsert={insertTemplate}/> : null}
+        <label className="auth-field">Votre réponse<textarea ref={bodyRef} required maxLength={4000} rows={4} value={body} onChange={event => { setBody(event.target.value); requestId.current = crypto.randomUUID(); }} disabled={busy} /></label>
         <button type="submit" className="auth-primary" disabled={busy || !body.trim()}>{busy ? "Envoi…" : selected.startsWith("contact:") ? "Envoyer le message" : "Envoyer la réponse"}</button>
         <button type="button" className="auth-secondary" disabled={busy} onClick={() => { setSelected(""); setBody(""); }}>Fermer la réponse</button>
       </form> : null}

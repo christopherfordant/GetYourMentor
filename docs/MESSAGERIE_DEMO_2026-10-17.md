@@ -54,3 +54,7 @@ Prochain lot : maquette séparée des retours bêta/suggestions/votes (Business 
 
 ## Complément livré — 19 octobre 2026
 Classement par correspondant/date avec recherche combinée dans le même composant : [rapport du lot](FILTRES_MESSAGERIE_2026-10-18.md). Droits et stockage inchangés ; aucune nouvelle messagerie, notification externe, pagination ou pièce jointe. Les preuves historiques ci-dessus restent datées ; recette de ce complément dans son propre rapport.
+
+## Extension du 19 octobre 2026
+
+Bibliothèque de modèles coach, sans nouvel endpoint ni envoi automatique : [rapport](MODELES_MESSAGES_COACH_2026-10-19.md). Le modèle d’accueil existant est conservé ; aperçu et confirmation de remplacement protègent le brouillon. Les limites distantes de la messagerie restent inchangées.

@@ -1,3 +1,5 @@
+> **Modèles de messages coach — 19 octobre 2026 :** bibliothèque sélectionnable et prévisualisable, insertion modifiable et confirmation avant remplacement du brouillon. Business Plan p.29 ; rapport `docs/MODELES_MESSAGES_COACH_2026-10-19.md`. Envoi explicite et déduplication existante conservés ; aucun service externe ni déploiement.
+
 > **Classement de la messagerie — 19 octobre 2026 :** filtre par correspondant, tri chronologique et recherche combinée dans MessageInbox existant. Source Business Plan p.29 ; rapport `docs/FILTRES_MESSAGERIE_2026-10-18.md`, preuves `docs/assets/message-filters-2026-10-18/verification.json`. Aucun nouvel accès, service externe ni déploiement.
 
 > **Reprise du déplacement sportif — 18 octobre 2026 :** relecture après résultat incertain, saisie Europe/Paris conservée, verrou partagé et écriture conditionnée au calendrier initial. Rapport `docs/REPRISE_DEPLACEMENT_SPORTIF_2026-10-18.md`, preuves `docs/assets/reschedule-recovery-2026-10-18/verification.json`. Historiques conservés ; aucun paiement réel ou déploiement.

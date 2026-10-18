@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-19",
+  "base": "c213d2761e01d570cf9e793dad1b455f5d9b77de",
+  "branch": "design/refonte-progressive-lot1",
+  "source": "Bussiness Plan.pdf, physical page 29, direct local extraction",
+  "scope": "Coach message template library in existing MessageInbox",
+  "checks": {
+    "regression_suite": "26/26 passed before label shortening: message-templates, message-filters, message-replies, structure-messages; desktop/mobile",
+    "final_affected_suite": "6/6 passed after mobile label shortening; message-templates desktop/mobile",
+    "build": "passed after label shortening",
+    "types": "passed: tsc --noEmit --incremental false, final source",
+    "client_secret_boundary": "passed against final build",
+    "netlify_config": "static check passed; no deployment",
+    "fil_rouge": "CONFORME in isolated worktree; generated governance logs not included",
+    "responsive_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "preview_contrast": "automated ratio >=4.5",
+    "screenshots": "390 and 1440, cropped to template control, both inspected visually after final labels"
+  },
+  "proof_levels": {
+    "playwright": "local Chromium, one worker; MCP not used",
+    "integrated": "real local auth/messages endpoints, synthetic users/messages, athlete-side reread of persisted replies",
+    "transport_interception": "real POST forwarded; first response intentionally aborted after persisted message independently verified; explicit retry returns same id",
+    "remote": "not tested: RLS, Stripe, hosted persistence, Netlify"
+  },
+  "limits": [
+    "Fixed suggestions, editable before sending; no personal template persistence",
+    "No automatic sending, external notification, payment, subscription, AI or infrastructure",
+    "No production or Netlify deployment; V1/V2/V3 incomplete"
+  ],
+  "files_sha256": {
+    "gym-next/components/account-legacy/MessageInbox.tsx": "80bcc2c9ed6613198941e5efc70c89ea12ac09d0b3f6612056549f8a2f2746ad",
+    "gym-next/components/account-legacy/MessageTemplates.tsx": "d15cf985ef513610e1b4f0f432b61cac6a149d036385005c601b8a7fe46a93c1",
+    "gym-next/components/account-legacy/message-templates.ts": "05dc750f497cb0c06b159d3bec87bf34255c7696a6f49b2cf41957e043d92fdb",
+    "gym-next/components/account-legacy/message-templates.module.css": "3a360fafab076664ed8965879613189ad4f21ef962ffee98349e51d190688cdc",
+    "gym-next/tests/message-templates.spec.ts": "0f28e7bb39c59cabe106246c0061f7682758ff266df046202ad9f36cc4f7a2fe",
+    "docs/assets/message-templates-2026-10-19/modeles-390.png": "06f087533724a82c09b2a55310520eb4c4d04b41e84615506a26f5c80cf1022a",
+    "docs/assets/message-templates-2026-10-19/modeles-1440.png": "2850a0bdb08d934d9c43651a64cd1a8cd9c60c749b7d748df9f8f5a430c7d81f"
+  }
+}
