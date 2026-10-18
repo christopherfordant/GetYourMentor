@@ -1,12 +1,18 @@
 "use client";
 import { formatBookingSlot } from "@/lib/domain/booking-time";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Reservation } from "@/lib/domain";
+import { AthleteCancellation } from "./AthleteCancellation";
+import { isCoachReservation } from "./coach-request-data";
 import { MessageInbox } from "@/components/account-legacy/MessageInbox";
 import { ReservationReview } from "@/components/account-legacy/ReservationReview";
 
-export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
+export function AthleteDashboard({ demo = false, email = "" }: { demo?: boolean; email?: string }) {
+  const locks=useRef(new Set<string>());
+  const [,refreshLocks]=useState(0);
+  function lock(id:string){if(locks.current.has(id))return false;locks.current.add(id);refreshLocks(v=>v+1);return true;}
+  function unlock(id:string){locks.current.delete(id);refreshLocks(v=>v+1);}
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -20,27 +26,14 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
   }, []);
 
   useEffect(() => {
-    fetch("/api/reservations")
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Chargement impossible"))))
-      .then((payload) => setReservations(payload.data as Reservation[]))
-      .catch(() => setReservations([]))
-      .finally(() => setLoading(false));
-  }, []);
+    const controller=new AbortController();
+    fetch("/api/reservations",{signal:controller.signal,cache:"no-store"}).then(async response=>{if(!response.ok)throw new Error();const payload=await response.json();if(!Array.isArray(payload.data)||!payload.data.every((r:unknown)=>isCoachReservation(r)&&(!r.ownerEmail||r.ownerEmail===email))||new Set(payload.data.map((r:Reservation)=>r.id)).size!==payload.data.length)throw new Error();if(!controller.signal.aborted)setReservations(payload.data);}).catch(()=>{if(!controller.signal.aborted)setError("Chargement des réservations impossible. Actualisez la page pour réessayer.");}).finally(()=>{if(!controller.signal.aborted)setLoading(false);});
+    return()=>controller.abort();
+  },[email]);
 
   const paidCount = reservations.filter((item) => item.status === "paid").length;
   const target = 5;
   const progress = Math.min(paidCount, target);
-
-  async function cancel(id: string) {
-    setError("");
-    const response = await fetch(`/api/reservations/${id}/cancel`, { method: "POST" });
-    const payload = await response.json();
-    if (!response.ok) {
-      setError(payload.error ?? "Annulation impossible");
-      return;
-    }
-    setReservations((current) => current.map((item) => item.id === id ? payload.data : item));
-  }
 
   async function reschedule(id: string, input: HTMLInputElement) {
     setError("");
@@ -49,6 +42,8 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
       setError("Indiquez un nouveau créneau.");
       return;
     }
+    if(!lock(id))return;
+    try {
     const response = await fetch(`/api/reservations/${id}/reschedule`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -61,6 +56,7 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
     }
     setReservations((current) => current.map((item) => item.id === id ? payload.data : item));
     input.value = "";
+    }catch{setError("Déplacement non confirmé. Actualisez la page avant de poursuivre.");}finally{unlock(id);}
   }
 
   function searchNearby(radiusKm: number) {
@@ -88,7 +84,7 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
       </div>
       <section className="account-dashboard-card" data-loyalty-card>
         <h2>{demo ? "Fidélité — aperçu de démonstration" : "Mes séances payées"}</h2>
-        <p data-loyalty-count>{loading ? "Chargement..." : `${paidCount} séance${paidCount > 1 ? "s" : ""} payée${paidCount > 1 ? "s" : ""}`}</p>
+        <p data-loyalty-count>{loading ? "Chargement..." : error ? "Indisponible" : `${paidCount} séance${paidCount > 1 ? "s" : ""} payée${paidCount > 1 ? "s" : ""}`}</p>
         {demo ? <progress max={target} value={progress} aria-label="Progression fidélité de démonstration" /> : null}
         {demo ? <p>Palier indicatif de {target} paiements simulés : {progress}/{target}. Aucun avantage commercial ni réduction n’est activé.</p> : null}
       </section>
@@ -103,7 +99,7 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
       <section className="account-dashboard-card" data-athlete-reservations>
         <h2>Mes réservations</h2>
         {error ? <p role="alert">{error}</p> : null}
-        {loading ? <p>Chargement...</p> : reservations.length === 0 ? <p>Aucune réservation pour le moment.</p> : reservations.map((reservation) => (
+        {loading ? <p>Chargement...</p> : error && reservations.length===0 ? null : reservations.length === 0 ? <p>Aucune réservation pour le moment.</p> : reservations.map((reservation) => (
           <article key={reservation.id} data-athlete-reservation={reservation.id}>
             <strong>{reservation.service}</strong>
             <span>{reservation.coachName} · {reservation.price} EUR</span>
@@ -111,17 +107,15 @@ export function AthleteDashboard({ demo = false }: { demo?: boolean }) {
             <span>{reservation.slots.map(formatBookingSlot).join(" · ")} · Europe/Paris</span>
             <span data-athlete-reservation-status>Statut : {reservation.status}</span>
             {reservation.reservationCode ? <span>Code : {reservation.reservationCode}</span> : null}
-            {reservation.status === "accepted" ? <a className="reservation-payment-link" href={`/paiement?reservationId=${encodeURIComponent(reservation.id)}`}>Payer ma séance</a> : null}
-            {reservation.status === "paid" || reservation.status === "accepted" || reservation.status === "requested" ? (
-              <button type="button" onClick={() => cancel(reservation.id)}>Annuler la réservation</button>
-            ) : null}
+            <AthleteCancellation key={`${email}:${reservation.id}`} reservation={reservation} email={email} demo={demo} externalBusy={locks.current.has(reservation.id)} acquire={()=>lock(reservation.id)} release={()=>unlock(reservation.id)} onChanged={row=>setReservations(current=>current.map(item=>item.id===row.id?row:item))}>{blocked=><>
+            {reservation.status === "accepted" && !blocked ? <a className="reservation-payment-link" href={`/paiement?reservationId=${encodeURIComponent(reservation.id)}`}>Payer ma séance</a> : null}
             {!reservation.structureOfferId && (reservation.status === "paid" || reservation.status === "accepted") ? (
               <div data-athlete-reschedule={reservation.id}>
-                <input type="datetime-local" data-reschedule-slot placeholder="Nouveau créneau" aria-label="Nouveau créneau" />
-                <button type="button" onClick={(event) => reschedule(reservation.id, event.currentTarget.parentElement?.querySelector<HTMLInputElement>("[data-reschedule-slot]") as HTMLInputElement)}>Déplacer</button>
+                <input type="datetime-local" disabled={blocked} data-reschedule-slot placeholder="Nouveau créneau" aria-label="Nouveau créneau" />
+                <button type="button" disabled={blocked} onClick={(event) => reschedule(reservation.id, event.currentTarget.parentElement?.querySelector<HTMLInputElement>("[data-reschedule-slot]") as HTMLInputElement)}>Déplacer</button>
               </div>
             ) : null}
-            {reservation.status === "cancelled" ? <span>Remboursement : {reservation.refundPercent ?? 0}% ({reservation.refundAmount ?? 0} EUR)</span> : null}
+            </>}</AthleteCancellation>
             {reservation.status === "paid" ? <ReservationReview reservation={reservation} reviewed={reviewIds.includes(reservation.id)} ready={reviewsReady} onCreated={() => setReviewIds(ids => [...ids, reservation.id])} /> : null}
           </article>
         ))}

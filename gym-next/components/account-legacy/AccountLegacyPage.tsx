@@ -29,6 +29,7 @@ type AccountLegacyPageProps = {
   legacyStyles: string;
   params: Record<string, string | undefined>;
   allowDemoFallback?: boolean;
+  athleteEmail?: string;
 };
 
 type StepName = "signin" | "role" | "create";
@@ -725,7 +726,8 @@ function AccountFooter() {
   */
 }
 
-export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = false }: AccountLegacyPageProps) {
+export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = false, athleteEmail }: AccountLegacyPageProps) {
+  const [authenticatedAthleteEmail,setAuthenticatedAthleteEmail]=useState(athleteEmail);
   const mode = params.mode;
   const redirect = params.redirect;
   const isCoachMode = mode === "coach";
@@ -830,6 +832,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                     revealDashboard("admin");
                     return;
                   }
+                  setAuthenticatedAthleteEmail(typeof payload.data?.email === "string" ? payload.data.email : undefined);
                   revealDashboard("sportif");
                 }}
                 onOpenSignup={() => {
@@ -863,6 +866,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   }
                   if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (role === "coach" && payload.data?.coachId) setAuthenticatedCoachId(payload.data.coachId);
+                  if (role === "sportif") setAuthenticatedAthleteEmail(typeof payload.data?.email === "string" ? payload.data.email : undefined);
                   revealDashboard(role);
                 }}
                 onSubmitCreate={({ firstName, lastName, phone, city, email, emailConfirmation, password, passwordConfirmation, termsAccepted }) => {
@@ -892,7 +896,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
             {allowDemoFallback && dashboardMode ? <p><a href="/offres">Offres et aperçu de démonstration</a></p> : null}
             {allowDemoFallback && dashboardMode ? <p><a href="/contenus">Contenus et bibliothèque de démonstration</a></p> : null}
             {allowDemoFallback && dashboardMode === "sportif" ? <p><a href="/suivi">Mon suivi personnel de démonstration</a></p> : null}
-            {dashboardMode === "sportif" ? <AthleteDashboard demo={allowDemoFallback} /> : null}
+            {dashboardMode === "sportif" ? <AthleteDashboard key={authenticatedAthleteEmail} demo={allowDemoFallback} email={authenticatedAthleteEmail} /> : null}
             {dashboardMode === "admin" ? <AdminDashboard /> : null}
             {dashboardMode === "coach" ? (
               <CoachDashboard

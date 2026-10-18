@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-18",
+  "base": "b862ab39e7750b97e6a0e775d355a04c390647f8",
+  "branch": "design/refonte-progressive-lot1",
+  "checks": {
+    "full_suite": "28/28 PASS (55.5s), before final signup propagation and defensive invalid-snapshot guard",
+    "signup_regression": "6/6 PASS (18.0s), existing sport/coach signup + new athlete cancellation without reload",
+    "final_targeted": "6/6 PASS after final guard: contract, missing/invalid historical refund, cancellation after signup; overlaps prior cases",
+    "build": "PASS final Next production build, including type checking",
+    "standalone_types": "PASS earlier; final changes typechecked by final build",
+    "client_secret_boundary": "PASS final build",
+    "netlify_config": "PASS static check only",
+    "prepush": "PASS",
+    "diff_check": "PASS"
+  },
+  "resources": {
+    "worker": 1,
+    "viewports": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "new_dependencies": false
+  },
+  "evidence": {
+    "mocked": "Double click/shared reschedule lock, network/refusal/conflict/5xx/204/bad JSON/wrong id/missing refund, GET failed then active/rejected, old missing and invalid financials, cross-tab logout, foreign-owner data; keyboard/focus/contrast >=4.5 and overflow assertions. Signup uses real local auth with mocked reservation data.",
+    "integrated": "Real local creation, coach acceptance, simulated payment and cancellation. Browser route.fetch sends real cancellation; independent authenticated GET confirms cancellation time, refund, payment proof and financial snapshot BEFORE route.abort masks response. UI GET and reload recover without POST. Explicit repeat preserves all fields (optional stripeRefundId absent/null normalized); foreign account GET/POST denied.",
+    "regressions": "Existing capacity/release/reschedule and refund 100/50/0, memory/offline mocked Blobs SDK CAS, real local payment/cancellation. Offline SDK test is not a remote Netlify validation.",
+    "captures": "Three cropped reservation screenshots inspected, fake data, no consent banner overlap; Playwright local, not MCP."
+  },
+  "limits": [
+    "No real transfer, external message, Premium activation, remote RLS/Stripe/Netlify validation or deployment.",
+    "Silent cookie identity changes without navigation/logout event not instantly detected; server authorization remains enforced.",
+    "Reschedule recovery not redesigned; only shared action locking and fetch error handling.",
+    "Historical invalid refund metadata remains unavailable, never backfilled.",
+    "Codex usage/quota counters unavailable; no guarantee or invented consumption."
+  ],
+  "sha256": {
+    "gym-next/app/compte/page.tsx": "eb2c99b0a75a2562b05878f73dad93390bd6807445211c6349e9b03a6d883510",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "1935ea8ba9516fb3d811847b7a2bd09f7ce4e75502cd28e2cbde499473724d2e",
+    "gym-next/components/account-legacy/AthleteDashboard.tsx": "c2c2c8be90564db32ed398bed9745f14cd390591db2a6f234b02fbd3c2bf3f1a",
+    "gym-next/components/account-legacy/AthleteCancellation.tsx": "678473357d563b0389cfa2b1dc434edcb912d492099f095566a6ecd3b6b33fc1",
+    "gym-next/components/account-legacy/athlete-cancellation-data.ts": "a007fbd11fcf8e22d54da8a56ccd98f060c2883ed97c5475d2362e638967fd05",
+    "gym-next/components/account-legacy/athlete-cancellation.module.css": "8a63287ee779b1228941d4570c2612bcca1c7ad887f21537c9a476638a4bcbe0",
+    "gym-next/tests/athlete-cancel-recovery.spec.ts": "5e65bb935369b3b4c385ec93b2b8b38df97ab68538045ba21c9836b840f7256b",
+    "gym-next/tests/payment-flow.spec.ts": "7f7319d068e3a0d2de506e42aa537dacd14b23cd94772d7a3f741b6e617192bc",
+    "DOCUMENT_MAITRE_GYM.md": "0193a043f7f7b94fab33c1b5d321ca0a3389d63e1bd56667e143036cfe7c1faa",
+    "docs/README.md": "2c65e6e5a37a043f8eb6a7304ad478e9692a4466df63e41b2062299812461d19",
+    "docs/ETAT_REPRISE_COURANT.md": "d4a38b2d8b06dbef36670be83e0aba6c2dbfd1de83b9b85df2edb04b72e02adb",
+    "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md": "6f28bac0089175d39f4c96a36d9c41960ca8e43d24c1915c87957feb05260062",
+    "docs/REPRISE_ANNULATION_SIMULEE_2026-10-18.md": "69f20c7e6b7b9ee5bd6406825e677ebf7931f3bca0d693eb0d2502014abb6dcb",
+    "docs/assets/cancel-recovery-2026-10-18/confirme-390.png": "1f210dbb986da25e54afb9d3d84884e64a29333965b4f370cb2c67d023cc60d5",
+    "docs/assets/cancel-recovery-2026-10-18/confirme-1440.png": "f563a3a22ff47e54d2052c5110a91c07ebde3e5b07531602c061911c1271f850",
+    "docs/assets/cancel-recovery-2026-10-18/non-confirme-390.png": "3c9c8827e26fffb6eb6b5d1fabb12ea2886a1f131ac6588b30e8298b0af8f6d7"
+  }
+}

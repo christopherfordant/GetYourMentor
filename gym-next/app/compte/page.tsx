@@ -54,5 +54,5 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
     if (session.role === "coach" && session.coachId) normalizedParams.coach = (await getCoach(session.coachId))?.name ?? "Coach";
   }
 
-  return <AccountLegacyPage legacyStyles={legacyStyles} params={normalizedParams} allowDemoFallback={isDemoFallbackAllowed()} />;
+  return <AccountLegacyPage key={session ? `${session.role}:${session.email}` : "anonymous"} legacyStyles={legacyStyles} params={normalizedParams} athleteEmail={session?.role === "sportif" ? session.email : undefined} allowDemoFallback={isDemoFallbackAllowed()} />;
 }

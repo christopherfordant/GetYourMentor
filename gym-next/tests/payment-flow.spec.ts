@@ -66,5 +66,5 @@ test("le paiement est verrouillé avant acceptation puis confirmé après", asyn
   await expect(athleteReservation).toBeVisible();
   await athleteReservation.getByRole("button", { name: "Annuler la réservation", exact: true }).click();
   await expect(athleteReservation.locator("[data-athlete-reservation-status]")).toHaveText("Statut : cancelled");
-  await expect(athleteReservation).toContainText("Remboursement : 100%");
+  await expect(athleteReservation).toContainText("Remboursement simulé : 100%");
 });
