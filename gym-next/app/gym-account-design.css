@@ -88,7 +88,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .account-page input::placeholder, #gym-account .account-page textarea::placeholder { color: var(--gym-muted); opacity: 1; }
 #gym-account :is(.auth-primary, .account-primary-action) { background: var(--gym-primary) !important; color: white !important; border-color: var(--gym-primary) !important; }
 #gym-account :is(.auth-secondary, .account-inline-actions button) { background: var(--gym-primary-soft); color: var(--gym-primary-hover); border: 1px solid #c9b3dc; }
-#gym-account :is(a,button,input,select,textarea):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
+#gym-account :is(a,button,input,select,textarea,[data-coach-action-message]):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
 #gym-account :is(.account-dashboard-grid,.coach-home-profile-preview-grid) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; min-width: 0; }
 #gym-account .coach-home-profile-preview-grid > div { min-width: 0; padding: 14px; background: var(--gym-paper); border: 1px solid var(--gym-line); border-radius: 8px; }
 #gym-account .coach-home-profile-preview-grid :is(span,strong) { display: block; overflow-wrap: break-word; word-break: normal; }
@@ -137,7 +137,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .coach-home-editorial-image img { position: absolute !important; object-fit: cover; }
 #gym-account :is(.coach-home-rating-score,.coach-home-revenue-amount) { color: var(--gym-primary-hover) !important; font-size: 36px !important; line-height: 1.2; }
 #gym-account .coach-home-inline-link { display: inline-flex; align-items: center; flex-wrap: wrap; min-height: 44px; max-width: 100%; padding: 10px 14px !important; border-radius: 7px; color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; font-size: 14px !important; }
-#gym-account .coach-home-schedule article { color: var(--gym-ink); padding: 14px !important; border: 1px solid var(--gym-line) !important; background: var(--gym-paper) !important; border-radius: 8px; }
+#gym-account :is(.coach-home-schedule,.coach-home-request-list) article { color: var(--gym-ink); padding: 14px !important; border: 1px solid var(--gym-line) !important; background: var(--gym-paper) !important; border-radius: 8px; }
 #gym-account :is(.coach-home-card-head,.account-inline-actions) { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; min-width: 0; }
 
 @media (max-width: 900px) {
@@ -244,3 +244,7 @@ body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary
 /* Reservation information remains grouped and readable on every viewport. */
 #gym-account [data-athlete-reservation] { display: grid; gap: 8px; padding: 20px 0; border-bottom: 1px solid var(--gym-line); min-width: 0; }
 #gym-account [data-athlete-reservation] :is(button,a,input) { max-width: 100%; justify-self: start; }
+
+#gym-account .coach-home-request-list { display:grid; gap:12px; margin-top:12px; }
+#gym-account .coach-home-request-list article { display:grid; gap:8px; min-width:0; }
+#gym-account .coach-home-request-list [data-coach-action-message] { margin-block:0; }

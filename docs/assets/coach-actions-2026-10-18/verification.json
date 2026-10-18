@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-18",
+  "base": "8c6c3b4741258f7e71a849df48e20d49c2c53302",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "coach accept/reject feedback, confirmation checks, refresh and account relay",
+  "checks": {
+    "build": "PASS",
+    "types": "PASS final",
+    "clientSecretBoundary": "PASS final",
+    "netlifyConfigStatic": "PASS",
+    "prePushFilRouge": "CONFORME",
+    "tests": "PASS: 10 final action cases and 14 unaffected regressions retained; 24 distinct project cases"
+  },
+  "playwright": {
+    "runner": "local, not MCP",
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "initial": "23/24 passed; mobile logout/relogin test navigated before sign-out replacement navigation finished",
+    "uniqueCoverageExpected": 24,
+    "finalTargeted": "10 passed (35.0s), including corrected logout navigation and shared initial-read validation",
+    "distinction": "coach-actions UI uses injected GET/PATCH data, HTTP errors and held replies. Separate integrated new case creates local reservations via real APIs, accepts second slot and rejects another via UI, checks athlete/foreign-coach denial. Existing next-session/month cases remain separate local regressions. No remote persistence validation.",
+    "visualReview": "Final 390/1440 captures inspected; shared card/button styles, message contrast >=4.5:1, keyboard/focus and all four widths checked"
+  },
+  "invariants": [
+    "One transition at a time, no auto PATCH retries",
+    "Unknown outcome/conflict requires successful server read before another action",
+    "Immutable identity/price/snapshot and chosen appointment validated",
+    "Refresh validates complete own rows, preserves stale data and choice on error",
+    "Unmount and coachId change cancel client requests and ignore old callbacks",
+    "Verified callback cancels residual initial dashboard read; finance loading/error state recovers",
+    "Existing two initial reads retained; none added",
+    "Server roles, pricing, capacity, commission and history unchanged"
+  ],
+  "limits": [
+    "Aborting browser request does not reverse a server write",
+    "No remote RLS/Stripe/Netlify validation or deployment",
+    "No real payment, subscription or external notification",
+    "Codex private usage unavailable"
+  ],
+  "sha256LF": {
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "19748c055625bd0aac90887ff62f51e59d64cb84db932fea3ecbd5faa10bb508",
+    "gym-next/components/account-legacy/CoachRequestsPanel.tsx": "39cb7abf379c58356c957575f203a9eeb94d151c5dfd62cdffbc0d5793f8fe60",
+    "gym-next/components/account-legacy/coach-request-data.ts": "536ce97657096e21ac92377ea71ef2051e093a90e6e75c8dffff353b213f6af1",
+    "gym-next/app/gym-account-design.css": "6cd2bb5187be054b56bf39052335412609761fe955c2d2e679ad4ea370998cc4",
+    "gym-next/tests/coach-actions.spec.ts": "b81bd5c0f217e62ac2f9ecd869b14eca6362b084420d37b1fd917c2915ce954b"
+  },
+  "sha256Captures": {
+    "docs/assets/coach-actions-2026-10-18/incertain-390.png": "4c1b294c7ec1c0021aef83fcce5b1c091618ef5177231c23c35463d4c691ea00",
+    "docs/assets/coach-actions-2026-10-18/succes-1440.png": "544ee54372dc16c3f6d6de2dc0b77933ece1cce6954fa51c95596c26fa3f3e80",
+    "docs/assets/coach-actions-2026-10-18/succes-390.png": "d32eed7901f8046d4fcf0b9d4ecdd45a00b13c4952518e755e4393dfb37480c8"
+  }
+}

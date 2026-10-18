@@ -1,4 +1,5 @@
 "use client";
+import { readCoachReservations } from "./coach-request-data";
 import { CoachPlanningSchedule } from "./CoachPlanningSchedule";
 import { coachNextSession } from "@/lib/domain/coach-next-session";
 import financeFilterStyles from "./coach-finance-filter.module.css";
@@ -7,7 +8,7 @@ import { CoachFinanceSummary } from "./CoachFinanceSummary";
 import { Affiliations } from "@/components/account-legacy/Affiliations";
 import { formatBookingSlot } from "@/lib/domain/booking-time";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { EmailIcon, UnavailableGoogleButton } from "./AuthProviderPresentation";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
@@ -392,13 +393,20 @@ function CoachDashboard({
       });
   }, [allowDemoFallback, coachId, coachName]);
 
+  const initialCoachRead=useRef<AbortController|null>(null);
+  const updateCoachReservations=useCallback((rows:Reservation[])=>{
+    initialCoachRead.current?.abort();
+    setReservations(rows.filter(row=>row.coachId===coachId));setFinanceLoading(false);setFinanceError(false);
+  },[coachId]);
   useEffect(() => {
+    const controller=new AbortController();initialCoachRead.current=controller;
     setFinanceLoading(true);setFinanceError(false);
-    fetch("/api/reservations")
+    fetch("/api/reservations",{signal:controller.signal})
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Chargement impossible"))))
-      .then((payload) => { if(!Array.isArray(payload.data))throw new Error("Réponse invalide");setReservations(payload.data.filter((reservation:Reservation) => reservation.coachId === coachId)); })
-      .catch(() => {setFinanceError(true);setReservations([]);})
-      .finally(()=>setFinanceLoading(false));
+      .then((payload) => {if(controller.signal.aborted)return;setReservations(readCoachReservations(payload,coachId ?? ""));})
+      .catch(() => {if(!controller.signal.aborted){setFinanceError(true);setReservations([]);}})
+      .finally(()=>{if(!controller.signal.aborted)setFinanceLoading(false);});
+    return()=>controller.abort();
   }, [coachId]);
 
   const monthlyFinance=coachId?coachMonthlyFinance(reservations,coachId,Date.now(),financePeriod):null;
@@ -445,7 +453,7 @@ function CoachDashboard({
           <CoachPlanningSchedule reservations={reservations} coachId={coachId} loading={financeLoading} error={financeError} />
         </div>
       </section>
-      <CoachRequestsPanel coachName={coachName} onReservationsChanged={setReservations} />
+      <CoachRequestsPanel coachId={coachId} onReservationsChanged={updateCoachReservations} />
       {allowDemoFallback ? <><Affiliations role="coach" onActiveChange={setMessageContacts} /><GroupPrices coachId={coachId} /><StructureSessions coach /></> : null}
       {coachProfile ? (
         <CoachProfileEditor

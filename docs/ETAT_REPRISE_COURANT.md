@@ -50,8 +50,13 @@ Base local/distant vérifiée `e258106e75a643e7096a200a1620fd3cce53c241`, candid
 Mon planning distingue requested/propositions, accepted/paiement en attente, paid et historique cancelled/rejected ; appointmentAt initial n'est pas une acceptation. Résolution reservationStart réutilisée, Horaire à vérifier si inexploitable, Europe/Paris, ordre conservé et isolation coach. États existants loading/error réutilisés, aucune requête ou mutation nouvelle. Prochaine séance et finances inchangées.
 Recette : fixtures UI distinguées du parcours intégré local deux propositions → second choix accepté → paiement simulé → annulation, avec refus d'accès étranger. Résultats et limites dans la preuve ; aucun déploiement.
 
+## Actions Accepter / Refuser — 18 octobre
+Base local/distant vérifiée `8c6c3b4741258f7e71a849df48e20d49c2c53302`, candidat `C:/Users/cashe/Documents/GYM-coach-actions`. Rapport `ACTIONS_DEMANDES_COACH_2026-10-18.md`, preuve `assets/coach-actions-2026-10-18/verification.json`. SHA livré à vérifier avec HEAD/distant.
+Panneau protégé par verrou d'envoi, choix conservé, validation d'identité/statut/créneau/montants de la confirmation. Refus/conflit/erreur technique/résultat incertain distincts, demande incertaine bloquée jusqu'à relecture valide. Requêtes annulées et résultats tardifs ignorés au démontage/changement de coach ; filtrage coachId. onReservationsChanged ne transmet que des données vérifiées et annule la lecture initiale résiduelle du tableau ; mêmes planning/prochaine séance/finances, aucune règle métier changée.
+Fixtures UI et parcours intégré local distingués dans la preuve. Aucun déploiement ou validation distante ; travail local antérieur préservé.
+
 ## Prochain lot métier borné
-Fiabiliser les actions Accepter/Refuser de CoachRequestsPanel : transition n'a actuellement ni try/catch ni verrou d'envoi. Traiter erreurs réseau/réponses et double clic, conserver la sélection du créneau, les données et les validations serveur. Pas de refonte globale, de nouvelles règles de réservation ou de paiement réel. Un seul lot borné.
+Qualifier le parcours de paiement simulé côté sportif face à une réponse perdue : retrouver composants et tests, vérifier confirmation serveur et reprise, puis corriger uniquement une lacune démontrée. Pas de nouvel envoi automatique, d'activation de paiement réel ou de refonte des comptes. Un seul lot borné.
 
 ## Limites, outils et historique
 Mémoire locale volatile ; persistance distante des modules récents et RLS non recettées. Abonnements exclusifs, fichiers binaires, packs et suivi médical/partagé non livrés ; pas de taux de rétention/présence inventé. L’admin ne reçoit pas les objectifs privés par défaut.
