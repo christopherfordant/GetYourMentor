@@ -62,3 +62,7 @@ Bibliothèque de modèles coach, sans nouvel endpoint ni envoi automatique : [ra
 ## Pièces jointes — qualification du 19 octobre 2026
 
 [Qualification et limites](QUALIFICATION_PIECES_JOINTES_2026-10-19.md). Aucun upload disponible ; demandes multipart ou JSON avec champs de fichier connus explicitement refusées, sans enregistrer seulement le texte. La prise en charge binaire et les téléchargements privés restent à implémenter et recetter.
+
+## Livraison TXT privée — 19 octobre 2026
+
+[Parcours, limites et preuves](PIECES_JOINTES_DEMO_2026-10-19.md). Un TXT UTF-8 de 64 Kio, envoi explicite, octets privés séparés du JSON global, téléchargement autorisé et reprise idempotente. Les phrases historiques « aucun upload » décrivent l’état avant ce lot. Local en mémoire ; hébergé implémenté, non recetté à distance. Aucun antivirus ni autre format pris en charge.

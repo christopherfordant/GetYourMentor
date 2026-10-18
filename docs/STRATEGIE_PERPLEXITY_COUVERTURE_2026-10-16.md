@@ -203,3 +203,7 @@ Business Plan p.29 : bibliothèque de trois suggestions dans la messagerie exist
 ## Qualification des pièces jointes — 19 octobre 2026
 
 [Rapport](QUALIFICATION_PIECES_JOINTES_2026-10-19.md) : BP p.29/33/35 distingue contenus et messagerie ; aucune règle de format chat établie dans les quatre sources ciblées. SDK Blobs binaire disponible statiquement, parcours privé upload/message/download absent. Refus API explicite des champs de fichier et multipart ajouté pour éviter une réussite partielle du texte. **Pièces jointes non implémentées** : prochaine tranche, adaptateur privé réutilisant le fournisseur existant, liaison atomique/idempotence, accès conversationnel et recette binaire. Aucun besoin de clé réelle ni blocage global démontré. Preuves locales dans `assets/message-attachments-2026-10-19/verification.json`.
+
+## Pièce jointe privée TXT — 19 octobre 2026
+
+[Rapport](PIECES_JOINTES_DEMO_2026-10-19.md) : demande utilisateur réalisée pour un TXT UTF-8 de 64 Kio par message, stockage binaire distinct et téléchargement participant protégé. Formats/poids : limites techniques proposées, pas exigences attribuées au BP. Déduplication et reprise testées localement ; autres formats refusés. La qualification précédente reste historique ; aucune recette distante, antivirus ou clôture globale. Preuves : `assets/message-file-flow-2026-10-19/verification.json`.

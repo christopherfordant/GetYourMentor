@@ -1,3 +1,5 @@
+import type { MessageAttachment } from "./message-attachment-contract";
+import { getMessageFile, putMessageFile, deleteUnusedMessageFile } from "./message-attachment-server";
 export type Message = {
   id: string;
   senderEmail: string;
@@ -10,12 +12,14 @@ export type Message = {
   ownerRole?: "sportif" | "club";
   replyToId?: string;
   requestId?: string;
+  attachment?: MessageAttachment;
 };
 
 import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
 import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 
-const memoryMessages: Message[] = [];
+const processState = globalThis as typeof globalThis & { gymDemoMessages?: Message[] };
+const memoryMessages: Message[] = processState.gymDemoMessages ??= [];
 
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -25,19 +29,41 @@ function supabaseConfig() {
   return null;
 }
 
-export async function createMessage(message: Message) {
+export async function createMessage(message: Message, file?: { meta: MessageAttachment; bytes: Uint8Array }) {
   const config = supabaseConfig();
+  if (file && config) throw new Error("Fichier réservé à la démonstration isolée");
   if (!config) {
+    if (file) message = { ...message, attachment: file.meta };
+    const previousFor = (messages: Message[]) => message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole && (row.ownerRole ?? "sportif") === (message.ownerRole ?? "sportif")) : undefined;
+    const validateRepeat = (previous: Message) => {
+      const fingerprint = (a?: MessageAttachment) => a ? JSON.stringify([a.name, a.size, a.type, a.sha256]) : "";
+      if (previous.body !== message.body || previous.replyToId !== message.replyToId || previous.reservationId !== message.reservationId || fingerprint(previous.attachment) !== fingerprint(message.attachment)) throw new Error("Cette demande a déjà été utilisée pour un autre message");
+    };
     const save = (messages: Message[]) => {
-      const previous = message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole && (row.ownerRole ?? "sportif") === (message.ownerRole ?? "sportif")) : undefined;
-      if (previous) {
-        if (previous.body !== message.body || previous.replyToId !== message.replyToId) throw new Error("Cette demande a déjà été utilisée pour un autre message");
-        return previous;
-      }
+      const previous = previousFor(messages);
+      if (previous) { validateRepeat(previous); return previous; }
       messages.push(message); return message;
     };
-    if (isHostedDemo()) return mutateDemoState(state => save(state.messages));
-    return save(memoryMessages);
+    if (file) {
+      const previous = previousFor(await listMessages());
+      if (previous) { validateRepeat(previous); if (previous.attachment) await getMessageFile(previous.attachment); return previous; }
+      await putMessageFile(file.meta, file.bytes);
+    }
+    try {
+      const saved = isHostedDemo() ? await mutateDemoState(state => {
+        const saved = save(state.messages);
+        if (file && saved.attachment?.id === file.meta.id) state.pendingMessageFiles = state.pendingMessageFiles?.filter(item => item.id !== file.meta.id);
+        return saved;
+      }) : save(memoryMessages);
+      if (file && saved.attachment?.id !== file.meta.id) await deleteUnusedMessageFile(file.meta.id);
+      if (saved.attachment) await getMessageFile(saved.attachment);
+      return saved;
+    } catch (error) {
+      // A CAS/network failure may follow a committed message: never delete its file.
+      // Only a known pre-commit conflict permits compensating this unique new object.
+      if (file && error instanceof Error && error.message === "Cette demande a déjà été utilisée pour un autre message") await deleteUnusedMessageFile(file.meta.id);
+      throw error;
+    }
   }
 
   const response = await fetch(`${config.url}/rest/v1/gym_messages`, {

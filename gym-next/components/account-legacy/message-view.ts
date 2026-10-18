@@ -1,8 +1,9 @@
+import { isMessageAttachment } from "@/lib/message-attachment-contract";
 import type {Message} from "@/lib/messages";
 export type MessageOrder="newest"|"oldest";
 export function isDisplayMessage(value:unknown):value is Message {
  if(!value||typeof value!=="object")return false;const m=value as Partial<Message>;
- return [m.id,m.senderEmail,m.recipientName,m.body,m.createdAt].every(v=>typeof v==="string") && !!m.id && (m.coachId===undefined||typeof m.coachId==="string") && (m.ownerRole===undefined||["sportif","club"].includes(m.ownerRole)) && (m.authorRole===undefined||["sportif","coach","club"].includes(m.authorRole));
+ return [m.id,m.senderEmail,m.recipientName,m.body,m.createdAt].every(v=>typeof v==="string") && !!m.id && (m.attachment===undefined||isMessageAttachment(m.attachment)) && (m.coachId===undefined||typeof m.coachId==="string") && (m.ownerRole===undefined||["sportif","club"].includes(m.ownerRole)) && (m.authorRole===undefined||["sportif","coach","club"].includes(m.authorRole));
 }
 export function messageCorrespondent(message:Message,coachView:boolean){
  return coachView?JSON.stringify([message.ownerRole??"sportif",message.senderEmail]):JSON.stringify([message.coachId??null,message.recipientName]);

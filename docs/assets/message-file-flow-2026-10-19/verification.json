@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-19",
+  "base": "f86307e90a0eacd1a2c81d6b24ca5705bf4aa282",
+  "branch": "design/refonte-progressive-lot1",
+  "delivered": "One private TXT UTF-8 file per message, explicit send and authenticated download in isolated demo",
+  "technical_limits": {
+    "file_bytes": 65536,
+    "actual_request_bytes": 114688,
+    "filename_characters": 120,
+    "commercial_rule": false
+  },
+  "checks": {
+    "feature_suite": "8/8 passed, local Chromium desktop/mobile, one worker",
+    "security_replay": "2/2 affected API cases replayed successfully after adding foreign-conversation upload refusal; not counted as extra unique cases",
+    "unsupported_requests": "6/6 passed",
+    "existing_message_regressions": "26/26 passed",
+    "total_unique_tests": 40,
+    "build": "final build passed",
+    "types": "explicit tsc passed on final implementation; final delivery check run separately",
+    "client_secret_boundary": "passed against final build",
+    "netlify_config": "static check passed, no deployment",
+    "fil_rouge": "CONFORME in isolated worktree",
+    "responsive_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "visual_review": "form screenshots 390/1440 inspected; synthetic data only"
+  },
+  "proof_levels": {
+    "integrated": "Real local message/auth/download endpoints, synthetic accounts, bytes compared via independent requests and browser download, stored message verified before intentional browser response abort",
+    "permission_checks": "Owner athlete and coach download; unconnected, another athlete, actually distinct registered coach, same-email club and admin refused; foreign conversation attachment replies refused",
+    "dependency_faults": "Unit-level local byte-map failure and corruption/missing checks; not a real hosted provider outage",
+    "transport_faults": "Injected 415 and GET 503 plus pre-commit network abort; explicit same-key retry and unchanged draft checked",
+    "hosted": "SDK adapter, CAS association and pending object tracking implemented; NOT remotely validated",
+    "playwright": "local; MCP not claimed"
+  },
+  "orphan_handling": "Known duplicate/pre-commit conflict compensates unused unique object; uncertain hosted outcomes retain private pending marker instead of deleting potentially linked bytes. No automatic purge policy or job. Local memory expires with process.",
+  "limitations": [
+    "TXT only; no PDF/image/video/archive/executable support",
+    "No antivirus certification, semantic extraction, external AI or notification",
+    "Local memory is not persistent across restart or shared across separate processes",
+    "Hosted preparation/CAS/compensation and persistence after redeploy still require separate recipe",
+    "No RLS, Stripe or Netlify remote validation; no deployment or global V1/V2/V3 completion"
+  ],
+  "file_sha256": {
+    "gym-next/lib/message-attachment-contract.ts": "cf4ef93840fde36cf1a53cc574636329dd4eea6cff63e973d16b1f8530174e84",
+    "gym-next/lib/message-attachment-server.ts": "c20efff2a30108c46d99cdc1cdc22624974ad527d06df8a9aa192340cf565282",
+    "gym-next/lib/message-access.ts": "27e3869438ff3455cf420f312e6a57d8e6210318495aac8266b4008a5d352fbe",
+    "gym-next/lib/messages.ts": "ec4218420bba0bf4b779da73dbbc9cf427ff1f328a42eb726ddec66a35b83852",
+    "gym-next/lib/repositories/demo-state.ts": "1063c3aabc4fea77d43abd260a1289016a65814f10849051f90fa95a95fd074b",
+    "gym-next/app/api/messages/route.ts": "7d8579b23302600afe810cae0c748cea0972e72d6bec59aea367f43e1067f0e6",
+    "gym-next/app/api/messages/[id]/attachment/route.ts": "2bec237c0ebcbefc982d42c0b476538b120a485b1650473f77cc4452d5032caa",
+    "gym-next/components/account-legacy/MessageInbox.tsx": "ced26ecbcd06c139f282086ce280d4481f3baf079c69e093f4a31ce2870d29a0",
+    "gym-next/components/account-legacy/MessageFileDownload.tsx": "bdb6cff9789b88dab41b1dd195ae6f598a81342ef3ee4fb50c854e0f9e1fc3fe",
+    "gym-next/components/account-legacy/message-view.ts": "6b9c0b157e87eb0d60f8ad488d29975dab5055f2feb84d4d38da72dea91fb985",
+    "gym-next/tests/message-attachment-flow.spec.ts": "5d049ad9ace7e4d862ec8a3402a33c34c64d056a087f889452388f1104d0284a",
+    "gym-next/tests/message-attachments-unavailable.spec.ts": "fc35fcedb6342eff618366726adaf500923a002945c6ee3a096ed2a88e7c39fb",
+    "docs/assets/message-file-flow-2026-10-19/form-390.png": "fa51766ca15f8645c3cb2dd8d2185de695ff0005730fef7e77073d42e2f43816",
+    "docs/assets/message-file-flow-2026-10-19/form-1440.png": "2df5b4a747b74e66f182646c71cc9b78fbd7ec546119805fa24c2a7014406f5f"
+  }
+}

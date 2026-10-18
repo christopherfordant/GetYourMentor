@@ -1,3 +1,5 @@
+> **Mise à jour de livraison — 19 octobre 2026 :** une tranche TXT UTF-8 de 64 Kio est désormais implémentée et recettée localement ; voir [PIECES_JOINTES_DEMO_2026-10-19.md](PIECES_JOINTES_DEMO_2026-10-19.md). Le diagnostic ci-dessous décrit l’état **avant cette implémentation**. Les formats non pris en charge restent refusés, la recette hébergée reste ouverte.
+
 # Qualification des pièces jointes de messagerie — 19 octobre 2026
 
 ## Conclusion et décision de ce lot

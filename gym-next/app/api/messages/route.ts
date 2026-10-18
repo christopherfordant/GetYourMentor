@@ -1,3 +1,6 @@
+import { messageBelongsToCoach as belongsToCoach } from "@/lib/message-access";
+import { boundedMessageJson, parseMessageFile, MessageFileError } from "@/lib/message-attachment-server";
+import { MAX_MESSAGE_REQUEST_BYTES } from "@/lib/message-attachment-contract";
 import { NextResponse } from "next/server";
 import { currentSession } from "@/lib/auth";
 import { createMessage, listMessages, type Message } from "@/lib/messages";
@@ -9,10 +12,6 @@ import { getReservation } from "@/lib/reservations";
 import { activeCoachIds, listAffiliations } from "@/lib/affiliations";
 
 const isolatedDemo = () => isDemoFallbackAllowed() && !process.env.SUPABASE_URL && !process.env.NEXT_PUBLIC_SUPABASE_URL && !process.env.SUPABASE_SERVICE_ROLE_KEY;
-async function belongsToCoach(message: Message, coachId?: string) {
-  if (!coachId) return false;
-  return message.coachId ? message.coachId === coachId : (await getCoach(message.recipientName))?.id === coachId;
-}
 
 export async function GET(request: Request) {
   const session = await currentSession();
@@ -39,7 +38,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   const session = await currentSession();
   if (!session || (session.role !== "sportif" && !(isolatedDemo() && ["coach", "club"].includes(session.role)))) return NextResponse.json({ error: "Connexion autorisée requise pour écrire" }, { status: 401 });
-  if (bodyExceedsLimit(request, 32 * 1024)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
+  if (bodyExceedsLimit(request, MAX_MESSAGE_REQUEST_BYTES)) return NextResponse.json({ error: "Requête trop volumineuse" }, { status: 413 });
   if (!rateLimit(request, "messages", 60, 60000).allowed) return NextResponse.json({ error: "Trop de messages. Réessayez dans un instant." }, { status: 429 });
 
   // No attachment storage/download contract exists in this endpoint yet.
@@ -49,8 +48,18 @@ export async function POST(request: Request) {
     code: "MESSAGE_ATTACHMENTS_UNAVAILABLE",
   }, { status: 415 });
   if (request.headers.get("content-type")?.toLowerCase().startsWith("multipart/form-data")) return attachmentError();
-  const body = await request.json().catch(() => null);
-  if (body && typeof body === "object" && ["attachment", "attachments", "file", "files"].some(key => Object.prototype.hasOwnProperty.call(body, key))) return attachmentError();
+  let body: Record<string, any>;
+  let attachment: ReturnType<typeof parseMessageFile> | undefined;
+  try {
+    body = await boundedMessageJson(request);
+    if (["attachments", "file", "files"].some(key => Object.prototype.hasOwnProperty.call(body, key))) return attachmentError();
+    if (Object.prototype.hasOwnProperty.call(body, "attachment")) {
+      attachment = parseMessageFile(body.attachment);
+      if (typeof body.requestId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(body.requestId)) return NextResponse.json({ error: "Identifiant de tentative requis pour ce fichier" }, { status: 400 });
+    }
+  } catch (error) {
+    return NextResponse.json({ error: error instanceof MessageFileError ? error.message : "Requête invalide", code: error instanceof MessageFileError ? error.code : "INVALID_MESSAGE" }, { status: error instanceof MessageFileError ? error.status : 400 });
+  }
   if (body?.requestId !== undefined && (typeof body.requestId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(body.requestId))) return NextResponse.json({ error: "Identifiant de demande invalide" }, { status: 400 });
   if (textExceedsLimit(body?.recipientName, 160) || textExceedsLimit(body?.body, 4000) || textExceedsLimit(body?.reservationId, 128) || textExceedsLimit(body?.replyToId, 128) || textExceedsLimit(body?.requestId, 80)) {
     return NextResponse.json({ error: "Message trop long" }, { status: 400 });
@@ -68,7 +77,7 @@ export async function POST(request: Request) {
       const coach = await getCoach(parent.coachId ?? parent.recipientName);
       if (!coach?.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
       if (body.requestId !== undefined && (typeof body.requestId !== "string" || !/^[a-zA-Z0-9-]{1,80}$/.test(body.requestId))) return NextResponse.json({ error: "Identifiant de demande invalide" }, { status: 400 });
-      const data = await createMessage({ id: `message-${randomUUID()}`, senderEmail: parent.senderEmail, recipientName: coach.name, coachId: coach.id, authorRole: session.role as "sportif" | "coach" | "club", ownerRole: parent.ownerRole ?? "sportif", replyToId: parent.id, requestId: body.requestId, reservationId: parent.reservationId, body: body.body.trim(), createdAt: new Date().toISOString() });
+      const data = await createMessage({ id: `message-${randomUUID()}`, senderEmail: parent.senderEmail, recipientName: coach.name, coachId: coach.id, authorRole: session.role as "sportif" | "coach" | "club", ownerRole: parent.ownerRole ?? "sportif", replyToId: parent.id, requestId: body.requestId, reservationId: parent.reservationId, body: body.body.trim(), createdAt: new Date().toISOString() }, attachment);
       return NextResponse.json({ data }, { status: 201 });
     }
     if (isolatedDemo() && (session.role === "club" || (session.role === "coach" && body.structureEmail !== undefined))) {
@@ -78,7 +87,7 @@ export async function POST(request: Request) {
       const coach = await getCoach(session.role === "coach" ? session.coachId : typeof body.recipientName === "string" ? body.recipientName : "__missing__");
       const affiliations = await listAffiliations({ role: "club", email: structureEmail });
       if (!coach?.verified || !activeCoachIds(affiliations, structureEmail).includes(coach.id)) return NextResponse.json({ error: "Un accord d’affiliation actif est nécessaire pour cet échange" }, { status: 403 });
-      const data = await createMessage({ id: `message-${randomUUID()}`, senderEmail: structureEmail, recipientName: coach.name, coachId: coach.id, authorRole: session.role as "coach" | "club", ownerRole: "club", requestId: body.requestId, body: body.body.trim(), createdAt: new Date().toISOString() });
+      const data = await createMessage({ id: `message-${randomUUID()}`, senderEmail: structureEmail, recipientName: coach.name, coachId: coach.id, authorRole: session.role as "coach" | "club", ownerRole: "club", requestId: body.requestId, body: body.body.trim(), createdAt: new Date().toISOString() }, attachment);
       return NextResponse.json({ data }, { status: 201 });
     }
     if (session.role !== "sportif") return NextResponse.json({ error: "Choisissez une conversation existante pour répondre" }, { status: 400 });
@@ -98,7 +107,7 @@ export async function POST(request: Request) {
       body: body.body.trim(),
       createdAt: new Date().toISOString(),
       ...(isolatedDemo() ? { coachId: coach.id, authorRole: "sportif" as const, requestId: body.requestId } : {}),
-    });
+    }, attachment);
     return NextResponse.json({ data: message }, { status: 201 });
   } catch (error) {
     if (error instanceof Error && error.message === "Cette demande a déjà été utilisée pour un autre message") return NextResponse.json({ error: error.message }, { status: 409 });

@@ -1,3 +1,5 @@
+> **Pièce jointe TXT privée — 19 octobre 2026 :** un fichier UTF-8 de 64 Kio, octets séparés du JSON global, téléchargement authentifié, déduplication et relecture après résultat incertain. Rapport `docs/PIECES_JOINTES_DEMO_2026-10-19.md` ; recette locale seulement, absence d’antivirus et persistance hébergée non validée. Aucun déploiement.
+
 > **Pièces jointes — qualification du 19 octobre 2026 :** formats de contenus distincts du chat ; SDK binaire disponible mais aucun parcours de fichiers privé recetté. Refus API explicite des intentions de pièce jointe, sans message partiel. Rapport `docs/QUALIFICATION_PIECES_JOINTES_2026-10-19.md`. Transfert non livré ; aucun déploiement.
 
 > **Modèles de messages coach — 19 octobre 2026 :** bibliothèque sélectionnable et prévisualisable, insertion modifiable et confirmation avant remplacement du brouillon. Business Plan p.29 ; rapport `docs/MODELES_MESSAGES_COACH_2026-10-19.md`. Envoi explicite et déduplication existante conservés ; aucun service externe ni déploiement.

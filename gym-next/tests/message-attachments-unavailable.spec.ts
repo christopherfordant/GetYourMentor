@@ -21,7 +21,7 @@ test("JSON attachment intent is explicitly refused without a partial message or 
   }
   const unchanged = await request.get("/api/messages", { headers });
   expect((await unchanged.json()).data).toEqual(initial);
-  const oversized = await request.post("/api/messages", { headers, data: { ...input, attachment: { name: "fictif.pdf", data: "A".repeat(40000) } } });
+  const oversized = await request.post("/api/messages", { headers, data: { ...input, attachment: { name: "fictif.pdf", data: "A".repeat(120000) } } });
   expect(oversized.status()).toBe(413);
   const plain = await request.post("/api/messages", { headers, data: input });
   expect(plain.status()).toBe(201);
