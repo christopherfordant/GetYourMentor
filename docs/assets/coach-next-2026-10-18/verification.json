@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-18",
+  "base": "7253d8057b11f8872f3802560e76323b90d1de25",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "existing next-session card only; no financial changes",
+  "sources": [
+    "Bussiness Plan.pdf physical pages 28,31",
+    "DESIGN_SYSTEM_GYM.md active preamble",
+    "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md"
+  ],
+  "checks": {
+    "build": "PASS",
+    "types": "PASS",
+    "netlifyConfigStatic": "PASS",
+    "clientSecretBoundary": "PASS",
+    "prePushFilRouge": "CONFORME",
+    "tests": "PASS: 8 final next-session cases, plus 22 unaffected regression cases passed in initial suite; 30 unique project cases covered"
+  },
+  "playwright": {
+    "runner": "local, not MCP",
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "casesExpected": 30,
+    "distinction": "UI controlled GET fixtures and fixed time; separate real local HTTP creation, acceptance, account reading and cancellation, no route interception in integrated case. Repository local memory, not validation of remote persistence.",
+    "history": [
+      "Initial 28/30 passed; two integrated fixtures refused unverified coach",
+      "Focused two-case attempt after profile initialization still refused unverified coach",
+      "Fixture corrected to verify via real admin endpoint; no production permission changes",
+      "Final next-session suite: 8/8 passed; unaffected review/progress/month regression 22/22 retained, not replayed"
+    ]
+  },
+  "semantics": [
+    "accepted/paid only, owner filtered and ID deduplicated",
+    "appointmentAt or unique slot only; ambiguous schedules counted",
+    "ongoing until exclusive end, otherwise next start sorted",
+    "display Europe/Paris; actual instants order across DST",
+    "30-second mounted UI clock; no network polling",
+    "loading/error distinguished from empty"
+  ],
+  "limits": [
+    "No remote RLS/Netlify/Stripe validation",
+    "No deployment, subscription, real payment or notification",
+    "Codex private quotas inaccessible",
+    "Changes from other devices still require refresh"
+  ],
+  "sha256LF": {
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "b33ef505e8e903870b83ee65cc79a28489eb752d6f6e355b4cbd1232c94d8d97",
+    "gym-next/lib/domain/booking-time.ts": "8c0831995adbbd94c676c4497d7b9e44c307664e598734c9258736d15bae4577",
+    "gym-next/lib/domain/review-rules.ts": "5c66f20cbb9ac0679aebc99a30cd0699b9524bb36e9a9da8ed9d26b4fe3fe8c6",
+    "gym-next/lib/domain/coach-next-session.ts": "2ed72e5a6e1e3bc3845fa17760046a96eaa4c95af29726fc1910f5eba130183e",
+    "gym-next/tests/coach-next-session.spec.ts": "be62d8739a5b0fcfa204256e3bf741eb71731dd97352d1a86e266a2c41d82650"
+  },
+  "sha256Captures": {
+    "docs\\assets\\coach-next-2026-10-18\\carte-1440.png": "5b6bda3119ae886720eb83c66eb9ae7f1afc7726af8c9849df5c4d9f1771bf77",
+    "docs\\assets\\coach-next-2026-10-18\\carte-390.png": "eafc3d97916f0a70dad00ec2251936a60ea00c2e997180588e09a8731a67af35"
+  }
+}

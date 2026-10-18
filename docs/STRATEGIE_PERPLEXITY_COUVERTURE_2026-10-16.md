@@ -152,3 +152,11 @@ Suite gestion contenus : suppression des brouillons sans acquisition protégée 
 
 ## Suivi personnel — 17 octobre 2026
 BP p.32/50 : objectif personnel sportif, modification/effacement privés, synthèse des statuts des réservations et repère de créneau payé écoulé. Pas de présence attestée, poids/mesures/records partagés, tracker ou prescription. Garde démo commune réutilisée ; labels checkbox corrigés dans la feuille partagée. Rapport `SUIVI_PERSONNEL_DEMO_2026-10-17.md`, preuves locales. Prochain lot : gestion/statistiques professionnelles sourcées BP p.31/35/51 ; V1/V2/V3 incomplets, aucun Netlify.
+
+## Planning coach — état courant du 18 octobre 2026
+| Exigence/source | État vérifié dans ce lot | Reste hors périmètre |
+| --- | --- | --- |
+| Calendrier coach et suivi d'activité, BP p.28/31 | Carte existante corrigée : séance en cours ou prochaine par horaire retenu, statuts acceptée/payée, propriété, durées, ambiguïtés et erreurs explicites. Rapport PROCHAINE_SEANCE_COACH_2026-10-18.md | Synchronisations externes, récurrences et gestion des indisponibilités non ajoutées ; pas une clôture V1/V2/V3 |
+| Tableau financier coach, BP p.31/35/51 | Lots du 18 octobre livrés avant celui-ci : snapshots, preuve simulée, annulations et filtre mensuel de création. Voir FILTRE_MENSUEL_COACH_2026-10-18.md et relais | Pas de nouvel encaissement réel ou rapport bancaire ; aucune réimplémentation dans ce lot |
+
+Les anciennes lignes « à recetter » restent historiques ; les résultats locaux et limites de chaque rapport priment pour leur tranche précise. Prochaine tranche recommandée : états de chargement/erreur du planning collectif existant, sans second module.

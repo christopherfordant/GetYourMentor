@@ -1,3 +1,5 @@
+> **Prochaine séance coach — 18 octobre 2026 :** carte existante triée par horaire convenu, séances en cours/à venir acceptées ou payées, inconnues et erreurs explicites. Rapport `docs/PROCHAINE_SEANCE_COACH_2026-10-18.md`, preuves `docs/assets/coach-next-2026-10-18/verification.json`. Aucun changement financier, synchronisation externe ou déploiement.
+
 > **Filtre mensuel coach — 18 octobre 2026 :** mois/année natif, validation et retour au mois courant Europe/Paris, calcul partagé et historiques conservés. Période de création uniquement ; aucune vue d’encaissement ni mutation. Rapport `docs/FILTRE_MENSUEL_COACH_2026-10-18.md`, preuves `docs/assets/finance-month-2026-10-18/verification.json`. Aucun déploiement.
 
 > **Annulations coach — 18 octobre 2026 :** la preuve simulée cohérente permet de reconnaître les nouvelles annulations payées sans remboursement ; dossiers anciens sans preuve toujours exclus. Rapport `ANNULATIONS_FINANCES_COACH_2026-10-18.md`. Mois de création, historiques et démo uniquement conservés ; aucun déploiement.

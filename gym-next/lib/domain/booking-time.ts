@@ -1,3 +1,4 @@
+import type { Reservation } from "@/lib/domain";
 // Storage and comparisons use UTC; visitor-facing dates use the project timezone.
 export const BOOKING_TIME_ZONE = "Europe/Paris";
 
@@ -52,4 +53,9 @@ export function demoCalendarWeeks(now: number, count = 2) {
     const slots = [8, 10, 13, 15].map(hour => { const slot = new Date(date); slot.setUTCHours(hour, 0, 0, 0); return slot.toISOString(); });
     return { day: new Intl.DateTimeFormat("fr-FR", { timeZone: BOOKING_TIME_ZONE, weekday: "long" }).format(date), date: new Intl.DateTimeFormat("fr-FR", { timeZone: BOOKING_TIME_ZONE, day: "2-digit", month: "short" }).format(date), slots };
   }));
+}
+
+// An agreed appointment wins; multiple proposed slots are not multiple sessions.
+export function reservationStart(reservation: Pick<Reservation, "slots" | "appointmentAt">) {
+  return slotInstant(reservation.appointmentAt ?? (reservation.slots.length === 1 ? reservation.slots[0] : ""));
 }

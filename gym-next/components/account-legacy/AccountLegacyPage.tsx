@@ -1,4 +1,5 @@
 "use client";
+import { coachNextSession } from "@/lib/domain/coach-next-session";
 import financeFilterStyles from "./coach-finance-filter.module.css";
 import { coachMonthlyFinance,formatFinanceCents,coachMonthKey,isCoachMonth } from "@/lib/domain/coach-finance";
 import { CoachFinanceSummary } from "./CoachFinanceSummary";
@@ -400,7 +401,10 @@ function CoachDashboard({
   }, [coachId]);
 
   const monthlyFinance=coachId?coachMonthlyFinance(reservations,coachId,Date.now(),financePeriod):null;
-  const nextReservation = reservations.find((reservation) => ["accepted", "paid"].includes(reservation.status)) ?? reservations[0];
+  const [scheduleNow,setScheduleNow]=useState(()=>Date.now());
+  useEffect(()=>{const timer=window.setInterval(()=>setScheduleNow(Date.now()),30_000);return()=>window.clearInterval(timer);},[]);
+  const nextSession=coachNextSession(reservations,coachId ?? "",scheduleNow);
+  const nextReservation=nextSession.next?.reservation;
 
   const requestedCount = reservations.filter((reservation) => reservation.status === "requested").length;
   const acceptedCount = reservations.filter((reservation) => ["accepted", "paid"].includes(reservation.status)).length;
@@ -501,11 +505,14 @@ function CoachDashboard({
           <div className="coach-home-card-head">
             <h3>Prochaines séances</h3>
             <div className="coach-home-next-head-actions">
-              <span>{nextReservation ? nextReservation.slots.map(formatBookingSlot).join(" · ") : "À planifier"}</span>
+              {!financeLoading && !financeError && nextSession.next ? <time dateTime={new Date(nextSession.next.start).toISOString()}>{formatBookingSlot(new Date(nextSession.next.start).toISOString())}</time> : <span>{financeLoading ? "Chargement…" : financeError ? "Planning indisponible" : "Aucune séance datée"}</span>}
             </div>
           </div>
           <div className="coach-home-next-copy coach-home-next-copy--plain">
-            {nextReservation ? <><strong>{nextReservation.service}</strong><span>{nextReservation.duration}</span><span>{nextReservation.city}</span><span>Statut : {nextReservation.status}</span><span>{nextReservation.price} EUR</span></> : <p data-coach-next-empty>Aucune séance à venir.</p>}
+            {financeLoading ? <p role="status">Chargement des prochaines séances…</p> : financeError ? <p role="alert">Planning indisponible. Recharge la page pour réessayer.</p> : <>
+              {nextReservation ? <><strong>{nextReservation.service}</strong><span>{nextSession.ongoing ? "Séance en cours" : "Séance à venir"} · Europe/Paris</span><span>{nextReservation.duration}</span><span>{nextReservation.city}</span><span>{nextReservation.status === "paid" ? "Payée" : "Acceptée · paiement en attente"}</span><span>{nextReservation.price} EUR</span></> : <p data-coach-next-empty>Aucune séance datée à venir ou en cours.</p>}
+              {nextSession.unknownSchedule > 0 ? <p>{nextSession.unknownSchedule} réservation(s) acceptée(s) ou payée(s) avec un horaire non déterminé. Consulte le planning pour vérifier les créneaux.</p> : null}
+            </>}
           </div>
           <a className="coach-home-inline-link" href="#coach-requests">Suivre les demandes et paiements</a>
         </article>

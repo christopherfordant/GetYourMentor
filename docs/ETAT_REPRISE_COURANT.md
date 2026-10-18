@@ -35,8 +35,13 @@ Base vérifiée local/distant `a99edb8f33c80c20505db7999868f7db5af7297a`, candid
 Mois/année natif, Appliquer le mois et Mois courant. Défaut Europe/Paris, état local au compte, URL conservée. Résumé haut et carte détaillée partagent coachMonthlyFinance(rows, coachId, now, période). La période sélectionne les créations ; now contrôle toujours la preuve. Commissions historiques, remboursements, exclusions et Indisponible inchangés. Aucune mutation ou extension de droits.
 Recette ciblée : trois fichiers, 20 cas desktop/mobile ; build et typage, quatre largeurs, clavier. Fixtures UI distinguées du parcours HTTP persisté de paiement/annulation existant. Preuves finales et limites dans le rapport/JSON ; aucune validation distante ou publication Netlify. Changements antérieurs hors lot préservés.
 
+## Prochaine séance coach — 18 octobre
+Base vérifiée local/distant `7253d8057b11f8872f3802560e76323b90d1de25`, candidat `C:/Users/cashe/Documents/GYM-coach-next-session`. Rapport `PROCHAINE_SEANCE_COACH_2026-10-18.md`, preuves `assets/coach-next-2026-10-18/verification.json`. SHA livré à vérifier par HEAD/distant.
+Correction de la carte existante : horaire retenu ou créneau unique, accepted/paid, fin strictement future, tri chronologique, séance en cours signalée, dates ambiguës distinctes. Résolution de début partagée avec les règles d'avis inchangées. Mise à jour temporelle 30 s sans polling réseau, timer nettoyé. Chargement/erreur ne deviennent pas absence de séance. Aucun changement financier ou historique.
+Recette locale et captures ciblées dans la preuve : distinguer fixtures UI et parcours réel local demande/acceptation/annulation. Aucun déploiement ni validation distante. Modifications antérieures préservées.
+
 ## Prochain lot métier borné
-Le filtre temporel de création est livré. Reprendre la matrice V1/V2/V3 et choisir une seule tranche restante avec critères vérifiables ; aucune nouvelle vue d’encaissement implicitement autorisée. Une éventuelle vue par confirmation exige un cadrage séparé et la couverture historique explicite des preuves. Pas de tableaux parallèles ni extension simultanée structure/admin. Un seul lot borné tant que les quotas restent inconnus.
+Fiabiliser les états de chargement/erreur de StructureSessions : aujourd'hui son échec de lecture peut afficher simultanément une erreur et « Aucune séance publiée ». Examiner les tests et contrats du composant avant correction ; réutiliser services/rôles, aucun nouveau planning ni règle commerciale. Un seul lot, sans élargir au compte structure complet ou synchroniser un calendrier externe.
 
 ## Limites, outils et historique
 Mémoire locale volatile ; persistance distante des modules récents et RLS non recettées. Abonnements exclusifs, fichiers binaires, packs et suivi médical/partagé non livrés ; pas de taux de rétention/présence inventé. L’admin ne reçoit pas les objectifs privés par défaut.

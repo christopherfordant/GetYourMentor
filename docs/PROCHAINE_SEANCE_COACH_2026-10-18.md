@@ -1,0 +1,27 @@
+# Prochaine séance coach — 18 octobre 2026
+
+## Choix du lot et sources
+Base local/distant vérifiée : 7253d8057b11f8872f3802560e76323b90d1de25, branche design/refonte-progressive-lot1. Candidat isolé C:/Users/cashe/Documents/GYM-coach-next-session ; dépendances existantes réutilisées.
+Business Plan PDF p.28 (calendrier/disponibilités coach) et p.31 (tableau de bord d'activité), matrice STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md, ligne comptes/parcours et calendrier. Pages PDF relues localement par pypdf, aucun envoi externe. Les synchronisations Google/Outlook et récurrences du PDF ne sont pas livrées par ce correctif. Design : carte existante et contrat clair/violet de DESIGN_SYSTEM_GYM.md ; aucune nouvelle composition nécessitant une maquette.
+
+Constat confirmé dans AccountLegacyPage.tsx : find(accepted/paid) puis repli reservations[0], sans comparaison temporelle. La carte pouvait donc annoncer une réservation terminée ou annulée comme prochaine. Critères du lot : sélection chronologique déterministe, propriétaire et statuts contrôlés, créneau retenu, distinction des horaires ambigus/absence/erreur, conservation de la navigation et absence de mutation.
+
+## Résultat
+- Calcul pur coachNextSession, sans moteur de réservation parallèle : filtre coachId, déduplication par identifiant, statuts accepted/paid uniquement, tri début puis identifiant. Données d'entrée non modifiées. Annulation/refus/demande non acceptée exclus.
+- Début déterminé par appointmentAt ; en son absence, uniquement l'unique créneau proposé. Plusieurs propositions ne deviennent pas plusieurs rendez-vous. Une date convenue invalide ne retombe pas silencieusement sur une proposition. Résolution partagée avec les règles existantes d'avis, qui gardent strictement leurs conditions paiement/fin.
+- Date UTC avec fuseau explicite et durée validées par booking-time existant. Date invalide, sans fuseau, propositions multiples non confirmées ou durée inconnue : compteur d'horaires non déterminés, sans inventer de date ni modifier les historiques.
+- Séance en cours incluse tant que début <= maintenant < fin ; fin exacte exclue, puis prochaine séance par début croissant. Statut accepté présenté comme paiement en attente, sans le rebaptiser payé. Horaires affichés en Europe/Paris indépendamment du navigateur.
+- Carte existante actualisée toutes les 30 secondes tant que le composant est monté ; timer nettoyé au démontage. Cela recalcule l'heure locale, sans requête périodique ni synchronisation distante implicite. Les changements de réservation suivent les mécanismes de compte existants ; une modification depuis un autre appareil requiert toujours une actualisation.
+- Chargement et erreur du chargement partagé distingués d'un planning réellement vide. Pas de modifications API, droits, commission, financier ou données ; filtre mensuel intact. Mon planning conserve l'historique complet, la carte résume la séance en cours ou suivante.
+
+## Vérifications et preuves
+Résultats définitifs, empreintes et captures : assets/coach-next-2026-10-18/verification.json. Nouveau test de calcul : statuts, dates limites, déduplication, propriétaire, absence de mutation, rendez-vous retenu, ambiguïtés, durée et changement d'heure. UI : réponse GET synthétique explicitement injectée, date figée, progression du temps, quatre largeurs et clavier, état vide et erreur. Test intégré distinct : profil fictif initialisé et validé via le vrai endpoint administrateur, création réelle locale par sportif, acceptation coach, lecture compte sans interception, annulation puis disparition de la carte.
+Campagne initiale : 28/30 PASS, les deux cas intégrés échouent sur la préparation du coach fictif (profil/validation). Un premier rejeu après seule initialisation du profil reste refusé : ajout de la validation administrateur normale au test, sans modification des protections applicatives. Relecture visuelle : date desktop trop étroite à cause des styles hérités ciblant span ; balisage sémantique time et contrôle de hauteur ajoutés. Résultats finaux dans la preuve, replays non comptés comme fonctions distinctes.
+
+Régressions ciblées sur la résolution des horaires d'avis, suivi personnel et filtre financier mensuel. Playwright local, aucune réussite MCP ou recette RLS/Stripe/Netlify distante revendiquée. Recette simulée ne prouve ni présence ni paiement bancaire. Aucun déploiement, abonnement ou notification réelle.
+
+## Reprise et retour arrière
+Modifications locales préexistantes exclues ; commit ciblé et push sur branche de travail après contrôles. Revert du commit de ce lot après vérification des dépendances, sans reset ni suppression de données. Compteurs privés d'usage inaccessibles ; un seul lot réalisé.
+Prochaine action bornée : fiabiliser séparément les états de chargement/erreur du planning collectif existant StructureSessions, où une erreur de lecture peut encore coexister avec « Aucune séance publiée ». Examiner d'abord les tests et contrats de ce composant, sans refondre le compte structure ni changer la publication ou les droits. V1/V2/V3 restent incomplets.
+
+R?sultat final : build et typage PASS, contr?les configuration et secrets client PASS, pr?-push CONFORME. Suite corrig?e prochaine s?ance : 8/8 PASS ; r?gressions inchang?es avis/suivi/filtre mensuel : 22/22 d?j? PASS. Soit 30 cas projet distincts couverts, sans compter les replays comme couverture additionnelle. Captures desktop/mobile finales relues.

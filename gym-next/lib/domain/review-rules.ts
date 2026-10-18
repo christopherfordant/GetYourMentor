@@ -1,9 +1,8 @@
 import type { Reservation } from "@/lib/domain";
-import { durationMinutes, slotInstant } from "./booking-time";
+import { durationMinutes, reservationStart } from "./booking-time";
 
 export function canReviewReservation(reservation: Pick<Reservation, "status" | "slots" | "duration" | "appointmentAt">, now = Date.now()) {
-  const slot = reservation.appointmentAt ?? (reservation.slots.length === 1 ? reservation.slots[0] : "");
-  const start = slotInstant(slot), minutes = durationMinutes(reservation.duration);
+  const start = reservationStart(reservation), minutes = durationMinutes(reservation.duration);
   return reservation.status === "paid" && start !== null && minutes !== null && start + minutes * 60000 <= now;
 }
 
