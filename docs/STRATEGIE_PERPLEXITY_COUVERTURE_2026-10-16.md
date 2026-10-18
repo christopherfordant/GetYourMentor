@@ -160,3 +160,9 @@ BP p.32/50 : objectif personnel sportif, modification/effacement privés, synth�
 | Tableau financier coach, BP p.31/35/51 | Lots du 18 octobre livrés avant celui-ci : snapshots, preuve simulée, annulations et filtre mensuel de création. Voir FILTRE_MENSUEL_COACH_2026-10-18.md et relais | Pas de nouvel encaissement réel ou rapport bancaire ; aucune réimplémentation dans ce lot |
 
 Les anciennes lignes « à recetter » restent historiques ; les résultats locaux et limites de chaque rapport priment pour leur tranche précise. Prochaine tranche recommandée : états de chargement/erreur du planning collectif existant, sans second module.
+
+## Fiabilité du planning collectif — 18 octobre 2026
+| Exigence/source | État de la tranche | Limites |
+| --- | --- | --- |
+| Planning coach/structure existant, BP p.28/31 et parcours réservation | StructureSessions distingue chargement, actualisation, vide réel et erreurs ; snapshot cohérent, réponse périmée ignorée, affiliations non vérifiées bloquantes et confirmation de publication séparée. Voir ETATS_PLANNING_COLLECTIF_2026-10-18.md | Recette locale ; pas de calendrier externe, idempotence serveur ajoutée ou RLS distante |
+Les exigences commerciales, consentements, tarifs et capacités ne changent pas. Prochaine tranche : libellés d'horaires retenus/proposés du planning coach existant. V1/V2/V3 incomplets.

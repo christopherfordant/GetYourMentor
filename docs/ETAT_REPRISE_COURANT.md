@@ -40,8 +40,13 @@ Base vérifiée local/distant `7253d8057b11f8872f3802560e76323b90d1de25`, candid
 Correction de la carte existante : horaire retenu ou créneau unique, accepted/paid, fin strictement future, tri chronologique, séance en cours signalée, dates ambiguës distinctes. Résolution de début partagée avec les règles d'avis inchangées. Mise à jour temporelle 30 s sans polling réseau, timer nettoyé. Chargement/erreur ne deviennent pas absence de séance. Aucun changement financier ou historique.
 Recette locale et captures ciblées dans la preuve : distinguer fixtures UI et parcours réel local demande/acceptation/annulation. Aucun déploiement ni validation distante. Modifications antérieures préservées.
 
+## États du planning collectif — 18 octobre
+Base vérifiée local/distant `4b7b11056136d035de01637a19950a0026e43276`, candidat `C:/Users/cashe/Documents/GYM-planning-states`. Rapport `ETATS_PLANNING_COLLECTIF_2026-10-18.md`, preuves/captures `assets/planning-states-2026-10-18/verification.json`. SHA livré à vérifier via HEAD et distant.
+StructureSessions coach/structure : snapshot atomique validé, chargement/vide/erreur distincts, anciennes données averties, publication bloquée si affiliations non vérifiées. Lectures remplacées/démontage annulés ; publication et lecture séparées, double envoi protégé, résultat incertain sans relance automatique. Événement d'affiliation pendant publication invalidant et actualisation différée unique. Aucun changement d'API, données ou règles métier.
+Recette : réponses injectées distinguées des parcours intégrés existants dans le repository mémoire local ; résultats définitifs et captures dans la preuve. Aucun déploiement ou validation distante ; modifications antérieures préservées.
+
 ## Prochain lot métier borné
-Fiabiliser les états de chargement/erreur de StructureSessions : aujourd'hui son échec de lecture peut afficher simultanément une erreur et « Aucune séance publiée ». Examiner les tests et contrats du composant avant correction ; réutiliser services/rôles, aucun nouveau planning ni règle commerciale. Un seul lot, sans élargir au compte structure complet ou synchroniser un calendrier externe.
+Fiabiliser les libellés de créneaux dans « Mon planning » du coach : aujourd'hui slots est affiché même lorsqu'un appointmentAt est retenu. Réutiliser reservationStart, distinguer propositions/rendez-vous confirmé et conserver l'historique, sans modification des finances, statuts ou règles de réservation. Examiner les tests existants avant correction. Un seul lot borné.
 
 ## Limites, outils et historique
 Mémoire locale volatile ; persistance distante des modules récents et RLS non recettées. Abonnements exclusifs, fichiers binaires, packs et suivi médical/partagé non livrés ; pas de taux de rétention/présence inventé. L’admin ne reçoit pas les objectifs privés par défaut.

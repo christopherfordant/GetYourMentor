@@ -1,3 +1,5 @@
+> **États du planning collectif — 18 octobre 2026 :** chargement/erreur/vide distincts, données anciennes signalées, affiliations revérifiées, lectures annulables et résultat de publication séparé. Rapport `docs/ETATS_PLANNING_COLLECTIF_2026-10-18.md`, preuves `docs/assets/planning-states-2026-10-18/verification.json`. Aucun changement métier ou déploiement.
+
 > **Prochaine séance coach — 18 octobre 2026 :** carte existante triée par horaire convenu, séances en cours/à venir acceptées ou payées, inconnues et erreurs explicites. Rapport `docs/PROCHAINE_SEANCE_COACH_2026-10-18.md`, preuves `docs/assets/coach-next-2026-10-18/verification.json`. Aucun changement financier, synchronisation externe ou déploiement.
 
 > **Filtre mensuel coach — 18 octobre 2026 :** mois/année natif, validation et retour au mois courant Europe/Paris, calcul partagé et historiques conservés. Période de création uniquement ; aucune vue d’encaissement ni mutation. Rapport `docs/FILTRE_MENSUEL_COACH_2026-10-18.md`, preuves `docs/assets/finance-month-2026-10-18/verification.json`. Aucun déploiement.

@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-18",
+  "base": "4b7b11056136d035de01637a19950a0026e43276",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "StructureSessions loading/errors/publication feedback only",
+  "checks": {
+    "build": "PASS",
+    "types": "PASS",
+    "clientSecretBoundary": "PASS",
+    "netlifyConfigStatic": "PASS",
+    "prePushFilRouge": "CONFORME",
+    "tests": "PASS: 14 final targeted project cases, plus 16 unaffected integrated regressions from initial 30/30 campaign"
+  },
+  "playwright": {
+    "runner": "local, not MCP",
+    "workers": 1,
+    "projects": [
+      "desktop-chromium",
+      "mobile-chromium"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "initial": "30 passed (1.4m)",
+    "uniqueProjectCases": 30,
+    "finalTargeted": "14 passed (45.7s), affiliation changes during POST included",
+    "distinction": "planning-states UI uses synthetic GET/POST replies, controlled delays and network failures. coach-collective, affiliations and structure-flow run integrated against real local endpoints and memory repository without these interceptions; not validation of remote persistence.",
+    "captureReplay": "4 passed; presentation-only change to capture height/scroll, no additional unique coverage",
+    "captureViewportHeight": 2400
+  },
+  "semantics": [
+    "Atomic validated snapshot for offers/reservations/affiliations",
+    "Initial load and refresh distinct from verified empty data",
+    "Retained stale data marked explicitly, publication disabled",
+    "Replaced reads aborted and late results ignored",
+    "Unmount/role switch abort requests and remove listener",
+    "Publication success retained even if subsequent GET fails",
+    "Unconfirmed POST result never silently retried; refresh required",
+    "Synchronous submit lock, no duplicate automatic POST",
+    "Affiliation change during POST invalidates data and queues one GET"
+  ],
+  "limits": [
+    "Client abort cannot guarantee reversal of server write",
+    "No new server idempotency guarantee",
+    "Codex private quota inaccessible",
+    "No deployment or remote Netlify/RLS/Stripe validation",
+    "No real payments, subscription or external notification"
+  ],
+  "sha256LF": {
+    "gym-next/components/account-legacy/StructureSessions.tsx": "d98ab4c8fdda1dac9cd2bf366298f0fc789a50dcf7c572e52c7ec8d6b16743ca",
+    "gym-next/components/account-legacy/planning-data.ts": "d950b8a15c9f07dd55d95e195fa81ae61124bbb972a7cec3243589663a5b4583",
+    "gym-next/tests/planning-states.spec.ts": "725c5a52fd7964b909d150819938a3f812b89d3d8373e1cbbcb2c90068a4936a"
+  },
+  "sha256Captures": {
+    "docs/assets/planning-states-2026-10-18/club-1440.png": "c79cb902177d4fb4cee2ff8ca4d5370f7c1138fc0625469c069d50f1ac8a06a5",
+    "docs/assets/planning-states-2026-10-18/club-390.png": "512eba936914d94e6523f174f36bb38b81e2e8d7a499e8012d4debad55044abb",
+    "docs/assets/planning-states-2026-10-18/club-erreur-390.png": "04c9415ba50a80d8f74fbb6dbf350605c5d4a07ba11683ba615ea17bf20277d3",
+    "docs/assets/planning-states-2026-10-18/coach-1440.png": "14fd1e836d9e08eea8a3489c617e9cc2d4f06dd8ecdd632620da70a643981b16",
+    "docs/assets/planning-states-2026-10-18/coach-390.png": "931419658f15d6aa3f8a9eddb6a55632991e7ffd3992c2807893e3e7953d1c5d",
+    "docs/assets/planning-states-2026-10-18/coach-erreur-390.png": "fd580e68c6dd36c5b369d455983aa710b8d64307857e783000d49dc4c7e01f85"
+  }
+}
