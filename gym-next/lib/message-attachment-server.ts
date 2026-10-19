@@ -1,7 +1,7 @@
 import { createHash, randomUUID } from "node:crypto";
 import { MAX_MESSAGE_FILE_BYTES, MAX_MESSAGE_REQUEST_BYTES, type AttachmentInput, type MessageAttachment, isMessageAttachment } from "./message-attachment-contract";
 import { isHostedDemo, isIsolatedDemoFeatureEnabled } from "./runtime";
-import { demoBlobStore, mutateDemoState } from "./repositories/demo-state";
+import { demoBlobStore, mutateDemoState, type DemoBlobStore, type DemoState } from "./repositories/demo-state";
 
 export class MessageFileError extends Error {
   constructor(message: string, public status = 415, public code = "MESSAGE_ATTACHMENTS_UNAVAILABLE") { super(message); }
@@ -45,24 +45,38 @@ export const fileDigest = (bytes: Uint8Array) => createHash("sha256").update(byt
 const processState = globalThis as typeof globalThis & { gymDemoMessageFiles?: Map<string, Uint8Array> };
 const memory = processState.gymDemoMessageFiles ??= new Map<string, Uint8Array>();
 const key = (id: string) => `message-files/${id}`;
-export async function putMessageFile(meta: MessageAttachment, bytes: Uint8Array) {
+// Server-only dependency seam: callers never receive a provider through HTTP.
+export type MessageFileStorage = {
+  blobs: Pick<DemoBlobStore, "get" | "set" | "delete">;
+  mutate: <T>(change: (state: DemoState) => T) => Promise<T>;
+};
+function fileStorage(injected?: MessageFileStorage) {
+  if (injected) return injected;
   if (!isIsolatedDemoFeatureEnabled()) throw new MessageFileError("Fichier indisponible", 503);
-  if (isHostedDemo()) await mutateDemoState(state => { (state.pendingMessageFiles ??= []).push({ id: meta.id, createdAt: new Date().toISOString() }); });
-  if (isHostedDemo()) await demoBlobStore().set(key(meta.id), Uint8Array.from(bytes).buffer, { onlyIfNew: true, metadata: { purpose: "private-message", sha256: meta.sha256 } });
-  else memory.set(meta.id, Uint8Array.from(bytes));
-  await getMessageFile(meta);
+  return isHostedDemo() ? { blobs: demoBlobStore(), mutate: mutateDemoState } : undefined;
 }
-export async function getMessageFile(meta: MessageAttachment) {
-  if (!isIsolatedDemoFeatureEnabled() || !isMessageAttachment(meta)) throw new MessageFileError("Fichier indisponible", 404, "MESSAGE_FILE_UNAVAILABLE");
-  const data = isHostedDemo() ? await demoBlobStore().get(key(meta.id), { type: "arrayBuffer" }) : memory.get(meta.id);
+export async function putMessageFile(meta: MessageAttachment, bytes: Uint8Array, injected?: MessageFileStorage) {
+  const storage = fileStorage(injected);
+  if (storage) await storage.mutate(state => { (state.pendingMessageFiles ??= []).push({ id: meta.id, createdAt: new Date().toISOString() }); });
+  if (storage) {
+    const written = await storage.blobs.set(key(meta.id), Uint8Array.from(bytes).buffer, { onlyIfNew: true, metadata: { purpose: "private-message", sha256: meta.sha256 } });
+    if (written.modified !== true) throw new MessageFileError("Écriture du fichier non confirmée.", 503, "MESSAGE_FILE_WRITE_UNCONFIRMED");
+  } else memory.set(meta.id, Uint8Array.from(bytes));
+  await getMessageFile(meta, injected);
+}
+export async function getMessageFile(meta: MessageAttachment, injected?: MessageFileStorage) {
+  if (!isMessageAttachment(meta)) throw new MessageFileError("Fichier indisponible", 404, "MESSAGE_FILE_UNAVAILABLE");
+  const storage = fileStorage(injected);
+  const data = storage ? await storage.blobs.get(key(meta.id), { type: "arrayBuffer" }) : memory.get(meta.id);
   if (!data) throw new MessageFileError("Fichier indisponible", 404, "MESSAGE_FILE_UNAVAILABLE");
   const bytes = new Uint8Array(data);
   if (bytes.length !== meta.size || fileDigest(bytes) !== meta.sha256) throw new MessageFileError("Fichier indisponible", 503, "MESSAGE_FILE_UNAVAILABLE");
   return bytes;
 }
-export async function deleteUnusedMessageFile(id: string) {
-  if (isHostedDemo()) {
-    await demoBlobStore().delete(key(id));
-    await mutateDemoState(state => { state.pendingMessageFiles = state.pendingMessageFiles?.filter(item => item.id !== id); });
+export async function deleteUnusedMessageFile(id: string, injected?: MessageFileStorage) {
+  const storage = fileStorage(injected);
+  if (storage) {
+    await storage.blobs.delete(key(id));
+    await storage.mutate(state => { state.pendingMessageFiles = state.pendingMessageFiles?.filter(item => item.id !== id); });
   } else memory.delete(id);
 }

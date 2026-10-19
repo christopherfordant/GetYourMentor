@@ -207,3 +207,7 @@ Business Plan p.29 : bibliothèque de trois suggestions dans la messagerie exist
 ## Pièce jointe privée TXT — 19 octobre 2026
 
 [Rapport](PIECES_JOINTES_DEMO_2026-10-19.md) : demande utilisateur réalisée pour un TXT UTF-8 de 64 Kio par message, stockage binaire distinct et téléchargement participant protégé. Formats/poids : limites techniques proposées, pas exigences attribuées au BP. Déduplication et reprise testées localement ; autres formats refusés. La qualification précédente reste historique ; aucune recette distante, antivirus ou clôture globale. Preuves : `assets/message-file-flow-2026-10-19/verification.json`.
+
+## Robustesse du stockage TXT — 19 octobre 2026
+
+[Rapport](PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md) : contrôle du retour conditionnel binaire, conflit métier typé, pannes/CAS/concurrence/compensation vérifiés avec doubles déterministes. Interface et formats inchangés. Les doubles exécutent les branches hébergées mais ne valident aucun service distant. Prochain besoin : cadrer la recette distante avec autorisation/budget, ou choisir un lot indépendant.

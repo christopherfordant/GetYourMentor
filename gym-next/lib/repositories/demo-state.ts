@@ -31,6 +31,8 @@ export type DemoState = {
   contentPurchases?: DemoContentPurchase[];
 };
 
+export type DemoBlobStore = Pick<ReturnType<typeof getStore>, "get" | "getWithMetadata" | "set" | "setJSON" | "delete">;
+
 export function demoBlobStore() {
   if (!isHostedDemo()) throw new Error("Stockage de démonstration non autorisé");
   // Next patches fetch with its data cache, which itself uses Blobs on Netlify.
@@ -48,14 +50,13 @@ function emptyState(): DemoState {
   return { reservations: [], coaches: structuredClone(coachProfiles), users: {}, clubs: [], messages: [], reviews: [] };
 }
 
-export async function readDemoState(): Promise<DemoState> {
-  return (await demoBlobStore().get("state", { type: "json" })) ?? emptyState();
+export async function readDemoState(blobs: Pick<DemoBlobStore, "get"> = demoBlobStore()): Promise<DemoState> {
+  return (await blobs.get("state", { type: "json" })) ?? emptyState();
 }
 
 // One versioned document gives the small demo atomic slot claims/settings updates.
 // Production keeps Supabase and its relational constraints; this adapter is demo-only.
-export async function mutateDemoState<T>(change: (state: DemoState) => T): Promise<T> {
-  const blobs = demoBlobStore();
+export async function mutateDemoState<T>(change: (state: DemoState) => T, blobs: Pick<DemoBlobStore, "getWithMetadata" | "setJSON"> = demoBlobStore()): Promise<T> {
   for (let attempt = 0; attempt < 8; attempt++) {
     const entry = await blobs.getWithMetadata("state", { type: "json" });
     const state: DemoState = entry?.data ?? emptyState();

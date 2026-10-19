@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-19",
+  "base": "16823758709c0a7ae6ccbed7e391254264ffd8e0",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "Local deterministic hosted-storage failure tests and fixes; existing TXT UI unchanged",
+  "reproduced_defects": [
+    "Conditional binary modified:false incorrectly accepted when matching bytes pre-existed",
+    "Provider Error with domain-conflict text after committed message caused destructive compensation"
+  ],
+  "fixes": [
+    "Require modified === true for new binary writes",
+    "Use MessageConflictError identity for compensation and HTTP 409; arbitrary provider text is not a domain conflict"
+  ],
+  "sdk_contract": {
+    "source": "Installed @netlify/blobs/dist/main.d.ts CreateOnlyOptions/UpdateOnlyOptions/WriteResult",
+    "version": "11.1.4",
+    "sha256": "c3687a8e862f5118fb755895a184a8c70eadab1f2b013a534697250ca2f9361e",
+    "observed": "Conditional writes may resolve with modified:false and no modification ETag"
+  },
+  "tests": {
+    "before_fixes": "38 executions: 34 passed, 4 expected failures in 2 reproduced scenarios across 2 configurations",
+    "after_fixes": "23 deterministic scenarios across 2 project configurations, 46/46 passed; no browser/application server used for this suite",
+    "integrated_local_file_flow": "6/6 passed: actual stream bound, real upload/download/isolation, explicit recovery after refusal/uncertain result",
+    "unsupported_files": "6/6 passed",
+    "text_and_structure_api_regressions": "4/4 passed",
+    "total_successful_executions": 62,
+    "playwright": "local, 1 worker; existing focused form recovery only, no full visual campaign or new screenshots",
+    "dependency_seam": "Optional server-only parameters; real message/CAS/file functions with SDK-operation double, no parallel business engine, HTTP override or env switch"
+  },
+  "checks": {
+    "build": "passed; non-blocking legacy CSS/cache warnings, styles unchanged",
+    "types": "explicit tsc --noEmit --incremental false passed",
+    "client_secret_boundary": "passed against build",
+    "netlify_config": "static check passed",
+    "fil_rouge": "CONFORME in isolated worktree",
+    "diff_check": "passed"
+  },
+  "proof_boundaries": {
+    "double": "Clone-on-read state, etags and modified:false conditional responses, before/after failures including lost commit/deletion confirmations",
+    "integrated": "Real local API/auth/message endpoints and in-process file bytes; HTTP transport faults injected in the existing recovery test",
+    "remote": "No Netlify/Supabase/Stripe, RLS, hosted persistence or antivirus validation",
+    "privacy": "Synthetic @example.com data, no private document/code/file sent externally except targeted authorized Git push"
+  },
+  "remaining_limits": [
+    "No multi-object transaction; later provider loss cannot be excluded by a successful prior read",
+    "Uncertain preparations remain private/tracked; no new purge job or retention policy",
+    "TXT UTF-8 <=64KiB only, no antivirus",
+    "Local memory not persistent across process restart",
+    "Remote recipe needs defined authorization/scope/budget; no deployment performed"
+  ],
+  "file_sha256": {
+    "gym-next/lib/repositories/demo-state.ts": "acd580b3e5d1c5a46e71af514c49d0a9eabc84e5c7726ee78d58576979b8c29f",
+    "gym-next/lib/message-attachment-server.ts": "d1b57766ce5cbc8d3d814e5f170fc7809832c1a8437dd4bb0c9f238a11ae4067",
+    "gym-next/lib/messages.ts": "f835dca0174f9b392b4813dd63a4e3a166c48638464b9463d1443b6d6fae4a78",
+    "gym-next/app/api/messages/route.ts": "b322bf2a15a441001869eacc87a0920df5408e93fd8f91ffd8c06954a48b3d49",
+    "gym-next/tests/message-file-storage-faults.spec.ts": "3bc5dabae11132a64d52119fc61b37e211656de952d1d12ff5817f5626b94767"
+  }
+}

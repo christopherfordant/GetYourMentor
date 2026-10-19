@@ -3,7 +3,7 @@ import { boundedMessageJson, parseMessageFile, MessageFileError } from "@/lib/me
 import { MAX_MESSAGE_REQUEST_BYTES } from "@/lib/message-attachment-contract";
 import { NextResponse } from "next/server";
 import { currentSession } from "@/lib/auth";
-import { createMessage, listMessages, type Message } from "@/lib/messages";
+import { createMessage, listMessages, MessageConflictError, type Message } from "@/lib/messages";
 import { getCoach } from "@/lib/coaches";
 import { bodyExceedsLimit, textExceedsLimit, rateLimit } from "@/lib/request-guards";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
     }, attachment);
     return NextResponse.json({ data: message }, { status: 201 });
   } catch (error) {
-    if (error instanceof Error && error.message === "Cette demande a déjà été utilisée pour un autre message") return NextResponse.json({ error: error.message }, { status: 409 });
+    if (error instanceof MessageConflictError) return NextResponse.json({ error: error.message }, { status: 409 });
     return NextResponse.json({ error: "Message impossible. Réessayez dans un instant." }, { status: 502 });
   }
 }

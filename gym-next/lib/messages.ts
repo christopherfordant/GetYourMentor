@@ -1,5 +1,5 @@
 import type { MessageAttachment } from "./message-attachment-contract";
-import { getMessageFile, putMessageFile, deleteUnusedMessageFile } from "./message-attachment-server";
+import { getMessageFile, putMessageFile, deleteUnusedMessageFile, type MessageFileStorage } from "./message-attachment-server";
 export type Message = {
   id: string;
   senderEmail: string;
@@ -16,7 +16,7 @@ export type Message = {
 };
 
 import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
-import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
+import { mutateDemoState, readDemoState, type DemoState } from "@/lib/repositories/demo-state";
 
 const processState = globalThis as typeof globalThis & { gymDemoMessages?: Message[] };
 const memoryMessages: Message[] = processState.gymDemoMessages ??= [];
@@ -29,15 +29,27 @@ function supabaseConfig() {
   return null;
 }
 
-export async function createMessage(message: Message, file?: { meta: MessageAttachment; bytes: Uint8Array }) {
-  const config = supabaseConfig();
+export class MessageConflictError extends Error {
+  constructor() { super("Cette demande a déjà été utilisée pour un autre message"); }
+}
+
+export type MessageDemoDependencies = {
+  read: () => Promise<DemoState>;
+  mutate: <T>(change: (state: DemoState) => T) => Promise<T>;
+  files: MessageFileStorage;
+};
+export async function createMessage(message: Message, file?: { meta: MessageAttachment; bytes: Uint8Array }, dependencies?: MessageDemoDependencies) {
+  const config = dependencies ? null : supabaseConfig();
+  const hosted = dependencies !== undefined || isHostedDemo();
+  const read = dependencies?.read ?? readDemoState;
+  const mutate = dependencies?.mutate ?? mutateDemoState;
   if (file && config) throw new Error("Fichier réservé à la démonstration isolée");
   if (!config) {
     if (file) message = { ...message, attachment: file.meta };
     const previousFor = (messages: Message[]) => message.requestId ? messages.find(row => row.requestId === message.requestId && row.senderEmail === message.senderEmail && row.coachId === message.coachId && row.authorRole === message.authorRole && (row.ownerRole ?? "sportif") === (message.ownerRole ?? "sportif")) : undefined;
     const validateRepeat = (previous: Message) => {
       const fingerprint = (a?: MessageAttachment) => a ? JSON.stringify([a.name, a.size, a.type, a.sha256]) : "";
-      if (previous.body !== message.body || previous.replyToId !== message.replyToId || previous.reservationId !== message.reservationId || fingerprint(previous.attachment) !== fingerprint(message.attachment)) throw new Error("Cette demande a déjà été utilisée pour un autre message");
+      if (previous.body !== message.body || previous.replyToId !== message.replyToId || previous.reservationId !== message.reservationId || fingerprint(previous.attachment) !== fingerprint(message.attachment)) throw new MessageConflictError();
     };
     const save = (messages: Message[]) => {
       const previous = previousFor(messages);
@@ -45,23 +57,23 @@ export async function createMessage(message: Message, file?: { meta: MessageAtta
       messages.push(message); return message;
     };
     if (file) {
-      const previous = previousFor(await listMessages());
-      if (previous) { validateRepeat(previous); if (previous.attachment) await getMessageFile(previous.attachment); return previous; }
-      await putMessageFile(file.meta, file.bytes);
+      const previous = previousFor(hosted ? (await read()).messages : await listMessages());
+      if (previous) { validateRepeat(previous); if (previous.attachment) await getMessageFile(previous.attachment, dependencies?.files); return previous; }
+      await putMessageFile(file.meta, file.bytes, dependencies?.files);
     }
     try {
-      const saved = isHostedDemo() ? await mutateDemoState(state => {
+      const saved = hosted ? await mutate(state => {
         const saved = save(state.messages);
         if (file && saved.attachment?.id === file.meta.id) state.pendingMessageFiles = state.pendingMessageFiles?.filter(item => item.id !== file.meta.id);
         return saved;
       }) : save(memoryMessages);
-      if (file && saved.attachment?.id !== file.meta.id) await deleteUnusedMessageFile(file.meta.id);
-      if (saved.attachment) await getMessageFile(saved.attachment);
+      if (file && saved.attachment?.id !== file.meta.id) await deleteUnusedMessageFile(file.meta.id, dependencies?.files);
+      if (saved.attachment) await getMessageFile(saved.attachment, dependencies?.files);
       return saved;
     } catch (error) {
       // A CAS/network failure may follow a committed message: never delete its file.
       // Only a known pre-commit conflict permits compensating this unique new object.
-      if (file && error instanceof Error && error.message === "Cette demande a déjà été utilisée pour un autre message") await deleteUnusedMessageFile(file.meta.id);
+      if (file && error instanceof MessageConflictError) await deleteUnusedMessageFile(file.meta.id, dependencies?.files);
       throw error;
     }
   }

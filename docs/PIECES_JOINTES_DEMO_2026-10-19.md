@@ -1,3 +1,5 @@
+> **État courant — 19 octobre 2026 :** les branches hébergées ont maintenant une recette locale avec doubles conditionnels, et deux défauts ont été corrigés. Voir [pannes/compensations](PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md). Cela ne valide toujours aucun service distant.
+
 # Pièce jointe privée de démonstration — 19 octobre 2026
 
 ## Périmètre et sources
@@ -53,3 +55,7 @@ Commit/push ciblés sur la branche existante, SHA distant comparé après livrai
 Prochaine action proposée : recette des chemins hébergés de préparation/CAS/compensation avec doubles de stockage contrôlés, puis recette distante uniquement avec autorisation et périmètre démo/budget établis. Ne pas étendre directement aux PDF/vidéos ni déclarer la persistance distante validée.
 
 Résultats finaux : **8/8** nouveaux tests, **6/6** refus conservés et **26/26** régressions, soit **40 tests distincts réussis** ; deux cas API concernés ont en plus été rejoués avec l’assertion d’envoi étranger refusé. Build final, typage explicite, frontière client/serveur, configuration statique Netlify, Fil Rouge et diff --check conformes. Contrôles locaux uniquement.
+
+## Consolidation des pannes — 19 octobre 2026
+
+[Rapport des doubles de stockage](PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md) : 23 scénarios locaux, vérification de modified et conflit métier typé. Les branches hébergées sont exécutées avec un double conditionnel ; elles ne restent plus entièrement non testées, mais aucune validation distante ou persistance après redéploiement n’est revendiquée. Les formats, limites et captures ci-dessus restent inchangés.
