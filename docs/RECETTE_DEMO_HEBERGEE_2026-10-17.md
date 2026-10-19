@@ -1,3 +1,5 @@
+> **Préparation seulement — 19 octobre 2026 :** la [recette TXT bornée](#preparation-txt-2026-10-19) ci-dessous n’a pas été exécutée. Les déploiements/recettes du 17 octobre sont historiques ; ils ne prouvent pas la présence des pièces jointes ou des correctifs actuels.
+
 # Recette de la démonstration hébergée — 17 octobre 2026
 
 ## Résultat et version réellement publiée
@@ -34,3 +36,60 @@ Ancien guide /demo : route locale non versionnée, exclue du candidat ; utiliser
 Retour arrière : republier un paquet compatible sur le seul site démo, sans supprimer Blobs. Ne pas restaurer aveuglément la vieille version du 15 octobre qui ignore les nouvelles offres/affiliations ; préserver l’état et garder la démo fermée si une migration de retour est nécessaire. Le rollback effectué pendant la correction précédait toute nouvelle donnée.
 Reproduction : `python gym-next/scripts/deploy-isolated-demo.py`, puis `python gym-next/scripts/hosted-demo-recipe.py`. Archiver d’abord un ancien manifeste ; il n’est jamais écrasé pour lancer une nouvelle recette. Après redéploiement du même candidat préparé : `python gym-next/scripts/hosted-demo-recipe.py --verify`. Captures : `node gym-next/scripts/hosted-demo-visual.cjs`. L’authentification Netlify locale n’est utilisée qu’en mémoire pour contrôle des IDs et déploiement ciblé ; aucun secret dans les preuves.
 Prochain lot : améliorer la découverte des séances collectives (filtres et liens documentés), puis traiter les politiques de modification/retrait de séance selon leurs dépendances. Les suppressions/révocations et invitations externes restent hors de ce lot.
+
+<a id="preparation-txt-2026-10-19"></a>
+## Préparation de la recette TXT privée — 19 octobre 2026
+
+### État et réemploi
+**NON EXÉCUTÉE. Aucun appel Netlify/Supabase, aucun déploiement ni nettoyage dans ce lot.** Plan de données non exécutable : [plan.json](assets/remote-attachment-plan-2026-10-19/plan.json). Il ne s’agit ni d’un script, ni d’un bouton d’exécution, ni d’une preuve de stockage distant.
+
+Les scripts existants `hosted-demo-recipe.py` et `hosted-core-completion-recipe.py` exécutent des recettes plus larges, avec appels distants et écriture de manifestes. Ne pas les lancer/importer pour « préparer » ce contrôle ; ne pas relancer leurs déploiements. On conserve leurs principes : cible isolée explicite, sessions volatiles, manifeste expurgé, pas de réexécution aveugle. Aucun second exécuteur/CLI ni nouvelle dépendance créé.
+
+Dernière preuve archivée plus récente que la section historique ci-dessus : [persistance avis/structures](AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md), manifeste `assets/persistence-reviews-2026-10-17/hosted-recipe.json` : source `a4f71cf0581742aa63fcf07fefec2cdfce960cc8`, déploiement vérifié `6ad2cabc5fae491ff7f706a0`. **État actuel inconnu**, aucune nouvelle lecture distante. Cette source précède le TXT et ses correctifs ; ne pas tester ces fonctions sur une ancienne version en la supposant compatible.
+
+### Conditions obligatoires avant tout contact distant
+1. Autorisation distincte de l’exécution, de la cible et des données synthétiques ; cette préparation ne la fournit pas.
+2. Confirmation de la cible exacte `https://getyourmentor-demo-20261014.netlify.app`, site dédié `86e0379e-4d1a-4cf0-936c-1439397354f4`. Aucun autre domaine, site historique, wildcard ou suivi de redirection. Le nom « demo » ou le suffixe netlify.app ne suffisent pas seuls.
+3. Version publiée reliée à un candidat vérifié : source applicative `99900204981300f544b0bbed52af6d9d55b525a3` ou arbre gym-next identique `5f547d2a9fd3e30c86efd3718092c6733a57ad77`. Utiliser la correspondance archivée source/empreintes, BUILD_ID/ZIP et ID renvoyé par la publication, puis l’ID publié du site. Les scripts CLI historiques peuvent laisser commit_ref vide ; ne pas inventer cette liaison. `/api/health` ne renvoie pas de SHA et ne prouve pas la version. Un nouveau déploiement éventuellement nécessaire exige sa propre autorisation : aucun n’est prévu ici.
+4. Budget approuvé pour le scénario borné ; consommation/crédits/renouvellement et coût monétaire **inconnus**. Ne pas interroger les compteurs pendant ce lot, déduire un solde d’un succès, changer un plafond ou pauser un site. 14 opérations logiques ne signifient pas 14 requêtes facturables : les endpoints peuvent lire le stockage plusieurs fois et leur CAS existant est borné à huit tentatives.
+5. Trois comptes **déjà préparés**, exclusivement synthétiques : A sportif, B sportif étranger et C coach validé en démonstration. Connexions et vérification du fixture C ne prouvent ni diplôme réel ni identité réelle. Aucun rôle de production, création ou validation de compte implicite. Si ces comptes manquent, arrêter et cadrer séparément leur provisionnement/budget.
+6. Accès existants utilisables sans afficher/lire/copier les valeurs de secrets. Sessions A/B/C et seconde session C2 gardées dans des contextes clients isolés, cookies uniquement en mémoire. Accès de contrôle du site séparé de ces sessions applicatives ; aucun jeton en argument, capture, historique ou dépôt.
+7. Observation privée du seul enregistrement de message prévue avant de conclure sur le **JSON stocké**. Les endpoints examinés /api/messages et /api/health ne donnent pas cette preuve. Un observateur autorisé, dans un contexte SDK existant, doit effectuer une seule lecture et émettre uniquement des booléens sur l’enregistrement ciblé : métadonnées conformes, aucune propriété de charge binaire/base64. Ne pas exporter le document global, les utilisateurs ou leurs valeurs. **Cet observateur n’est pas ajouté dans ce lot et reste un prérequis technique à préparer/revoir.** Sans lui, le contrôle du stockage global reste NON VÉRIFIÉ ; une réponse API sans octets ne le remplace pas.
+
+Si un prérequis est absent, statut BLOQUÉ AVANT EXÉCUTION ; ne pas consommer le scénario « pour voir ». Les garde-fous ci-dessus sont une procédure manuelle, pas des protections d’exécuteur prétendument installées ou testées. Le plan conserve tous les accords/constats à false et le statut NOT_RUN.
+
+### Scénario prévu, sans action effectuée
+Utiliser le client HTTP existant dans un contexte explicitement autorisé ; refuser les 3xx, délai maximum 15 s par requête, aucun polling ni réessai automatique. Ne pas importer les scripts historiques à effets de bord pour obtenir leur helper. Les étapes s’arrêtent au premier résultat inattendu ou incertain ; aucune autre écriture avec une nouvelle clé après un délai dépassé.
+
+| Étape | Opérations maximum | Contrôle attendu |
+| --- | ---: | --- |
+| V1 | 1 lecture de métadonnées du site | Identité du site/ID publié et preuve locale de version concordantes ; aucune lecture de variables/secrets |
+| H1 | 1 GET /api/health | 200, mode demo, ready true, services réels désactivés selon checks ; lecture de stockage, pas preuve de commit |
+| A1 | 3 POST /api/auth/sign-in | Sessions synthétiques A, B, C, chacun dans son propre contexte |
+| M1 | 1 POST /api/messages avec A | 201, message et métadonnées cohérents ; un TXT UTF-8 synthétique ≤64 Kio, nom .txt, type text/plain, base64 canonique ; clé unique de recette conservée |
+| D1 | 1 GET /api/messages/{id}/attachment avec C | 200 ; octets identiques au fixture et SHA-256 identique, en-têtes private/no-store, nosniff et téléchargement forcé |
+| M2 | 1 POST identique avec A | Rejeu **délibéré après confirmation de M1**, mêmes texte/cible/clé/fichier ; 201 et mêmes IDs message/fichier, pas une nouvelle clé |
+| L1 | 1 GET /api/messages avec A | Une seule ligne pour cette clé ; métadonnées conformes, aucune charge binaire dans la réponse API |
+| D2 | 1 GET du fichier avec B | 404, aucun octet privé reçu |
+| D3 | 1 GET dans un contexte anonyme distinct | 401, sans Cookie/Authorization et sans cookie jar hérité |
+| A2 | 1 POST /api/auth/sign-in | C2 : nouvelle authentification dans un contexte indépendant de C |
+| D4 | 1 GET du fichier avec C2 | Même contenu exact ; ne prouve ni autre instance, ni redémarrage ni redéploiement |
+| S1 | 1 observation privée du stockage | Booléens expurgés du seul message ciblé ; résultat NON VÉRIFIÉ si l’observateur sûr n’est pas disponible |
+
+Total prévu : **12 requêtes HTTP applicatives + 1 lecture de métadonnées + 1 observation privée = 14 opérations logiques maximum**, aucun DELETE et aucun déploiement. Les appels internes du fournisseur et les octets transférés ne sont pas certifiés par ce total. L’authentification éventuelle au plan de contrôle et le provisionnement des comptes doivent être prêts en amont ; aucune opération cachée n’est ajoutée au scénario. En cas de prérequis nécessitant d’autres actions, arrêter et revoir le périmètre/budget.
+
+Le fixture est généré localement, texte banal sans source métier ou code : conserver ses octets/empreinte et l’identifiant de tentative. Le POST réutilise le contrat attachment {name,type,base64}, recipientName = identifiant du coach C, body synthétique, requestId stable ; aucune réservation, affiliation ou commission modifiée. Ne pas injecter de pannes, supprimer des objets, saturer les limites ou utiliser une horloge modifiée sur le service réel.
+
+### Preuves et limites
+Résultats par étape : NON EXÉCUTÉ, RÉUSSI, ÉCHEC, INCERTAIN ou PARTIEL ; statut global « stockage validé » interdit si un contrôle obligatoire reste non vérifié. Archiver uniquement date, SHA/arbre attendu, ID de déploiement confirmé, code de réponse, booléens d’accès/intégrité et empreintes du fixture. Pas de corps de réponse brut, cookies, mot de passe, jeton, emails, captures de compte ou dump global dans Git.
+
+Un registre privé local hors dépôt, créé uniquement lors d’une future recette autorisée, associera le run aux seuls IDs synthétiques créés/réutilisés, à la clé de tentative et aux références nécessaires à la reprise. Aucun registre de données créé pendant cette préparation. Ne pas écraser les preuves historiques ; un rejeu exige un nouveau plan de reprise et une recherche des données déjà créées.
+
+La phase après redémarrage/redéploiement est **exclue**. Elle nécessiterait une autorisation et un budget séparés, deux déploiements distincts du même paquet vérifié si c’est le scénario choisi, puis de nouvelles connexions ; une simple requête C2 n’est pas cette preuve. Aucun redémarrage physique d’instance ne sera prétendu sans contrôle correspondant.
+
+### Nettoyage et retour arrière
+Aucune suppression maintenant ou dans le scénario de base. L’API de messagerie examinée ne fournit pas de DELETE du message ; ne pas en inventer une commande. Conserver les seules données synthétiques repérées, puis préparer un nettoyage ciblé autorisé en rapprochant message et objet pour ne pas casser leurs références. Ne jamais effacer le document partagé ou un bucket entier, ni supprimer par simple préfixe large ou ancienneté.
+
+Un échec de recette arrête les nouvelles écritures et conserve les preuves privées nécessaires. Un éventuel rollback relève de la procédure existante : paquet compatible sur le seul site démo, autorisation séparée, conservation des objets et historiques. Ne pas republier une ancienne version ignorant les pièces jointes et ne pas modifier la production.
+
+Contrôles de préparation du 19 octobre : plan JSON lisible, somme 12+1+1 vérifiée, accords/constats à false, arbre applicatif inchangé, liens locaux de la nouvelle section et diff --check valides ; Fil Rouge conforme. Preuve : `assets/remote-attachment-plan-2026-10-19/verification.json`. Aucun build, test applicatif, mock d’un exécuteur absent ou appel de recette relancé.

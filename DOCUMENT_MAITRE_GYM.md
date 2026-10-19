@@ -1,3 +1,5 @@
+> **Recette distante TXT préparée — 19 octobre 2026 :** procédure existante complétée, 14 opérations logiques proposées, aucun exécuteur nouveau ni appel distant. Prérequis version/accord/budget/comptes/observation expurgée non validés ; `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md#preparation-txt-2026-10-19`. Préparation documentaire ≠ validation hébergée.
+
 > **Pannes des pièces jointes — 19 octobre 2026 :** refus conditionnel binaire contrôlé et conflit métier typé pour protéger les fichiers liés. Scénarios CAS/concurrence/compensation testés avec doubles locaux ; rapport `docs/PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md`. Aucune recette distante ni modification visuelle/déploiement.
 
 > **Pièce jointe TXT privée — 19 octobre 2026 :** un fichier UTF-8 de 64 Kio, octets séparés du JSON global, téléchargement authentifié, déduplication et relecture après résultat incertain. Rapport `docs/PIECES_JOINTES_DEMO_2026-10-19.md` ; recette locale seulement, absence d’antivirus et persistance hébergée non validée. Aucun déploiement.

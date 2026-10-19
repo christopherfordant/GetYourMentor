@@ -211,3 +211,7 @@ Business Plan p.29 : bibliothèque de trois suggestions dans la messagerie exist
 ## Robustesse du stockage TXT — 19 octobre 2026
 
 [Rapport](PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md) : contrôle du retour conditionnel binaire, conflit métier typé, pannes/CAS/concurrence/compensation vérifiés avec doubles déterministes. Interface et formats inchangés. Les doubles exécutent les branches hébergées mais ne valident aucun service distant. Prochain besoin : cadrer la recette distante avec autorisation/budget, ou choisir un lot indépendant.
+
+## Préparation de recette distante TXT — 19 octobre 2026
+
+[Procédure existante complétée](RECETTE_DEMO_HEBERGEE_2026-10-17.md#preparation-txt-2026-10-19), [plan non exécutable](assets/remote-attachment-plan-2026-10-19/plan.json). 12 appels applicatifs + 1 métadonnée + 1 observation privée proposés ; aucun effectué, budget inconnu. La preuve historique a4f71cf/6ad2cabc ne confirme pas le code actuel ; santé ≠ SHA déployé, réponse API expurgée ≠ état global sans octets. Observer sûr et autres accords à préparer avant exécution. Aucun déploiement ou fonctionnalité nouvelle ; les tests locaux précédents ne sont pas relancés.
