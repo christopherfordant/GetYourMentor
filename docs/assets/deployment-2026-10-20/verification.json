@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-20",
+  "siteId": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+  "url": "https://getyourmentor-demo-20261014.netlify.app",
+  "deployId": "6ad6a2d61f36fd8e0947b34a",
+  "state": "ready",
+  "sourceCommit": "bbe20d766b69b03cbe48e80532f6213a02bf00e3",
+  "buildId": "OFG4N8A-V0wI-kcusawpX",
+  "archiveSHA256": "3995edf6fe928a81b23dbd442a71010b26785ffb325feed8d5c72de4da11d8e4",
+  "types": "PASS",
+  "build": "PASS",
+  "clientSecretBoundary": "PASS",
+  "checks": {
+    "/api/health": {
+      "status": 200,
+      "contentType": "application/json",
+      "robots": null,
+      "mode": "demo",
+      "ready": true
+    },
+    "/": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "robots": null
+    }
+  },
+  "businessRecipe": "NOT_RUN",
+  "privateObserverBinding": "NOT_ACTIVE",
+  "usageRemaining": "UNKNOWN",
+  "localUnreviewedChanges": "EXCLUDED",
+  "visualMCP": "NOT_CONFIRMED: browser navigation did not return; orchestration wait stopped"
+}
