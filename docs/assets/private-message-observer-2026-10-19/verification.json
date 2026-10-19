@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-19",
+  "base": "c776aa48a9d07e7f9fde74ff04b319da56b4215f",
+  "branch": "design/refonte-progressive-lot1",
+  "scope": "Pure synthetic-message observer and one injected read only; no real storage binding",
+  "checks": {
+    "scenarios": 41,
+    "project_configurations": 2,
+    "successful_executions": 82,
+    "test_mode": "Playwright local runner, 1 worker, external-server flag disables app startup; no Page/browser/provider fixture used",
+    "types": "tsc --noEmit --incremental false passed",
+    "runtime_imports": "Type-only Message import erased by TypeScript transpilation; no provider/env/logger/network capability",
+    "runtime_references": "No app/component imports or edits; new modules referenced only by reader seam and tests",
+    "build_visuals_old_suites": "Not rerun: modules disconnected, no existing runtime/UI/config/dependency edits",
+    "plan_gates": "All remote readiness/approval flags remain false; NOT_RUN",
+    "historical_plan": "Original bytes preserved; SHA-256 matches historical verification.json",
+    "new_local_links_checked": [
+      "docs\\OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md"
+    ],
+    "fil_rouge": "CONFORME",
+    "diff_check": "passed"
+  },
+  "privacy_tests": [
+    "Fixed output keys, status and booleans only, immutable result",
+    "Sentinel plaintext/base64 and fixture identities/filename/IDs absent from serialized output",
+    "Invalid context/authorization before any read",
+    "Single injected read, no write/delete or retry",
+    "Descriptor getters/toJSON not invoked; reflection/reader errors redacted",
+    "Other scope/global wrappers not traversed; cycles/depth/property/string limits never PASS",
+    "Expectations copied before await, selector frozen"
+  ],
+  "proof_limits": [
+    "PASS means bounded schema and exact known-fixture conformance, not absence of all possible encodings",
+    "Base64-shaped unexpected strings are suspicion with possible false positives",
+    "Initial input size/key enumeration must be bounded by future authorized JSON reader",
+    "No universal safety guarantee for arbitrary executable Proxy code",
+    "Metadata check does not download or verify stored bytes",
+    "Injected boolean authorization is not a production authentication boundary",
+    "No storage provider, remote inspection, API endpoint, CLI or active binding added"
+  ],
+  "next_action": "Review real private read authorization/unique selection/size bound and recipe prerequisites before any activation; remote execution remains separately authorized",
+  "code_sha256": {
+    "gym-next/lib/message-observer.server.ts": "f071ba6f00fd4f6dbbd5ec62962be841d2c8d8de10a30933c8568d3ec43ff114",
+    "gym-next/lib/message-observer-reader.server.ts": "c17329cb46e60831b243a5710a67e46d54f11efa80735a8e26f727aa197b4c6a",
+    "gym-next/tests/message-observer.spec.ts": "94e76f37093445462cf826d65805bd34a171f52c1b2e359c6b58c7e6a9fdc33e"
+  },
+  "current_plan_sha256": "fbf5949a69b6c0d399bec7da943f876b7370b4901520c14e78e7cd65d11e4e47"
+}

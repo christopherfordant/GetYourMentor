@@ -150,8 +150,19 @@
     "Unexpected response, timeout, upload uncertainty or unavailable private observer"
   ],
   "not_implemented": [
-    "No executor/CLI/test hook was created",
-    "No global-state observer was added",
+    "No executor/CLI/test HTTP hook was created",
+    "No provider-bound global-state reader or remote authorization was added",
     "No restart/redeployment phase or cleanup execution is authorized"
-  ]
+  ],
+  "observer_local_implementation": {
+    "evaluator": "gym-next/lib/message-observer.server.ts",
+    "reader_seam": "gym-next/lib/message-observer-reader.server.ts",
+    "pure_local_evaluator_available": true,
+    "provider_bound": false,
+    "remote_observation_executed": false,
+    "expected_request_id": "recipe-{runId}-message-1",
+    "run_id_format": "lowercase ASCII [a-z0-9-], 8..48 characters",
+    "synthetic_owner_domain": "example.com",
+    "schema_scope": "One known fixture record only; no claim of detecting every possible encoding"
+  }
 }

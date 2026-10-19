@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-19",
+  "mode": "prepare",
+  "status": "NOT_RUN",
+  "executable": false,
+  "execution_authorized": false,
+  "budget_approved": false,
+  "deployed_version_verified": false,
+  "accounts_ready": false,
+  "private_state_observer_ready": false,
+  "source_commit": "99900204981300f544b0bbed52af6d9d55b525a3",
+  "application_tree": "5f547d2a9fd3e30c86efd3718092c6733a57ad77",
+  "target": {
+    "url": "https://getyourmentor-demo-20261014.netlify.app",
+    "site_id": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+    "allow_other_hosts": false,
+    "follow_redirects": false
+  },
+  "historical_only": {
+    "source_commit": "a4f71cf0581742aa63fcf07fefec2cdfce960cc8",
+    "verified_deploy": "6ad2cabc5fae491ff7f706a0",
+    "reference": "docs/assets/persistence-reviews-2026-10-17/hosted-recipe.json",
+    "current_remote_state": "UNKNOWN"
+  },
+  "limits": {
+    "application_http_calls": 12,
+    "control_plane_metadata_reads": 1,
+    "private_state_observations": 1,
+    "maximum_logical_operations": 14,
+    "deletions": 0,
+    "deployments": 0,
+    "automatic_retries": 0,
+    "timeout_seconds_per_request": 15,
+    "credit_cost": "UNKNOWN",
+    "underlying_provider_requests": "NOT_EQUAL_TO_LOGICAL_OPERATIONS; existing CAS max 8 attempts"
+  },
+  "operations": [
+    {
+      "id": "V1",
+      "kind": "control-plane",
+      "count": 1,
+      "purpose": "Confirm published site/deploy identity against separately archived verified build evidence"
+    },
+    {
+      "id": "H1",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/health",
+      "expected": 200
+    },
+    {
+      "id": "A1",
+      "kind": "application",
+      "count": 3,
+      "method": "POST",
+      "path": "/api/auth/sign-in",
+      "purpose": "Pre-existing synthetic A athlete, B foreign athlete, C verified-demo coach"
+    },
+    {
+      "id": "M1",
+      "kind": "application",
+      "count": 1,
+      "method": "POST",
+      "path": "/api/messages",
+      "expected": 201,
+      "purpose": "One explicit TXT attachment from A to C"
+    },
+    {
+      "id": "D1",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/messages/{message_id}/attachment",
+      "expected": 200,
+      "purpose": "C downloads exact bytes"
+    },
+    {
+      "id": "M2",
+      "kind": "application",
+      "count": 1,
+      "method": "POST",
+      "path": "/api/messages",
+      "expected": 201,
+      "purpose": "Explicit identical replay only after M1 confirmed; same message and attachment IDs"
+    },
+    {
+      "id": "L1",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/messages",
+      "expected": 200,
+      "purpose": "A sees one matching requestId, valid metadata, no payload in API response"
+    },
+    {
+      "id": "D2",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/messages/{message_id}/attachment",
+      "expected": 404,
+      "purpose": "B foreign authenticated account denied"
+    },
+    {
+      "id": "D3",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/messages/{message_id}/attachment",
+      "expected": 401,
+      "purpose": "Independent anonymous context denied"
+    },
+    {
+      "id": "A2",
+      "kind": "application",
+      "count": 1,
+      "method": "POST",
+      "path": "/api/auth/sign-in",
+      "purpose": "C signs in using a fresh independent client context"
+    },
+    {
+      "id": "D4",
+      "kind": "application",
+      "count": 1,
+      "method": "GET",
+      "path": "/api/messages/{message_id}/attachment",
+      "expected": 200,
+      "purpose": "C fresh context receives same bytes; not restart proof"
+    },
+    {
+      "id": "S1",
+      "kind": "private-state",
+      "count": 1,
+      "purpose": "Authorized private observer emits selected-message booleans only; no raw global state export",
+      "available": false
+    }
+  ],
+  "result_labels": [
+    "NOT_RUN",
+    "PASS",
+    "FAIL",
+    "UNCERTAIN",
+    "PARTIAL"
+  ],
+  "stop_conditions": [
+    "Any missing prerequisite",
+    "Target/site/version mismatch or any redirect",
+    "Unknown or unapproved budget",
+    "Unexpected response, timeout, upload uncertainty or unavailable private observer"
+  ],
+  "not_implemented": [
+    "No executor/CLI/test hook was created",
+    "No global-state observer was added",
+    "No restart/redeployment phase or cleanup execution is authorized"
+  ]
+}

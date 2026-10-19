@@ -33,5 +33,7 @@
     "accounts_ready",
     "private_state_observer_ready"
   ],
-  "plan_sha256": "3cd634d9aeef7862034f25a1ca66dd95b58da8a9c29cbfc80a1a522cbbae25c6"
+  "plan_sha256": "3cd634d9aeef7862034f25a1ca66dd95b58da8a9c29cbfc80a1a522cbbae25c6",
+  "record_status": "HISTORICAL_PREPARATION_BEFORE_LOCAL_OBSERVER",
+  "historical_plan_reference": "plan-before-local-observer.json"
 }

@@ -1,3 +1,5 @@
+> **Observateur privé local — 19 octobre 2026 :** évaluation d’un fixture ciblé, statuts/booléens expurgés, lecteur injecté sans fournisseur et tests locaux. `OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md`. Aucun raccordement actif ; accords, budget et version distante non validés.
+
 > **Recette distante TXT préparée — 19 octobre 2026 :** procédure existante complétée, 14 opérations logiques proposées, aucun exécuteur nouveau ni appel distant. Prérequis version/accord/budget/comptes/observation expurgée non validés ; `RECETTE_DEMO_HEBERGEE_2026-10-17.md#preparation-txt-2026-10-19`. Préparation documentaire ≠ validation hébergée.
 
 > **Pannes des pièces jointes — 19 octobre 2026 :** refus conditionnel binaire contrôlé et conflit métier typé pour protéger les fichiers liés. Scénarios CAS/concurrence/compensation testés avec doubles locaux ; rapport `PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md`. Aucune recette distante ni modification visuelle/déploiement.
