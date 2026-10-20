@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { LanguageSelector } from "./common/LanguageSelector";
 import { FooterUtilitySlot } from "./FooterUtilities";
 import { SocialLinks } from "./SocialLinks";
 
 export function SiteFooter() {
   return <footer className="gym-footer">
     <FooterUtilitySlot />
-    <div className="gym-footer-brand"><Link href="/" aria-label="GetYourMentor, accueil"><b>GYM<span aria-hidden="true">↗</span></b><span>GetYourMentor</span></Link><SocialLinks /></div>
+    <div className="gym-footer-brand"><Link href="/" aria-label="GetYourMentor, accueil"><b>GYM<span aria-hidden="true">↗</span></b><span>GetYourMentor</span></Link><SocialLinks /><LanguageSelector placement="footer" /></div>
     <div className="gym-footer-links">
       <FooterColumn title="Plateforme" links={[["Comment ça marche","/#espace"],["Devenir coach","/compte?mode=coach"],["Tarifs","/#forfaits"],["Entreprises","/inscription-club"]]} />
       <FooterColumn title="Disciplines" links={[["Football","/recherche?sport=football"],["Basketball","/recherche?sport=basketball"],["Fitness","/recherche?sport=metiers-de-la-forme"],["Sports de combat","/recherche?sport=sports-de-combat"]]} />

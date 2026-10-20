@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-20",
+  "base": "0130e85cdaf00a3258489052c524d9c1657f18c6",
+  "branch": "design/refonte-progressive-lot1",
+  "implemented_language": [
+    "fr"
+  ],
+  "language_semantics": "Static truthful indicator; no preference-only pseudo-translation; one visible placement per page",
+  "checks": {
+    "unique_scenarios_validated": 46,
+    "main_campaign": {
+      "passed": 44,
+      "failed": 2,
+      "reason": "Stale athlete dashboard selector and zero-review copy expectations"
+    },
+    "targeted_rechecks": {
+      "sign_in_strengthened_assertions_and_signup": 4,
+      "catalogue_corrected_copy": 1,
+      "final_responsive_header_and_form_borders": 4,
+      "all_passed": true
+    },
+    "pure_response_validator_scenarios": 8,
+    "integrated_local_paths": [
+      "Synthetic athlete signup, HTTP 201, real local cookie session, dashboard before/after reload",
+      "Synthetic structure lead, HTTP 201, confirmed pending data, no user account created"
+    ],
+    "injected_response_checks": "HTTP refusals, malformed responses, network errors, double submissions, no fake success",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "additional_regressions": "Coach account seven widths, editorial home, discovery directory/profile, footer nineteen views and cookies",
+    "language_pages": [
+      "/",
+      "/recherche",
+      "/compte",
+      "/inscription-club",
+      "/legal/confidentialite"
+    ],
+    "runner": "Local Playwright Chromium, one worker; MCP not used",
+    "types": "PASS",
+    "build": "PASS",
+    "client_secret_boundary": "PASS",
+    "footer_final_typography": "PASS at all four widths"
+  },
+  "environment": {
+    "mode": "local demonstration, no external auth/payment providers configured",
+    "session_key": "Ephemeral random key in local server memory; not archived; normal encrypted session cookies, no acceptance bypass flag",
+    "CI": "Existing MVP workflow defines SESSION_SECRET; local reproduction must supply a test key to server",
+    "storage": "Local ephemeral stores only; browser reload tested, not process restart"
+  },
+  "privacy": {
+    "test_data": "Synthetic only",
+    "public_research": "Official Opquast pages only; no private document/code in search",
+    "remote_mutations": "Only authorized targeted Git push",
+    "no_raw_logs_or_session_material_committed": true
+  },
+  "limits": [
+    "No multilingual translations implemented",
+    "No complete Opquast/reader/zoom/cross-browser audit",
+    "Structure uncertain-result retry still needs server deduplication/reconciliation",
+    "Legal/contact drafts, real OAuth/Supabase/RLS and remote persistence not validated",
+    "No deployment requested or executed; online version remains bbe20d7"
+  ],
+  "code_sha256": {
+    "gym-next/components/common/LanguageSelector.tsx": "e456530ade576e8bbc4fe7ee05f86a41335a7af5faf6f731952f9744c44d56a9",
+    "gym-next/components/common/LanguageSelector.module.css": "b4635ee6ea1441f8a8bdb5447bab937120398608f38fa6d2329dfe13b8531cb3",
+    "gym-next/lib/access-form-response.ts": "a7cea279d880dce3a8d23900e18ca675758656a165fb5f754d22f96e2f6f0086",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "12f01c4ac8b14d2824b9b2cbe121e9c4ff0a50f7a189055ea7f132579cf38d42",
+    "gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx": "b6486da35a2074a21627a3c34478a5092826c44a3a92566b6dc9b85b41b1b495",
+    "gym-next/app/gym-account-design.css": "e66ef5546320a743c49b15421d555d0bcf3826ecf79bb6e58782369da2cdca11"
+  }
+}

@@ -1,4 +1,5 @@
 "use client";
+import { FormRejection, readAuthFormData } from "@/lib/access-form-response";
 import { readCoachReservations } from "./coach-request-data";
 import { CoachPlanningSchedule } from "./CoachPlanningSchedule";
 import { coachNextSession } from "@/lib/domain/coach-next-session";
@@ -132,6 +133,7 @@ function AccountAuthShell({
   step,
   isCoachMode,
   status,
+  busy,
   passwordVisible,
   onTogglePassword,
   onSubmitSignIn,
@@ -143,6 +145,7 @@ function AccountAuthShell({
   step: StepName;
   isCoachMode: boolean;
   status: string;
+  busy: boolean;
   passwordVisible: boolean;
   onTogglePassword: () => void;
   onSubmitSignIn: (credentials: { email: string; password: string }) => void | Promise<void>;
@@ -162,7 +165,7 @@ function AccountAuthShell({
   }) => void | Promise<void>;
 }) {
   return (
-    <div className="account-auth-stage" data-account-auth-shell>
+    <div className="account-auth-stage" data-account-auth-shell aria-busy={busy}>
       <div className={`auth-modal-step${step === "signin" ? " is-active" : ""}`} data-account-step="signin" hidden={step !== "signin"}>
         <div className="auth-card auth-card-compact">
           <h1 data-account-title>{isCoachMode ? "Connexion coach" : "S'identifier"}</h1>
@@ -171,11 +174,13 @@ function AccountAuthShell({
               ? "Connectez-vous pour accéder à votre espace coach et gérer vos créneaux."
               : "Connectez-vous pour retrouver votre espace ou poursuivre votre inscription."}
           </p>
-          <p className="auth-status-message" data-account-status hidden={!status}>
+          <p className="auth-status-message" data-account-status hidden={!status} role="alert" id="signin-feedback">
             {status}
           </p>
+          <p id="signin-required" className="auth-helper">Tous les champs sont obligatoires.</p>
           <form
-            className="auth-form"
+            className="auth-form gym-access-form"
+            aria-describedby={status ? "signin-feedback signin-required" : "signin-required"}
             data-account-form
             onSubmit={(event) => {
               event.preventDefault();
@@ -187,26 +192,14 @@ function AccountAuthShell({
             }}
           >
             <label className="auth-field">
-              <span>Prénom</span>
-              <input name="firstName" type="text" placeholder="Prénom" autoComplete="given-name" />
-            </label>
-            <label className="auth-field">
-              <span>Nom</span>
-              <input name="lastName" type="text" placeholder="Nom" autoComplete="family-name" />
-            </label>
-            <label className="auth-field">
-              <span>Téléphone</span>
-              <input name="phone" type="tel" placeholder="Téléphone" autoComplete="tel" />
-            </label>
-            <label className="auth-field">
-              <span>Identifiant</span>
-              <input id="account-email" name="email" type="email" placeholder="Adresse mail" />
+              <span>Adresse mail</span>
+              <input disabled={busy} id="account-email" name="email" type="email" autoComplete="username" required placeholder="Adresse mail" />
             </label>
             <label className="auth-field">
               <span>Mot de passe</span>
               <div className="password-field">
-                <input id="account-password" name="password" type={passwordVisible ? "text" : "password"} placeholder="Mot de passe" />
-                <button
+                <input disabled={busy} id="account-password" name="password" autoComplete="current-password" required type={passwordVisible ? "text" : "password"} placeholder="Mot de passe" />
+                <button disabled={busy}
                   className={`password-toggle${passwordVisible ? " is-visible" : ""}`}
                   type="button"
                   aria-controls="account-password"
@@ -247,12 +240,12 @@ function AccountAuthShell({
             <a className="auth-link" href={nextRoutes.account} data-account-forgot>
               Mot de passe oublié ?
             </a>
-            <button className="auth-primary" type="submit" data-account-login>
-              <EmailIcon /> Se connecter
+            <button disabled={busy} className="auth-primary" type="submit" data-account-login>
+              <EmailIcon /> {busy ? "Connexion…" : "Se connecter"}
             </button>
           </form>
           <UnavailableGoogleButton />
-          <button className="auth-pill-button auth-pill-button-light" type="button" data-account-signup onClick={onOpenSignup}>
+          <button disabled={busy} className="auth-pill-button auth-pill-button-light" type="button" data-account-signup onClick={onOpenSignup}>
             Nouveau ? Inscription
           </button>
         </div>
@@ -264,15 +257,15 @@ function AccountAuthShell({
             {status}
           </p>
           <div className="auth-role-grid">
-            <button className="auth-role-card" type="button" data-account-role="sportif" onClick={() => onChooseRole("sportif")}>
+            <button disabled={busy} className="auth-role-card" type="button" data-account-role="sportif" onClick={() => onChooseRole("sportif")}>
               <strong>Un(e) sportif(ve)</strong>
             </button>
             <div className="auth-role-separator">ou</div>
-            <button className="auth-role-card" type="button" data-account-role="coach" onClick={() => onChooseRole("coach")}>
+            <button disabled={busy} className="auth-role-card" type="button" data-account-role="coach" onClick={() => onChooseRole("coach")}>
               <strong>Un(e) coach</strong>
             </button>
             <div className="auth-role-separator">ou</div>
-            <button className="auth-role-card auth-role-card-detail" type="button" data-account-role="club" onClick={() => onChooseRole("club")}>
+            <button disabled={busy} className="auth-role-card auth-role-card-detail" type="button" data-account-role="club" onClick={() => onChooseRole("club")}>
               <strong>
                 Association sportive
                 <br />
@@ -283,7 +276,7 @@ function AccountAuthShell({
             </button>
           </div>
           <div className="auth-step-actions">
-            <button className="auth-inline-button" type="button" data-account-back="signin" onClick={() => onBack("signin")}>
+            <button disabled={busy} className="auth-inline-button" type="button" data-account-back="signin" onClick={() => onBack("signin")}>
               Retour
             </button>
           </div>
@@ -291,12 +284,14 @@ function AccountAuthShell({
       </div>
       <div className={`auth-modal-step${step === "create" ? " is-active" : ""}`} data-account-step="create" hidden={step !== "create"}>
         <div className="auth-card auth-card-compact">
-          <h1>Renseignez votre adresse mail :</h1>
-          <p className="auth-status-message" data-account-status hidden={!status} role="alert">
+          <h1>Créez votre compte</h1>
+          <p className="auth-helper" id="create-required">Les champs sont obligatoires, sauf la ville. Le mot de passe doit contenir au moins 8 caractères.</p>
+          <p className="auth-status-message" data-account-status hidden={!status} role="alert" id="create-feedback">
             {status}
           </p>
           <form
-            className="auth-form"
+            className="auth-form gym-access-form"
+            aria-describedby={status ? "create-required create-feedback" : "create-required"}
             data-account-create-form
             onSubmit={(event) => {
               event.preventDefault();
@@ -316,47 +311,48 @@ function AccountAuthShell({
           >
             <label className="auth-field">
               <span>Adresse mail</span>
-              <input name="email" type="email" placeholder="Adresse mail" />
+              <input disabled={busy} name="email" type="email" autoComplete="email" required placeholder="Adresse mail" />
             </label>
             <label className="auth-field">
               <span>Confirmation de l'adresse mail</span>
-              <input name="emailConfirmation" type="email" placeholder="Confirmez l'adresse mail" />
+              <input disabled={busy} aria-invalid={status.includes("adresses email")} aria-describedby={status.includes("adresses email") ? "create-feedback" : undefined} name="emailConfirmation" type="email" autoComplete="email" required placeholder="Confirmez l'adresse mail" />
             </label>
             <label className="auth-field">
               <span>Créez votre mot de passe</span>
-              <input name="password" type="password" placeholder="Mot de passe" />
+              <input disabled={busy} name="password" type={passwordVisible ? "text" : "password"} autoComplete="new-password" minLength={8} required placeholder="Mot de passe" />
             </label>
             <label className="auth-field">
               <span>Confirmez votre mot de passe</span>
-              <input name="passwordConfirmation" type="password" placeholder="Confirmation du mot de passe" />
+              <input disabled={busy} aria-invalid={status.includes("mots de passe")} aria-describedby={status.includes("mots de passe") ? "create-feedback" : undefined} name="passwordConfirmation" type={passwordVisible ? "text" : "password"} autoComplete="new-password" minLength={8} required placeholder="Confirmation du mot de passe" />
             </label>
+            <button disabled={busy} className="auth-secondary" type="button" aria-pressed={passwordVisible} onClick={onTogglePassword}>{passwordVisible ? "Masquer les mots de passe" : "Afficher les mots de passe"}</button>
             <label className="auth-field">
               <span>Prénom</span>
-              <input name="firstName" type="text" placeholder="Prénom" autoComplete="given-name" />
+              <input disabled={busy} name="firstName" required type="text" placeholder="Prénom" autoComplete="given-name" />
             </label>
             <label className="auth-field">
               <span>Nom</span>
-              <input name="lastName" type="text" placeholder="Nom" autoComplete="family-name" />
+              <input disabled={busy} name="lastName" required type="text" placeholder="Nom" autoComplete="family-name" />
             </label>
             <label className="auth-field">
               <span>Téléphone</span>
-              <input name="phone" type="tel" placeholder="Téléphone" autoComplete="tel" />
+              <input disabled={busy} name="phone" required type="tel" placeholder="Téléphone" autoComplete="tel" />
             </label>
             <label className="auth-field">
-              <span>Ville / zone</span>
-              <input name="city" type="text" placeholder="Ville ou zone de pratique" autoComplete="address-level2" />
+              <span>Ville / zone (facultatif)</span>
+              <input disabled={busy} name="city" type="text" placeholder="Ville ou zone de pratique" autoComplete="address-level2" />
             </label>
             <label className="auth-checkbox">
-              <input name="termsAccepted" type="checkbox" />
-              <span>J’accepte les CGU et la politique de confidentialité.</span>
+              <input disabled={busy} name="termsAccepted" type="checkbox" required />
+              <span>J’accepte les <a href="/legal/cgu">CGU</a> et j’ai pris connaissance de la <a href="/legal/confidentialite">politique de confidentialité</a>.</span>
             </label>
-            <button className="auth-primary" type="submit">
+            <button disabled={busy} className="auth-primary" type="submit">
               Continuer
             </button>
           </form>
           <UnavailableGoogleButton />
           <div className="auth-step-actions">
-            <button className="auth-inline-button" type="button" data-account-back="signin" onClick={() => onBack("signin")}>
+            <button disabled={busy} className="auth-inline-button" type="button" data-account-back="signin" onClick={() => onBack("signin")}>
               Retour
             </button>
           </div>
@@ -736,6 +732,8 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
   const [step, setStep] = useState<StepName>("signin");
   const [status, setStatus] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [authBusy,setAuthBusy] = useState(false);
+  const authLock = useRef(false);
   const [authenticatedCoachName, setAuthenticatedCoachName] = useState("");
   const [authenticatedCoachId, setAuthenticatedCoachId] = useState(params.coachId);
   const [dashboardMode, setDashboardMode] = useState<DashboardMode>(
@@ -784,11 +782,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
 
   return (
     <>
-      <style jsx global>{`${legacyStyles}
-        [data-account-form] > .auth-field:nth-child(1),
-        [data-account-form] > .auth-field:nth-child(2),
-        [data-account-form] > .auth-field:nth-child(3) { display: none; }
-      `}</style>
+      <style jsx global>{legacyStyles}</style>
       <div className="site-shell account-shell" id="gym-account" data-gym-design="pitch-v1">
         <AccountHeader />
         <main className={`account-page${dashboardMode ? " is-coach-mode" : ""}`} data-account-page>
@@ -800,19 +794,19 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                 step={step}
                 isCoachMode={isCoachMode}
                 status={status}
+                busy={authBusy}
                 passwordVisible={passwordVisible}
                 onTogglePassword={() => setPasswordVisible((current) => !current)}
                 onSubmitSignIn={async ({ email, password }) => {
+                  if(authLock.current)return;authLock.current=true;setAuthBusy(true);setStatus("");
+                  try {
                   const response = await fetch("/api/auth/sign-in", {
                     method: "POST",
+                    signal: AbortSignal.timeout(15000),
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email, password, role: isCoachMode ? "coach" : isClubMode ? "club" : isAdminMode ? "admin" : "sportif" }),
                   });
-                  const payload = await response.json();
-                  if (!response.ok) {
-                    setStatus(payload.error ?? "Connexion impossible");
-                    return;
-                  }
+                  const payload = {data: await readAuthFormData(response,email)};
                   if (payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (payload.data?.coachId) setAuthenticatedCoachId(payload.data.coachId);
                   const resolvedRole = payload.data?.role as DashboardMode;
@@ -834,6 +828,8 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   }
                   setAuthenticatedAthleteEmail(typeof payload.data?.email === "string" ? payload.data.email : undefined);
                   revealDashboard("sportif");
+                  } catch(error) {setStatus(error instanceof FormRejection ? error.message : "Connexion non confirmée. Vérifiez votre connexion avant de réessayer.");}
+                  finally {authLock.current=false;setAuthBusy(false);}
                 }}
                 onOpenSignup={() => {
                   if (redirect === "paiement") {
@@ -844,6 +840,8 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                 }}
                 onBack={setStep}
                 onChooseRole={async (role) => {
+                  if(authLock.current)return;authLock.current=true;setAuthBusy(true);setStatus("");
+                  try {
                   if (role === "club") {
                     window.location.href = buildNextPath(nextRoutes.clubSignup, { source: "compte" });
                     return;
@@ -855,19 +853,17 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   }
                   const response = await fetch("/api/auth/sign-up", {
                     method: "POST",
+                    signal: AbortSignal.timeout(15000),
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ ...pendingSignup, role }),
                   });
-                  const payload = await response.json();
-                  if (!response.ok) {
-                    setStatus(payload.error ?? "Inscription impossible");
-                    setStep("create");
-                    return;
-                  }
+                  const payload = {data: await readAuthFormData(response,pendingSignup.email,role)};
                   if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (role === "coach" && payload.data?.coachId) setAuthenticatedCoachId(payload.data.coachId);
                   if (role === "sportif") setAuthenticatedAthleteEmail(typeof payload.data?.email === "string" ? payload.data.email : undefined);
                   revealDashboard(role);
+                  } catch(error) {setStatus(error instanceof FormRejection ? error.message : "Inscription non confirmée. Essayez de vous connecter avant de renouveler la demande.");setStep("create");}
+                  finally {authLock.current=false;setAuthBusy(false);}
                 }}
                 onSubmitCreate={({ firstName, lastName, phone, city, email, emailConfirmation, password, passwordConfirmation, termsAccepted }) => {
                   if (!firstName || !lastName || !phone) {

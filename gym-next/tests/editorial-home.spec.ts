@@ -57,8 +57,7 @@ test("forfaits documentés, palette validée fixe et FAQ existante", async ({ pa
   await expect(primary).toHaveCSS("background-color", "rgb(135, 43, 191)");
   await page.reload(); await dismissCookies(page);
   await expect(primary).toHaveCSS("background-color", "rgb(135, 43, 191)");
-  const language = page.getByRole("combobox", { name: "Langue", exact: true });
-  await expect(language).toBeVisible(); await language.selectOption("en"); await expect(language).toHaveValue("en");
+  await expect(page.locator('[data-site-language]:visible')).toContainText("Français");
   const question=page.locator("#faq summary").first(); await question.focus(); await question.press("Enter");
   await expect(page.locator("#faq details").first()).toHaveAttribute("open", "");
 });

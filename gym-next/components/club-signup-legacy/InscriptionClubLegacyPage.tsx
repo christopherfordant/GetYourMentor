@@ -1,7 +1,8 @@
 "use client";
 import { SiteFooter } from "@/components/SiteFooter";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { FormRejection, readFormData } from "@/lib/access-form-response";
 import { nextRoutes } from "@/lib/next-routes";
 import { LanguageSelector } from "@/components/common/LanguageSelector";
 
@@ -53,6 +54,9 @@ function ClubSignupVisual() {
 function ClubSignupForm() {
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [succeeded,setSucceeded] = useState(false);
+  const lock=useRef(false);
+  const [fileErrors,setFileErrors]=useState<Record<string,string>>({});
   const [locationStatus, setLocationStatus] = useState("");
   const [coordinates, setCoordinates] = useState({ latitude: "", longitude: "" });
 
@@ -75,41 +79,51 @@ function ClubSignupForm() {
   return (
     <section className="club-signup-form-panel">
       <div className="club-signup-form-card">
-        <form
+        <h1>Votre structure, votre équipe</h1>
+        <p id="club-required" className="auth-helper">Les champs marqués * sont obligatoires. Les autres sont facultatifs. En démonstration, utilisez des coordonnées et des fichiers fictifs : aucun compte ni paiement bancaire n’est créé ici.</p>
+        <form className="auth-form gym-access-form" aria-describedby="club-required club-feedback" aria-busy={submitting}
           onSubmit={async (event) => {
             event.preventDefault();
-            setSubmitting(true);
-            setStatus("");
-            const response = await fetch("/api/clubs/leads", { method: "POST", body: new FormData(event.currentTarget) });
-            const payload = await response.json();
-            setSubmitting(false);
-            setStatus(response.ok ? "Votre demande a bien été transmise. Notre équipe reviendra vers vous." : payload.error ?? "Demande impossible");
+            if(lock.current||succeeded)return;
+            const form=new FormData(event.currentTarget);
+            const errors:Record<string,string>={};
+            for(const name of ["logo","identity"]){const f=form.get(name);if(f instanceof File&&f.size>5*1024*1024)errors[name]="Le fichier doit peser au maximum 5 Mo.";}
+            setFileErrors(errors);if(Object.keys(errors).length){setStatus("Vérifiez les fichiers indiqués.");return;}
+            lock.current=true;setSubmitting(true);setStatus("");
+            try {
+              const response=await fetch("/api/clubs/leads",{method:"POST",body:form,signal:AbortSignal.timeout(15000)});
+              const data=await readFormData(response);
+              if(typeof data.id!=="string"||!data.id||data.status!=="pending"||data.email!==String(form.get("email")).trim().toLowerCase()||data.clubName!==String(form.get("clubName")).trim()||data.managerName!==String(form.get("managerName")).trim())throw new Error("Unconfirmed lead");
+              setSucceeded(true);setStatus("Votre demande a été enregistrée. Aucun compte n’a été créé à cette étape.");
+            }catch(error){setStatus(error instanceof FormRejection?error.message:"Résultat non confirmé. Ne renvoyez pas immédiatement la demande : vérifiez d’abord si elle a été enregistrée.");}
+            finally{lock.current=false;setSubmitting(false);}
+
           }}
         >
         <div className="club-signup-grid">
           <label className="auth-field">
             <span>* Nom du club / structure</span>
-            <input name="clubName" type="text" placeholder="Nom du club / structure" required />
+            <input disabled={submitting||succeeded} name="clubName" type="text" autoComplete="organization" maxLength={512} placeholder="Nom du club / structure" required />
           </label>
 
           <label className="auth-field">
             <span>* Nom du responsable</span>
-            <input name="managerName" type="text" placeholder="Nom du responsable" required />
+            <input disabled={submitting||succeeded} name="managerName" type="text" autoComplete="name" maxLength={512} placeholder="Nom du responsable" required />
           </label>
 
           <label className="auth-field club-signup-grid-wide">
             <span>* Adresse mail</span>
-            <input name="email" type="email" placeholder="Adresse mail" required />
+            <input disabled={submitting||succeeded} name="email" type="email" autoComplete="email" maxLength={320} placeholder="Adresse mail" required />
           </label>
 
           <label className="auth-field">
             <span>Numéro de téléphone</span>
-            <input name="phone" type="tel" placeholder="Numéro de téléphone" />
+            <input disabled={submitting||succeeded} name="phone" type="tel" autoComplete="tel" maxLength={512} placeholder="Numéro de téléphone" />
           </label>
 
           <label className="auth-field club-signup-grid-wide">
             <span>Ville / adresse de la structure</span>
-            <input name="addressLabel" type="text" placeholder="Ville, quartier ou adresse" maxLength={512} />
+            <input disabled={submitting||succeeded} name="addressLabel" type="text" autoComplete="street-address" placeholder="Ville, quartier ou adresse" maxLength={512} />
           </label>
         </div>
 
@@ -124,23 +138,25 @@ function ClubSignupForm() {
 
         <label className="auth-field club-signup-upload">
           <span>Logo du club / structure</span>
-          <div className="club-signup-dropzone"><input name="logo" type="file" accept="image/*" /></div>
+          <div className="club-signup-dropzone"><input disabled={submitting||succeeded} name="logo" type="file" accept="image/jpeg,image/png,image/webp" aria-invalid={!!fileErrors.logo} aria-describedby="logo-help logo-error" onChange={()=>setFileErrors(current=>({...current,logo:""}))} /></div>
         </label>
 
+        <p id="logo-help" className="auth-helper">Logo : JPEG, PNG ou WebP, 5 Mo maximum.</p><p id="logo-error" role="alert" hidden={!fileErrors.logo}>{fileErrors.logo}</p>
         <label className="auth-field club-signup-upload">
           <span>Pièce d&apos;identité</span>
-          <div className="club-signup-dropzone"><input name="identity" type="file" accept="image/*,.pdf" /></div>
+          <div className="club-signup-dropzone"><input disabled={submitting||succeeded} name="identity" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" aria-invalid={!!fileErrors.identity} aria-describedby="identity-help identity-error" onChange={()=>setFileErrors(current=>({...current,identity:""}))} /></div>
         </label>
 
+        <p id="identity-help" className="auth-helper">Identité : PDF, JPEG, PNG ou WebP, 5 Mo maximum. L’envoi complet est limité à 6 Mo.</p><p id="identity-error" role="alert" hidden={!fileErrors.identity}>{fileErrors.identity}</p>
         <label className="auth-field">
           <span>IBAN (seuls les 4 derniers caractères sont conservés)</span>
-          <input name="iban" className="club-signup-iban" type="text" placeholder="FR76" />
+          <input disabled={submitting||succeeded} name="iban" className="club-signup-iban" type="text" placeholder="FR76" />
         </label>
 
-          <p role="status" data-club-signup-status hidden={!status}>{status}</p>
+          <p role={succeeded ? "status" : "alert"} id="club-feedback" data-club-signup-status hidden={!status}>{status}</p>
           <div className="club-signup-actions">
-            <button className="auth-primary club-signup-submit" type="submit" disabled={submitting}>
-              {submitting ? "Transmission..." : "Affiliez des coachs"}
+            <button className="auth-primary club-signup-submit" type="submit" disabled={submitting||succeeded}>
+              {submitting ? "Envoi…" : succeeded ? "Demande enregistrée" : "Envoyer ma demande"}
             </button>
           </div>
         </form>
@@ -153,7 +169,7 @@ export function InscriptionClubLegacyPage({ legacyStyles }: InscriptionClubLegac
   return (
     <>
       <style jsx global>{legacyStyles}</style>
-      <div className="site-shell club-signup-shell">
+      <div className="site-shell club-signup-shell" id="gym-club-signup">
         <ClubSignupHeader />
 
         <main className="club-signup-page">

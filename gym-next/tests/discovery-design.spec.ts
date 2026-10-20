@@ -28,12 +28,7 @@ for (const [name, url] of routes) {
         await page.screenshot({ path: `playwright-artifacts/discovery/after-${name}-${width}-${info.project.name}.png`, animations: "disabled" });
       }
     }
-    const language = header.getByRole("combobox", { name: "Langue", exact: true });
-    await expect(language).toHaveCSS("clip-path", "none");
-    expect((await language.boundingBox())!.width).toBeGreaterThanOrEqual(90);
-    await language.focus(); await expect(language).toBeFocused();
-    await language.selectOption("fr"); await language.press("ArrowDown"); await language.press("Enter");
-    await expect(language).toHaveValue("en");
+    await expect(page.locator('[data-site-language]:visible')).toContainText("Français");
     await page.setViewportSize({ width: 720, height: 900 }); // CSS viewport equivalent to 1440 px at 200% zoom.
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
     await header.getByRole("link", { name: "Je suis coach", exact: true }).evaluate(e => { e.textContent = "Accéder à mon espace professionnel de coaching"; });
@@ -59,8 +54,8 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   await expect(page.locator("[data-booking-name]")).toHaveText(coach.name);
   await expect(page.locator("[data-booking-address]")).toHaveText(coach.city);
   await expect(page.locator("[data-booking-price]")).toContainText(`${coach.priceFrom} EUR`);
-  await expect(page.locator("[data-booking-score-copy]")).toHaveText(`${coach.reviewCount} avis`);
-  await expect(page.locator("[data-booking-score-large]")).toContainText(coach.rating.toFixed(1));
+  await expect(page.locator("[data-booking-score-copy]")).toHaveText(coach.reviewCount ? `${coach.reviewCount} avis` : "Pas encore d’avis");
+  await expect(page.locator("[data-booking-score-large]")).toContainText(coach.reviewCount ? coach.rating.toFixed(1) : "Pas encore de note");
   await page.getByRole("button", { name: "Planning", exact: true }).click();
   await expect(page.locator("[data-booking-confirm]")).toBeVisible();
   const href = await page.locator("[data-booking-confirm]").getAttribute("href");

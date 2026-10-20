@@ -1,21 +1,2 @@
-import { expect, test } from "@playwright/test";
-import { detectInitialLanguage } from "../components/common/LanguageSelector";
-
-test.use({ locale: "fr-FR" });
-
-test("le sélecteur de langue propose le français et l’anglais", async ({ page }) => {
-  await page.goto("/");
-  const selector = page.getByLabel("Langue");
-  await expect(selector).toHaveValue("fr");
-  await selector.selectOption("en");
-  await expect(selector).toHaveValue("en");
-  await page.reload();
-  await expect(page.getByLabel("Langue")).toHaveValue("en");
-});
-
-test("la langue anglaise est détectée sans écraser un choix enregistré", () => {
-  expect(detectInitialLanguage(null, "en-GB")).toBe("en");
-  expect(detectInitialLanguage(null, "fr-FR")).toBe("fr");
-  expect(detectInitialLanguage("fr", "en-GB")).toBe("fr");
-  expect(detectInitialLanguage("en", "fr-FR")).toBe("en");
-});
+import {test,expect} from "@playwright/test";
+test("only implemented French is exposed, regardless of old preference",async({page})=>{await page.addInitScript(()=>localStorage.setItem("gym-language","en"));for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:900});for(const route of ["/","/recherche","/compte","/inscription-club","/legal/confidentialite"]){await page.goto(route);const shown=page.locator("[data-site-language]:visible");await expect(shown).toHaveCount(1);await expect(shown).toHaveAttribute("lang","fr");await expect(shown).toContainText("Français");await expect(page.locator("html")).toHaveAttribute("lang","fr");await expect(page.getByRole("combobox",{name:"Langue",exact:true})).toHaveCount(0);await expect(page.getByRole("button",{name:"Open language menu"})).toHaveCount(0);expect(await shown.evaluate(e=>!!e.closest("footer"))).toBe(width<768||route.startsWith("/legal"));expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}}});

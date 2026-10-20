@@ -35,3 +35,11 @@ Recette locale : comparaison des liens sur 19 vues, utilitaires et absence de d�
 Aucun déploiement dans ce lot, aucune modification des droits, paiements ou données. Retour arrière : revert ciblé après revue, sans reset des changements antérieurs. Prochaine priorité qualité : qualifier les mentions et les moyens de contact documentés avant toute ouverture commerciale.
 
 Contrôle final : typage/build/frontière client PASS. Les six tests d’interface ont réussi avant le dernier ajustement de police/casse des titres. La relance du serveur local a été refusée par le contrôle automatique sans motif détaillé ; aucune preuve visuelle finale de cet ajustement ni exécution des nouvelles assertions typographiques revendiquée. Les captures montrent l’état juste avant ce raffinement.
+
+## Langues et accès — lot du 20 octobre 2026
+
+[Rapport et preuves](LANGUES_FORMULAIRES_2026-10-20.md). Règles prioritaires reformulées : 69–72 (étiquettes, aides et caractère obligatoire), 75–76 (prévenir les erreurs de mot de passe et permettre son affichage), 79–82 et 85 (rejet compréhensible, correction, retour d’envoi), 95/97 (types et autocomplétion). Appliquées aux formulaires d’accès dans le périmètre décrit, pas à tous les formulaires du site.
+
+Internationalisation : 130–134, langue déclarée et destinations réellement traduites. Français seul disponible ; indication cohérente et aucun faux changement de traduction. Le footer sert de repli mobile, décision de composition du projet et non emplacement prescrit par Opquast. Les règles d’équivalence de pages resteront à tester lors d’une vraie traduction.
+
+Les tests typographiques du footer auparavant non exécutés ont réussi dans ce lot. Les textes juridiques/contacts restent provisoires ; cette vérification ne lève pas les autres réserves du socle. Sources : référentiel officiel V5 ci-dessus, consulté le 20 octobre. Pas de certification globale.

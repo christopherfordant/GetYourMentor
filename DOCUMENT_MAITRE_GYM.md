@@ -1,3 +1,5 @@
+> **Langues et formulaires — 20 octobre 2026 :** français seul réellement disponible, indication desktop/mobile honnête ; accès et inscription structure harmonisés, confirmations et soumissions protégées. [Rapport et limites](docs/LANGUES_FORMULAIRES_2026-10-20.md), socle Opquast actualisé. Recette locale uniquement, pas de nouveau déploiement.
+
 > **Footer et qualité — 20 octobre 2026 :** footer du compte coach réutilisé sur les autres pages, plan du site et annexe [socle Opquast](docs/OPQUAST_SOCLE_2026-10-20.md) à consulter pour les prochains changements UI/navigation/formulaires. Référentiel de contrôle, pas certification ; coordonnées et contenus juridiques restent à compléter. Raccordement privé testé localement uniquement ; aucun nouveau déploiement.
 
 > **Observateur privé local — 19 octobre 2026 :** évaluation d’un fixture ciblé, statuts/booléens expurgés, lecteur injecté sans fournisseur et tests locaux. `docs/OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md`. Aucun raccordement actif ; accords, budget et version distante non validés.

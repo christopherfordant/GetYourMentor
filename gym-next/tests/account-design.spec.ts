@@ -28,12 +28,9 @@ for (const width of [320, 390, 621, 768, 900, 1024, 1440]) {
     await expect(editorSelect).toBeFocused();
     expect(await editorSelect.evaluate(el => el.tagName)).toBe("SELECT");
     await expect(page.locator("#gym-account > header .topbar-link")).toBeVisible();
-    const language = page.locator('#gym-account select[aria-label="Langue"]');
-    await expect(language).toBeVisible();
-    await language.focus();
-    await expect(language).toBeFocused();
-    await language.selectOption("fr");
-    await expect(language).toHaveValue("fr");
+    const language = page.locator('[data-site-language]:visible');
+    await expect(language).toContainText("Français");
+    expect(await language.evaluate(el=>!!el.closest("footer"))).toBe(width<768);
     // The previous flex collision reduced these cards to 99 px at a 390 px viewport.
     const card = page.locator("#coach-planning");
     expect((await card.boundingBox())!.width).toBeGreaterThan(width <= 390 ? 230 : 400);
