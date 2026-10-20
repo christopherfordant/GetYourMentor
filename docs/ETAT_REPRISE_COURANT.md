@@ -1,6 +1,10 @@
 # Reprise opérationnelle — GetYourMentor
 
-Mise à jour : 20 octobre 2026. V1/V2/V3 incomplets. Aucun travail annoncé en arrière-plan.
+Mise à jour : 21 octobre 2026. V1/V2/V3 incomplets. Aucun travail annoncé en arrière-plan.
+
+## Lot courant — harmonisation recherche
+Pilote `/recherche` : [rapport et références](HARMONISATION_REFERENCE_2026-10-21.md). Playwright MCP : trois pages publiques de référence examinées, quatre largeurs et quatre sports à 320 px, menu/clavier/focus contrôlés. Playwright local : 8 scénarios distincts validés après correction ciblée d'attentes visuelles/footer obsolètes. Captures avant/après dans docs/assets/reference-search-*. Le violet et les règles métier restent inchangés ; droits des ressources externes non établis, aucune importation. REA méthodologique seulement, aucun moteur externe exécuté.
+Copie isolée `C:/Users/cashe/Documents/GYM-reference-search-20261021`, base `ddd2f54`. Dépôt original privé ; export `GetYourMentor-site` public, code seulement, sans documents internes. Typage, build, frontière client/serveur et scan des fichiers suivis réussis sur le candidat privé. SHA de livraison : vérifier HEAD et distant, pas de SHA autoréférent. Aucun déploiement commandé. Prochaine action : étendre le pilote à l'annuaire et sa barre de filtres, puis à la fiche ; ne pas refaire la recherche ou les lots métier déjà vérifiés.
 
 ## Priorités et lecture
 Usage maîtrisé → contexte préservé → un lot borné. Compteurs Codex/Netlify non accessibles ici : pas de chiffre ni garantie inventés. Pas d’attente artificielle, achat ou changement de modèle prétendu.
