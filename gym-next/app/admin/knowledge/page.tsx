@@ -1,3 +1,4 @@
+import { SiteFooter } from "@/components/SiteFooter";
 import { notFound } from "next/navigation";
 
 import { requireRole } from "@/lib/auth";
@@ -9,5 +10,5 @@ export default async function KnowledgePage() {
   const session = await requireRole("admin");
   if (!session || process.env.RAG_PUBLIC_SEARCH_ENABLED !== "true") notFound();
 
-  return <KnowledgeSearch />;
+  return <div className="site-shell"><KnowledgeSearch /><SiteFooter /></div>;
 }

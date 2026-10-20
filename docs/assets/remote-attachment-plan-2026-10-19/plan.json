@@ -163,6 +163,15 @@
     "expected_request_id": "recipe-{runId}-message-1",
     "run_id_format": "lowercase ASCII [a-z0-9-], 8..48 characters",
     "synthetic_owner_domain": "example.com",
-    "schema_scope": "One known fixture record only; no claim of detecting every possible encoding"
+    "schema_scope": "One known fixture record only; no claim of detecting every possible encoding",
+    "storage_reader": "gym-next/lib/message-observer-storage.server.ts",
+    "stream_adapter_local_available": true,
+    "limits": {
+      "bytes": 1048576,
+      "message_entries": 1000,
+      "stream_chunks": 1024,
+      "timeout_ms": 5000
+    },
+    "operator_authentication": "NOT_IMPLEMENTED; internal boolean is only a precondition"
   }
 }

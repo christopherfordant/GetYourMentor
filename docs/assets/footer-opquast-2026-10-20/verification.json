@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-20",
+  "base": "3421b5d4a00f0eb4ba65840ffaad100746b06b0f",
+  "branch": "design/refonte-progressive-lot1",
+  "reference": "https://getyourmentor-demo-20261014.netlify.app/compte?mode=coach",
+  "checks": {
+    "interface_tests": 6,
+    "public_views_compared": 19,
+    "responsive_widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "responsive_pages": [
+      "/",
+      "/recherche",
+      "/compte?mode=coach",
+      "/inscription-club",
+      "/plan-du-site"
+    ],
+    "runner": "Playwright local Chromium, one worker, dev server; no MCP proof",
+    "consent": "synthetic localStorage preference, no account authentication",
+    "cookies_keyboard_navigation": "PASS",
+    "types": "PASS",
+    "build": "PASS",
+    "client_secret_boundary": "PASS",
+    "final_typography_adjustment": "CSS refined after successful UI suite; final browser rerun blocked by automatic approval, no detailed reason",
+    "new_typography_assertions": "NOT_RUN; typechecked only"
+  },
+  "deployment": "NOT_REQUESTED_THIS_LOT; online version remains bbe20d7",
+  "limits": [
+    "Not an Opquast certification or full 245-rule audit",
+    "No official social URLs supplied; no invented links",
+    "Legal texts and contact details still provisional",
+    "Admin authorized page source integrated but not exercised with authenticated admin"
+  ],
+  "code_sha256": {
+    "gym-next/components/SiteFooter.tsx": "46817164f6844d958d552996b63cf3c4f82aaa623c930b73d319fa5a70292a18",
+    "gym-next/app/gym-footer-design.css": "5b7aaf554be691a8f109d6aeb3872d556548f137bceccc488efc1c074572eb3e",
+    "gym-next/components/home/EditorialHome.tsx": "875c3573fa0c150d0de2747f696fa8a291b196e9cc8e561411491e6ddb614261",
+    "gym-next/components/discovery/DiscoveryFrame.tsx": "7de2bfe5ead28352df1dae4fb84930cbcb7dd69063e30417707535ee1eecf371",
+    "gym-next/tests/footer-consistency.spec.ts": "5d569c02032cd6d25408fa6aeaefdf37078aae634a0b2b7a8f0ece4d872ca30a"
+  }
+}

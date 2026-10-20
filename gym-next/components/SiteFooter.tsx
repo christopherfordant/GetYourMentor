@@ -9,13 +9,13 @@ export function SiteFooter() {
     <div className="gym-footer-links">
       <FooterColumn title="Plateforme" links={[["Comment ça marche","/#espace"],["Devenir coach","/compte?mode=coach"],["Tarifs","/#forfaits"],["Entreprises","/inscription-club"]]} />
       <FooterColumn title="Disciplines" links={[["Football","/recherche?sport=football"],["Basketball","/recherche?sport=basketball"],["Fitness","/recherche?sport=metiers-de-la-forme"],["Sports de combat","/recherche?sport=sports-de-combat"]]} />
-      <FooterColumn title="Support" links={[["Centre d’aide","/legal/accessibilite"],["Contact","mailto:contact@getyourmentor.fr"],["FAQ","/#faq"],["Statut","/api/health"]]} />
-      <FooterColumn title="Légal" links={[["CGU","/legal/cgu"],["CGV","/legal/cgv"],["Confidentialité","/legal/confidentialite"],["Mentions légales","/legal/mentions-legales"]]} />
+      <FooterColumn title="Support" links={[["FAQ","/#faq"],["Accessibilité","/legal/accessibilite"],["Cookies","/legal/cookies"],["Plan du site","/plan-du-site"]]} />
+      <FooterColumn title="Légal" links={[["CGU","/legal/cgu"],["CGV","/legal/cgv"],["Confidentialité","/legal/confidentialite"],["Mentions légales et contact","/legal/mentions-legales"]]} />
     </div>
     <small className="gym-footer-bottom">© 2026 GetYourMentor · Démo non commerciale.</small>
   </footer>;
 }
 
 function FooterColumn({title,links}:{title:string;links:Array<[string,string]>}) {
-  return <nav className="gym-footer-column" aria-label={title}><h2>{title}</h2>{links.map(([label,href]) => <Link key={label} href={href} aria-label={title === "Disciplines" ? `${label} dans le footer` : undefined}>{label}</Link>)}</nav>;
+  return <nav className="gym-footer-column" aria-label={title}><h2>{title}</h2>{links.map(([label,href]) => <Link key={label} href={href} >{label}</Link>)}</nav>;
 }

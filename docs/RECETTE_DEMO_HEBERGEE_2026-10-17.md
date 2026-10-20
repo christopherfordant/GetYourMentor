@@ -103,3 +103,9 @@ Le futur lecteur doit vérifier ses droits côté opérateur, ne retourner qu’
 Sortie : statut + six booléens fixes, jamais valeurs/identités/nom de fichier/erreur du fournisseur. PASS signifie schéma et fixture concordants dans les limites documentées ; cela ne prouve ni l’absence de tout encodage imaginable, ni la validité du fichier sur le fournisseur. Si inspectionComplete est false, payloadDetected:false ne signifie pas absence de charge. Les enveloppes globales sont refusées sans parcourir leurs comptes.
 
 `private_state_observer_ready`, autorisation, budget, comptes et version distante restent false ; S1 n’a pas été exécuté. Le pin source/arbre historique du plan n’est pas une preuve de disponibilité distante de ce nouvel outil local : vérifier le candidat effectivement utilisé avant toute exécution. La préparation antérieure est archivée dans `assets/remote-attachment-plan-2026-10-19/plan-before-local-observer.json`, identique à son empreinte d’origine ; son fichier verification.json est explicitement historique.
+
+## Préparation du lecteur privé — 20 octobre 2026
+
+Adaptateur local à flux injecté disponible, non raccordé : [limites exactes](OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md#raccordement-de-stockage-préparé--20-octobre-2026). Un get state/stream logique, bornes 1 Mio/1 000 messages/1 024 fragments/5 s ; seul un message unique passe à l'évaluateur. Le JSON partagé reste lu et matérialisé en mémoire dans cette borne, sans export des comptes. Allocation préalable des fragments/fournisseur et authentification opérateur non contrôlées par cet adaptateur.
+
+Ancienne version du plan archivée sous plan-before-storage-reader.json. Autorisation, budget, version du candidat, comptes et private_state_observer_ready restent false ; aucun S1 ni recette distante exécuté. Le déploiement autorisé précédemment n'autorise pas automatiquement la lecture privée ou cette recette. Cette annexe n'ajoute aucun exécuteur, endpoint ou connexion réelle.

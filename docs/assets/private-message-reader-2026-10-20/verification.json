@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-20",
+  "base": "3421b5d4a00f0eb4ba65840ffaad100746b06b0f",
+  "scope": "Injected private streaming reader only, no provider/default route/CLI",
+  "checks": {
+    "scenarios": 21,
+    "runner_project_configurations": 2,
+    "successful_executions": 42,
+    "test_mode": "Playwright runner with local doubles only; no Page fixture/browser/network/store provider",
+    "types": "PASS",
+    "shared_evaluator": "Unchanged evaluator and reader seam used by new adapter; exact fixture PASS, altered metadata FAIL",
+    "read_bound": {
+      "bytes": 1048576,
+      "message_entries": 1000,
+      "chunks": 1024,
+      "timeout_ms": 5000
+    },
+    "remote_gates": "All false; NOT_RUN"
+  },
+  "proof_limits": [
+    "Full shared bounded JSON is parsed in private memory including account sections",
+    "No traversal of account properties after parsing; targeted output only",
+    "Provider buffering/allocation of an incoming chunk is outside adapter memory bound",
+    "Timeout does not prove underlying server read is aborted",
+    "Boolean is not operator authentication",
+    "No real provider compatibility test or remote observation"
+  ],
+  "previous_plan_lf_sha256": "d847cbef8656989aa21d8b1d88c1e9b16619fc8cd6f553d5c698c7934eec914a",
+  "previous_plan_crlf_sha256": "fbf5949a69b6c0d399bec7da943f876b7370b4901520c14e78e7cd65d11e4e47",
+  "current_plan_lf_sha256": "fe6bb5abecf5ac7b8118b5b0f4c7c801492499f8d8b0fe6dd238023b374b48ac",
+  "code_sha256": {
+    "gym-next/lib/message-observer-storage.server.ts": "ec743ceec402be6ee02647650bd938f1fddd469f92bc3908b3c829761f946c53",
+    "gym-next/tests/message-observer-storage.spec.ts": "337cd8a29e171271dbc89c660918ef33118cc8ba63dd4295d11756d20415fa9d"
+  }
+}

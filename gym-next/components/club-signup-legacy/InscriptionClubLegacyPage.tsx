@@ -1,4 +1,5 @@
 "use client";
+import { SiteFooter } from "@/components/SiteFooter";
 
 import { useState } from "react";
 import { nextRoutes } from "@/lib/next-routes";
@@ -159,6 +160,7 @@ export function InscriptionClubLegacyPage({ legacyStyles }: InscriptionClubLegac
           <ClubSignupVisual />
           <ClubSignupForm />
         </main>
+        <SiteFooter />
       </div>
     </>
   );

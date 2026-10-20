@@ -219,3 +219,7 @@ Business Plan p.29 : bibliothèque de trois suggestions dans la messagerie exist
 ## Observateur synthétique privé — 19 octobre 2026
 
 [Portée exacte](OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md) : un enregistrement synthétique, validation bornée du schéma/fixture, résultat expurgé ; lecture injectée sans fournisseur. Testé localement, non raccordé et sans preuve distante. Plan précédent archivé, disponibilité locale distinguée des accords/budget/version, tous non validés. Aucun outil public ni changement métier.
+
+## Footer et lecteur privé — 20 octobre 2026
+
+Footer partagé étendu aux variantes accueil/découverte et inscription ; plan du site ajouté. [Socle Opquast](OPQUAST_SOCLE_2026-10-20.md), six tests UI locaux, dernier raffinement typographique à revoir visuellement. Aucun audit complet/certification ou nouveau déploiement. [Lecteur privé](OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md) : flux borné avec double local, 21 scénarios/42 exécutions, non raccordé au fournisseur, authentification réelle non activée. Préparation distante toujours NOT_RUN ; aucun avancement V1/V2/V3 global déclaré.

@@ -3,7 +3,6 @@ body:has(:is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) [data-foote
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) { display: flex; flex-direction: column; flex: 1; min-height: calc(100dvh - var(--mobile-navigation-space,0px)); }
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell)>main { flex: 1; min-height: 0 !important; }
 body:has([data-footer-utilities]) footer { position: relative; margin-top: auto; }
-body:has([data-footer-utilities]) :is(#gym-editorial .footer,#gym-discovery .de-footer) { flex-wrap: wrap; gap: 16px 24px; padding-block: 20px; }
 .footer-utilities { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; width: 100%; flex: 0 0 100%; grid-column: 1/-1; min-height: 44px; }
 body:has([data-footer-utilities]) [data-footer-utilities] .cookie-controls { position: static !important; width: auto !important; max-height: none !important; overflow: visible; margin: 0 !important; pointer-events: auto; }
 body:has([data-footer-utilities]) [data-footer-utilities] .cookie-preferences-trigger { position: static !important; inset: auto !important; width: auto !important; min-height: 44px !important; margin: 0 !important; padding: 10px 14px; border-radius: 6px !important; background: white !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
@@ -11,7 +10,7 @@ body:has([data-footer-utilities]) [data-footer-utilities] .back-to-top { positio
 body:has([data-footer-utilities]) [data-footer-utilities] .back-to-top[aria-hidden=true] { display: none !important; }
 body:has([data-footer-utilities]) [data-footer-utilities] .back-to-top svg { display: block; width: 20px !important; height: 20px !important; margin: 0; }
 body:has([data-footer-utilities]) [data-footer-utilities] :is(a,button):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
-.gym-footer { width: 100%; padding: 20px max(18px,calc((100% - 1240px)/2)); background: var(--gym-surface); color: var(--gym-ink); border-top: 1px solid var(--gym-line); font-family: var(--gym-font-body); }
+.gym-footer { flex-shrink: 0; width: 100%; padding: 20px max(18px,calc((100% - 1240px)/2)); background: var(--gym-surface); color: var(--gym-ink); border-top: 1px solid var(--gym-line); font-family: var(--gym-font-body); }
 .gym-footer-brand { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 16px 0; }
 .gym-footer-brand>a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 12px; font-weight: 700; }
 .gym-footer-brand b { padding: 1px 7px; background: var(--gym-ink); color: white; font: 28px/1.3 var(--gym-font-display); }
@@ -19,8 +18,8 @@ body:has([data-footer-utilities]) [data-footer-utilities] :is(a,button):focus-vi
 .gym-footer-brand p { margin: 0; font-size: 12px; color: var(--gym-muted); }
 .gym-footer-links { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px 24px; }
 .gym-footer-column { display: grid; align-content: start; min-width: 0; }
-.gym-footer .gym-footer-column h2 { font: 700 13px/1.4 var(--gym-font-body); margin: 0 0 8px; color: var(--gym-ink) !important; }
-.gym-footer-column a { display: flex; align-items: center; min-height: 32px; font-size: 12px; line-height: 1.4; overflow-wrap: break-word; }
+:is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) .gym-footer-column h2, .gym-footer .gym-footer-column h2 { text-transform: none; letter-spacing: normal; font: 700 13px/1.4 var(--gym-font-body); margin: 0 0 8px; color: var(--gym-ink) !important; }
+.gym-footer-column a { color: var(--gym-ink); text-decoration: none; display: flex; align-items: center; min-height: 32px; font-size: 13px; line-height: 1.5; overflow-wrap: break-word; }
 .gym-footer a:hover { color: var(--gym-primary-hover); text-decoration: underline; text-underline-offset: 4px; }
 .gym-footer a:focus-visible { outline: 3px solid var(--gym-focus); outline-offset: 3px; }
 .gym-footer-bottom { display: block; margin-top: 16px; font-size: 11px; color: var(--gym-muted); }
@@ -41,6 +40,8 @@ body:has([data-footer-utilities]) [data-footer-utilities] :is(a,button):focus-vi
 @media(max-width:620px) {
   .gym-footer-links { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
   .gym-footer-brand p { flex-basis: 100%; }
-  body:has([data-footer-utilities]) #gym-editorial .footer p { flex-basis: auto; order: 0; }
 }
 @media(prefers-reduced-motion:reduce) { html:has([data-footer-utilities]) { scroll-behavior: auto; } }
+
+.site-map-groups { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,240px),1fr)); gap: 24px; }
+.site-map-groups a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }

@@ -273,3 +273,7 @@ Prochain lot : découverte (accueil, recherche, annuaire, fiche coach), puis ré
 
 ## Reprise stratégie — 16 octobre 2026
 Les versions techniques de ce journal ne redéfinissent pas le Business Plan p.49–51/62–64. La nouvelle mission autorise des lots de démonstration progressifs, sans agents supplémentaires ni lancement commercial. Matrice des 25 pages, priorités et critères : [couverture Stratégie Perplexity](STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md). Premier lot : session UI et navigation ; services distants et V2/V3 non certifiés.
+
+## Footer unifié — 20 octobre 2026
+
+La décision récente remplace les variantes réduites accueil/découverte par SiteFooter, comme le compte coach ; inscription structure et outil admin réutilisent le même composant. Voir [socle Opquast et vérifications](OPQUAST_SOCLE_2026-10-20.md). Aucun déploiement de ce lot.

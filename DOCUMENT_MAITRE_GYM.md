@@ -1,3 +1,5 @@
+> **Footer et qualité — 20 octobre 2026 :** footer du compte coach réutilisé sur les autres pages, plan du site et annexe [socle Opquast](docs/OPQUAST_SOCLE_2026-10-20.md) à consulter pour les prochains changements UI/navigation/formulaires. Référentiel de contrôle, pas certification ; coordonnées et contenus juridiques restent à compléter. Raccordement privé testé localement uniquement ; aucun nouveau déploiement.
+
 > **Observateur privé local — 19 octobre 2026 :** évaluation d’un fixture ciblé, statuts/booléens expurgés, lecteur injecté sans fournisseur et tests locaux. `docs/OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md`. Aucun raccordement actif ; accords, budget et version distante non validés.
 
 > **Recette distante TXT préparée — 19 octobre 2026 :** procédure existante complétée, 14 opérations logiques proposées, aucun exécuteur nouveau ni appel distant. Prérequis version/accord/budget/comptes/observation expurgée non validés ; `docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md#preparation-txt-2026-10-19`. Préparation documentaire ≠ validation hébergée.
