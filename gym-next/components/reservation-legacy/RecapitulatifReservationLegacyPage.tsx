@@ -28,7 +28,7 @@ export function RecapitulatifReservationLegacyPage({demo,params}:Props) {
       .finally(()=>{if(active)setLoading(false);});
     return ()=>{active=false;controller.abort();};
   },[id,attempt]);
-  const account=data?buildNextPath(nextRoutes.account,{redirect:"paiement",reservationId:data.id,claimToken:data.claimToken}):nextRoutes.account;
+  const account=data?buildNextPath(nextRoutes.account,{redirect:"paiement",reservationId:data.id}):nextRoutes.account;
   const slots=data?(data.appointmentAt&&["accepted","paid"].includes(data.status)?[data.appointmentAt]:data.slots):[];
   return <DiscoveryFrame page="recap" demo={demo}><div id="gym-booking" className="bk-recap-shell"><main className="bk-recap-page" data-recap-page>
     <p className="booking-eyebrow">02 / LE RÉCAPITULATIF</p>

@@ -10,8 +10,7 @@ export function summaryAccess(session: Session | null, reservation: Reservation,
   if (reservation.ownerEmail) return session?.role === "sportif" && session.email === reservation.ownerEmail;
   return proofValid;
 }
-export function summaryFields(r: Reservation, authenticated: boolean, claimToken?: string) {
+export function summaryFields(r: Reservation, authenticated: boolean) {
   return readBookingSummary({ id:r.id,coachName:r.coachName,sport:r.sport,city:r.city,service:r.service,duration:r.duration,price:r.price,
-    slots:r.slots,appointmentAt:r.appointmentAt,status:r.status,participantCount:r.participantCount ?? 1,authenticated,
-    ...(claimToken ? {claimToken} : {}) },r.id);
+    slots:r.slots,appointmentAt:r.appointmentAt,status:r.status,participantCount:r.participantCount ?? 1,authenticated },r.id);
 }

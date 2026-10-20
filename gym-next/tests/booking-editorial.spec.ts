@@ -67,7 +67,7 @@ test("une erreur de disponibilités bloque l’envoi et permet de réessayer", a
 test("le récapitulatif utilise le contrat serveur et ne propage pas la preuve aux créneaux",async({page})=>{
  await page.goto(`/recapitulatif?${selection}&reservationId=res-synthetic&claimToken=jeton-fictif`);
  await expect(page.locator("[data-recap-login]")).toBeVisible();
- for(const selector of ["[data-recap-login]","[data-recap-create]"]){const url=new URL((await page.locator(selector).getAttribute("href"))!,"http://localhost");expect(url.searchParams.get("reservationId")).toBe("res-synthetic");expect(url.searchParams.get("claimToken")).toBe(summaryFixture.claimToken);}
+ for(const selector of ["[data-recap-login]","[data-recap-create]"]){const url=new URL((await page.locator(selector).getAttribute("href"))!,"http://localhost");expect(url.searchParams.get("reservationId")).toBe("res-synthetic");expect(url.searchParams.has("claimToken")).toBe(false);}
  const back=new URL((await page.locator("[data-recap-edit]").getAttribute("href"))!,"http://localhost");expect(back.searchParams.has("claimToken")).toBe(false);expect(back.searchParams.has("reservationId")).toBe(false);
  await expect(page.locator("[data-recap-datetime]")).toContainText("11:00");
 });

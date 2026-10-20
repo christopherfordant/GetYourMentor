@@ -1,3 +1,5 @@
+> Suite livrée : [transport privé](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md). Les liens navigateur et le DTO ne transportent plus le token ; les constats ci-dessous décrivent le lot précédent, les compatibilités API restantes sont dans la suite.
+
 # Récapitulatif serveur — 20 octobre 2026
 
 ## Sources et périmètre

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-20",
+  "base": "4d14d61c56fc495311f06a8074be8c73f40121f7",
+  "runner": "Playwright local Chromium",
+  "tests": {
+    "distinctScenariosValidated": 36,
+    "initial": {
+      "passed": 33,
+      "failed": 1,
+      "total": 34,
+      "cause": "alert selector also matched Next announcer"
+    },
+    "targetedRetest": {
+      "passed": 5,
+      "failed": 0,
+      "added": "pending reservation rejects payment without mutation"
+    },
+    "pureRotationCheck": {
+      "passed": 1,
+      "failed": 0
+    },
+    "suites": {
+      "booking-summary-contract": 16,
+      "booking-summary": 10,
+      "booking-editorial": 4,
+      "private-claim-flow": 6
+    },
+    "workers": 1
+  },
+  "checks": {
+    "types": "PASS",
+    "build": "PASS",
+    "clientSecretBoundary": "PASS"
+  },
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "newScreenshots": false,
+  "previousVisualReference": "assets/booking-summary-2026-10-20",
+  "classification": {
+    "integratedLocal": "legacy proof exchange, UI login and signup then follow-up, reload, private-cookie reads, explicit cancellation binding and other-account refusal",
+    "injected": "editorial fixtures and summary failures/loading",
+    "pure": "cookie validity, expiry and secret rotation; summary contracts",
+    "remote": "NOT_RUN",
+    "MCP": "NOT_RUN"
+  },
+  "payment": "No automatic browser payment POST. Explicit pending API test rejected 409, no payment or confirmation recorded.",
+  "privacy": "No raw logs, browser sessions, receipts, cookie/token values or private URLs included.",
+  "limits": [
+    "legacy API GET query claimToken still accepted for compatibility",
+    "legacy payment/cancellation proof headers still accepted; no global historical proof expiry introduced",
+    "creation/recovery receipt contracts still include historical claim proof",
+    "legacy inbound URLs may already exist in logs/history before cleanup",
+    "identification itself does not introduce automatic reservation attachment; existing business actions retained",
+    "local memory only; hosted services and RLS not validated"
+  ],
+  "deployment": "NOT_RUN"
+}

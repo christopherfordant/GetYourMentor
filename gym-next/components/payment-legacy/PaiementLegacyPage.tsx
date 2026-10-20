@@ -232,9 +232,9 @@ function PaymentSide({
 import { SiteFooter } from "@/components/SiteFooter";
 function PaymentFooter() { return <SiteFooter />; }
 
-export function PaiementLegacyPage(props:PaiementLegacyPageProps){return <PaymentPage key={`${props.provider}:${props.athleteEmail ?? ""}:${props.params.reservationId ?? ""}:${props.params.claimToken ?? ""}`} {...props}/>;}
+export function PaiementLegacyPage(props:PaiementLegacyPageProps){return <PaymentPage key={`${props.provider}:${props.athleteEmail ?? ""}:${props.params.reservationId ?? ""}`} {...props}/>;}
 function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
-  const demo=useDemoPayment(provider==="local",params.reservationId || "",params.claimToken || "",athleteEmail);
+  const demo=useDemoPayment(provider==="local",params.reservationId || "",athleteEmail);
   const [stripeReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
   const serverReservation=provider==="local"?demo.reservation:stripeReservation;
   const coach = provider==="local"?(serverReservation?.coachName || "À vérifier"):serverReservation?.coachName || params.coach || "Studio Form Marseille";
@@ -248,7 +248,6 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
   const slot = params.slot || "10:00";
   const mentor = serverReservation?.coachName || (provider==="local"?"À vérifier":params.mentor || "Coach confirme");
   const reservationId = params.reservationId || "";
-  const claimToken = params.claimToken || "";
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [stripeSuccess, setSuccess] = useState(false);
   const [stripeReservationStatus, setReservationStatus] = useState("");
@@ -269,7 +268,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
       return;
     }
 
-    fetch(`/api/reservations/${reservationId}?claimToken=${encodeURIComponent(claimToken)}`)
+    fetch(`/api/reservations/${reservationId}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Réservation introuvable."))))
       .then((payload) => {
         setServerReservation(payload.data);
@@ -278,7 +277,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
         if (payload.data.status === "paid") setSuccess(true);
       })
       .catch((error) => setPaymentError(error instanceof Error ? error.message : "Réservation introuvable."));
-  }, [claimToken, reservationId,provider]);
+  }, [reservationId,provider]);
 
   useEffect(() => {
     if (provider!=="stripe" || !reservationId || params.payment !== "success") return;
@@ -286,7 +285,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
     const interval = window.setInterval(async () => {
       attempts += 1;
       try {
-        const response = await fetch(`/api/reservations/${reservationId}?claimToken=${encodeURIComponent(claimToken)}`);
+        const response = await fetch(`/api/reservations/${reservationId}`);
         if (response.ok) {
           const payload = await response.json();
           setServerReservation(payload.data);
@@ -298,7 +297,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
       if (attempts >= 15) window.clearInterval(interval);
     }, 2000);
     return () => window.clearInterval(interval);
-  }, [claimToken, params.payment, reservationId,provider]);
+  }, [params.payment, reservationId,provider]);
 
   useEffect(() => {
     if (provider==="stripe" && params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
@@ -312,7 +311,6 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
     try {
       const response = await fetch(`/api/reservations/${reservationId}/payment`, {
         method: "POST",
-        headers: claimToken ? { "x-reservation-claim-token": claimToken } : undefined,
       });
       const payload = await response.json();
       if (!response.ok) {

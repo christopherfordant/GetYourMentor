@@ -236,3 +236,6 @@ Footer partagé étendu aux variantes accueil/découverte et inscription ; plan 
 
 ### Récapitulatif serveur — 20 octobre
 [Rapport](RECAPITULATIF_SERVEUR_2026-10-20.md) : données autorisées, statut courant, URL commerciale ignorée et preuve anonyme bornée ; 52 scénarios distincts validés localement, aucun déploiement. Transport historique identification encore à réduire.
+
+### Transport privé — 20 octobre
+[Rapport](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md) : navigateur sans token URL, cookie existant réutilisé, compatibilités API historiques maintenues explicitement ; 36 scénarios locaux validés, aucun déploiement.

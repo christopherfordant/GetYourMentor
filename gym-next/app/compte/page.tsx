@@ -1,3 +1,4 @@
+import { ReservationProofBoundary } from "@/components/common/ReservationProofBoundary";
 import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
@@ -27,6 +28,7 @@ export async function generateMetadata({ searchParams }: ComptePageProps): Promi
       title,
       description: "Connectez-vous ou accedez a votre espace GetYourMentor selon votre profil sportif, coach ou club.",
     }),
+    referrer: "no-referrer", robots: {index:false,follow:false},
     alternates: {
       canonical: buildCanonical("/compte", { mode }),
     },
@@ -43,6 +45,7 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
   const normalizedParams = Object.fromEntries(
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
+  delete normalizedParams.claimToken;
   const session = await currentSession();
   // Client query parameters can never authenticate or choose another role.
   delete normalizedParams.connected;
@@ -54,5 +57,5 @@ export default async function ComptePage({ searchParams }: ComptePageProps) {
     if (session.role === "coach" && session.coachId) normalizedParams.coach = (await getCoach(session.coachId))?.name ?? "Coach";
   }
 
-  return <AccountLegacyPage key={session ? `${session.role}:${session.email}` : "anonymous"} legacyStyles={legacyStyles} params={normalizedParams} athleteEmail={session?.role === "sportif" ? session.email : undefined} allowDemoFallback={isDemoFallbackAllowed()} />;
+  return <ReservationProofBoundary key={normalizedParams.reservationId ?? "none"} id={normalizedParams.reservationId}><AccountLegacyPage key={session ? `${session.role}:${session.email}` : "anonymous"} legacyStyles={legacyStyles} params={normalizedParams} athleteEmail={session?.role === "sportif" ? session.email : undefined} allowDemoFallback={isDemoFallbackAllowed()} /></ReservationProofBoundary>;
 }

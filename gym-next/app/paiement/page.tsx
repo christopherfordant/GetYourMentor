@@ -1,3 +1,4 @@
+import { ReservationProofBoundary } from "@/components/common/ReservationProofBoundary";
 import { currentSession } from "@/lib/auth";
 import type { Metadata } from "next";
 import fs from "node:fs";
@@ -25,6 +26,7 @@ export async function generateMetadata({ searchParams }: PaiementPageProps): Pro
       title: coach ? `Paiement - ${coach}` : "Paiement de la reservation",
       description: "Finalisez le paiement de votre reservation sportive sur GetYourMentor.",
     }),
+    referrer: "no-referrer", robots: {index:false,follow:false},
     alternates: {
       canonical: buildCanonical("/paiement", { sport, city, coach }),
     },
@@ -42,11 +44,12 @@ export default async function PaiementPage({ searchParams }: PaiementPageProps) 
     Object.entries(params).map(([key, value]) => [key, Array.isArray(value) ? value[0] : value]),
   );
 
+  delete normalizedParams.claimToken;
   const gate = await getBookingGate(normalizedParams.coach);
   if (gate.mode === "unavailable" || (gate.mode === "production" && !normalizedParams.reservationId)) {
     return <ProductionUnavailable title="Paiement indisponible" description="Aucun paiement ne peut être présenté sans réservation réelle, coach vérifié et configuration de paiement active." />;
   }
 
   const session=await currentSession();
-  return <PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} provider={process.env.PAYMENT_PROVIDER === "stripe" ? "stripe" : "local"} athleteEmail={session?.role==="sportif"?session.email:undefined} />;
+  return <ReservationProofBoundary key={normalizedParams.reservationId ?? "none"} id={normalizedParams.reservationId}><PaiementLegacyPage legacyStyles={legacyStyles} params={normalizedParams} provider={process.env.PAYMENT_PROVIDER === "stripe" ? "stripe" : "local"} athleteEmail={session?.role==="sportif"?session.email:undefined} /></ReservationProofBoundary>;
 }

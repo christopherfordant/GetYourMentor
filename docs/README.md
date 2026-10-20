@@ -1,3 +1,5 @@
+> Transport privé — 20 octobre : [parcours navigateur sans token URL](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.
+
 > Récapitulatif serveur — 20 octobre : [source de vérité et accès privés](RECAPITULATIF_SERVEUR_2026-10-20.md), URL commerciale ignorée, lecture anonyme bornée ; transport historique vers identification encore à réduire. Recette locale, aucun déploiement.
 
 > Reprise création de réservation — 20 octobre : [FORMULAIRE_RESERVATION_2026-10-20.md](FORMULAIRE_RESERVATION_2026-10-20.md#reprise-des-créations-incertaines--20-octobre-2026). Déduplication démo et reprise privée, tests locaux ; aucune garantie Supabase ni recette hébergée.

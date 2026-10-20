@@ -31,7 +31,7 @@ test("owner sees current cancellation and commercial URL tampering has no author
 test("legacy URL proof is scrubbed, refresh works and only necessary account links retain existing capability",async({page})=>{
  const r=await create(page.request,false);await page.goto(`/recapitulatif?reservationId=${r.id}&claimToken=${encodeURIComponent(r.claimToken)}&price=0`);
  await expect(page.locator("[data-recap-login]")).toBeVisible();expect(new URL(page.url()).searchParams.has("claimToken")).toBe(false);
- const auth=new URL((await page.locator("[data-recap-login]").getAttribute("href"))!,"http://localhost");expect(auth.searchParams.get("reservationId")).toBe(r.id);expect(auth.searchParams.get("claimToken")).toBe(r.claimToken);
+ const auth=new URL((await page.locator("[data-recap-login]").getAttribute("href"))!,"http://localhost");expect(auth.searchParams.get("reservationId")).toBe(r.id);expect(auth.searchParams.has("claimToken")).toBe(false);
  expect((await page.locator("[data-recap-edit]").getAttribute("href"))).not.toContain("claimToken");await page.reload();await expect(page.locator("[data-recap-login]")).toBeVisible();
 });
 test("no identifier cannot become an invented commercial recap",async({page})=>{

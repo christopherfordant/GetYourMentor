@@ -765,7 +765,6 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
         slot: params.slot,
         mentor: params.mentor,
         reservationId: params.reservationId,
-        claimToken: params.claimToken,
         connected: "1",
       }),
     [params],
@@ -831,13 +830,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   } catch(error) {setStatus(error instanceof FormRejection ? error.message : "Connexion non confirmée. Vérifiez votre connexion avant de réessayer.");}
                   finally {authLock.current=false;setAuthBusy(false);}
                 }}
-                onOpenSignup={() => {
-                  if (redirect === "paiement") {
-                    window.location.href = paymentTarget;
-                    return;
-                  }
-                  setStep("create");
-                }}
+                onOpenSignup={() => { setStep("create"); }}
                 onBack={setStep}
                 onChooseRole={async (role) => {
                   if(authLock.current)return;authLock.current=true;setAuthBusy(true);setStatus("");
@@ -861,6 +854,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                   if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (role === "coach" && payload.data?.coachId) setAuthenticatedCoachId(payload.data.coachId);
                   if (role === "sportif") setAuthenticatedAthleteEmail(typeof payload.data?.email === "string" ? payload.data.email : undefined);
+                  if(role === "sportif" && redirect === "paiement") {window.location.href=paymentTarget;return;}
                   revealDashboard(role);
                   } catch(error) {setStatus(error instanceof FormRejection ? error.message : "Inscription non confirmée. Essayez de vous connecter avant de renouveler la demande.");setStep("create");}
                   finally {authLock.current=false;setAuthBusy(false);}

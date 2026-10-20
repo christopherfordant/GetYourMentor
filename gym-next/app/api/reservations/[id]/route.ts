@@ -1,3 +1,4 @@
+import { hasPrivateReservationProof } from "@/lib/private-reservation-proof";
 import { reservationForRole } from "@/lib/domain/reservation-privacy";
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
@@ -13,7 +14,7 @@ export async function GET(request: Request, { params }: Params) {
     if (!session) return NextResponse.json({ error: "Connexion requise" }, { status: 401 });
     const reservation = await getReservation((await params).id);
     const claimToken = new URL(request.url).searchParams.get("claimToken");
-    if (reservation && !canViewReservation(session, reservation, isReservationClaimTokenValid(reservation.id, claimToken))) {
+    if (reservation && !canViewReservation(session, reservation, (await hasPrivateReservationProof(reservation)) || isReservationClaimTokenValid(reservation.id, claimToken))) {
       const error = session.role === "coach" ? "Cette réservation appartient à un autre coach" : session.role === "sportif" ? (reservation.ownerEmail ? "Cette réservation appartient à un autre compte" : "Reservation claim token required") : "Accès à la réservation refusé";
       return NextResponse.json({ error }, { status: 403 });
     }

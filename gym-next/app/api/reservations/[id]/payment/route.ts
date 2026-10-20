@@ -1,3 +1,4 @@
+import { hasPrivateReservationProof } from "@/lib/private-reservation-proof";
 import { NextResponse } from "next/server";
 import { requireRole } from "@/lib/auth";
 import { payReservation } from "@/lib/reservations";
@@ -15,7 +16,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     const current = await getReservation(reservationId);
     if (!current) return NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
     if (current.ownerEmail && current.ownerEmail !== session.email) return NextResponse.json({ error: "Cette réservation appartient à un autre compte" }, { status: 403 });
-    if (!current.ownerEmail && !isReservationClaimTokenValid(current.id, request.headers.get("x-reservation-claim-token"))) {
+    if (!current.ownerEmail && !(await hasPrivateReservationProof(current)) && !isReservationClaimTokenValid(current.id, request.headers.get("x-reservation-claim-token"))) {
       return NextResponse.json({ error: "Reservation claim token required" }, { status: 403 });
     }
     if (current.status === "paid") return NextResponse.json({ data: current });

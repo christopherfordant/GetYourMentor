@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     }
     if (!summaryAccess(session,reservation,proof)) return NextResponse.json({error:"Accès refusé. Connectez-vous au compte propriétaire ou utilisez une preuve valide."},{status:403,headers});
     const claimToken=!reservation.ownerEmail && proof ? reservationClaimToken(reservation.id) ?? undefined : undefined;
-    const data=summaryFields(reservation,Boolean(session),claimToken);
+    const data=summaryFields(reservation,Boolean(session));
     if(claimToken)store.set(cookieName,claimToken,{httpOnly:true,sameSite:"strict",secure:process.env.NODE_ENV==="production",path:"/api/reservations",maxAge:Math.max(1,Math.floor((Date.parse(reservation.createdAt)+86400000-Date.now())/1000))});
     return NextResponse.json({data},{headers});
   } catch { return NextResponse.json({error:"Le récapitulatif n’a pas pu être chargé. Réessayez sans créer une nouvelle demande."},{status:502,headers}); }
