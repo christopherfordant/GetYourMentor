@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-20",
+  "base": "5d754d9c27c16b83867fa8e86146882b57203011",
+  "runner": "Playwright local Chromium",
+  "tests": {
+    "distinctScenariosValidated": 52,
+    "initialRun": {
+      "passed": 49,
+      "failed": 2,
+      "total": 51,
+      "reason": "alert selector also selected Next route announcer"
+    },
+    "targetedFinalRun": {
+      "passed": 10,
+      "failed": 0,
+      "newScenario": "loading without URL fallback"
+    },
+    "suites": {
+      "booking-summary-contract": 16,
+      "booking-summary": 10,
+      "booking-editorial": 4,
+      "booking-request-form": 17,
+      "booking-recovery": 5
+    },
+    "workers": 1
+  },
+  "checks": {
+    "types": "PASS",
+    "build": "PASS",
+    "clientSecretBoundary": "PASS"
+  },
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "screenshots": [
+    "summary-390.png",
+    "summary-1440.png"
+  ],
+  "proofClassification": {
+    "pure": "projection, roles, ownership, TTL and malformed response contracts",
+    "integratedLocal": "real local demo reservations; anonymous/browser and legacy proof; cookie refresh; authenticated ownership and cancellation; refusal after attachment and other-account refusal; creation recovery regression",
+    "injected": "editorial fixtures and summary HTTP errors/network/malformed/loading",
+    "remote": "NOT_RUN",
+    "MCP": "NOT_RUN"
+  },
+  "deployment": "NOT_RUN",
+  "privacy": "No raw logs, cookies, tokens, sessions, private query URLs or receipts in published artifacts. Public demo profile with synthetic service only.",
+  "limits": [
+    "24h anonymous summary window is not a global expiry of the historical token",
+    "historical account/payment identification links still contain existing claimToken",
+    "legacy inbound URLs may already exist in history/server logs before client cleanup",
+    "local memory is not durable and no remote RLS/provider validation was performed"
+  ]
+}

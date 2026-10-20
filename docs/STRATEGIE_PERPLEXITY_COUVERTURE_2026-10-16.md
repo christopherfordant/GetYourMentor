@@ -233,3 +233,6 @@ Footer partagé étendu aux variantes accueil/découverte et inscription ; plan 
 
 ### Reprise réservation — 20 octobre
 [Rapport existant](FORMULAIRE_RESERVATION_2026-10-20.md#reprise-des-créations-incertaines--20-octobre-2026) : idempotence et reçu privé démo, reprise après rechargement ; 55 tests locaux, CAS avec double, aucun déploiement. Hors Supabase/collectif ; mémoire processus non durable.
+
+### Récapitulatif serveur — 20 octobre
+[Rapport](RECAPITULATIF_SERVEUR_2026-10-20.md) : données autorisées, statut courant, URL commerciale ignorée et preuve anonyme bornée ; 52 scénarios distincts validés localement, aucun déploiement. Transport historique identification encore à réduire.

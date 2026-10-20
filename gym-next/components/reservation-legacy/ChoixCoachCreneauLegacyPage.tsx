@@ -267,7 +267,7 @@ export function ChoixCoachCreneauLegacyPage({
   function finishAttempt(data: Record<string, unknown>, attempt: PendingAttempt) {
     const saved = bookingConfirmation(data, attempt.expected);
     sessionStorage.removeItem(pendingKey);
-    window.location.href = buildNextPath(nextRoutes.recap, { ...attempt.navigation, price: String(saved.price), slot: attempt.expected.slot, reservationId: saved.id, claimToken: saved.claimToken });
+    window.location.href = buildNextPath(nextRoutes.recap, { ...attempt.navigation, price: String(saved.price), slot: attempt.expected.slot, reservationId: saved.id, claimToken: attempt.context ? undefined : saved.claimToken });
   }
   async function recoverAttempt(resume = false) {
     if (!pending || recoveryBusy.current || !recoveryReady) return;

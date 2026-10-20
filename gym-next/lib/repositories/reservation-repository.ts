@@ -22,6 +22,12 @@ export async function readBookingAttempt(id: string, scope: string, fingerprint?
   return previousAttempt(rows, id, scope, fingerprint);
 }
 
+export async function hasBookingBrowserProof(reservationId: string, scope: string) {
+  if (reservationPersistenceConfig()) return false;
+  const rows = isHostedDemo() ? (await readDemoState()).bookingAttempts ?? [] : memoryBookingAttempts;
+  return rows.some(row => row.receipt.id === reservationId && row.scope === scope && row.expiresAt > Date.now());
+}
+
 
 export function reservationPersistenceConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;

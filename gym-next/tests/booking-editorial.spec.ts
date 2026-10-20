@@ -5,12 +5,15 @@ import path from "node:path";
 
 const selection = "sport=metiers-de-la-forme&city=Marseille&coach=Studio%20Form%20Marseille&service=Coaching%20remise%20en%20forme&duration=30min&price=35&slot=11:00&mentor=Mika";
 
+const summaryFixture={id:"res-synthetic",coachName:"Coach synthétique",sport:"fitness",city:"Marseille",service:"Séance synthétique",duration:"30min",price:35,slots:["2031-01-01T10:00:00.000Z"],appointmentAt:"2031-01-01T10:00:00.000Z",status:"requested",participantCount:1,authenticated:false,claimToken:"x".repeat(43)};
+test.beforeEach(async({page})=>{await page.route("**/api/reservations/summary",route=>route.fulfill({json:{data:summaryFixture}}));});
+
 test("créneaux et récapitulatif restent lisibles aux petites et grandes largeurs", async ({ page }) => {
   await page.route("**/api/reservations?*", route => route.fulfill({ json: { data: [] } }));
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const route of ["creneau", "recapitulatif"]) {
-      await page.goto(`/${route}?${selection}`);
+      await page.goto(`/${route}?${selection}${route==="recapitulatif"?"&reservationId=res-synthetic":""}`);
       await expect(page.locator("#gym-booking h1")).toBeVisible();
       const panel = page.locator(route === "creneau" ? ".bk-reservation-selection-panel" : ".bk-recap-auth-card");
       await expect(panel).toBeVisible();
@@ -61,17 +64,12 @@ test("une erreur de disponibilités bloque l’envoi et permet de réessayer", a
   expect(posts).toBe(1);
 });
 
-test("le récapitulatif garde la réservation et le contexte vers le compte et le retour", async ({ page }) => {
-  await page.goto(`/recapitulatif?${selection}&reservationId=recette-fictive&claimToken=jeton-fictif`);
-  for (const selector of ["[data-recap-login]", "[data-recap-create]", "[data-recap-edit]"]) {
-    const url = new URL(await page.locator(selector).getAttribute("href") ?? "", "http://localhost");
-    expect(url.searchParams.get("reservationId")).toBe("recette-fictive");
-    expect(url.searchParams.get("claimToken")).toBe("jeton-fictif");
-    expect(url.searchParams.get("slot")).toBe("11:00");
-    expect(url.searchParams.get("mentor")).toBe("Mika");
-  }
-  await expect(page.locator("[data-recap-login]")).toHaveText("Se connecter pour suivre ma demande");
-  await expect(page.locator("[data-recap-datetime]")).toContainText("11:00");
+test("le récapitulatif utilise le contrat serveur et ne propage pas la preuve aux créneaux",async({page})=>{
+ await page.goto(`/recapitulatif?${selection}&reservationId=res-synthetic&claimToken=jeton-fictif`);
+ await expect(page.locator("[data-recap-login]")).toBeVisible();
+ for(const selector of ["[data-recap-login]","[data-recap-create]"]){const url=new URL((await page.locator(selector).getAttribute("href"))!,"http://localhost");expect(url.searchParams.get("reservationId")).toBe("res-synthetic");expect(url.searchParams.get("claimToken")).toBe(summaryFixture.claimToken);}
+ const back=new URL((await page.locator("[data-recap-edit]").getAttribute("href"))!,"http://localhost");expect(back.searchParams.has("claimToken")).toBe(false);expect(back.searchParams.has("reservationId")).toBe(false);
+ await expect(page.locator("[data-recap-datetime]")).toContainText("11:00");
 });
 
 test("le clavier choisit un mentor et un horaire avec un focus visible", async ({ page }) => {

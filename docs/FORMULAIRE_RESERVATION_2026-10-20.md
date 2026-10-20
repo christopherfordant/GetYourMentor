@@ -1,3 +1,5 @@
+> Suite livrée : [récapitulatif serveur](RECAPITULATIF_SERVEUR_2026-10-20.md). Les constats historiques ci-dessous sur le récapitulatif par URL sont remplacés pour cette page par une lecture serveur autorisée. Le reçu de création reste inchangé.
+
 # Formulaire de réservation — 20 octobre 2026
 
 ## Périmètre et sources
