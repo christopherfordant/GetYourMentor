@@ -43,5 +43,5 @@ export default async function CreneauPage({ searchParams }: CreneauPageProps) {
 
   const profile = gate.coach ?? await getCoach(normalizedParams.coach ?? "steven-fordant");
   if (!profile?.verified) return <ProductionUnavailable title="Coach indisponible" description="Choisissez un coach disponible depuis la recherche." />;
-  return <ChoixCoachCreneauLegacyPage calendarNow={Date.now()} demo={gate.mode === "demo"} params={{ ...normalizedParams, coach: profile.name, city: profile.city, sport: profile.sport, price: String(profile.priceFrom), service: normalizedParams.service || profile.specialty }} />;
+  return <ChoixCoachCreneauLegacyPage key={profile.id} calendarNow={Date.now()} demo={gate.mode === "demo"} params={{ ...normalizedParams, coachId: profile.id, coach: profile.name, city: profile.city, sport: profile.sport, price: String(profile.priceFrom), service: normalizedParams.service || profile.specialty }} />;
 }

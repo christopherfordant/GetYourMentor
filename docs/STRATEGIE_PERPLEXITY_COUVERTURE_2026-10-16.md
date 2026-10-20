@@ -227,3 +227,6 @@ Footer partagé étendu aux variantes accueil/découverte et inscription ; plan 
 ## Langues et formulaires d’accès — 20 octobre 2026
 
 [Rapport](LANGUES_FORMULAIRES_2026-10-20.md) : français seul réellement disponible ; indication globale responsive sans traduction fictive. Connexion/création et demande structure harmonisées et confirmées, doubles soumissions protégées. Recettes locales et réponses injectées distinguées dans la preuve ; derniers contrôles typographiques du footer réussis. Autres formulaires, traductions réelles et reprise serveur d’une demande structure incertaine restent à traiter ; aucune clôture globale V1/V2/V3, activation ou publication distante.
+
+### Contrôle ciblé réservation — 20 octobre
+[Formulaire individuel](FORMULAIRE_RESERVATION_2026-10-20.md) : résumé avant envoi, clavier, erreurs et reçu contrôlé ; 49 tests locaux, quatre largeurs. Portée limitée, aucun constat de conformité globale ni recette distante. Reprise après résultat incertain encore limitée à la page ouverte.

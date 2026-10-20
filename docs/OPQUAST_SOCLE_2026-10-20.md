@@ -43,3 +43,6 @@ Contrôle final : typage/build/frontière client PASS. Les six tests d’interfa
 Internationalisation : 130–134, langue déclarée et destinations réellement traduites. Français seul disponible ; indication cohérente et aucun faux changement de traduction. Le footer sert de repli mobile, décision de composition du projet et non emplacement prescrit par Opquast. Les règles d’équivalence de pages resteront à tester lors d’une vraie traduction.
 
 Les tests typographiques du footer auparavant non exécutés ont réussi dans ce lot. Les textes juridiques/contacts restent provisoires ; cette vérification ne lève pas les autres réserves du socle. Sources : référentiel officiel V5 ci-dessus, consulté le 20 octobre. Pas de certification globale.
+
+### Contrôle ciblé réservation — 20 octobre
+[Formulaire individuel](FORMULAIRE_RESERVATION_2026-10-20.md) : résumé avant envoi, clavier, erreurs et reçu contrôlé ; 49 tests locaux, quatre largeurs. Portée limitée, aucun constat de conformité globale ni recette distante. Reprise après résultat incertain encore limitée à la page ouverte.

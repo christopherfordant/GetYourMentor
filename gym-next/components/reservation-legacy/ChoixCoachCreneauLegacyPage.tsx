@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { demoCalendarWeeks, BOOKING_TIME_ZONE, intervalsOverlap } from "@/lib/domain/booking-time";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { demoCalendarWeeks, BOOKING_TIME_ZONE, intervalsOverlap, formatBookingSlot } from "@/lib/domain/booking-time";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
+import { bookingAvailability, bookingConfirmation } from "@/lib/booking-form-contract";
+import { FormRejection, readFormData } from "@/lib/access-form-response";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type ChoixCoachCreneauLegacyPageProps = {
@@ -53,7 +55,7 @@ function ReservationSelectedStep({
   return (
     <section className="bk-reservation-step">
       <h2>
-        <span>1.</span> Seance selectionnee
+        <span>1.</span> Séance sélectionnée
       </h2>
       <div className="bk-reservation-selection-panel">
         <div className="bk-reservation-selection-top">
@@ -109,7 +111,8 @@ function ReservationCalendarStep({
   onPrevWeek,
   onNextWeek,
   onSelectSlot,
-  confirmHref,
+  preview,
+  uncertain,
   onConfirm,
   submitting,
   error,
@@ -124,8 +127,9 @@ function ReservationCalendarStep({
   onPrevWeek: () => void;
   onNextWeek: () => void;
   onSelectSlot: (slot: string) => void;
-  confirmHref: string;
-  onConfirm: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  preview: string;
+  uncertain: boolean;
+  onConfirm: (event: React.FormEvent<HTMLFormElement>) => void;
   submitting: boolean;
   error: string;
   bookedSlots: string[];
@@ -136,16 +140,16 @@ function ReservationCalendarStep({
   const currentWeek = weeks[weekIndex];
 
   return (
-    <section className="bk-reservation-step">
+    <form className="bk-reservation-step" aria-label="Demande de réservation individuelle" onSubmit={onConfirm} aria-busy={submitting} aria-describedby="booking-help booking-feedback">
       <h2>
         <span>2.</span> Choix de la date &amp; heure
       </h2>
-      <p className="booking-calendar-help">Choisis un horaire disponible. Sur mobile, fais défiler le calendrier horizontalement pour voir tous les jours.</p>
-      <div className="bk-reservation-calendar-card" tabIndex={0} role="region" aria-label="Calendrier des horaires de démonstration" aria-busy={availabilityLoading}>
+      <p id="booking-help" className="booking-calendar-help">Choix obligatoire, pour une personne. Fuseau Europe/Paris. Choisis un horaire disponible. Sur mobile, fais défiler le calendrier horizontalement pour voir tous les jours.</p>
+      <div className="bk-reservation-calendar-card" tabIndex={0} role="region" aria-label="Calendrier des horaires de démonstration" aria-busy={availabilityLoading} aria-describedby="booking-help booking-feedback">
         {availabilityLoading ? <p className="bk-reservation-loading" role="status">Vérification des disponibilités…</p> : null}
-        {availabilityError ? <div className="bk-reservation-inline-error"><p role="alert">{availabilityError}</p><button type="button" onClick={onRetry}>Réessayer les disponibilités</button></div> : null}
+        {availabilityError ? <div className="bk-reservation-inline-error"><p role="alert">{availabilityError}</p><button type="button" disabled={submitting||uncertain} onClick={onRetry}>Réessayer les disponibilités</button></div> : null}
         <div className="bk-reservation-calendar-head">
-          <button className="calendar-arrow" type="button" aria-label="Semaine precedente" data-calendar-prev onClick={onPrevWeek}>
+          <button className="calendar-arrow" type="button" disabled={submitting||uncertain} aria-label="Semaine précédente" data-calendar-prev onClick={onPrevWeek}>
             ‹
           </button>
           <div className="bk-reservation-days" data-multi-days>
@@ -156,7 +160,7 @@ function ReservationCalendarStep({
               </div>
             ))}
           </div>
-          <button className="calendar-arrow" type="button" aria-label="Semaine suivante" data-calendar-next onClick={onNextWeek}>
+          <button className="calendar-arrow" type="button" disabled={submitting||uncertain} aria-label="Semaine suivante" data-calendar-next onClick={onNextWeek}>
             ›
           </button>
         </div>
@@ -173,7 +177,7 @@ function ReservationCalendarStep({
                     aria-pressed={slot === selectedSlot}
                     data-slot={slot}
                     data-slot-booked={bookedSlots.includes(slot) ? "true" : "false"}
-                    disabled={bookedSlots.includes(slot)}
+                    disabled={submitting||uncertain||availabilityLoading||!!availabilityError||bookedSlots.includes(slot)||Date.parse(slot)<=Date.now()}
                     onClick={() => onSelectSlot(slot)}
                   >
                     {new Intl.DateTimeFormat("fr-FR", { timeZone: BOOKING_TIME_ZONE, hour: "2-digit", minute: "2-digit" }).format(new Date(slot))}{bookedSlots.includes(slot) ? " (pris)" : ""}
@@ -188,20 +192,18 @@ function ReservationCalendarStep({
           ))}
         </div>
       </div>
+      <section className="bk-request-preview" aria-label="Récapitulatif avant envoi"><h3>Votre demande</h3><p>{preview}</p><p>{selectedSlot ? formatBookingSlot(selectedSlot) : "Sélectionnez un horaire dans le calendrier."} · Europe/Paris</p><p>1 participant · accord du coach requis avant paiement.</p>{bookedSlots.includes(selectedSlot) ? <p role="alert">Ce créneau sélectionné n’est plus disponible. Choisissez un autre horaire.</p> : null}</section>
       <div className="bk-reservation-cta-row">
-        <a
-          className="bk-reservation-confirm-button"
-          href={confirmHref}
-          data-multi-confirm
-          aria-busy={submitting}
-          aria-disabled={Boolean(availabilityError) || availabilityLoading || submitting || !selectedSlot || bookedSlots.includes(selectedSlot)}
-          onClick={onConfirm}
-        >
-          {submitting ? "Envoi de la demande…" : availabilityLoading ? "Vérification…" : "Envoyer ma demande"}
-        </a>
+        <button type="submit" className="bk-reservation-confirm-button" data-multi-confirm aria-busy={submitting}
+          disabled={Boolean(availabilityError)||availabilityLoading||submitting||uncertain||!selectedSlot||bookedSlots.includes(selectedSlot)}
+          aria-disabled={Boolean(availabilityError)||availabilityLoading||submitting||uncertain||!selectedSlot||bookedSlots.includes(selectedSlot)}>
+          {submitting ? "Envoi de la demande…" : uncertain ? "Envoi à vérifier" : availabilityLoading ? "Vérification…" : "Envoyer ma demande"}
+        </button>
       </div>
-      {error ? <p role="alert" className="bk-reservation-error">{error}</p> : null}
-    </section>
+      <p id="booking-feedback" role={error ? "alert" : "status"} className={error ? "bk-reservation-error" : undefined}>{error}</p>
+      {error&&!uncertain ? <button type="button" className="bk-reservation-add-button" disabled={submitting||availabilityLoading} onClick={onRetry}>Actualiser les disponibilités</button> : null}
+      {uncertain ? <p className="booking-note">Ne renouvelez pas l’envoi. Si vous étiez connecté, vérifiez votre demande dans <a href="/compte">Mon compte</a>. Sans compte, conservez cette page : la demande peut avoir été enregistrée.</p> : null}
+    </form>
   );
 }
 
@@ -221,9 +223,9 @@ export function ChoixCoachCreneauLegacyPage({
   const format = params.format || "";
   const packageLabel = params.package || "";
 
-  const [selectedSlot, setSelectedSlot] = useState(params.slot && Number.isFinite(Date.parse(params.slot)) ? params.slot : "");
-  const [selectedMentor, setSelectedMentor] = useState(coach);
   const [weeks] = useState<WeekDay[][]>(() => demoCalendarWeeks(calendarNow));
+  const [selectedSlot, setSelectedSlot] = useState(weeks.flatMap(w=>w.flatMap(d=>d.slots)).includes(params.slot||"") ? params.slot! : "");
+  const [selectedMentor, setSelectedMentor] = useState(coach);
   const [weekIndex, setWeekIndex] = useState(0);
   const [availabilityAttempt, setAvailabilityAttempt] = useState(0);
   const [bookedSlots, setBookedSlots] = useState<string[]>([]);
@@ -231,45 +233,26 @@ export function ChoixCoachCreneauLegacyPage({
   const [availabilityError, setAvailabilityError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [uncertain,setUncertain] = useState(false);
+  const sendLock=useRef(false);
+  const generation=useRef(0);
 
   const displayPrice = price.includes("€") ? price : `${price.trim()} €`;
   const serviceMeta = [duration, displayPrice, format, objective, packageLabel].filter(Boolean).join(" · ");
 
   useEffect(() => {
-    setAvailabilityLoading(true);
-    setAvailabilityError("");
-    fetch(`/api/reservations?coachId=${encodeURIComponent(coach)}`)
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Disponibilités indisponibles"))))
-      .then((payload) => {
-        const active = (payload.data as Array<{ status: string; slots: string[]; duration?: string }>).filter(item => ["requested", "accepted", "paid"].includes(item.status));
-        const slots = weeks.flatMap(week => week.flatMap(day => day.slots)).filter(slot => active.some(item => intervalsOverlap([slot], duration, item.slots, item.duration ?? "1 heure")));
-        setBookedSlots(slots);
-        setSelectedSlot((current) => (slots.includes(current) ? "" : current));
-      })
-    .catch(() => {
-      setBookedSlots([]);
-      setAvailabilityError("Les disponibilités n’ont pas pu être vérifiées. Vous pouvez réessayer.");
-    })
-    .finally(() => setAvailabilityLoading(false));
-  }, [coach, availabilityAttempt, duration, weeks]);
-
-  const confirmHref = useMemo(
-    () =>
-      buildNextPath(nextRoutes.recap, {
-        sport,
-        city,
-        coach,
-        service,
-        duration,
-        price,
-        objective,
-        format,
-        package: packageLabel,
-        slot: selectedSlot,
-        mentor: selectedMentor,
-      }),
-    [coach, city, duration, format, objective, packageLabel, price, selectedMentor, selectedSlot, service, sport],
-  );
+    const controller=new AbortController();let active=true;
+    setAvailabilityLoading(true);setAvailabilityError("");
+    fetch(`/api/reservations?coachId=${encodeURIComponent(coach)}`,{signal:AbortSignal.any([controller.signal,AbortSignal.timeout(10000)])})
+      .then(response=>{if(!response.ok)throw new Error();return response.json();})
+      .then(payload=>{const reservations=bookingAvailability(payload).filter(r=>["requested","accepted","paid"].includes(r.status));
+        const slots=weeks.flatMap(w=>w.flatMap(d=>d.slots)).filter(slot=>reservations.some(r=>intervalsOverlap([slot],duration,r.slots,r.duration)));
+        if(active)setBookedSlots(slots);
+      }).catch(()=>{if(active)setAvailabilityError("Les disponibilités n’ont pas pu être vérifiées. Vous pouvez réessayer.");})
+      .finally(()=>{if(active)setAvailabilityLoading(false);});
+    return ()=>{active=false;controller.abort();};
+  },[coach,availabilityAttempt,duration,weeks]);
+  useEffect(()=>{generation.current++;return ()=>{generation.current++;};},[coach]);
 
   const backToCoachHref = useMemo(
     () =>
@@ -281,9 +264,9 @@ export function ChoixCoachCreneauLegacyPage({
     [coach, city, sport],
   );
 
-  async function handleConfirm(event: React.MouseEvent<HTMLAnchorElement>) {
+  async function handleConfirm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (submitting) return;
+    if (sendLock.current||uncertain) return;
     if (availabilityError) {
       setError("Réessayez la vérification des disponibilités avant d’envoyer votre demande.");
       return;
@@ -292,16 +275,18 @@ export function ChoixCoachCreneauLegacyPage({
       setError("Patientez pendant la vérification des disponibilités.");
       return;
     }
-    if (!selectedSlot || bookedSlots.includes(selectedSlot)) {
+    if (!selectedSlot || bookedSlots.includes(selectedSlot)||Date.parse(selectedSlot)<=Date.now()||!weeks.some(w=>w.some(d=>d.slots.includes(selectedSlot)))) {
       setError("Sélectionnez un créneau disponible.");
       return;
     }
+    sendLock.current=true;const operation=generation.current;
     setSubmitting(true);
     setError("");
 
     try {
       const response = await fetch("/api/reservations", {
         method: "POST",
+        signal: AbortSignal.timeout(15000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           coachId: coach,
@@ -312,26 +297,30 @@ export function ChoixCoachCreneauLegacyPage({
         }),
       });
 
-      if (!response.ok) throw new Error("La demande n'a pas pu être envoyée.");
-      const payload = await response.json();
+      if(operation!==generation.current)return;
+      if(!response.ok&&![400,401,403,404,409,422,429].includes(response.status))throw new Error();
+      const data=await readFormData(response);
+      if(operation!==generation.current)return;
+      const saved=bookingConfirmation(data,{coachId:params.coachId||"",coachName:coach,sport,city,service,duration,slot:selectedSlot});
       window.location.href = buildNextPath(nextRoutes.recap, {
         sport,
         city,
         coach,
         service,
         duration,
-        price,
+        price: String(saved.price),
         objective,
         format,
         package: packageLabel,
         slot: selectedSlot,
         mentor: selectedMentor,
-         reservationId: payload.data.id,
-         claimToken: payload.data.claimToken,
+         reservationId: saved.id,
+         claimToken: saved.claimToken,
       });
     } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : "La demande n'a pas pu être envoyée.");
-      setSubmitting(false);
+      if(operation!==generation.current)return;
+      if(requestError instanceof FormRejection){setError(requestError.message);sendLock.current=false;setSubmitting(false);}
+      else {setUncertain(true);setSubmitting(false);setError("Le résultat de l’envoi n’est pas confirmé. La demande peut avoir été enregistrée.");}
     }
   }
 
@@ -363,14 +352,15 @@ export function ChoixCoachCreneauLegacyPage({
               setSelectedSlot(slot);
               setError("");
             }}
-            confirmHref={confirmHref}
+            preview={`${service} · ${coach} · ${serviceMeta}`}
+            uncertain={uncertain}
             onConfirm={handleConfirm}
             submitting={submitting}
             error={error}
             bookedSlots={bookedSlots}
             availabilityLoading={availabilityLoading}
             availabilityError={availabilityError}
-            onRetry={() => setAvailabilityAttempt(current => current + 1)}
+            onRetry={() => {if(!sendLock.current&&!uncertain)setAvailabilityAttempt(current => current + 1);}}
           />
         </main>
 

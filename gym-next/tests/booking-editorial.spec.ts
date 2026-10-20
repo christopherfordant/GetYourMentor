@@ -57,7 +57,7 @@ test("une erreur de disponibilités bloque l’envoi et permet de réessayer", a
   await page.locator("[data-slot]:not(:disabled)").first().click();
   await expect(confirm).toHaveAttribute("aria-disabled", "false");
   await confirm.click();
-  await expect(page.locator(".bk-reservation-error")).toContainText("n'a pas pu être envoyée");
+  await expect(page.locator(".bk-reservation-error")).toContainText("pas confirmé");
   expect(posts).toBe(1);
 });
 

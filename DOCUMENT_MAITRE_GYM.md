@@ -1,3 +1,5 @@
+> Reprise du 20 octobre : [formulaire réservation](docs/FORMULAIRE_RESERVATION_2026-10-20.md), contrôles locaux ciblés, aucun nouveau déploiement. Consulter le relais actif avant le prochain lot.
+
 > **Langues et formulaires — 20 octobre 2026 :** français seul réellement disponible, indication desktop/mobile honnête ; accès et inscription structure harmonisés, confirmations et soumissions protégées. [Rapport et limites](docs/LANGUES_FORMULAIRES_2026-10-20.md), socle Opquast actualisé. Recette locale uniquement, pas de nouveau déploiement.
 
 > **Footer et qualité — 20 octobre 2026 :** footer du compte coach réutilisé sur les autres pages, plan du site et annexe [socle Opquast](docs/OPQUAST_SOCLE_2026-10-20.md) à consulter pour les prochains changements UI/navigation/formulaires. Référentiel de contrôle, pas certification ; coordonnées et contenus juridiques restent à compléter. Raccordement privé testé localement uniquement ; aucun nouveau déploiement.

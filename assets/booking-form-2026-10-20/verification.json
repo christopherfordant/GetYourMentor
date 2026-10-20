@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-20",
+  "base": "1667380ba15324922554c3661c9d1be3b143ecb5",
+  "tests": {
+    "runner": "Playwright local Chromium",
+    "passed": 49,
+    "workers": 1,
+    "files": [
+      "booking-form-contract.spec.ts",
+      "booking-request-form.spec.ts",
+      "booking-editorial.spec.ts",
+      "group-booking-foundation.spec.ts"
+    ],
+    "types": "PASS",
+    "build": "PASS",
+    "clientSecretBoundary": "PASS"
+  },
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "screenshots": [
+    "request-390.png",
+    "request-1440.png"
+  ],
+  "integrated": "anonymous reservation creation in local demo storage; receipt and redirect; unauthenticated by-id GET rejected 401",
+  "remoteValidation": "NOT_RUN",
+  "deployment": "NOT_RUN",
+  "limitations": [
+    "uncertain submission lock lives only on current page",
+    "no server creation idempotency or durable reconciliation",
+    "no complete Opquast compliance claim",
+    "MCP not confirmed; local Playwright used"
+  ]
+}
