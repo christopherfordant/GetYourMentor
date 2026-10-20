@@ -1,4 +1,5 @@
 "use client";
+import styles from "./ReservationProofBoundary.module.css";
 import { useEffect,useRef,useState,type ReactNode } from "react";
 export function ReservationProofBoundary({id,children}:{id?:string;children:ReactNode}) {
  const [state,setState]=useState<"loading"|"ready"|"error">("loading");
@@ -13,7 +14,7 @@ export function ReservationProofBoundary({id,children}:{id?:string;children:Reac
   operation.current.then(ok=>{if(active)setState(ok?"ready":"error");});
   return ()=>{active=false;};
  },[id]);
- if(state==="loading")return <p role="status">Vérification de l’accès à la réservation…</p>;
- if(state==="error")return <section><p role="alert">La preuve de réservation est absente, invalide ou expirée. Aucun nouvel envoi n’a été effectué.</p><a href="/compte">Accéder à mon compte sans cette demande</a></section>;
+ if(state==="loading")return <section className={styles.card} aria-label="Accès à la réservation"><p role="status">Vérification de l’accès à la réservation…</p></section>;
+ if(state==="error")return <section className={styles.card}><h1>Accès à votre demande</h1><p role="alert">La preuve de réservation est absente, invalide ou expirée. Aucun nouvel envoi n’a été effectué.</p><a href="/compte">Accéder à mon compte sans cette demande</a></section>;
  return children;
 }

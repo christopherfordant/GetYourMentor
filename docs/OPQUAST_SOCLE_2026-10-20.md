@@ -46,3 +46,6 @@ Les tests typographiques du footer auparavant non exécutés ont réussi dans ce
 
 ### Contrôle ciblé réservation — 20 octobre
 [Formulaire individuel](FORMULAIRE_RESERVATION_2026-10-20.md) : résumé avant envoi, clavier, erreurs et reçu contrôlé ; 49 tests locaux, quatre largeurs. Portée limitée, aucun constat de conformité globale ni recette distante. Reprise après résultat incertain encore limitée à la page ouverte.
+
+## Parcours privé — contrôle ciblé du 20 octobre
+[Rapport](PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md) : navigation mobile par disclosure natif (WAI), focus Échap, identification visible, progression et erreurs d’accès, quatre largeurs. Sources officielles citées dans le rapport ; absence de certification globale, zoom/tactile/lecteur écran non exhaustifs.

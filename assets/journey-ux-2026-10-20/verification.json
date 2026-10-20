@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-20",
+  "base": "6cae74430f3fc15972b88565c63d991bae60896d",
+  "tests": {
+    "distinctValidated": 39,
+    "initial": {
+      "passed": 37,
+      "failed": 1,
+      "total": 38,
+      "cause": "menu locator used old accessible name after opening"
+    },
+    "targeted": {
+      "passed": 8,
+      "newScenario": "five discovery routes and long content reflow"
+    },
+    "finalSmallScreen": {
+      "passed": 2
+    },
+    "runner": "Playwright local Chromium",
+    "workers": 1
+  },
+  "checks": {
+    "types": "PASS",
+    "build": "PASS",
+    "clientSecretBoundary": "PASS"
+  },
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "headerClosedHeight": {
+    "before": {
+      "320": 129,
+      "390": 129,
+      "768": 133,
+      "1440": 89
+    },
+    "after": {
+      "320": 77,
+      "390": 77,
+      "768": 133,
+      "1440": 89
+    }
+  },
+  "screenshots": [
+    "before-390.png",
+    "before-1440.png",
+    "after-390.png",
+    "after-1440.png"
+  ],
+  "tools": {
+    "REA": "catalogue read; no external investigation needed",
+    "MemPalace": "local status only; 3202 drawers; no semantic retrieval claimed",
+    "GoogleAIStudio": "no connected tool found; no document or image sent",
+    "PlaywrightMCP": "NOT_RUN"
+  },
+  "attention": "Design hypotheses only, no eye tracking, real heatmap or conversion metric",
+  "privacy": "Synthetic fixture screenshots; no raw logs, cookies, proofs, private URLs or sessions published. Public standards lookup only.",
+  "limits": [
+    "legacy proof entrances retained but bounded to 24h by shared validator",
+    "no full WCAG/Opquast conformance claim",
+    "720 CSS px reflow emulation is not actual browser zoom certification",
+    "orientation and breakpoint focus changes not exhaustively tested",
+    "local storage only; remote RLS/providers not validated"
+  ],
+  "deployment": "NOT_RUN"
+}

@@ -1,3 +1,5 @@
+> Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
+
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.
 
 > Récapitulatif serveur — 20 octobre : [source de vérité et accès privés](docs/RECAPITULATIF_SERVEUR_2026-10-20.md), URL commerciale ignorée, lecture anonyme bornée ; transport historique vers identification encore à réduire. Recette locale, aucun déploiement.

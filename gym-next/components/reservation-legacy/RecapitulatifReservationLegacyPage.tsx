@@ -32,6 +32,7 @@ export function RecapitulatifReservationLegacyPage({demo,params}:Props) {
   const slots=data?(data.appointmentAt&&["accepted","paid"].includes(data.status)?[data.appointmentAt]:data.slots):[];
   return <DiscoveryFrame page="recap" demo={demo}><div id="gym-booking" className="bk-recap-shell"><main className="bk-recap-page" data-recap-page>
     <p className="booking-eyebrow">02 / LE RÉCAPITULATIF</p>
+    <ol className="bk-journey-progress" aria-label="Parcours de réservation"><li>Demande envoyée</li><li aria-current="step">Récapitulatif</li><li>Identification et suivi</li></ol>
     <section className="bk-recap-header"><h1 data-recap-name>{data?.coachName ?? "Votre réservation"}</h1>{data?<div className="bk-recap-address">{data.city}</div>:null}</section>
     {loading?<p role="status" className="booking-note">Chargement des informations enregistrées…</p>:null}
     {error?<section className="bk-reservation-inline-error"><p role="alert">{error}</p><button type="button" onClick={()=>setAttempt(x=>x+1)}>Réessayer le chargement</button><p><a className="bk-recap-link" href="/compte">Mon compte</a></p></section>:null}

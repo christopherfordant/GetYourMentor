@@ -4,7 +4,7 @@ import { requireRole } from "@/lib/auth";
 import { payReservation } from "@/lib/reservations";
 import { createCheckoutSession } from "@/lib/payments";
 import { getReservation } from "@/lib/reservations";
-import { isReservationClaimTokenValid } from "@/lib/reservation-claims";
+import { privateReservationTokenValid } from "@/lib/private-reservation-proof";
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const session = await requireRole("sportif");
@@ -16,7 +16,7 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     const current = await getReservation(reservationId);
     if (!current) return NextResponse.json({ error: "Réservation introuvable" }, { status: 404 });
     if (current.ownerEmail && current.ownerEmail !== session.email) return NextResponse.json({ error: "Cette réservation appartient à un autre compte" }, { status: 403 });
-    if (!current.ownerEmail && !(await hasPrivateReservationProof(current)) && !isReservationClaimTokenValid(current.id, request.headers.get("x-reservation-claim-token"))) {
+    if (!current.ownerEmail && !(await hasPrivateReservationProof(current)) && !privateReservationTokenValid(current, request.headers.get("x-reservation-claim-token") ?? undefined)) {
       return NextResponse.json({ error: "Reservation claim token required" }, { status: 403 });
     }
     if (current.status === "paid") return NextResponse.json({ data: current });

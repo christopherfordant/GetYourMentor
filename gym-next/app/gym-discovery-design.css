@@ -163,6 +163,21 @@ body:has(#gym-discovery.discovery-editorial) .cookie-consent-primary { backgroun
 body:has(#gym-discovery.discovery-editorial) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
 body:has(#gym-discovery.discovery-editorial) .cookie-consent-banner { max-height: 42dvh; overflow-y: auto; }
 body:has(#gym-discovery.discovery-editorial):has(.cookie-consent-banner) .back-to-top { display: none !important; }
+/* Non-modal mobile disclosure: links retain their native semantics and order. */
+#gym-discovery .de-menu-toggle { display:none; }
+#gym-discovery .de-navigation-panel { display:contents; }
+@media(max-width:760px) {
+ #gym-discovery .de-header { align-items:center; }
+ #gym-discovery .de-menu-toggle { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:8px 10px; border:1px solid var(--gym-line); border-radius:6px; background:white; color:var(--gym-ink); }
+ #gym-discovery .de-navigation-panel { display:none; }
+ #gym-discovery .de-navigation-panel[data-open="true"] { display:flex; flex-direction:column; order:4; flex-basis:100%; gap:12px; padding:16px 0 0; border-top:1px solid var(--gym-line); }
+ #gym-discovery .de-navigation-panel .de-sports { flex-basis:auto; order:0; justify-content:flex-start; }
+ #gym-discovery .de-account { margin-left:auto; }
+}
+@media(max-width:360px) {
+ #gym-discovery .de-menu-toggle { min-width:44px; padding:8px; }
+ #gym-discovery .de-menu-label { display:none; }
+}
 @media(max-width:1100px) {
   #gym-discovery .de-header { gap: 8px 24px; padding: 18px 28px; }
   #gym-discovery .de-sports { order: 3; flex-basis: 100%; }

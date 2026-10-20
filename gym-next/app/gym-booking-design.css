@@ -51,3 +51,14 @@
   #gym-booking .bk-reservation-cta-row { width: 100%; }
   #gym-booking :is(.bk-recap-service-card,.bk-recap-date-card) { flex-wrap: wrap; }
 }
+
+/* Attention hierarchy: progress, facts, then identification; secondary navigation stays quiet. */
+#gym-booking .bk-journey-progress { display:flex; flex-wrap:wrap; gap:8px 16px; list-style:none; padding:0; margin:0; font-size:13px; color:#625e69; }
+#gym-booking .bk-journey-progress [aria-current=step] { font-weight:700; color:#612087; }
+@media(min-width:1100px) {
+ #gym-booking .bk-recap-page { grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr); align-items:start; }
+ #gym-booking .bk-recap-page > :is(.booking-eyebrow,.bk-journey-progress,.bk-recap-header,.booking-note,.bk-reservation-inline-error) { grid-column:1/-1; }
+ #gym-booking .bk-recap-page > .bk-recap-step { grid-column:1; }
+ #gym-booking .bk-recap-page > .bk-recap-step:last-child { grid-column:2; grid-row:5/span 2; }
+ #gym-booking .bk-recap-auth-card { grid-template-columns:1fr; gap:16px; }
+}

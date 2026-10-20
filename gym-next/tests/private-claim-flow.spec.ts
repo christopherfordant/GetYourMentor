@@ -20,7 +20,7 @@ for(const mode of ["login","signup"])test(`legacy proof -> ${mode} -> private co
  const response=await page.request.post("/api/reservations/summary",{data:{reservationId:r.id}});expect((await response.json()).data).not.toHaveProperty("claimToken");
  const stored=await page.context().cookies();expect(stored.find(c=>c.name===`gym-claim-${r.id}`)?.httpOnly).toBe(true);
  // Existing explicit cancellation binds an unpaid request, no payment/refund operation.
- expect((await page.request.post(`/api/reservations/${r.id}/cancel`,{headers:{"x-reservation-claim-token":r.claimToken}})).status()).toBe(200);
+ expect((await page.request.post(`/api/reservations/${r.id}/cancel`)).status()).toBe(200);
  expect((await page.request.get(`/api/reservations/${r.id}`)).status()).toBe(200);
  await page.request.post("/api/auth/sign-out");expect((await page.request.get(`/api/reservations/${r.id}`)).status()).toBe(401);await signup(page.request);expect((await page.request.get(`/api/reservations/${r.id}`)).status()).toBe(403);
 });

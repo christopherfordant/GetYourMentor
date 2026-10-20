@@ -1,3 +1,5 @@
+> Suite : [parcours privé et ergonomie](PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md). Les entrées historiques décrites ci-dessous sont désormais bornées à 24 h par le validateur partagé ; elles ne sont pas supprimées.
+
 # Transport privé des preuves — 20 octobre 2026
 
 ## Périmètre et sources
