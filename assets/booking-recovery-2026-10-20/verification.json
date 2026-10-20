@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-20",
+  "base": "5c13b1d9c12d29882019ec254836a52598c9f575",
+  "runner": "Playwright local Chromium",
+  "tests": {
+    "passed": 55,
+    "files": [
+      "booking-attempts.spec.ts",
+      "booking-form-contract.spec.ts",
+      "booking-recovery.spec.ts",
+      "booking-request-form.spec.ts",
+      "group-booking-foundation.spec.ts"
+    ],
+    "workers": 1,
+    "finalRunSeconds": 45.8
+  },
+  "checks": {
+    "types": "PASS",
+    "build": "PASS",
+    "clientSecretBoundary": "PASS"
+  },
+  "widths": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "screenshots": [
+    "recovery-390.png",
+    "recovery-1440.png"
+  ],
+  "classification": {
+    "pureAndDoubles": "contracts; local deduplication; CAS with synthetic storage including committed response loss and pre-write failure",
+    "integratedLocal": "concurrent creation; cookie and account isolation; anonymous and authenticated receipt recovery; unavailable public details; reload and exact replay",
+    "injectedTransport": "browser response loss after real local write, abort before write, recovery 503",
+    "remote": "NOT_RUN",
+    "MCP": "NOT_RUN"
+  },
+  "deployment": "NOT_RUN",
+  "privacy": "No raw logs, stored browser sessions, actual receipt, token or cookie included. Public demo profile and synthetic service only in screenshots.",
+  "limits": [
+    "local state lost after process restart; no multi-process guarantee",
+    "hosted CAS adapter tested with double only",
+    "24 hour receipt recovery; expired entries retained to block key reuse",
+    "same tab and private cookie and identity required; no access with attempt id alone",
+    "no Supabase or collective booking recovery added",
+    "creation receipt is not current reservation status"
+  ]
+}

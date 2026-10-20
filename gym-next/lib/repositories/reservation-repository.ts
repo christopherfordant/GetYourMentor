@@ -1,3 +1,4 @@
+import { previousAttempt, type AttemptInput, type BookingAttempt, BookingAttemptError } from "@/lib/booking-attempt-server";
 import { randomUUID } from "node:crypto";
 import { validateReservationSlots } from "@/lib/domain/booking-rules";
 import { reservedPlaces } from "@/lib/domain/participants";
@@ -5,12 +6,22 @@ import { intervalsOverlap } from "@/lib/domain/booking-time";
 import { memoryStructureOffers, type StructureOffer } from "@/lib/structure-offers";
 import type { Reservation } from "@/lib/domain";
 import { assertDemoFallbackAllowed, isHostedDemo, isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
-import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
+import { mutateDemoState, readDemoState, type DemoState } from "@/lib/repositories/demo-state";
 import { claimReservationSlots, releaseReservationSlots, ReservationSlotConflictError } from "@/lib/repositories/reservation-slot-repository";
 import { reservationFromRow, reservationToRow } from "@/lib/repositories/reservation-mapper";
 
 export type ReservationPersistenceConfig = { url: string; key: string };
-export const memoryReservations: Reservation[] = [];
+const localBookingState = globalThis as typeof globalThis & { gymReservationState?: { reservations: Reservation[]; attempts: BookingAttempt[] } };
+const local = localBookingState.gymReservationState ??= { reservations: [], attempts: [] };
+export const memoryReservations = local.reservations;
+const memoryBookingAttempts = local.attempts;
+
+export async function readBookingAttempt(id: string, scope: string, fingerprint?: string) {
+  if (reservationPersistenceConfig()) throw new BookingAttemptError(503);
+  const rows = isHostedDemo() ? (await readDemoState()).bookingAttempts ?? [] : memoryBookingAttempts;
+  return previousAttempt(rows, id, scope, fingerprint);
+}
+
 
 export function reservationPersistenceConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -48,17 +59,23 @@ export async function hasReservationSlotConflict(coachId: string, slots: string[
   return conflicts(reservations, candidate, []);
 }
 
-export async function createPersistedReservation(reservation: Reservation) {
+export async function createPersistedReservation(reservation: Reservation, attempt?: AttemptInput, demoMutate?: <T>(change: (state: DemoState) => T) => Promise<T>) {
   const config = reservationPersistenceConfig();
   if (!config) {
-    const add = (reservations: Reservation[], offers: StructureOffer[]) => {
+    const add = (reservations: Reservation[], offers: StructureOffer[], attempts: BookingAttempt[]) => {
+      if (attempt) {
+        const previous = previousAttempt(attempts, attempt.id, attempt.scope, attempt.fingerprint);
+        if (previous) return previous;
+      }
       if (conflicts(reservations, reservation, offers)) throw new ReservationSlotConflictError();
       reservations.push(reservation);
+      if (attempt) attempts.push({ ...attempt, expiresAt: Date.now() + 86400000, receipt: structuredClone(reservation) });
       return reservation;
     };
-    if (isHostedDemo()) return mutateDemoState((s) => add(s.reservations, s.structureOffers ?? []));
-    return add(memoryReservations, memoryStructureOffers);
+    if (isHostedDemo() || demoMutate) return (demoMutate ?? mutateDemoState)((s) => add(s.reservations, s.structureOffers ?? [], s.bookingAttempts ??= []));
+    return add(memoryReservations, memoryStructureOffers, memoryBookingAttempts);
   }
+  if (attempt) throw new BookingAttemptError(503);
   if (reservedPlaces(reservation) > 1) throw new Error("Réservations groupées limitées au stockage de démonstration");
   const response = await fetch(`${config.url}/rest/v1/gym_reservations`, {
     method: "POST",

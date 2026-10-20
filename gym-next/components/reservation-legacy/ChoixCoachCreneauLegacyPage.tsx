@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { demoCalendarWeeks, BOOKING_TIME_ZONE, intervalsOverlap, formatBookingSlot } from "@/lib/domain/booking-time";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { bookingAvailability, bookingConfirmation } from "@/lib/booking-form-contract";
+import { bookingAvailability, bookingConfirmation, type BookingExpectation } from "@/lib/booking-form-contract";
 import { FormRejection, readFormData } from "@/lib/access-form-response";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
@@ -12,6 +12,9 @@ type ChoixCoachCreneauLegacyPageProps = {
   calendarNow: number;
   params: Record<string, string | undefined>;
 };
+
+type PendingAttempt = { id: string; context: string; body: Record<string, unknown>; expected: BookingExpectation; navigation: Record<string, string>; createdAt: number };
+const pendingKey = "gym-booking-pending-v1";
 
 type WeekDay = {
   day: string;
@@ -202,7 +205,7 @@ function ReservationCalendarStep({
       </div>
       <p id="booking-feedback" role={error ? "alert" : "status"} className={error ? "bk-reservation-error" : undefined}>{error}</p>
       {error&&!uncertain ? <button type="button" className="bk-reservation-add-button" disabled={submitting||availabilityLoading} onClick={onRetry}>Actualiser les disponibilités</button> : null}
-      {uncertain ? <p className="booking-note">Ne renouvelez pas l’envoi. Si vous étiez connecté, vérifiez votre demande dans <a href="/compte">Mon compte</a>. Sans compte, conservez cette page : la demande peut avoir été enregistrée.</p> : null}
+      {uncertain ? <p className="booking-note">Ne renouvelez pas l’envoi. Si vous étiez connecté, vérifiez votre demande dans <a href="/compte">Mon compte</a>. Vous pouvez vérifier le résultat ci-dessous si une reprise a été préparée.</p> : null}
     </form>
   );
 }
@@ -237,6 +240,59 @@ export function ChoixCoachCreneauLegacyPage({
   const sendLock=useRef(false);
   const generation=useRef(0);
 
+  const [recoveryReady, setRecoveryReady] = useState(false);
+  const [recoveryContext, setRecoveryContext] = useState<string | null>(null);
+  const [pending, setPending] = useState<PendingAttempt | null>(null);
+  const [canResume, setCanResume] = useState(false);
+  const recoveryBusy = useRef(false);
+  useEffect(() => {
+    let active = true;
+    try {
+      const raw = sessionStorage.getItem(pendingKey);
+      if (raw) {
+        const value = JSON.parse(raw) as PendingAttempt;
+        if (!value || typeof value.id !== "string" || !value.expected || !value.body || !value.navigation || typeof value.createdAt !== "number") throw new Error();
+        setPending(value); setUncertain(true); sendLock.current = true;
+        setError("Un envoi précédent doit être vérifié avant toute nouvelle demande.");
+      }
+    } catch { setUncertain(true); sendLock.current = true; setError("La reprise locale est illisible. Vérifiez vos réservations avant de poursuivre."); }
+    fetch("/api/reservations/recovery", { cache: "no-store", signal: AbortSignal.timeout(10000) })
+      .then(async response => { if (!response.ok) throw new Error(); const data = await response.json();
+        if (data.supported !== false && (data.supported !== true || typeof data.context !== "string" || !/^[0-9a-f]{64}$/.test(data.context))) throw new Error();
+        if (active) { setRecoveryContext(data.supported ? data.context : null); setRecoveryReady(true); }
+      }).catch(() => { if (active) setError("La préparation de la réservation est indisponible. Rechargez la page avant tout envoi."); });
+    return () => { active = false; };
+  }, []);
+
+  function finishAttempt(data: Record<string, unknown>, attempt: PendingAttempt) {
+    const saved = bookingConfirmation(data, attempt.expected);
+    sessionStorage.removeItem(pendingKey);
+    window.location.href = buildNextPath(nextRoutes.recap, { ...attempt.navigation, price: String(saved.price), slot: attempt.expected.slot, reservationId: saved.id, claimToken: saved.claimToken });
+  }
+  async function recoverAttempt(resume = false) {
+    if (!pending || recoveryBusy.current || !recoveryReady) return;
+    if (pending.context !== recoveryContext || Date.now() - pending.createdAt > 86400000) {
+      setError("La session a changé ou la tentative a expiré. Vérifiez vos réservations ; aucun nouvel envoi n’a été effectué."); return;
+    }
+    recoveryBusy.current = true; setSubmitting(true); const operation = generation.current;
+    try {
+      const response = await fetch(resume ? "/api/reservations" : "/api/reservations/recovery", {
+        method: "POST", headers: { "Content-Type": "application/json" }, signal: AbortSignal.timeout(15000),
+        body: JSON.stringify(resume ? { ...pending.body, creationAttemptId: pending.id, creationContext: pending.context } : { creationAttemptId: pending.id, creationContext: pending.context }),
+      });
+      if (operation !== generation.current) return;
+      const payload = await response.json();
+      if (operation !== generation.current) return;
+      if (!response.ok) throw new Error();
+      if (!resume && payload.state === "not-recorded") {
+        setCanResume(true); setError("Aucun reçu retrouvé pour l’instant. Vous pouvez reprendre exactement le même envoi ; le serveur vérifiera son identifiant.");
+      } else {
+        finishAttempt(payload.data, pending);
+      }
+    } catch { if (operation === generation.current) { setCanResume(false); setError("Résultat toujours non confirmé. Vérifiez à nouveau sans créer une nouvelle demande."); } }
+    finally { recoveryBusy.current = false; if (operation === generation.current) setSubmitting(false); }
+  }
+
   const displayPrice = price.includes("€") ? price : `${price.trim()} €`;
   const serviceMeta = [duration, displayPrice, format, objective, packageLabel].filter(Boolean).join(" · ");
 
@@ -266,7 +322,7 @@ export function ChoixCoachCreneauLegacyPage({
 
   async function handleConfirm(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (sendLock.current||uncertain) return;
+    if (sendLock.current||uncertain||!recoveryReady) return;
     if (availabilityError) {
       setError("Réessayez la vérification des disponibilités avant d’envoyer votre demande.");
       return;
@@ -283,43 +339,32 @@ export function ChoixCoachCreneauLegacyPage({
     setSubmitting(true);
     setError("");
 
+    const body = { coachId: coach, service, duration, price: Number(price.replace(/[^0-9.,]/g, "").replace(",", ".")) || undefined, slots: [selectedSlot] };
+    const attempt: PendingAttempt = { id: crypto.randomUUID(), context: recoveryContext ?? "", body,
+      expected: { coachId: params.coachId || "", coachName: coach, sport, city, service, duration, slot: selectedSlot },
+      navigation: { sport, city, coach, service, duration, objective, format, package: packageLabel, mentor: selectedMentor }, createdAt: Date.now() };
+    try {
+      if (recoveryContext) {
+        // Only non-authorizing attempt/context and public booking choices. Never persist claimToken/receipt/email.
+        sessionStorage.setItem(pendingKey, JSON.stringify(attempt)); setPending(attempt);
+      }
+    } catch { sendLock.current = false; setSubmitting(false); setError("La reprise ne peut pas être conservée dans cet onglet. Aucun envoi effectué."); return; }
     try {
       const response = await fetch("/api/reservations", {
         method: "POST",
         signal: AbortSignal.timeout(15000),
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          coachId: coach,
-          service,
-          duration,
-          price: Number(price.replace(/[^0-9.,]/g, "").replace(",", ".")) || undefined,
-          slots: [selectedSlot],
-        }),
+        body: JSON.stringify({ ...body, ...(recoveryContext ? { creationAttemptId: attempt.id, creationContext: recoveryContext } : {}) }),
       });
 
       if(operation!==generation.current)return;
       if(!response.ok&&![400,401,403,404,409,422,429].includes(response.status))throw new Error();
       const data=await readFormData(response);
       if(operation!==generation.current)return;
-      const saved=bookingConfirmation(data,{coachId:params.coachId||"",coachName:coach,sport,city,service,duration,slot:selectedSlot});
-      window.location.href = buildNextPath(nextRoutes.recap, {
-        sport,
-        city,
-        coach,
-        service,
-        duration,
-        price: String(saved.price),
-        objective,
-        format,
-        package: packageLabel,
-        slot: selectedSlot,
-        mentor: selectedMentor,
-         reservationId: saved.id,
-         claimToken: saved.claimToken,
-      });
+      finishAttempt(data, attempt);
     } catch (requestError) {
       if(operation!==generation.current)return;
-      if(requestError instanceof FormRejection){setError(requestError.message);sendLock.current=false;setSubmitting(false);}
+      if(requestError instanceof FormRejection){sessionStorage.removeItem(pendingKey);setPending(null);setError(requestError.message);sendLock.current=false;setSubmitting(false);}
       else {setUncertain(true);setSubmitting(false);setError("Le résultat de l’envoi n’est pas confirmé. La demande peut avoir été enregistrée.");}
     }
   }
@@ -358,10 +403,16 @@ export function ChoixCoachCreneauLegacyPage({
             submitting={submitting}
             error={error}
             bookedSlots={bookedSlots}
-            availabilityLoading={availabilityLoading}
+            availabilityLoading={availabilityLoading||!recoveryReady}
             availabilityError={availabilityError}
             onRetry={() => {if(!sendLock.current&&!uncertain)setAvailabilityAttempt(current => current + 1);}}
           />
+          {pending && uncertain ? <section className="bk-request-preview" aria-label="Reprise de la demande">
+            <h2>Vérifier mon envoi</h2>
+            <p>{pending.expected.service} · {pending.expected.coachName} · {formatBookingSlot(pending.expected.slot)}. Reprise du même envoi, sans nouvelle sélection.</p>
+            <button type="button" className="bk-recap-outline-button" disabled={submitting||!recoveryReady} onClick={() => void recoverAttempt()}>Vérifier le résultat</button>
+            {canResume ? <button type="button" className="bk-recap-dark-button" disabled={submitting} onClick={() => void recoverAttempt(true)}>Reprendre le même envoi</button> : null}
+          </section> : null}
         </main>
 
       </div>

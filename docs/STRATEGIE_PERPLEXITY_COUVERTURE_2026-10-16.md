@@ -230,3 +230,6 @@ Footer partagé étendu aux variantes accueil/découverte et inscription ; plan 
 
 ### Contrôle ciblé réservation — 20 octobre
 [Formulaire individuel](FORMULAIRE_RESERVATION_2026-10-20.md) : résumé avant envoi, clavier, erreurs et reçu contrôlé ; 49 tests locaux, quatre largeurs. Portée limitée, aucun constat de conformité globale ni recette distante. Reprise après résultat incertain encore limitée à la page ouverte.
+
+### Reprise réservation — 20 octobre
+[Rapport existant](FORMULAIRE_RESERVATION_2026-10-20.md#reprise-des-créations-incertaines--20-octobre-2026) : idempotence et reçu privé démo, reprise après rechargement ; 55 tests locaux, CAS avec double, aucun déploiement. Hors Supabase/collectif ; mémoire processus non durable.

@@ -1,3 +1,5 @@
+> Reprise création de réservation — 20 octobre : [docs/FORMULAIRE_RESERVATION_2026-10-20.md](docs/FORMULAIRE_RESERVATION_2026-10-20.md#reprise-des-créations-incertaines--20-octobre-2026). Déduplication démo et reprise privée, tests locaux ; aucune garantie Supabase ni recette hébergée.
+
 > Reprise du 20 octobre : [formulaire réservation](docs/FORMULAIRE_RESERVATION_2026-10-20.md), contrôles locaux ciblés, aucun nouveau déploiement. Consulter le relais actif avant le prochain lot.
 
 > **Langues et formulaires — 20 octobre 2026 :** français seul réellement disponible, indication desktop/mobile honnête ; accès et inscription structure harmonisés, confirmations et soumissions protégées. [Rapport et limites](docs/LANGUES_FORMULAIRES_2026-10-20.md), socle Opquast actualisé. Recette locale uniquement, pas de nouveau déploiement.

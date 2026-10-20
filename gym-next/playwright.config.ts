@@ -1,3 +1,4 @@
+import { randomBytes } from "node:crypto";
 import { defineConfig, devices } from "@playwright/test";
 
 const auditExternalServer = process.env.PW_AUDIT_EXTERNAL_SERVER === "true";
@@ -28,6 +29,8 @@ export default defineConfig({
     reuseExistingServer: false,
     timeout: 120_000,
     env: {
+      // Ephemeral signing key for local acceptance server only; no authentication bypass.
+      SESSION_SECRET: randomBytes(32).toString("hex"),
       NODE_ENV: "production",
       CI: "true",
       NEXT_PUBLIC_APP_URL: "http://127.0.0.1:3001",

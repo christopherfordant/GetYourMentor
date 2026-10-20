@@ -1,3 +1,4 @@
+import type { BookingAttempt } from "@/lib/booking-attempt-server";
 import type { PersonalGoal } from "@/lib/personal-progress";
 import type { DemoContent, DemoContentPurchase } from "@/lib/demo-contents";
 import type { Affiliation } from "@/lib/affiliations";
@@ -15,6 +16,7 @@ import type { StructureOffer } from "@/lib/structure-offers";
 export type DemoUser = { passwordHash: string; salt: string; role: "sportif" | "coach" | "club"; coachId?: string };
 export type DemoState = {
   reservations: Reservation[];
+  bookingAttempts?: BookingAttempt[];
   coaches: CoachProfile[];
   users: Record<string, DemoUser>;
   clubs: ClubLead[];

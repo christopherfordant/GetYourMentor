@@ -1,3 +1,4 @@
+import type { AttemptInput } from "@/lib/booking-attempt-server";
 import { isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 import type { Reservation } from "@/lib/domain";
 import { refundPercentForAppointment, validateReservationSlots } from "@/lib/domain/booking-rules";
@@ -43,9 +44,9 @@ export async function hasSlotConflict(coachId: string, slots: string[], excludeI
   return hasReservationSlotConflict(coachId, slots, excludeId, duration, structureOfferId);
 }
 
-export async function createReservation(reservation: Reservation) {
+export async function createReservation(reservation: Reservation, attempt?: AttemptInput) {
   const settings = await getCommissionSettings();
-  return createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) });
+  return createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) }, attempt);
 }
 
 export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}): Promise<Reservation[]> {

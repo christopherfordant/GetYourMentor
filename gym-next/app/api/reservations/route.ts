@@ -1,3 +1,5 @@
+import { attemptFingerprint, attemptIdValid, attemptScope, BookingAttemptError, type AttemptInput } from "@/lib/booking-attempt-server";
+import { readBookingAttempt } from "@/lib/repositories/reservation-repository";
 import { reservationForRole } from "@/lib/domain/reservation-privacy";
 import { normalizeSlots } from "@/lib/domain/booking-time";
 import { NextResponse } from "next/server";
@@ -19,6 +21,22 @@ export async function POST(request: Request) {
   const session = await currentSession();
   if (session && session.role !== "sportif") return NextResponse.json({ error: "Seul un sportif peut demander une réservation" }, { status: 403 });
   const body = await request.json().catch(() => null);
+  let attempt: AttemptInput | undefined;
+  if (body?.creationAttemptId !== undefined) {
+    if (!attemptIdValid(body.creationAttemptId) || body.structureOfferId || (body.participantCount !== undefined && body.participantCount !== 1)) return NextResponse.json({ error: "Tentative individuelle invalide" }, { status: 400 });
+    try {
+      const scope = await attemptScope(session?.email);
+      if (body.creationContext !== scope) throw new BookingAttemptError(403);
+      attempt = { id: body.creationAttemptId, scope, fingerprint: attemptFingerprint(body) };
+      const previous = await readBookingAttempt(attempt.id, scope, attempt.fingerprint);
+      if (previous) {
+        const claimToken = previous.ownerEmail ? undefined : reservationClaimToken(previous.id);
+        return NextResponse.json({ data: { ...previous, ...(claimToken ? { claimToken } : {}) } }, { headers: { "Cache-Control": "no-store" } });
+      }
+    } catch (error) {
+      return NextResponse.json({ error: error instanceof BookingAttemptError ? error.message : "Résultat non confirmé" }, { status: error instanceof BookingAttemptError ? error.status : 502, headers: { "Cache-Control": "no-store" } });
+    }
+  }
   let structureOfferId: string | undefined;
   if (body?.structureOfferId !== undefined) {
     if (!isDemoFallbackAllowed() || typeof body.structureOfferId !== "string" || body.structureOfferId.length > 128) return NextResponse.json({ error: "Séance collective indisponible" }, { status: 400 });
@@ -47,7 +65,7 @@ export async function POST(request: Request) {
   const groupPrice = input.data.participantCount > 1 ? coach.groupPrices?.find(p => p.participantCount === input.data.participantCount) : undefined;
   if (input.data.participantCount > 1 && !groupPrice) return NextResponse.json({ error: "Le coach n’a pas encore défini de tarif total pour cette taille de groupe" }, { status: 409 });
   try {
-    if (await hasSlotConflict(coach.id, slots, undefined, duration, structureOfferId)) {
+    if (!attempt && await hasSlotConflict(coach.id, slots, undefined, duration, structureOfferId)) {
       return NextResponse.json({ error: "Un des créneaux est déjà demandé ou réservé" }, { status: 409 });
     }
   } catch (error) {
@@ -74,11 +92,11 @@ export async function POST(request: Request) {
   };
 
   try {
-    const saved = await createReservation(reservation);
+    const saved = await createReservation(reservation, attempt);
     const claimToken = saved.ownerEmail ? undefined : reservationClaimToken(saved.id);
-    return NextResponse.json({ data: { ...saved, ...(claimToken ? { claimToken } : {}) } }, { status: 201 });
+    return NextResponse.json({ data: { ...saved, ...(claimToken ? { claimToken } : {}) } }, { status: 201, headers: { "Cache-Control": "no-store" } });
   } catch (error) {
-    const status = error instanceof ReservationSlotConflictError ? 409 : 502;
+    const status = error instanceof BookingAttemptError ? error.status : error instanceof ReservationSlotConflictError ? 409 : 502;
     return NextResponse.json({ error: error instanceof Error ? error.message : "Erreur de persistance" }, { status });
   }
 }
