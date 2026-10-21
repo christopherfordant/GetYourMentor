@@ -1,3 +1,23 @@
+## Refonte Factory — direction active du 21 octobre 2026
+
+Source : demande utilisateur jointe du 21 octobre ; typographies/couleurs de Kebab Factory, ergonomie de réservation étudiée sur les pages publiques Uber. Remplace le violet fixe ; les anciens lots restent historiques et ne sont pas recommencés. [Rapport du socle](REFONTE_FACTORY_2026-10-21.md), contrat `DESIGN_SYSTEM_GYM.md`.
+
+| Pages / variantes inventoriées dans app | Composants existants à réutiliser | Migration Factory |
+|---|---|---|
+| `/recherche`, `/coachs`, `/coach` | DiscoveryFrame, RechercheCoachLegacyPage, SelectionCoachsLegacyPage, ReserverSeanceLegacyPage, CoachDetails/Reviews | Premier lot vérifié localement : tokens, contrôles, header/footer ; 15 scénarios, MCP quatre largeurs, types/build PASS ; services distants non recettés |
+| `/creneau`, `/recapitulatif` | DiscoveryFrame, ChoixCoachCreneauLegacyPage, RecapitulatifReservationLegacyPage, styles bk-* | Prochain lot, non migré ; conserver preuve/reprise et URL |
+| `/paiement`, `/suivi` | composants paiement/suivi et ReservationProofBoundary | À migrer après réservation ; statuts incertains et simulation explicite |
+| `/` | EditorialHome, composants partagés, SiteFooter | À migrer ; aucune ressource de restauration à importer |
+| `/compte` sportif / coach / structure / administrateur | AccountLegacyPage et panneaux existants | À migrer par variante ; accès/connexion/inscription, finances, planning et messagerie à recetter |
+| `/structures`, `/inscription-club` | annuaire structures, InscriptionClubLegacyPage | À migrer ; consentements bilatéraux inchangés |
+| `/seances`, `/offres`, `/contenus`, `/beta` | DiscoveryFrame et explorateurs/feedback existants | À migrer ; utiliser Frame ne vaut pas migration automatique des enfants |
+| `/legal/[slug]`, `/plan-du-site` | SiteFooter, mise en page légale | À migrer ; vérifier les slugs et les liens réels |
+| `/admin/knowledge`, erreurs système, chargements et indisponibilités | KnowledgeSearch, limites/erreurs existantes | À qualifier séparément ; outil privé exclu de l'export public |
+
+Les composants partagés sont rendus compatibles avec les surfaces sémantiques, sans imposer la palette sombre aux pages non recettées. Aucun nouvel écran, abonnement ou service commercial n'est créé par cette matrice. Contrôler états interactifs et rendu à 320/390/768/1440 ; cocher chaque page seulement après preuves. Ne pas annoncer une couverture intégrale sur la seule présence des tokens.
+
+---
+
 > **Reprise du paiement simulé — 18 octobre 2026 :** preuve serveur vérifiée, résultat incertain bloquant jusqu’à relecture, reprise sans nouvel envoi automatique et distinction des dossiers sans preuve. Rapport `docs/REPRISE_PAIEMENT_SIMULE_2026-10-18.md`, preuves `docs/assets/payment-recovery-2026-10-18/verification.json`. Aucun débit réel ou déploiement.
 
 > **Actions des demandes coach — 18 octobre 2026 :** Accepter/Refuser protégés contre double envoi, confirmations vérifiées, résultats incertains soumis à relecture et relais cohérent vers le compte. Rapport `docs/ACTIONS_DEMANDES_COACH_2026-10-18.md`, preuves `docs/assets/coach-actions-2026-10-18/verification.json`. Règles serveur et historiques conservés ; aucun déploiement.

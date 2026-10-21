@@ -1,3 +1,5 @@
+> **Décision visuelle active — 21 octobre 2026 :** identité Kebab Factory, police système et anthracite/orange, remplaçant la palette violette fixe et les contrats visuels incompatibles. Migration progressive selon [couverture](docs/REFONTE_PROGRESSIVE_2026-10-15.md) et `DESIGN_SYSTEM_GYM.md` ; [rapport](docs/REFONTE_FACTORY_2026-10-21.md). Les règles métier, permissions et historiques ne changent pas. Première tranche découverte, pas une refonte intégrale déclarée terminée.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.

@@ -1,5 +1,7 @@
 # GetYourMentor - Strategie de branches
 
+> Arbitrage visuel utilisateur du 21 octobre 2026 : Kebab Factory remplace le violet fixe et les anciennes prescriptions incompatibles, selon `DESIGN_SYSTEM_GYM.md` et la couverture de `docs/REFONTE_PROGRESSIVE_2026-10-15.md`. Les règles métier, confidentialité, priorités d'usage et de contexte restent applicables. Les références au violet dans les sections anciennes sont historiques. Dépôt original privé ; export public `GetYourMentor-site` limité au code publiable, sans historique ou documents privés.
+
 ## Procedure obligatoire a chaque demande - 15 octobre 2026
 
 Cette procedure s'applique a chaque prompt GetYourMentor, avant les travaux et avant la reponse finale. Les mises a jour intermediaires restent possibles.

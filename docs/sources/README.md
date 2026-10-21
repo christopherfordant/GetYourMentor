@@ -1,5 +1,7 @@
 # Sources documentaires de référence
 
+> Décision utilisateur du 21 octobre : Kebab Factory devient la référence de typographie et de palette ; le violet fixe mentionné dans les synthèses anciennes est remplacé. Les PDF métier ne sont pas modifiés. Contrat actif : `DESIGN_SYSTEM_GYM.md`, couverture `docs/REFONTE_PROGRESSIVE_2026-10-15.md` et relais courant. Les méthodes REA/V3/V5 gardent leur rôle et ne prouvent pas l'existence d'outils.
+
 ## Lecture et importance — consolidation du 18 octobre 2026
 La hiérarchie applicable est celle de [BRANCH_STRATEGY_GYM.md](../../BRANCH_STRATEGY_GYM.md), section « Hiérarchie et contexte progressif ». Ce fichier est un index, pas un maître concurrent. Les décisions humaines récentes peuvent remplacer une prescription ancienne ; une extraction ou une synthèse n’atteste pas une implémentation.
 

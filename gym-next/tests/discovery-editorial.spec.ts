@@ -81,8 +81,8 @@ test("métadonnées, styles isolés et liens du pied de page", async ({ page }, 
     const canonical = await page.locator('link[rel="canonical"]').getAttribute("href");
     const url = new URL(canonical!); expect(url.pathname).toBe(new URL(path,"http://localhost").pathname);
     expect(url.searchParams.get("sport")).toBe("football");
-    await expect(page.locator("#gym-discovery")).toHaveCSS("font-family", "Arial, Helvetica, sans-serif");
-    await expect(page.locator("#gym-discovery h1")).toHaveCSS("font-family", name === "recherche" ? "Arial, Helvetica, sans-serif" : 'Impact, "Arial Narrow", Arial, sans-serif');
+    await expect(page.locator("#gym-discovery")).toHaveCSS("font-family", /system-ui/);
+    await expect(page.locator("#gym-discovery h1")).toHaveCSS("font-family", /system-ui/);
     const legacy = await page.locator("style").evaluateAll(styles => styles.some(style => (style.textContent ?? "").includes("prototype-site")));
     expect(legacy).toBe(false);
     for (const [name,href] of [["Comment ça marche","/#espace"],["Tarifs","/#forfaits"],["FAQ","/#faq"]]) await expect(page.locator(".gym-footer").getByRole("link",{name,exact:true})).toHaveAttribute("href",href);
