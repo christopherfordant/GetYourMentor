@@ -1,5 +1,8 @@
 # Socle qualité Opquast — 20 octobre 2026
 
+## Réservation Factory — 21 octobre
+Contrôles ciblés de lisibilité, instruction de sélection obligatoire/fuseau, état choisi non fondé uniquement sur la couleur, focus et accès clavier aux jours hors champ du calendrier borné. Récapitulatif : distinguer données serveur confirmées, chargement et refus ; ne jamais inventer un prix depuis l'URL. [Rapport et preuves](RESERVATION_FACTORY_2026-10-21.md). La présence des tokens ne vaut pas conformité globale ou validation d'un service de paiement.
+
 ## Vérification ciblée — 21 octobre, fiche coach et footer
 Voir [causes, correction et preuves](COACH_ONGLETS_FOOTER_2026-10-21.md). Les trois sections coach sont des panneaux d'onglets : relations WAI-ARIA, flèches/Home/End, focus et état actif non fondé uniquement sur la couleur. Règles 165/166 vérifiées sur ce périmètre, sans conformité globale annoncée. Le footer doit rester atteignable élément par élément, y compris avec bannière cookies ; une hauteur supérieure au viewport est acceptable si le défilement permet tout accès. Réserve mesurée de la bannière, pas de footer fixe ni de z-index masquant ses liens. Les anciennes réserves body accueil/découverte sont remplacées par le calcul partagé. Le contrat Factory remplace les anciennes mentions de palette claire dans les preuves historiques.
 

@@ -2,6 +2,8 @@
 
 > **Correction UI du 21 octobre :** [onglets coach et footer](docs/COACH_ONGLETS_FOOTER_2026-10-21.md), navigation clavier WAI-ARIA, réserve cookies mesurée et suppression des paddings concurrents. Recette compilée locale, pas de conformité globale ni nouveau déploiement.
 
+> **Réservation Factory — 21 octobre :** [créneaux et récapitulatif](docs/RESERVATION_FACTORY_2026-10-21.md), tokens et styles sans modification des contrats privés, données serveur ou protections de reprise. Lire le relais pour le mode et les limites de chaque recette.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.

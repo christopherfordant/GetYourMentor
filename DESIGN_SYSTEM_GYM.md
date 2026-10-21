@@ -2,6 +2,8 @@
 
 > **Fiche coach et footer — 21 octobre :** onglets WAI-ARIA, sélection soulignée/gras, cibles 48 px et retour à la ligne selon le texte ; aucun défilement automatique vers le panneau à l'activation. Footer dans le flux et réserve cookies mesurée uniquement pendant son ouverture ; supprimer les anciens paddings concurrents, sans recouvrir les liens. Rapport : `docs/COACH_ONGLETS_FOOTER_2026-10-21.md`.
 
+> **Réservation — 21 octobre :** `/creneau` et `/recapitulatif` activent Factory ; les styles bk-* consomment les tokens de surface, action et erreur. Calendrier horizontal borné sur mobile, sélection soulignée et progression explicite ; aucune modification des dates ou du protocole de réservation. Rapport : `docs/RESERVATION_FACTORY_2026-10-21.md`.
+
 > **Historique remplacé — pilote recherche du 21 octobre 2026 :** adaptation originale des principes éditoriaux du site public getyourmentor.fr. Son ancienne palette violette ne s'applique plus aux routes migrées ; le rapport `docs/HARMONISATION_REFERENCE_2026-10-21.md` conserve les preuves de cette version.
 
 > **Précision utilisateur active — 16 octobre 2026 :** les textes de conception, validations de maquette et citations internes quittent l'interface. Les sections « suite » et « sources » conservent leurs compositions/ancres mais deviennent guide de réservation et aide visiteurs. Les actions nomment leur effet réel ; les offres indisponibles restent signalées. Aucun achat, abonnement ou droit n'est activé par la refonte. Rapport : `docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md`.

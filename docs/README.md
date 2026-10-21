@@ -2,6 +2,8 @@
 
 > Fiche coach/footer — 21 octobre : [onglets accessibles et réserve cookies mesurée](COACH_ONGLETS_FOOTER_2026-10-21.md), références WAI/Opquast et recette ciblée ; pas de conformité globale ou nouveau déploiement.
 
+> Réservation — 21 octobre : [créneaux et récapitulatif Factory](RESERVATION_FACTORY_2026-10-21.md), transposition CSS sans modification des contrats privés, tests et limites distingués.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.
