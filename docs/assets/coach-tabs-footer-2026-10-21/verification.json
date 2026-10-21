@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-21",
+  "private_base": "d41111784fb4e16705e154d4066565392e6e5115",
+  "public_base": "741673edc516990b08eb45fa3a67d856439495b8",
+  "widths": [320,390,768,1440],
+  "footer_routes": ["/coach", "/recherche", "/coachs", "/", "/compte?mode=coach", "/legal/cookies", "/recapitulatif", "/inscription-club", "/paiement"],
+  "private_compiled_tests": {"passed":18,"failed":0,"worker_count":1},
+  "public_compiled_tests": {"desktop_passed":7,"touch_passed":1,"failed":0,"worker_count":1},
+  "types": {"private":"PASS","public":"PASS"},
+  "build": {"private":"PASS","public":"PASS"},
+  "client_secret_boundary": {"private":"PASS","public":"PASS"},
+  "tracked_secret_scan": {"private":"PASS","public":"PASS"},
+  "mcp_before": {"width":390,"height":844,"footer_last_bottom":824,"banner_top":638,"overlap":true},
+  "mcp_after_compiled": [
+    {"width":390,"height":900,"footer_last_bottom":666,"banner_top":694,"overlap":false},
+    {"width":1440,"height":900,"footer_last_bottom":750,"banner_top":774,"overlap":false}
+  ],
+  "text_resize": "CSS tab text 13px to 26px and long label; not native browser zoom",
+  "touch": "Chromium iPhone emulation with tap; not a physical device",
+  "remote_services": "NOT_RUN",
+  "netlify_deployment": "NOT_RUN",
+  "global_opquast_certification": "NOT_CLAIMED"
+}

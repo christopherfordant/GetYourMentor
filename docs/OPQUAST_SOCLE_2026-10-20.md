@@ -1,5 +1,8 @@
 # Socle qualité Opquast — 20 octobre 2026
 
+## Vérification ciblée — 21 octobre, fiche coach et footer
+Voir [causes, correction et preuves](COACH_ONGLETS_FOOTER_2026-10-21.md). Les trois sections coach sont des panneaux d'onglets : relations WAI-ARIA, flèches/Home/End, focus et état actif non fondé uniquement sur la couleur. Règles 165/166 vérifiées sur ce périmètre, sans conformité globale annoncée. Le footer doit rester atteignable élément par élément, y compris avec bannière cookies ; une hauteur supérieure au viewport est acceptable si le défilement permet tout accès. Réserve mesurée de la bannière, pas de footer fixe ni de z-index masquant ses liens. Les anciennes réserves body accueil/découverte sont remplacées par le calcul partagé. Le contrat Factory remplace les anciennes mentions de palette claire dans les preuves historiques.
+
 Annexe opérationnelle du document maître existant, à consulter pour toute modification de navigation, footer, formulaire ou parcours. Aucun maître concurrent, nouvel agent ou outil ajouté. La hiérarchie et les décisions utilisateur de BRANCH_STRATEGY_GYM restent applicables. Le mode démo ne devient pas une certification ou une validation juridique.
 
 Source publique : [référentiel officiel V5 2025–2030](https://checklists.opquast.com/fr/qualite-numerique/), consulté le 20 octobre. Sélection de règles et reformulations, pas reproduction intégrale. Le choix du footer du compte coach est une décision de design de l'utilisateur ; Opquast ne prescrit pas son apparence exacte.

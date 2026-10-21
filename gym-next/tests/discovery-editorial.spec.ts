@@ -39,8 +39,8 @@ test("filtres, tri et réinitialisation conservent le catalogue puis ouvrent le 
   await page.locator("[data-coach-link]").first().click();
   await expect(page.locator("[data-booking-name]")).toBeVisible();
   const profileUrl = new URL(page.url());
-  await page.getByRole("button", { name: "Planning", exact: true }).click();
-  await expect(page.getByRole("button", { name: "Planning", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await page.getByRole("tab", { name: "Planning", exact: true }).click();
+  await expect(page.getByRole("tab", { name: "Planning", exact: true })).toHaveAttribute("aria-selected", "true");
   for (const width of [320,390,768,1440]) {
     await page.setViewportSize({width,height:1000});
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);

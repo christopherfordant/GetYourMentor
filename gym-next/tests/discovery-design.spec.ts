@@ -67,11 +67,11 @@ test("catalogue: tarifs et identité restent cohérents de l'annuaire à la fich
   await expect(page.locator("[data-booking-price]")).toContainText(`${coach.priceFrom} EUR`);
   await expect(page.locator("[data-booking-score-copy]")).toHaveText(coach.reviewCount ? `${coach.reviewCount} avis` : "Pas encore d’avis");
   await expect(page.locator("[data-booking-score-large]")).toContainText(coach.reviewCount ? coach.rating.toFixed(1) : "Pas encore de note");
-  await page.getByRole("button", { name: "Planning", exact: true }).click();
+  await page.getByRole("tab", { name: "Planning", exact: true }).click();
   await expect(page.locator("[data-booking-confirm]")).toBeVisible();
   const href = await page.locator("[data-booking-confirm]").getAttribute("href");
   expect(new URL(href!, "http://localhost").searchParams.get("coach")).toBe(coach.id);
-  await page.getByRole("button", { name: "Contenus", exact: true }).click();
+  await page.getByRole("tab", { name: "Contenus", exact: true }).click();
   await expect(page.locator("[data-content-lock-note]")).toContainText("Aucun abonnement actif");
   await page.locator("[data-content-unlock]").click();
   await expect(page.locator("[data-content-unlock]")).toHaveText("Prévisualisation de démo");

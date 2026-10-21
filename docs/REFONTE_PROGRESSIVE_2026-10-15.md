@@ -2,6 +2,8 @@
 
 Source : demande utilisateur jointe du 21 octobre ; typographies/couleurs de Kebab Factory, ergonomie de réservation étudiée sur les pages publiques Uber. Remplace le violet fixe ; les anciens lots restent historiques et ne sont pas recommencés. [Rapport du socle](REFONTE_FACTORY_2026-10-21.md), contrat `DESIGN_SYSTEM_GYM.md`.
 
+Lot complémentaire du 21 octobre : [onglets coach et accès au footer](COACH_ONGLETS_FOOTER_2026-10-21.md). Composants partagés corrigés sans migrer prématurément les styles des autres pages. Prochain lot maintenu : créneaux et récapitulatif.
+
 | Pages / variantes inventoriées dans app | Composants existants à réutiliser | Migration Factory |
 |---|---|---|
 | `/recherche`, `/coachs`, `/coach` | DiscoveryFrame, RechercheCoachLegacyPage, SelectionCoachsLegacyPage, ReserverSeanceLegacyPage, CoachDetails/Reviews | Premier lot vérifié localement : tokens, contrôles, header/footer ; 15 scénarios, MCP quatre largeurs, types/build PASS ; services distants non recettés |
