@@ -1,3 +1,11 @@
+## Méthode de modification visuelle — complément du 22 octobre 2026
+
+Avant un lot visuel, cibler les composants, consommateurs, tokens, styles concurrents, animations et dépendances concernés ; pas d'audit global pour une correction locale. Compléter le [design system existant](../DESIGN_SYSTEM_GYM.md), sans nouvelle charte ou accumulation d'overrides. Les validations acquises restent valables ; seuls les choix structurants réellement nouveaux exigent un arbitrage. La branche et les ressources suivent [la procédure existante](../BRANCH_STRATEGY_GYM.md), sans branche supplémentaire automatique.
+
+La protection du métier interdit d'altérer règles, droits, authentification, réservations, paiements, abonnements, politiques de données et historiques ; elle n'interdit pas une modification autorisée de leur présentation. Vérifier les contrats effectivement touchés et leurs régressions. Appliquer la [recette visuelle](../governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md) aux pages et états modifiés, puis corriger et reprendre seulement les contrôles invalidés. Un lot exclusivement documentaire ne lance ni build ni navigateur.
+
+Bilan du prompt UI/UX intégré : audit ciblé, composants/tokens, états interactifs, responsive, Opquast, protection métier, Git et ressources étaient déjà couverts. Compléments retenus : observations versus hypothèses d'une référence, animations facultatives et conditions de comparaison des preuves. Écartés comme prescriptions générales : nouvelle charte, validation avant tout fichier, nouvelle branche systématique, bibliothèque imposée et audit complet répété. Aucun rôle supplémentaire ni lecture obligatoire ajoutée ; REA et Playwright conservent leurs fonctions distinctes définies dans la procédure Git.
+
 ## Refonte Factory — direction active du 21 octobre 2026
 
 Source : demande utilisateur jointe du 21 octobre ; typographies/couleurs de Kebab Factory, ergonomie de réservation étudiée sur les pages publiques Uber. Remplace le violet fixe ; les anciens lots restent historiques et ne sont pas recommencés. [Rapport du socle](REFONTE_FACTORY_2026-10-21.md), contrat `DESIGN_SYSTEM_GYM.md`.

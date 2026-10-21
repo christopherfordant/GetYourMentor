@@ -28,6 +28,12 @@ Les instructions ci-dessous restent historiques lorsque leur apparence contredit
 
 > Direction validée le 15 octobre 2026 : refonte progressive inspirée du pitch, violet `#872BBF`, papier `#F6F4F0`, encre `#141316`, surfaces blanches et bordures `#D8D2DF`. Implémentation opt-in avec tokens `--gym-*`, premier lot dans les comptes. Les palettes historiques ci-dessous restent des références ; elles ne priment pas sur cette validation. Header conservé dans sa structure. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
 
+## Références et animations — complément du 22 octobre 2026
+
+Pour une référence autorisée, relever les proportions, polices, couleurs, placements et états réellement observables ; séparer ces observations des hypothèses (comportement hors champ, responsive ou données absentes). Signaler les éléments indéterminables au lieu d'inventer une alternative. La direction Factory active en tête reste prioritaire : une capture ancienne ne réactive pas une charte remplacée. Aucun code, marque ou asset protégé n'est importé sans droits.
+
+Les animations sont facultatives et servent une interaction identifiable. Réutiliser les capacités installées ; GSAP, Motion et Three.js ne sont pas des prérequis. Respecter `prefers-reduced-motion`, conserver l'accès au contenu et vérifier le coût sur mobile avant de retenir un effet. Les suggestions historiques de carrousel/3D ne valent pas décision d'implémentation. La recette visuelle est décrite dans [Playwright Autonomie](governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md).
+
 ## 1. Direction
 
 GetYourMentor doit adopter un style :

@@ -2,6 +2,8 @@
 
 Mise à jour : 22 octobre 2026. V1/V2/V3 et refonte globale incomplets. Aucun travail en arrière-plan.
 
+Dernier lot : consolidation documentaire UI/UX uniquement. Compléments dans DESIGN_SYSTEM_GYM.md (références/animations), REFONTE_PROGRESSIVE_2026-10-15.md (audit proportionné/arbitrages) et governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md (comparaison/preuves). Aucun code, build, navigateur ou déploiement dans ce lot ; prochaine priorité V1 ci-dessous inchangée. Vérifier Git pour le commit documentaire livré.
+
 Publication démo expressément autorisée pour le portfolio : source exacte `54bb70980aebaadad402a2a93d38103f5e23a9b4`, déploiement Netlify `6ad93730f89f5b5157ba9dd6` prêt, `/recherche` contrôlée depuis le bouton Lovable. Rapport `DEPLOIEMENT_DEMO_54BB709_2026-10-22.md` ; remplace les mentions « aucun nouveau déploiement » anciennes pour ce seul état de livraison. Portfolio réorganisé et enregistré dans Lovable, non publié ; aucun nouveau changement métier.
 
 ## Lecture et priorités actives
@@ -21,7 +23,7 @@ Attention recette : cookies de production restent Secure ; les parcours authenti
 Worktree courant : C:/Users/cashe/Documents/GYM-factory-theme-20261021. Base privée 93871bd, branche de livraison design/refonte-progressive-lot1 ; export public GetYourMentor-site, base af463c1, branche main. Vérifier HEAD et SHA distant final, pas de SHA autoréférent.
 Dossier principal GetYourMentor en retard avec changements antérieurs sans rapport : ne pas les intégrer en bloc. Dépôt privé : documents/preuves ; export public : seuls fichiers publiables inspectés, sans historique privé, PDF, secrets, traces brutes ou captures de comptes réels.
 Un serveur, un build, un worker ; pas de build sur les fichiers générés d'un serveur actif. Préserver VS Code/campagnes/sessions, fermer ses seuls processus temporaires. Aucun envoi de données privées à des services d'analyse/recherche.
-Aucun déploiement dans ce lot ; version Netlify précédente source bbe20d7 inchangée. Pas de nouvel agent/moteur : REA uniquement pour comprendre un mécanisme externe autorisé si nécessaire, Playwright pour observer/tester.
+Aucun déploiement dans le lot documentaire courant ; la livraison Netlify de source 54bb709 est décrite en tête (la mention précédente de bbe20d7 est historique). Pas de nouvel agent/moteur : REA uniquement pour comprendre un mécanisme externe autorisé si nécessaire, Playwright pour observer/tester.
 
 ## Reprise suivante
 Prochain lot V1 recommandé : recommandations explicables, source BP p.50 ; réutiliser catalogue et préférences explicitement choisies, sans données de santé ou scores prédictifs inventés. Vérifier l'absence actuelle avant création et définir une tranche bornée. La finition accueil Factory reste requise avant recette finale mais passe après les lacunes métier prioritaires. Ne pas recommencer réservation/paiement/suivi/export calendrier. Aucun déploiement implicite ; candidat hébergé final à autoriser séparément.
