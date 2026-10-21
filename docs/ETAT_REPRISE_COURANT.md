@@ -1,6 +1,8 @@
 # Reprise opérationnelle - GetYourMentor
 
-Mise à jour : 21 octobre 2026. V1/V2/V3 et refonte globale incomplets. Aucun travail en arrière-plan.
+Mise à jour : 22 octobre 2026. V1/V2/V3 et refonte globale incomplets. Aucun travail en arrière-plan.
+
+Publication démo expressément autorisée pour le portfolio : source exacte `54bb70980aebaadad402a2a93d38103f5e23a9b4`, déploiement Netlify `6ad93730f89f5b5157ba9dd6` prêt, `/recherche` contrôlée depuis le bouton Lovable. Rapport `DEPLOIEMENT_DEMO_54BB709_2026-10-22.md` ; remplace les mentions « aucun nouveau déploiement » anciennes pour ce seul état de livraison. Portfolio réorganisé et enregistré dans Lovable, non publié ; aucun nouveau changement métier.
 
 ## Lecture et priorités actives
 AGENTS -> BRANCH_STRATEGY_GYM (hiérarchie/priorités) -> préambules maître/index -> ce relais -> docs/sources/README.md -> seules sources du lot et dépendances. Archives au besoin, pas de lecture exhaustive prétendue.
