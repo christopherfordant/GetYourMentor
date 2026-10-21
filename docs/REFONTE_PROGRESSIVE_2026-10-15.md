@@ -8,7 +8,7 @@ Lot complémentaire du 21 octobre : [onglets coach et accès au footer](COACH_ON
 |---|---|---|
 | `/recherche`, `/coachs`, `/coach` | DiscoveryFrame, RechercheCoachLegacyPage, SelectionCoachsLegacyPage, ReserverSeanceLegacyPage, CoachDetails/Reviews | Premier lot vérifié localement : tokens, contrôles, header/footer ; 15 scénarios, MCP quatre largeurs, types/build PASS ; services distants non recettés |
 | `/creneau`, `/recapitulatif` | DiscoveryFrame, ChoixCoachCreneauLegacyPage, RecapitulatifReservationLegacyPage, styles bk-* | Factory appliqué le 21 octobre ; styles/tokens seulement, contrats métier inchangés ; recette et limites dans RESERVATION_FACTORY_2026-10-21.md |
-| `/paiement`, `/suivi` | composants paiement/suivi et ReservationProofBoundary | À migrer après réservation ; statuts incertains et simulation explicite |
+| `/paiement`, `/suivi` | DiscoveryFrame, PaiementLegacyPage, PersonalProgress et ReservationProofBoundary | Factory appliqué le 21 octobre ; suivi personnel distinct du paiement, contrats inchangés, recette et limites dans PAIEMENT_SUIVI_FACTORY_2026-10-21.md |
 | `/` | EditorialHome, composants partagés, SiteFooter | À migrer ; aucune ressource de restauration à importer |
 | `/compte` sportif / coach / structure / administrateur | AccountLegacyPage et panneaux existants | À migrer par variante ; accès/connexion/inscription, finances, planning et messagerie à recetter |
 | `/structures`, `/inscription-club` | annuaire structures, InscriptionClubLegacyPage | À migrer ; consentements bilatéraux inchangés |

@@ -20,6 +20,7 @@ test("le paiement est verrouillé avant acceptation puis confirmé après", asyn
   await page.locator("#account-email").fill("sportif@example.com");
   await page.locator("#account-password").fill("demo-password");
   await page.getByRole("button", { name: "Se connecter", exact: true }).click();
+  await expect(page.locator("[data-account-session]")).toBeVisible();
   await page.goto(paymentUrl, { waitUntil: "networkidle" });
   await expect(page.locator('[data-payment-status]')).toHaveText("En attente de validation par le coach.");
   await expect(page.getByRole("button", { name: "Paiement indisponible" })).toBeDisabled();

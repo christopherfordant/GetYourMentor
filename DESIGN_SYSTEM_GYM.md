@@ -4,6 +4,8 @@
 
 > **Réservation — 21 octobre :** `/creneau` et `/recapitulatif` activent Factory ; les styles bk-* consomment les tokens de surface, action et erreur. Calendrier horizontal borné sur mobile, sélection soulignée et progression explicite ; aucune modification des dates ou du protocole de réservation. Rapport : `docs/RESERVATION_FACTORY_2026-10-21.md`.
 
+> **Paiement et suivi personnel — 21 octobre :** Factory sur `/paiement` et `/suivi`, header/footer partagés, styles de paiement hérités exclus de Factory, contrôles et alertes assortis. Le suivi personnel ne devient pas un suivi de paiement. Rapport `docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md`.
+
 > **Historique remplacé — pilote recherche du 21 octobre 2026 :** adaptation originale des principes éditoriaux du site public getyourmentor.fr. Son ancienne palette violette ne s'applique plus aux routes migrées ; le rapport `docs/HARMONISATION_REFERENCE_2026-10-21.md` conserve les preuves de cette version.
 
 > **Précision utilisateur active — 16 octobre 2026 :** les textes de conception, validations de maquette et citations internes quittent l'interface. Les sections « suite » et « sources » conservent leurs compositions/ancres mais deviennent guide de réservation et aide visiteurs. Les actions nomment leur effet réel ; les offres indisponibles restent signalées. Aucun achat, abonnement ou droit n'est activé par la refonte. Rapport : `docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md`.

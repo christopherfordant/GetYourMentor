@@ -1,5 +1,8 @@
 # Socle qualité Opquast — 20 octobre 2026
 
+## Paiement et suivi Factory — 21 octobre
+Sélection des modes illustratifs avec aria-pressed et soulignement, champs fictifs en lecture seule, simulation explicitement nommée, erreurs et résultats incertains distingués. Suivi personnel : labels, confirmation de données fictives, objectif privé, statut payé distinct d'une présence réelle. Navigation et footer partagés, contrôle des quatre largeurs et des cookies. [Rapport](PAIEMENT_SUIVI_FACTORY_2026-10-21.md), références WAI notifications/Opquast, sans conformité globale revendiquée.
+
 ## Réservation Factory — 21 octobre
 Contrôles ciblés de lisibilité, instruction de sélection obligatoire/fuseau, état choisi non fondé uniquement sur la couleur, focus et accès clavier aux jours hors champ du calendrier borné. Récapitulatif : distinguer données serveur confirmées, chargement et refus ; ne jamais inventer un prix depuis l'URL. [Rapport et preuves](RESERVATION_FACTORY_2026-10-21.md). La présence des tokens ne vaut pas conformité globale ou validation d'un service de paiement.
 

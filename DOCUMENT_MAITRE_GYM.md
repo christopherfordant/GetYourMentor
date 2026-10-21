@@ -4,6 +4,8 @@
 
 > **Réservation Factory — 21 octobre :** [créneaux et récapitulatif](docs/RESERVATION_FACTORY_2026-10-21.md), tokens et styles sans modification des contrats privés, données serveur ou protections de reprise. Lire le relais pour le mode et les limites de chaque recette.
 
+> **Paiement et suivi personnel — 21 octobre :** [Factory sans changement de contrat métier](docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md), simulation et objectif privé distincts ; consulter le rapport pour les modes et limites de recette.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.
