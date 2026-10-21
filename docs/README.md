@@ -1,3 +1,5 @@
+> **Priorité V1 démo — 21 octobre :** [checklist de clôture](STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md#clôture-v1-démo--reprise-du-21-octobre-2026), premier [export calendrier manuel](CALENDRIER_V1_DEMO_2026-10-21.md). V1 non terminée ; aucune synchronisation externe ou clôture globale implicite.
+
 > **Direction active — 21 octobre :** [refonte Kebab Factory](REFONTE_FACTORY_2026-10-21.md), police système et palette anthracite/orange remplaçant le violet fixe ; migration et prochaines pages dans [la couverture existante](REFONTE_PROGRESSIVE_2026-10-15.md). Consulter le relais pour les vérifications réellement terminées.
 
 > Fiche coach/footer — 21 octobre : [onglets accessibles et réserve cookies mesurée](COACH_ONGLETS_FOOTER_2026-10-21.md), références WAI/Opquast et recette ciblée ; pas de conformité globale ou nouveau déploiement.

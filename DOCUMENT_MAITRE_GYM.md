@@ -1,3 +1,5 @@
+> **Priorité produit — 21 octobre :** clôturer la V1 démo avant V2 selon la [checklist sourcée](docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md#clôture-v1-démo--reprise-du-21-octobre-2026). Premier lot : [calendrier manuel du sportif](docs/CALENDRIER_V1_DEMO_2026-10-21.md). Aucune réduction du périmètre documentaire, V1 non achevée.
+
 > **Décision visuelle active — 21 octobre 2026 :** identité Kebab Factory, police système et anthracite/orange, remplaçant la palette violette fixe et les contrats visuels incompatibles. Migration progressive selon [couverture](docs/REFONTE_PROGRESSIVE_2026-10-15.md) et `DESIGN_SYSTEM_GYM.md` ; [rapport](docs/REFONTE_FACTORY_2026-10-21.md). Les règles métier, permissions et historiques ne changent pas. Première tranche découverte, pas une refonte intégrale déclarée terminée.
 
 > **Correction UI du 21 octobre :** [onglets coach et footer](docs/COACH_ONGLETS_FOOTER_2026-10-21.md), navigation clavier WAI-ARIA, réserve cookies mesurée et suppression des paddings concurrents. Recette compilée locale, pas de conformité globale ni nouveau déploiement.

@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-21",
+  "private_base": "93871bd",
+  "public_base": "af463c1",
+  "scope": "V1 closure checklist and manual athlete calendar export",
+  "private_tests": {
+    "passed": 8,
+    "failed": 0,
+    "mode": "development demo, loopback, actual API storage + explicit injected UI error"
+  },
+  "types": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "build": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "boundary": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "mcp": "Synthetic athlete and accepted reservation observed. Click timed out on stability: no successful download claimed. Local Playwright verifies download.",
+  "limitations": [
+    "Manual calendar import not executed in external software",
+    "No sync for cancellation/rescheduling, no tracker connector",
+    "No production HTTPS, banking, Netlify or remote RLS validation",
+    "V1 remains incomplete; see existing coverage matrix checklist"
+  ],
+  "deployments": 0,
+  "captures": {
+    "calendar-1440.png": "f46ca4c7fe6272291c7d3206d9a26155950bf432a2c096c10a5d70e6b43bc98a",
+    "calendar-390.png": "40a242f9f679522ee80c8614146b40fc679f70a6dd5940f7973492bfe99e31ce"
+  },
+  "public_tests": {
+    "passed": 4,
+    "failed": 0,
+    "mode": "development loopback with existing Playwright runner",
+    "suites": [
+      "reservation-calendar",
+      "export-smoke"
+    ]
+  },
+  "scans": {
+    "private": "PASS",
+    "public": "PASS"
+  }
+}
