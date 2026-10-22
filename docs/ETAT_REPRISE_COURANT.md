@@ -2,7 +2,9 @@
 
 Mise à jour : 22 octobre 2026. V1/V2/V3 et refonte globale incomplets. Aucun travail en arrière-plan.
 
-Dernier lot : consolidation documentaire UI/UX uniquement. Compléments dans DESIGN_SYSTEM_GYM.md (références/animations), REFONTE_PROGRESSIVE_2026-10-15.md (audit proportionné/arbitrages) et governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md (comparaison/preuves). Aucun code, build, navigateur ou déploiement dans ce lot ; prochaine priorité V1 ci-dessous inchangée. Vérifier Git pour le commit documentaire livré.
+Dernier lot : parcours recruteur du 22 octobre, [rapport et limites](REVUE_RECRUTEUR_2026-10-22.md). Base distante c0eaf47, worktree isolé GYM-recrutement-20261022 ; aucun travail antérieur du dossier principal intégré. Faux compteur transitoire 4.8/24 reproduit puis retiré : attente API, erreurs/réessai/404 distincts, absence de note cohérente liste/fiche, qualifications fictives et paiement simulé explicites. Preuves et résultats finaux : assets/recruiter-2026-10-22/verification.json. Aucun déploiement ni export public ; vérifier Git pour le SHA livré. Prochaine priorité V1 ci-dessous inchangée ; publication future des correctifs à autoriser séparément.
+
+Lot documentaire précédent : consolidation UI/UX uniquement. Compléments dans DESIGN_SYSTEM_GYM.md (références/animations), REFONTE_PROGRESSIVE_2026-10-15.md (audit proportionné/arbitrages) et governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md (comparaison/preuves).
 
 Publication démo expressément autorisée pour le portfolio : source exacte `54bb70980aebaadad402a2a93d38103f5e23a9b4`, déploiement Netlify `6ad93730f89f5b5157ba9dd6` prêt, `/recherche` contrôlée depuis le bouton Lovable. Rapport `DEPLOIEMENT_DEMO_54BB709_2026-10-22.md` ; remplace les mentions « aucun nouveau déploiement » anciennes pour ce seul état de livraison. Portfolio réorganisé et enregistré dans Lovable, non publié ; aucun nouveau changement métier.
 

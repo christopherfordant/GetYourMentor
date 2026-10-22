@@ -76,7 +76,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     name: coach.name,
     address: coach.city || city || "Zone à confirmer",
     city: coach.city || city,
-    meta: `${coach.rating.toFixed(1)} (${coach.reviewCount} avis) · ${coach.specialty}`,
+    meta: `${coach.reviewCount > 0 ? `${coach.rating.toFixed(1)} (${coach.reviewCount} avis)` : "Pas encore de note"} · ${coach.specialty}`,
     morning: [],
     afternoon: [],
     cta: "Voir le profil",

@@ -8,6 +8,8 @@
 
 > **Paiement et suivi personnel — 21 octobre :** [Factory sans changement de contrat métier](docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md), simulation et objectif privé distincts ; consulter le rapport pour les modes et limites de recette.
 
+> Parcours recruteur — 22 octobre : [correction de la note transitoire et preuves](docs/REVUE_RECRUTEUR_2026-10-22.md). Source de vérité API, états attente/erreur/absent distincts et données de démonstration explicites. Lot local ciblé, aucun déploiement ; les règles métier restent inchangées.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.

@@ -13,7 +13,7 @@ export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?
   const label = discoverySports.find(([slug]) => slug === sportSlug)?.[1] ?? initial[1];
   const title = sportSlug === "metiers-de-la-forme" ? "Trouver un coach fitness qui te correspond" : `Trouver un coach de ${label.toLowerCase()} qui te correspond`;
 
-  return <DiscoveryFrame page="search">
+  return <DiscoveryFrame page="search" demo={demo}>
     <main className="de-main" data-sport-page data-sport-theme={sportSlug}>
       <section className="de-search-hero" aria-label="Trouver un coach">
         <div>

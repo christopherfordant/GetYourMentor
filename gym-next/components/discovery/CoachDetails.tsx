@@ -2,7 +2,7 @@ import { ContactCoachForm } from "@/components/booking-legacy/ContactCoachForm";
 
 type ProfileDetails = { bio: string; specialty: string; diploma: string; disciplines?: string; sessionTypes?: string; availability?: string };
 
-export function CoachDetails({ coach, profile, isActive }: { coach: string; profile: ProfileDetails; isActive: boolean }) {
+export function CoachDetails({ coach, profile, isActive, demo = false }: { coach: string; profile: ProfileDetails; isActive: boolean; demo?: boolean }) {
   return <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="apropos" id="booking-apropos-section" role="tabpanel" aria-labelledby="booking-tab-apropos" tabIndex={0}>
     <div className="de-booking-pane-grid">
       <div className="de-booking-pane-main">
@@ -22,7 +22,7 @@ export function CoachDetails({ coach, profile, isActive }: { coach: string; prof
           <div className="de-booking-story-sequence">
             <div className="de-booking-story-sequence-item"><span>01</span><strong>Propose tes disponibilités</strong><span>Les créneaux sont vérifiés à l’étape suivante.</span></div>
             <div className="de-booking-story-sequence-item"><span>02</span><strong>Attends l’acceptation du coach</strong><span>Une demande ne confirme pas encore la séance.</span></div>
-            <div className="de-booking-story-sequence-item"><span>03</span><strong>Passe au paiement</strong><span>Après acceptation, depuis ton compte.</span></div>
+            <div className="de-booking-story-sequence-item"><span>03</span><strong>{demo ? "Simule le paiement" : "Passe au paiement"}</strong><span>Après acceptation, depuis ton compte.</span></div>
           </div>
           <p>Les conditions de réservation et d’annulation sont précisées dans les <a href="/legal/cgv">conditions de vente</a>. Aucun avantage Premium n’est activé depuis cette fiche.</p>
         </article>

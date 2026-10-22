@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 import { CoachDetails } from "@/components/discovery/CoachDetails";
-import { coachProfiles, type CoachProfile } from "@/lib/domain";
+import type { CoachProfile } from "@/lib/domain";
 
 type ReserverSeanceLegacyPageProps = {
   params: Record<string, string | undefined>;
@@ -91,7 +91,7 @@ function BookingScorePanel({
       <p className="de-booking-score-meta" data-booking-score-copy>
         {profile.reviews}
       </p>
-      <p className="de-booking-score-breakdown">Note du catalogue ; sous-notes non disponibles.</p>
+      <p className="de-booking-score-breakdown">Note calculée sur les avis enregistrés ; sous-notes non disponibles.</p>
       <div className="de-booking-score-facts">
         <div className="de-booking-score-fact">
           <span>Activité</span>
@@ -343,30 +343,37 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
 
   const coach = params.coach || "Studio Form Marseille";
   const city = params.city || "Paris";
-  const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? coachProfiles.find(item => item.id === coach || item.name.toLowerCase() === coach.toLowerCase()) ?? null : null);
-  const [profileState, setProfileState] = useState<"loading" | "ready" | "error">(() => coachData ? "ready" : "loading");
+  // The API owns review statistics. Presentation fixtures must never appear as reviews.
+  const [coachData, setCoachData] = useState<CoachProfile | null>(null);
+  const [profileState, setProfileState] = useState<"loading" | "ready" | "missing" | "error">("loading");
+  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
-    let active = true;
-    fetch(`/api/coaches/${encodeURIComponent(coach)}`)
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
-      .then((payload) => {
-        if (!payload.data || !(payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) throw new Error("Profil indisponible");
-        if (active) { setCoachData(payload.data as CoachProfile); setProfileState("ready"); }
+    const controller = new AbortController();
+    setCoachData(null); setProfileState("loading");
+    fetch(`/api/coaches/${encodeURIComponent(coach)}`, { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) })
+      .then(async response => {
+        if (response.status === 404) return null;
+        if (!response.ok) throw new Error("Profil indisponible");
+        return response.json();
       })
-      .catch(() => { if (active) setProfileState("error"); });
-    return () => {
-      active = false;
-    };
-  }, [coach]);
+      .then((payload) => {
+        if (controller.signal.aborted) return;
+        if (payload === null) { setProfileState("missing"); return; }
+        if (!payload.data || !(payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) throw new Error("Profil indisponible");
+        setCoachData(payload.data as CoachProfile); setProfileState("ready");
+      })
+      .catch(() => { if (!controller.signal.aborted) setProfileState("error"); });
+    return () => controller.abort();
+  }, [coach, attempt]);
   const profile = {
     followers: "Activité non publiée",
-    qualification: coachData?.verified ? "Profil vérifié" : "Vérification à confirmer",
+    qualification: allowDemoFallback ? "Validation simulée — profil de test" : coachData?.verified ? "Profil vérifié" : "Vérification à confirmer",
     reviews: coachData?.reviewCount ? `${coachData.reviewCount} avis` : "Pas encore d’avis",
     ratingValue: coachData?.reviewCount ? `${coachData.rating.toFixed(1)} / 5` : "Pas encore de note",
     priceFrom: coachData?.priceFrom,
     specialty: coachData?.specialty ?? "",
     bio: coachData?.description ?? "",
-    diploma: coachData?.diplomas?.replace(/\s+—\s+à compléter$/i, "") ?? "",
+    diploma: coachData?.diplomas ? `${coachData.diplomas.replace(/\s+—\s+à compléter$/i, "")}${allowDemoFallback ? " — donnée fictive" : ""}` : "Non renseigné",
     disciplines: coachData?.disciplines ?? "",
     sessionTypes: coachData?.sessionTypes ?? "",
     availability: coachData?.availability ?? "",
@@ -400,9 +407,10 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
         <main className="de-booking-page de-booking-profile-page" data-booking-page>
           {!coachData ? (
             <section className="de-booking-card" data-coach-unavailable role="status" aria-busy={profileState === "loading"}>
-              <h1>{profileState === "loading" ? "Chargement du profil…" : "Profil coach indisponible"}</h1>
-              <p>{profileState === "loading" ? "Nous récupérons les informations du catalogue." : "Ce profil est introuvable ou le catalogue est momentanément indisponible."}</p>
-              {profileState === "error" && <a className="de-button" href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city })}>Revenir aux coachs</a>}
+              <h1>{profileState === "loading" ? "Chargement du profil…" : profileState === "missing" ? "Profil coach introuvable" : "Profil coach indisponible"}</h1>
+              <p>{profileState === "loading" ? "Nous récupérons les informations du catalogue." : profileState === "missing" ? "Ce profil n’est pas disponible dans le catalogue." : "Le catalogue est momentanément indisponible. Aucune donnée de présentation ne remplace sa réponse."}</p>
+              {profileState === "error" && <button className="de-button" type="button" onClick={() => setAttempt(value => value + 1)}>Réessayer le profil</button>}
+              {profileState !== "loading" && <a className="de-button" href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city })}>Revenir aux coachs</a>}
             </section>
           ) : (
             <>
@@ -415,7 +423,7 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
                 onTabChange={setActiveTab}
                 galleryMainRef={galleryMainRef}
               />
-              <CoachDetails coach={coachLabel} profile={profile} isActive={activeTab === "apropos"} />
+              <CoachDetails coach={coachLabel} profile={profile} demo={allowDemoFallback} isActive={activeTab === "apropos"} />
               <BookingPlanningPane
                 isActive={activeTab === "planning"}
                 weekIndex={weekIndex}

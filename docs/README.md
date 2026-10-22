@@ -8,6 +8,8 @@
 
 > Paiement et suivi personnel — 21 octobre : [harmonisation Factory](PAIEMENT_SUIVI_FACTORY_2026-10-21.md), rôles des pages conservés et contrats de simulation/reprise inchangés ; résultats et limites dans le rapport.
 
+> Parcours recruteur — 22 octobre : [correction de la note transitoire et preuves](REVUE_RECRUTEUR_2026-10-22.md), lecture API et statuts démo explicites ; aucun déploiement ni recette globale.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.
