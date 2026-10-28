@@ -1,4 +1,6 @@
 "use client";
+import { SportIllustration } from "@/components/discovery/SportIllustration";
+import { SportIcon } from "@/components/discovery/SportIcon";
 
 import { useState } from "react";
 import { DiscoveryFrame, DiscoveryIntro, DiscoverySteps, discoverySports } from "@/components/discovery/DiscoveryFrame";
@@ -32,6 +34,7 @@ export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?
           <p className="de-note">Compare les profils avant de proposer un créneau. La séance reste soumise à l’acceptation du coach.</p>
         </form>
       </section>
+      <section aria-label={`Entraînement ${label}`}><p><SportIcon sport={sportSlug} />{label}</p><SportIllustration sport={sportSlug} /></section>
       <section className="de-city-section" aria-labelledby="de-cities-title">
         <div className="de-section-heading"><div><p className="de-eyebrow" data-sport-kicker>{label}</p><h2 id="de-cities-title">Ton prochain terrain.<br />Près de chez toi.</h2></div><p>Explore une ville ou précise ton lieu dans la recherche. Les résultats dépendent du catalogue disponible.</p></div>
         <div className="de-city-grid" data-sport-grid>{cities.map((name, i) => <a className="de-city-card" key={name} href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city: name })}><span className="de-city-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span><span><span className="de-note">DÉCOUVRIR</span><h3>{["Paris", "Lyon", "Marseille"].includes(name) ? `Coachs de ${label} - ${name}` : `Coachs de ${label} à ${name}`}</h3></span><span className="de-city-arrow" aria-hidden="true">↗</span></a>)}</div>

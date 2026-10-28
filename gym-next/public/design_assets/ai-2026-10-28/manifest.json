@@ -1,0 +1,156 @@
+[
+  {
+    "id": "coach-basketball",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "coach-basketball-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 17722,
+        "sha256": "76b6474a773b07a664903f16eab45c82262805f012bb7065ad3744732110e032"
+      },
+      {
+        "filename": "coach-basketball-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 56876,
+        "sha256": "650f0719b89ca93bb63a84626344485b1055b2863e6497fc9621609d5ddc62b9"
+      }
+    ]
+  },
+  {
+    "id": "coach-football",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "coach-football-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 24088,
+        "sha256": "946d73aea9508f75fe05bdd06add975838aeedaf4ca0d56d17a1e6ae8985ba57"
+      },
+      {
+        "filename": "coach-football-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 61906,
+        "sha256": "96c5fe4aadebb845aae8346829b02161345a76ad347299601867e7c87cf17cc7"
+      }
+    ]
+  },
+  {
+    "id": "coach-fitness",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "coach-fitness-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 22062,
+        "sha256": "31af3fc0122fd0da706b4cfde33931493379852038d1aa12799c4cdaa10b0111"
+      },
+      {
+        "filename": "coach-fitness-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 59598,
+        "sha256": "801462471650495fac96b7c98e1618b11e2c4bdb685aeb29e867e49f477b2580"
+      }
+    ]
+  },
+  {
+    "id": "scene-football",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "scene-football-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 41752,
+        "sha256": "07717219a337c3e82a02c0b33632e39e74a64193234f8b2f2ed8fb647e6f6794"
+      },
+      {
+        "filename": "scene-football-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 120434,
+        "sha256": "a08ea66587fd0aa4ab60e5743fe54ffb0d60a2251d8dbe191920484467ef0a3e"
+      }
+    ]
+  },
+  {
+    "id": "scene-basketball",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "scene-basketball-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 45596,
+        "sha256": "1bccaa3c7ef0fca3fc1d9f3c490b9186cca0a19987db66ed5b05c0b7e74cd1a6"
+      },
+      {
+        "filename": "scene-basketball-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 116414,
+        "sha256": "8970f7fa24d453f9f2a43c8bfd0e681e925dc4a6c15eb0e8c53f34f9f0ea3620"
+      }
+    ]
+  },
+  {
+    "id": "scene-fitness",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "scene-fitness-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 28042,
+        "sha256": "dd888d1dd8bff86dcb67959e57cae74894456831abfa1f5f1b51e28d6bcecaf2"
+      },
+      {
+        "filename": "scene-fitness-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 71536,
+        "sha256": "22abd4509707a0da7b28eebd742be21a02e883ceb07d0a98db241defd310d00c"
+      }
+    ]
+  },
+  {
+    "id": "scene-combat",
+    "origin": "OpenAI built-in image_gen, 2026-10-28; fictional adults",
+    "originalWidth": 1536,
+    "originalHeight": 1024,
+    "variants": [
+      {
+        "filename": "scene-combat-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 29412,
+        "sha256": "c197edd00505370ae440e3dbe9e2a2d6585158f82fb662b0a7b86f747205e5fc"
+      },
+      {
+        "filename": "scene-combat-1280.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 81064,
+        "sha256": "0e8cdbe5612566654fab627fbc3fa1886048d546117b2ac96115fc78398f5463"
+      }
+    ]
+  }
+]

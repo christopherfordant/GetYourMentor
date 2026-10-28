@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { CoachVisual } from "@/components/discovery/CoachVisual";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame, DiscoveryIntro, DiscoverySteps, discoverySports } from "@/components/discovery/DiscoveryFrame";
 
@@ -13,6 +14,8 @@ type SelectionCoachsLegacyPageProps = {
 };
 
 type CoachEntry = {
+  photoUrl?: string;
+  demoIllustration?: boolean;
   id?: string;
   city?: string;
   name: string;
@@ -308,10 +311,9 @@ function CoachResultCard({
 
   return (
     <article className="de-coach-result-card" data-coach-card>
-      <div
-        className="de-coach-result-media"
-        aria-hidden="true"
-      ><span>{coach.name.split(" ").map(part => part[0]).slice(0, 2).join("")}</span><small>{directoryDictionary[sportSlug as keyof typeof directoryDictionary]?.name}</small></div>
+      <div className="de-coach-result-media" style={{ padding: 0, display: 'block' }}>
+        <CoachVisual coachId={coach.id} name={coach.name} photoUrl={coach.photoUrl} demo={coach.demoIllustration} />
+      </div>
       <div className="de-coach-result-body">
         <div className="de-coach-result-top">
           <h2>{coach.name}</h2>

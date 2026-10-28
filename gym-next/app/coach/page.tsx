@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 import { ReserverSeanceLegacyPage } from "@/components/booking-legacy/ReserverSeanceLegacyPage";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
 import { buildCanonical, buildPageMetadata, getSportLabel } from "@/lib/seo";
@@ -42,6 +43,7 @@ export default async function CoachPage({ searchParams }: CoachPageProps) {
       key={normalizedParams.coach ?? "default"}
       params={normalizedParams}
       allowDemoFallback={isDemoFallbackAllowed()}
+      demoIllustrations={isIsolatedDemoFeatureEnabled()}
     />
   );
 }

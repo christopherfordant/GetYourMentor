@@ -1,6 +1,7 @@
 "use client";
 import { StructureOffers } from "@/components/StructureOffers";
 import { CoachReviews } from "@/components/discovery/CoachReviews";
+import { CoachVisual } from "@/components/discovery/CoachVisual";
 
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -12,6 +13,7 @@ import { coachProfiles, type CoachProfile } from "@/lib/domain";
 type ReserverSeanceLegacyPageProps = {
   params: Record<string, string | undefined>;
   allowDemoFallback?: boolean;
+  demoIllustrations?: boolean;
 };
 
 type WeekDay = {
@@ -35,25 +37,6 @@ type BookingProfile = {
   sessionTypes?: string;
   availability?: string;
 };
-
-const bookingVisualDictionary = {
-  football: {
-    hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("/design_assets/content_library/web_reference/football-coaching.jpg") center 18% / cover no-repeat',
-  },
-  basketball: {
-    hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("/design_assets/content_library/basketball/basketball-training-athlete.jpg") center 14% / cover no-repeat',
-  },
-  "metiers-de-la-forme": {
-    hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.12), rgba(14, 18, 28, 0.08)), url("/design_assets/sports_sources/fitness.jpg") center 10% / cover no-repeat',
-  },
-  "sports-de-combat": {
-    hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("/design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 18% / cover no-repeat',
-  },
-} as const;
 
 const weekSets: WeekDay[][] = [
   [
@@ -114,7 +97,9 @@ function BookingHeroSection({
   coach,
   city,
   profile,
-  heroBackground,
+  coachId,
+  photoUrl,
+  demoIllustrations,
   activeTab,
   onTabChange,
   galleryMainRef,
@@ -122,7 +107,9 @@ function BookingHeroSection({
   coach: string;
   city: string;
   profile: BookingProfile;
-  heroBackground: string;
+  coachId?: string;
+  photoUrl?: string;
+  demoIllustrations?: boolean;
   activeTab: "apropos" | "planning" | "contenus";
   onTabChange: (value: "apropos" | "planning" | "contenus") => void;
   galleryMainRef: RefObject<HTMLDivElement | null>;
@@ -148,9 +135,7 @@ function BookingHeroSection({
               ref={galleryMainRef}
               className="de-booking-gallery-main"
               data-booking-gallery-main
-              style={{ background: heroBackground }}
-            ></div>
-            <span className="de-booking-gallery-caption">Visuel d’illustration, sans identification du coach.</span>
+            ><CoachVisual coachId={coachId} name={coach} photoUrl={photoUrl} demo={demoIllustrations} priority /></div>
           </div>
 
           <aside className="de-booking-profile-score-wrap">
@@ -342,7 +327,7 @@ function BookingContenusPane({
 }
 
 
-export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: ReserverSeanceLegacyPageProps) {
+export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, demoIllustrations = false }: ReserverSeanceLegacyPageProps) {
   const sportSlug = useMemo(() => {
     const sport = params.sport;
     if (sport && Object.hasOwn(bookingProfileDictionary, sport)) {
@@ -384,7 +369,6 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
   const coachLabel = coachData?.name ?? coach;
   const coachCity = coachData?.city ?? city;
   const resolvedSport = coachData?.sport === "fitness" ? "metiers-de-la-forme" : coachData?.sport ?? sportSlug;
-  const visual = bookingVisualDictionary[resolvedSport];
   const [selectedSlot, setSelectedSlot] = useState(params.slot || weekSets[0][0].slots[0] || "10:00");
   const confirmHref = useMemo(
     () =>
@@ -438,7 +422,9 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false }: 
                 coach={coachLabel}
                 city={coachCity}
                 profile={profile}
-                heroBackground={visual.hero}
+                coachId={coachData.id}
+                photoUrl={coachData.photoUrl}
+                demoIllustrations={demoIllustrations}
                 activeTab={activeTab}
                 onTabChange={setActiveTab}
                 galleryMainRef={galleryMainRef}

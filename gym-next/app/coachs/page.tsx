@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isIsolatedDemoFeatureEnabled } from "@/lib/runtime";
 import { SelectionCoachsLegacyPage } from "@/components/directory-legacy/SelectionCoachsLegacyPage";
 import { filterStoredCoaches } from "@/lib/coaches";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
@@ -72,6 +73,8 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     }
   }
   const initialCoaches = persistedCoaches?.map((coach) => ({
+    photoUrl: coach.photoUrl,
+    demoIllustration: isIsolatedDemoFeatureEnabled(),
     id: coach.id,
     name: coach.name,
     address: coach.city || city || "Zone à confirmer",

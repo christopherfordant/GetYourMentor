@@ -1,5 +1,15 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : bibliothèque d'images IA
+
+Demande suivante autorisée : enrichir les images, sans réconciliation Git ni déploiement. [Rapport, inventaire et correspondances](IMAGES_IA_2026-10-28.md), [preuves](assets/ai-visuals-2026-10-28/verification.json), prompts et six captures dans le même dossier. Cette section remplace le statut « audit uniquement » ci-dessous pour ce lot d'images seulement.
+
+- Terminé localement : sept originaux générés avec image_gen et inspectés (trois portraits illustratifs démo, quatre scènes adultes), 14 variantes WebP de 640/1280 px totalisant 776 502 octets, quatre SVG natifs. Assets dans `gym-next/public/design_assets/ai-2026-10-28/`, manifeste dimensions/tailles/SHA et prompts documentés.
+- Intégration : `/coachs` et `/coach` utilisent la même association stable par ID, uniquement en démo isolée ; photo fournie prioritaire, ID inconnu/non-démo ou image cassée → initiales, sans portrait emprunté. Mention visible IA, sans identification de la personne nommée ; aucune photo persistée remplacée. `/recherche` suit les quatre disciplines avec scènes/pictogrammes. Accueil, anciens carrousels et comptes antérieurement modifiés laissés hors lot.
+- Contrôles locaux : sept scénarios bibliothèque PASS, deux scénarios existants découverte PASS, 390/1440 px sans débordement mesuré ; typage ciblé PASS en excluant temporairement les copies historiques playwright-artifacts. Configuration types canonique inchangée, échec standard précédent non réparé. Erreur d'image avant hydratation corrigée ; navigation carte → fiche explicitement attendue. Captures synthétiques, aucune mutation métier. Pas de build production ou recette distante.
+- Git : base locale `31067cc01ee0af62fb66489f03965d79b169d7e1`, branche `design/refonte-progressive-lot1`. Push réel du lot rejeté `non-fast-forward`, code 1 ; distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Le commit local est identifiable par Git. Les 20 fichiers suivis modifiés et 79 entrées non suivies antérieurs restent exclus du lot. Serveur temporaire arrêté, fichiers de contrôle temporaires retirés, diff indexé vérifié. Aucun force-push/fusion/déploiement.
+- Prochaine action : traiter le blocage Git selon instruction utilisateur et valider l'intégration avec les neuf commits distants avant publication éventuelle. Étendre la bibliothèque seulement à des profils/emplacements réellement identifiés. Aucun agent ajouté ni quota inventé ; les nouveaux visuels ne sont pas annoncés visibles sur le site hébergé.
+
 ## Reprise active — 28 octobre 2026 : audit avant refonte
 
 Demande actuelle : audit factuel et plan progressif uniquement, aucune refonte exécutée. [Audit, matrice des fonctionnalités, preuves et lots proposés](AUDIT_REPRISE_REFONTE_2026-10-28.md). Cette section remplace les prochaines actions et états de livraison obsolètes du relais local ci-dessous.
