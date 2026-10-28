@@ -1,5 +1,17 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : Factory global et publication Netlify autorisée
+
+Demande actuelle : harmoniser les pages, puis publier sur le site Netlify existant. Autorisation explicite de publication sur la démo isolée `https://getyourmentor-demo-20261014.netlify.app`, site `86e0379e-4d1a-4cf0-936c-1439397354f4` confirmé via API ; aucun autre site ou service commercial. [Périmètre, preuves et limites](FACTORY_HARMONISATION_NETLIFY_2026-10-28.md).
+
+- Terminé localement : Factory global, surfaces et champs comptes/paiement/collectif/contenus/suivi/footer, récupération et 404, header des pages légales/admin. Les fonctions métier, droits et historiques sont conservés. Pas de nouveaux carrousels, sections ou images dans ce lot.
+- Contrôles locaux finaux : 16 tests présentation/navigation PASS (39,4 s), 9 régressions images/recherche/annuaire PASS (14,2 s), build avec vérification des types PASS, configuration Netlify/frontière client-secrets/secrets suivis PASS. 24 routes/états à quatre largeurs ; trois espaces connectés à deux largeurs. Captures inspectées, 23 fichiers applicatifs du lot comparés au checkout isolé. Limites : recette locale d'acceptation, pas audit intégral ni preuve d'authentification de production.
+- Checkout isolé `C:/Users/cashe/Documents/GYM-factory-unification-20261028` ; aucun fichier antérieur non vérifié copié pour la publication. Vingt fichiers suivis et 79 entrées non suivies antérieurs préservés hors lot. La page `/demo` non suivie et les modifications antérieures du layout restent locales.
+- Étape en cours : commit source ciblé, préparation Netlify via `deploy-isolated-demo.py --prepare-only`, puis publication uniquement après contrôle du paquet avec `--prepared`. Ces options vérifient sources/BUILD_ID/empreinte. Le relais sera complété avec le résultat distant ; préparation ne vaut pas publication.
+- Git reste divergent : distant connu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Aucun pull/rebase/fusion/force-push. Publication Netlify autorisée séparément du push Git, lequel sera tenté sans contournement.
+
+Les reprises suivantes décrivent les lots antérieurs.
+
 ## Reprise active — 28 octobre 2026 : premier lot navigation Factory
 
 Arbitrage utilisateur prioritaire : contenus/parcours vérifiés Lovable, thème Factory anthracite/orange conservé, header local adapté, images IA locales prioritaires et panneau droit validé. Anciennes directions violet/quatre disciplines remplacées dans ce périmètre ; protections métier, historiques et autorisations conservés. [Rapport, matrice et limites](REFONTE_NAVIGATION_FACTORY_2026-10-28.md).

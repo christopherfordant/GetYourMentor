@@ -1,22 +1,5 @@
-/* Approved pitch direction, 15 October 2026. Opt-in: existing pages keep their theme. */
-:root {
-  --gym-font-body: Arial, Helvetica, sans-serif;
-  --gym-font-display: Impact, "Arial Narrow", Arial, sans-serif;
-  --gym-paper: #f6f4f0;
-  --gym-surface: #ffffff;
-  --gym-ink: #141316;
-  --gym-muted: #625e69;
-  --gym-primary: #872bbf;
-  --gym-primary-hover: #612087;
-  --gym-primary-soft: #eee4f7;
-  --gym-line: #dedbe3;
-  --gym-focus: #3863f2;
-  --gym-radius: 12px;
-  --gym-space: 24px;
-}
-
-/* Factory is the approved target; opt-in protects legacy pages awaiting review. */
-body:has(.gym-theme-factory), .gym-theme-factory {
+/* Factory is the shared contract on all routes. */
+:root, body, .gym-theme-factory {
   --gym-font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --gym-font-display: var(--gym-font-body);
   --gym-paper: #141414;
@@ -29,7 +12,20 @@ body:has(.gym-theme-factory), .gym-theme-factory {
   --gym-primary-soft: #30221b;
   --gym-action: #c2410c;
   --gym-action-hover: #9a3412;
-  --gym-line: #454545;
+  --gym-line: #606060;
   --gym-focus: #ff8a4c;
+  --gym-danger: #ffb4ab;
+  --gym-danger-soft: #3a2020;
+  --gym-success: #b4dbba;
+  --gym-radius: 12px;
+  --gym-space: 24px;
+  --bg: var(--gym-paper);
+  --surface: var(--gym-surface);
+  --surface-soft: var(--gym-surface-raised);
+  --surface-alt: var(--gym-primary-soft);
+  --ink: var(--gym-ink);
+  --ink-soft: var(--gym-muted);
+  --line: var(--gym-line);
+  --border: var(--gym-line);
   color-scheme: dark;
 }

@@ -68,6 +68,9 @@ try:
         assert manifest.is_file() and json.loads(manifest.read_text())==proof, "Prepared artifact is stale or unverified: abort"
     else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
     temporary.write_text(base+'\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n',encoding="utf-8")
+    if "--prepare-only" in sys.argv:
+        print("Verified isolated-demo package prepared; no publication requested",flush=True)
+        sys.exit(0)
     print("Publishing verified package to the isolated demo only",flush=True)
     subprocess.run(["node",str(cli),"deploy","--site",SITE,"--prod","--no-build","--dir",str(app/".netlify/static"),"--message","GetYourMentor isolated demo: verified source "+source_commit],cwd=app,env=env,check=True)
 finally:

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { buildCanonical } from "@/lib/seo";
 import { SiteFooter } from "@/components/SiteFooter";
+import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 
 const documents = {
   cgv: {
@@ -62,6 +63,7 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
+      <PlatformHeader />
       <main className="legal-placeholder-page">
       <div className="legal-placeholder-card">
         <p className="legal-placeholder-kicker">Informations provisoires</p>

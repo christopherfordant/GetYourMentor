@@ -9,7 +9,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account { background: var(--gym-paper) !important; color: var(--gym-ink); height: auto !important; max-height: none !important; overflow: visible !important; }
 #gym-account > .topbar { background: var(--gym-surface) !important; border-color: var(--gym-line) !important; }
 #gym-account > .topbar :is(a, .language-selector-trigger) { color: var(--gym-ink) !important; }
-#gym-account > .topbar .account-button { color: white !important; background: var(--gym-primary) !important; border-color: var(--gym-primary) !important; }
+#gym-account > .topbar .account-button { color: white !important; background: var(--gym-action) !important; border-color: var(--gym-primary) !important; }
 #gym-account > .topbar .language-selector-trigger { background: var(--gym-primary-soft) !important; border-color: var(--gym-line) !important; }
 
 #gym-account .account-page {
@@ -49,7 +49,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
   margin-bottom: 24px;
 }
 #gym-account .account-session-controls a { color: var(--gym-ink); }
-#gym-account .account-session-controls button { background: var(--gym-primary); border-color: var(--gym-primary); color: white; }
+#gym-account .account-session-controls button { background: var(--gym-action); border-color: var(--gym-primary); color: white; }
 #gym-account .account-page :is(h1,h2,h3,h4) { color: var(--gym-ink) !important; }
 #gym-account .account-page :is(p,.auth-field > span,.auth-caption,.auth-helper) { color: var(--gym-muted) !important; }
 #gym-account :is(.account-dashboard, .coach-home-focus) {
@@ -84,10 +84,10 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .account-dashboard h3 { font-size: 20px; line-height: 1.3; letter-spacing: -.025em; }
 #gym-account .account-dashboard a { color: var(--gym-primary-hover); }
 #gym-account .account-dashboard button { min-height: 44px; }
-#gym-account .account-page :is(input,select,textarea) { max-width: 100%; min-width: 0; color: var(--gym-ink) !important; background: var(--gym-surface) !important; border-color: #9b91a5 !important; }
+#gym-account .account-page :is(input,select,textarea) { max-width: 100%; min-width: 0; color: var(--gym-ink) !important; background: var(--gym-surface) !important; border-color: var(--gym-line) !important; }
 #gym-account .account-page input::placeholder, #gym-account .account-page textarea::placeholder { color: var(--gym-muted); opacity: 1; }
-#gym-account :is(.auth-primary, .account-primary-action) { background: var(--gym-primary) !important; color: white !important; border-color: var(--gym-primary) !important; }
-#gym-account :is(.auth-secondary, .account-inline-actions button) { background: var(--gym-primary-soft); color: var(--gym-primary-hover); border: 1px solid #c9b3dc; }
+#gym-account :is(.auth-primary, .account-primary-action) { background: var(--gym-action) !important; color: white !important; border-color: var(--gym-primary) !important; }
+#gym-account :is(.auth-secondary, .account-inline-actions button) { background: var(--gym-primary-soft); color: var(--gym-primary-hover); border: 1px solid var(--gym-line); }
 #gym-account :is(a,button,input,select,textarea,[data-coach-action-message]):focus-visible { outline: 3px solid var(--gym-focus) !important; outline-offset: 3px; }
 #gym-account :is(.account-dashboard-grid,.coach-home-profile-preview-grid) { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; min-width: 0; }
 #gym-account .coach-home-profile-preview-grid > div { min-width: 0; padding: 14px; background: var(--gym-paper); border: 1px solid var(--gym-line); border-radius: 8px; }
@@ -127,9 +127,9 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
   white-space: normal !important;
   word-break: normal !important;
 }
-#gym-account .coach-home-sidebar a:hover { background: #e2d1f0 !important; }
+#gym-account .coach-home-sidebar a:hover { background: var(--gym-surface-raised) !important; }
 #gym-account .coach-home-nav-heading { color: var(--gym-muted) !important; font-size: 11px !important; letter-spacing: .08em; padding: 8px 0 !important; }
-#gym-account .coach-home-nav-main { width: 100% !important; min-height: 44px; padding: 12px !important; border: 0 !important; border-radius: 7px; color: white !important; background: var(--gym-primary) !important; }
+#gym-account .coach-home-nav-main { width: 100% !important; min-height: 44px; padding: 12px !important; border: 0 !important; border-radius: 7px; color: white !important; background: var(--gym-action) !important; }
 #gym-account .coach-home-focus { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
 #gym-account .coach-home-focus > :is(.coach-home-next-session,.coach-home-profile-preview,.coach-home-standalone-cta) { grid-column: 1 / -1 !important; }
 #gym-account .coach-home-focus > * { min-width: 0; position: relative; inset: auto; }
@@ -169,14 +169,14 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .language-selector-menu :is(button,.language-selector-menu-title) { color: var(--gym-ink) !important; }
 #gym-account .language-selector-menu button { background: var(--gym-surface) !important; min-height: 44px; }
 #gym-account .language-selector-menu button:is(:hover,.is-selected) { color: var(--gym-primary-hover) !important; background: var(--gym-primary-soft) !important; }
-#gym-account .account-page :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { width: 100%; min-height: 44px; padding: 12px 14px !important; border: 1px solid #9b91a5 !important; border-radius: 10px !important; font: inherit; line-height: 1.5; box-sizing: border-box; }
-#gym-account .account-page select { color-scheme: light; padding-right: 32px; }
-#gym-account .account-page option { background: white; color: var(--gym-ink); }
+#gym-account .account-page :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { width: 100%; min-height: 44px; padding: 12px 14px !important; border: 1px solid var(--gym-line) !important; border-radius: 10px !important; font: inherit; line-height: 1.5; box-sizing: border-box; }
+#gym-account .account-page select { color-scheme: dark; padding-right: 32px; }
+#gym-account .account-page option { background: var(--gym-surface); color: var(--gym-ink); }
 #gym-account .account-page textarea { min-height: 120px; resize: vertical; }
 #gym-account .account-page :is(input,select,textarea):hover { border-color: var(--gym-primary) !important; }
-#gym-account .account-page :is(input,select,textarea)[aria-invalid=true] { border-color: #b42318 !important; background: #fff4f2 !important; }
+#gym-account .account-page :is(input,select,textarea)[aria-invalid=true] { border-color: var(--gym-danger) !important; background: var(--gym-danger-soft) !important; }
 #gym-account :is(button,input,select,textarea):disabled { opacity: .65; cursor: not-allowed; }
-#gym-account .auth-primary:hover:not(:disabled) { background: var(--gym-primary-hover) !important; }
+#gym-account .auth-primary:hover:not(:disabled) { background: var(--gym-action-hover) !important; }
 #gym-account .auth-field { display: grid; gap: 8px; min-width: 0; margin: 0; }
 #gym-account [data-coach-profile-editor] form { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; margin-top: 24px; }
 #gym-account [data-coach-profile-editor] form > :is(fieldset,button,p), #gym-account [data-coach-profile-editor] form > label:has(textarea) { grid-column: 1 / -1; }
@@ -201,7 +201,7 @@ body:has(#gym-account) { background: var(--gym-paper) !important; }
 #gym-account .account-footer :is(a,p,h3,h4,.footer-brand,.account-footer-bottom) { color: var(--gym-ink) !important; }
 body:has(#gym-account) :is(.cookie-consent-banner,.cookie-preferences-trigger,.back-to-top) { background: var(--gym-surface) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
 body:has(#gym-account) .cookie-consent-banner :is(p,strong) { color: var(--gym-ink) !important; }
-body:has(#gym-account) .cookie-consent-primary { background: var(--gym-primary) !important; color: white !important; }
+body:has(#gym-account) .cookie-consent-primary { background: var(--gym-action) !important; color: white !important; }
 body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; }
 
 #gym-account > .topbar { box-shadow: 0 2px 12px #14131608 !important; }
@@ -236,8 +236,8 @@ body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary
 /* Shared session action, in flow above every authenticated profile. */
 #gym-account .account-session-controls { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; padding:16px; border:1px solid var(--gym-line); border-radius:12px; background:var(--gym-surface); }
 #gym-account .account-session-controls :is(a,button) { min-height:44px; display:inline-flex; align-items:center; font:inherit; }
-#gym-account .account-session-controls button { padding:10px 16px; background:var(--gym-primary); color:white; border:0; border-radius:8px; cursor:pointer; }
-#gym-account .account-session-controls p { flex-basis:100%; margin:0; color:#b42318; }
+#gym-account .account-session-controls button { padding:10px 16px; background:var(--gym-action); color:white; border:0; border-radius:8px; cursor:pointer; }
+#gym-account .account-session-controls p { flex-basis:100%; margin:0; color:var(--gym-danger); }
 #gym-account .account-session-controls :is(a,button):focus-visible { outline:3px solid var(--gym-focus); outline-offset:3px; }
 #gym-account #account-content { scroll-margin-top:24px; }
 
@@ -253,21 +253,21 @@ body:has(#gym-account) .cookie-consent-secondary { background: var(--gym-primary
 :is(#gym-account,#gym-club-signup) .gym-access-form { display: grid; gap: 20px; color: var(--gym-ink); font: 15px/1.5 var(--gym-font-body); }
 :is(#gym-account,#gym-club-signup) .gym-access-form .auth-field { display: grid; gap: 8px; min-width: 0; }
 :is(#gym-account,#gym-club-signup) .gym-access-form .auth-field > span { color: var(--gym-ink) !important; font: 600 14px/1.5 var(--gym-font-body); letter-spacing: normal; text-transform: none; }
-:is(#gym-account,#gym-club-signup) .gym-access-form :is(input:not([type=checkbox]):not([type=hidden]),select) { width: 100%; min-width: 0; min-height: 44px; padding: 12px 14px !important; border: 1px solid #9b91a5 !important; border-radius: 10px !important; background: white !important; color: var(--gym-ink) !important; font: inherit; }
+:is(#gym-account,#gym-club-signup) .gym-access-form :is(input:not([type=checkbox]):not([type=hidden]),select) { width: 100%; min-width: 0; min-height: 44px; padding: 12px 14px !important; border: 1px solid var(--gym-line) !important; border-radius: 10px !important; background: var(--gym-surface) !important; color: var(--gym-ink) !important; font: inherit; }
 :is(#gym-account,#gym-club-signup) .gym-access-form :is(input,button,a):focus-visible { outline: 3px solid var(--gym-focus); outline-offset: 3px; }
-:is(#gym-account,#gym-club-signup) .gym-access-form [aria-invalid=true] { border-color: #b42318; }
-:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary { min-height: 48px; background: var(--gym-primary) !important; color: white !important; border: 1px solid var(--gym-primary); border-radius: 10px; font: 700 15px/1.5 var(--gym-font-body); }
-:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary:hover:not(:disabled) { background: var(--gym-primary-hover) !important; }
+:is(#gym-account,#gym-club-signup) .gym-access-form [aria-invalid=true] { border-color: var(--gym-danger); }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary { min-height: 48px; background: var(--gym-action) !important; color: white !important; border: 1px solid var(--gym-primary); border-radius: 10px; font: 700 15px/1.5 var(--gym-font-body); }
+:is(#gym-account,#gym-club-signup) .gym-access-form .auth-primary:hover:not(:disabled) { background: var(--gym-action-hover) !important; }
 :is(#gym-account,#gym-club-signup) .gym-access-form :disabled { opacity: .65; cursor: not-allowed; }
 :is(#gym-account,#gym-club-signup) .gym-access-form :is(.auth-helper,[role=alert],[role=status]) { margin: 0; font-size: 13px; line-height: 1.6; overflow-wrap: break-word; }
 #gym-club-signup { background: var(--gym-paper) !important; color: var(--gym-ink) !important; }
-#gym-club-signup > .topbar { position: relative; height: auto; min-height: 80px; flex-wrap: wrap; background: white !important; color: var(--gym-ink) !important; border-bottom: 1px solid var(--gym-line); }
+#gym-club-signup > .topbar { position: relative; height: auto; min-height: 80px; flex-wrap: wrap; background: var(--gym-surface) !important; color: var(--gym-ink) !important; border-bottom: 1px solid var(--gym-line); }
 #gym-club-signup > .topbar a { color: var(--gym-ink) !important; }
-#gym-club-signup > .topbar .account-button { color: white !important; background: var(--gym-primary) !important; border-color: var(--gym-primary) !important; }
+#gym-club-signup > .topbar .account-button { color: white !important; background: var(--gym-action) !important; border-color: var(--gym-primary) !important; }
 #gym-club-signup .club-signup-page { min-height: 0; padding: 32px 20px; max-width: 1240px; margin-inline: auto; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); align-items: start; gap: 32px; background: var(--gym-paper) !important; color: var(--gym-ink) !important; }
 #gym-club-signup .club-signup-visual { min-height: 0; padding: 32px; background: var(--gym-primary-soft); border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
 #gym-club-signup .club-signup-form-panel { min-height: 0; padding: 0; background: transparent !important; }
-#gym-club-signup .club-signup-form-card { width: 100%; max-width: none; padding: 28px; background: white !important; border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
+#gym-club-signup .club-signup-form-card { width: 100%; max-width: none; padding: 28px; background: var(--gym-surface) !important; border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
 #gym-club-signup .club-signup-form-card h1 { color: var(--gym-ink); font: 36px/1.1 var(--gym-font-display); margin: 0 0 16px; }
 #gym-club-signup .club-signup-form-card > .auth-helper { color: var(--gym-muted) !important; font: 14px/1.6 var(--gym-font-body); margin-bottom: 24px; }
 #gym-club-signup .club-signup-grid { gap: 20px; }

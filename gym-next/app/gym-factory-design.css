@@ -1,0 +1,66 @@
+/* Shared Factory finish. Override legacy components without hiding their content. */
+html { background: var(--gym-paper); scroll-padding-top: 24px; }
+body { background: var(--gym-paper) !important; color: var(--gym-ink); font-family: var(--gym-font-body) !important; overflow-x: visible !important; }
+body :is(button,input,select,textarea) { font-family: var(--gym-font-body); accent-color: var(--gym-primary); }
+body :is(a,button,input,select,textarea,summary):focus-visible { outline: 3px solid var(--gym-focus); outline-offset: 3px; }
+body :is(h1,h2,h3,h4) { font-family: var(--gym-font-display); }
+body :is(.site-shell,.account-shell,.club-signup-shell,.legal-placeholder-page) { background: var(--gym-paper) !important; color: var(--gym-ink); }
+body #gym-account, body #gym-club-signup { font-family: var(--gym-font-body); }
+body #gym-account :is(.auth-title,.auth-card h1,.account-page h1), body #gym-club-signup h1 { font-family: var(--gym-font-display) !important; font-weight: 800; letter-spacing: -.035em; text-transform: none; line-height: 1.15; }
+body #gym-account :is(.account-dashboard-card,.auth-card,.coach-home-sidebar) { background: var(--gym-surface) !important; }
+body #gym-account :is(.auth-role-card,.auth-status-message), body #gym-club-signup .auth-secondary { background: var(--gym-surface-raised) !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; }
+body #gym-account .auth-role-card:hover { background: var(--gym-primary-soft) !important; border-color: var(--gym-primary) !important; }
+body #gym-account button.auth-secondary { background: var(--gym-primary-soft) !important; color: var(--gym-primary-hover) !important; border: 1px solid var(--gym-line) !important; }
+body #gym-club-signup .gym-access-form :is(input:not([type=checkbox]),select,textarea) { background: var(--gym-surface) !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; }
+body #gym-account :is(.auth-primary,.account-primary-action,.coach-home-nav-main,.account-session-controls button), body #gym-club-signup .auth-primary { background: var(--gym-action) !important; color: white !important; border-color: var(--gym-action) !important; }
+body #gym-account :is(.auth-primary,.account-primary-action,.coach-home-nav-main,.account-session-controls button):hover:not(:disabled), body #gym-club-signup .auth-primary:hover:not(:disabled) { background: var(--gym-action-hover) !important; }
+body #gym-account .account-dashboard :is([role=alert],.account-error), body #gym-club-signup [role=alert] { color: var(--gym-danger) !important; }
+
+body .site-shell.payment-shell { min-height: 100dvh; background: var(--gym-paper) !important; }
+body .site-shell.payment-shell .payment-page { width: min(100%,1240px); margin-inline: auto; padding: 40px 24px 48px !important; gap: 32px; background: var(--gym-paper) !important; }
+body .site-shell.payment-shell .payment-form { background: transparent !important; }
+body .site-shell.payment-shell .payment-field > span { color: var(--gym-muted) !important; }
+body .site-shell.payment-shell :is(.payment-main,.payment-intro) { min-width: 0; }
+body .site-shell.payment-shell :is(.payment-card,.payment-summary-card,.payment-success-card,.payment-intro-badge) { background: var(--gym-surface) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; border-radius: var(--gym-radius); box-shadow: none !important; }
+body .site-shell.payment-shell :is(h1,h2,h3,strong,label) { color: var(--gym-ink) !important; }
+body .site-shell.payment-shell :is(p,.payment-summary-line span,.payment-summary-total span) { color: var(--gym-muted) !important; }
+body .site-shell.payment-shell :is(.payment-kicker,.payment-secondary-link) { color: var(--gym-primary-hover) !important; }
+body .site-shell.payment-shell :is(.payment-method,.payment-field) { background: var(--gym-surface-raised) !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; box-shadow: none !important; }
+body .site-shell.payment-shell .payment-method.is-active { background: var(--gym-primary-soft) !important; border-color: var(--gym-primary) !important; }
+body .site-shell.payment-shell :is(input,select,textarea) { background: var(--gym-surface-raised) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; min-height: 44px; max-width: 100%; }
+body .site-shell.payment-shell :is(.payment-submit,.payment-primary-link) { background: var(--gym-action) !important; color: white !important; border-color: var(--gym-action) !important; min-height: 48px; }
+body .site-shell.payment-shell :is(.payment-submit,.payment-primary-link):hover:not(:disabled) { background: var(--gym-action-hover) !important; }
+body .site-shell.payment-shell :is(button:disabled,input:disabled) { opacity: .65; cursor: not-allowed; }
+
+body .legal-placeholder-page { min-height: 0; padding: 40px 24px; }
+body .legal-placeholder-card { width: min(100%,960px); background: var(--gym-surface) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line); box-shadow: none; }
+body .legal-placeholder-card :is(h1,h2) { color: var(--gym-ink); font-weight: 800; text-transform: none; }
+body .legal-placeholder-card :is(p,li) { color: var(--gym-muted) !important; }
+body .legal-placeholder-card .legal-placeholder-kicker { color: var(--gym-primary-hover) !important; }
+body .legal-placeholder-card > a { background: var(--gym-action) !important; color: white !important; }
+.factory-unavailable { min-height: 55vh; display: grid; place-items: center; padding: 48px 24px; }
+.factory-unavailable section { width: min(100%,620px); padding: clamp(24px,5vw,40px); background: var(--gym-surface); border: 1px solid var(--gym-line); border-radius: var(--gym-radius); }
+.factory-unavailable h1 { margin: 12px 0 20px; font-size: clamp(28px,5vw,42px); line-height: 1.15; }
+.factory-unavailable p { line-height: 1.65; color: var(--gym-muted); }
+.factory-unavailable a { display: inline-flex; align-items: center; min-height: 48px; padding: 12px 18px; margin-top: 12px; background: var(--gym-action); color: white; border-radius: 8px; font-weight: 700; }
+
+body .cookie-consent-banner, body .cookie-consent-panel { background: var(--gym-surface) !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; font-family: var(--gym-font-body); }
+body .cookie-consent-banner :is(h2,h3,p,label), body .cookie-consent-panel :is(h2,h3,p,label) { color: var(--gym-ink) !important; }
+body .cookie-consent-primary { background: var(--gym-action) !important; color: white !important; }
+body .cookie-consent-banner a { color: var(--gym-primary-hover) !important; }
+body :is(.cookie-consent-secondary,.cookie-consent-settings) { background: var(--gym-surface-raised) !important; color: var(--gym-ink) !important; border-color: var(--gym-line) !important; }
+body .gym-footer .language-selector-native select { background: var(--gym-surface); color: var(--gym-ink); border-color: var(--gym-line); }
+.gym-knowledge { width: 100%; min-width: 0; }
+.gym-knowledge form { flex-wrap: wrap; }
+.gym-knowledge input { min-width: 0; min-height: 48px; }
+.gym-knowledge button { min-height: 48px; }
+.gym-knowledge article { overflow-wrap: anywhere; }
+@media(max-width:760px) {
+ body .site-shell.payment-shell .payment-page { padding: 24px 16px 40px !important; grid-template-columns: minmax(0,1fr) !important; }
+ body .legal-placeholder-page { padding: 24px 16px; }
+ body .legal-placeholder-card { padding: 24px 18px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ html { scroll-behavior: auto; }
+ body *,body *::before,body *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
