@@ -1,0 +1,91 @@
+﻿{
+    "navigationTests":  8,
+    "build":  "PASS",
+    "types":  "PASS isolated standard config",
+    "regressionTests":  9,
+    "sourceFiles":  [
+                        {
+                            "sha256":  "650135C54A0C354000066CF6D60164F866FAED16C515732BBDCDABE60FF03B8B",
+                            "file":  "gym-next/app/gym-design-tokens.css"
+                        },
+                        {
+                            "sha256":  "73878A476E67509CB2B8044593E0570382BD1B5508E98A93F17D541BA7E414AF",
+                            "file":  "gym-next/app/gym-discovery-design.css"
+                        },
+                        {
+                            "sha256":  "8D46020E92DEA5E8C1E7755CA78CA36EF4D3CB851B34BB13DABF4A391045F7B7",
+                            "file":  "gym-next/app/gym-editorial-design.css"
+                        },
+                        {
+                            "sha256":  "DDF827E90E785D63026BA9F6269E4F716958D4D34F1D1A4D03EBCD9B912BB86B",
+                            "file":  "gym-next/components/ClientEnhancers.tsx"
+                        },
+                        {
+                            "sha256":  "CD5BC1BD77FE3B0D6204067AADDEB68E608244CA032D91BAC4837B9EB0D88C0E",
+                            "file":  "gym-next/components/account-legacy/AccountLegacyPage.tsx"
+                        },
+                        {
+                            "sha256":  "5E6F96591375EC0E27215C2799C2B759D7E88B503803CCAD18902E77A0797DB4",
+                            "file":  "gym-next/components/club-signup-legacy/InscriptionClubLegacyPage.tsx"
+                        },
+                        {
+                            "sha256":  "E2A3071B4A0C0BF369A8A7E75D90D378DB1DDA9084B3058AE833B12BF3443D90",
+                            "file":  "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx"
+                        },
+                        {
+                            "sha256":  "F4D048F003AAB603DEE3C2561ED136D5FE2EE338175D3AC085DA804F0AF46DEE",
+                            "file":  "gym-next/components/discovery/DiscoveryFrame.tsx"
+                        },
+                        {
+                            "sha256":  "6303D6D02C7B47DE614B05BAE7A802F28A30CD1A2D844EABBA2DE4621DE5761A",
+                            "file":  "gym-next/components/discovery/SportIllustration.tsx"
+                        },
+                        {
+                            "sha256":  "662661ADDBA551C54172C9AD73B696DEB6FC6BA7EFECC2B693686445A0CF97E7",
+                            "file":  "gym-next/components/discovery/visual-library.module.css"
+                        },
+                        {
+                            "sha256":  "C9DC41655D512A5D8D629DA0817DF6308E0D26B19D62B4B89838B8ADFD5E0607",
+                            "file":  "gym-next/components/home/EditorialHome.tsx"
+                        },
+                        {
+                            "sha256":  "42C20C636DDB21AA0834F7AEF0F991B936645A7205F0467B9D440701D08571F1",
+                            "file":  "gym-next/components/navigation/PlatformHeader.tsx"
+                        },
+                        {
+                            "sha256":  "D68D5123428BF3628CF4FED30D82F9DE6470A78C81863AEF7A899FF504F74CE4",
+                            "file":  "gym-next/components/navigation/SectionDrawer.tsx"
+                        },
+                        {
+                            "sha256":  "7D048C168607EA30C8E6DBC2B49EA352BAA31F93A4212EB554903A1E605C2B2D",
+                            "file":  "gym-next/components/navigation/navigation.module.css"
+                        },
+                        {
+                            "sha256":  "885BE77980DF3D608E3E6BD9F818B0D88F84926F45C891971396D25F5265D23A",
+                            "file":  "gym-next/components/payment-legacy/PaiementLegacyPage.tsx"
+                        },
+                        {
+                            "sha256":  "C680F97B1E7DA5CEFB8EB666C40B065897347682A4E729A22084A8203F6A8F6C",
+                            "file":  "gym-next/lib/discovery-sports.ts"
+                        },
+                        {
+                            "sha256":  "A7ED6964AA50A099583F47DE080F38A8A125ED829FA14E771C5D126B8B753348",
+                            "file":  "gym-next/tests/discovery-editorial.spec.ts"
+                        },
+                        {
+                            "sha256":  "024D0A748B7500479608F95B4E83BF40836AD705676BAF03642E78E1EC6FF16C",
+                            "file":  "gym-next/tests/navigation-refonte.spec.ts"
+                        }
+                    ],
+    "buildId":  "-F5N1H02uBE1Ih61r5AsO",
+    "remoteKnown":  "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "scope":  "Local production build with acceptance fixtures; no hosted or real service verification",
+    "checkpoint":  "b9a025ea33611103e420c72cb558208e878332c2",
+    "clientSecretBoundary":  "PASS",
+    "widths":  [
+                   320,
+                   390,
+                   768,
+                   1440
+               ]
+}

@@ -1,4 +1,5 @@
 "use client";
+import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 import {useDemoPayment} from "./useDemoPayment";
 import recoveryStyles from "./payment-recovery.module.css";
 import { formatBookingSlot, reservationStart } from "@/lib/domain/booking-time";
@@ -14,36 +15,7 @@ type PaiementLegacyPageProps = {
   athleteEmail?:string;
 };
 
-function PaymentHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link brand-name-dark" href={nextRoutes.home}>GetYourMentor</a>
-      </div>
-
-      <nav className="sports-nav sports-nav-dark" aria-label="Sports">
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=football`}>Football</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=basketball`}>Basketball</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a>
-        <a className="sport-link sport-link-dark" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link topbar-link-dark" href={`${nextRoutes.account}?mode=coach`}>Je suis coach</a>
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
+function PaymentHeader() { return <PlatformHeader />; }
 
 function PaymentMain({
   selectedMethod,

@@ -6,12 +6,12 @@ async function refuseCookies(page: import("@playwright/test").Page) {
   if (await button.isVisible()) await button.click();
 }
 
-test("les quatre disciplines et la ville passent de la recherche à l’annuaire", async ({ page }) => {
+test("les disciplines historiques et la ville passent de la recherche à l’annuaire étendu", async ({ page }) => {
   for (const sport of ["football", "basketball", "metiers-de-la-forme", "sports-de-combat"]) {
     await page.goto(`/recherche?sport=${sport}&city=Lyon`);
     const discipline = page.getByLabel("Quelle discipline ?", { exact: true });
     await expect(discipline).toHaveValue(sport);
-    await expect(discipline.locator("option")).toHaveCount(4);
+    await expect(discipline.locator("option")).toHaveCount(14);
     await refuseCookies(page);
     await page.getByRole("button", { name: "Explorer les coachs" }).click();
     await expect(page).toHaveURL(new RegExp(`/coachs\\?sport=${sport}&city=Lyon$`));

@@ -59,12 +59,7 @@ const defaultDirectoryFilters: DirectoryFilters = {
   verified: false,
 };
 
-const directoryDictionary = {
-  football: { name: "Football", getTitle: () => "Trouve ton coach de football" },
-  basketball: { name: "Basketball", getTitle: () => "Trouve ton coach de basketball" },
-  "metiers-de-la-forme": { name: "Fitness", getTitle: () => "Trouve ton coach fitness" },
-  "sports-de-combat": { name: "Sports de combat", getTitle: () => "Trouve ton coach de sports de combat" },
-} as const;
+const directoryDictionary: Record<string, { name: string; getTitle: () => string }> = Object.fromEntries(discoverySports.map(([slug,name])=>[slug,{name,getTitle:()=>slug === "metiers-de-la-forme" ? "Trouve ton coach fitness" : `Trouve ton coach de ${name.toLowerCase()}`} ]));
 
 const normalize = (value = "") =>
   value
@@ -74,6 +69,8 @@ const normalize = (value = "") =>
     .trim();
 
 const inferSportSlug = (value = "") => {
+  const exact = discoverySports.find(([slug,label]) => value === slug || normalize(value) === normalize(label));
+  if (exact) return exact[0];
   const normalized = normalize(value);
 
   if (normalized.includes("basket")) return "basketball";

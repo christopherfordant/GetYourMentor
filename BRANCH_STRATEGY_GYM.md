@@ -1,5 +1,7 @@
 # GetYourMentor - Strategie de branches
 
+> Arbitrage utilisateur du 28 octobre 2026 : référence Lovable prioritaire pour les contenus et comportements effectivement vérifiés, Factory conservé, header local adapté, images IA prioritaires et menu latéral droit validé. Ces décisions remplacent les anciennes directions violet/quatre disciplines dans ce périmètre ; sécurité, historiques et consentements restent protégés. Reprise : docs/REFONTE_NAVIGATION_FACTORY_2026-10-28.md et docs/ETAT_REPRISE_COURANT.md. Aucun changement de la procédure Git ni déploiement implicite.
+
 ## Procedure obligatoire a chaque demande - 15 octobre 2026
 
 Cette procedure s'applique a chaque prompt GetYourMentor, avant les travaux et avant la reponse finale. Les mises a jour intermediaires restent possibles.

@@ -1,5 +1,21 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : premier lot navigation Factory
+
+Arbitrage utilisateur prioritaire : contenus/parcours vérifiés Lovable, thème Factory anthracite/orange conservé, header local adapté, images IA locales prioritaires et panneau droit validé. Anciennes directions violet/quatre disciplines remplacées dans ce périmètre ; protections métier, historiques et autorisations conservés. [Rapport, matrice et limites](REFONTE_NAVIGATION_FACTORY_2026-10-28.md).
+
+- Point de retour préalable : commit `b9a025ea33611103e420c72cb558208e878332c2`, tag **local** `checkpoint/avant-refonte-lovable-2026-10-28`. Patch des changements suivis antérieurs conservé hors dépôt, mais pas d'archive des fichiers non suivis. Push du checkpoint rejeté non-fast-forward.
+- Implémenté : header commun Factory, quatorze entrées sportives et routes de recherche/annuaire avec états vides honnêtes, retrait du bouton coach des headers actifs, choix sportif/coach/structure via Mon compte avec contexte réservation préservé. Modèle métier de création/réservation encore limité aux quatre sports historiques.
+- Menu global droit s'ouvrant à gauche, flèche seule au repos, sept destinations réellement existantes, clavier/Échap/focus et blocage du scroll. Les futures rubriques ne sont pas reliées artificiellement à des ancres absentes.
+- Cloche : dialogue d'accès au compte uniquement, sans faux compteur. Prévisualisation Lovable inexploitable à la reprise : son flux de notifications n'est pas vérifié ni reproduit. Pas d'envoi réel.
+- Vérifié localement dans `C:/Users/cashe/Documents/GYM-navigation-refonte-20261028` : build optimisé, typage standard et frontière client/serveur PASS ; 8 scénarios navigation + 9 régressions images/recherche/annuaire PASS. Largeurs 320/390/768/1440, six routes pour les scénarios responsive, captures dans `docs/assets/navigation-refonte-2026-10-28`. Sources applicatives comparées au checkout de contrôle. Aucune recette production/Supabase revendiquée ; amorçage des comptes inconnus du mode d'acceptation local historique à qualifier séparément.
+- Git : branche `design/refonte-progressive-lot1`, vingt fichiers suivis et soixante-dix-neuf entrées non suivies antérieurs préservés hors commit. Distant connu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence conservée, aucun pull/rebase/fusion/force-push. Déclencheurs GitHub lus avant push ; réglages Netlify distants inconnus, aucun déploiement commandé.
+- Prochain lot borné : modèle de carte/carrousel avec carte centrale valorisée, premier aperçu réel du catalogue/collectif, puis images IA selon les disciplines effectivement couvertes. Les quinze sections complètes, nouvelles images, sélections à critères métier et notifications internes ne sont pas livrées par ce lot.
+
+Les reprises suivantes sont historiques et ne priment pas sur cet arbitrage.
+
+Livraison finale du lot navigation : commit ciblé local réalisé (retrouvable par `feat(navigation): adopt Factory header and right section drawer`). Push normal exécuté, rejeté `non-fast-forward` (code 1) ; distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Le checkpoint et le lot applicatif restent locaux. Aucun déploiement. Le serveur temporaire de recette a été arrêté ; checkout isolé conservé pour revue.
+
 ## Reprise active — 28 octobre 2026 : audit Lovable et image du menu
 
 Demande : comparer le projet Lovable `447e4f2f-dfd3-455d-a936-0e3025ea0276` et préparer l'image d'un panneau droit s'ouvrant vers la gauche, prochaine étape. [Audit et matrice des 15 rubriques](AUDIT_SECTIONS_LOVABLE_MENU_2026-10-28.md). Prévisualisation lue avec Playwright, aucun message Lovable, changement distant ou déploiement. Aucune modification de l'application Next.

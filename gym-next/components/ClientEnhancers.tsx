@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionDrawer } from "@/components/navigation/SectionDrawer";
 import dynamic from "next/dynamic";
 
 // Loaded separately so the global reveal observer does not block the first
@@ -10,5 +11,5 @@ const ScrollParticleReveal = dynamic(
 );
 
 export function ClientEnhancers() {
-  return <ScrollParticleReveal />;
+  return <><ScrollParticleReveal /><SectionDrawer /></>;
 }

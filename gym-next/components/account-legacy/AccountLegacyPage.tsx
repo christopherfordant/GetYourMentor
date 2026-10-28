@@ -1,4 +1,5 @@
 "use client";
+import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 import { FormRejection, readAuthFormData } from "@/lib/access-form-response";
 import { readCoachReservations } from "./coach-request-data";
 import { CoachPlanningSchedule } from "./CoachPlanningSchedule";
@@ -50,49 +51,8 @@ const coachSessions = [
 ];
 
 function AccountHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link" href={nextRoutes.home}>
-          GetYourMentor
-        </a>
-      </div>
-      <nav className="sports-nav" aria-label="Sports">
-        <a className="sport-link" href={`${nextRoutes.search}?sport=football`}>
-          Football
-        </a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=basketball`}>
-          Basketball
-        </a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>
-          Fitness
-        </a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>
-          Sports de combat
-        </a>
-      </nav>
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="topbar-link" href={`${nextRoutes.account}?mode=coach`}>
-          Je suis coach
-        </a>
-        <div className="account-topbar-menu">
-          <a className="account-button" href={nextRoutes.account} aria-current="page">
-            <span className="account-button-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                <path
-                  d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
-            <span>Mon compte</span>
-          </a>
-          <button
+  return <PlatformHeader><div className="account-topbar-menu">
+<button
             className="account-display-toggle"
             type="button"
             data-coach-display-toggle
@@ -123,10 +83,7 @@ function AccountHeader() {
               <input type="checkbox" data-coach-display-target="revenue" defaultChecked /> Revenus ce mois-ci
             </label>
           </div>
-        </div>
-      </div>
-    </header>
-  );
+</div></PlatformHeader>;
 }
 
 function AccountAuthShell({
@@ -788,6 +745,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
           <section className="account-panel">
             {dashboardMode ? <AccountSessionControls role={dashboardMode} onSignedOut={() => { setDashboardMode(null); setAuthenticatedCoachName(""); setAuthenticatedCoachId(undefined); setPendingSignup(null); }} /> : null}
             <div id="account-content" />
+            {!dashboardMode && <div className="account-access-entry"><p>Sportif, coach ou structure : choisis ton espace pour te connecter. Les accès sont vérifiés avec ton compte.</p><nav aria-label="Type de compte">{[["sportif","Espace sportif"],["coach","Espace coach"],["club","Espace structure"]].map(([value,label])=><a key={value} href={buildNextPath(nextRoutes.account,{...params,mode:value})} aria-current={(mode ?? "sportif")===value?"page":undefined} style={{display:"inline-flex",minHeight:44,alignItems:"center",padding:"8px 12px",marginRight:8,border:"1px solid #858585",borderRadius:8}}>{label}</a>)}</nav></div>}
             {!dashboardMode ? (
               <AccountAuthShell
                 step={step}

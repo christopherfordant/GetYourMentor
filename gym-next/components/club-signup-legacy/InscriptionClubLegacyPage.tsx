@@ -1,4 +1,5 @@
 "use client";
+import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
 import { useRef, useState } from "react";
@@ -11,35 +12,7 @@ type InscriptionClubLegacyPageProps = {
   params: Record<string, string | undefined>;
 };
 
-function ClubSignupHeader() {
-  return (
-    <header className="topbar topbar-light">
-      <div className="brand-lockup">
-        <a className="brand-name brand-link" href={nextRoutes.home}>GetYourMentor</a>
-      </div>
-
-      <nav className="sports-nav" aria-label="Sports">
-        <a className="sport-link" href={`${nextRoutes.search}?sport=football`}>Football</a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=basketball`}>Basketball</a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=metiers-de-la-forme`}>Fitness</a>
-        <a className="sport-link" href={`${nextRoutes.search}?sport=sports-de-combat`}>Sports de combat</a>
-      </nav>
-
-      <div className="topbar-actions">
-        <LanguageSelector />
-        <a className="account-button" href={nextRoutes.account}>
-          <span className="account-button-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
-              <path d="M5 19c1.4-3 4-4.5 7-4.5s5.6 1.5 7 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span>Mon compte</span>
-        </a>
-      </div>
-    </header>
-  );
-}
+function ClubSignupHeader() { return <PlatformHeader />; }
 
 function ClubSignupVisual() {
   return (
