@@ -12,6 +12,11 @@ export type StructureOffer = { id: string; ownerEmail: string; coachId: string; 
 export const memoryStructureOffers: StructureOffer[] = [];
 const memory = memoryStructureOffers;
 
+export async function hasActiveOfferAffiliation(offer: StructureOffer) {
+  if (offer.source === 'coach') return true;
+  return activeCoachIds(await listAffiliations({ role: 'club', email: offer.ownerEmail }), offer.ownerEmail).includes(offer.coachId);
+}
+
 
 export async function listStructureOffers(ownerEmail?: string) {
   assertDemoFallbackAllowed("Séances de structure (démonstration)");

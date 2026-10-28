@@ -1,0 +1,69 @@
+﻿{
+    "date":  "2026-10-28",
+    "base":  "c881b6ebafb264d9978776aadb688a42f4075c93",
+    "checkout":  "C:/Users/cashe/Documents/GYM-collective-preview-20261028",
+    "buildId":  "OhokmRY1r_6EpTIimHdRx",
+    "runtime":  "Next production local, isolated demo memory; providers disabled",
+    "newScenarios":  9,
+    "regressionScenarios":  7,
+    "distinctValidated":  16,
+    "widths":  [
+                   320,
+                   390,
+                   768,
+                   1440
+               ],
+    "finalSharedGuardRetest":  "2 passed; no UI change after complete 9-pass suite",
+    "types":  "passed, final standard isolated check",
+    "build":  "passed; existing Autoprefixer warnings",
+    "secretBoundary":  "passed, final build",
+    "remoteHead":  "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "deployed":  false,
+    "fixtureCaptures":  true,
+    "sources":  [
+                    {
+                        "path":  "gym-next/lib/structure-offers.ts",
+                        "sha256":  "45791D5AD2842E5546BC7F7A8FCEF102520E25F1C833E267119E087DC7621CE3"
+                    },
+                    {
+                        "path":  "gym-next/lib/collective-preview.ts",
+                        "sha256":  "B6CB4CE46DC0EF15165D0B382725F4E8B5E06FE1E3B19CE505566A2A4E7C4420"
+                    },
+                    {
+                        "path":  "gym-next/lib/collective-preview-server.ts",
+                        "sha256":  "41CADAA753BF7CBA198FF24C8F6C7D3546C9A68E5947DA6EA790F87FE795F5C2"
+                    },
+                    {
+                        "path":  "gym-next/app/api/sessions/preview/route.ts",
+                        "sha256":  "58282E4F6203EC0C47AA438296808B94B062933722202214610C9FBD65715663"
+                    },
+                    {
+                        "path":  "gym-next/components/home/CollectivePreviewSection.tsx",
+                        "sha256":  "944E4F530DD250474A0C6E95D386CC2BDB5ABD94E5189CE1659C2DA4236F237A"
+                    },
+                    {
+                        "path":  "gym-next/components/home/collective-preview.module.css",
+                        "sha256":  "F72ADD6E4FB4E73A7C93BF4872FE8D19E512B18BE684EF5B8089521E9964ECCD"
+                    },
+                    {
+                        "path":  "gym-next/components/home/EditorialHome.tsx",
+                        "sha256":  "6106ED8464066C45B869AA30BDCF68B281CC3BCC87AB1B98923C6D976B0AB202"
+                    },
+                    {
+                        "path":  "gym-next/components/StructureOffers.tsx",
+                        "sha256":  "66F5D38BB7DA92568024C42536C6B0A625537A4734CA6802485872253F023EF2"
+                    },
+                    {
+                        "path":  "gym-next/app/api/sessions/route.ts",
+                        "sha256":  "1B4370E6B7FDF783D1D3B6ABF86D4B27E65F186C9AEC5C11545882A7823C7E59"
+                    },
+                    {
+                        "path":  "gym-next/app/api/reservations/route.ts",
+                        "sha256":  "8BFC1A7C5E89EF571F23DF83EACC4F6E1622D17090CD5BFE5C69780988D64960"
+                    },
+                    {
+                        "path":  "gym-next/tests/collective-preview.spec.ts",
+                        "sha256":  "52C9222CD5B92BCD89D51B055A9FE6F05B9FB8726B90015A70FD011899FD15DD"
+                    }
+                ]
+}

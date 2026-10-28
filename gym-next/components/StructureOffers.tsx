@@ -48,24 +48,27 @@ export function StructureOffers({ coachId, discovery = false }: { coachId?: stri
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState<SessionFilters>(() => parseSessionFilters(new URLSearchParams()));
   const [attempt, setAttempt] = useState(0);
+  const [selectedOffer, setSelectedOffer] = useState('');
   useEffect(() => {
     const controller = new AbortController();
     if (discovery) setFilters(parseSessionFilters(new URLSearchParams(window.location.search)));
+    if (discovery) setSelectedOffer(new URLSearchParams(window.location.search).get('offer') ?? '');
     setLoading(true); setMessage("");
     fetch(discovery ? "/api/sessions" : coachId ? `/api/coaches/sessions?coachId=${encodeURIComponent(coachId)}` : "/api/structures/offers", { signal: controller.signal, cache: "no-store" }).then(async r => { if (!r.ok) throw new Error("Séances indisponibles. Réessayez dans un instant."); const payload = await r.json(); if (!Array.isArray(payload.data)) throw new Error("Réponse indisponible."); setOffers(payload.data); }).catch(e => { if (!controller.signal.aborted) setMessage(e.message); }).finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
   }, [coachId, discovery, attempt]);
-  const visible = discovery ? offers.filter(offer => matchesSession(offer, filters)) : offers;
+  const visible = discovery ? offers.filter(offer => (!selectedOffer || offer.id === selectedOffer) && matchesSession(offer, filters)) : offers;
   return <section data-public-structure-offers>
-    {discovery && !loading ? <form action="/seances" method="get" className={styles.card} aria-label="Filtrer les séances">
+    {discovery && selectedOffer ? <p><a href={`/seances?${new URLSearchParams({ ...(filters.sport ? { sport: filters.sport } : {}), ...(filters.city ? { city: filters.city } : {}), ...(filters.source ? { source: filters.source } : {}), participants: String(filters.participants) })}`}>Retour aux séances avec ces critères</a></p> : null}
+    {discovery && !loading && !selectedOffer ? <form action="/seances" method="get" className={styles.card} aria-label="Filtrer les séances">
       <div className={styles.fields}>
-        <label>Discipline<select name="sport" defaultValue={filters.sport}><option value="">Les quatre disciplines</option>{discoverySports.map(([slug, label]) => <option key={slug} value={slug}>{label}</option>)}</select></label>
+        <label>Discipline<select name="sport" defaultValue={filters.sport}><option value="">Les quatre disciplines</option>{discoverySports.filter(([slug]) => ['football', 'basketball', 'metiers-de-la-forme', 'sports-de-combat'].includes(slug)).map(([slug, label]) => <option key={slug} value={slug}>{label}</option>)}</select></label>
         <label>Ville du coach<input name="city" defaultValue={filters.city} maxLength={120} autoComplete="address-level2" placeholder="Toutes les villes" /></label>
         <label>Organisateur<select name="source" defaultValue={filters.source}><option value="">Coachs et structures</option><option value="coach">Coach</option><option value="structure">Structure</option></select></label>
         <label>Participants, vous compris<input name="participants" type="number" min="1" max="50" required defaultValue={filters.participants} /></label>
       </div><p>La ville est celle du profil du coach. Vérifiez le lieu de rendez-vous indiqué dans la séance. Seuls les créneaux futurs avec assez de places et un tarif pour votre groupe sont présentés.</p>
       <button type="submit">Afficher les séances</button><a href="/seances">Réinitialiser les filtres</a>
     </form> : null}
-    {loading ? <p role="status">Chargement des séances…</p> : message ? <p role="alert">{message} <button type="button" onClick={() => setAttempt(value => value + 1)}>Réessayer</button></p> : !visible.length ? <p role="status">{discovery ? "Aucune séance disponible avec ces critères. Modifiez les filtres ou recherchez un coach." : "Aucune séance proposée pour le moment."}</p> : <>{discovery ? <p role="status">{visible.length} séance(s) disponible(s).</p> : null}{visible.map(offer => <OfferBooking key={`${offer.id}:${filters.participants}`} offer={offer} initialCount={discovery ? filters.participants : 1} discovery={discovery} />)}</>}
+    {loading ? <p role="status">Chargement des séances…</p> : message ? <p role="alert">{message} <button type="button" onClick={() => setAttempt(value => value + 1)}>Réessayer</button></p> : !visible.length ? <p role="status">{selectedOffer ? 'Cette séance n’est plus disponible pour votre groupe. Consultez les autres séances.' : discovery ? "Aucune séance disponible avec ces critères. Modifiez les filtres ou recherchez un coach." : "Aucune séance proposée pour le moment."}</p> : <>{discovery ? <p role="status">{visible.length} séance(s) disponible(s).</p> : null}{visible.map(offer => <OfferBooking key={`${offer.id}:${filters.participants}`} offer={offer} initialCount={discovery ? filters.participants : 1} discovery={discovery} />)}</>}
   </section>;
 }

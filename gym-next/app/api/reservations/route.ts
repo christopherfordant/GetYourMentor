@@ -11,7 +11,7 @@ import { createReservation, hasSlotConflict, listReservations, ReservationSlotCo
 import { parseReservationInput } from "@/lib/domain/validation/reservation-input";
 import { bodyExceedsLimit, rateLimit } from "@/lib/request-guards";
 import { reservationClaimToken } from "@/lib/reservation-claims";
-import { getStructureOffer } from "@/lib/structure-offers";
+import { getStructureOffer, hasActiveOfferAffiliation } from "@/lib/structure-offers";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
 
 export async function POST(request: Request) {
@@ -45,6 +45,9 @@ export async function POST(request: Request) {
     try { offer = await getStructureOffer(body.structureOfferId); }
     catch { return NextResponse.json({ error: "Séance temporairement indisponible" }, { status: 503 }); }
     if (!offer) return NextResponse.json({ error: "Séance introuvable" }, { status: 404 });
+    try {
+      if (!await hasActiveOfferAffiliation(offer)) return NextResponse.json({ error: "Cette séance de structure n’est plus disponible" }, { status: 409 });
+    } catch { return NextResponse.json({ error: "Vérification de la séance indisponible" }, { status: 503 }); }
     if (body.coachId && body.coachId !== offer.coachId) return NextResponse.json({ error: "Coach incohérent avec la séance" }, { status: 403 });
     if (Array.isArray(body.slots) && body.slots.every((s: unknown) => typeof s === "string")) body.slots = normalizeSlots(body.slots) ?? [];
     if (!Array.isArray(body.slots) || body.slots.length !== 1 || body.slots.some((slot: unknown) => typeof slot !== "string" || !offer.slots.includes(slot) || Date.parse(slot) <= Date.now())) return NextResponse.json({ error: "Choisissez un créneau futur proposé pour cette séance" }, { status: 400 });

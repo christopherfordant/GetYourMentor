@@ -1,5 +1,18 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : aperçu des séances collectives
+
+Un seul lot réalisé, sans agent supplémentaire ni déploiement : « Entraîne-toi à plusieurs » ajouté après les mentors, Factory conservé. [Audit, architecture, contrôles et limites](APERÇU_COLLECTIF_2026-10-28.md).
+
+- Aperçu public de trois séances maximum **pour deux participants**, tarif total du coach, créneau daté Europe/Paris, capacité totale distincte des places restantes. Grille courte responsive, pas de carrousel supplémentaire ni d'image/profil inventé. Chargement/erreur/réessai/vide, aucun faux remplissage.
+- `GET /api/sessions/preview` démo isolée uniquement, `no-store`, DTO public validé ; moteur de places existant réutilisé. Au plus 24 offres candidates projetées ; stockage démo toujours monolithique, catalogue/détail existant non paginé. Supabase collectif non raccordé, aucune preuve distante ni déploiement de ce lot.
+- « Voir tout » → `/seances?participants=2` ; carte → `/seances?participants=2&offer=ID`, une séance sélectionnée ou état indisponible, retour avec critères, réservation existante. Double consentement recontrôlé pour les offres structure dans le catalogue et la demande. Filtres collectifs corrigés à quatre disciplines métier ; header de découverte à quatorze entrées inchangé. Montant serveur et acceptation avant paiement simulé conservés, pas de modification des historiques/commission.
+- 16 scénarios distincts validés : neuf nouveaux + sept régressions mentors/affiliations/participants/capacité. Largeurs 320/390/768/1440, clavier, tactile Chromium émulé/mouvement réduit, menu/cookies/footer, indisponibilité/erreur, API locale publication/réservation/épuisement/prix total/refus paiement prématuré. Typage standard isolé/build/frontière client-secrets validés ; avertissements CSS préexistants. Sélecteur de test Discipline corrigé après quatre échecs initiaux, relance des neuf scénarios PASS. Captures de fixtures uniquement dans `docs/assets/collective-preview-2026-10-28`.
+- Vérification isolée `C:/Users/cashe/Documents/GYM-collective-preview-20261028`, base `c881b6ebafb264d9978776aadb688a42f4075c93`. Vingt fichiers suivis modifiés et 79 entrées non suivies antérieurs préservés hors commit, 47 anciens worktrees conservés plus le checkout de recette. Aucun reset/pull/rebase/fusion/force-push. Le statut final du commit/push est indiqué dans la livraison ; distant de départ confirmé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence 9 locaux / 9 distants. Déclencheurs GitHub push hors branche de chantier ; aucune commande de déploiement.
+- Prochaine action : revoir cet aperçu local puis qualifier une seule autre rubrique Lovable et ses données. Avant ouverture du collectif hors démo : dépôt paginé, contrat catalogue/détail partagé et recette sur backend cible. Ne pas inventer proximité, popularité, disponibilité ou promotions. Le site Netlify n'est pas actualisé par ce lot ; dernier déploiement documenté ci-dessous, pas de nouvelle recette distante.
+
+Les blocs suivants décrivent les lots antérieurs, pas l'état actif de ce lot.
+
 ## Reprise active — 28 octobre 2026 : pilote cartes et carrousel mentors
 
 Demande exécutée : un seul aperçu « Tous les mentors » sur l'accueil, Factory conservé, sans agent ni déploiement. [Rapport, architecture, preuves et limites](CARROUSEL_MENTORS_2026-10-28.md).

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCoach } from "@/lib/coaches";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
-import { listStructureOffers, publicSessionOffer } from "@/lib/structure-offers";
+import { hasActiveOfferAffiliation, listStructureOffers, publicSessionOffer } from "@/lib/structure-offers";
 import { listReservations } from "@/lib/reservations";
 
 export async function GET() {
@@ -14,6 +14,7 @@ export async function GET() {
     const rows = await Promise.all(offers.map(async offer => {
       const coach = coaches.get(offer.coachId);
       if (!coach?.verified) return null;
+      if (!await hasActiveOfferAffiliation(offer)) return null;
       return { ...await publicSessionOffer(offer, { coach, reservations }), sport: coach.sport, city: coach.city, source: offer.source ?? "structure" };
     }));
     return NextResponse.json({ data: rows.filter(row => row !== null) }, { headers: { "Cache-Control": "no-store" } });
