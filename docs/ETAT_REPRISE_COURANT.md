@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : audit avant refonte
+
+Demande actuelle : audit factuel et plan progressif uniquement, aucune refonte exécutée. [Audit, matrice des fonctionnalités, preuves et lots proposés](AUDIT_REPRISE_REFONTE_2026-10-28.md). Cette section remplace les prochaines actions et états de livraison obsolètes du relais local ci-dessous.
+
+- Base inspectée : dossier principal `GetYourMentor`, branche `design/refonte-progressive-lot1`, HEAD initial `ddd2f548096427eaa7839ab3b9d7162e4b281f2f`. Distant confirmé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, neuf commits d'avance. 20 entrées suivies modifiées et 79 entrées non suivies au départ ; rien indexé. Changements antérieurs et 44 worktrees préservés.
+- Le relais distant du 22 octobre a été lu via `git show`, sans intégration. Il décrit Factory anthracite/orange ; l'instruction actuelle du 28 octobre conserve explicitement la maquette HTML/violet fixe. Contradiction consignée, aucun changement visuel. Maintenir quatre sports, 15 % administrable/historiques, affiliations bilatérales, prix de groupe par taille et acceptation avant paiement.
+- Dernière publication documentée : source `54bb70980aebaadad402a2a93d38103f5e23a9b4`, Netlify `6ad93730f89f5b5157ba9dd6` ; ce SHA n'a pas été réattesté par l'API du site aujourd'hui. Distant Git plus récent ≠ déploiement. Correctifs recruiter `d50b9eb` non annoncés déployés.
+- Vérification du jour : health public `demo`, `ready:true`, Supabase/Stripe/Resend/legal false ; neuf pages publiques à 390 px, recherche aussi à 1440 px, aucun débordement DOM mesuré. Aucun compte connecté, formulaire soumis, paiement simulé ou notification. Capture MCP échouée par timeout ; pas de nouvelle preuve visuelle livrée.
+- `npm run check:types` local FAIL (code 1), treize diagnostics dans les copies historiques `playwright-artifacts`, incluses par tsconfig. Aucun correctif appliqué. Certaines preuves booking du 20 citées ci-dessous ne sont pas suivies dans HEAD ; ne pas reprendre leurs nombres comme vérifiés aujourd'hui. Pas de build ni recette locale applicative complète.
+- Contrôle CI/CD : workflow push hors branche actuelle, pas de job de publication observé ; raccordement Git Netlify actuel non certifié. Précontrôle et push réel rejetés `non-fast-forward` (code 1) ; distant relu inchangé à `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Deux documents seulement committés localement, contrôle du diff indexé réussi. Aucun déploiement. Commit local à identifier par Git ; aucune synchronisation automatique, fusion ou force-push.
+- Prochaine action recommandée : lot 0 de préparation d'une base vérifiable et de réconciliation Git préservant les changements locaux, après instruction utilisateur ; ensuite premier lot visuel limité à l'accueil. Le plan de l'audit remplace les anciennes propositions de fonctionnalités comme priorité de cette demande. Aucun nouvel agent/service. Compteurs d'usage inconnus.
+
+## Relais local antérieur — historique du 20 octobre, non actualisé avec le distant
+
 Mise à jour : 20 octobre 2026. V1/V2/V3 incomplets. Aucun travail annoncé en arrière-plan.
 
 ## Priorités et lecture
