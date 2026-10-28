@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-28",
+  "sourceCommit": "13420fc9d70f9b3db4c8a1f15c0228e44b3570bb",
+  "baseCommit": "e52f56e92322976d0315e8821305a1a81605cfff",
+  "local": {
+    "optimizedBuild": "PASS",
+    "types": "PASS (standalone and build-integrated)",
+    "navigationAndFactoryTests": 16,
+    "imageAndDiscoveryRegressionTests": 9,
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "publicRoutesAndStates": 24,
+    "authenticatedRoles": [
+      "sportif",
+      "coach",
+      "club"
+    ],
+    "clientSecretBoundary": "PASS",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS",
+    "originalUnreviewedChanges": "EXCLUDED",
+    "layoutCorrectionTypes": "PASS"
+  },
+  "sourceFiles": [
+    {
+      "file": "gym-next/app/admin/knowledge/page.tsx",
+      "sha256": "b4e035ccdfc70b264fdb525b9c10ae1e041b25cfea63b0fa7609abf180770e62"
+    },
+    {
+      "file": "gym-next/app/gym-account-design.css",
+      "sha256": "9a43d358da6950560a5f540513d6da13d6ed872184c563746761c968f68164ee"
+    },
+    {
+      "file": "gym-next/app/gym-design-tokens.css",
+      "sha256": "82ba886767ce7507d39fd5f9d4f5228e6a4f4363a61d3202d39f527924dd039a"
+    },
+    {
+      "file": "gym-next/app/gym-discovery-design.css",
+      "sha256": "084d681946f3468ff70e75e23d966f8d8ba5c6e4030850a1fbce555e97e31cce"
+    },
+    {
+      "file": "gym-next/app/gym-editorial-design.css",
+      "sha256": "43274f3f9b54d1f6d07638248b4406757a6d9294e619330494f996e054f29334"
+    },
+    {
+      "file": "gym-next/app/gym-factory-design.css",
+      "sha256": "af904e8b0f8941690fa06d765c09250eb0764631e54c25f83a87cfa50bb550b9"
+    },
+    {
+      "file": "gym-next/app/gym-footer-design.css",
+      "sha256": "c0584a0b8a2e69ae732d72ddbe8940c557f743991d59af3c44c112fdd230a0cb"
+    },
+    {
+      "file": "gym-next/app/layout.tsx",
+      "sha256": "cdb9a3a509a83164e4e19e65c7812610188453288398ca81e27b88cc87704979"
+    },
+    {
+      "file": "gym-next/app/legal/[slug]/page.tsx",
+      "sha256": "03928e948eb9c4630eeec84076cec78be4cc1d6769d107776d293123ccd0f4c8"
+    },
+    {
+      "file": "gym-next/app/not-found.tsx",
+      "sha256": "7b6757959875f798521abcc273eaec52b5a886f6491ede510cf4ab4ff2dab77a"
+    },
+    {
+      "file": "gym-next/components/account-legacy/athlete-cancellation.module.css",
+      "sha256": "7092c6b702d802f2537348353004d1107fc7f1db47004d471bcc14d59f6fc3ce"
+    },
+    {
+      "file": "gym-next/components/account-legacy/coach-finance-filter.module.css",
+      "sha256": "a2790c0a81cca954b503c5eb7925580ba96e22992cd8fe3cb8048036dd356ac1"
+    },
+    {
+      "file": "gym-next/components/account-legacy/message-templates.module.css",
+      "sha256": "6b3e2341f1bd74d32495961e9538bece66e6bb9f9e92b9b24750c8fd5672094b"
+    },
+    {
+      "file": "gym-next/components/admin/KnowledgeSearch.tsx",
+      "sha256": "47ddd3ec37438ed213d09cadefbf71b9cae509274011af955d21c3a4d84bf486"
+    },
+    {
+      "file": "gym-next/components/beta-feedback.module.css",
+      "sha256": "7a887ee4f6fbd739e792cf21a0ba45b8b00fa9066f4f3443fa1795d7157f61cd"
+    },
+    {
+      "file": "gym-next/components/common/ProductionUnavailable.tsx",
+      "sha256": "1d647df4d8ee84dce8be0fd432b65208217d705843cb24e0e1c4c8325baab5ef"
+    },
+    {
+      "file": "gym-next/components/common/ReservationProofBoundary.module.css",
+      "sha256": "94f3cf47fd7a8bae7dc679ae5706601e78297903b1c889efec62352b3cab2df8"
+    },
+    {
+      "file": "gym-next/components/content-explorer.module.css",
+      "sha256": "7c6dba76837080d3c44a4bd1c9d8f9605ec589d95023a5f5102e488ee1e26e42"
+    },
+    {
+      "file": "gym-next/components/group-booking.module.css",
+      "sha256": "dfc35a27e8bb6e7cff05e481db0e6cb900e3aade10724946eebd9c3843adb536"
+    },
+    {
+      "file": "gym-next/components/offer-explorer.module.css",
+      "sha256": "604798237ee04e075c4a0faab9725c8ce16289d0d459d027e65fa52523ad5299"
+    },
+    {
+      "file": "gym-next/components/payment-legacy/payment-recovery.module.css",
+      "sha256": "fcd186adb0e38b20916c21582942ee6738609c88d28b3ff341c6419d4b4a5957"
+    },
+    {
+      "file": "gym-next/components/personal-progress.module.css",
+      "sha256": "1c624693723fa2b41bddb6c0e7cd0db43904e835c919e536b38b34fae79e184f"
+    },
+    {
+      "file": "gym-next/scripts/deploy-isolated-demo.py",
+      "sha256": "25e78cecdceb3556597139cecfc79bc774af0d1dda23487af61686ef10ada7b2"
+    },
+    {
+      "file": "gym-next/tests/factory-pages.spec.ts",
+      "sha256": "dca0a3853aa088fdeada8198fb76241be10d5a2555c0b3d69856ff6aeccf73aa"
+    }
+  ],
+  "deployment": {
+    "siteId": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+    "url": "https://getyourmentor-demo-20261014.netlify.app",
+    "previousDeployId": "6ad93730f89f5b5157ba9dd6",
+    "state": "ready",
+    "sourceCommit": "13420fc9d70f9b3db4c8a1f15c0228e44b3570bb",
+    "buildId": "A-MH42y-VpWPSvFkYQNQ6",
+    "archiveSHA256": "3e6d4643cd03cf3c24b408eb43f7b9553886b232d71e227f994dbd8815c9c7a9",
+    "netlifyBuild": "PASS",
+    "packageSourceVerification": "PASS",
+    "runtimeArchiveBytes": 44324908,
+    "deployId": "6ae222c8945ea53de42c83b9",
+    "uniqueUrl": "https://6ae222c8945ea53de42c83b9--getyourmentor-demo-20261014.netlify.app",
+    "title": "GetYourMentor isolated demo: verified source 13420fc9d70f9b3db4c8a1f15c0228e44b3570bb",
+    "publishedAliasConfirmed": true,
+    "commitRefReportedByNetlify": null,
+    "httpChecks": {
+      "/api/health": {
+        "status": 200,
+        "robots": null,
+        "mode": "demo",
+        "ready": true
+      },
+      "/robots.txt": {
+        "status": 200,
+        "robots": null,
+        "blocksIndexing": true
+      }
+    },
+    "intermediateDeploys": [
+      {
+        "deployId": "6ae2203ef18d4f413b7c1f6b",
+        "sourceCommit": "c6a798c768f87536d664045f2e752066c92f6ee7",
+        "state": "ready",
+        "issue": "Public page noindex metadata missing; robots.txt disallows crawling"
+      }
+    ],
+    "expectedSourceCommit": "13420fc9d70f9b3db4c8a1f15c0228e44b3570bb",
+    "selectedSourceHashesMatchPackage": true,
+    "generatedHtmlNoindex": [
+      "/",
+      "/plan-du-site",
+      "/_not-found"
+    ],
+    "browserTheme": "#141414",
+    "browser": {
+      "checks": [
+        {
+          "route": "/",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/recherche?sport=padel",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/coachs?sport=football&city=Paris",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/inscription-club",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/paiement",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/legal/cgu",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/compte",
+          "status": 200,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex, nofollow",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/page-inexistante-factory",
+          "status": 404,
+          "background": "rgb(20, 20, 20)",
+          "primary": "#ff5400",
+          "overflow": 0,
+          "robots": "noindex",
+          "browserTheme": "#141414",
+          "brokenLoadedImages": 0
+        },
+        {
+          "route": "/compte (coach fixture)",
+          "status": 200,
+          "sessionVerified": true
+        }
+      ],
+      "pageErrors": [],
+      "menuKeyboard": "PASS",
+      "fixtureSignIn": "PASS",
+      "realBusinessMutations": "NONE",
+      "menuSettledGeometry": {
+        "x": 44,
+        "y": 0,
+        "width": 346,
+        "height": 900
+      }
+    }
+  },
+  "git": {
+    "push": "REJECTED non-fast-forward",
+    "remoteSHA": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a"
+  },
+  "limits": [
+    "No full security/accessibility/performance certification",
+    "Hosted verification pending",
+    "Real payment and external notifications not activated",
+    "Untracked /demo and prior layout changes excluded"
+  ],
+  "sourceHashBasis": "Git blob bytes, LF for text; excludes unverified workspace edits"
+}
