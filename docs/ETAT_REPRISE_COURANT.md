@@ -1,5 +1,7 @@
 # Reprise opérationnelle — GetYourMentor
 
+> Arrêt demandé le 28 octobre 2026 : serveur Playwright local `node.exe` PID 12236 et console enfant PID 1756 arrêtés. Inventaire des processus comparé aux chemins du dépôt et de ses worktrees : aucun autre processus GetYourMentor identifié après arrêt ; aucun écouteur sur 3000/3001/4320/4321. Autres applications préservées, aucun serveur relancé ni déploiement distant modifié. Cette opération ne change pas le code ni les résultats de recette ci-dessous.
+
 ## Reprise active — 28 octobre 2026 : aperçu des séances collectives
 
 Un seul lot réalisé, sans agent supplémentaire ni déploiement : « Entraîne-toi à plusieurs » ajouté après les mentors, Factory conservé. [Audit, architecture, contrôles et limites](APERÇU_COLLECTIF_2026-10-28.md).
