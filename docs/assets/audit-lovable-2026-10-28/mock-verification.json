@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-28",
+  "mode": "Local file, isolated HTML mock only",
+  "passed": 21,
+  "checks": [
+    "closed handle at right edge 390",
+    "closed drawer inert 390",
+    "handle travels left when opening 390",
+    "drawer stays anchored at right 390",
+    "fifteen named sections 390",
+    "no horizontal overflow 390",
+    "mock links target real mock anchors 390",
+    "focus wraps inside open controls 390",
+    "escape closes 390",
+    "focus returns to arrow 390",
+    "closed handle at right edge 1440",
+    "closed drawer inert 1440",
+    "handle travels left when opening 1440",
+    "drawer stays anchored at right 1440",
+    "fifteen named sections 1440",
+    "no horizontal overflow 1440",
+    "mock links target real mock anchors 1440",
+    "focus wraps inside open controls 1440",
+    "escape closes 1440",
+    "focus returns to arrow 1440",
+    "reduced motion honored"
+  ],
+  "applicationChanged": false,
+  "deployment": false
+}

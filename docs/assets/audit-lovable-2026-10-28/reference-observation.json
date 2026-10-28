@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-28",
+  "source": "https://lovable.dev/projects/447e4f2f-dfd3-455d-a936-0e3025ea0276",
+  "scope": "Read-only rendered home preview, not backend validation",
+  "sections": [
+    {
+      "heading": "Ça démarre bientôt",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Offres du moment",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Les mentors qui te correspondent",
+      "intro": [
+        "Dis-nous ce que tu recherches pour découvrir tes mentors."
+      ],
+      "buttons": [
+        "Personnaliser mes recommandations"
+      ]
+    },
+    {
+      "heading": "Pour atteindre un objectif",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "À proximité",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "LES JIM LES PLUS DEMANDÉS",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Disponible ce soir",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Entraîne-toi à plusieurs",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Ton coach se déplace",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Découvre les nouveaux mentors",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Fais-toi guider,trouve ton Mentor !",
+      "intro": [],
+      "buttons": [
+        "DateAujourd'hui",
+        "Rechercher"
+      ]
+    },
+    {
+      "heading": "Tu cherches un encadrement sportif ?Trouve ton mentor en quelques clics.",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Ils ont trouvé leur mentor",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Deviens mentor",
+      "intro": [],
+      "buttons": []
+    },
+    {
+      "heading": "Tous les mentors",
+      "intro": [],
+      "buttons": [
+        "Voir plus de mentors"
+      ]
+    }
+  ],
+  "profileCardAppearances": 100,
+  "distinctProfileLinks": 86,
+  "sharedImageSourceAcrossDifferentProfileIds": 22,
+  "sectionIds": [],
+  "frameHasH1": false,
+  "recommendationsButton": "Observed, click timed out waiting for visibility/stability; personalization not validated",
+  "productionPublishedVersion": "Unknown"
+}

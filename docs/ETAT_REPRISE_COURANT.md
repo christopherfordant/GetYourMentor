@@ -1,5 +1,16 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : audit Lovable et image du menu
+
+Demande : comparer le projet Lovable `447e4f2f-dfd3-455d-a936-0e3025ea0276` et préparer l'image d'un panneau droit s'ouvrant vers la gauche, prochaine étape. [Audit et matrice des 15 rubriques](AUDIT_SECTIONS_LOVABLE_MENU_2026-10-28.md). Prévisualisation lue avec Playwright, aucun message Lovable, changement distant ou déploiement. Aucune modification de l'application Next.
+
+- Référence : 15 titres de rubriques d'accueil observés ; dépôt déjà doté de recherche/filtres, proximité, collectif, avis par coach et accès professionnels, mais pas de la même découverte sur l'accueil. Douze entrées sport/objectif dans Lovable contre quatre familles locales : ne pas élargir silencieusement. Notes, promos, popularité et disponibilités de référence non validées côté serveur.
+- Images de référence : 100 apparitions de cartes, 86 liens de profil distincts et 22 sources partagées entre plusieurs IDs dans le DOM du jour ; le lot local précédent de trois portraits ne couvre pas ce catalogue. Pas de données privées ou fichiers sources Lovable exportés.
+- Livré localement : maquette indépendante `maquettes/menu-sections-2026-10-28/index.html`, planche `apercu.html`, cinq PNG et observations expurgées dans `docs/assets/audit-lovable-2026-10-28`. Fermé : petite flèche à droite ; ouvert : panneau se déployant à gauche, 15 noms regroupés, fermeture/focus/mouvement réduit. Ancres de démonstration uniquement.
+- Vérification : 21 assertions PASS sur fichiers locaux à 390/1440 px, captures inspectées. Clic sur personnalisation Lovable expiré : aucun fonctionnement de recommandations annoncé. Aucune nouvelle génération IA nécessaire pour cette maquette HTML native ; les scènes du lot précédent sont réutilisées.
+- Git initial : branche `design/refonte-progressive-lot1`, local `33e355e0936bb7af28938de8fb08fbf9cb1730e8`, divergence 2 contre 9. Push réel du lot rejeté `non-fast-forward` (code 1), distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Commit local identifiable par Git, diff ciblé vérifié. 20 entrées suivies modifiées et 79 non suivies antérieures, 44 worktrees préservés ; index initial vide. Aucun pull/rebase/fusion/force-push.
+- Prochain lot recommandé : base Git cohérente, puis intégrer le panneau droit sur les sections réellement présentes et leurs ancres. Les autres rubriques demandent des blocs/data explicitement livrés avant d'activer leurs liens. Ne pas confondre référence Lovable, code local et version publiée.
+
 ## Reprise active — 28 octobre 2026 : bibliothèque d'images IA
 
 Demande suivante autorisée : enrichir les images, sans réconciliation Git ni déploiement. [Rapport, inventaire et correspondances](IMAGES_IA_2026-10-28.md), [preuves](assets/ai-visuals-2026-10-28/verification.json), prompts et six captures dans le même dossier. Cette section remplace le statut « audit uniquement » ci-dessous pour ce lot d'images seulement.
