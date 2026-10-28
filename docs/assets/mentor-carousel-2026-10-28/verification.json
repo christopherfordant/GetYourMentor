@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-28",
+  "baseCommit": "6dbfbe5cd5d7e044b25a80570adbff1db4d74f36",
+  "buildId": "Hii_MxnS-q872SwPREZug",
+  "sources": [
+    {
+      "file": "gym-next/app/api/coaches/preview/route.ts",
+      "sha256": "eeec364565f397e05ff5464ded4adf8b1ce6052376fa132fb64e8387229a760e"
+    },
+    {
+      "file": "gym-next/components/discovery/CenteredCarousel.tsx",
+      "sha256": "23b489fa1326c16d8a7323dfa7f61c7c12d8b6847fbeea745f7515fe4573c097"
+    },
+    {
+      "file": "gym-next/components/discovery/CoachVisual.tsx",
+      "sha256": "6eb2bbc6a1e9d68284a686dfd39001958a4744fd6f444e942419d0d51ba9dcd1"
+    },
+    {
+      "file": "gym-next/components/discovery/mentor-carousel.module.css",
+      "sha256": "89cdc3a83450a95b2ef7db0290538286606f10f6a6eccd5ff28919e05f877d2a"
+    },
+    {
+      "file": "gym-next/components/home/EditorialHome.tsx",
+      "sha256": "591fdbfb123090e4ace122fcffcb5275dc1d13610f192cdfa92d34969512c879"
+    },
+    {
+      "file": "gym-next/components/home/MentorPreviewSection.tsx",
+      "sha256": "478fdf36c72a6dfba66d0378afff846e8c55e7221c8e215bb377f82e2bef0e90"
+    },
+    {
+      "file": "gym-next/lib/coaches.ts",
+      "sha256": "9e1670cf64722310bf80d029389942433e72a696c11b51e529158c113582dfd1"
+    },
+    {
+      "file": "gym-next/lib/mentor-preview-query.ts",
+      "sha256": "8e5d2b714fa79dc6f510df11ca37a049bc2693c6fcb2d22c6c1346c89ca06ad6"
+    },
+    {
+      "file": "gym-next/lib/mentor-preview.ts",
+      "sha256": "1c19006fc4620c9f93430b86c3ac1a367af26e0f6322534f8c4af066fcf5583d"
+    },
+    {
+      "file": "gym-next/tests/mentor-carousel.spec.ts",
+      "sha256": "760495d29689a0c5e05d12a89f858833786380febf72d4e764727ee20fa6f31d"
+    }
+  ],
+  "checks": {
+    "types": "PASS standard isolated config",
+    "optimizedBuild": "PASS",
+    "clientSecretBoundary": "PASS",
+    "distinctScenarios": 27,
+    "newCarouselAndAPIScenarios": 10,
+    "navigationScenarios": 8,
+    "imageAndDiscoveryScenarios": 9,
+    "groupedRun": "17 PASS, 1 zero-duration synthetic touch failure",
+    "pacedTouchRerun": "2 PASS; counted as one distinct scenario",
+    "regressionRun": "9 PASS (13.8s)",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "cohabitation": "PASS; see cohabitation.json",
+    "productionQuery": "SIMULATED fetch; six public rows and no histories",
+    "realSupabase": "NOT_RUN",
+    "realDeviceTouch": "NOT_RUN"
+  },
+  "images": {
+    "generatedThisLot": 0,
+    "existingDemoPortraits": 3,
+    "additionalNeeds": "Qualify combat and additional sports profiles before generating assets"
+  },
+  "remote": {
+    "newCarouselDeployed": false,
+    "newCarouselVerifiedRemotely": false,
+    "existingDeployCheckedViaAPI": "6ae222c8945ea53de42c83b9",
+    "existingSource": "13420fc9d70f9b3db4c8a1f15c0228e44b3570bb",
+    "state": "ready"
+  },
+  "git": {
+    "branch": "design/refonte-progressive-lot1",
+    "remoteSHA": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "knownBlock": "non-fast-forward",
+    "priorTrackedDirtyFiles": 20,
+    "priorUntrackedEntries": 79,
+    "push": "REJECTED non-fast-forward (exit 1)",
+    "remoteConfirmedAfterPush": true
+  },
+  "limits": [
+    "Hosted demo state remains a monolithic Blobs read; browser projection and Supabase query are bounded",
+    "Reference preview unavailable on reprise; archived observation reused within scope",
+    "No other Lovable section, new profile, payment or notification activation"
+  ]
+}

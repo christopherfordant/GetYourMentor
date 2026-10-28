@@ -7,6 +7,8 @@ import { normalizeSearchFilters, type SearchFilters } from "@/lib/domain/validat
 import { withReviewStats } from "@/lib/domain/review-rules";
 import { listReviews } from "@/lib/reviews";
 import { listReservations } from "@/lib/reservations";
+import { MENTOR_PREVIEW_LIMIT, type MentorPreview } from "@/lib/mentor-preview";
+import { readPublicMentorRows } from "@/lib/mentor-preview-query";
 
 export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
 export type CoachDocumentKind = "identity" | "diploma";
@@ -180,6 +182,21 @@ export async function listCoaches() {
   }
   const rows = (await response.json()) as Record<string, unknown>[];
   return rows.map(fromRow);
+}
+
+// A bounded public projection of the same catalogue, without private documents,
+// coordinates, banking data or unverified review aggregates.
+export async function listMentorPreview(): Promise<MentorPreview[]> {
+  const config = supabaseConfig();
+  let rows: Array<{ id: string; name: string; sport: CoachProfile['sport']; specialty: string; city: string; priceFrom: unknown; photoUrl?: string }>;
+  if (!config) {
+    const coaches = isHostedDemo() ? (await readDemoState()).coaches : coachProfiles;
+    rows = coaches.filter(coach => coach.verified).sort((a, b) => a.name.localeCompare(b.name, 'fr') || a.id.localeCompare(b.id)).slice(0, MENTOR_PREVIEW_LIMIT);
+  } else {
+    const saved = await readPublicMentorRows(config.url, supabaseHeaders(config.key));
+    rows = saved.map(row => ({ id: String(row.id), name: String(row.name ?? ''), sport: row.sport as CoachProfile['sport'], specialty: String(row.specialty ?? ''), city: String(row.city ?? ''), priceFrom: row.price_from, photoUrl: typeof row.photo_url === 'string' ? row.photo_url : undefined }));
+  }
+  return rows.map(row => ({ id: row.id, name: row.name, sport: row.sport, specialty: row.specialty, city: row.city, priceFrom: typeof row.priceFrom === 'number' && Number.isFinite(row.priceFrom) && row.priceFrom >= 0 ? row.priceFrom : null, ...(row.photoUrl ? { photoUrl: row.photoUrl } : {}) }));
 }
 
 export async function getCoach(idOrName?: string) {

@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 28 octobre 2026 : pilote cartes et carrousel mentors
+
+Demande exécutée : un seul aperçu « Tous les mentors » sur l'accueil, Factory conservé, sans agent ni déploiement. [Rapport, architecture, preuves et limites](CARROUSEL_MENTORS_2026-10-28.md).
+
+- Implémenté localement : `MentorPreviewSection`, `CenteredCarousel` réutilisable, carte centrale échelle 1 contre .94 sur les côtés, scroll/snap natif, clavier/Home/End, souris/tactile, extrémités centrées, redimensionnement et mouvement réduit. Pas de boucle/clones ni de nouvelles sélections inventées. Voir tout → `/coachs`, carte → `/coach` avec ID/sport/ville ; parcours existant vers créneau préservé.
+- API `GET /api/coaches/preview` : maximum six profils vérifiés, projection publique, no-store, chargement/erreur/réessai/vide. Trois profils démo disponibles et portraits stables déjà existants réutilisés ; aucune génération IA. Notes/disponibilités/promotions non qualifiées non affichées. Supabase : requête bornée testée avec fetch simulé, pas de recette réelle. Netlify Blobs : lecture monolithique du dépôt existant, à optimiser séparément si le catalogue grandit.
+- Vérifié : 27 scénarios distincts validés, sans addition des relances (10 carrousel/API + 8 navigation + 9 images/recherche/annuaire). Quatre largeurs, clic des cartes latérales, extrémités, six cartes/commandes rapides, redimensionnement, souris, tactile Chromium émulé. Typage standard/build/frontière client-secrets PASS. Geste tactile réparti sur 200 ms après un échec du geste sans durée ; deux relances ciblées PASS. Contrôle complémentaire menu/cookies/focus/footer à 390 PASS. Captures et manifeste dans `docs/assets/mentor-carousel-2026-10-28`.
+- Code et tests contrôlés dans `C:/Users/cashe/Documents/GYM-mentor-carousel-20261028`, base `6dbfbe5cd5d7e044b25a80570adbff1db4d74f36`, aucune copie du travail antérieur non vérifié. Les vingt fichiers suivis modifiés et 79 entrées non suivies antérieurs restent hors commit. Checkout et preuves conservés pour revue ; serveur temporaire arrêté avant livraison.
+- Git : branche `design/refonte-progressive-lot1`, divergence initiale 8 contre 9. Commit ciblé local réalisé (`feat(discovery): add bounded Factory mentor preview and centered carousel`) ; push normal exécuté et rejeté non-fast-forward (code 1), distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Déclencheurs GitHub lus, aucun pull/reset/rebase/fusion/force-push. Index vide après livraison, vingt fichiers suivis modifiés et 79 entrées non suivies antérieurs préservés.
+- **Non déployé.** API Netlify relue : alias toujours sur source `13420fc9d70f9b3db4c8a1f15c0228e44b3570bb`, deploy `6ae222c8945ea53de42c83b9`, ready. Le nouveau carrousel n'est pas validé à distance. Lovable rouvert en lecture seule mais preview inexploitable ; audit archivé réutilisé dans sa portée, aucun backend supposé.
+- Suite : revue du pilote, puis aperçu collectif distinct relié aux offres/capacités réelles ; qualifier les nouveaux profils/sports avant de générer leurs portraits IA. Ne pas transformer ce catalogue général en proximité/popularité/soir/nouveautés sans données.
+
+Les sections suivantes sont les relais des lots antérieurs.
+
 ## Reprise active — 28 octobre 2026 : Factory global et publication Netlify autorisée
 
 Demande actuelle : harmoniser les pages, puis publier sur le site Netlify existant. Autorisation explicite de publication sur la démo isolée `https://getyourmentor-demo-20261014.netlify.app`, site `86e0379e-4d1a-4cf0-936c-1439397354f4` confirmé via API ; aucun autre site ou service commercial. [Périmètre, preuves et limites](FACTORY_HARMONISATION_NETLIFY_2026-10-28.md).
