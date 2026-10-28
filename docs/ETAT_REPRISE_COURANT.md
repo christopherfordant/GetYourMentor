@@ -10,6 +10,8 @@ Demande actuelle : harmoniser les pages, puis publier sur le site Netlify exista
 - Étape en cours : commit source ciblé, préparation Netlify via `deploy-isolated-demo.py --prepare-only`, puis publication uniquement après contrôle du paquet avec `--prepared`. Ces options vérifient sources/BUILD_ID/empreinte. Le relais sera complété avec le résultat distant ; préparation ne vaut pas publication.
 - Git reste divergent : distant connu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Aucun pull/rebase/fusion/force-push. Publication Netlify autorisée séparément du push Git, lequel sera tenté sans contournement.
 
+Correction après première publication : source `c6a798c`, deploy `6ae2203ef18d4f413b7c1f6b` ready, health/robots PASS, mais meta noindex absente sur l'accueil. Le seul ajout noindex antérieur du layout est maintenant revérifié et indexé séparément, avec la couleur de barre navigateur Factory ; DemoBanner/account-ux restent hors commit. Préparation du correctif et seconde publication en cours. Ne pas annoncer la recette distante complète comme terminée.
+
 Les reprises suivantes décrivent les lots antérieurs.
 
 ## Reprise active — 28 octobre 2026 : premier lot navigation Factory

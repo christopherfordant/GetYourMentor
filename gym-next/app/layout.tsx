@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   },
   description: "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.",
   applicationName: "GetYourMentor",
+  robots: process.env.DEPLOY_ENV === "demo" ? { index: false, follow: false } : undefined,
   category: "sports",
   keywords: ["coach sportif", "coaching sportif", "réservation coach", "entraînement", "sport"],
   openGraph: {
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0b1020",
+  themeColor: "#141414",
 };
 
 export default function RootLayout({
