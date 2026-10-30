@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { availableNavigationSections } from '@/lib/discovery-sports';
 import styles from './navigation.module.css';
 export function SectionDrawer() {
@@ -31,7 +31,7 @@ export function SectionDrawer() {
     }}>
       <button className={styles.closeHandle} type="button" aria-label="Fermer les sections" onClick={close}><span aria-hidden="true">›</span></button>
       <div className={styles.drawerPanel}><div className={styles.drawerHead}><p>GETYOURMENTOR</p><h2 id="sections-title">Explore les sections.</h2></div>
-        <nav aria-label="Sections du site">{availableNavigationSections.map(section => <a key={section.href} href={section.href} onClick={close}><span>{section.label}</span><span aria-hidden="true">↗</span></a>)}</nav>
+        <nav aria-label="Sections du site">{availableNavigationSections.map((section, index) => <a key={section.href} href={section.href} style={{ '--section-index': index } as CSSProperties} onClick={close}><span>{section.label}</span><span aria-hidden="true">↗</span></a>)}</nav>
         <a className={styles.drawerAccount} href="/compte" onClick={close}>Mon compte ↗</a>
       </div>
     </dialog>

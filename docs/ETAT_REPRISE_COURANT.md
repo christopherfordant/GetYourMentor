@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 30 octobre 2026 : animations ludiques
+
+Demande : adapter les effets vidéo aux sports du header, cartes coachs et panneau droit. [Réalisation et limites](ANIMATIONS_LUDIQUES_2026-10-30.md). Factory conservé. Pictogrammes sportifs réactifs, relief/reflet des portraits accueil et annuaire, ouverture en éventail. Texte et zones cliquables fixes ; mouvement réduit sans effets décoratifs. Aucun paquet, agent, génération IA ou service payant ajouté.
+
+Recette isolée `C:/Users/cashe/Documents/GYM-motion-20261030`, base `7688873edb5df20b98d3e57efea46ea7fb7bb472`. Build optimisé avec typage réussi ; avertissements CSS préexistants. Rapports finaux et captures : `assets/playful-motion-2026-10-30/`. Premier passage 23/24 : test tactile préexistant corrigé pour utiliser baseURL plutôt que le port 4320 en dur. Second build couvre l'annuaire. Les nombres définitifs sont dans verification.json, sans addition des relances.
+
+Git : branche unique `design/refonte-progressive-lot1`, vingt modifications suivies antérieures exclues ; aucun reset/pull/rebase/fusion/force-push. Divergence initiale 12 commits locaux / 9 distants, distant confirmé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Push ordinaire requis ; ne pas créer une autre référence pour contourner le rejet préexistant. État final à lire dans verification.json et la livraison. Aucun déploiement : le site Netlify n'est pas actualisé par ces effets.
+
+Suite : revoir l'aperçu local, puis traiter séparément la divergence Git avant synchronisation du chantier et toute publication. Les anciennes prochaines étapes ci-dessous sont historiques ; les règles métier, consentements et données restent protégés. Pas de validation de services réels ou d'accessibilité exhaustive annoncée.
+
+Résultat final du lot : **33 scénarios distincts PASS, 1 ignoré** (survol réservé au desktop dans le projet tactile). Détail, journaux et captures dans verification.json. Serveurs de test terminés ; lancement d'un aperçu persistant refusé par le contrôle automatique (« blocked by policy », sans détail), aucun contournement. Revoir les captures locales avant toute mise en ligne ; l'onglet localhost de la recette ne dispose plus d'un serveur actif.
+
+---
+
 > Arrêt demandé le 28 octobre 2026 : serveur Playwright local `node.exe` PID 12236 et console enfant PID 1756 arrêtés. Inventaire des processus comparé aux chemins du dépôt et de ses worktrees : aucun autre processus GetYourMentor identifié après arrêt ; aucun écouteur sur 3000/3001/4320/4321. Autres applications préservées, aucun serveur relancé ni déploiement distant modifié. Cette opération ne change pas le code ni les résultats de recette ci-dessous.
 
 ## Reprise active — 28 octobre 2026 : aperçu des séances collectives

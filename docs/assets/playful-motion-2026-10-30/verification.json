@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-30",
+  "scope": "local UI only; no deployment",
+  "base": "7688873edb5df20b98d3e57efea46ea7fb7bb472",
+  "build": {
+    "status": "PASS",
+    "typecheck": "PASS as part of Next build",
+    "buildId": "nNXpL63q6h3lWbDy-NrJW",
+    "warnings": "pre-existing Autoprefixer start/end compatibility warnings"
+  },
+  "checks": {
+    "clientSecretBoundary": "PASS",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS after staging all deliverables"
+  },
+  "playwright": {
+    "finalDistinctOutcomes": {
+      "passed": 33,
+      "skipped": 1
+    },
+    "sourceReports": {
+      "desktop-results.json": {
+        "startTime": "2026-10-30T00:58:06.408Z",
+        "duration": 203968.609,
+        "expected": 22,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      },
+      "final-desktop-motion.json": {
+        "startTime": "2026-10-30T01:02:06.369Z",
+        "duration": 49206.986,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mobile-results.json": {
+        "startTime": "2026-10-30T01:03:01.020Z",
+        "duration": 72114.603,
+        "expected": 7,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "skipped": "desktop-only hover in mobile project; keyboard and touch paths tested separately",
+    "initialFailures": "fixed baseURL in legacy touch test; restored intended test focus after dismissing cookie banner",
+    "browsers": "Chromium desktop and emulated touch",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ]
+  },
+  "sourceSHA256": {
+    "gym-next/components/navigation/PlatformHeader.tsx": "22dd573549ae349a2bd2fcab355619fa5dea50e5e6893b4c8cc10de2a7037f73",
+    "gym-next/components/navigation/SectionDrawer.tsx": "0b9dce9ffbfc9aedf556bfc073319afa452838985cfb59176af18c1a860aca86",
+    "gym-next/components/navigation/SportMotionIcon.tsx": "a6c98e826044556fa8f658c378c7833cf8855a5faa2012f014e1e62bbbc86cc6",
+    "gym-next/components/navigation/navigation.module.css": "0df5e23726efd97e673a4f8759d8719fdda45bd1d458dd643be0da81527ce78a",
+    "gym-next/components/discovery/mentor-carousel.module.css": "7013cbf7f309afbdc0953d7b3928fde94bcb5c7a3924678bb98806423333465c",
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": "265985bb73c41e9cc43b9d2fbb825e4b76e58b2f5c8444949480ad280c6d51b8",
+    "gym-next/tests/mentor-carousel.spec.ts": "67f7ac92628eb33c380ef1628c4674add6fea4887634051017e5181f13082d99",
+    "gym-next/tests/playful-motion.spec.ts": "eb3d2ec76dc7f1fdb2a0d98ec2efbc66215c9a66b4c6e0fe6fe58dc012f8fa34"
+  },
+  "git": {
+    "branch": "design/refonte-progressive-lot1",
+    "remote": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "preflight": "push --dry-run rejected non-fast-forward; final ordinary push result in delivery",
+    "merge": false,
+    "forcePush": false
+  },
+  "visual": "final screenshots inspected separately; portrait loaded before capture",
+  "limitations": [
+    "No production deployment",
+    "No physical device/Safari/Firefox performance certification",
+    "Existing favicon.ico 404 in connected browser, outside motion changes"
+  ],
+  "preview": {
+    "status": "BLOCKED",
+    "reason": "Automatic approval review rejected persistent local preview server: blocked by policy; no detailed reason provided",
+    "serverRetained": false
+  }
+}

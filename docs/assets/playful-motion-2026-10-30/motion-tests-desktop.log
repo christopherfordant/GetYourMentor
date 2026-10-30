@@ -1,0 +1,180 @@
+npx.cmd : [WebServer] (node:21808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 99
++ ... ults.json'; npx.cmd playwright test tests/playful-motion.spec.ts test ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 26 tests using 1 worker
+
+
+
+(node:15720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:23:7 › carousel centers both ends and keeps cards, keyboard and portraits usable at 320px
+[2/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:23:7 › carousel centers both ends and keeps cards, keyboard and portraits usable at 390px
+[3/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:23:7 › carousel centers both ends and keeps cards, keyboard and portraits usable at 768px
+[4/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:23:7 › carousel centers both ends and keeps cards, keyboard and portraits usable at 1440px
+[5/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:64:5 › active identity survives resizing; mouse drag and horizontal wheel work
+[6/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:77:5 › native touch swipe changes the centered card without vertical jump
+[7/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:98:5 › loading, unavailable, explicit retry, empty and one-mentor states are honest
+[8/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:120:5 › public preview is capped and shares catalogue identities without private fields
+[9/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:129:5 › six-card preview handles rapid steps and rejects duplicate identities
+[10/26] [desktop-chromium] › tests\mentor-carousel.spec.ts:146:5 › production preview reads only six public rows, without loading review or booking histories
+[11/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 320px
+[12/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 390px
+[13/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 768px
+[14/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 1440px
+[15/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:53:5 › all approved disciplines have actual search and directory routes without borrowing football profiles
+[16/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:66:5 › bell opens a truthful account entry, no fabricated unread count, escape restores focus
+[17/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:79:5 › coach entry starts at My account, preserves booking context, and cannot grant a role
+[18/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:101:5 › Factory surfaces and reduced motion are applied without changing source data
+[19/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
+  1) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected: predicate to succeed
+    Received: "http://127.0.0.1:3001/"
+    Timeout:  10000ms
+
+
+      51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });
+      52 |     await page.keyboard.press('Enter');
+    > 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);
+         |                        ^
+      54 |   });
+      55 | }
+      56 |
+        at C:\Users\cashe\Documents\GYM-motion-20261030\gym-next\tests\playful-motion.spec.ts:53:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\error-context.md
+
+
+(node:18940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[20/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
+  2) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected: predicate to succeed
+    Received: "http://127.0.0.1:3001/"
+    Timeout:  10000ms
+
+
+      51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });
+      52 |     await page.keyboard.press('Enter');
+    > 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);
+         |                        ^
+      54 |   });
+      55 | }
+      56 |
+        at C:\Users\cashe\Documents\GYM-motion-20261030\gym-next\tests\playful-motion.spec.ts:53:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\error-context.md
+
+
+(node:12792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[21/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
+  3) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected: predicate to succeed
+    Received: "http://127.0.0.1:3001/"
+    Timeout:  10000ms
+
+
+      51 |     const destination = await link.getAttribute('href');
+      52 |     await fs.mkdir(evidence, { recursive: true });
+    > 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });
+         |                        ^
+      54 |     await page.keyboard.press('Enter');
+      55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);
+      56 |   });
+        at C:\Users\cashe\Documents\GYM-motion-20261030\gym-next\tests\playful-motion.spec.ts:53:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\error-context.md
+
+
+(node:20628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[22/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
+  4) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px 
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected: predicate to succeed
+    Received: "http://127.0.0.1:3001/"
+    Timeout:  10000ms
+
+
+      51 |     const destination = await link.getAttribute('href');
+      52 |     await fs.mkdir(evidence, { recursive: true });
+    > 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });
+         |                        ^
+      54 |     await page.keyboard.press('Enter');
+      55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);
+      56 |   });
+        at C:\Users\cashe\Documents\GYM-motion-20261030\gym-next\tests\playful-motion.spec.ts:53:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\error-context.md
+
+
+(node:18236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[23/26] [desktop-chromium] › tests\playful-motion.spec.ts:57:5 › reduced motion suppresses decorative animations without hiding content
+[24/26] [desktop-chromium] › tests\playful-motion.spec.ts:78:5 › desktop hover animates the icon while keeping the sport link stationary
+[25/26] [desktop-chromium] › tests\playful-motion.spec.ts:100:7 › directory card keeps profile navigation and reduced motion at 390px
+[26/26] [desktop-chromium] › tests\playful-motion.spec.ts:100:7 › directory card keeps profile navigation and reduced motion at 1440px
+  4 failed
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px 
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px 
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px 
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px 
+  22 passed (3.4m)

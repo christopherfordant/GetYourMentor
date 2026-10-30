@@ -1,0 +1,1178 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/playful-motion.spec.ts",
+      "tests/navigation-refonte.spec.ts",
+      "tests/mentor-carousel.spec.ts",
+      "--project=desktop-chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-motion-20261030/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-motion-20261030/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-motion-20261030/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-motion-20261030/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-motion-20261030/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm.cmd run start -- --port 3001",
+      "url": "http://127.0.0.1:3001/",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "SESSION_SECRET": "3b9cb247566ed66ec70bdaf1755655f6a0a56505dd2eb4ab7a0900afbe52af96",
+        "NODE_ENV": "production",
+        "CI": "true",
+        "NEXT_PUBLIC_APP_URL": "http://127.0.0.1:3001",
+        "STRIPE_WEBHOOK_SECRET": "test-webhook-secret",
+        "PAYMENT_PROVIDER": "local",
+        "GETYOURMENTOR_ALLOW_DEMO": "true",
+        "GETYOURMENTOR_ACCEPTANCE_MODE": "true"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "mentor-carousel.spec.ts",
+      "file": "mentor-carousel.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "carousel centers both ends and keeps cards, keyboard and portraits usable at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10077,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:15.763Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-6dba1365311539c55829",
+          "file": "mentor-carousel.spec.ts",
+          "line": 23,
+          "column": 7
+        },
+        {
+          "title": "carousel centers both ends and keeps cards, keyboard and portraits usable at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4106,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:26.366Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-3e72acd43da92eb342a2",
+          "file": "mentor-carousel.spec.ts",
+          "line": 23,
+          "column": 7
+        },
+        {
+          "title": "carousel centers both ends and keeps cards, keyboard and portraits usable at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:30.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-13159965bde23f007f75",
+          "file": "mentor-carousel.spec.ts",
+          "line": 23,
+          "column": 7
+        },
+        {
+          "title": "carousel centers both ends and keeps cards, keyboard and portraits usable at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5993,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:37.680Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-36a67ce9dc7eeccb3eb4",
+          "file": "mentor-carousel.spec.ts",
+          "line": 23,
+          "column": 7
+        },
+        {
+          "title": "active identity survives resizing; mouse drag and horizontal wheel work",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:43.696Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-d7860507ef05a8d4aed1",
+          "file": "mentor-carousel.spec.ts",
+          "line": 64,
+          "column": 5
+        },
+        {
+          "title": "native touch swipe changes the centered card without vertical jump",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4375,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:51.023Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-e471803ee449e7301ae1",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 5
+        },
+        {
+          "title": "loading, unavailable, explicit retry, empty and one-mentor states are honest",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:58:55.441Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-bccaba52a787b3f45060",
+          "file": "mentor-carousel.spec.ts",
+          "line": 98,
+          "column": 5
+        },
+        {
+          "title": "public preview is capped and shares catalogue identities without private fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 153,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:02.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-72881a9cd7a3cfc3ae48",
+          "file": "mentor-carousel.spec.ts",
+          "line": 120,
+          "column": 5
+        },
+        {
+          "title": "six-card preview handles rapid steps and rejects duplicate identities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3495,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:02.790Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-986ebae74968f3788d06",
+          "file": "mentor-carousel.spec.ts",
+          "line": 129,
+          "column": 5
+        },
+        {
+          "title": "production preview reads only six public rows, without loading review or booking histories",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 994,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:06.334Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-9f07398b569d782bf0e9",
+          "file": "mentor-carousel.spec.ts",
+          "line": 146,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "navigation-refonte.spec.ts",
+      "file": "navigation-refonte.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "shared header and right drawer across public routes at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8205,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:07.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-2db2e1b07ed56d7ce713",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5792,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:15.710Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-b3d6198b31f560ff236d",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5479,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:21.529Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-6fe4813fcb9f4d108af7",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5478,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:27.033Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-2eb6102125f1a20d9712",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "all approved disciplines have actual search and directory routes without borrowing football profiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2264,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:32.537Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-16cad78010771923fcda",
+          "file": "navigation-refonte.spec.ts",
+          "line": 53,
+          "column": 5
+        },
+        {
+          "title": "bell opens a truthful account entry, no fabricated unread count, escape restores focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2487,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:34.830Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-d87dfa360a011643ea7a",
+          "file": "navigation-refonte.spec.ts",
+          "line": 66,
+          "column": 5
+        },
+        {
+          "title": "coach entry starts at My account, preserves booking context, and cannot grant a role",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3597,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:37.344Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-e0e9504dcc75bc4130e0",
+          "file": "navigation-refonte.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "Factory surfaces and reduced motion are applied without changing source data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5739,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:40.972Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-dafb571966e5d06f2da3",
+          "file": "navigation-refonte.spec.ts",
+          "line": 101,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "playful-motion.spec.ts",
+      "file": "playful-motion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "playful navigation remains usable at 320px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16917,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                      "column": 24,
+                      "line": 53
+                    },
+                    "snippet": "  51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n  52 |     await page.keyboard.press('Enter');\n> 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n     |                        ^\n  54 |   });\n  55 | }\n  56 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n\n  51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n  52 |     await page.keyboard.press('Enter');\n> 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n     |                        ^\n  54 |   });\n  55 | }\n  56 |\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T00:59:46.761Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-320px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                    "column": 24,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-13d6905fe366f3df32fd",
+          "file": "playful-motion.spec.ts",
+          "line": 6,
+          "column": 7
+        },
+        {
+          "title": "playful navigation remains usable at 390px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 19350,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                      "column": 24,
+                      "line": 53
+                    },
+                    "snippet": "  51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n  52 |     await page.keyboard.press('Enter');\n> 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n     |                        ^\n  54 |   });\n  55 | }\n  56 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n\n  51 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n  52 |     await page.keyboard.press('Enter');\n> 53 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n     |                        ^\n  54 |   });\n  55 | }\n  56 |\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:00:07.142Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-390px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                    "column": 24,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-edde4ba0b92f858bfd28",
+          "file": "playful-motion.spec.ts",
+          "line": 6,
+          "column": 7
+        },
+        {
+          "title": "playful navigation remains usable at 768px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17918,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                      "column": 24,
+                      "line": 53
+                    },
+                    "snippet": "  51 |     const destination = await link.getAttribute('href');\n  52 |     await fs.mkdir(evidence, { recursive: true });\n> 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n     |                        ^\n  54 |     await page.keyboard.press('Enter');\n  55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n  56 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n\n  51 |     const destination = await link.getAttribute('href');\n  52 |     await fs.mkdir(evidence, { recursive: true });\n> 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n     |                        ^\n  54 |     await page.keyboard.press('Enter');\n  55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n  56 |   });\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:00:29.190Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-768px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                    "column": 24,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-48af1d73f683b0b52ef8",
+          "file": "playful-motion.spec.ts",
+          "line": 6,
+          "column": 7
+        },
+        {
+          "title": "playful navigation remains usable at 1440px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20043,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                      "column": 24,
+                      "line": 53
+                    },
+                    "snippet": "  51 |     const destination = await link.getAttribute('href');\n  52 |     await fs.mkdir(evidence, { recursive: true });\n> 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n     |                        ^\n  54 |     await page.keyboard.press('Enter');\n  55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n  56 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: predicate to succeed\nReceived: \u001b[31m\"http://127.0.0.1:3001/\"\u001b[39m\nTimeout:  10000ms\n\n\n  51 |     const destination = await link.getAttribute('href');\n  52 |     await fs.mkdir(evidence, { recursive: true });\n> 53 |     await page.screenshot({ path: `${evidence}/mentors-${width}.png` });\n     |                        ^\n  54 |     await page.keyboard.press('Enter');\n  55 |     await expect(page).toHaveURL(url => `${url.pathname}${url.search}` === destination);\n  56 |   });\n    at C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts:53:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:00:50.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\test-results\\playful-motion-playful-navigation-remains-usable-at-1440px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-motion-20261030\\gym-next\\tests\\playful-motion.spec.ts",
+                    "column": 24,
+                    "line": 53
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-7f6b8e477420c7b16676",
+          "file": "playful-motion.spec.ts",
+          "line": 6,
+          "column": 7
+        },
+        {
+          "title": "reduced motion suppresses decorative animations without hiding content",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2775,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:01:12.502Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-98a36301d4ad2faf4b8f",
+          "file": "playful-motion.spec.ts",
+          "line": 57,
+          "column": 5
+        },
+        {
+          "title": "desktop hover animates the icon while keeping the sport link stationary",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3055,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:01:15.573Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-d7f4fd5aacde565ade14",
+          "file": "playful-motion.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "directory card keeps profile navigation and reduced motion at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5079,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:01:18.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-d29a8663cc540d133125",
+          "file": "playful-motion.spec.ts",
+          "line": 100,
+          "column": 7
+        },
+        {
+          "title": "directory card keeps profile navigation and reduced motion at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4729,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-30T01:01:23.784Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7b433cdfc2d5d02f7036-f9d3c4e3fbe614c2b939",
+          "file": "playful-motion.spec.ts",
+          "line": 100,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-30T00:58:06.408Z",
+    "duration": 203968.609,
+    "expected": 22,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

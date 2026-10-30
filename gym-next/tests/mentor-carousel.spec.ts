@@ -74,8 +74,8 @@ test('active identity survives resizing; mouse drag and horizontal wheel work', 
   await page.mouse.wheel(340, 0); await centered(page, 2);
 });
 
-test('native touch swipe changes the centered card without vertical jump', async ({ browser }) => {
-  const context = await browser.newContext({ baseURL: 'http://127.0.0.1:4320', viewport: { width: 390, height: 1000 }, hasTouch: true, isMobile: true });
+test('native touch swipe changes the centered card without vertical jump', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ baseURL, viewport: { width: 390, height: 1000 }, hasTouch: true, isMobile: true });
   const page = await context.newPage();
   try {
     await ready(page); await centered(page, 1);

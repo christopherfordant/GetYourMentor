@@ -2,6 +2,7 @@
 import { useRef, useState, type ReactNode } from 'react';
 import { discoverySports } from '@/lib/discovery-sports';
 import styles from './navigation.module.css';
+import { SportMotionIcon } from './SportMotionIcon';
 
 export function PlatformHeader({ children }: { children?: ReactNode }) {
   const [sportsOpen, setSportsOpen] = useState(false);
@@ -24,7 +25,7 @@ export function PlatformHeader({ children }: { children?: ReactNode }) {
     <div className={styles.sportsPanel} ref={sportsPanel} id="platform-sports" data-open={sportsOpen} onKeyDown={event => {
       if (event.key === 'Escape') { setSportsOpen(false); sportsTrigger.current?.focus(); }
     }}>
-      <nav className={styles.sports} aria-label="Sports">{discoverySports.map(([slug, label]) => <a href={`/recherche?sport=${slug}`} key={slug}>{label}</a>)}</nav>
+      <nav className={styles.sports} aria-label="Sports">{discoverySports.map(([slug, label]) => <a href={`/recherche?sport=${slug}`} key={slug}><SportMotionIcon sport={slug} /><span>{label}</span></a>)}</nav>
     </div>
     <dialog ref={notifications} className={styles.notifications} aria-labelledby="notifications-title" onClose={() => bell.current?.focus()} onClick={event => {
       const box = event.currentTarget.getBoundingClientRect();

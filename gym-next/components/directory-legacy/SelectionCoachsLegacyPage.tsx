@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { CoachVisual } from "@/components/discovery/CoachVisual";
+import motion from "@/components/discovery/mentor-carousel.module.css";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame, DiscoveryIntro, DiscoverySteps, discoverySports } from "@/components/discovery/DiscoveryFrame";
 
@@ -307,8 +308,8 @@ function CoachResultCard({
   });
 
   return (
-    <article className="de-coach-result-card" data-coach-card>
-      <div className="de-coach-result-media" style={{ padding: 0, display: 'block' }}>
+    <article className={`de-coach-result-card ${motion.directoryCard}`} data-coach-card>
+      <div className={`de-coach-result-media ${motion.visual}`} style={{ padding: 0, display: 'block' }}>
         <CoachVisual coachId={coach.id} name={coach.name} photoUrl={coach.photoUrl} demo={coach.demoIllustration} />
       </div>
       <div className="de-coach-result-body">

@@ -14,3 +14,42 @@
 @keyframes drawer-in{from{transform:translateX(100%)}to{transform:translateX(0)}}
 @media(max-width:760px){.top{padding:12px 16px;gap:8px;}.brand{font-size:0;gap:0;}.brand b{font-size:25px;}.actions{gap:7px;}.account{font-size:12px;padding:9px 11px;}.sportsToggle{display:block;font-size:12px;}.sportsPanel{display:none;}.sportsPanel[data-open="true"]{display:block;}.sports{justify-content:flex-start;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:60dvh;overflow:auto;}.sports a{min-height:44px;}.drawerHead{padding:22px 20px 16px;}}
 @media(prefers-reduced-motion:reduce){.drawer[open]{animation:none;}}
+
+/* One short response per intentional interaction; labels and hit areas stay still. */
+.sports a { gap:7px; position:relative; }
+.sports a > [data-sport-motion] { position:relative; display:grid; place-items:center; flex:0 0 18px; color:#ff8a4c; }
+.sports a > [data-sport-motion]::after { content:""; position:absolute; width:3px; height:3px; border-radius:1px; background:currentColor; opacity:0; pointer-events:none; box-shadow:7px -6px 0 currentColor,-7px -5px 0 currentColor,6px 6px 0 currentColor,-6px 7px 0 currentColor; }
+.sports a:focus-visible [data-sport-motion]::after { animation:sport-spark .42s ease-out; }
+.sports a:focus-visible [data-sport-motion] svg { animation:sport-lift .5s ease-out; }
+.sports a:focus-visible [data-sport-motion="ball"] svg { animation:sport-bounce .58s ease-out; }
+.sports a:focus-visible [data-sport-motion="punch"] svg { animation:sport-punch .42s ease-out; }
+.sports a:focus-visible [data-sport-motion="flow"] svg { animation:sport-flow .65s ease-in-out; }
+.sports a:focus-visible [data-sport-motion="racket"] svg { animation:sport-swing .5s ease-out; }
+.drawer nav { perspective:700px; }
+.drawer[open] { animation:drawer-unfold .3s cubic-bezier(.2,.75,.25,1); }
+.drawer[open] nav a { transform-origin:right center; animation:section-unfold .3s both cubic-bezier(.2,.75,.25,1); animation-delay:calc(var(--section-index,0) * 24ms); }
+.drawer nav a { transition:background .18s ease; }
+.drawer nav a span:last-child { transition:transform .2s ease; }
+.drawer nav a:is(:hover,:focus-visible) span:last-child { transform:translate(3px,-2px); }
+@media(hover:hover) and (pointer:fine) {
+  .sports a:hover [data-sport-motion]::after { animation:sport-spark .42s ease-out; }
+  .sports a:hover [data-sport-motion] svg { animation:sport-lift .5s ease-out; }
+  .sports a:hover [data-sport-motion="ball"] svg { animation:sport-bounce .58s ease-out; }
+  .sports a:hover [data-sport-motion="punch"] svg { animation:sport-punch .42s ease-out; }
+  .sports a:hover [data-sport-motion="flow"] svg { animation:sport-flow .65s ease-in-out; }
+  .sports a:hover [data-sport-motion="racket"] svg { animation:sport-swing .5s ease-out; }
+}
+@keyframes sport-bounce { 0%,100%{transform:translateY(0) rotate(0)} 30%{transform:translateY(-6px) rotate(-22deg)} 62%{transform:translateY(1px) rotate(12deg)} 80%{transform:translateY(-2px)} }
+@keyframes sport-punch { 0%,100%{transform:translateX(0)} 30%{transform:translateX(-2px) rotate(-8deg)} 60%{transform:translateX(4px) rotate(10deg)} }
+@keyframes sport-lift { 0%,100%{transform:translateY(0)} 45%{transform:translateY(-4px) rotate(-9deg)} 75%{transform:translateY(-2px) rotate(5deg)} }
+@keyframes sport-flow { 0%,100%{transform:translateX(0)} 35%{transform:translateX(-3px) rotate(-8deg)} 70%{transform:translateX(3px) rotate(8deg)} }
+@keyframes sport-swing { 0%,100%{transform:rotate(0)} 35%{transform:rotate(-25deg)} 65%{transform:rotate(18deg)} }
+@keyframes sport-spark { 0%{opacity:0;transform:scale(.3) rotate(-15deg)} 25%{opacity:.8} 100%{opacity:0;transform:scale(1.5) rotate(25deg)} }
+@keyframes drawer-unfold { from{transform:translateX(100%);opacity:.6} to{transform:translateX(0);opacity:1} }
+@keyframes section-unfold { from{opacity:0;transform:translateX(20px) rotateY(-18deg)} to{opacity:1;transform:translateX(0) rotateY(0)} }
+@media(prefers-reduced-motion:reduce) {
+  .sports a [data-sport-motion] svg,.sports a [data-sport-motion]::after,
+  .drawer[open],.drawer[open] nav a { animation:none !important; }
+  .drawer nav a,.drawer nav a span:last-child { transition:none; }
+  .drawer nav a:is(:hover,:focus-visible) span:last-child { transform:none; }
+}

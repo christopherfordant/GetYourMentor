@@ -29,3 +29,27 @@
 .srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 @media(max-width:760px) { .section { width:calc(100% - 24px); margin-block:40px; }.heading { align-items:flex-start; }.heading h2 { font-size:32px; }.rail { gap:12px; }.content { padding:16px; } }
 @media(prefers-reduced-motion:reduce) { .card { transition:none; }.rail { scroll-behavior:auto; } }
+
+/* Preserve carousel scale and click geometry; only the portrait gets the 3D tilt. */
+.visual { position:relative; perspective:900px; overflow:hidden; }
+.visual figure { transform-origin:center 65%; transition:transform .38s cubic-bezier(.2,.75,.25,1); }
+.visual::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(115deg,transparent 25%,rgba(255,138,76,.16) 48%,transparent 65%); transform:translateX(-110%); }
+.directoryCard { transition:border-color .24s ease,box-shadow .24s ease; }
+.card:focus-within,.directoryCard:focus-within { border-color:var(--gym-primary-hover); box-shadow:0 12px 28px rgba(0,0,0,.4); }
+.card:focus-within .visual figure,.directoryCard:focus-within .visual figure { transform:rotateY(-4deg) rotateX(2deg) scale(1.025); }
+.card:focus-within .visual::after,.directoryCard:focus-within .visual::after { animation:mentor-shine .65s ease-out; }
+.content a > span[aria-hidden] { transition:transform .2s ease; }
+.content a:is(:hover,:focus-visible) > span[aria-hidden] { transform:translate(2px,-2px); }
+@media(hover:hover) and (pointer:fine) {
+  .card:hover,.directoryCard:hover { border-color:var(--gym-primary-hover); box-shadow:0 12px 28px rgba(0,0,0,.4); }
+  .card:hover .visual figure,.directoryCard:hover .visual figure { transform:rotateY(-4deg) rotateX(2deg) scale(1.025); }
+  .card:hover .visual::after,.directoryCard:hover .visual::after { animation:mentor-shine .65s ease-out; }
+}
+@keyframes mentor-shine { from{transform:translateX(-110%)} to{transform:translateX(110%)} }
+@media(prefers-reduced-motion:reduce) {
+  .visual figure,.content a > span[aria-hidden] { transition:none; }
+  .directoryCard { transition:none; }
+  .card:is(:hover,:focus-within) .visual figure,.directoryCard:is(:hover,:focus-within) .visual figure { transform:none; }
+  .card:is(:hover,:focus-within) .visual::after,.directoryCard:is(:hover,:focus-within) .visual::after { animation:none; }
+  .content a:is(:hover,:focus-visible) > span[aria-hidden] { transform:none; }
+}
