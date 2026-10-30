@@ -69,7 +69,14 @@
     "remote": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
     "preflight": "push --dry-run rejected non-fast-forward; final ordinary push result in delivery",
     "merge": false,
-    "forcePush": false
+    "forcePush": false,
+    "applicationCommit": "8ac6949212c36523630a0e04a9e70b9dc426e470",
+    "ordinaryPush": {
+      "exitCode": 1,
+      "status": "REJECTED non-fast-forward",
+      "remoteVerifiedAfterPush": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a"
+    },
+    "documentationFollowup": "local only; no identical push retry while divergence persists"
   },
   "visual": "final screenshots inspected separately; portrait loaded before capture",
   "limitations": [

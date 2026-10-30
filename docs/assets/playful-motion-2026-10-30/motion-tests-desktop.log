@@ -4,7 +4,7 @@ Au caractère Ligne:2 : 99
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
 
 
@@ -33,7 +33,7 @@ Running 26 tests using 1 worker
 [17/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:79:5 › coach entry starts at My account, preserves booking context, and cannot grant a role
 [18/26] [desktop-chromium] › tests\navigation-refonte.spec.ts:101:5 › Factory surfaces and reduced motion are applied without changing source data
 [19/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
-  1) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px 
+  1) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
 
     Error: expect(page).toHaveURL(expected) failed
 
@@ -67,7 +67,7 @@ Running 26 tests using 1 worker
 
 
 [20/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
-  2) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px 
+  2) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
 
     Error: expect(page).toHaveURL(expected) failed
 
@@ -101,7 +101,7 @@ Running 26 tests using 1 worker
 
 
 [21/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
-  3) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px 
+  3) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
 
     Error: expect(page).toHaveURL(expected) failed
 
@@ -135,7 +135,7 @@ Running 26 tests using 1 worker
 
 
 [22/26] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
-  4) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px 
+  4) [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
 
     Error: expect(page).toHaveURL(expected) failed
 
@@ -173,8 +173,8 @@ Running 26 tests using 1 worker
 [25/26] [desktop-chromium] › tests\playful-motion.spec.ts:100:7 › directory card keeps profile navigation and reduced motion at 390px
 [26/26] [desktop-chromium] › tests\playful-motion.spec.ts:100:7 › directory card keeps profile navigation and reduced motion at 1440px
   4 failed
-    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px 
-    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px 
-    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px 
-    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px 
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
+    [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
   22 passed (3.4m)

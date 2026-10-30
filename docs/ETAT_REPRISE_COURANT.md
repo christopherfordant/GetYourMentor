@@ -12,6 +12,8 @@ Suite : revoir l'aperçu local, puis traiter séparément la divergence Git avan
 
 Résultat final du lot : **33 scénarios distincts PASS, 1 ignoré** (survol réservé au desktop dans le projet tactile). Détail, journaux et captures dans verification.json. Serveurs de test terminés ; lancement d'un aperçu persistant refusé par le contrôle automatique (« blocked by policy », sans détail), aucun contournement. Revoir les captures locales avant toute mise en ligne ; l'onglet localhost de la recette ne dispose plus d'un serveur actif.
 
+Livraison applicative committée : `8ac6949212c36523630a0e04a9e70b9dc426e470`. Push ordinaire réellement exécuté, rejeté **non-fast-forward, code 1** ; distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Complément documentaire local pour archiver ce résultat et normaliser les journaux en UTF-8 sans espaces terminaux. Pas de nouvelle tentative identique, fusion ou déploiement. Le code et les preuves restent locaux, les changements antérieurs restent préservés.
+
 ---
 
 > Arrêt demandé le 28 octobre 2026 : serveur Playwright local `node.exe` PID 12236 et console enfant PID 1756 arrêtés. Inventaire des processus comparé aux chemins du dépôt et de ses worktrees : aucun autre processus GetYourMentor identifié après arrêt ; aucun écouteur sur 3000/3001/4320/4321. Autres applications préservées, aucun serveur relancé ni déploiement distant modifié. Cette opération ne change pas le code ni les résultats de recette ci-dessous.
