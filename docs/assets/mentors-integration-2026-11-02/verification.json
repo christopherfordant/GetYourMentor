@@ -42,7 +42,9 @@
       "passed": 2,
       "report": "before-capture-results.json",
       "note": "Prior verified build; three relevant component sources compared after newline normalization."
-    }
+    },
+    "trackedSecretCheckExitCode": 0,
+    "targetedDiffCheckExitCode": 0
   },
   "reference": {
     "project": "https://lovable.dev/projects/447e4f2f-dfd3-455d-a936-0e3025ea0276?invite=true",
@@ -101,8 +103,15 @@
   },
   "git": {
     "priorDirtyTrackedFiles": 20,
-    "push": "pending",
-    "remoteBefore": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a"
+    "push": "rejected non-fast-forward",
+    "remoteBefore": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "localImplementationCommit": "b78278f51a0050ce478ab3b89863b6c5d216aee7",
+    "pushExitCode": 1,
+    "nonFastForward": true,
+    "remoteAfter": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "remoteReadExitCode": 0,
+    "priorPatchStillIdentical": true,
+    "noIdenticalRetry": true
   },
   "limits": [
     "Chromium and emulated touch only",

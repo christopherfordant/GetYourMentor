@@ -6,6 +6,10 @@ Dernière demande : intégrer localement le pentagone dans l'accueil et enrichir
 
 Projection publique par liste positive, formats et présentation existants rendus visibles, diplômes déclarés conservés avec leurs réserves. Aucun nouveau schéma ni migration. Navigation des pages conservée à 2 200 ms. Captures avant/après, résultats réels, serveur et statut Git : `assets/mentors-integration-2026-11-02/verification.json`. Ne pas additionner les relances ni annoncer une conformité globale.
 
+Recette ciblée : **35 cas ordinateur + 18 cas mobile PASS**. Dernier ajustement CSS des onglets de fiche : nouveau build et deux relances ordinateur/mobile PASS. Deux anciens tests métier en échec reproduits sur le build précédent ; suite globale non certifiée verte. Aperçu réel laissé ouvert sur **http://127.0.0.1:3002/#mentors**, mode recette isolé sans services distants ; rechargement et API mentors/séances HTTP 200 vérifiés. Relance et arrêt dans le rapport.
+
+Commit applicatif local **b78278f51a0050ce478ab3b89863b6c5d216aee7**. Push normal réellement exécuté puis rejeté non-fast-forward (code 1), distant relu inchangé **d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a**. Complément documentaire sans tentative identique répétée. Vingt changements antérieurs conservés, diff binaire identique. Aucun déploiement.
+
 Checkout isolé `C:/Users/cashe/Documents/GYM-mentors-integration-20261102`, base `731cc4ba03e57e98813e98359e8d3d7d09f0944e`. Vingt changements antérieurs exclus. Aucun déploiement, compte réel modifié, achat ou nouvelle dépendance. L'adaptation Lovable reste partielle : les données nécessaires aux offres, avis, classements et disponibilités ne sont pas inventées. Prochaine action : revue du rendu intégré, puis traiter séparément les écarts documentés et la divergence distante.
 
 ---
