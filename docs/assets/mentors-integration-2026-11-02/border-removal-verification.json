@@ -24,5 +24,7 @@
   "previewSession": 30649,
   "noDeployment": true,
   "priorTrackedChangesPreserved": 20,
-  "push": "pending"
+  "push": "rejected non-fast-forward",
+  "implementationCommit": "00d82d0329a42b022e81788c0b6f5878211eeee4",
+  "remoteConfirmed": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a"
 }

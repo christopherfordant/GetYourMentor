@@ -2,6 +2,8 @@
 
 ## Ajustement actif - 2 novembre 2026 : pentagone sans encadrement
 
+Commit local 00d82d0 ; push normal rejete non-fast-forward, distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Aucun contournement ni nouvelle tentative identique.
+
 Bordure, arrondi et fond du conteneur externe retires sur demande utilisateur. Cartes, commandes et rotation conservees. Build optimise PASS ; inspection navigateur apres rechargement a 1440 et 390 px : bordure 0 px, fond transparent, rayon 0 px, aucun debordement ; rotation 0 vers 1 verifiee. Pas de nouvelle suite complete pour ce changement CSS. Apercu reconstruit : http://127.0.0.1:3002/#mentors, session 30649 ; relance par le lanceur du checkout isole documente ci-dessous. Preuves : assets/mentors-integration-2026-11-02/border-removal-verification.json et without-frame-*.png. Aucun deploiement.
 
 ---
