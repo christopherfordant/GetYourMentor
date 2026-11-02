@@ -37,7 +37,13 @@
   },
   "screenshots": "opening/finished 390/1440: last run mobile Chromium, DPR 3; desktop results archived separately",
   "deployment": "none",
-  "push": "pending; existing remote divergence d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+  "push": {
+    "status": "rejected non-fast-forward",
+    "exit_code": 1,
+    "remote_verified": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "force_or_merge_attempted": false,
+    "deployment": false
+  },
   "limits": [
     "Chromium desktop and emulated touch only; no Firefox or Safari execution",
     "Without Navigation API: internal links and back navigation tested; full document and programmatic navigations retain safe native fallback",
@@ -55,5 +61,7 @@
   "distinct_final_cases": 32,
   "counting": "Latest 18 navigation replays replace earlier navigation executions; add 14 existing-animation desktop regressions, not 50 tests.",
   "qa_fixture": "Cookie consent rejection awaited using escaped Unicode selector; final 18-case replay passed after fixture correction.",
-  "local_port_3001_listeners_after_tests": 0
+  "local_port_3001_listeners_after_tests": 0,
+  "implementation_commit": "4f30ecf1982c505e1ee9e125b50b195f35d4f4ad",
+  "preexisting_tracked_patch_unchanged": true
 }

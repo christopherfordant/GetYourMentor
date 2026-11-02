@@ -34,4 +34,6 @@ Preuves : assets/door-navigation-2026-11-02/verification.json, JSON finaux et ca
 
 Consultées le 2 novembre 2026 : [Navigation API](https://developer.mozilla.org/en-US/docs/Web/API/Navigation_API), [événement navigate](https://developer.mozilla.org/en-US/docs/Web/API/Navigation/navigate_event), [View Transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using). La solution finale utilise DOM et Web Animations, pas les pseudo-éléments View Transitions.
 
-Branche design/refonte-progressive-lot1. Résultat du push et SHA distant réellement relu dans verification.json. Aucun achat, agent, dépendance ajoutée, fusion, rebase, force-push ou déploiement. Le site public reste inchangé.
+Dernière relance : 18 scénarios de navigation PASS après correction du sélecteur Unicode et attente explicite de fermeture de la bannière de confidentialité. Ces relances remplacent les précédentes exécutions des mêmes scénarios : toujours 32 scénarios distincts avec les quatorze régressions. Typage final rejoué PASS.
+
+Branche design/refonte-progressive-lot1, commit applicatif 4f30ecf1982c505e1ee9e125b50b195f35d4f4ad. Push ordinaire rejeté non-fast-forward (code 1), distant réellement relu : d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Diff binaire des vingt modifications antérieures strictement identique à la sauvegarde initiale. Détails dans verification.json. Aucun achat, agent, dépendance ajoutée, fusion, rebase, force-push ou déploiement. Le site public reste inchangé.

@@ -10,6 +10,8 @@ Intégration locale terminée : battants -110°/+110°, 950 ms, vraie page entra
 
 Checkout détaché : C:/Users/cashe/Documents/GYM-door-navigation-20261102. Serveurs de test arrêtés. Branche design/refonte-progressive-lot1. Distant avant livraison : d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a, divergence préexistante ; résultat du push dans verification.json. Aucun déploiement. Sans Navigation API : liens et retour testés, animation de toutes les navigations document/programmatique non garantie. Aucun test Safari/Firefox, compte privé ou service réel revendiqué.
 
+Livraison applicative locale : **4f30ecf1982c505e1ee9e125b50b195f35d4f4ad**. Push ordinaire exécuté puis rejeté non-fast-forward (code 1). Distant relu inchangé : d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Aucun contournement ni nouvelle tentative identique. Diff binaire des vingt modifications antérieures comparé à la sauvegarde : strictement identique. Dernière relance des dix-huit scénarios de navigation PASS après correction du sélecteur de fermeture de la bannière ; ne pas ajouter ces relances aux 32 scénarios distincts. Typage final rejoué PASS.
+
 Suite : revue locale puis traitement séparé de la divergence avant synchronisation et tout déploiement. Les sections suivantes décrivent les étapes antérieures.
 
 ---
