@@ -1,0 +1,13 @@
+[WebServer] (node:11984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:18356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [desktop-chromium] › tests\mentor-carousel.spec.ts:132:5 › card to profile keeps identity, city and declared formats through the slow door transition (5.4s)
+(node:18408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile-chromium] › tests\mentor-carousel.spec.ts:132:5 › card to profile keeps identity, city and declared formats through the slow door transition (5.2s)
+
+  2 passed (17.7s)

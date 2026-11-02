@@ -1,5 +1,16 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : mentors enrichis et pentagone intégré
+
+Dernière demande : intégrer localement le pentagone dans l'accueil et enrichir les profils selon les données réelles ; l'attente de validation du prototype dans la section précédente est levée pour cette première section seulement. Référence Lovable réellement consultée, carte et fiche comprises. Trois profils de démonstration + deux accès explicites au catalogue/recherche ; aucun coach inventé. Autres sections gardées en grille, parcours ou accès direct. [Rapport et provenance](MENTORS_PENTAGONE_2026-11-02.md).
+
+Projection publique par liste positive, formats et présentation existants rendus visibles, diplômes déclarés conservés avec leurs réserves. Aucun nouveau schéma ni migration. Navigation des pages conservée à 2 200 ms. Captures avant/après, résultats réels, serveur et statut Git : `assets/mentors-integration-2026-11-02/verification.json`. Ne pas additionner les relances ni annoncer une conformité globale.
+
+Checkout isolé `C:/Users/cashe/Documents/GYM-mentors-integration-20261102`, base `731cc4ba03e57e98813e98359e8d3d7d09f0944e`. Vingt changements antérieurs exclus. Aucun déploiement, compte réel modifié, achat ou nouvelle dépendance. L'adaptation Lovable reste partielle : les données nécessaires aux offres, avis, classements et disponibilités ne sont pas inventées. Prochaine action : revue du rendu intégré, puis traiter séparément les écarts documentés et la divergence distante.
+
+---
+
+
 ## Reprise active — 2 novembre 2026 : ralenti et prototype pentagonal
 
 Ouverture réelle passée de 950 à **2 200 ms**, comme le mode Ralenti du prototype validé. Nettoyage de secours à 2 650 ms ; garde-fou de chargement, angles et autres comportements conservés. Nouveau prototype autonome à cinq faces, rotation manuelle sans fin dans les deux sens. Trois profils de démonstration existants + deux faces de parcours, aucun mentor inventé. [Rapport, inventaire et limites](PENTAGONE_RALENTI_2026-11-02.md).

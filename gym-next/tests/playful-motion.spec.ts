@@ -43,10 +43,10 @@ for (const width of [320, 390, 768, 1440]) {
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
     await expect(page.locator('[data-mentor-id]')).toHaveCount(3);
-    const link = page.locator('[data-carousel-item="1"] [data-mentor-id] a');
+    const link = page.locator('[data-pentagon-face][data-active=true] [data-mentor-id] a');
     await link.focus();
     await expect(link).toBeFocused();
-    await expect.poll(() => page.locator('[data-carousel-item="1"] figure img').evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
+    await expect.poll(() => page.locator('[data-pentagon-face][data-active=true] figure img').evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
     if (await reject.isVisible()) await reject.click();
     await link.focus();
     await expect(link).toBeFocused();
@@ -74,7 +74,7 @@ test('reduced motion suppresses decorative animations without hiding content', a
   await football.focus();
   expect(await football.locator('img').evaluate(element => getComputedStyle(element).animationName)).toBe('none');
   await expect(page.locator('[data-mentor-id]')).toHaveCount(3);
-  const card = page.locator('[data-carousel-item="1"] [data-mentor-id]');
+  const card = page.locator('[data-pentagon-face][data-active=true] [data-mentor-id]');
   await card.locator('a').focus();
   expect(await card.locator('figure').evaluate(element => getComputedStyle(element).transform)).toBe('none');
 });
@@ -91,7 +91,7 @@ test('desktop hover animates the icon while keeping the sport link stationary', 
   expect(after).toEqual(before);
   await page.mouse.move(0, 0);
   await expect(page.locator('[data-mentor-id]')).toHaveCount(3);
-  const card = page.locator('[data-carousel-item="1"] [data-mentor-id]');
+  const card = page.locator('[data-pentagon-face][data-active=true] [data-mentor-id]');
   await card.hover();
   await expect.poll(() => card.locator('figure').evaluate(element => getComputedStyle(element).transform)).not.toBe('none');
   const cta = card.locator('a');

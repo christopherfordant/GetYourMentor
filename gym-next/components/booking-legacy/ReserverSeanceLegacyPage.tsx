@@ -2,6 +2,7 @@
 import { StructureOffers } from "@/components/StructureOffers";
 import { CoachReviews } from "@/components/discovery/CoachReviews";
 import { CoachVisual } from "@/components/discovery/CoachVisual";
+import profileStyles from './booking-profile.module.css';
 
 import type { RefObject } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -36,6 +37,9 @@ type BookingProfile = {
   disciplines?: string;
   sessionTypes?: string;
   availability?: string;
+  format?: CoachProfile['format'];
+  practice?: CoachProfile['practice'];
+  level?: CoachProfile['level'];
 };
 
 const weekSets: WeekDay[][] = [
@@ -81,12 +85,12 @@ function BookingScorePanel({
           <strong data-booking-score-followers>{profile.followers}</strong>
         </div>
         <div className="de-booking-score-fact">
-          <span>Qualification</span>
+          <span>Statut du profil</span>
           <strong data-booking-qualification>{profile.qualification}</strong>
         </div>
         <div className="de-booking-score-fact">
-          <span>Diplome</span>
-          <strong data-booking-diploma>{profile.diploma}</strong>
+          <span>Diplôme déclaré</span>
+          <strong data-booking-diploma>{profile.diploma || 'Non renseigné'}</strong>
         </div>
       </div>
     </section>
@@ -155,7 +159,7 @@ function BookingHeroSection({
       </div>
 
       <nav
-        className="de-booking-tabs de-booking-tabs-profile"
+        className={`de-booking-tabs de-booking-tabs-profile ${profileStyles.tabs}`}
         aria-label="Sections du profil"
       >
         <button
@@ -355,16 +359,19 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
   }, [coach]);
   const profile = {
     followers: "Activité non publiée",
-    qualification: coachData?.verified ? "Profil vérifié" : "Vérification à confirmer",
+    qualification: coachData?.verified ? "Profil validé dans le catalogue" : "Vérification à confirmer",
     reviews: coachData?.reviewCount ? `${coachData.reviewCount} avis` : "Pas encore d’avis",
     ratingValue: coachData?.reviewCount ? `${coachData.rating.toFixed(1)} / 5` : "Pas encore de note",
     priceFrom: coachData?.priceFrom,
     specialty: coachData?.specialty ?? "",
     bio: coachData?.description ?? "",
-    diploma: coachData?.diplomas?.replace(/\s+—\s+à compléter$/i, "") ?? "",
+    diploma: coachData?.diplomas ?? "",
     disciplines: coachData?.disciplines ?? "",
     sessionTypes: coachData?.sessionTypes ?? "",
     availability: coachData?.availability ?? "",
+    format: coachData?.format,
+    practice: coachData?.practice,
+    level: coachData?.level,
   };
   const coachLabel = coachData?.name ?? coach;
   const coachCity = coachData?.city ?? city;

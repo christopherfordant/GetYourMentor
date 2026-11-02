@@ -1,0 +1,27 @@
+[WebServer] (node:5708) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:12556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [mobile-chromium] › tests\mentor-carousel.spec.ts:18:5 › public projection excludes current and future private fields, including nested extras (34ms)
+  ok  2 [mobile-chromium] › tests\mentor-carousel.spec.ts:26:5 › public preview remains bounded, includes only existing public fields and validates the payload (286ms)
+  ok  3 [mobile-chromium] › tests\mentor-carousel.spec.ts:41:5 › remote catalogue query uses only bounded public columns, no histories or private documents (11ms)
+  ok  4 [mobile-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 320px (11.4s)
+  ok  5 [mobile-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 390px (11.1s)
+  ok  6 [mobile-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 768px (12.6s)
+  ok  7 [mobile-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 1440px (13.1s)
+  ok  8 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 0 profiles has no invented or duplicate mentors (1.5s)
+  ok  9 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 1 profiles has no invented or duplicate mentors (1.5s)
+  ok 10 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 2 profiles has no invented or duplicate mentors (1.5s)
+  ok 11 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 4 profiles has no invented or duplicate mentors (1.7s)
+  ok 12 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 5 profiles has no invented or duplicate mentors (2.1s)
+  ok 13 [mobile-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 6 profiles has no invented or duplicate mentors (1.9s)
+  ok 14 [mobile-chromium] › tests\mentor-carousel.spec.ts:94:5 › loading, error, retry and empty states remove stale profiles (1.4s)
+  ok 15 [mobile-chromium] › tests\mentor-carousel.spec.ts:103:5 › long text, unknown modalities and missing image remain honest and bounded (1.7s)
+  ok 16 [mobile-chromium] › tests\mentor-carousel.spec.ts:113:5 › full turns in both directions and focus survive reduced motion and resize (2.7s)
+  ok 17 [mobile-chromium] › tests\mentor-carousel.spec.ts:124:5 › native touch swipe rotates the pentagon without trapping vertical scroll (2.2s)
+  ok 18 [mobile-chromium] › tests\mentor-carousel.spec.ts:132:5 › card to profile keeps identity, city and declared formats through the slow door transition (4.5s)
+
+  18 passed (1.3m)

@@ -10,16 +10,9 @@ import { listReservations } from "@/lib/reservations";
 import { MENTOR_PREVIEW_LIMIT, type MentorPreview } from "@/lib/mentor-preview";
 import { readPublicMentorRows } from "@/lib/mentor-preview-query";
 
-export type PublicCoachProfile = Omit<CoachProfile, "bankAccountLast4" | "latitude" | "longitude"> & { distanceKm?: number };
+import { toPublicCoach, type PublicCoachProfile } from './public-coach';
+export { toPublicCoach, type PublicCoachProfile } from './public-coach';
 export type CoachDocumentKind = "identity" | "diploma";
-
-export function toPublicCoach(coach: CoachProfile & { distanceKm?: number }): PublicCoachProfile {
-  const publicCoach = { ...coach } as PublicCoachProfile & { bankAccountLast4?: string; latitude?: number; longitude?: number };
-  delete publicCoach.bankAccountLast4;
-  delete publicCoach.latitude;
-  delete publicCoach.longitude;
-  return publicCoach;
-}
 
 function supabaseConfig() {
   const url = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -188,15 +181,15 @@ export async function listCoaches() {
 // coordinates, banking data or unverified review aggregates.
 export async function listMentorPreview(): Promise<MentorPreview[]> {
   const config = supabaseConfig();
-  let rows: Array<{ id: string; name: string; sport: CoachProfile['sport']; specialty: string; city: string; priceFrom: unknown; photoUrl?: string }>;
+  let rows: Array<{ id: string; name: string; sport: CoachProfile['sport']; specialty: string; city: string; priceFrom: unknown; photoUrl?: string; description?: string; sessionTypes?: string; format?: CoachProfile['format']; practice?: CoachProfile['practice']; level?: CoachProfile['level'] }>;
   if (!config) {
     const coaches = isHostedDemo() ? (await readDemoState()).coaches : coachProfiles;
     rows = coaches.filter(coach => coach.verified).sort((a, b) => a.name.localeCompare(b.name, 'fr') || a.id.localeCompare(b.id)).slice(0, MENTOR_PREVIEW_LIMIT);
   } else {
     const saved = await readPublicMentorRows(config.url, supabaseHeaders(config.key));
-    rows = saved.map(row => ({ id: String(row.id), name: String(row.name ?? ''), sport: row.sport as CoachProfile['sport'], specialty: String(row.specialty ?? ''), city: String(row.city ?? ''), priceFrom: row.price_from, photoUrl: typeof row.photo_url === 'string' ? row.photo_url : undefined }));
+    rows = saved.map(row => ({ id: String(row.id), name: String(row.name ?? ''), sport: row.sport as CoachProfile['sport'], specialty: String(row.specialty ?? ''), city: String(row.city ?? ''), priceFrom: row.price_from, photoUrl: typeof row.photo_url === 'string' ? row.photo_url : undefined, description: typeof row.description === 'string' ? row.description : undefined, sessionTypes: typeof row.session_types === 'string' ? row.session_types : undefined, format: row.session_format as CoachProfile['format'], practice: row.practice as CoachProfile['practice'], level: row.level as CoachProfile['level'] }));
   }
-  return rows.map(row => ({ id: row.id, name: row.name, sport: row.sport, specialty: row.specialty, city: row.city, priceFrom: typeof row.priceFrom === 'number' && Number.isFinite(row.priceFrom) && row.priceFrom >= 0 ? row.priceFrom : null, ...(row.photoUrl ? { photoUrl: row.photoUrl } : {}) }));
+  return rows.map(row => ({ id: row.id, name: row.name, sport: row.sport, specialty: row.specialty, city: row.city, priceFrom: typeof row.priceFrom === 'number' && Number.isFinite(row.priceFrom) && row.priceFrom >= 0 ? row.priceFrom : null, ...(row.photoUrl ? { photoUrl: row.photoUrl } : {}), ...(row.description ? { description: row.description } : {}), ...(row.sessionTypes ? { sessionTypes: row.sessionTypes } : {}), ...(row.format ? { format: row.format } : {}), ...(row.practice ? { practice: row.practice } : {}), ...(row.level ? { level: row.level } : {}) }));
 }
 
 export async function getCoach(idOrName?: string) {

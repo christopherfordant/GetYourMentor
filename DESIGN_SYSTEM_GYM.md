@@ -1,3 +1,6 @@
+> **Mentors intégrés — 2 novembre :** la dernière demande autorise maintenant le pentagone dans l'aperçu réel de l'accueil. Cartes enrichies avec les champs existants et fiches explicites sur les informations déclarées ; autres sections conservées selon leur rôle. Grille pour un/deux profils, faces de parcours explicites pour trois/quatre, groupes au-delà de cinq. Portes à 2 200 ms préservées. [Réalisation, provenance et recette](docs/MENTORS_PENTAGONE_2026-11-02.md). Local uniquement, aucun déploiement.
+
+
 > **Ralenti et pentagone — 2 novembre :** ouverture des pages portée à 2 200 ms, sans changer les angles ni les autres animations. Prototype séparé de carrousel à cinq faces, rotation manuelle sans fin, trois profils existants et deux faces pédagogiques. Les carrousels actuels ne sont pas remplacés avant revue utilisateur. [Aperçu, contrôles et inventaire](docs/PENTAGONE_RALENTI_2026-11-02.md). Aucun déploiement.
 
 > **Navigation 3D — 2 novembre :** prototype validé intégré localement : deux battants de la vue actuelle et nouvelle page qui avance. Mouvement réduit sans animation ; liens, historique et formulaire de recherche vérifiés. [Réalisation et limites](docs/NAVIGATION_PORTES_3D_2026-11-02.md). Aucun déploiement.

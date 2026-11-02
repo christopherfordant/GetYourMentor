@@ -1,0 +1,4 @@
+.facts { display:flex; flex-wrap:wrap; gap:10px 20px; margin:8px 0; min-width:0; }
+.facts > div { min-width:0; max-width:100%; }
+.facts dt { font:700 10px/1.4 Arial,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--gym-muted,#bbb); }
+.facts dd { font:400 13px/1.45 Arial,sans-serif; margin:3px 0 0; color:var(--gym-ink,#eee); overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }

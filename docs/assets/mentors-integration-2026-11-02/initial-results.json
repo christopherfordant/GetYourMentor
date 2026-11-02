@@ -1,0 +1,793 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/mentor-carousel.spec.ts",
+      "--project=desktop-chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-mentors-integration-20261102/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-mentors-integration-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-mentors-integration-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-mentors-integration-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-mentors-integration-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm.cmd run start -- --port 3001",
+      "url": "http://127.0.0.1:3001/",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "mentor-carousel.spec.ts",
+      "file": "mentor-carousel.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "public projection excludes current and future private fields, including nested extras",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 28,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:51:58.050Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-6125d467f396e35d91de",
+          "file": "mentor-carousel.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "public preview remains bounded, includes only existing public fields and validates the payload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 310,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:51:58.160Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-f23bf0619035b9f018a4",
+          "file": "mentor-carousel.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "remote catalogue query uses only bounded public columns, no histories or private documents",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:51:58.498Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-12a82624383bdd62940a",
+          "file": "mentor-carousel.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10346,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:51:58.544Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-ace9e5af4466eb3c5505",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:09.101Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a416360ba7a62dc91493",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:20.178Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-695a1b578ebe49355189",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10718,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:30.315Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-3d36019864086e3c5e52",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 0 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:41.060Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-5c080fb46f66a4baac7a",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 1 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1971,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:43.114Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-4da525281f83b1175555",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 2 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1869,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:45.129Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-f0146b0ca581be1c9a39",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 4 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2270,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:47.025Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-68b7da4fd9f315505172",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 5 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2011,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:49.318Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-8cfcb7b09aae1e27753f",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 6 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2199,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:51.356Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-08e6ffa6f48d24220145",
+          "file": "mentor-carousel.spec.ts",
+          "line": 76,
+          "column": 7
+        },
+        {
+          "title": "loading, error, retry and empty states remove stale profiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1856,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:53.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a2bec9edc7ea23237af6",
+          "file": "mentor-carousel.spec.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "long text, unknown modalities and missing image remain honest and bounded",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:55.468Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-160fc59f21bef14aeb20",
+          "file": "mentor-carousel.spec.ts",
+          "line": 102,
+          "column": 5
+        },
+        {
+          "title": "full turns in both directions and focus survive reduced motion and resize",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4293,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7m0\u001b[27ms\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m1e-05\u001b[27ms\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7m0\u001b[27ms\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m1e-05\u001b[27ms\"\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts:120:118",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts",
+                      "column": 118,
+                      "line": 120
+                    },
+                    "snippet": "  118 |   const stage=page.locator('#mentors [data-state]'); await stage.locator('[data-active=true] a').focus(); await page.keyboard.press('ArrowRight'); await expect(stage).toBeFocused(); await idle(page);\n  119 |   await page.setViewportSize({width:390,height:900});await idle(page);\n> 120 |   expect(await page.locator('[data-pentagon-ring]').evaluate(element=>getComputedStyle(element).transitionDuration)).toBe('0s');\n      |                                                                                                                      ^\n  121 | });\n  122 |\n  123 | test('native touch swipe rotates the pentagon without trapping vertical scroll',async({browser,baseURL})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts",
+                        "column": 118,
+                        "line": 120
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"\u001b[7m0\u001b[27ms\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m1e-05\u001b[27ms\"\u001b[39m\n\n  118 |   const stage=page.locator('#mentors [data-state]'); await stage.locator('[data-active=true] a').focus(); await page.keyboard.press('ArrowRight'); await expect(stage).toBeFocused(); await idle(page);\n  119 |   await page.setViewportSize({width:390,height:900});await idle(page);\n> 120 |   expect(await page.locator('[data-pentagon-ring]').evaluate(element=>getComputedStyle(element).transitionDuration)).toBe('0s');\n      |                                                                                                                      ^\n  121 | });\n  122 |\n  123 | test('native touch swipe rotates the pentagon without trapping vertical scroll',async({browser,baseURL})=>{\n    at C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts:120:118"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:52:57.751Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-full-turns-db50f-e-reduced-motion-and-resize-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-full-turns-db50f-e-reduced-motion-and-resize-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-full-turns-db50f-e-reduced-motion-and-resize-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts",
+                    "column": 118,
+                    "line": 120
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-fdc083e98392d26808d9",
+          "file": "mentor-carousel.spec.ts",
+          "line": 112,
+          "column": 5
+        },
+        {
+          "title": "native touch swipe rotates the pentagon without trapping vertical scroll",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2203,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:53:03.297Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a04741e4ff211bc88de3",
+          "file": "mentor-carousel.spec.ts",
+          "line": 123,
+          "column": 5
+        },
+        {
+          "title": "card to profile keeps identity, city and declared formats through the slow door transition",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 68474,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts",
+                        "column": 63,
+                        "line": 137
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'À propos', exact: true })\u001b[22m\n\n\n  135 |   await link.click();await expect(page).toHaveURL(/\\/coach\\?/);await expect(page.locator('[data-door-layer]')).toHaveCount(0);\n  136 |   expect(new URL(page.url()).searchParams.get('city')).toBe(coach.city);await expect(page.locator('[data-booking-name]')).toHaveText(coach.name);\n> 137 |   await page.getByRole('button',{name:'À propos',exact:true}).click();\n      |                                                               ^\n  138 |   await expect(page.locator('[data-booking-session-types]')).toHaveText(coach.sessionTypes);\n  139 |   await expect(page.locator('[data-booking-public-diplomas]')).toContainText('à compléter');\n  140 |   await expect(page.locator('[data-booking-qualification]')).toHaveText('Profil validé dans le catalogue');\n    at C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\tests\\mentor-carousel.spec.ts:137:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T13:53:05.763Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-card-to-pr-3847e-gh-the-slow-door-transition-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-card-to-pr-3847e-gh-the-slow-door-transition-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\gym-next\\test-results\\mentor-carousel-card-to-pr-3847e-gh-the-slow-door-transition-desktop-chromium\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-3deb3436c84f506638c2",
+          "file": "mentor-carousel.spec.ts",
+          "line": 131,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T13:51:51.485Z",
+    "duration": 143280.33,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "_redactions": [
+    "Web server environment omitted; ephemeral local acceptance key not archived."
+  ]
+}

@@ -1,0 +1,14 @@
+.card { composes:directoryCard from './mentor-carousel.module.css'; --gym-ink:#28231e; --gym-muted:#665d53; --gym-surface:#f7f3ec; display:flex; flex-direction:column; width:100%; min-width:0; min-height:650px; background:var(--gym-surface); color:var(--gym-ink); border:1px solid #a89783; border-radius:14px; overflow:hidden; }
+.visual { composes:visual from './mentor-carousel.module.css'; height:180px; flex:0 0 180px; }.visual figure { height:100%; }.visual img { min-height:0; max-height:156px; object-fit:cover; aspect-ratio:auto; }.visual figcaption { min-height:24px; padding:5px 9px; font:10px/1.4 Arial,sans-serif; color:#f4eee7; background:#28231e; }
+.content { display:flex; flex:1; flex-direction:column; gap:8px; padding:20px; min-width:0; }
+.content h3 { font:750 24px/1.15 Arial,sans-serif; margin:0; overflow-wrap:anywhere; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.content p { margin:0; font:14px/1.45 Arial,sans-serif; color:var(--gym-muted); overflow-wrap:anywhere; }
+.content .discipline { font:750 10px/1.4 Arial,sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#ab3e00; }
+.summary { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.content .price { margin-top:auto; padding-top:8px; }.price strong { color:#28231e; font-size:25px; }
+.content .priceNote { font-size:11px; }
+.content a { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:46px; padding:12px 14px; border-radius:7px; background:#26211c; color:#fff !important; font:700 13px/1.35 Arial,sans-serif; text-decoration:none; }
+.content a:hover { background:#a93e00; }
+.utility { background:#ed6517; color:#21180f; }.utility .content { padding:30px 26px; gap:18px; }.utility .content h3 { font-size:36px; line-height:1.08; -webkit-line-clamp:unset; }.utility .content p { color:#322015; font-size:16px; line-height:1.6; }.utility a { margin-top:auto; }.utility .content .discipline { font-size:11px; }
+.srOnly { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+@media(max-width:760px) { .content { padding:16px; gap:7px; }.content h3 { font-size:22px; }.content p { font-size:13px; }.utility .content { padding:25px 20px; }.utility .content h3 { font-size:29px; }.utility .content p { font-size:14px; } }

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { CoachVisual } from "@/components/discovery/CoachVisual";
+import { CoachFacts } from '@/components/discovery/CoachFacts';
 import motion from "@/components/discovery/mentor-carousel.module.css";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame, DiscoveryIntro, DiscoverySteps, discoverySports } from "@/components/discovery/DiscoveryFrame";
@@ -15,6 +16,8 @@ type SelectionCoachsLegacyPageProps = {
 };
 
 type CoachEntry = {
+  specialty?: string;
+  sessionTypes?: string;
   photoUrl?: string;
   demoIllustration?: boolean;
   id?: string;
@@ -318,6 +321,7 @@ function CoachResultCard({
           <div className="de-coach-result-address">{coach.address}</div>
           {coach.distanceKm != null ? <div className="de-coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
           <div className="de-coach-result-meta">{coach.meta}</div>
+          <CoachFacts coach={coach} />
           {coach.price != null ? <p className="de-coach-price" data-coach-price>À partir de <strong>{coach.price} EUR</strong></p> : <p>Tarif à confirmer</p>}
         </div>
         <div className="de-coach-result-slots">

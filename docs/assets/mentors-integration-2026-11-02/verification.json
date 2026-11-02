@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-02",
+  "base": "731cc4ba03e57e98813e98359e8d3d7d09f0944e",
+  "branch": "design/refonte-progressive-lot1",
+  "isolatedCheckout": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102",
+  "buildId": "emroz0C6nUGEh7fR8h--0",
+  "scope": "Local implementation; no deployment, purchase, migration or real-account mutation.",
+  "checks": {
+    "reviewedBuildExitCode": 0,
+    "typeCheckExitCode": 0,
+    "clientSecretBoundaryFinalExitCode": 0,
+    "netlifyConfigExitCode": 0,
+    "desktopTargeted": {
+      "passed": 35,
+      "failed": 0,
+      "report": "final-targeted-results.json"
+    },
+    "mobileTargeted": {
+      "passed": 18,
+      "failed": 0,
+      "report": "final-mobile-results.json"
+    },
+    "finalProfileCssRecheck": {
+      "passed": 2,
+      "failed": 0,
+      "report": "final-profile-results.json",
+      "note": "Reruns of existing card-to-profile case, not additional distinct cases."
+    },
+    "priorBuildBusinessBaseline": {
+      "failed": 2,
+      "report": "business-baseline-results.json",
+      "buildId": "tKv23SNWe5zJxW21e9MW3",
+      "note": "Same two failures observed during interrupted extended run. Global suite not certified green."
+    },
+    "initialMentorRun": {
+      "passed": 16,
+      "failed": 2,
+      "report": "initial-results.json",
+      "note": "Test selector/reduced-motion expectation corrected; visual CTA defect subsequently fixed."
+    },
+    "beforeCaptures": {
+      "passed": 2,
+      "report": "before-capture-results.json",
+      "note": "Prior verified build; three relevant component sources compared after newline normalization."
+    }
+  },
+  "reference": {
+    "project": "https://lovable.dev/projects/447e4f2f-dfd3-455d-a936-0e3025ea0276?invite=true",
+    "observed": [
+      "homepage",
+      "all-mentors card",
+      "mentor/m1 planning header",
+      "mentor/m1 presentation"
+    ],
+    "captures": [
+      "lovable-card.png",
+      "lovable-profile.png",
+      "lovable-about.png"
+    ],
+    "credentialsArchived": false
+  },
+  "preview": {
+    "url": "http://127.0.0.1:3002/#mentors",
+    "sessionId": 23571,
+    "launcherPid": 16948,
+    "nextPid": 15572,
+    "launcher": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102\\delivery-private\\start-preview.cjs",
+    "restartCommand": "node delivery-private/start-preview.cjs",
+    "cwd": "C:\\Users\\cashe\\Documents\\GYM-mentors-integration-20261102",
+    "demoOnly": true,
+    "remoteCredentialsInherited": false,
+    "healthStatus": 200,
+    "mentorApiStatusAfterReload": 200,
+    "collectiveApiStatusAfterReload": 200,
+    "profileCount": 3,
+    "faces": 5,
+    "browserReloadVerified": true,
+    "note": "Initial launch omitted CI flag required by documented local acceptance mode and returned 503. Configuration corrected; retry and full browser reload verified. No runtime guard changed."
+  },
+  "dataProvenance": "Existing domain demo profiles or existing public database columns; see MENTORS_PENTAGONE_2026-11-02.md.",
+  "doorDurationMs": 2200,
+  "doorFilesModified": false,
+  "appFiles": {
+    "gym-next/app/coachs/page.tsx": "5edba953ee513b8bb4cb825a724a89e31aa779aa99da28f3fd7cf6f0308b0ad9",
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": "faa3eadf6ec0272a6abb4946ab87d2e79e105574a84193d19fd2da01b6a1a4c0",
+    "gym-next/components/booking-legacy/booking-profile.module.css": "84f47306498b72e42adf3d68a49c06e04def2c88d3046939274e75de1aa80695",
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": "fef86e7ee225caf3c7ba4163835f6b3366e882790709148c8493ce51dea06ebf",
+    "gym-next/components/discovery/CoachDetails.tsx": "409d1d26cc042e9d322b3e06374634935c3b25219db2857d08d07412bc8c4c39",
+    "gym-next/components/discovery/CoachFacts.tsx": "c553c48cd69fcef606565b37bf1b92773506de5aedea552e46cc6cdbfae736cf",
+    "gym-next/components/discovery/PentagonCarousel.tsx": "58febe87c9eb797ad6ad561207367806637755976922baa7ceadb17bc0f64bdd",
+    "gym-next/components/discovery/coach-facts.module.css": "fd1a4e5d2bee977920be0223305f9681738cf5ee9caecbd7e43e9f6bacdabdce",
+    "gym-next/components/discovery/mentor-card.module.css": "85fe419396fd2c11f8e62b77e7f9f819b2256b3ac2be6d4e198a9e8a791b359b",
+    "gym-next/components/discovery/pentagon-carousel.module.css": "29ce986bb6b13f53d01aac72d564755f2a0e639cb45c43587e10ec24ae3a6f9c",
+    "gym-next/components/home/MentorPreviewSection.tsx": "700005c87c52a0eda874b96a561ba5a34d4e186a2ced7cb1d3b237be75181719",
+    "gym-next/lib/coaches.ts": "b1a7f8f4791b8812412b452a9c17308816811e8310464fe81102c3aeeae6d5a3",
+    "gym-next/lib/mentor-preview-query.ts": "413ec3c3bd06d94d6ab5fb9d890e8d4289620ab0f80beb945ab14f4c74dc215e",
+    "gym-next/lib/mentor-preview.ts": "29cb607e292548e03c14b2aea49f8973b8ff2b4f4cd798d60a0a46a5ce62bf6e",
+    "gym-next/lib/public-coach.ts": "f2e38dea2e31f2fa0c7eeb21f090995041fdb94e6dccba837dc9264bae3689e6",
+    "gym-next/tests/mentor-carousel.spec.ts": "444b5a9be4093713d55a29f9b53e2f63bcd6207e613eec49fd3186cc63e96a3e",
+    "gym-next/tests/playful-motion.spec.ts": "ddfe3281c00483dcad829cc61bc59d249e46afe60a0e8c301f1110f71c2ebc34"
+  },
+  "git": {
+    "priorDirtyTrackedFiles": 20,
+    "push": "pending",
+    "remoteBefore": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a"
+  },
+  "limits": [
+    "Chromium and emulated touch only",
+    "No actual remote coach/profile/database or payment verification",
+    "Lovable adaptation remains partial",
+    "Two existing business test defects reproduced on previous build"
+  ]
+}

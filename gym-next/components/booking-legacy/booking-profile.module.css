@@ -1,0 +1,5 @@
+.tabs { background:#1c1c1c !important; border-color:#51463d !important; }
+.tabs button { color:#fcfbf9 !important; background:transparent !important; }
+.tabs button[aria-pressed=true] { background:#c2410c !important; }
+.tabs button:hover { border-color:#ff8a4c !important; }
+.tabs button:focus-visible { outline:3px solid #ff8a4c; outline-offset:2px; }
