@@ -2,6 +2,8 @@
 
 ## Publication active — 2 novembre 2026 : liens et Netlify
 
+Livraison documentaire locale 38bd49a ; push normal rejete non-fast-forward (code 1), distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. La publication Netlify est reussie independamment. Aucun force-push, fusion ou repetition identique.
+
 Sur autorisation utilisateur, dernier code validé publié sur **https://getyourmentor-demo-20261014.netlify.app**. Déploiement `6ae8a71262d2639172882244`, état `ready` et alias confirmés. Source applicative `4388ce24b996b5ba244fecbf74932505ebc51dbe` : pentagone sans encadré, profils enrichis, portes à 2,2 secondes. Les mentions « aucun déploiement » des étapes suivantes sont désormais historiques pour ce code.
 
 Contrôle local : 228 pages/variantes et 456 liens ; après publication : **242 pages/variantes, 484 liens et 25 ressources**, aucune erreur inattendue, files d'attente épuisées. La 404 admin volontaire reste protégée. Cinq profils de démonstration préexistants en ligne contre trois en local ; aucune donnée de profil ou compte changée. Navigateur 1440/390, cinq faces, portraits/replis, fiche et fin de transition vérifiés. Health/API HTTP 200, mode démo isolé, noindex vérifié ; X-Robots-Tag absent. Aucun service réel activé.

@@ -46,7 +46,15 @@
   "git": {
     "branch": "design/refonte-progressive-lot1",
     "sourcePublishedIndependentlyOfGitPush": true,
-    "push": "pending",
-    "priorTrackedChangesExcluded": 20
-  }
+    "push": "rejected non-fast-forward; Netlify publication separately verified",
+    "priorTrackedChangesExcluded": 20,
+    "documentationCommit": "38bd49a8287a21434fb7142d0a0cc1576e19b2d3",
+    "pushExitCode": 1,
+    "nonFastForward": true,
+    "remoteConfirmed": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "noIdenticalRetry": true,
+    "priorPatchStillIdentical": true
+  },
+  "trackedSecretCheckExitCode": 0,
+  "targetedDiffCheckExitCode": 0
 }
