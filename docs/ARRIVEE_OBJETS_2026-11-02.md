@@ -32,3 +32,5 @@ Chromium et tactile émulé, pas certification sur téléphone physique ni Safar
 ## Livraison Git
 
 Branche unique `design/refonte-progressive-lot1`. Distant relu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence préexistante ; aucun pull/rebase/fusion/force-push ou nouvelle référence pour la contourner. Statut final du commit/push à lire dans le relais et verification.json. Aucun déploiement commandé.
+
+Commit applicatif `1492c4801e120195a797cd90b3ade8b14c9cfd82`. Push normal tenté, rejet non-fast-forward (code 1), distant relu inchangé au SHA ci-dessus. Complément documentaire conservé localement sans répéter la tentative identique ; index ciblé et contrôle des secrets PASS. Les fichiers antérieurement modifiés restent hors lot.
