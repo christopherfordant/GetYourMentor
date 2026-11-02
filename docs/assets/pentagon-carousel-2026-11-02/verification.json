@@ -117,11 +117,18 @@
   },
   "deployment": "none",
   "existing_carousels_replaced": false,
-  "push": "pending",
+  "push": {
+    "status": "rejected non-fast-forward",
+    "exit": 1,
+    "remote_verified": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "force_or_merge_attempted": false
+  },
   "limits": [
     "Chromium desktop and emulated touch; no real mobile device, Firefox or Safari run",
     "Five physical faces: three can face the viewer; the other two appear during rotation",
     "Application links available only under the application URL; disabled for static/offline preview",
     "Static server optional: index.html also opens locally with its three images"
-  ]
+  ],
+  "implementation_commit": "0ceaf59dc10299c53c6dbf495c3599be1d911109",
+  "preexisting_tracked_patch_unchanged": true
 }

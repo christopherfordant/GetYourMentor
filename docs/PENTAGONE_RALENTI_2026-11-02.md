@@ -55,4 +55,6 @@ Arrêt dans le terminal de lancement : Ctrl+C. Pour le processus laissé actif p
 
 Branche design/refonte-progressive-lot1, base de travail de7aec50b042f762b222880dba26a3ca55a17f04. Vingt modifications suivies antérieures préservées hors lot. Aucun changement à main, fusion, rebase, force-push, achat, publication ou déploiement. État du commit/push et SHA distant relu dans verification.json.
 
+Livraison locale : commit applicatif **0ceaf59**. Push ordinaire réellement exécuté, rejet non-fast-forward (code 1) ; distant relu inchangé d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Pas de nouvelle tentative identique ni contournement. Diff binaire des vingt changements antérieurs comparé à la sauvegarde du lot : strictement identique. Aperçu statique confirmé HTTP 200 après les tests et le commit.
+
 Attendre l'avis utilisateur sur ce prototype avant de remplacer le moindre carrousel existant.

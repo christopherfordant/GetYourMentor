@@ -8,7 +8,7 @@ Ouverture réelle passée de 950 à **2 200 ms**, comme le mode Ralenti du proto
 
 Aperçu ouvert et laissé disponible sur **http://127.0.0.1:4321/** : serveur statique Python, loopback, dossier public du prototype uniquement, PID 17148 / session 37872. Fichier hors ligne : gym-next/public/design_assets/pentagon-carousel-2026-11-02/index.html avec ses trois images. Liens applicatifs désactivés dans cet aperçu autonome ; actifs seulement sous l'URL de l'application. Serveur Next de test arrêté. Arrêt/reprise du serveur statique documentés dans le rapport.
 
-Branche design/refonte-progressive-lot1, base de7aec50b042f762b222880dba26a3ca55a17f04 ; vingt changements suivis antérieurs préservés. Distant initial d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a, divergence antérieure. Résultat du push dans verification.json et livraison. Aucun agent, achat, nouvelle dépendance, fusion ou déploiement. Les sections suivantes décrivent les étapes précédentes.
+Branche design/refonte-progressive-lot1, base de7aec50b042f762b222880dba26a3ca55a17f04 ; vingt changements suivis antérieurs préservés. **Livraison applicative locale 0ceaf59** : push ordinaire exécuté puis rejeté non-fast-forward (code 1). Distant relu inchangé d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Diff binaire des vingt changements antérieurs strictement identique à la sauvegarde du lot. Détails dans verification.json. Aucun agent, achat, nouvelle dépendance, fusion ou déploiement. Les sections suivantes décrivent les étapes précédentes.
 
 ---
 
