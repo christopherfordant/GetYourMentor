@@ -1,0 +1,33 @@
+[WebServer] (node:16804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 18 tests using 1 worker
+
+(node:10856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/18] [desktop-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 390px
+[2/18] [desktop-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 1440px
+[3/18] [desktop-chromium] › tests\door-navigation.spec.ts:54:5 › history, query and legacy location navigation retain working live pages
+[4/18] [desktop-chromium] › tests\door-navigation.spec.ts:73:5 › reduced motion, hashes, downloads and external links never create doors
+[5/18] [desktop-chromium] › tests\door-navigation.spec.ts:83:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[6/18] [desktop-chromium] › tests\door-navigation.spec.ts:96:5 › slow route never traps the interface and the next page still completes
+[7/18] [desktop-chromium] › tests\door-navigation.spec.ts:106:5 › fallback without Navigation API keeps links and back navigation working
+[8/18] [desktop-chromium] › tests\door-navigation.spec.ts:113:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+[9/18] [desktop-chromium] › tests\door-navigation.spec.ts:126:5 › keyboard sports links and sidebar links keep focusable live destinations
+(node:19016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/18] [mobile-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 390px
+[11/18] [mobile-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 1440px
+[12/18] [mobile-chromium] › tests\door-navigation.spec.ts:54:5 › history, query and legacy location navigation retain working live pages
+[13/18] [mobile-chromium] › tests\door-navigation.spec.ts:73:5 › reduced motion, hashes, downloads and external links never create doors
+[14/18] [mobile-chromium] › tests\door-navigation.spec.ts:83:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[15/18] [mobile-chromium] › tests\door-navigation.spec.ts:96:5 › slow route never traps the interface and the next page still completes
+[16/18] [mobile-chromium] › tests\door-navigation.spec.ts:106:5 › fallback without Navigation API keeps links and back navigation working
+[17/18] [mobile-chromium] › tests\door-navigation.spec.ts:113:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+[18/18] [mobile-chromium] › tests\door-navigation.spec.ts:126:5 › keyboard sports links and sidebar links keep focusable live destinations
+  18 passed (1.9m)

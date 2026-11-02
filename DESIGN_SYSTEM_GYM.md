@@ -1,3 +1,5 @@
+> **Navigation 3D — 2 novembre :** prototype validé intégré localement : deux battants de la vue actuelle et nouvelle page qui avance, 950 ms. Mouvement réduit sans animation ; liens, historique et formulaire de recherche vérifiés. [Réalisation et limites](docs/NAVIGATION_PORTES_3D_2026-11-02.md). Aucun déploiement.
+
 > **Arrivée des équipements — 2 novembre :** séquence unique sur l'accueil : entrée depuis les deux coins supérieurs, deux rebonds répartis dans la fenêtre puis rangement dans le header. Mobile à la première ouverture Sports. Mouvement réduit, liens fixes et interruption immédiate sur interaction préservés. Aperçu doté de Rejouer. [Comportement, contrôles et limites](docs/ARRIVEE_OBJETS_2026-11-02.md). Non déployé.
 
 > **Équipements réalistes — reprise du 2 novembre :** les SVG du header sont remplacés par des détourages photoréalistes de 40 px (36 px mobile), sur demande utilisateur. Onze assets pour quatorze disciplines, un nouvel asset padel généré ; originaux conservés et WebP locaux optimisés. Animations/clavier/mouvement réduit maintenus. [Sources, aperçu et contrôles](docs/ICONES_REALISTES_2026-11-02.md). Non déployé.

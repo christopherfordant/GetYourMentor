@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : navigation réelle avec portes 3D
+
+Demande utilisateur : intégrer le prototype validé après un commit préalable. Point de retour **c29b8cd2c69674b385a1f258a70d96380bd447e7**, créé avant le code. Vingt modifications suivies antérieures préservées et exclues. [Rapport](NAVIGATION_PORTES_3D_2026-11-02.md).
+
+Intégration locale terminée : battants -110°/+110°, 950 ms, vraie page entrante depuis le fond ; copies temporaires inertes dans Shadow DOM. Éléments fixes recalés après défilement. Layout antérieurement modifié, backend, prix et paiements inchangés.
+
+**32 scénarios PASS : 23 desktop + 9 tactile Chromium émulé**, incluant quatorze régressions des animations précédentes. Build final code 0, typage, frontière client et configuration Netlify PASS. Historique, paramètres, formulaire de recherche vers Lyon, annulations, délai maximal de cinq secondes sur route lente, mouvement réduit et repli sans Navigation API. Échecs initiaux de sélecteur et défaut de position fixe corrigés avant recette finale. Preuves : assets/door-navigation-2026-11-02/verification.json ; environnements de recette expurgés des JSON.
+
+Checkout détaché : C:/Users/cashe/Documents/GYM-door-navigation-20261102. Serveurs de test arrêtés. Branche design/refonte-progressive-lot1. Distant avant livraison : d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a, divergence préexistante ; résultat du push dans verification.json. Aucun déploiement. Sans Navigation API : liens et retour testés, animation de toutes les navigations document/programmatique non garantie. Aucun test Safari/Firefox, compte privé ou service réel revendiqué.
+
+Suite : revue locale puis traitement séparé de la divergence avant synchronisation et tout déploiement. Les sections suivantes décrivent les étapes antérieures.
+
+---
+
 ## Reprise active — 2 novembre 2026 : démonstration de transition en deux battants
 
 Demande : **montrer** l'effet avant intégration. Prototype autonome avec captures locales de l'accueil et de l'annuaire démo, deux moitiés articulées sur les bords extérieurs et prochaine vue qui avance depuis l'arrière-plan. [Rapport et limites](DEMO_TRANSITION_PORTES_2026-11-02.md). Aucune transition installée dans la navigation réelle, aucun formulaire, compte ou paiement modifié.

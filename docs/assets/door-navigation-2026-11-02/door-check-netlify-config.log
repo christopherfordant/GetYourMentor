@@ -1,0 +1,5 @@
+
+> gym-next@0.1.0 check:netlify-config
+> node scripts/check-netlify-config.mjs
+
+Configuration Netlify valide : base gym-next, build Next.js et publication .next.

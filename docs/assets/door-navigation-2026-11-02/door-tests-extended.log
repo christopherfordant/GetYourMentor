@@ -1,0 +1,18 @@
+[WebServer] (node:17832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 7 tests using 1 worker
+
+(node:15500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/7] [desktop-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 390px
+[2/7] [desktop-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 1440px
+[3/7] [desktop-chromium] › tests\door-navigation.spec.ts:53:5 › history, query and legacy location navigation retain working live pages
+[4/7] [desktop-chromium] › tests\door-navigation.spec.ts:72:5 › reduced motion, hashes, downloads and external links never create doors
+[5/7] [desktop-chromium] › tests\door-navigation.spec.ts:82:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[6/7] [desktop-chromium] › tests\door-navigation.spec.ts:95:5 › slow route never traps the interface and the next page still completes
+[7/7] [desktop-chromium] › tests\door-navigation.spec.ts:105:5 › fallback without Navigation API keeps links and back navigation working
+  7 passed (58.0s)

@@ -1,0 +1,23 @@
+
+npx.cmd : [WebServer] (node:17372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:7 : 1
++ npx.cmd playwright test tests/door-navigation.spec.ts --project=deskt ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:11820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] [desktop-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 390px
+[2/6] [desktop-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 1440px
+[3/6] [desktop-chromium] › tests\door-navigation.spec.ts:50:5 › history, query and legacy location navigation retain working live pages
+[4/6] [desktop-chromium] › tests\door-navigation.spec.ts:61:5 › reduced motion, hashes, downloads and external links never create doors
+[5/6] [desktop-chromium] › tests\door-navigation.spec.ts:71:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[6/6] [desktop-chromium] › tests\door-navigation.spec.ts:84:5 › slow route never traps the interface and the next page still completes
+  6 passed (41.1s)

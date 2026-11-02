@@ -1,0 +1,239 @@
+
+> gym-next@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.27
+   - Experiments (use with caution):
+     · cpus: 2
+
+   Creating an optimized production build ...
+npm.cmd : <w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|C:\Users\c
+ashe\Documents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].
+rules[14].oneOf[10].use[2]!C:\Users\cashe\Documents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders
+\postcss-loader\src\index.js??ruleSet[1].rules[14].oneOf[10].use[3]!C:\Users\cashe\Documents\GYM-door-navigation-202611
+02\gym-next\app\globals.css': No serializer registered for Warning
+Au caractère Ligne:140 : 1
++ npm.cmd run build *> ../door-build.log
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (<w> [webpack.ca...red for Warning:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array {
+1 items } -> webpack/lib/ModuleWarning -> Warning
+<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|C:\Users\cashe\Docum
+ents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].
+oneOf[10].use[2]!C:\Users\cashe\Documents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders\postcss-l
+oader\src\index.js??ruleSet[1].rules[14].oneOf[10].use[3]!C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-nex
+t\app\gym-discovery-design.css': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array {
+2 items } -> webpack/lib/ModuleWarning -> Warning
+<w> [webpack.cache.PackFileCacheStrategy] Skipped not serializable cache item 'Compilation/modules|C:\Users\cashe\Docum
+ents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders\css-loader\src\index.js??ruleSet[1].rules[14].
+oneOf[10].use[2]!C:\Users\cashe\Documents\GetYourMentor\gym-next\node_modules\next\dist\build\webpack\loaders\postcss-l
+oader\src\index.js??ruleSet[1].rules[14].oneOf[10].use[3]!C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-nex
+t\app\gym-editorial-design.css': No serializer registered for Warning
+<w> while serializing webpack/lib/cache/PackFileCacheStrategy.PackContentItems -> webpack/lib/NormalModule -> Array {
+4 items } -> webpack/lib/ModuleWarning -> Warning
+ ⚠ Compiled with warnings in 10.6s
+
+./app/globals.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/
+css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/buil
+d/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/globals.css
+Warning
+
+(88:3) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+./app/globals.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/
+css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/buil
+d/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/globals.css
+./app/globals.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-discovery-design.css
+Warning
+
+(55:85) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-discovery-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-discovery-design.css
+Warning
+
+(63:53) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-discovery-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+Warning
+
+(54:109) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+Warning
+
+(70:46) autoprefixer: end value has mixed support, consider using flex-end instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+Warning
+
+(109:101) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+Warning
+
+(140:47) autoprefixer: start value has mixed support, consider using flex-start instead
+
+Import trace for requested module:
+../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14]
+.oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js
+??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-editorial-design.css
+./app/gym-account-design.css.webpack[javascript/auto]!=!../../GetYourMentor/gym-next/node_modules/next/dist/build/webpa
+ck/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[2]!../../GetYourMentor/gym-next/node_modules/nex
+t/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[10].use[3]!./app/gym-account-desig
+n.css
+./app/gym-account-design.css
+
+ ✓ Compiled successfully in 34.3s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/37) ...
+   Generating static pages (9/37)
+   Generating static pages (18/37)
+   Generating static pages (27/37)
+ ✓ Generating static pages (37/37)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            12.2 kB         126 kB
+├ ○ /_not-found                                    246 B         102 kB
+├ ƒ /admin/knowledge                             1.54 kB         112 kB
+├ ƒ /api/admin/club-leads/[id]/documents/[kind]    248 B         102 kB
+├ ƒ /api/admin/coaches/[id]                        248 B         102 kB
+├ ƒ /api/admin/commission                          248 B         102 kB
+├ ƒ /api/admin/overview                            248 B         102 kB
+├ ƒ /api/affiliations                              248 B         102 kB
+├ ƒ /api/auth/phone/request                        248 B         102 kB
+├ ƒ /api/auth/phone/verify                         248 B         102 kB
+├ ƒ /api/auth/sign-in                              248 B         102 kB
+├ ƒ /api/auth/sign-out                             248 B         102 kB
+├ ƒ /api/auth/sign-up                              248 B         102 kB
+├ ƒ /api/clubs/leads                               248 B         102 kB
+├ ƒ /api/clubs/me                                  248 B         102 kB
+├ ƒ /api/coaches                                   248 B         102 kB
+├ ƒ /api/coaches/[id]                              248 B         102 kB
+├ ƒ /api/coaches/[id]/documents                    248 B         102 kB
+├ ƒ /api/coaches/group-prices                      248 B         102 kB
+├ ƒ /api/coaches/preview                           248 B         102 kB
+├ ƒ /api/coaches/sessions                          248 B         102 kB
+├ ƒ /api/contents                                  248 B         102 kB
+├ ƒ /api/contents/[id]                             248 B         102 kB
+├ ƒ /api/cron/reservation-reminders                248 B         102 kB
+├ ƒ /api/feedback                                  248 B         102 kB
+├ ƒ /api/health                                    248 B         102 kB
+├ ƒ /api/health/live                               248 B         102 kB
+├ ƒ /api/knowledge/context                         248 B         102 kB
+├ ƒ /api/knowledge/search                          248 B         102 kB
+├ ƒ /api/messages                                  248 B         102 kB
+├ ƒ /api/messages/[id]/attachment                  248 B         102 kB
+├ ƒ /api/offers/preview                            248 B         102 kB
+├ ƒ /api/progress                                  248 B         102 kB
+├ ƒ /api/reservations                              248 B         102 kB
+├ ƒ /api/reservations/[id]                         248 B         102 kB
+├ ƒ /api/reservations/[id]/cancel                  248 B         102 kB
+├ ƒ /api/reservations/[id]/payment                 248 B         102 kB
+├ ƒ /api/reservations/[id]/reschedule              248 B         102 kB
+├ ƒ /api/reservations/recovery                     248 B         102 kB
+├ ƒ /api/reservations/summary                      248 B         102 kB
+├ ƒ /api/reviews                                   248 B         102 kB
+├ ƒ /api/sessions                                  248 B         102 kB
+├ ƒ /api/sessions/preview                          248 B         102 kB
+├ ƒ /api/structures/offers                         248 B         102 kB
+├ ƒ /api/structures/reservations                   248 B         102 kB
+├ ƒ /api/webhooks/stripe                           248 B         102 kB
+├ ƒ /beta                                        4.14 kB         114 kB
+├ ƒ /coach                                       7.16 kB         125 kB
+├ ƒ /coachs                                      7.42 kB         118 kB
+├ ƒ /compte                                      38.5 kB         155 kB
+├ ƒ /contenus                                     4.9 kB         115 kB
+├ ƒ /creneau                                     8.11 kB         118 kB
+├ ƒ /inscription-club                            6.54 kB         117 kB
+├ ƒ /legal/[slug]                                  195 B         110 kB
+├ ƒ /offres                                      4.01 kB         114 kB
+├ ƒ /paiement                                    7.68 kB         124 kB
+├ ○ /plan-du-site                                1.85 kB         112 kB
+├ ƒ /recapitulatif                               5.32 kB         116 kB
+├ ƒ /recherche                                   4.01 kB         114 kB
+├ ○ /robots.txt                                    248 B         102 kB
+├ ƒ /seances                                       184 B         118 kB
+├ ○ /sitemap.xml                                   248 B         102 kB
+├ ƒ /structures                                    182 B         118 kB
+└ ƒ /suivi                                       3.79 kB         114 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/5473-cabbf37d176fddb5.js              45.7 kB
+  ├ chunks/8f89665b-4156a680fd9d3494.js          54.2 kB
+  └ other shared chunks (total)                  2.06 kB
+
+
+ƒ Middleware                                     32.2 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

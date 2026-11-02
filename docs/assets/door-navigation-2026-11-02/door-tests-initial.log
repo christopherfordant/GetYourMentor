@@ -1,0 +1,190 @@
+npx.cmd : [WebServer] (node:1504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:4 : 1
++ npx.cmd playwright test tests/door-navigation.spec.ts --project=deskt ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 6 tests using 1 worker
+
+(node:13180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/6] [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 390px
+  1) [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 390px
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('html')
+    Expected: "opening"
+    Error: strict mode violation: locator('html') resolved to 3 elements:
+        1) <html lang="fr" class="scroll-reveal-ready" data-door-transition="waiting">…</html> aka locator('html')
+        2) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(1)
+        3) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(2)
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 10000ms
+      - waiting for locator('html')
+
+
+      26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);
+      27 |   await go(page, '/coachs?sport=football');
+    > 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');
+         |                                      ^
+      29 |   const result = await page.locator(layer).evaluate(element => {
+      30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];
+      31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:28:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\error-context.md
+
+
+(node:17756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/6] [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 1440px
+  2) [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 1440px
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: locator('html')
+    Expected: "opening"
+    Error: strict mode violation: locator('html') resolved to 3 elements:
+        1) <html lang="fr" class="scroll-reveal-ready" data-door-transition="waiting">…</html> aka locator('html')
+        2) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(1)
+        3) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(2)
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 10000ms
+      - waiting for locator('html')
+
+
+      26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);
+      27 |   await go(page, '/coachs?sport=football');
+    > 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');
+         |                                      ^
+      29 |   const result = await page.locator(layer).evaluate(element => {
+      30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];
+      31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:28:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\error-context.md
+
+
+(node:17844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/6] [desktop-chromium] › tests\door-navigation.spec.ts:48:5 › history, query and legacy location navigation retain working live pages
+[4/6] [desktop-chromium] › tests\door-navigation.spec.ts:59:5 › reduced motion, hashes, downloads and external links never create doors
+  3) [desktop-chromium] › tests\door-navigation.spec.ts:59:5 › reduced motion, hashes, downloads and external links never create doors
+
+    Error: expect(locator).not.toHaveAttribute() failed
+
+    Locator: locator('html')
+    Expected: not have attribute
+    Error: strict mode violation: locator('html') resolved to 3 elements:
+        1) <html lang="fr" class="scroll-reveal-ready" data-door-transition="waiting">…</html> aka locator('html')
+        2) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(1)
+        3) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(2)
+
+    Call log:
+      - Expect "not toHaveAttribute" with timeout 10000ms
+      - waiting for locator('html')
+
+
+      20 | async function settled(page: Page) {
+      21 |   await expect(page.locator(layer)).toHaveCount(0);
+    > 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');
+         |                                          ^
+      23 | }
+      24 | for (const width of [390, 1440]) {
+      25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {
+        at settled (C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:22:42)
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:62:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\error-context.md
+
+
+(node:6008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/6] [desktop-chromium] › tests\door-navigation.spec.ts:69:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+  4) [desktop-chromium] › tests\door-navigation.spec.ts:69:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+
+    Error: expect(locator).not.toHaveAttribute() failed
+
+    Locator: locator('html')
+    Expected: not have attribute
+    Error: strict mode violation: locator('html') resolved to 3 elements:
+        1) <html lang="fr" class="scroll-reveal-ready" data-door-transition="waiting">…</html> aka locator('html')
+        2) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(1)
+        3) <html lang="fr" class="scroll-reveal-ready">…</html> aka locator('html').nth(2)
+
+    Call log:
+      - Expect "not toHaveAttribute" with timeout 10000ms
+      - waiting for locator('html')
+
+
+      20 | async function settled(page: Page) {
+      21 |   await expect(page.locator(layer)).toHaveCount(0);
+    > 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');
+         |                                          ^
+      23 | }
+      24 | for (const width of [390, 1440]) {
+      25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {
+        at settled (C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:22:42)
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:74:60
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\error-context.md
+
+
+(node:17756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/6] [desktop-chromium] › tests\door-navigation.spec.ts:82:5 › slow route never traps the interface and the next page still completes
+  4 failed
+    [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 390px
+    [desktop-chromium] › tests\door-navigation.spec.ts:25:6 › real page opens with two opposite doors at 1440px
+    [desktop-chromium] › tests\door-navigation.spec.ts:59:5 › reduced motion, hashes, downloads and external links never create doors
+    [desktop-chromium] › tests\door-navigation.spec.ts:69:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+  2 passed (51.1s)

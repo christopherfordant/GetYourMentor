@@ -1,0 +1,473 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/door-navigation.spec.ts",
+      "--project=desktop-chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-door-navigation-20261102/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-door-navigation-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-door-navigation-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-door-navigation-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-door-navigation-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm.cmd run start -- --port 3001",
+      "url": "http://127.0.0.1:3001/",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "door-navigation.spec.ts",
+      "file": "door-navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real page opens with two opposite doors at 390px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3702,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:28:38",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                      "column": 38,
+                      "line": 28
+                    },
+                    "snippet": "  26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);\n  27 |   await go(page, '/coachs?sport=football');\n> 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');\n     |                                      ^\n  29 |   const result = await page.locator(layer).evaluate(element => {\n  30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];\n  31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                        "column": 38,
+                        "line": 28
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n\n  26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);\n  27 |   await go(page, '/coachs?sport=football');\n> 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');\n     |                                      ^\n  29 |   const result = await page.locator(layer).evaluate(element => {\n  30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];\n  31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:28:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:02.726Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--06164-two-opposite-doors-at-390px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                    "column": 38,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-9aab6639784ab544ebdb",
+          "file": "door-navigation.spec.ts",
+          "line": 25,
+          "column": 6
+        },
+        {
+          "title": "real page opens with two opposite doors at 1440px",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3316,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:28:38",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                      "column": 38,
+                      "line": 28
+                    },
+                    "snippet": "  26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);\n  27 |   await go(page, '/coachs?sport=football');\n> 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');\n     |                                      ^\n  29 |   const result = await page.locator(layer).evaluate(element => {\n  30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];\n  31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                        "column": 38,
+                        "line": 28
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: \u001b[32m\"opening\"\u001b[39m\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n\n  26 |   await page.setViewportSize({ width, height: 900 }); await ready(page);\n  27 |   await go(page, '/coachs?sport=football');\n> 28 |   await expect(page.locator('html')).toHaveAttribute('data-door-transition', 'opening');\n     |                                      ^\n  29 |   const result = await page.locator(layer).evaluate(element => {\n  30 |     const animations = [...element.getAnimations({ subtree: true }), ...document.querySelector('[data-door-page]')!.getAnimations()];\n  31 |     animations.forEach(animation => { animation.pause(); animation.currentTime = 300; });\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:28:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:10.609Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-real-page--15be6-wo-opposite-doors-at-1440px-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                    "column": 38,
+                    "line": 28
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-9e1cb31b685706a3bcc3",
+          "file": "door-navigation.spec.ts",
+          "line": 25,
+          "column": 6
+        },
+        {
+          "title": "history, query and legacy location navigation retain working live pages",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:15.715Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-9e6acb7ea503c26e17b3",
+          "file": "door-navigation.spec.ts",
+          "line": 48,
+          "column": 5
+        },
+        {
+          "title": "reduced motion, hashes, downloads and external links never create doors",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3113,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n    at settled (C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:22:42)\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:62:26",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                      "column": 42,
+                      "line": 22
+                    },
+                    "snippet": "  20 | async function settled(page: Page) {\n  21 |   await expect(page.locator(layer)).toHaveCount(0);\n> 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');\n     |                                          ^\n  23 | }\n  24 | for (const width of [390, 1440]) {\n  25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                        "column": 42,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n\n  20 | async function settled(page: Page) {\n  21 |   await expect(page.locator(layer)).toHaveCount(0);\n> 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');\n     |                                          ^\n  23 | }\n  24 | for (const width of [390, 1440]) {\n  25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {\n    at settled (C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:22:42)\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:62:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:26.043Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-reduced-mo-36d6d-al-links-never-create-doors-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                    "column": 42,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-43ef69f09a4aea98e757",
+          "file": "door-navigation.spec.ts",
+          "line": 59,
+          "column": 5
+        },
+        {
+          "title": "escape, resize, motion change and repeated navigation clean all temporary trees",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4569,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n    at settled (C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:22:42)\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:74:60",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                      "column": 42,
+                      "line": 22
+                    },
+                    "snippet": "  20 | async function settled(page: Page) {\n  21 |   await expect(page.locator(layer)).toHaveCount(0);\n> 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');\n     |                                          ^\n  23 | }\n  24 | for (const width of [390, 1440]) {\n  25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                        "column": 42,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('html')\nExpected: not have attribute\nError: strict mode violation: locator('html') resolved to 3 elements:\n    1) <html lang=\"fr\" class=\"scroll-reveal-ready\" data-door-transition=\"waiting\">…</html> aka locator('html')\n    2) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(1)\n    3) <html lang=\"fr\" class=\"scroll-reveal-ready\">…</html> aka locator('html').nth(2)\n\nCall log:\n\u001b[2m  - Expect \"not toHaveAttribute\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('html')\u001b[22m\n\n\n  20 | async function settled(page: Page) {\n  21 |   await expect(page.locator(layer)).toHaveCount(0);\n> 22 |   await expect(page.locator('html')).not.toHaveAttribute('data-door-transition');\n     |                                          ^\n  23 | }\n  24 | for (const width of [390, 1440]) {\n  25 |  test(`real page opens with two opposite doors at ${width}px`, async ({ page }) => {\n    at settled (C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:22:42)\n    at C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts:74:60"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:30.676Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\test-results\\door-navigation-escape-res-de3fd-n-clean-all-temporary-trees-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102\\gym-next\\tests\\door-navigation.spec.ts",
+                    "column": 42,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-cf0409a40d4d5cbabe88",
+          "file": "door-navigation.spec.ts",
+          "line": 69,
+          "column": 5
+        },
+        {
+          "title": "slow route never traps the interface and the next page still completes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6752,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:41:37.499Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "7855c79985d3b1f2a290-1dcb11c5ee43637ce946",
+          "file": "door-navigation.spec.ts",
+          "line": 82,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T11:40:53.946Z",
+    "duration": 51126.060000000005,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  },
+  "_redactions": [
+    "config.webServer.env omitted: ephemeral local acceptance environment"
+  ]
+}

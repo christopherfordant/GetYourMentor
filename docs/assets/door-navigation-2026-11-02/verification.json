@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-02",
+  "checkpoint": "c29b8cd2c69674b385a1f258a70d96380bd447e7",
+  "isolated_checkout": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102",
+  "build_exit": 0,
+  "build_id": "gQ3Kq9thIMVhU-9xACHNT",
+  "checks": {
+    "check:types": 0,
+    "check:client-secret-boundary": 0,
+    "check:netlify-config": 0,
+    "tracked-secrets": 0,
+    "final-test-source-types": 0
+  },
+  "final_tests": {
+    "desktop": {
+      "startTime": "2026-11-02T11:51:11.130Z",
+      "duration": 109204.872,
+      "expected": 23,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "mobile": {
+      "startTime": "2026-11-02T11:53:19.090Z",
+      "duration": 57242.399,
+      "expected": 9,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "sha256": {
+    "gym-next/components/InternalNavigationEnhancer.tsx": "6f235c053ba202d7ba269a97ab64ea124ee929d62753296599f239267d438b60",
+    "gym-next/lib/door-navigation.ts": "8f6a71696df36ca763b5f5c23fabeb48cf8037e6ce82166d3707ffce8aad1779",
+    "gym-next/app/template.tsx": "63857ab84a013c0b611d8a57dae17550a4abf38ee9d6c2fff39caf1b4a246425",
+    "gym-next/tests/door-navigation.spec.ts": "c03b5d7a65778148e4d6b37689290f3d7d75cf6bc4634d94bf1e3a65186c456c"
+  },
+  "screenshots": "opening/finished 390/1440: last run mobile Chromium, DPR 3; desktop results archived separately",
+  "deployment": "none",
+  "push": "pending; existing remote divergence d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+  "limits": [
+    "Chromium desktop and emulated touch only; no Firefox or Safari execution",
+    "Without Navigation API: internal links and back navigation tested; full document and programmatic navigations retain safe native fallback",
+    "No authenticated accounts, real payment or remote service acceptance test",
+    "Old page is a transient inert DOM representation; editable fields cleared, videos/iframes/dialogs removed; no persisted private snapshot"
+  ],
+  "final_navigation_replay": {
+    "startTime": "2026-11-02T12:00:13.693Z",
+    "duration": 116939.88900000001,
+    "expected": 18,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "distinct_final_cases": 32,
+  "counting": "Latest 18 navigation replays replace earlier navigation executions; add 14 existing-animation desktop regressions, not 50 tests.",
+  "qa_fixture": "Cookie consent rejection awaited using escaped Unicode selector; final 18-case replay passed after fixture correction.",
+  "local_port_3001_listeners_after_tests": 0
+}

@@ -1,0 +1,20 @@
+[WebServer] (node:14032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 9 tests using 1 worker
+
+(node:16860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/9] [mobile-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 390px
+[2/9] [mobile-chromium] › tests\door-navigation.spec.ts:27:6 › real page opens with two opposite doors at 1440px
+[3/9] [mobile-chromium] › tests\door-navigation.spec.ts:53:5 › history, query and legacy location navigation retain working live pages
+[4/9] [mobile-chromium] › tests\door-navigation.spec.ts:72:5 › reduced motion, hashes, downloads and external links never create doors
+[5/9] [mobile-chromium] › tests\door-navigation.spec.ts:82:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[6/9] [mobile-chromium] › tests\door-navigation.spec.ts:95:5 › slow route never traps the interface and the next page still completes
+[7/9] [mobile-chromium] › tests\door-navigation.spec.ts:105:5 › fallback without Navigation API keeps links and back navigation working
+[8/9] [mobile-chromium] › tests\door-navigation.spec.ts:112:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+[9/9] [mobile-chromium] › tests\door-navigation.spec.ts:125:5 › keyboard sports links and sidebar links keep focusable live destinations
+  9 passed (57.2s)

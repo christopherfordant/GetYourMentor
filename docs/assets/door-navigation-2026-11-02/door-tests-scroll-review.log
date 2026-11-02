@@ -1,0 +1,40 @@
+[WebServer] (node:15460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 1 test using 1 worker
+
+(node:15004) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] [desktop-chromium] › tests\door-navigation.spec.ts:112:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+  1) [desktop-chromium] › tests\door-navigation.spec.ts:112:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 2
+    Received:   1577.90625
+
+      120 |    return copies.map(value => Math.abs(value - top));
+      121 |  });
+    > 122 |  expect(Math.max(...delta)).toBeLessThan(2); await settled(page);
+          |                             ^
+      123 | });
+      124 |
+      125 | test('keyboard sports links and sidebar links keep focusable live destinations', async ({ page }) => {
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\door-navigation.spec.ts:122:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-navigation-scrolled-s-e13b1-le-at-the-original-position-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-navigation-scrolled-s-e13b1-le-at-the-original-position-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-navigation-scrolled-s-e13b1-le-at-the-original-position-desktop-chromium\error-context.md
+
+
+  1 failed
+    [desktop-chromium] › tests\door-navigation.spec.ts:112:5 › scrolled snapshots keep the fixed sidebar handle at the original position

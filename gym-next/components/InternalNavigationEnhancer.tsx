@@ -1,7 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { installDoorNavigation } from "@/lib/door-navigation";
 
 function isModifiedEvent(event: MouseEvent) {
   return event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
@@ -13,8 +14,12 @@ function isInternalPath(href: string) {
 
 export function InternalNavigationEnhancer() {
   const router = useRouter();
+  const pathname = usePathname();
+
+  useEffect(() => { window.dispatchEvent(new Event("gym:route-ready")); }, [pathname]);
 
   useEffect(() => {
+    const disposeDoors = installDoorNavigation(router);
     const onClick = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button !== 0 || isModifiedEvent(event)) {
         return;
@@ -37,7 +42,7 @@ export function InternalNavigationEnhancer() {
 
       if (
         anchor.hasAttribute("download") ||
-        anchor.target === "_blank" ||
+        (anchor.target !== "" && anchor.target !== "_self") ||
         anchor.rel.includes("external") ||
         !isInternalPath(href)
       ) {
@@ -49,7 +54,10 @@ export function InternalNavigationEnhancer() {
     };
 
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      disposeDoors();
+    };
   }, [router]);
 
   return null;
