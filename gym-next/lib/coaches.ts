@@ -213,7 +213,7 @@ export async function getCoach(idOrName?: string) {
   return row ? fromRow(row) : null;
 }
 
-export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm" | "gender" | "practice" | "level" | "format" | "availabilityTags" | "groupPrices">> & { latitude?: number | null; longitude?: number | null }) {
+export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "sport" | "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm" | "gender" | "practice" | "level" | "format" | "availabilityTags" | "groupPrices">> & { latitude?: number | null; longitude?: number | null }) {
   const config = supabaseConfig();
   if (!config) {
     if (isHostedDemo()) return mutateDemoState((s) => {

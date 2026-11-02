@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : catalogue métier de 14 disciplines
+
+Dernière consigne exécutée **localement uniquement** : catalogue commun de 14 disciplines pour navigation, types, validations, recherche, filtres collectifs, aperçu mentors, récapitulatif, demandes coach, formulaire propriétaire et métadonnées. Alias historique conservé : URL `metiers-de-la-forme` / stockage `fitness`, URL `fitness` reconnue. Les valeurs inconnues ne retombent plus sur le football et n'effacent pas les filtres. Aucun coach ou créneau créé pour remplir les résultats.
+
+Build final, TypeScript, contrôle statique du schéma, configuration Netlify et frontière client/serveur PASS. **74 scénarios ordinateur distincts validés en consolidant les relances, 23 scénarios mobile PASS**. Le premier passage 65 PASS / 8 FAIL est conservé ; les 29 cas concernés et le nouveau contrôle de formulaire sont PASS après corrections, sans additionner les relances. Les contrôles API utilisent seulement les fixtures locales et restaurent leur discipline d'origine. Portraits/scènes manquants : remplacement neutre, aucune scène d'un autre sport. Pentagone sans cadre et portes à 2 200 ms inchangés.
+
+Aperçu laissé disponible : **http://127.0.0.1:3003/**, exemple `/recherche?sport=padel&city=Lyon`, session 37668. Checkout `C:/Users/cashe/Documents/GYM-sports-catalogue-20261102`, base `1cde67ec1feaa619d8c55e2645ecbade0261a825`, relance `node delivery-private/start-preview.cjs`. Environnement de recette isolé, aucune configuration de service externe héritée. Captures et résultats : `assets/sports-catalogue-2026-11-02/verification.json`.
+
+Migration **préparée, non exécutée** : `supabase/migrations/20261102_expand_sports_catalogue.sql`, contraintes sport de `gym_coaches` et `gym_reservations`. Schéma de référence adapté, RLS et historiques inchangés. Vérifier le schéma distant et obtenir l'autorisation d'exécution avant toute application. La gestion de plusieurs disciplines structurées par coach reste hors de ce modèle ; il s'agit d'une discipline principale et du texte libre existant. [Diagnostic, catalogue, provenance et limites](SPORTS_CATALOGUE_2026-11-02.md).
+
+Vingt modifications suivies antérieures exclues et conservées ; aucun achat, compte réel modifié, migration distante ou déploiement Netlify. **Le site public reste sur la livraison précédente décrite ci-dessous**. Statut Git dans les preuves. Prochaine action : revue de l'aperçu puis éventuelle autorisation séparée de migration/publication, sans lancement automatique d'un nouveau lot.
+
+---
+
 ## Publication active — 2 novembre 2026 : liens et Netlify
 
 Livraison documentaire locale 38bd49a ; push normal rejete non-fast-forward (code 1), distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. La publication Netlify est reussie independamment. Aucun force-push, fusion ou repetition identique.

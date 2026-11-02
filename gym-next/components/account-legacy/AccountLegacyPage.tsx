@@ -412,6 +412,7 @@ function CoachDashboard({
       {coachProfile ? (
         <CoachProfileEditor
           coachId={coachProfile.id}
+          sport={coachProfile.sport}
           specialty={coachProfile.specialty}
           city={coachProfile.city}
           priceFrom={coachProfile.priceFrom}

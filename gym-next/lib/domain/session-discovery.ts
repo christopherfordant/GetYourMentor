@@ -1,3 +1,4 @@
+import { discoverySports } from '@/lib/sports-catalogue';
 import { canonicalSportSlug } from "@/lib/domain";
 export type SessionFilters = { sport: string; city: string; source: string; participants: number };
 export type DiscoverableSession = {
@@ -5,14 +6,14 @@ export type DiscoverableSession = {
   availability?: Array<{ slot: string; remaining: number }>;
   individualPrice?: number; groupPrices?: Array<{ participantCount: number; totalCents: number }>;
 };
-const sports = new Set(["football", "basketball", "metiers-de-la-forme", "sports-de-combat"]);
+const sports = new Set<string>(discoverySports.map(([slug]) => slug));
 const canonicalSports = new Set([...sports].map(sport => canonicalSportSlug(sport)));
 const normalize = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase();
 
 export function parseSessionFilters(params: URLSearchParams): SessionFilters {
   const value = params.get("sport") ?? "", sport = value === "fitness" ? "metiers-de-la-forme" : value, source = params.get("source") ?? "";
   const size = Number(params.get("participants") ?? 1);
-  return { sport: sports.has(sport) ? sport : "", city: (params.get("city") ?? "").trim().slice(0, 120), source: ["coach", "structure"].includes(source) ? source : "", participants: Number.isInteger(size) && size >= 1 && size <= 50 ? size : 1 };
+  return { sport: !sport ? "" : sports.has(sport) ? sport : "__invalid__", city: (params.get("city") ?? "").trim().slice(0, 120), source: ["coach", "structure"].includes(source) ? source : "", participants: Number.isInteger(size) && size >= 1 && size <= 50 ? size : 1 };
 }
 
 export function matchesSession(offer: DiscoverableSession, filters: SessionFilters, now = Date.now()) {

@@ -1,4 +1,5 @@
 "use client";
+import { knownDiscoverySport } from '@/lib/sports-catalogue';
 import { SportIllustration } from "@/components/discovery/SportIllustration";
 import { SportIcon } from "@/components/discovery/SportIcon";
 
@@ -9,10 +10,10 @@ import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 const cities = ["Paris", "Lyon", "Marseille", "Bordeaux", "Lille", "Nice"];
 
 export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?: string; city?: string; demo?: boolean }) {
-  const initial = discoverySports.find(([slug]) => slug === sport) ?? discoverySports[0];
-  const [sportSlug, setSportSlug] = useState<string>(initial[0]);
+  const initial = knownDiscoverySport(sport);
+  const [sportSlug, setSportSlug] = useState<string>(initial?.[0] ?? sport ?? "");
   const [cityValue, setCityValue] = useState(city || "Paris");
-  const label = discoverySports.find(([slug]) => slug === sportSlug)?.[1] ?? initial[1];
+  const label = discoverySports.find(([slug]) => slug === sportSlug)?.[1] ?? (sportSlug ? "Discipline inconnue" : "Toutes les disciplines");
   const title = sportSlug === "metiers-de-la-forme" ? "Trouver un coach fitness qui te correspond" : `Trouver un coach de ${label.toLowerCase()} qui te correspond`;
 
   return <DiscoveryFrame page="search">
@@ -25,12 +26,14 @@ export function RechercheCoachLegacyPage({ sport, city, demo = false }: { sport?
         </div>
         <form className="de-search-form" data-sport-search-form onSubmit={event => {
           event.preventDefault();
+          if (sportSlug && !knownDiscoverySport(sportSlug)) return;
           window.location.href = buildNextPath(cityValue.trim() ? nextRoutes.directory : nextRoutes.search, { sport: sportSlug, city: cityValue.trim() });
         }}>
           <p className="de-eyebrow">TA PROCHAINE SÉANCE COMMENCE ICI</p>
-          <label>Quelle discipline ?<select aria-label="Quelle discipline ?" data-sport-query value={sportSlug} onChange={event => setSportSlug(event.target.value)}>{discoverySports.map(([slug, name]) => <option key={slug} value={slug}>{name}</option>)}</select></label>
+          <label>Quelle discipline ?<select aria-label="Quelle discipline ?" data-sport-query value={sportSlug} onChange={event => setSportSlug(event.target.value)}><option value="">Toutes les disciplines</option>{sportSlug && !knownDiscoverySport(sportSlug) && <option value={sportSlug} disabled>Discipline inconnue</option>}{discoverySports.map(([slug, name]) => <option key={slug} value={slug}>{name}</option>)}</select></label>
           <label>Où veux-tu t’entraîner ?<input data-sport-city value={cityValue} placeholder="Ville" autoComplete="address-level2" onChange={event => setCityValue(event.target.value)} /></label>
-          <button className="de-button" type="submit">Explorer les coachs <span aria-hidden="true">↗</span></button>
+          {sportSlug && !knownDiscoverySport(sportSlug) && <p role="alert">Discipline inconnue : choisissez une discipline du catalogue.</p>}
+          <button className="de-button" type="submit" disabled={!!sportSlug && !knownDiscoverySport(sportSlug)}>Explorer les coachs <span aria-hidden="true">↗</span></button>
           <p className="de-note">Compare les profils avant de proposer un créneau. La séance reste soumise à l’acceptation du coach.</p>
         </form>
       </section>

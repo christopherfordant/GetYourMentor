@@ -1,3 +1,4 @@
+import { canonicalSportSlug } from '@/lib/sports-catalogue';
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
 import { getCoach, toPublicCoach, updateCoach } from "@/lib/coaches";
@@ -28,6 +29,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
   const validationError = validateCoachProfileInput(body);
   if (validationError) return NextResponse.json({ error: validationError }, { status: 400 });
   const updates = {
+    sport: typeof body?.sport === "string" ? canonicalSportSlug(body.sport) : undefined,
     specialty: typeof body?.specialty === "string" ? body.specialty.trim() : undefined,
     city: typeof body?.city === "string" ? body.city.trim() : undefined,
     description: typeof body?.description === "string" ? body.description.trim() : undefined,

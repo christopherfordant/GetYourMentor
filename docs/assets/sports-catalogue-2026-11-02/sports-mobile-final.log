@@ -1,0 +1,32 @@
+[WebServer] (node:14444) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 23 tests using 1 worker
+
+(node:4388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [mobile-chromium] › tests\session-discovery.spec.ts:4:5 › découverte : capacité disponible, tarif total, dates et normalisation (42ms)
+  ok  2 [mobile-chromium] › tests\session-discovery.spec.ts:21:5 › catalogue partagé : filtres URL, demande de groupe et confidentialité (7.0s)
+  ok  3 [mobile-chromium] › tests\session-discovery.spec.ts:77:5 › erreur de catalogue : reprise explicite sans masquer la panne (1.7s)
+  ok  4 [mobile-chromium] › tests\sports-catalogue.spec.ts:12:5 › shared catalogue reaches profiles, sessions and both booking contracts without losing historic identifiers (244ms)
+  ok  5 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve football (2.3s)
+  ok  6 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve basketball (2.2s)
+  ok  7 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve metiers-de-la-forme (2.0s)
+  ok  8 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve sports-de-combat (1.9s)
+  ok  9 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve boxe (1.8s)
+  ok 10 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve mma (1.8s)
+  ok 11 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve pilates (2.0s)
+  ok 12 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve coaching-sportif (1.8s)
+  ok 13 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve crossfit (2.1s)
+  ok 14 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve preparation-physique (2.0s)
+  ok 15 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve musculation (1.6s)
+  ok 16 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve hyrox (1.5s)
+  ok 17 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve perte-de-poids (1.6s)
+  ok 18 [mobile-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve padel (1.6s)
+  ok 19 [mobile-chromium] › tests\sports-catalogue.spec.ts:38:5 › unknown sports and fitness alias never silently turn into football (2.4s)
+  ok 20 [mobile-chromium] › tests\sports-catalogue.spec.ts:48:5 › owner-authorized profile editing persists every discipline without changing price or ownership (442ms)
+  ok 21 [mobile-chromium] › tests\sports-catalogue.spec.ts:58:5 › coach editor exposes the whole catalogue without submitting unrelated profile fields (1.2s)
+  ok 22 [mobile-chromium] › tests\sports-catalogue.spec.ts:63:35 › catalogue content, fields, neutral artwork and keyboard at 390 (3.5s)
+  ok 23 [mobile-chromium] › tests\sports-catalogue.spec.ts:63:35 › catalogue content, fields, neutral artwork and keyboard at 1440 (6.3s)
+
+  23 passed (55.7s)

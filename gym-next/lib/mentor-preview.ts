@@ -1,3 +1,4 @@
+import { isSportSlug } from '@/lib/sports-catalogue';
 import type { SportSlug } from './domain';
 
 export const MENTOR_PREVIEW_LIMIT = 6;
@@ -10,7 +11,7 @@ export function readMentorPreview(value: unknown): { data: MentorPreview[]; demo
   const data = response.data.map((value: unknown) => {
     const row = value as MentorPreview | null;
     if (!row || typeof row.id !== 'string' || !row.id.trim() || ids.has(row.id) || typeof row.name !== 'string' || !row.name.trim()
-      || !['football', 'basketball', 'fitness', 'sports-de-combat'].includes(row.sport) || typeof row.city !== 'string' || typeof row.specialty !== 'string'
+      || !isSportSlug(row.sport) || typeof row.city !== 'string' || typeof row.specialty !== 'string'
       || !(row.priceFrom === null || (typeof row.priceFrom === 'number' && Number.isFinite(row.priceFrom) && row.priceFrom >= 0))
       || !(row.photoUrl === undefined || typeof row.photoUrl === 'string')) throw new Error('Invalid mentor');
     for (const key of ['description', 'sessionTypes'] as const) {

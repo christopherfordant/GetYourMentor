@@ -1,4 +1,5 @@
-export type SportSlug = "football" | "basketball" | "fitness" | "sports-de-combat";
+import { canonicalSportSlug, type SportSlug } from './sports-catalogue';
+export { canonicalSportSlug, type SportSlug } from './sports-catalogue';
 
 export type CoachProfile = {
   id: string;
@@ -62,11 +63,6 @@ export type Reservation = {
   demoPaymentConfirmation?: Readonly<{ mode: "simulated"; confirmedAt: string; reference: string }>;
   refundedPlatformFeeCents?: number;
 };
-
-export function canonicalSportSlug(value?: string) {
-  if (!value) return undefined;
-  return value === "metiers-de-la-forme" ? "fitness" : value;
-}
 
 export const coachProfiles: CoachProfile[] = [
   {
@@ -152,7 +148,7 @@ export function setCoachVerification(id: string, verified: boolean) {
   return coach;
 }
 
-export function updateCoachProfile(id: string, updates: Partial<Pick<CoachProfile, "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4">>) {
+export function updateCoachProfile(id: string, updates: Partial<Pick<CoachProfile, "sport" | "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4">>) {
   const coach = coachProfiles.find((entry) => entry.id === id);
   if (!coach) return null;
   Object.assign(coach, updates);

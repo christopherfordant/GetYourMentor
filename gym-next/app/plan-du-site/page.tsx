@@ -1,7 +1,9 @@
+import { discoverySports } from '@/lib/sports-catalogue';
 import Link from "next/link";
 import { DiscoveryFrame, DiscoveryIntro } from "@/components/discovery/DiscoveryFrame";
 export const metadata = { title: "Plan du site — GetYourMentor", description: "Retrouvez les pages de recherche, de compte et les informations de GetYourMentor." };
 const groups = [
+ {title:"Disciplines",links:discoverySports.map(([slug,label])=>[label,`/recherche?sport=${slug}`])},
  {title:"Découvrir",links:[["Accueil","/"],["Rechercher un coach","/recherche"],["Annuaire des coachs","/coachs"],["Séances collectives","/seances"],["Structures","/structures"],["Offres","/offres"],["Ressources","/contenus"]]},
  {title:"Mon espace",links:[["Compte sportif","/compte"],["Compte coach","/compte?mode=coach"],["Inscrire une structure","/inscription-club"],["Suivi personnel","/suivi"]]},
  {title:"Informations",links:[["Questions fréquentes","/#faq"],["Conditions d’utilisation","/legal/cgu"],["Conditions de vente","/legal/cgv"],["Confidentialité","/legal/confidentialite"],["Cookies","/legal/cookies"],["Accessibilité","/legal/accessibilite"],["Mentions légales et contact","/legal/mentions-legales"]]},

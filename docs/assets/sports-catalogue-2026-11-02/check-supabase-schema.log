@@ -1,0 +1,5 @@
+
+> gym-next@0.1.0 check:supabase-schema
+> node scripts/check-supabase-schema.mjs
+
+Schéma Supabase valide : tables, RLS, bucket privé et contraintes MVP présents.

@@ -1,0 +1,376 @@
+[WebServer] (node:3848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 73 tests using 1 worker
+
+(node:11548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop-chromium] › tests\booking-summary-contract.spec.ts:6:5 › projection excludes private fields and preserves actual status and historical price (24ms)
+  ok  2 [desktop-chromium] › tests\booking-summary-contract.spec.ts:10:5 › proof window includes start, excludes 24h and invalid/future dates (9ms)
+  ok  3 [desktop-chromium] › tests\booking-summary-contract.spec.ts:13:5 › owner identity overrides proof; roles and unowned records remain scoped (11ms)
+  ok  4 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary id {"id":"res-other"} (6ms)
+  ok  5 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary sport {"sport":"unknown-sport"} (3ms)
+  ok  6 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary price {"price":-1} (2ms)
+  ok  7 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary price {"price":null} (3ms)
+  ok  8 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary slots {"slots":[]} (2ms)
+  ok  9 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary slots {"slots":["10:00"]} (3ms)
+  ok 10 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary appointmentAt {"appointmentAt":"2031-01-01T11:00:00Z"} (4ms)
+  ok 11 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary duration {"duration":"invalid"} (2ms)
+  ok 12 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary participantCount {"participantCount":0} (2ms)
+  ok 13 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary participantCount {"participantCount":51} (2ms)
+  ok 14 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary status {"status":"unknown"} (2ms)
+  ok 15 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary authenticated {"authenticated":"yes"} (3ms)
+  ok 16 [desktop-chromium] › tests\booking-summary-contract.spec.ts:18:286 › reject malformed summary claimToken {"claimToken":"invalid"} (2ms)
+  ok 17 [desktop-chromium] › tests\collective-preview.spec.ts:11:5 › structure eligibility requires both consents; backend activation remains isolated-demo only (10ms)
+  ok 18 [desktop-chromium] › tests\collective-preview.spec.ts:29:5 › projection refuses assumed seats, missing group price, exhausted and expired sessions; strips private data (22ms)
+  x  19 [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 320px with keyboard and honest totals (17.4s)
+(node:1772) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  20 [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 390px with keyboard and honest totals (15.8s)
+(node:19012) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  21 [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 768px with keyboard and honest totals (16.4s)
+(node:15720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  22 [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 1440px with keyboard and honest totals (16.9s)
+(node:16492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 23 [desktop-chromium] › tests\collective-preview.spec.ts:72:5 › loading, error, retry, empty, malformed and withdrawn offer never manufacture data (3.0s)
+  ok 24 [desktop-chromium] › tests\collective-preview.spec.ts:97:5 › touch and reduced motion coexist with drawer, cookies, header and footer (2.1s)
+  ok 25 [desktop-chromium] › tests\collective-preview.spec.ts:123:5 › local real API publishes eligible offers, bounds public preview, reserves seats and rechecks group total (373ms)
+  ok 26 [desktop-chromium] › tests\mentor-carousel.spec.ts:18:5 › public projection excludes current and future private fields, including nested extras (15ms)
+  ok 27 [desktop-chromium] › tests\mentor-carousel.spec.ts:26:5 › public preview remains bounded, includes only existing public fields and validates the payload (90ms)
+  ok 28 [desktop-chromium] › tests\mentor-carousel.spec.ts:41:5 › remote catalogue query uses only bounded public columns, no histories or private documents (11ms)
+  ok 29 [desktop-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 320px (10.4s)
+  ok 30 [desktop-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 390px (10.2s)
+  ok 31 [desktop-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 768px (10.2s)
+  ok 32 [desktop-chromium] › tests\mentor-carousel.spec.ts:53:7 › integrated five faces remain readable, unique and keyboard usable at 1440px (10.5s)
+  ok 33 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 0 profiles has no invented or duplicate mentors (1.9s)
+  ok 34 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 1 profiles has no invented or duplicate mentors (1.6s)
+  ok 35 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 2 profiles has no invented or duplicate mentors (1.7s)
+  ok 36 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 4 profiles has no invented or duplicate mentors (1.8s)
+  ok 37 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 5 profiles has no invented or duplicate mentors (1.9s)
+  ok 38 [desktop-chromium] › tests\mentor-carousel.spec.ts:77:7 › catalogue of 6 profiles has no invented or duplicate mentors (2.3s)
+  ok 39 [desktop-chromium] › tests\mentor-carousel.spec.ts:94:5 › loading, error, retry and empty states remove stale profiles (2.1s)
+  ok 40 [desktop-chromium] › tests\mentor-carousel.spec.ts:103:5 › long text, unknown modalities and missing image remain honest and bounded (2.0s)
+  ok 41 [desktop-chromium] › tests\mentor-carousel.spec.ts:113:5 › full turns in both directions and focus survive reduced motion and resize (3.4s)
+  ok 42 [desktop-chromium] › tests\mentor-carousel.spec.ts:124:5 › native touch swipe rotates the pentagon without trapping vertical scroll (1.8s)
+  ok 43 [desktop-chromium] › tests\mentor-carousel.spec.ts:132:5 › card to profile keeps identity, city and declared formats through the slow door transition (5.4s)
+  ok 44 [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 320px (4.6s)
+  ok 45 [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 390px (4.8s)
+  ok 46 [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 768px (4.9s)
+  ok 47 [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 1440px (4.5s)
+  ok 48 [desktop-chromium] › tests\navigation-refonte.spec.ts:53:5 › all approved disciplines have actual search and directory routes without borrowing football profiles (2.1s)
+  ok 49 [desktop-chromium] › tests\navigation-refonte.spec.ts:66:5 › bell opens a truthful account entry, no fabricated unread count, escape restores focus (1.8s)
+  ok 50 [desktop-chromium] › tests\navigation-refonte.spec.ts:79:5 › coach entry starts at My account, preserves booking context, and cannot grant a role (2.0s)
+  ok 51 [desktop-chromium] › tests\navigation-refonte.spec.ts:101:5 › Factory surfaces and reduced motion are applied without changing source data (1.8s)
+  ok 52 [desktop-chromium] › tests\session-discovery.spec.ts:4:5 › découverte : capacité disponible, tarif total, dates et normalisation (15ms)
+  ok 53 [desktop-chromium] › tests\session-discovery.spec.ts:21:5 › catalogue partagé : filtres URL, demande de groupe et confidentialité (3.5s)
+  ok 54 [desktop-chromium] › tests\session-discovery.spec.ts:77:5 › erreur de catalogue : reprise explicite sans masquer la panne (1.4s)
+  ok 55 [desktop-chromium] › tests\sports-catalogue.spec.ts:12:5 › shared catalogue reaches profiles, sessions and both booking contracts without losing historic identifiers (145ms)
+  ok 56 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve football (1.7s)
+  ok 57 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve basketball (1.6s)
+  ok 58 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve metiers-de-la-forme (1.6s)
+  ok 59 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve sports-de-combat (2.0s)
+  ok 60 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve boxe (1.9s)
+  ok 61 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve mma (1.7s)
+  ok 62 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve pilates (1.6s)
+  ok 63 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve coaching-sportif (1.7s)
+  ok 64 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve crossfit (1.8s)
+  ok 65 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve preparation-physique (1.7s)
+  ok 66 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve musculation (1.7s)
+  ok 67 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve hyrox (1.6s)
+  ok 68 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve perte-de-poids (1.6s)
+  ok 69 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve padel (1.8s)
+  x  70 [desktop-chromium] › tests\sports-catalogue.spec.ts:38:5 › unknown sports and fitness alias never silently turn into football (1.6s)
+(node:17764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  71 [desktop-chromium] › tests\sports-catalogue.spec.ts:48:5 › owner-authorized profile editing persists every discipline without changing price or ownership (89ms)
+(node:4324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  72 [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 390 (13.3s)
+(node:11224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  73 [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 1440 (13.2s)
+
+
+  1) [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 320px with keyboard and honest totals
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('select[name="sport"] option')
+    Expected: 5
+    Received: 15
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('select[name="sport"] option')
+        - locator resolved to 0 elements
+        - unexpected value "0"
+        22 × locator resolved to 15 elements
+           - unexpected value "15"
+
+
+      66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });
+      67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();
+    > 68 |     await expect(page.locator('select[name="sport"] option')).toHaveCount(5);
+         |                                                               ^
+      69 |   });
+      70 | }
+      71 |
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\collective-preview.spec.ts:68:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\error-context.md
+
+  2) [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 390px with keyboard and honest totals
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('select[name="sport"] option')
+    Expected: 5
+    Received: 15
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('select[name="sport"] option')
+        - locator resolved to 0 elements
+        - unexpected value "0"
+        22 × locator resolved to 15 elements
+           - unexpected value "15"
+
+
+      66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });
+      67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();
+    > 68 |     await expect(page.locator('select[name="sport"] option')).toHaveCount(5);
+         |                                                               ^
+      69 |   });
+      70 | }
+      71 |
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\collective-preview.spec.ts:68:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\error-context.md
+
+  3) [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 768px with keyboard and honest totals
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('select[name="sport"] option')
+    Expected: 5
+    Received: 15
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('select[name="sport"] option')
+        - locator resolved to 0 elements
+        - unexpected value "0"
+        22 × locator resolved to 15 elements
+           - unexpected value "15"
+
+
+      66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });
+      67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();
+    > 68 |     await expect(page.locator('select[name="sport"] option')).toHaveCount(5);
+         |                                                               ^
+      69 |   });
+      70 | }
+      71 |
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\collective-preview.spec.ts:68:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\error-context.md
+
+  4) [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 1440px with keyboard and honest totals
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('select[name="sport"] option')
+    Expected: 5
+    Received: 15
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('select[name="sport"] option')
+        - locator resolved to 0 elements
+        - unexpected value "0"
+        22 × locator resolved to 15 elements
+           - unexpected value "15"
+
+
+      66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });
+      67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();
+    > 68 |     await expect(page.locator('select[name="sport"] option')).toHaveCount(5);
+         |                                                               ^
+      69 |   });
+      70 | }
+      71 |
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\collective-preview.spec.ts:68:63
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\error-context.md
+
+  5) [desktop-chromium] › tests\sports-catalogue.spec.ts:38:5 › unknown sports and fitness alias never silently turn into football
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('alert')
+    Expected substring: "Discipline inconnue"
+    Error: strict mode violation: getByRole('alert') resolved to 2 elements:
+        1) <p role="alert">Discipline inconnue : choisissez une discipline d…</p> aka getByText('Discipline inconnue :')
+        2) <div role="alert" aria-live="assertive" id="__next-route-announcer__"></div> aka locator('[id="__next-route-announcer__"]')
+
+    Call log:
+      - Expect "toContainText" with timeout 10000ms
+      - waiting for getByRole('alert')
+
+
+      40 |   await page.goto('/coachs?sport=fitness');await expect(page.locator('[data-directory-sport-input]')).toHaveValue('Fitness');
+      41 |   for(const sport of ['constructor','unknown-sport']){
+    > 42 |     await page.goto(`/recherche?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.getByRole('button',{name:'Explorer les coachs'})).toBeDisabled();
+         |                                                                                        ^
+      43 |     await page.goto(`/coachs?sport=${sport}`);await expect(page.locator('h1')).toHaveText('Discipline inconnue');expect((await(await request.get(`/api/coaches?sport=${sport}`)).json()).data).toEqual([]);
+      44 |     await page.goto(`/seances?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.locator('select[name=sport]')).toHaveValue('__invalid__');
+      45 |   }
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\sports-catalogue.spec.ts:42:88
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\error-context.md
+
+  6) [desktop-chromium] › tests\sports-catalogue.spec.ts:48:5 › owner-authorized profile editing persists every discipline without changing price or ownership
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 401
+
+      53 |     expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:'unknown-sport'}})).status()).toBe(400);
+      54 |     expect((await request.patch('/api/coaches/madison-seck',{data:{sport:'padel'}})).status()).toBe(403);
+    > 55 |   }finally{expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:original.sport}})).status()).toBe(200);}
+         |                                                                                                                ^
+      56 | });
+      57 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{
+      58 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\sports-catalogue.spec.ts:55:112
+
+    Error Context: test-results\sports-catalogue-owner-aut-68dfc-changing-price-or-ownership-desktop-chromium\error-context.md
+
+  7) [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 390
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.sports[aria-label="Les disciplines proposées"] a')
+    Expected: 14
+    Received: 0
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.sports[aria-label="Les disciplines proposées"] a')
+        23 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);
+      59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);
+    > 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');
+         |                                                                                   ^
+      61 | });
+      62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{
+      63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\sports-catalogue.spec.ts:60:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\error-context.md
+
+  8) [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 1440
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.sports[aria-label="Les disciplines proposées"] a')
+    Expected: 14
+    Received: 0
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveCount" with timeout 10000ms
+      - waiting for locator('.sports[aria-label="Les disciplines proposées"] a')
+        23 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);
+      59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);
+    > 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');
+         |                                                                                   ^
+      61 | });
+      62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{
+      63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
+        at C:\Users\cashe\Documents\GYM-sports-catalogue-20261102\gym-next\tests\sports-catalogue.spec.ts:60:83
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\error-context.md
+
+  8 failed
+    [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 320px with keyboard and honest totals
+    [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 390px with keyboard and honest totals
+    [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 768px with keyboard and honest totals
+    [desktop-chromium] › tests\collective-preview.spec.ts:38:7 › preview and selected detail stay usable at 1440px with keyboard and honest totals
+    [desktop-chromium] › tests\sports-catalogue.spec.ts:38:5 › unknown sports and fitness alias never silently turn into football
+    [desktop-chromium] › tests\sports-catalogue.spec.ts:48:5 › owner-authorized profile editing persists every discipline without changing price or ownership
+    [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 390
+    [desktop-chromium] › tests\sports-catalogue.spec.ts:57:35 › catalogue content, fields, neutral artwork and keyboard at 1440
+  65 passed (4.1m)

@@ -1,3 +1,4 @@
+import { knownDiscoverySport } from './sports-catalogue';
 import type { Metadata } from "next";
 
 const siteName = "GetYourMentor";
@@ -5,16 +6,8 @@ const defaultDescription =
   "Trouvez et reservez votre coach sportif en ligne sur GetYourMentor.";
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
 
-const sportLabels: Record<string, string> = {
-  football: "football",
-  basketball: "basketball",
-  "metiers-de-la-forme": "fitness",
-  "sports-de-combat": "sports de combat",
-};
-
 export function getSportLabel(sport?: string) {
-  if (!sport) return "sport";
-  return sportLabels[sport] ?? sport.replaceAll("-", " ");
+  return !sport ? "sport" : knownDiscoverySport(sport)?.[1].toLowerCase() ?? "discipline inconnue";
 }
 
 export function buildPageMetadata({

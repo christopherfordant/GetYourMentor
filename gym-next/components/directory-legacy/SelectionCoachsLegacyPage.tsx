@@ -1,4 +1,5 @@
 "use client";
+import { knownDiscoverySport } from '@/lib/sports-catalogue';
 
 import { useMemo, useState } from "react";
 import { CoachVisual } from "@/components/discovery/CoachVisual";
@@ -72,26 +73,7 @@ const normalize = (value = "") =>
     .toLowerCase()
     .trim();
 
-const inferSportSlug = (value = "") => {
-  const exact = discoverySports.find(([slug,label]) => value === slug || normalize(value) === normalize(label));
-  if (exact) return exact[0];
-  const normalized = normalize(value);
-
-  if (normalized.includes("basket")) return "basketball";
-  if (normalized.includes("combat") || normalized.includes("boxe") || normalized.includes("mma")) {
-    return "sports-de-combat";
-  }
-  if (
-    normalized.includes("forme") ||
-    normalized.includes("fitness") ||
-    normalized.includes("pilates") ||
-    normalized.includes("muscu")
-  ) {
-    return "metiers-de-la-forme";
-  }
-
-  return "football";
-};
+const inferSportSlug = (value = "") => value === "Toutes les disciplines" ? "" : knownDiscoverySport(value)?.[0] ?? value.trim();
 
 const navigateToSearch = (sportValue: string, cityValue: string) => {
   const sportSlug = inferSportSlug(sportValue);
@@ -153,7 +135,7 @@ function DirectoryToolbar({
             data-directory-sport-input
             value={sportInput}
             onChange={(event) => setSportInput(event.target.value)}
-          >{discoverySports.map(([slug, label]) => <option key={slug} value={label}>{label}</option>)}</select>
+          ><option value="Toutes les disciplines">Toutes les disciplines</option>{!knownDiscoverySport(sportInput) && sportInput !== "Toutes les disciplines" && <option value={sportInput}>{sportInput}</option>}{discoverySports.map(([slug, label]) => <option key={slug} value={label}>{label}</option>)}</select>
         </label>
         <label className="de-directory-field">
           <span>Zone d’entraînement</span>
@@ -443,16 +425,9 @@ export function SelectionCoachsLegacyPage({
   demo = false,
   catalogUnavailable = false,
 }: SelectionCoachsLegacyPageProps) {
-  const sportSlug = useMemo(() => {
-    if (sport && Object.hasOwn(directoryDictionary, sport)) {
-      return sport as keyof typeof directoryDictionary;
-    }
-
-    return "football";
-  }, [sport]);
-
-  const currentDirectory = directoryDictionary[sportSlug];
-  const cityValue = city || "Paris";
+  const sportSlug = knownDiscoverySport(sport)?.[0] ?? sport ?? "";
+  const currentDirectory = (Object.hasOwn(directoryDictionary, sportSlug) ? directoryDictionary[sportSlug] : undefined) ?? { name: sportSlug ? "Discipline inconnue" : "Toutes les disciplines", getTitle: () => sportSlug ? "Discipline inconnue" : "Tous les coachs" };
+  const cityValue = city ?? "";
   const [filters, setFilters] = useState<DirectoryFilters>(defaultDirectoryFilters);
   const [radiusKm, setRadiusKm] = useState(10);
   const [sort, setSort] = useState<DirectorySort>("relevance");
@@ -501,7 +476,7 @@ export function SelectionCoachsLegacyPage({
     <>
       <DiscoveryFrame page="directory" demo={demo}>
         <main className="de-coach-directory-page" data-coach-directory-page>
-          <div className="de-directory-intro"><DiscoveryIntro step="02 / TROUVE TON MENTOR" title={currentDirectory.getTitle()}>Compare les profils de {currentDirectory.name.toLowerCase()} à {cityValue}. Le bon cadre pour ton prochain objectif.</DiscoveryIntro><DiscoverySteps active={1} /></div>
+          <div className="de-directory-intro"><DiscoveryIntro step="02 / TROUVE TON MENTOR" title={currentDirectory.getTitle()}>Compare les profils de {currentDirectory.name.toLowerCase()} à {cityValue || "toutes les villes"}. Le bon cadre pour ton prochain objectif.</DiscoveryIntro><DiscoverySteps active={1} /></div>
           {demo ? <p><a href={`/seances?${new URLSearchParams({ sport: sportSlug, city: cityValue })}`}>Explorer les séances collectives</a></p> : null}
           {catalogUnavailable && <p className="de-discovery-note" role="status">Le catalogue est momentanément indisponible ou non configuré dans cet environnement. Aucun profil n’est inventé pour remplacer les résultats manquants.</p>}
           <DirectoryToolbar sportLabel={currentDirectory.name} city={cityValue} filters={filters} onFiltersChange={setFilters} onLocate={locateSportist} isLocating={isLocating} locationStatus={locationStatus} radiusKm={radiusKm} onRadiusChange={(radius) => { setRadiusKm(radius); setLocatedCoaches(null); }} sort={sort} onSortChange={setSort} />

@@ -1,3 +1,4 @@
+import { discoverySports } from '../lib/sports-catalogue';
 import { expect, test } from '@playwright/test';
 import fs from 'node:fs/promises';
 import { collectivePreviewRow, readCollectivePreview } from '../lib/collective-preview';
@@ -29,7 +30,7 @@ test('structure eligibility requires both consents; backend activation remains i
 test('projection refuses assumed seats, missing group price, exhausted and expired sessions; strips private data', () => {
   const offer = { ...fixture, slots: [slot], availability: [{ slot, remaining: 4 }], individualPrice: 30, groupPrices: [{ participantCount: 2, totalCents: 7300 }], ownerEmail: 'private@example.com' };
   expect(collectivePreviewRow(offer)).toEqual(fixture);
-  for (const patch of [{ availability: undefined }, { availability: [{ slot, remaining: 1 }] }, { availability: [{ slot, remaining: 7 }] }, { capacity: 1 }, { groupPrices: [] }, { groupPrices: [{ participantCount: 3, totalCents: 9000 }] }, { sport: 'padel' }, { slots: ['2020-01-01T10:00:00Z'] }]) expect(collectivePreviewRow({ ...offer, ...patch })).toBeNull();
+  for (const patch of [{ availability: undefined }, { availability: [{ slot, remaining: 1 }] }, { availability: [{ slot, remaining: 7 }] }, { capacity: 1 }, { groupPrices: [] }, { groupPrices: [{ participantCount: 3, totalCents: 9000 }] }, { sport: 'unknown-sport' }, { slots: ['2020-01-01T10:00:00Z'] }]) expect(collectivePreviewRow({ ...offer, ...patch })).toBeNull();
   expect(() => readCollectivePreview({ demo: true, data: [fixture, fixture] })).toThrow();
   expect(() => readCollectivePreview({ demo: false, data: [fixture] })).toThrow();
 });
@@ -65,7 +66,7 @@ for (const width of [320, 390, 768, 1440]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });
     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();
-    await expect(page.locator('select[name="sport"] option')).toHaveCount(5);
+    await expect(page.locator('select[name="sport"] option')).toHaveCount(discoverySports.length + 1);
   });
 }
 

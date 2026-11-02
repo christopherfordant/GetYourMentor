@@ -1,3 +1,4 @@
+import { isSportSlug } from '@/lib/sports-catalogue';
 import { canonicalSportSlug } from "@/lib/domain";
 
 export type SearchFilters = {
@@ -31,7 +32,7 @@ function preserveOrMarkInvalid(value: string | undefined, allowed: readonly stri
 export function normalizeSearchFilters(input: SearchFilters): SearchFilters {
   return {
     ...input,
-    sport: canonicalSportSlug(input.sport),
+    sport: !input.sport ? undefined : isSportSlug(canonicalSportSlug(input.sport)) ? canonicalSportSlug(input.sport) : "__invalid__",
     city: input.city?.trim() || undefined,
     gender: preserveOrMarkInvalid(input.gender, values.gender),
     practice: preserveOrMarkInvalid(input.practice, values.practice),

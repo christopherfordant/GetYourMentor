@@ -1,3 +1,4 @@
+import { canonicalSportSlug, isSportSlug } from '@/lib/sports-catalogue';
 function isFiniteNumber(value: unknown) {
   return value !== "" && Number.isFinite(Number(value));
 }
@@ -8,6 +9,7 @@ function tooLong(value: unknown, max: number) {
 
 export function validateCoachProfileInput(body: unknown) {
   const input = typeof body === "object" && body !== null ? body as Record<string, unknown> : {};
+  if (input.sport !== undefined && (typeof input.sport !== "string" || !isSportSlug(canonicalSportSlug(input.sport)))) return "Discipline inconnue";
   const textFields = ["specialty", "city", "description", "disciplines", "diplomas", "sessionTypes", "availability", "photoUrl"];
   if (textFields.some((field) => tooLong(input[field], 5000))) return "Profil trop long";
   if (input.priceFrom !== undefined && (!isFiniteNumber(input.priceFrom) || Number(input.priceFrom) < 0 || Number(input.priceFrom) > 10000)) return "Tarif invalide";

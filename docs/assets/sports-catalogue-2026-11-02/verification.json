@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-02",
+  "sourceBase": "1cde67ec1feaa619d8c55e2645ecbade0261a825",
+  "catalogueSize": 14,
+  "fitnessAlias": {
+    "public": "metiers-de-la-forme",
+    "storage": "fitness",
+    "legacyURLAlias": "fitness"
+  },
+  "buildId": "Hw-UT1UQ_laqoy-szkBk0",
+  "checks": {
+    "finalBuildExitCode": 0,
+    "typeCheckExitCode": 0,
+    "check:netlify-config": 0,
+    "check:supabase-schema": 0,
+    "check:client-secret-boundary": 0,
+    "desktopUniqueValidated": 74,
+    "desktopInitial": {
+      "passed": 65,
+      "failed": 8,
+      "report": "desktop-results.json"
+    },
+    "desktopFocusedFinal": {
+      "passed": 29,
+      "failed": 0,
+      "report": "desktop-final-focus.json"
+    },
+    "desktopCounting": "Initial unchanged PASS cases plus final reruns; 74 distinct cases, not 65+29. Final CSS/text change was the accessible label accent.",
+    "mobileFinal": {
+      "passed": 23,
+      "failed": 0,
+      "report": "mobile-final.json"
+    },
+    "databaseExecution": false,
+    "migrationAppliedRemotely": false,
+    "trackedSecretCheckExitCode": 0,
+    "targetedDiffCheckExitCode": 0,
+    "finalClientBoundaryExitCode": 0
+  },
+  "preview": {
+    "url": "http://127.0.0.1:3003/",
+    "example": "http://127.0.0.1:3003/recherche?sport=padel&city=Lyon",
+    "sessionId": 37668,
+    "launcher": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\delivery-private\\start-preview.cjs",
+    "command": "node delivery-private/start-preview.cjs",
+    "cwd": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102",
+    "demoOnly": true,
+    "externalCredentialsInherited": false,
+    "connectedBrowserOpened": true,
+    "note": "Connected browser opened the Padel page. Additional connected consent click timed out; functional checks and captures completed in isolated Playwright. Legacy /favicon.ico 404 observed; no global resource audit claimed."
+  },
+  "noDeployment": true,
+  "noRemoteAccountsModified": true,
+  "migration": "supabase/migrations/20261102_expand_sports_catalogue.sql",
+  "schemaPreflightRequired": true,
+  "sourceFiles": {
+    "gym-next/app/api/coaches/[id]/route.ts": "df41b2e1a78a53c8f302c6084c4a311311871da690e0ae97063da82e101ecb0e",
+    "gym-next/app/plan-du-site/page.tsx": "7f4e526d53e04e9d11578cb8fecc8695abc76a74f57d41c164cb8d119041589d",
+    "gym-next/app/sitemap.ts": "c8f31550aa8ed0f5914571595a7c0f37723e5e4f8689411fd0eaf049604f603c",
+    "gym-next/components/SiteFooter.tsx": "9f341160d1bc99af399862d5b75df8a877d8d906210995498e4d34aeaaf6e5a7",
+    "gym-next/components/StructureOffers.tsx": "2674f714faeaeb45bd95dd3dae6d9c773b0ba206233394b1d257edefa3d6ea8d",
+    "gym-next/components/account-legacy/AccountLegacyPage.tsx": "0796602f7fd8850399a3f6c562bd4ba28b047f7bd1d23f7152d3fa0816997259",
+    "gym-next/components/account-legacy/CoachProfileEditor.tsx": "6441a996ac63c56d5935f5482ef28f257aa403870546ffdfd1acc6c808f96de1",
+    "gym-next/components/account-legacy/coach-request-data.ts": "58e9b5189908071a5ef9af7ce49c05f2116c84a4c5a791d99b39cbdf3b97b674",
+    "gym-next/components/booking-legacy/ReserverSeanceLegacyPage.tsx": "a132fbb63eccce362314fd20068df86b17f612948eda81227a9a2ca849f168fe",
+    "gym-next/components/directory-legacy/SelectionCoachsLegacyPage.tsx": "214a26c18f980de2f4f6e1ede7142939a9ebf170d35b8ea44f91c1cdedcdd9be",
+    "gym-next/components/discovery/SportIcon.tsx": "b30c69ccde8447c7f1c2573df6cb34fe44d0316da4e03cb2cb96fade1fa8303d",
+    "gym-next/components/discovery/SportIllustration.tsx": "564a1c756be4656a85d769981cf8a3d6d8653a7e7c9cf13b0bfed715e2935da4",
+    "gym-next/components/home/EditorialHome.tsx": "12c06607225e7cf3196092bbc6177688b45fd3c709def4722e232d130097a867",
+    "gym-next/components/navigation/SportMotionIcon.tsx": "799146338940d4aeb6bfe7b9df9bf6618837a8a647ff1529406abe7cbcc7afe9",
+    "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx": "793fa233ab5fe3867f004879a34d6840167f5f088d67e58372d4ff84a73cd6ae",
+    "gym-next/lib/booking-summary.ts": "5bbaca0ae145e4398548813ab7461c7b4041267d0d5944c842817481e3b9bd1b",
+    "gym-next/lib/coaches.ts": "71657f2bb07c7348bcc4a6ac4c998a028fb237aabc1ecb262998d9be37e1bf2d",
+    "gym-next/lib/demo-visuals.ts": "95f3e94674a2318d5b4663583006a306b29baa0868b6878d9342ca559626ff35",
+    "gym-next/lib/discovery-sports.ts": "084a68076fa2cd125c33d7af7b3cd9cc3a4d1535436a2a6561d377cef987cf8a",
+    "gym-next/lib/domain.ts": "17e73486aa0eb7ace71755d381f2d54c6b6157573afb6a476cf6f67f7361df87",
+    "gym-next/lib/domain/session-discovery.ts": "291d3ff394f636105082fe8cfb012d65677959e47857bc2b1fbe48e53e282e93",
+    "gym-next/lib/domain/validation/coach-profile-input.ts": "8ac74e57c7203e9a581d16b39f4a25591857714c5b5cd9e21cbdeb80abf7ff59",
+    "gym-next/lib/domain/validation/search-filters.ts": "8aa036220cfe0e4bbe1db886dde3fa9bac0a65138850fab3cd28aeee90ce7e06",
+    "gym-next/lib/mentor-preview.ts": "930adea32803a5c4fd946cb50bb16cf2170f3f03a018ba71c446b5a8c7123073",
+    "gym-next/lib/seo.ts": "ffa160892af0601827d0696f6bf3e4bb801a9f0cb7945734407c79c8fa950439",
+    "gym-next/lib/sports-catalogue.ts": "b7209661c5af73da66b486ca7552ca0598570e97dce2a66c3e75a88e2556d61a",
+    "gym-next/tests/booking-summary-contract.spec.ts": "ce21bce286f8e6b997ce1ef75d5a1229e74a76958eed16bc400eaa8c9ab13a87",
+    "gym-next/tests/collective-preview.spec.ts": "e1a0de55f552c7c1e06ac879f96620c05f9a41a047c26fd80de64629f096ab5a",
+    "gym-next/tests/session-discovery.spec.ts": "2f87e87fa8de9d8e719f47d485d5129b0187ff26588553211c1e472ddb0cbe60",
+    "gym-next/tests/sports-catalogue.spec.ts": "c9994dc172510592fa0dadd404c9494a8d01a1d9b6388f3870fde8368a94f0b3",
+    "supabase/migrations/20261102_expand_sports_catalogue.sql": "0d7725eb5aeaff461d3cc0f5a4acbf4c0e69e6bd6af041debd9c087c611f802d",
+    "supabase/schemas/app.sql": "22bb92fc599f63feb2c463dbd595198dc120f0913d5be90e8b064a1822f2cce4"
+  },
+  "git": {
+    "branch": "design/refonte-progressive-lot1",
+    "priorTrackedChanges": 20,
+    "priorPatchIdentical": true,
+    "push": "pending"
+  },
+  "limits": [
+    "Chromium and emulated mobile, not physical devices or Safari/Firefox",
+    "SQL checked statically only; live schema not inspected or migrated",
+    "Primary sport plus existing free-text disciplines; no invented multi-sport relational model",
+    "Legacy inactive pilots preserved; unverified HomePageClient excluded",
+    "Existing historical business-test defects not claimed fixed"
+  ]
+}

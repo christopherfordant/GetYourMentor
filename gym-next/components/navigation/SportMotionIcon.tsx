@@ -1,14 +1,5 @@
 // Decorative local product-style cutouts. The link text is the accessible name.
-const equipment: Record<string, readonly [string, string]> = {
-  football: ['football-ball', 'ball'], basketball: ['basketball', 'ball'],
-  'metiers-de-la-forme': ['dumbbell', 'lift'],
-  'sports-de-combat': ['focus-mitt', 'punch'], boxe: ['boxing-glove', 'punch'],
-  mma: ['shin-guards', 'punch'], pilates: ['resistance-band', 'flow'],
-  'coaching-sportif': ['football-cone', 'lift'], crossfit: ['kettlebell', 'lift'],
-  'preparation-physique': ['football-cone', 'lift'], musculation: ['dumbbell', 'lift'],
-  hyrox: ['kettlebell', 'lift'], 'perte-de-poids': ['basketball-shoes', 'flow'],
-  padel: ['padel-racket', 'racket'],
-};
+import { sportEquipment as equipment } from '@/lib/sports-catalogue';
 export function SportMotionIcon({ sport }: { sport: string }) {
   const item = equipment[sport];
   if (!item) return null;

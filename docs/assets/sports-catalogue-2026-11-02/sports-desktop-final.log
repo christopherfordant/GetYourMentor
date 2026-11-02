@@ -1,0 +1,38 @@
+[WebServer] (node:18796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 29 tests using 1 worker
+
+(node:11412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [desktop-chromium] › tests\collective-preview.spec.ts:12:5 › structure eligibility requires both consents; backend activation remains isolated-demo only (22ms)
+  ok  2 [desktop-chromium] › tests\collective-preview.spec.ts:30:5 › projection refuses assumed seats, missing group price, exhausted and expired sessions; strips private data (25ms)
+  ok  3 [desktop-chromium] › tests\collective-preview.spec.ts:39:7 › preview and selected detail stay usable at 320px with keyboard and honest totals (5.6s)
+  ok  4 [desktop-chromium] › tests\collective-preview.spec.ts:39:7 › preview and selected detail stay usable at 390px with keyboard and honest totals (4.9s)
+  ok  5 [desktop-chromium] › tests\collective-preview.spec.ts:39:7 › preview and selected detail stay usable at 768px with keyboard and honest totals (5.3s)
+  ok  6 [desktop-chromium] › tests\collective-preview.spec.ts:39:7 › preview and selected detail stay usable at 1440px with keyboard and honest totals (5.4s)
+  ok  7 [desktop-chromium] › tests\collective-preview.spec.ts:73:5 › loading, error, retry, empty, malformed and withdrawn offer never manufacture data (2.7s)
+  ok  8 [desktop-chromium] › tests\collective-preview.spec.ts:98:5 › touch and reduced motion coexist with drawer, cookies, header and footer (1.8s)
+  ok  9 [desktop-chromium] › tests\collective-preview.spec.ts:124:5 › local real API publishes eligible offers, bounds public preview, reserves seats and rechecks group total (250ms)
+  ok 10 [desktop-chromium] › tests\sports-catalogue.spec.ts:12:5 › shared catalogue reaches profiles, sessions and both booking contracts without losing historic identifiers (152ms)
+  ok 11 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve football (1.8s)
+  ok 12 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve basketball (1.7s)
+  ok 13 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve metiers-de-la-forme (1.7s)
+  ok 14 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve sports-de-combat (1.7s)
+  ok 15 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve boxe (1.7s)
+  ok 16 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve mma (1.8s)
+  ok 17 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve pilates (1.7s)
+  ok 18 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve coaching-sportif (1.7s)
+  ok 19 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve crossfit (1.7s)
+  ok 20 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve preparation-physique (1.7s)
+  ok 21 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve musculation (1.8s)
+  ok 22 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve hyrox (1.9s)
+  ok 23 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve perte-de-poids (1.9s)
+  ok 24 [desktop-chromium] › tests\sports-catalogue.spec.ts:28:47 › public discovery and collective filters preserve padel (1.8s)
+  ok 25 [desktop-chromium] › tests\sports-catalogue.spec.ts:38:5 › unknown sports and fitness alias never silently turn into football (2.7s)
+  ok 26 [desktop-chromium] › tests\sports-catalogue.spec.ts:48:5 › owner-authorized profile editing persists every discipline without changing price or ownership (439ms)
+  ok 27 [desktop-chromium] › tests\sports-catalogue.spec.ts:58:5 › coach editor exposes the whole catalogue without submitting unrelated profile fields (1.6s)
+  ok 28 [desktop-chromium] › tests\sports-catalogue.spec.ts:63:35 › catalogue content, fields, neutral artwork and keyboard at 390 (2.1s)
+  ok 29 [desktop-chromium] › tests\sports-catalogue.spec.ts:63:35 › catalogue content, fields, neutral artwork and keyboard at 1440 (3.0s)
+
+  29 passed (1.2m)

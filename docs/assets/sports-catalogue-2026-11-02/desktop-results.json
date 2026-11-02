@@ -1,0 +1,2945 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/sports-catalogue.spec.ts",
+      "tests/session-discovery.spec.ts",
+      "tests/booking-summary-contract.spec.ts",
+      "tests/collective-preview.spec.ts",
+      "tests/mentor-carousel.spec.ts",
+      "tests/navigation-refonte.spec.ts",
+      "--project=desktop-chromium",
+      "--reporter=list,json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-sports-catalogue-20261102/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-sports-catalogue-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-sports-catalogue-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-sports-catalogue-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-sports-catalogue-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm.cmd run start -- --port 3001",
+      "url": "http://127.0.0.1:3001/",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "booking-summary-contract.spec.ts",
+      "file": "booking-summary-contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "projection excludes private fields and preserves actual status and historical price",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:28.932Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-e5927b88bab71fb4bb0a",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "proof window includes start, excludes 24h and invalid/future dates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.026Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-6924d7229b3ec0f124da",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "owner identity overrides proof; roles and unowned records remain scoped",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-3252fa91b7ba0e69227b",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 13,
+          "column": 5
+        },
+        {
+          "title": "reject malformed summary id {\"id\":\"res-other\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.093Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-7812dae5aa1b3830dfa0",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary sport {\"sport\":\"unknown-sport\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-b88fbff6637fb37f8607",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary price {\"price\":-1}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.141Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-6ff2fa4fed3095654e73",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary price {\"price\":null}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.167Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-72ca3afead2c97362e3b",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary slots {\"slots\":[]}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.186Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-d3bbb725b367ddcb2a89",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary slots {\"slots\":[\"10:00\"]}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.205Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-a9d112648efd83483448",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary appointmentAt {\"appointmentAt\":\"2031-01-01T11:00:00Z\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.228Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-910b98e8f82fd116c458",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary duration {\"duration\":\"invalid\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.263Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-59cb923f7c756a3dd9ee",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary participantCount {\"participantCount\":0}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.279Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-4de38b32dd46d80bfe0b",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary participantCount {\"participantCount\":51}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.294Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-5f15b00bb4b7da8b299e",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary status {\"status\":\"unknown\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.312Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-2a3df5f230ee210e2c63",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary authenticated {\"authenticated\":\"yes\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.342Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-fff603bddb3c87d7e8bf",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        },
+        {
+          "title": "reject malformed summary claimToken {\"claimToken\":\"invalid\"}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.363Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa3c85b736a310fc597e-555368c59b94002be472",
+          "file": "booking-summary-contract.spec.ts",
+          "line": 18,
+          "column": 286
+        }
+      ]
+    },
+    {
+      "title": "collective-preview.spec.ts",
+      "file": "collective-preview.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "structure eligibility requires both consents; backend activation remains isolated-demo only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.599Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-b750f506eba83ed31342",
+          "file": "collective-preview.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "projection refuses assumed seats, missing group price, exhausted and expired sessions; strips private data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.627Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-07eff7e6f61892b9188e",
+          "file": "collective-preview.spec.ts",
+          "line": 29,
+          "column": 5
+        },
+        {
+          "title": "preview and selected detail stay usable at 320px with keyboard and honest totals",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 17377,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                      "column": 63,
+                      "line": 68
+                    },
+                    "snippet": "  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                        "column": 63,
+                        "line": 68
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n\n  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:29.670Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-9eb80--keyboard-and-honest-totals-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                    "column": 63,
+                    "line": 68
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-65a48636998d5d991cb7",
+          "file": "collective-preview.spec.ts",
+          "line": 38,
+          "column": 7
+        },
+        {
+          "title": "preview and selected detail stay usable at 390px with keyboard and honest totals",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15814,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                      "column": 63,
+                      "line": 68
+                    },
+                    "snippet": "  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                        "column": 63,
+                        "line": 68
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n\n  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:24:49.992Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-094ca--keyboard-and-honest-totals-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                    "column": 63,
+                    "line": 68
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-e0a8cf329b648e36f1dc",
+          "file": "collective-preview.spec.ts",
+          "line": 38,
+          "column": 7
+        },
+        {
+          "title": "preview and selected detail stay usable at 768px with keyboard and honest totals",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16358,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                      "column": 63,
+                      "line": 68
+                    },
+                    "snippet": "  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                        "column": 63,
+                        "line": 68
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n\n  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:07.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-161ce--keyboard-and-honest-totals-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                    "column": 63,
+                    "line": 68
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-012e007e40250b30c18c",
+          "file": "collective-preview.spec.ts",
+          "line": 38,
+          "column": 7
+        },
+        {
+          "title": "preview and selected detail stay usable at 1440px with keyboard and honest totals",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16869,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                      "column": 63,
+                      "line": 68
+                    },
+                    "snippet": "  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                        "column": 63,
+                        "line": 68
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('select[name=\"sport\"] option')\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31m15\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('select[name=\"sport\"] option')\u001b[22m\n\u001b[2m    - locator resolved to 0 elements\u001b[22m\n\u001b[2m    - unexpected value \"0\"\u001b[22m\n\u001b[2m    22 × locator resolved to 15 elements\u001b[22m\n\u001b[2m       - unexpected value \"15\"\u001b[22m\n\n\n  66 |     await booking.screenshot({ path: `${evidence}/detail-${width}.png`, scale: 'css' });\n  67 |     await page.getByRole('link', { name: 'Retour aux séances avec ces critères' }).click();\n> 68 |     await expect(page.locator('select[name=\"sport\"] option')).toHaveCount(5);\n     |                                                               ^\n  69 |   });\n  70 | }\n  71 |\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts:68:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:25.297Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\collective-preview-preview-7125b--keyboard-and-honest-totals-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\collective-preview.spec.ts",
+                    "column": 63,
+                    "line": 68
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-ce158eb6ec41dc3073f3",
+          "file": "collective-preview.spec.ts",
+          "line": 38,
+          "column": 7
+        },
+        {
+          "title": "loading, error, retry, empty, malformed and withdrawn offer never manufacture data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3026,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:43.657Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-72fc86fae32924041e44",
+          "file": "collective-preview.spec.ts",
+          "line": 72,
+          "column": 5
+        },
+        {
+          "title": "touch and reduced motion coexist with drawer, cookies, header and footer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2144,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:46.893Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-3b30b7e0783a9c611d6d",
+          "file": "collective-preview.spec.ts",
+          "line": 97,
+          "column": 5
+        },
+        {
+          "title": "local real API publishes eligible offers, bounds public preview, reserves seats and rechecks group total",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:49.058Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "80566add74dfdbd776b0-bd6ca1c8622ee4d6522c",
+          "file": "collective-preview.spec.ts",
+          "line": 123,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "mentor-carousel.spec.ts",
+      "file": "mentor-carousel.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "public projection excludes current and future private fields, including nested extras",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:49.481Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-6125d467f396e35d91de",
+          "file": "mentor-carousel.spec.ts",
+          "line": 18,
+          "column": 5
+        },
+        {
+          "title": "public preview remains bounded, includes only existing public fields and validates the payload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 90,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:49.514Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-f23bf0619035b9f018a4",
+          "file": "mentor-carousel.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "remote catalogue query uses only bounded public columns, no histories or private documents",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:49.620Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-12a82624383bdd62940a",
+          "file": "mentor-carousel.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10369,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:25:49.647Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-ace9e5af4466eb3c5505",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10231,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:00.039Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a416360ba7a62dc91493",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10242,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:10.291Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-695a1b578ebe49355189",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "integrated five faces remain readable, unique and keyboard usable at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10549,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:20.558Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-3d36019864086e3c5e52",
+          "file": "mentor-carousel.spec.ts",
+          "line": 53,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 0 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1855,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:31.131Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-5c080fb46f66a4baac7a",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 1 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1630,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:33.010Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-4da525281f83b1175555",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 2 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1693,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:34.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-f0146b0ca581be1c9a39",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 4 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1843,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:36.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-68b7da4fd9f315505172",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 5 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1863,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:38.253Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-8cfcb7b09aae1e27753f",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "catalogue of 6 profiles has no invented or duplicate mentors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2301,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:40.140Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-08e6ffa6f48d24220145",
+          "file": "mentor-carousel.spec.ts",
+          "line": 77,
+          "column": 7
+        },
+        {
+          "title": "loading, error, retry and empty states remove stale profiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2058,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:42.468Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a2bec9edc7ea23237af6",
+          "file": "mentor-carousel.spec.ts",
+          "line": 94,
+          "column": 5
+        },
+        {
+          "title": "long text, unknown modalities and missing image remain honest and bounded",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:44.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-160fc59f21bef14aeb20",
+          "file": "mentor-carousel.spec.ts",
+          "line": 103,
+          "column": 5
+        },
+        {
+          "title": "full turns in both directions and focus survive reduced motion and resize",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:46.588Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-fdc083e98392d26808d9",
+          "file": "mentor-carousel.spec.ts",
+          "line": 113,
+          "column": 5
+        },
+        {
+          "title": "native touch swipe rotates the pentagon without trapping vertical scroll",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1801,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:50.005Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-a04741e4ff211bc88de3",
+          "file": "mentor-carousel.spec.ts",
+          "line": 124,
+          "column": 5
+        },
+        {
+          "title": "card to profile keeps identity, city and declared formats through the slow door transition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5370,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:51.824Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1c485a64c209ca72e2c5-3deb3436c84f506638c2",
+          "file": "mentor-carousel.spec.ts",
+          "line": 132,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "navigation-refonte.spec.ts",
+      "file": "navigation-refonte.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "shared header and right drawer across public routes at 320px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4629,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:26:57.239Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-2db2e1b07ed56d7ce713",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4762,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:01.891Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-b3d6198b31f560ff236d",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 768px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4880,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:06.677Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-6fe4813fcb9f4d108af7",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "shared header and right drawer across public routes at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4478,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:11.579Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-2eb6102125f1a20d9712",
+          "file": "navigation-refonte.spec.ts",
+          "line": 5,
+          "column": 7
+        },
+        {
+          "title": "all approved disciplines have actual search and directory routes without borrowing football profiles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2149,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:16.082Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-16cad78010771923fcda",
+          "file": "navigation-refonte.spec.ts",
+          "line": 53,
+          "column": 5
+        },
+        {
+          "title": "bell opens a truthful account entry, no fabricated unread count, escape restores focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1805,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:18.253Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-d87dfa360a011643ea7a",
+          "file": "navigation-refonte.spec.ts",
+          "line": 66,
+          "column": 5
+        },
+        {
+          "title": "coach entry starts at My account, preserves booking context, and cannot grant a role",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2016,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:20.086Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-e0e9504dcc75bc4130e0",
+          "file": "navigation-refonte.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "Factory surfaces and reduced motion are applied without changing source data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1790,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:22.124Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5e18cef0dddf29bd5be4-dafb571966e5d06f2da3",
+          "file": "navigation-refonte.spec.ts",
+          "line": 101,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "session-discovery.spec.ts",
+      "file": "session-discovery.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "découverte : capacité disponible, tarif total, dates et normalisation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:23.948Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e9d13db321c6715e8373-4f3191b0a3f13657fcbd",
+          "file": "session-discovery.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "catalogue partagé : filtres URL, demande de groupe et confidentialité",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3507,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:23.978Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e9d13db321c6715e8373-f55201ddbdca6610f1de",
+          "file": "session-discovery.spec.ts",
+          "line": 21,
+          "column": 5
+        },
+        {
+          "title": "erreur de catalogue : reprise explicite sans masquer la panne",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1415,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:27.512Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e9d13db321c6715e8373-90757f7dfc5a5d7c3bf5",
+          "file": "session-discovery.spec.ts",
+          "line": 77,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "sports-catalogue.spec.ts",
+      "file": "sports-catalogue.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "shared catalogue reaches profiles, sessions and both booking contracts without losing historic identifiers",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:28.988Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-190662c2bd4c78d076e5",
+          "file": "sports-catalogue.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "public discovery and collective filters preserve football",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1675,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:29.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-0b49670a3425c957831f",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve basketball",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1635,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:30.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-9c58c8fe76d68baaa8ff",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve metiers-de-la-forme",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1642,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:32.510Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-4624542459e055c23f54",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve sports-de-combat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:34.173Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-79aacbe6afe30a3b3fae",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve boxe",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:36.201Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-55029fe8557c89920ff9",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve mma",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:38.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-4afa9ebee03d5531e397",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve pilates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:39.853Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-3bd7b97bb5a301264a61",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve coaching-sportif",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1749,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:41.524Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-b756b6dfd9c38dbb509f",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve crossfit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1818,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:43.299Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-20f11e34e6184d56c753",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve preparation-physique",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1653,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:45.143Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-9e640f9fa454d0a73dfd",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve musculation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:46.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-642985f8d141d316e86b",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve hyrox",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1628,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:48.530Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-ef26c6de3fb4732ac3e7",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve perte-de-poids",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1629,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-a6a71c484ed575c407b2",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "public discovery and collective filters preserve padel",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1827,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:51.835Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-e8bfb0b57b8032028287",
+          "file": "sports-catalogue.spec.ts",
+          "line": 28,
+          "column": 47
+        },
+        {
+          "title": "unknown sports and fitness alias never silently turn into football",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1619,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Discipline inconnue\"\u001b[39m\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Discipline inconnue : choisissez une discipline d…</p> aka getByText('Discipline inconnue :')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Discipline inconnue\"\u001b[39m\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Discipline inconnue : choisissez une discipline d…</p> aka getByText('Discipline inconnue :')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:42:88",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                      "column": 88,
+                      "line": 42
+                    },
+                    "snippet": "  40 |   await page.goto('/coachs?sport=fitness');await expect(page.locator('[data-directory-sport-input]')).toHaveValue('Fitness');\n  41 |   for(const sport of ['constructor','unknown-sport']){\n> 42 |     await page.goto(`/recherche?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.getByRole('button',{name:'Explorer les coachs'})).toBeDisabled();\n     |                                                                                        ^\n  43 |     await page.goto(`/coachs?sport=${sport}`);await expect(page.locator('h1')).toHaveText('Discipline inconnue');expect((await(await request.get(`/api/coaches?sport=${sport}`)).json()).data).toEqual([]);\n  44 |     await page.goto(`/seances?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.locator('select[name=sport]')).toHaveValue('__invalid__');\n  45 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                        "column": 88,
+                        "line": 42
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('alert')\nExpected substring: \u001b[32m\"Discipline inconnue\"\u001b[39m\nError: strict mode violation: getByRole('alert') resolved to 2 elements:\n    1) <p role=\"alert\">Discipline inconnue : choisissez une discipline d…</p> aka getByText('Discipline inconnue :')\n    2) <div role=\"alert\" aria-live=\"assertive\" id=\"__next-route-announcer__\"></div> aka locator('[id=\"__next-route-announcer__\"]')\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('alert')\u001b[22m\n\n\n  40 |   await page.goto('/coachs?sport=fitness');await expect(page.locator('[data-directory-sport-input]')).toHaveValue('Fitness');\n  41 |   for(const sport of ['constructor','unknown-sport']){\n> 42 |     await page.goto(`/recherche?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.getByRole('button',{name:'Explorer les coachs'})).toBeDisabled();\n     |                                                                                        ^\n  43 |     await page.goto(`/coachs?sport=${sport}`);await expect(page.locator('h1')).toHaveText('Discipline inconnue');expect((await(await request.get(`/api/coaches?sport=${sport}`)).json()).data).toEqual([]);\n  44 |     await page.goto(`/seances?sport=${sport}`);await expect(page.getByRole('alert')).toContainText('Discipline inconnue');await expect(page.locator('select[name=sport]')).toHaveValue('__invalid__');\n  45 |   }\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:42:88"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:53.683Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-unknown-s-ba86f-silently-turn-into-football-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                    "column": 88,
+                    "line": 42
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-ac5c41e387d444349267",
+          "file": "sports-catalogue.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "owner-authorized profile editing persists every discipline without changing price or ownership",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 89,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:55:112",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                      "column": 112,
+                      "line": 55
+                    },
+                    "snippet": "  53 |     expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:'unknown-sport'}})).status()).toBe(400);\n  54 |     expect((await request.patch('/api/coaches/madison-seck',{data:{sport:'padel'}})).status()).toBe(403);\n> 55 |   }finally{expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:original.sport}})).status()).toBe(200);}\n     |                                                                                                                ^\n  56 | });\n  57 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  58 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                        "column": 112,
+                        "line": 55
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n\n  53 |     expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:'unknown-sport'}})).status()).toBe(400);\n  54 |     expect((await request.patch('/api/coaches/madison-seck',{data:{sport:'padel'}})).status()).toBe(403);\n> 55 |   }finally{expect((await request.patch('/api/coaches/steven-fordant',{data:{sport:original.sport}})).status()).toBe(200);}\n     |                                                                                                                ^\n  56 | });\n  57 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  58 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:55:112"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:56.416Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-owner-aut-68dfc-changing-price-or-ownership-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                    "column": 112,
+                    "line": 55
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-dc22df6159028443a90e",
+          "file": "sports-catalogue.spec.ts",
+          "line": 48,
+          "column": 5
+        },
+        {
+          "title": "catalogue content, fields, neutral artwork and keyboard at 390",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13313,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:60:83",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                      "column": 83,
+                      "line": 60
+                    },
+                    "snippet": "  58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);\n  59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);\n> 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');\n     |                                                                                   ^\n  61 | });\n  62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                        "column": 83,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);\n  59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);\n> 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');\n     |                                                                                   ^\n  61 | });\n  62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:60:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:27:57.577Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-1a590-artwork-and-keyboard-at-390-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                    "column": 83,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-ca195c18117e595b2757",
+          "file": "sports-catalogue.spec.ts",
+          "line": 57,
+          "column": 35
+        },
+        {
+          "title": "catalogue content, fields, neutral artwork and keyboard at 1440",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13224,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:60:83",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                      "column": 83,
+                      "line": 60
+                    },
+                    "snippet": "  58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);\n  59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);\n> 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');\n     |                                                                                   ^\n  61 | });\n  62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                        "column": 83,
+                        "line": 60
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.sports[aria-label=\"Les disciplines proposées\"] a')\nExpected: \u001b[32m14\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.sports[aria-label=\"Les disciplines proposées\"] a')\u001b[22m\n\u001b[2m    23 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  58 |   const login=await request.post('/api/auth/sign-in',{data:{email:'coach@example.com',role:'coach',password:'demo-password'}});expect(login.status()).toBe(200);\n  59 |   const raw=login.headers()['set-cookie'].split(';')[0];const at=raw.indexOf('=');await page.context().addCookies([{name:raw.slice(0,at),value:raw.slice(at+1),url:baseURL!}]);\n> 60 |   await page.goto('/compte?mode=coach');const field=page.getByRole('combobox',{name:'Discipline principale',exact:true});await expect(field.locator('option')).toHaveCount(discoverySports.length);await field.selectOption('padel');await expect(field).toHaveValue('padel');\n     |                                                                                   ^\n  61 | });\n  62 | for(const width of [390,1440])test(`catalogue content, fields, neutral artwork and keyboard at ${width}`,async({page})=>{\n  63 |   await page.setViewportSize({width,height:1100});await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');\n    at C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts:60:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T16:28:12.127Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\test-results\\sports-catalogue-catalogue-76dde-rtwork-and-keyboard-at-1440-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-sports-catalogue-20261102\\gym-next\\tests\\sports-catalogue.spec.ts",
+                    "column": 83,
+                    "line": 60
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e921e8c67b837d82c5a9-6c02008cdec2a19f6240",
+          "file": "sports-catalogue.spec.ts",
+          "line": 57,
+          "column": 35
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T16:24:20.804Z",
+    "duration": 245336.535,
+    "expected": 65,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  },
+  "_redactions": [
+    "Local ephemeral web-server environment omitted."
+  ]
+}

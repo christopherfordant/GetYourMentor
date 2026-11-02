@@ -1,3 +1,4 @@
+import { isSportSlug } from '@/lib/sports-catalogue';
 import { slotInstant, durationMinutes } from "./domain/booking-time";
 export const summaryStatuses = ["requested", "accepted", "rejected", "cancelled", "paid"] as const;
 export type BookingSummary = {
@@ -9,7 +10,7 @@ export function readBookingSummary(value: unknown, expectedId: string): BookingS
   if (!value || typeof value !== "object") throw new Error("Invalid summary");
   const d = value as Record<string, unknown>;
   if (d.id !== expectedId || !["coachName", "city", "service", "sport"].every(k => typeof d[k] === "string" && (d[k] as string).length > 0 && (d[k] as string).length <= 256)
-    || !["fitness", "football", "basketball", "sports-de-combat"].includes(d.sport as string)
+    || !isSportSlug(d.sport)
     || typeof d.duration !== "string" || !durationMinutes(d.duration) || typeof d.price !== "number" || !Number.isFinite(d.price) || d.price < 0
     || !Array.isArray(d.slots) || d.slots.length < 1 || d.slots.length > 3 || d.slots.some(s => typeof s !== "string" || slotInstant(s) === null)
     || (d.appointmentAt !== undefined && (typeof d.appointmentAt !== "string" || slotInstant(d.appointmentAt) === null || !d.slots.includes(d.appointmentAt)))

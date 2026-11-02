@@ -15,6 +15,6 @@ test("owner identity overrides proof; roles and unowned records remain scoped",(
   expect(summaryAccess({...owner,email:"other@example.com"},{...r,ownerEmail:owner.email},true)).toBe(false);expect(summaryAccess(null,{...r,ownerEmail:owner.email},true)).toBe(false);
   expect(summaryAccess(null,r,true)).toBe(true);expect(summaryAccess(null,r,false)).toBe(false);for(const role of ["admin","coach","club"] as const)expect(summaryAccess({...owner,role},r,true)).toBe(false);
 });
-for(const patch of [{id:"res-other"},{sport:"padel"},{price:-1},{price:NaN},{slots:[]},{slots:["10:00"]},{appointmentAt:"2031-01-01T11:00:00Z"},{duration:"invalid"},{participantCount:0},{participantCount:51},{status:"unknown"},{authenticated:"yes"},{claimToken:"invalid"}])test(`reject malformed summary ${Object.keys(patch)[0]} ${JSON.stringify(patch)}`,()=>{
+for(const patch of [{id:"res-other"},{sport:"unknown-sport"},{price:-1},{price:NaN},{slots:[]},{slots:["10:00"]},{appointmentAt:"2031-01-01T11:00:00Z"},{duration:"invalid"},{participantCount:0},{participantCount:51},{status:"unknown"},{authenticated:"yes"},{claimToken:"invalid"}])test(`reject malformed summary ${Object.keys(patch)[0]} ${JSON.stringify(patch)}`,()=>{
  expect(()=>readBookingSummary({...summaryFields(r,false),...patch},r.id)).toThrow();
 });

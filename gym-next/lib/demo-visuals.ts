@@ -18,6 +18,6 @@ export const sportVisuals = {
 } as const;
 export function sportVisual(sport: string) {
   const key = sport === 'fitness' ? 'metiers-de-la-forme' : sport;
-  return Object.hasOwn(sportVisuals, key) ? sportVisuals[key as keyof typeof sportVisuals] : sportVisuals.football;
+  return Object.hasOwn(sportVisuals, key) ? sportVisuals[key as keyof typeof sportVisuals] : null;
 }
 export function visualPath(asset: string, width: 640 | 1280) { return `${root}/${asset}-${width}.webp`; }

@@ -59,10 +59,11 @@ export function StructureOffers({ coachId, discovery = false }: { coachId?: stri
   }, [coachId, discovery, attempt]);
   const visible = discovery ? offers.filter(offer => (!selectedOffer || offer.id === selectedOffer) && matchesSession(offer, filters)) : offers;
   return <section data-public-structure-offers>
+    {discovery && filters.sport === "__invalid__" && <p role="alert">Discipline inconnue : choisissez une discipline du catalogue.</p>}
     {discovery && selectedOffer ? <p><a href={`/seances?${new URLSearchParams({ ...(filters.sport ? { sport: filters.sport } : {}), ...(filters.city ? { city: filters.city } : {}), ...(filters.source ? { source: filters.source } : {}), participants: String(filters.participants) })}`}>Retour aux séances avec ces critères</a></p> : null}
     {discovery && !loading && !selectedOffer ? <form action="/seances" method="get" className={styles.card} aria-label="Filtrer les séances">
       <div className={styles.fields}>
-        <label>Discipline<select name="sport" defaultValue={filters.sport}><option value="">Les quatre disciplines</option>{discoverySports.filter(([slug]) => ['football', 'basketball', 'metiers-de-la-forme', 'sports-de-combat'].includes(slug)).map(([slug, label]) => <option key={slug} value={slug}>{label}</option>)}</select></label>
+        <label>Discipline<select name="sport" defaultValue={filters.sport}><option value="">Toutes les disciplines</option>{filters.sport === "__invalid__" && <option value="__invalid__" disabled>Discipline inconnue</option>}{discoverySports.map(([slug, label]) => <option key={slug} value={slug}>{label}</option>)}</select></label>
         <label>Ville du coach<input name="city" defaultValue={filters.city} maxLength={120} autoComplete="address-level2" placeholder="Toutes les villes" /></label>
         <label>Organisateur<select name="source" defaultValue={filters.source}><option value="">Coachs et structures</option><option value="coach">Coach</option><option value="structure">Structure</option></select></label>
         <label>Participants, vous compris<input name="participants" type="number" min="1" max="50" required defaultValue={filters.participants} /></label>

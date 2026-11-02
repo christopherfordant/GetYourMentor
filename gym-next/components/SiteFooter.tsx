@@ -1,3 +1,4 @@
+import { discoverySports } from '@/lib/sports-catalogue';
 import Link from "next/link";
 import { LanguageSelector } from "./common/LanguageSelector";
 import { FooterUtilitySlot } from "./FooterUtilities";
@@ -9,7 +10,7 @@ export function SiteFooter() {
     <div className="gym-footer-brand"><Link href="/" aria-label="GetYourMentor, accueil"><b>GYM<span aria-hidden="true">↗</span></b><span>GetYourMentor</span></Link><SocialLinks /><LanguageSelector placement="footer" /></div>
     <div className="gym-footer-links">
       <FooterColumn title="Plateforme" links={[["Comment ça marche","/#espace"],["Devenir coach","/compte?mode=coach"],["Tarifs","/#forfaits"],["Entreprises","/inscription-club"]]} />
-      <FooterColumn title="Disciplines" links={[["Football","/recherche?sport=football"],["Basketball","/recherche?sport=basketball"],["Fitness","/recherche?sport=metiers-de-la-forme"],["Sports de combat","/recherche?sport=sports-de-combat"]]} />
+      <FooterColumn title="Disciplines" links={discoverySports.map(([slug,label])=>[label,`/recherche?sport=${slug}`])} />
       <FooterColumn title="Support" links={[["FAQ","/#faq"],["Accessibilité","/legal/accessibilite"],["Cookies","/legal/cookies"],["Plan du site","/plan-du-site"]]} />
       <FooterColumn title="Légal" links={[["CGU","/legal/cgu"],["CGV","/legal/cgv"],["Confidentialité","/legal/confidentialite"],["Mentions légales et contact","/legal/mentions-legales"]]} />
     </div>

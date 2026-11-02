@@ -15,7 +15,7 @@ test("découverte : capacité disponible, tarif total, dates et normalisation", 
   expect(matchesSession({ ...offer, availability: [{ slot, remaining: 1 }] }, filters, now)).toBe(false);
   expect(matchesSession(offer, filters, now + 86400001)).toBe(false);
   expect(matchesSession({ ...offer, sport: "tennis" }, { ...filters, sport: "" }, now)).toBe(false);
-  expect(parseSessionFilters(new URLSearchParams("sport=tennis&source=evil&participants=2.5"))).toMatchObject({ sport: "", source: "", participants: 1 });
+  expect(parseSessionFilters(new URLSearchParams("sport=tennis&source=evil&participants=2.5"))).toMatchObject({ sport: "__invalid__", source: "", participants: 1 });
 });
 
 test("catalogue partagé : filtres URL, demande de groupe et confidentialité", async ({ page, request }, info) => {

@@ -1,4 +1,5 @@
 "use client";
+import { knownDiscoverySport } from '@/lib/sports-catalogue';
 import { StructureOffers } from "@/components/StructureOffers";
 import { CoachReviews } from "@/components/discovery/CoachReviews";
 import { CoachVisual } from "@/components/discovery/CoachVisual";
@@ -23,7 +24,6 @@ type WeekDay = {
   slots: string[];
 };
 
-const bookingProfileDictionary = { football: true, basketball: true, "metiers-de-la-forme": true, "sports-de-combat": true } as const;
 
 type BookingProfile = {
   ratingValue?: string;
@@ -332,20 +332,14 @@ function BookingContenusPane({
 
 
 export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, demoIllustrations = false }: ReserverSeanceLegacyPageProps) {
-  const sportSlug = useMemo(() => {
-    const sport = params.sport;
-    if (sport && Object.hasOwn(bookingProfileDictionary, sport)) {
-      return sport as keyof typeof bookingProfileDictionary;
-    }
-    return "metiers-de-la-forme";
-  }, [params.sport]);
-
-  const coach = params.coach || "Studio Form Marseille";
+  const sportSlug = knownDiscoverySport(params.sport)?.[0] ?? params.sport ?? "";
+  const coach = params.coach || (params.sport ? "" : "Studio Form Marseille");
   const city = params.city || "Paris";
   const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? coachProfiles.find(item => item.id === coach || item.name.toLowerCase() === coach.toLowerCase()) ?? null : null);
   const [profileState, setProfileState] = useState<"loading" | "ready" | "error">(() => coachData ? "ready" : "loading");
   useEffect(() => {
     let active = true;
+    if (!coach) { setProfileState("error"); return; }
     fetch(`/api/coaches/${encodeURIComponent(coach)}`)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
       .then((payload) => {

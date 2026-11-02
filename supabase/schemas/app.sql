@@ -5,7 +5,7 @@
 create table if not exists public.gym_coaches (
   id text primary key,
   name text not null,
-  sport text not null check (sport in ('football', 'basketball', 'fitness', 'sports-de-combat')),
+  sport text not null check (sport in ('football', 'basketball', 'fitness', 'sports-de-combat', 'boxe', 'mma', 'pilates', 'coaching-sportif', 'crossfit', 'preparation-physique', 'musculation', 'hyrox', 'perte-de-poids', 'padel')),
   specialty text not null default '',
   city text not null default '',
   rating numeric(3, 2) not null default 0 check (rating between 0 and 5),
@@ -100,7 +100,7 @@ create table if not exists public.gym_reservations (
   owner_email text,
   coach_id text not null,
   coach_name text not null,
-  sport text not null check (sport in ('football', 'basketball', 'fitness', 'sports-de-combat')),
+  sport text not null check (sport in ('football', 'basketball', 'fitness', 'sports-de-combat', 'boxe', 'mma', 'pilates', 'coaching-sportif', 'crossfit', 'preparation-physique', 'musculation', 'hyrox', 'perte-de-poids', 'padel')),
   city text not null,
   service text not null,
   duration text not null,

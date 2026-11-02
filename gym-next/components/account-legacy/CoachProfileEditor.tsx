@@ -1,4 +1,5 @@
 "use client";
+import { discoverySports, knownDiscoverySport, type SportSlug } from '@/lib/sports-catalogue';
 
 import { useState } from "react";
 
@@ -6,6 +7,7 @@ const RADIUS_OPTIONS = [1, 5, 10];
 
 type CoachProfileEditorProps = {
   coachId: string;
+  sport: SportSlug;
   specialty: string;
   city: string;
   priceFrom: number;
@@ -26,8 +28,8 @@ type CoachProfileEditorProps = {
   availabilityTags?: Array<"morning" | "afternoon">;
 };
 
-export function CoachProfileEditor({ coachId, specialty, city, priceFrom, description, disciplines = "", diplomas = "", sessionTypes = "", availability = "", photoUrl = "", bankAccountLast4 = "", latitude, longitude, serviceRadiusKm = 10, gender = "homme", practice = "interieur", level = "debutant", format = "presentiel", availabilityTags = [] }: CoachProfileEditorProps) {
-  const [values, setValues] = useState({ specialty, city, priceFrom: String(priceFrom), description, disciplines, diplomas, sessionTypes, availability, photoUrl, bankAccountLast4, latitude: latitude == null ? "" : String(latitude), longitude: longitude == null ? "" : String(longitude), serviceRadiusKm: String(serviceRadiusKm), gender, practice, level, format, availabilityTags });
+export function CoachProfileEditor({ coachId, sport, specialty, city, priceFrom, description, disciplines = "", diplomas = "", sessionTypes = "", availability = "", photoUrl = "", bankAccountLast4 = "", latitude, longitude, serviceRadiusKm = 10, gender = "homme", practice = "interieur", level = "debutant", format = "presentiel", availabilityTags = [] }: CoachProfileEditorProps) {
+  const [values, setValues] = useState({ sport: knownDiscoverySport(sport)?.[0] ?? sport, specialty, city, priceFrom: String(priceFrom), description, disciplines, diplomas, sessionTypes, availability, photoUrl, bankAccountLast4, latitude: latitude == null ? "" : String(latitude), longitude: longitude == null ? "" : String(longitude), serviceRadiusKm: String(serviceRadiusKm), gender, practice, level, format, availabilityTags });
   const [status, setStatus] = useState("");
   const [locationStatus, setLocationStatus] = useState("");
   const [saving, setSaving] = useState(false);
@@ -69,6 +71,7 @@ export function CoachProfileEditor({ coachId, specialty, city, priceFrom, descri
           setStatus(response.ok ? "Profil mis à jour." : payload.error ?? "Mise à jour impossible");
         }}
       >
+        <label className="auth-field"><span>Discipline principale</span><select aria-label="Discipline principale" value={values.sport} onChange={e => setValues({ ...values, sport: e.target.value as typeof values.sport })}>{discoverySports.map(([slug,label]) => <option key={slug} value={slug}>{label}</option>)}</select></label>
         <label className="auth-field"><span>Spécialité</span><input value={values.specialty} onChange={(event) => setValues({ ...values, specialty: event.target.value })} /></label>
         <label className="auth-field"><span>Ville / zone</span><input value={values.city} onChange={(event) => setValues({ ...values, city: event.target.value })} /></label>
         <div className="auth-field">
