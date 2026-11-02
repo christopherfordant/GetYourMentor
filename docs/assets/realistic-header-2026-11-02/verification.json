@@ -78,9 +78,13 @@
   },
   "git": {
     "remoteAtStart": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
-    "push": "PENDING ordinary attempt; divergence pre-existing",
+    "push": "REJECTED non-fast-forward",
     "forcePush": false,
-    "merge": false
+    "merge": false,
+    "applicationCommit": "281bd9e57475a0761959e5b1b310a5b20110a151",
+    "exitCode": 1,
+    "remoteVerifiedAfterPush": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "documentationFollowup": "local only; no identical push retry"
   },
   "limits": [
     "Local Chromium and emulated touch only",

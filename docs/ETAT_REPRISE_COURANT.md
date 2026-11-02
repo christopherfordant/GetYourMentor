@@ -12,6 +12,8 @@ Aperçu autonome sans serveur dans `gym-next/public/design_assets/header-equipme
 
 Branche unique `design/refonte-progressive-lot1`, vingt modifications suivies antérieures exclues. Distant relu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a` ; blocage non-fast-forward préexistant. Aucun pull/rebase/fusion/force-push, agent, déploiement ou paiement. Code local, code poussé et site public restent des états distincts. État final de livraison dans verification.json et la réponse de livraison.
 
+Livraison applicative locale `281bd9e57475a0761959e5b1b310a5b20110a151`. Push normal réellement exécuté puis rejeté **non-fast-forward, code 1** ; distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Complément documentaire local pour tracer le résultat, sans tentative identique répétée. Contrôle des secrets suivis/indexés PASS et index ciblé vérifié. Aperçu, assets et preuves copiés dans le dépôt principal ; fichiers antérieurs préservés, aucun déploiement.
+
 Suite : revue de l'aperçu, traitement séparé de la divergence Git avant synchronisation/publication. Les sections suivantes décrivent les lots antérieurs et leurs limites historiques.
 
 ---
