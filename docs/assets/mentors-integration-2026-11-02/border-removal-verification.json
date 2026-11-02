@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-02",
+  "change": "Remove only outer pentagon frame; keep card borders and controls.",
+  "buildExitCode": 0,
+  "buildId": "4KWlzu4njfeYNByKHFn4Y",
+  "visualChecks": [
+    {
+      "width": 1440,
+      "border": "0px",
+      "background": "transparent",
+      "radius": "0px",
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "border": "0px",
+      "background": "transparent",
+      "radius": "0px",
+      "horizontalOverflow": false
+    }
+  ],
+  "rotation": "0 to 1 verified",
+  "preview": "http://127.0.0.1:3002/#mentors",
+  "previewSession": 30649,
+  "noDeployment": true,
+  "priorTrackedChangesPreserved": 20,
+  "push": "pending"
+}

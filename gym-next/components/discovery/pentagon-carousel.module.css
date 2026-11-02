@@ -1,4 +1,4 @@
-.carousel { margin-top:24px; min-width:0; border:1px solid var(--gym-line,#444); border-radius:18px; background:#151515; overflow:hidden; color:#f5f0e9; }
+.carousel { margin-top:24px; min-width:0; border:0; background:transparent; overflow:hidden; color:#f5f0e9; }
 .stage { --face-width:min(64vw,360px); --radius:calc(var(--face-width) * .68819096); position:relative; height:calc(var(--face-height) + 90px); perspective:1500px; perspective-origin:50% 42%; touch-action:pan-y; background:radial-gradient(ellipse at 50% 80%,#ff650017,transparent 62%); }
 .ring { position:absolute; top:30px; left:50%; width:var(--face-width); height:var(--face-height); margin-left:calc(var(--face-width)/-2); transform-style:preserve-3d; transform:translateZ(calc(-1 * var(--radius))) rotateY(var(--turn)); transition:transform var(--turn-duration) cubic-bezier(.22,.75,.2,1); }
 .face { position:absolute; inset:0; width:100%; height:100%; display:flex; transform:rotateY(calc(var(--face) * 72deg)) translateZ(var(--radius)); backface-visibility:hidden; }

@@ -1,5 +1,11 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Ajustement actif - 2 novembre 2026 : pentagone sans encadrement
+
+Bordure, arrondi et fond du conteneur externe retires sur demande utilisateur. Cartes, commandes et rotation conservees. Build optimise PASS ; inspection navigateur apres rechargement a 1440 et 390 px : bordure 0 px, fond transparent, rayon 0 px, aucun debordement ; rotation 0 vers 1 verifiee. Pas de nouvelle suite complete pour ce changement CSS. Apercu reconstruit : http://127.0.0.1:3002/#mentors, session 30649 ; relance par le lanceur du checkout isole documente ci-dessous. Preuves : assets/mentors-integration-2026-11-02/border-removal-verification.json et without-frame-*.png. Aucun deploiement.
+
+---
+
 ## Reprise active — 2 novembre 2026 : mentors enrichis et pentagone intégré
 
 Dernière demande : intégrer localement le pentagone dans l'accueil et enrichir les profils selon les données réelles ; l'attente de validation du prototype dans la section précédente est levée pour cette première section seulement. Référence Lovable réellement consultée, carte et fiche comprises. Trois profils de démonstration + deux accès explicites au catalogue/recherche ; aucun coach inventé. Autres sections gardées en grille, parcours ou accès direct. [Rapport et provenance](MENTORS_PENTAGONE_2026-11-02.md).
