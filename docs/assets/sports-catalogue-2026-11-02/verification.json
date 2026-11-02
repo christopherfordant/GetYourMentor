@@ -91,7 +91,12 @@
     "branch": "design/refonte-progressive-lot1",
     "priorTrackedChanges": 20,
     "priorPatchIdentical": true,
-    "push": "pending"
+    "push": "rejected non-fast-forward",
+    "implementationCommit": "d74e846506dac35c8ba577f37bf6c40c55803eb8",
+    "pushExitCode": 1,
+    "nonFastForward": true,
+    "remoteConfirmed": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "noIdenticalRetry": true
   },
   "limits": [
     "Chromium and emulated mobile, not physical devices or Safari/Firefox",

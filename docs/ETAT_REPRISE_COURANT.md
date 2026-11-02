@@ -2,6 +2,8 @@
 
 ## Reprise active — 2 novembre 2026 : catalogue métier de 14 disciplines
 
+Commit applicatif local d74e846506dac35c8ba577f37bf6c40c55803eb8. Push normal rejete non-fast-forward (code 1), distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Aucun force-push, fusion ou repetition identique. Diff binaire des vingt changements anterieurs toujours identique.
+
 Dernière consigne exécutée **localement uniquement** : catalogue commun de 14 disciplines pour navigation, types, validations, recherche, filtres collectifs, aperçu mentors, récapitulatif, demandes coach, formulaire propriétaire et métadonnées. Alias historique conservé : URL `metiers-de-la-forme` / stockage `fitness`, URL `fitness` reconnue. Les valeurs inconnues ne retombent plus sur le football et n'effacent pas les filtres. Aucun coach ou créneau créé pour remplir les résultats.
 
 Build final, TypeScript, contrôle statique du schéma, configuration Netlify et frontière client/serveur PASS. **74 scénarios ordinateur distincts validés en consolidant les relances, 23 scénarios mobile PASS**. Le premier passage 65 PASS / 8 FAIL est conservé ; les 29 cas concernés et le nouveau contrôle de formulaire sont PASS après corrections, sans additionner les relances. Les contrôles API utilisent seulement les fixtures locales et restaurent leur discipline d'origine. Portraits/scènes manquants : remplacement neutre, aucune scène d'un autre sport. Pentagone sans cadre et portes à 2 200 ms inchangés.
