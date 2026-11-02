@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-02",
+  "base": "a8ed20e9e904ae2195bf02b776bb7a193a7e6fb4",
+  "branch": "design/refonte-progressive-lot1",
+  "deployment": "NOT_RUN",
+  "checks": {
+    "finalBuildWithTypes": "PASS",
+    "standardTypes": "PASS",
+    "clientSecretBoundary": "PASS final build",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS staged deliverables"
+  },
+  "buildId": "FnIjJvOAr0RjH8K_InzYI",
+  "tests": {
+    "finalDistinctOutcomes": {
+      "passed": 30,
+      "skipped": 1
+    },
+    "reports": {
+      "desktop-results.json": {
+        "startTime": "2026-11-02T10:50:01.491Z",
+        "duration": 139159.493,
+        "expected": 22,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mobile-results.json": {
+        "startTime": "2026-11-02T10:52:29.478Z",
+        "duration": 67894.535,
+        "expected": 8,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "final-desktop.json": {
+        "startTime": "2026-11-02T10:56:01.315Z",
+        "duration": 34888.22,
+        "expected": 6,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "final-mobile.json": {
+        "startTime": "2026-11-02T10:56:40.638Z",
+        "duration": 8543.649,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "reruns": "Six desktop entrance cases and one touch opening after trajectory point change; not added to distinct totals",
+    "skipped": "Fine-pointer hover excluded from touch project",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ]
+  },
+  "sourceSHA256": {
+    "gym-next/components/navigation/PlatformHeader.tsx": "b380803ac665bff7c3fb2f6c3ac75f37f2b3eadb63bbd202edb7a0bcd6146e96",
+    "gym-next/components/home/EditorialHome.tsx": "cdefe08347035edb00b56bfc5341bd69fbe72d4eaf445d6ba1e504e2ea9ed5ee",
+    "gym-next/public/design_assets/header-equipment-2026-10-30/entrance.js": "9014e90274d1ae7051678ab49697c677444d08da2196ee83e52ccdbabc5e0626",
+    "gym-next/public/design_assets/header-equipment-2026-10-30/entrance.d.ts": "7d6266f3a2e4e27195496fb96ad5fd580b7a16b72598e20f1715b785a223a79d",
+    "gym-next/public/design_assets/header-equipment-2026-10-30/apercu.html": "941e9bb3d6b5e1e99485f7c1f520c0477486e8e573f2f29be59ccb926fa831c3",
+    "gym-next/tests/equipment-entrance.spec.ts": "2f49cb400ccb738816f7f76d54b2908b01770adf25755bb3538b57d653ff5102"
+  },
+  "preview": {
+    "file": "gym-next/public/design_assets/header-equipment-2026-10-30/apercu.html",
+    "sharedSourceMatches": true,
+    "browserResult": "completed",
+    "remainingOverlays": 0,
+    "visibleOriginals": 14,
+    "visual": "Final spread and settled screenshots inspected",
+    "server": "Only temporary test server; offline HTML retained"
+  },
+  "git": {
+    "remoteAtStart": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "push": "PENDING ordinary attempt; divergence pre-existing",
+    "forcePush": false,
+    "merge": false
+  },
+  "limits": [
+    "Chromium and emulated touch only",
+    "No physical collision engine or FPS guarantee",
+    "No production deployment or real backend verification",
+    "Pre-existing Autoprefixer warnings"
+  ]
+}

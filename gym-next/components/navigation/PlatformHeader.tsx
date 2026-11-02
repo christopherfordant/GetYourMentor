@@ -1,15 +1,23 @@
 "use client";
-import { useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { discoverySports } from '@/lib/discovery-sports';
 import styles from './navigation.module.css';
 import { SportMotionIcon } from './SportMotionIcon';
+import { playEquipmentEntrance } from '@/public/design_assets/header-equipment-2026-10-30/entrance.js';
 
-export function PlatformHeader({ children }: { children?: ReactNode }) {
+export function PlatformHeader({ children, entrance = false }: { children?: ReactNode; entrance?: boolean }) {
   const [sportsOpen, setSportsOpen] = useState(false);
   const bell = useRef<HTMLButtonElement>(null);
   const notifications = useRef<HTMLDialogElement>(null);
   const sportsTrigger = useRef<HTMLButtonElement>(null);
   const sportsPanel = useRef<HTMLDivElement>(null);
+  const entrancePlayed = useRef(false);
+  useEffect(() => {
+    if (!entrance || entrancePlayed.current || !sportsPanel.current) return;
+    if (matchMedia('(max-width:760px)').matches && !sportsOpen) return;
+    const animation = playEquipmentEntrance(sportsPanel.current, { onStart: () => { entrancePlayed.current = true; } });
+    return animation.cancel;
+  }, [entrance, sportsOpen]);
   return <header className={styles.header} data-platform-header>
     <div className={styles.top}>
       <a className={styles.brand} href="/" aria-label="GetYourMentor, accueil"><b aria-hidden="true">GYM<span>↗</span></b><span>GetYourMentor</span></a>

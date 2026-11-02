@@ -1,0 +1,27 @@
+npx.cmd : [WebServer] (node:17108) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 488
++ ... ults.json'; npx.cmd playwright test tests/equipment-entrance.spec.ts  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 9 tests using 1 worker
+
+(node:5320) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/9] [mobile-chromium] › tests\equipment-entrance.spec.ts:91:5 › mobile header waits for first Sports opening and does not replay after reopening
+[2/9] [mobile-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
+[3/9] [mobile-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
+[4/9] [mobile-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
+[5/9] [mobile-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
+[6/9] [mobile-chromium] › tests\playful-motion.spec.ts:61:5 › reduced motion suppresses decorative animations without hiding content
+[7/9] [mobile-chromium] › tests\playful-motion.spec.ts:82:5 › desktop hover animates the icon while keeping the sport link stationary
+[8/9] [mobile-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 390px
+[9/9] [mobile-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 1440px
+  1 skipped
+  8 passed (1.1m)

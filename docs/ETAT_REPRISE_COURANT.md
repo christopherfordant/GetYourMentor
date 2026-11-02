@@ -1,5 +1,21 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : arrivée et rebonds des objets
+
+Demande : les objets photoréalistes arrivent des coins supérieurs, rebondissent dans la page visible puis rejoignent leur sport. [Rapport](ARRIVEE_OBJETS_2026-11-02.md). Accueil desktop au chargement après décodage ; mobile à la première ouverture Sports, une seule fois par montage de l'accueil. Autres pages sans séquence d'entrée. Durée de déplacement jusqu'à 2,6 s ; aucun nouveau visuel généré.
+
+Source commune JS/TypeScript dans `public/design_assets/header-equipment-2026-10-30/entrance.js` ; intégrée aussi au HTML autonome. Rejouer l’arrivée dans `apercu.html`, activation volontaire si mouvement réduit. Objets décoratifs sans interception des clics ; annulation/restauration sur interaction, Échap, resize, scroll, arrière-plan, préférence réduite ou démontage. Textes, liens et mise en page fixes, aucun réglage Windows modifié.
+
+Checkout `C:/Users/cashe/Documents/GYM-equipment-entrance-20261102`, base `a8ed20e9e904ae2195bf02b776bb7a193a7e6fb4`. Build/typage/configuration Netlify/frontière client réussis. Première inspection : regroupement trop central, trajectoires réparties ensuite, contrôle visuel et build final requis. Résultats définitifs, captures et limites dans `assets/equipment-entrance-2026-11-02/verification.json` ; ne pas additionner les relances. Chromium/tactile émulé seulement, aucun moteur de collisions ou FPS garanti.
+
+Contrôle final : nouveau build après répartition des trajectoires PASS, frontière client PASS ; six scénarios d'entrée desktop et ouverture mobile tactile rejoués PASS. **30 scénarios distincts PASS, 1 ignoré**, sans addition des relances. Dispersion mesurée, positions des liens inchangées, nettoyage vérifié. Aperçu connecté rejoué jusqu'au rangement : completed, aucun calque restant, 14 originaux visibles. Captures finales inspectées ; fichier HTML identique au module partagé pour le moteur d'entrée.
+
+Branche unique `design/refonte-progressive-lot1`, vingt modifications suivies antérieures exclues. Distant lu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence préexistante conservée. Aucun agent, paquet, service payant, backend, déploiement, pull/rebase/fusion/force-push ou autre référence distante. État final de livraison à lire dans verification.json et la réponse finale. Serveurs temporaires de test arrêtés automatiquement ; aperçu local conservé sans serveur persistant.
+
+Suite : revue de l'aperçu final et traitement séparé de la divergence Git avant synchronisation ou publication. Les sections suivantes décrivent les lots précédents, pas une autorisation de déploiement.
+
+---
+
 ## Reprise active — 2 novembre 2026 : icônes réalistes du header
 
 Reprise du lot interrompu le 30 octobre : SVG remplacés par onze détourages réalistes pour quatorze sports, 40 px desktop / 36 px mobile. Dix originaux réutilisés, une raquette padel générée avec image_gen intégré ; alpha réel, 69 814 octets de dérivés WebP. [Rapport, prompt, provenance et limites](ICONES_REALISTES_2026-11-02.md). Textes, destinations, autres contenus et services métier préservés.

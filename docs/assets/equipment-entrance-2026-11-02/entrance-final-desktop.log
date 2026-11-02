@@ -1,0 +1,23 @@
+
+npx.cmd : [WebServer] (node:18316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 101
++ ... ktop.json'; npx.cmd playwright test tests/equipment-entrance.spec.ts  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:10288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:13:7 › objects travel across the viewport then settle without moving links at 390px
+[2/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:13:7 › objects travel across the viewport then settle without moving links at 1440px
+[3/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:46:5 › escape, resize and repeated replay restore originals and remove every overlay
+[4/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:65:5 › reduced motion stays static until the preview is explicitly enabled
+[5/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:80:5 › actual home header starts once and its sport links work during the arrival
+[6/6] [desktop-chromium] › tests\equipment-entrance.spec.ts:91:5 › mobile header waits for first Sports opening and does not replay after reopening
+  6 passed (34.9s)

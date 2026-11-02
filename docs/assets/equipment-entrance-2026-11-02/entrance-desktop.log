@@ -1,0 +1,39 @@
+npx.cmd : [WebServer] (node:180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 103
++ ... ults.json'; npx.cmd playwright test tests/equipment-entrance.spec.ts  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 22 tests using 1 worker
+
+(node:16552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:13:7 › objects travel across the viewport then settle without moving links at 390px
+[2/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:13:7 › objects travel across the viewport then settle without moving links at 1440px
+[3/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:44:5 › escape, resize and repeated replay restore originals and remove every overlay
+[4/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:63:5 › reduced motion stays static until the preview is explicitly enabled
+[5/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:78:5 › actual home header starts once and its sport links work during the arrival
+[6/22] [desktop-chromium] › tests\equipment-entrance.spec.ts:89:5 › mobile header waits for first Sports opening and does not replay after reopening
+[7/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 320px
+[8/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 390px
+[9/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 768px
+[10/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 1440px
+[11/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:53:5 › all approved disciplines have actual search and directory routes without borrowing football profiles
+[12/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:66:5 › bell opens a truthful account entry, no fabricated unread count, escape restores focus
+[13/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:79:5 › coach entry starts at My account, preserves booking context, and cannot grant a role
+[14/22] [desktop-chromium] › tests\navigation-refonte.spec.ts:101:5 › Factory surfaces and reduced motion are applied without changing source data
+[15/22] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
+[16/22] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
+[17/22] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
+[18/22] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
+[19/22] [desktop-chromium] › tests\playful-motion.spec.ts:61:5 › reduced motion suppresses decorative animations without hiding content
+[20/22] [desktop-chromium] › tests\playful-motion.spec.ts:82:5 › desktop hover animates the icon while keeping the sport link stationary
+[21/22] [desktop-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 390px
+[22/22] [desktop-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 1440px
+  22 passed (2.3m)
