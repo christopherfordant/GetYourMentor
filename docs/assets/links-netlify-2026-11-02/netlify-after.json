@@ -1,0 +1,49 @@
+{
+  "url": "https://getyourmentor-demo-20261014.netlify.app",
+  "deploymentId": "6ae8a71262d2639172882244",
+  "state": "ready",
+  "deploymentTitle": "GetYourMentor isolated demo: verified source 4388ce24b996b5ba244fecbf74932505ebc51dbe",
+  "publishedAliasConfirmed": true,
+  "sourceCommit": "4388ce24b996b5ba244fecbf74932505ebc51dbe",
+  "buildId": "zmOqhkoKQRVpXDg5srRFD",
+  "packageSHA256": "62f8a839f099ffb29f752ec44bf1aee4cb05e7a4fe05b162edb8f459fa5ec632",
+  "httpChecks": {
+    "/api/health": {
+      "status": 200,
+      "robotsHeader": null,
+      "mode": "demo",
+      "ready": true
+    },
+    "/api/coaches/preview": {
+      "status": 200,
+      "robotsHeader": null,
+      "profiles": 5,
+      "privateFieldsAbsent": true
+    },
+    "/api/coaches": {
+      "status": 200,
+      "robotsHeader": null,
+      "profiles": 5,
+      "privateFieldsAbsent": true
+    },
+    "/robots.txt": {
+      "status": 200,
+      "robotsHeader": null
+    },
+    "/": {
+      "status": 200,
+      "robotsHeader": null,
+      "robotsMeta": "noindex, nofollow"
+    },
+    "/coachs?sport=football": {
+      "status": 200,
+      "robotsHeader": null,
+      "robotsMeta": "noindex, nofollow"
+    },
+    "/seances": {
+      "status": 200,
+      "robotsHeader": null,
+      "robotsMeta": "noindex, nofollow"
+    }
+  }
+}

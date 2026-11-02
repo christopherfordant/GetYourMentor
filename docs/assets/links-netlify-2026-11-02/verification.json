@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-02",
+  "status": "published and verified",
+  "sourceCommit": "4388ce24b996b5ba244fecbf74932505ebc51dbe",
+  "buildId": "zmOqhkoKQRVpXDg5srRFD",
+  "packageSHA256": "62f8a839f099ffb29f752ec44bf1aee4cb05e7a4fe05b162edb8f459fa5ec632",
+  "siteURL": "https://getyourmentor-demo-20261014.netlify.app",
+  "deploymentId": "6ae8a71262d2639172882244",
+  "deploymentState": "ready",
+  "publishedAliasConfirmed": true,
+  "prepareExitCode": 0,
+  "publishExitCode": 0,
+  "localAudit": {
+    "pages": 228,
+    "links": 456,
+    "queueExhausted": true,
+    "unexpectedErrors": 0
+  },
+  "remoteAudit": {
+    "pages": 242,
+    "links": 484,
+    "resources": 25,
+    "queueExhausted": true,
+    "unexpectedErrors": 0,
+    "expectedProtected404": "/admin/knowledge"
+  },
+  "browserChecks": {
+    "widths": [
+      1440,
+      390
+    ],
+    "facesCheckedPerWidth": 5,
+    "outerFrameAbsent": true,
+    "noHorizontalOverflow": true,
+    "availablePortraitsLoaded": true,
+    "missingPortraitFallbackPreserved": true,
+    "coachNavigationAndDoorCompleted": true
+  },
+  "dataNotes": "Hosted demo contains five pre-existing profiles, including two recipe fixtures without portraits. No profiles or accounts changed. Local catalogue had three demo profiles.",
+  "limits": [
+    "Anonymous read-only links, not all possible queries or private account states",
+    "No payment, reservation, message or real-account mutation",
+    "No external HTTP hyperlinks discovered",
+    "No global security/performance/SEO certification"
+  ],
+  "git": {
+    "branch": "design/refonte-progressive-lot1",
+    "sourcePublishedIndependentlyOfGitPush": true,
+    "push": "pending",
+    "priorTrackedChangesExcluded": 20
+  }
+}

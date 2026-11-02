@@ -1,0 +1,74 @@
+{
+  "url": "https://getyourmentor-demo-20261014.netlify.app/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-coach1792191706-fictif",
+  "checks": [
+    {
+      "width": 1440,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflow": false,
+      "faces": [
+        {
+          "id": "coach-coach1792191706-fictif",
+          "imageCount": 0,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-coach1792191706-fictif"
+        },
+        {
+          "id": "coach-fictifcoachbf111f87dd-recette",
+          "imageCount": 0,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-fictifcoachbf111f87dd-recette"
+        },
+        {
+          "id": "madison-seck",
+          "imageCount": 1,
+          "link": "/coach?sport=football&city=Paris&coach=madison-seck"
+        },
+        {
+          "id": "steven-fordant",
+          "imageCount": 1,
+          "link": "/coach?sport=basketball&city=Marseille&coach=steven-fordant"
+        },
+        {
+          "id": "studio-form-marseille",
+          "imageCount": 1,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=studio-form-marseille"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "border": "0px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflow": false,
+      "faces": [
+        {
+          "id": "coach-coach1792191706-fictif",
+          "imageCount": 0,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-coach1792191706-fictif"
+        },
+        {
+          "id": "coach-fictifcoachbf111f87dd-recette",
+          "imageCount": 0,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-fictifcoachbf111f87dd-recette"
+        },
+        {
+          "id": "madison-seck",
+          "imageCount": 1,
+          "link": "/coach?sport=football&city=Paris&coach=madison-seck"
+        },
+        {
+          "id": "steven-fordant",
+          "imageCount": 1,
+          "link": "/coach?sport=basketball&city=Marseille&coach=steven-fordant"
+        },
+        {
+          "id": "studio-form-marseille",
+          "imageCount": 1,
+          "link": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=studio-form-marseille"
+        }
+      ]
+    }
+  ],
+  "coachNavigation": "/coach?sport=metiers-de-la-forme&city=Marseille&coach=coach-coach1792191706-fictif",
+  "profileName": "coach1792191706 Fictif",
+  "doorCompleted": true
+}

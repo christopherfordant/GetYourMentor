@@ -1,5 +1,15 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Publication active — 2 novembre 2026 : liens et Netlify
+
+Sur autorisation utilisateur, dernier code validé publié sur **https://getyourmentor-demo-20261014.netlify.app**. Déploiement `6ae8a71262d2639172882244`, état `ready` et alias confirmés. Source applicative `4388ce24b996b5ba244fecbf74932505ebc51dbe` : pentagone sans encadré, profils enrichis, portes à 2,2 secondes. Les mentions « aucun déploiement » des étapes suivantes sont désormais historiques pour ce code.
+
+Contrôle local : 228 pages/variantes et 456 liens ; après publication : **242 pages/variantes, 484 liens et 25 ressources**, aucune erreur inattendue, files d'attente épuisées. La 404 admin volontaire reste protégée. Cinq profils de démonstration préexistants en ligne contre trois en local ; aucune donnée de profil ou compte changée. Navigateur 1440/390, cinq faces, portraits/replis, fiche et fin de transition vérifiés. Health/API HTTP 200, mode démo isolé, noindex vérifié ; X-Robots-Tag absent. Aucun service réel activé.
+
+[Rapport, périmètre et limites](LIENS_ET_PUBLICATION_NETLIFY_2026-11-02.md), preuves `assets/links-netlify-2026-11-02/verification.json`. Checkout de préparation `C:/Users/cashe/Documents/GYM-links-netlify-20261102`, source et paquet contrôlés avant publication. Vingt changements suivis antérieurs exclus, sauvegarde privée et comparaison du diff binaire identique. Git et Netlify sont deux états séparés ; statut du push dans les preuves. Prochaine action : revue du site public, puis traitement séparé de la divergence Git et des éventuelles améliorations de contenu. Aucun nouveau lot lancé automatiquement.
+
+---
+
 ## Ajustement actif - 2 novembre 2026 : pentagone sans encadrement
 
 Commit local 00d82d0 ; push normal rejete non-fast-forward, distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Aucun contournement ni nouvelle tentative identique.

@@ -1,0 +1,23 @@
+const {chromium}=require('../gym-next/node_modules/@playwright/test');
+const fs=require('node:fs');const path=require('node:path');
+const dir=path.resolve(__dirname,'../docs/assets/links-netlify-2026-11-02');
+(async()=>{const browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:1100},reducedMotion:'no-preference'});const page=await context.newPage();const checks=[];
+try{
+await page.goto('https://getyourmentor-demo-20261014.netlify.app/',{waitUntil:'networkidle'});const consent=page.getByRole('button',{name:'Refuser le non nécessaire',exact:true});if(await consent.count())await consent.click();
+await page.locator('[data-mentor-pentagon]').waitFor();
+for(const width of [1440,390]){
+await page.setViewportSize({width,height:1100});await page.locator('#mentors').evaluate(e=>e.scrollIntoView({behavior:'instant',block:'start'}));
+const style=await page.locator('[data-mentor-pentagon]').evaluate(e=>({border:getComputedStyle(e).borderTopWidth,background:getComputedStyle(e).backgroundColor,overflow:document.documentElement.scrollWidth>innerWidth}));if(style.border!=='0px'||style.overflow)throw Error(JSON.stringify(style));
+const faces=[];for(let n=0;n<5;n++){
+const active=page.locator('#mentors [data-pentagon-face][data-active=true]');await active.locator('a').waitFor();await active.evaluate(e=>e.querySelectorAll('img').forEach(i=>{i.loading='eager';}));
+await page.waitForFunction(()=>Array.from(document.querySelectorAll('#mentors [data-pentagon-face][data-active=true] img')).every(i=>i.complete&&i.naturalWidth>0),null,{timeout:15000});
+faces.push(await active.evaluate(e=>({id:e.querySelector('[data-mentor-id]')?.getAttribute('data-mentor-id'),imageCount:e.querySelectorAll('img').length,link:e.querySelector('a')?.getAttribute('href')})));
+if(n===0)await page.locator('#mentors').screenshot({path:path.join(dir,`public-mentors-${width}.png`),animations:'disabled'});
+await page.getByRole('button',{name:'Face suivante',exact:true}).click();await page.waitForFunction(()=>document.querySelector('#mentors [data-state]')?.getAttribute('data-state')==='idle');
+}
+checks.push({width,...style,faces});
+}
+await page.setViewportSize({width:1440,height:1100});const href=await page.locator('#mentors [data-active=true] a').getAttribute('href');await page.locator('#mentors [data-active=true] a').click();await page.waitForURL('**/coach?**');await page.waitForFunction(()=>!document.querySelector('[data-door-layer]'));await page.locator('[data-booking-name]').waitFor();
+await page.locator('[data-booking-tab=apropos]').click();await page.locator('[data-booking-pane=apropos]').screenshot({path:path.join(dir,'public-coach-details.png'),animations:'disabled'});
+const result={url:page.url(),checks,coachNavigation:href,profileName:await page.locator('[data-booking-name]').innerText(),doorCompleted:true};fs.writeFileSync(path.join(dir,'public-ui.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
+}finally{await context.close();await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

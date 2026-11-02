@@ -1,0 +1,62 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const { chromium, request } = require('../gym-next/node_modules/@playwright/test');
+const root = path.resolve(__dirname, '..');
+const base = process.argv[2] || 'http://127.0.0.1:3002';
+const output = process.argv[3] || path.join(root, 'docs/assets/links-netlify-2026-11-02/local-links.json');
+const seeds = ['/','/plan-du-site'];
+function scan(folder, route='') {
+  for (const item of fs.readdirSync(folder,{withFileTypes:true})) {
+    if (item.isDirectory() && !item.name.startsWith('[') && !item.name.startsWith('_')) scan(path.join(folder,item.name), route+'/'+item.name);
+    if (item.name==='page.tsx') seeds.push(route || '/');
+  }
+}
+scan(path.join(root,'gym-next/app'));
+(async()=>{
+  const browser=await chromium.launch({headless:true});
+  const context=await browser.newContext({reducedMotion:'reduce',viewport:{width:1440,height:1100}});
+  const page=await context.newPage();
+  const api=await request.newContext({timeout:15000});
+  const previous=process.argv.includes('--resume')&&fs.existsSync(output)?JSON.parse(fs.readFileSync(output,'utf8')):null;
+  const pages=previous?.pages||[],links=new Map((previous?.links||[]).map(l=>[l.href,l])),assets=new Map((previous?.assets||[]).map(a=>[a.href,a])),queue=previous?.remainingQueue||[...new Set(seeds)],visited=new Set(pages.map(p=>p.route)),errors=(previous?.errors||[]).filter(e=>e.route),external=[];
+  const add=(raw,from)=>{
+    if(!raw)return;
+    let u;try{u=new URL(raw,base+from);}catch{errors.push({from,href:raw,error:'invalid URL'});return;}
+    const key=u.origin===new URL(base).origin?u.pathname+u.search+u.hash:u.href;
+    if(!links.has(key))links.set(key,{href:key,from:[],kind:u.origin===new URL(base).origin?'internal':u.protocol.replace(':','')});
+    if(!links.get(key).from.includes(from))links.get(key).from.push(from);
+    if(u.origin===new URL(base).origin && !u.pathname.startsWith('/api/') && !/\.(pdf|png|jpg|webp|svg|zip|mp4|ico)$/i.test(u.pathname)){
+      const dest=u.pathname+u.search;
+      if(!visited.has(dest)&&!queue.includes(dest))queue.push(dest);
+    }
+  };
+  try{
+    while(queue.length && visited.size<600){
+      const route=queue.shift();visited.add(route);
+      try{
+        const response=await page.goto(base+route,{waitUntil:'networkidle',timeout:25000});
+        const consent=page.getByRole('button',{name:'Refuser le non nécessaire',exact:true});if(await consent.count())await consent.click();
+        const loaded=await page.evaluate(()=>({title:document.title,hrefs:Array.from(document.querySelectorAll('a[href]')).map(a=>a.getAttribute('href')),ids:Array.from(document.querySelectorAll('[id]')).map(e=>e.id),images:Array.from(document.images).map(i=>({src:i.currentSrc||i.src,loaded:i.complete&&i.naturalWidth>0,loading:i.loading}))}));
+        pages.push({route,status:response?.status(),finalPath:new URL(page.url()).pathname+new URL(page.url()).search,title:loaded.title,ids:loaded.ids});
+        for(const h of loaded.hrefs)add(h,route);
+        for(const img of loaded.images){if(!img.src.startsWith(base))continue;const u=new URL(img.src);const key=u.pathname+u.search;if(!assets.has(key))assets.set(key,{href:key,from:route});}
+        if(response?.status()>=400)errors.push({route,status:response.status(),kind:'page'});
+        console.log('page',visited.size,route,response?.status());
+      }catch(e){errors.push({route,error:e.message.slice(0,220)});}
+    }
+    for(const link of links.values()){
+      const u=new URL(link.href,base);
+      if(link.kind==='internal'){
+        if(u.hash){const target=pages.find(p=>p.route===u.pathname+u.search);if(target&&!target.ids.includes(decodeURIComponent(u.hash.slice(1))))errors.push({href:link.href,from:link.from,kind:'missing fragment'});}
+        if(/\.(pdf|png|jpg|webp|svg|zip|mp4|ico)$/i.test(u.pathname)||u.pathname.startsWith('/api/'))assets.set(u.pathname+u.search,{href:u.pathname+u.search,from:link.from[0]});
+      }else if(['https','http'].includes(link.kind)){
+        try{const r=await api.get(u.href);external.push({href:u.href,status:r.status(),classification:r.status()<400?'reachable':'unverified external response'});}catch(e){external.push({href:u.href,classification:'unverified network error',error:e.message.slice(0,120)});}
+      }else if(!['mailto','tel'].includes(link.kind)){errors.push({href:link.href,kind:'unsupported link protocol'});}
+    }
+    for(const asset of assets.values()){
+      try{const r=await api.get(base+asset.href);asset.status=r.status();if(r.status()>=400)errors.push({...asset,kind:'asset'});}catch(e){errors.push({...asset,kind:'asset',error:e.message.slice(0,120)});}
+    }
+    const result={base,date:new Date().toISOString(),scope:'Rendered anonymous links, static route seeds, fragments and linked images/documents; read-only GET. No form submissions, authenticated actions or external messages.',pages,links:[...links.values()],assets:[...assets.values()],external,errors,remainingQueue:queue,complete:queue.length===0};
+    fs.writeFileSync(output,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify({pages:pages.length,links:links.size,assets:assets.size,errors,external,remaining:queue.length}));
+  }finally{await api.dispose();await context.close();await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
