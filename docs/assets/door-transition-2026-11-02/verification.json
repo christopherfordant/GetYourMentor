@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-02",
+  "scope": "Snapshot demo only; no real navigation integration",
+  "base": "d908ceb63098dd4e13b6c0e57a9ffb6a9d109e76",
+  "branch": "design/refonte-progressive-lot1",
+  "deployment": "NOT_RUN",
+  "fixture": {
+    "buildId": "FnIjJvOAr0RjH8K_InzYI",
+    "applicationSourcesMatchPreviousValidation": true,
+    "routes": [
+      "/",
+      "/coachs?sport=football"
+    ],
+    "sizes": [
+      [
+        1440,
+        900
+      ],
+      [
+        390,
+        780
+      ]
+    ],
+    "cookiesBanner": "dismissed",
+    "motionForCapture": "reduce",
+    "data": "demo fixtures only"
+  },
+  "checks": {
+    "types": "PASS",
+    "captureScenarios": 2,
+    "demoScenarios": 4,
+    "reports": {
+      "capture-results.json": {
+        "startTime": "2026-11-02T11:09:50.701Z",
+        "duration": 23982.015,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "final-demo-results.json": {
+        "startTime": "2026-11-02T11:14:14.541Z",
+        "duration": 37209.724,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "initialFailure": "Test tried clicking an aria-disabled control; corrected to assert disabled state; four final scenarios passed",
+    "trackedSecrets": "PASS staged deliverables"
+  },
+  "sourceSHA256": {
+    "gym-next\\tests\\door-transition-demo.spec.ts": "4908db9d51bef62365b4a1b25fe52c0965c5bef8a7e587d45ce626d436edbec8",
+    "gym-next\\public\\design_assets\\door-transition-2026-11-02\\accueil-desktop.webp": "ba24be1b02fb0c334a8ea0902671991af0204d9291a7be3c77c57772b0a1323d",
+    "gym-next\\public\\design_assets\\door-transition-2026-11-02\\accueil-mobile.webp": "ebe336745951bbc92da03ce8fb14bb7220d09310917aa362b6e0bec3597247a4",
+    "gym-next\\public\\design_assets\\door-transition-2026-11-02\\annuaire-desktop.webp": "cb136a3538214d95a371a51a33701f541b6aafd0e8d7de02b52d19c73be009e6",
+    "gym-next\\public\\design_assets\\door-transition-2026-11-02\\annuaire-mobile.webp": "408f1aecd107151999046aa50e4258960a38fb000790cbfdda08a5974426a4de",
+    "gym-next\\public\\design_assets\\door-transition-2026-11-02\\index.html": "63e6555d134c39fa3d3bbea3d0b6980fa635ce9655a1143d6ca3fcb5a3e1cf73"
+  },
+  "preview": {
+    "file": "gym-next\\public\\design_assets\\door-transition-2026-11-02\\index.html",
+    "durationMs": 950,
+    "slowMs": 2200,
+    "connectedBrowser": {
+      "page": "annuaire",
+      "state": "idle",
+      "remainingAnimations": 0
+    },
+    "visual": "opening and final screenshots inspected",
+    "standalone": "Keep HTML and four WebP together; no server required"
+  },
+  "git": {
+    "remoteAtStart": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "push": "PENDING ordinary attempt; divergence pre-existing",
+    "forcePush": false,
+    "merge": false
+  },
+  "limits": [
+    "Readonly snapshots, no real page transition hooked",
+    "Chromium with mobile viewport only",
+    "No physical device/Safari/Firefox/FPS guarantee"
+  ]
+}

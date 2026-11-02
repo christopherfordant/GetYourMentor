@@ -1,5 +1,19 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : démonstration de transition en deux battants
+
+Demande : **montrer** l'effet avant intégration. Prototype autonome avec captures locales de l'accueil et de l'annuaire démo, deux moitiés articulées sur les bords extérieurs et prochaine vue qui avance depuis l'arrière-plan. [Rapport et limites](DEMO_TRANSITION_PORTES_2026-11-02.md). Aucune transition installée dans la navigation réelle, aucun formulaire, compte ou paiement modifié.
+
+Fichier `gym-next/public/design_assets/door-transition-2026-11-02/index.html`, avec ses quatre WebP voisins. Boutons Voir l’ouverture 3D / Rejouer / Changer sans animation, normal 950 ms et ralenti 2 200 ms. Pas d'autoplay ; action 3D explicite limitée à la démo si mouvement réduit. Échap, resize et arrière-plan terminent proprement ; données des vues fictives et captures non interactives.
+
+Recette dans `C:/Users/cashe/Documents/GYM-equipment-entrance-20261102`, build applicatif précédent réutilisé avec BUILD_ID et sources vérifiés. **2 scénarios de capture + 4 scénarios de démo PASS**, TypeScript PASS. 390/1440 px, rotations opposées, recul/avancée, rangement final, rejeu/annulation/double déclenchement et fichier manquant. Premier échec de test : tentative de cliquer un bouton correctement indisponible ; assertion corrigée et suite finale PASS. Aperçu rejoué dans le navigateur : annuaire affiché, idle, zéro animation restante. Captures inspectées. Preuves `assets/door-transition-2026-11-02/verification.json`. Aucun nouveau build Next nécessaire pour HTML/images, aucune intégration réelle certifiée.
+
+Base `d908ceb63098dd4e13b6c0e57a9ffb6a9d109e76`, branche unique `design/refonte-progressive-lot1`. Vingt modifications suivies antérieures préservées. Distant lu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence préexistante ; aucun pull/rebase/fusion/force-push, agent, paquet ou déploiement. Statut final du push dans verification.json et la livraison. Serveur temporaire de test arrêté automatiquement ; ouvrir le HTML depuis son dossier pour une revue sans serveur.
+
+Suite : revoir la simulation. Une future demande d'intégration exigera de traiter la vraie navigation, le chargement des pages, retour/historique et focus ; cet essai ne les remplace pas. Les sections suivantes décrivent les réalisations précédentes.
+
+---
+
 ## Reprise active — 2 novembre 2026 : arrivée et rebonds des objets
 
 Demande : les objets photoréalistes arrivent des coins supérieurs, rebondissent dans la page visible puis rejoignent leur sport. [Rapport](ARRIVEE_OBJETS_2026-11-02.md). Accueil desktop au chargement après décodage ; mobile à la première ouverture Sports, une seule fois par montage de l'accueil. Autres pages sans séquence d'entrée. Durée de déplacement jusqu'à 2,6 s ; aucun nouveau visuel généré.

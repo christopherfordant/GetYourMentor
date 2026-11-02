@@ -1,0 +1,19 @@
+npx.cmd : [WebServer] (node:11764) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 100
++ ... ults.json'; npx.cmd playwright test tests/door-transition-demo.spec.t ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:2368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [desktop-chromium] › tests\door-transition-demo.spec.ts:6:7 › capture source pages desktop
+[2/2] [desktop-chromium] › tests\door-transition-demo.spec.ts:6:7 › capture source pages mobile
+  2 passed (24.0s)

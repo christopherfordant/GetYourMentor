@@ -1,0 +1,66 @@
+npx.cmd : [WebServer] (node:15492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 97
++ ... ults.json'; npx.cmd playwright test tests/door-transition-demo.spec.t ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+(node:15096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:24:7 › door demo opens opposite battants and brings destination forward at 390px
+[2/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:24:7 › door demo opens opposite battants and brings destination forward at 1440px
+[3/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:50:5 › door demo supports explicit replay, escape, resize and no-motion path
+[4/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:67:5 › door demo reports missing snapshots instead of opening an empty destination
+  1) [desktop-chromium] › tests\door-transition-demo.spec.ts:67:5 › door demo reports missing snapshots instead of opening an empty destination
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for locator('#play')
+        - locator resolved to <button id="play" type="button" aria-disabled="true">Voir l’ouverture 3D</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is not enabled
+        - retrying click action
+          - waiting 100ms
+        139 × waiting for element to be visible, enabled and stable
+            - element is not enabled
+          - retrying click action
+            - waiting 500ms
+
+
+      69 |   await expect(page.locator('#stage')).toHaveAttribute('data-state','error');
+      70 |   await expect(page.getByRole('status')).toContainText('Captures indisponibles');
+    > 71 |   await expect(page.locator('#play')).toBeDisabled();
+         |                               ^
+      72 |   await expect(page.locator('#stage')).toHaveAttribute('data-state','error');
+      73 | });
+      74 |
+        at C:\Users\cashe\Documents\GYM-equipment-entrance-20261102\gym-next\tests\door-transition-demo.spec.ts:71:31
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\error-context.md
+
+
+  1 failed
+    [desktop-chromium] › tests\door-transition-demo.spec.ts:67:5 › door demo reports missing snapshots instead of opening an empty destination
+  3 passed (1.6m)

@@ -1,0 +1,286 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/door-transition-demo.spec.ts",
+      "--grep",
+      "door demo",
+      "--project=desktop-chromium",
+      "--workers=1",
+      "--reporter=line,json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-equipment-entrance-20261102/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-equipment-entrance-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-equipment-entrance-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-equipment-entrance-20261102/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-equipment-entrance-20261102/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm.cmd run start -- --port 3001",
+      "url": "http://127.0.0.1:3001/",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "SESSION_SECRET": "c582a37dab2d3ed2f5e0141ed598e512cefa30f8a4525ecb7fd6e08443548d11",
+        "NODE_ENV": "production",
+        "CI": "true",
+        "NEXT_PUBLIC_APP_URL": "http://127.0.0.1:3001",
+        "STRIPE_WEBHOOK_SECRET": "test-webhook-secret",
+        "PAYMENT_PROVIDER": "local",
+        "GETYOURMENTOR_ALLOW_DEMO": "true",
+        "GETYOURMENTOR_ACCEPTANCE_MODE": "true"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "door-transition-demo.spec.ts",
+      "file": "door-transition-demo.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "door demo opens opposite battants and brings destination forward at 390px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4097,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:11:33.773Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62fb490858732b55e192-c012646b3d63ea8bdd88",
+          "file": "door-transition-demo.spec.ts",
+          "line": 24,
+          "column": 7
+        },
+        {
+          "title": "door demo opens opposite battants and brings destination forward at 1440px",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3956,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:11:40.335Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62fb490858732b55e192-c786a7220809e91ae1a6",
+          "file": "door-transition-demo.spec.ts",
+          "line": 24,
+          "column": 7
+        },
+        {
+          "title": "door demo supports explicit replay, escape, resize and no-motion path",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1839,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:11:44.329Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "62fb490858732b55e192-5a4d151dbfc98baaae65",
+          "file": "door-transition-demo.spec.ts",
+          "line": 50,
+          "column": 5
+        },
+        {
+          "title": "door demo reports missing snapshots instead of opening an empty destination",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 73601,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\tests\\door-transition-demo.spec.ts",
+                        "column": 31,
+                        "line": 71
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#play')\u001b[22m\n\u001b[2m    - locator resolved to <button id=\"play\" type=\"button\" aria-disabled=\"true\">Voir l’ouverture 3D</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    139 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m        - element is not enabled\u001b[22m\n\u001b[2m      - retrying click action\u001b[22m\n\u001b[2m        - waiting 500ms\u001b[22m\n\n\n  69 |   await expect(page.locator('#stage')).toHaveAttribute('data-state','error');\n  70 |   await expect(page.getByRole('status')).toContainText('Captures indisponibles');\n> 71 |   await expect(page.locator('#play')).toBeDisabled();\n     |                               ^\n  72 |   await expect(page.locator('#stage')).toHaveAttribute('data-state','error');\n  73 | });\n  74 |\n    at C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\tests\\door-transition-demo.spec.ts:71:31"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-02T11:11:46.207Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\test-results\\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\test-results\\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-equipment-entrance-20261102\\gym-next\\test-results\\door-transition-demo-door--6a5a8-pening-an-empty-destination-desktop-chromium\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "62fb490858732b55e192-310767a1d8cb0b692e02",
+          "file": "door-transition-demo.spec.ts",
+          "line": 67,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-02T11:11:24.952Z",
+    "duration": 95558.196,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

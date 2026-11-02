@@ -1,0 +1,21 @@
+npx.cmd : [WebServer] (node:5884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 103
++ ... ults.json'; npx.cmd playwright test tests/door-transition-demo.spec.t ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:16288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:24:7 › door demo opens opposite battants and brings destination forward at 390px
+[2/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:24:7 › door demo opens opposite battants and brings destination forward at 1440px
+[3/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:50:5 › door demo supports explicit replay, escape, resize and no-motion path
+[4/4] [desktop-chromium] › tests\door-transition-demo.spec.ts:67:5 › door demo reports missing snapshots instead of opening an empty destination
+  4 passed (37.2s)
