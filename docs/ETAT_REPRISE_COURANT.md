@@ -10,6 +10,8 @@ Recette dans `C:/Users/cashe/Documents/GYM-equipment-entrance-20261102`, build a
 
 Base `d908ceb63098dd4e13b6c0e57a9ffb6a9d109e76`, branche unique `design/refonte-progressive-lot1`. Vingt modifications suivies antérieures préservées. Distant lu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence préexistante ; aucun pull/rebase/fusion/force-push, agent, paquet ou déploiement. Statut final du push dans verification.json et la livraison. Serveur temporaire de test arrêté automatiquement ; ouvrir le HTML depuis son dossier pour une revue sans serveur.
 
+Commit de démonstration local `c6951824c37544d5059bb8aa8c0d88819e58c363`. Push normal réellement exécuté, rejet **non-fast-forward, code 1** ; distant relu inchangé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Complément documentaire local sans tentative identique répétée. Contrôle des secrets indexés PASS, fichiers du prototype et preuves copiés dans le dépôt principal ; aucun changement de navigation réelle ni déploiement.
+
 Suite : revoir la simulation. Une future demande d'intégration exigera de traiter la vraie navigation, le chargement des pages, retour/historique et focus ; cet essai ne les remplace pas. Les sections suivantes décrivent les réalisations précédentes.
 
 ---

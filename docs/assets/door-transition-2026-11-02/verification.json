@@ -72,9 +72,13 @@
   },
   "git": {
     "remoteAtStart": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
-    "push": "PENDING ordinary attempt; divergence pre-existing",
+    "push": "REJECTED non-fast-forward",
     "forcePush": false,
-    "merge": false
+    "merge": false,
+    "demoCommit": "c6951824c37544d5059bb8aa8c0d88819e58c363",
+    "exitCode": 1,
+    "remoteVerifiedAfterPush": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "documentationFollowup": "local only; no identical push retry"
   },
   "limits": [
     "Readonly snapshots, no real page transition hooked",

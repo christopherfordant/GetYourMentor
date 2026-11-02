@@ -28,3 +28,5 @@ Preuves : `docs/assets/door-transition-2026-11-02/`, captures PNG originales, d�
 ## Git et publication
 
 Branche unique `design/refonte-progressive-lot1`. Distant de départ `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`, divergence existante préservée. Aucun pull/rebase/fusion/force-push ou nouvelle référence de contournement. État final du commit/push dans le relais et verification.json. Aucun déploiement ni changement de la navigation publique.
+
+Commit de démonstration `c6951824c37544d5059bb8aa8c0d88819e58c363`. Push normal tenté et rejeté non-fast-forward (code 1), distant relu inchangé au SHA ci-dessus. Complément documentaire conservé localement ; pas de tentative identique répétée. Secrets suivis/indexés PASS ; vingt modifications antérieures préservées hors lot.
