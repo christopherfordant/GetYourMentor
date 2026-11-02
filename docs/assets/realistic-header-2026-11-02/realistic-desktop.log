@@ -1,0 +1,33 @@
+npx.cmd : [WebServer] (node:7672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 101
++ ... ults.json'; npx.cmd playwright test tests/playful-motion.spec.ts test ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([WebServer] (no... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 16 tests using 1 worker
+
+(node:6728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 320px
+[2/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 390px
+[3/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 768px
+[4/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:5:7 › shared header and right drawer across public routes at 1440px
+[5/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:53:5 › all approved disciplines have actual search and directory routes without borrowing football profiles
+[6/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:66:5 › bell opens a truthful account entry, no fabricated unread count, escape restores focus
+[7/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:79:5 › coach entry starts at My account, preserves booking context, and cannot grant a role
+[8/16] [desktop-chromium] › tests\navigation-refonte.spec.ts:101:5 › Factory surfaces and reduced motion are applied without changing source data
+[9/16] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 320px
+[10/16] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 390px
+[11/16] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 768px
+[12/16] [desktop-chromium] › tests\playful-motion.spec.ts:6:7 › playful navigation remains usable at 1440px
+[13/16] [desktop-chromium] › tests\playful-motion.spec.ts:61:5 › reduced motion suppresses decorative animations without hiding content
+[14/16] [desktop-chromium] › tests\playful-motion.spec.ts:82:5 › desktop hover animates the icon while keeping the sport link stationary
+[15/16] [desktop-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 390px
+[16/16] [desktop-chromium] › tests\playful-motion.spec.ts:104:7 › directory card keeps profile navigation and reduced motion at 1440px
+  16 passed (1.4m)

@@ -1,0 +1,127 @@
+{
+  "assets": [
+    {
+      "asset": "football-ball.webp",
+      "source": "motion\\football-ball-realistic.png",
+      "bytes": 7772,
+      "sha256": "54ca70c80abaa2d84168f7018574f6c471ee86affb469a18e897d8b695b56425",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "basketball.webp",
+      "source": "motion\\basketball-realistic.png",
+      "bytes": 9170,
+      "sha256": "5853d380405db26f969c730a7d928e00f67f79d6fd87f40ab2bfb1abbc6d601c",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "dumbbell.webp",
+      "source": "motion\\dumbbell-realistic.png",
+      "bytes": 4886,
+      "sha256": "eec1cb8699b724f4efbd836f6d2ef346a8f09c6beb9b9abbee1db3392bd74f11",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "focus-mitt.webp",
+      "source": "motion\\focus-mitt-realistic.png",
+      "bytes": 6270,
+      "sha256": "37a90c131da53740ee337b9c0d4e0d6c120ac16e091a5f9e7d892625eb90c671",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "boxing-glove.webp",
+      "source": "motion\\boxing-glove-realistic.png",
+      "bytes": 6024,
+      "sha256": "6cb75cdb2cb89c1459f5499347868a763fa7cc89279b6ad99067520262645f4c",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "shin-guards.webp",
+      "source": "motion\\shin-guards-realistic.png",
+      "bytes": 7450,
+      "sha256": "c00f068685025c9f30f78efe427acea2b3a38ed64c84b529468787fcaf8367d8",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "resistance-band.webp",
+      "source": "motion\\resistance-band-realistic.png",
+      "bytes": 4798,
+      "sha256": "da7632be53490080b7e2b94d14b8e4736147cd95961c209ff138d317a1a16dd4",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "football-cone.webp",
+      "source": "motion\\football-cone-realistic.png",
+      "bytes": 4282,
+      "sha256": "c7964217376be165a666aab48b4931fca0732043366a1150dacf49ea5b833e6e",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "kettlebell.webp",
+      "source": "motion\\kettlebell-realistic.png",
+      "bytes": 5798,
+      "sha256": "90204b5e2a96f5084f89f0db37fe133e5ba4a588e00cc9f8343affdd70a52194",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "basketball-shoes.webp",
+      "source": "motion\\basketball-shoes-realistic.png",
+      "bytes": 6638,
+      "sha256": "b980084aff74e4a101abb47f597959cf319d31bf10ded15be46e999fc3ce7c3b",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    },
+    {
+      "asset": "padel-racket.webp",
+      "source": "header-equipment-2026-10-30\\padel-racket-original.png",
+      "bytes": 6726,
+      "sha256": "0102bb0cfabdcf06570569d73b28bf021e645bbd160652606f3e6d4badcc83c8",
+      "dimensions": [
+        144,
+        144
+      ],
+      "alpha": true
+    }
+  ],
+  "thumbnailBytes": 69814,
+  "padelProvenance": "Built-in image_gen, photorealistic product cutout, 2026-10-30; generated, not camera photograph"
+}

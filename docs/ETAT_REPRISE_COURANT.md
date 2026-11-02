@@ -1,5 +1,21 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Reprise active — 2 novembre 2026 : icônes réalistes du header
+
+Reprise du lot interrompu le 30 octobre : SVG remplacés par onze détourages réalistes pour quatorze sports, 40 px desktop / 36 px mobile. Dix originaux réutilisés, une raquette padel générée avec image_gen intégré ; alpha réel, 69 814 octets de dérivés WebP. [Rapport, prompt, provenance et limites](ICONES_REALISTES_2026-11-02.md). Textes, destinations, autres contenus et services métier préservés.
+
+Checkout isolé `C:/Users/cashe/Documents/GYM-realistic-header-20261030`, base `09f0f7766f6a693dd5edfaf7a6b3b68d44141815`. Build interrompu non compté comme réussi ; nouveau build avec typage et contrôles frontière client/configuration Netlify réussis. Résultats définitifs des tests et captures dans `assets/realistic-header-2026-11-02/verification.json`.
+
+Recette finale : **23 tests PASS, 1 ignoré** (survol desktop exclu du projet tactile) ; quatre largeurs, 14 images chargées, clavier, liens, mouvement réduit et régressions du menu/cartes. Captures inspectées, aucun service réel testé. Aperçu HTTP chargé dans le navigateur pendant la recette ; serveur temporaire arrêté automatiquement après les tests. Ouvrir le HTML local depuis son dossier pour une revue sans serveur, sans compter sur un lien localhost persistant.
+
+Aperçu autonome sans serveur dans `gym-next/public/design_assets/header-equipment-2026-10-30/apercu.html`, à ouvrir depuis son dossier avec ses images. Inspecté via le serveur temporaire de recette : quatorze images chargées, rebond constaté après activation explicite dans l'aperçu. Le navigateur de contrôle refuse file:, sans changement de protection ; pas de serveur persistant créé, réglages Windows inchangés. Le contrôle d'animation de cet aperçu ne modifie pas la préférence du site.
+
+Branche unique `design/refonte-progressive-lot1`, vingt modifications suivies antérieures exclues. Distant relu `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a` ; blocage non-fast-forward préexistant. Aucun pull/rebase/fusion/force-push, agent, déploiement ou paiement. Code local, code poussé et site public restent des états distincts. État final de livraison dans verification.json et la réponse de livraison.
+
+Suite : revue de l'aperçu, traitement séparé de la divergence Git avant synchronisation/publication. Les sections suivantes décrivent les lots antérieurs et leurs limites historiques.
+
+---
+
 ## Reprise active — 30 octobre 2026 : animations ludiques
 
 Demande : adapter les effets vidéo aux sports du header, cartes coachs et panneau droit. [Réalisation et limites](ANIMATIONS_LUDIQUES_2026-10-30.md). Factory conservé. Pictogrammes sportifs réactifs, relief/reflet des portraits accueil et annuaire, ouverture en éventail. Texte et zones cliquables fixes ; mouvement réduit sans effets décoratifs. Aucun paquet, agent, génération IA ou service payant ajouté.

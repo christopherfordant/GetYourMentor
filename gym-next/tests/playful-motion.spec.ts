@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
-const evidence = '../docs/assets/playful-motion-2026-10-30';
+const evidence = '../docs/assets/realistic-header-2026-11-02';
 
 for (const width of [320, 390, 768, 1440]) {
   test(`playful navigation remains usable at ${width}px`, async ({ page }) => {
@@ -11,11 +11,13 @@ for (const width of [320, 390, 768, 1440]) {
     if (width <= 760) await page.getByRole('button', { name: 'Sports', exact: true }).click();
     const sports = page.getByRole('navigation', { name: 'Sports', exact: true });
     await expect(sports.getByRole('link')).toHaveCount(14);
+    await expect(sports.locator('[data-sport-motion] img')).toHaveCount(14);
+    await expect.poll(() => sports.locator('img').evaluateAll(elements => elements.every(element => (element as HTMLImageElement).complete && (element as HTMLImageElement).naturalWidth === 144))).toBe(true);
     const football = sports.getByRole('link', { name: 'Football', exact: true });
     await expect(football).toHaveAttribute('href', '/recherche?sport=football');
     await football.focus();
     await expect(football).toBeFocused();
-    await expect(football.locator('svg')).toBeVisible();
+    await expect(football.locator('img')).toBeVisible();
     await fs.mkdir(evidence, { recursive: true });
     await page.screenshot({ path: `${evidence}/header-${width}.png` });
     await page.keyboard.press('Enter');
@@ -70,7 +72,7 @@ test('reduced motion suppresses decorative animations without hiding content', a
   if (await sportsToggle.isVisible()) await sportsToggle.click();
   const football = page.getByRole('navigation', { name: 'Sports', exact: true }).getByRole('link', { name: 'Football', exact: true });
   await football.focus();
-  expect(await football.locator('svg').evaluate(element => getComputedStyle(element).animationName)).toBe('none');
+  expect(await football.locator('img').evaluate(element => getComputedStyle(element).animationName)).toBe('none');
   await expect(page.locator('[data-mentor-id]')).toHaveCount(3);
   const card = page.locator('[data-carousel-item="1"] [data-mentor-id]');
   await card.locator('a').focus();
@@ -84,7 +86,7 @@ test('desktop hover animates the icon while keeping the sport link stationary', 
   const link = page.getByRole('navigation', { name: 'Sports', exact: true }).getByRole('link', { name: 'Football', exact: true });
   const before = await link.boundingBox();
   await link.hover();
-  expect(await link.locator('svg').evaluate(element => getComputedStyle(element).animationName)).not.toBe('none');
+  expect(await link.locator('img').evaluate(element => getComputedStyle(element).animationName)).not.toBe('none');
   const after = await link.boundingBox();
   expect(after).toEqual(before);
   await page.mouse.move(0, 0);

@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-02",
+  "base": "09f0f7766f6a693dd5edfaf7a6b3b68d44141815",
+  "branch": "design/refonte-progressive-lot1",
+  "deployment": "NOT_RUN",
+  "checks": {
+    "buildWithTypes": "PASS",
+    "clientSecretBoundary": "PASS",
+    "netlifyConfig": "PASS",
+    "trackedSecrets": "PASS staged deliverables"
+  },
+  "buildId": "fGmcbZ0M8cmv9W6Zlegme",
+  "tests": {
+    "passed": 23,
+    "skipped": 1,
+    "reports": {
+      "desktop-results.json": {
+        "startTime": "2026-11-02T10:31:57.532Z",
+        "duration": 85089.962,
+        "expected": 16,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "mobile-results.json": {
+        "startTime": "2026-11-02T10:33:29.330Z",
+        "duration": 63443.632,
+        "expected": 7,
+        "skipped": 1,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "skippedReason": "Hover test only applies to desktop fine pointer; touch paths separately verified"
+  },
+  "sourceSHA256": {
+    "gym-next/components/navigation/SportMotionIcon.tsx": "6722e691c75a2b4187cd592e4ac2368bb776ebdf0e4ecc9c7f540192613ad78a",
+    "gym-next/components/navigation/navigation.module.css": "29f807abf0ab1c81608122cba119dc4dc32e4309952c8177538d958ce1304954",
+    "gym-next/tests/playful-motion.spec.ts": "245c5b68bf7721852e59e47e2d7c36ba33e6a05eda3f79d5fd334a5e92318270"
+  },
+  "assetsSHA256": {
+    "apercu.html": "6fb60ec0e1481e1840dd28750816ded72ea6e016acfc255258262c822eff2392",
+    "basketball-shoes.webp": "b980084aff74e4a101abb47f597959cf319d31bf10ded15be46e999fc3ce7c3b",
+    "basketball.webp": "5853d380405db26f969c730a7d928e00f67f79d6fd87f40ab2bfb1abbc6d601c",
+    "boxing-glove.webp": "6cb75cdb2cb89c1459f5499347868a763fa7cc89279b6ad99067520262645f4c",
+    "dumbbell.webp": "eec1cb8699b724f4efbd836f6d2ef346a8f09c6beb9b9abbee1db3392bd74f11",
+    "focus-mitt.webp": "37a90c131da53740ee337b9c0d4e0d6c120ac16e091a5f9e7d892625eb90c671",
+    "football-ball.webp": "54ca70c80abaa2d84168f7018574f6c471ee86affb469a18e897d8b695b56425",
+    "football-cone.webp": "c7964217376be165a666aab48b4931fca0732043366a1150dacf49ea5b833e6e",
+    "kettlebell.webp": "90204b5e2a96f5084f89f0db37fe133e5ba4a588e00cc9f8343affdd70a52194",
+    "manifest.json": "346d2b809095ed1099a67f1057d6c0c18df025654cae4840cf2b523c9a1f80a1",
+    "padel-racket-original.png": "aa70d68f386f027ee14559684774018b01f4cf4100c36a2d68aea14257c9be54",
+    "padel-racket.webp": "0102bb0cfabdcf06570569d73b28bf021e645bbd160652606f3e6d4badcc83c8",
+    "resistance-band.webp": "da7632be53490080b7e2b94d14b8e4736147cd95961c209ff138d317a1a16dd4",
+    "shin-guards.webp": "c00f068685025c9f30f78efe427acea2b3a38ed64c84b529468787fcaf8367d8"
+  },
+  "assets": {
+    "loadedHeaderImages": 14,
+    "uniqueWebP": 11,
+    "thumbnailBytes": 69814,
+    "transparent": true,
+    "newGeneration": "One padel cutout using built-in image_gen on 2026-10-30; prompt and preserved original included",
+    "reuse": "Ten pre-existing equipment cutouts; original provenance not re-attested"
+  },
+  "preview": {
+    "file": "gym-next\\public\\design_assets\\header-equipment-2026-10-30\\apercu.html",
+    "verified": true,
+    "decodedImages": 14,
+    "animationObserved": "sport-bounce after explicit preview opt-in",
+    "server": "Temporary test server stopped automatically; HTML with relative assets works locally without server",
+    "fileProtocol": "Connected browser blocks file:; preview inspected over normal local app HTTP, permissions unchanged"
+  },
+  "git": {
+    "remoteAtStart": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+    "push": "PENDING ordinary attempt; divergence pre-existing",
+    "forcePush": false,
+    "merge": false
+  },
+  "limits": [
+    "Local Chromium and emulated touch only",
+    "No production deployment",
+    "Existing Autoprefixer warnings outside scope",
+    "No live backend/payment verification"
+  ]
+}
