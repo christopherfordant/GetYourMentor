@@ -1,4 +1,6 @@
-> **Navigation 3D — 2 novembre :** prototype validé intégré localement : deux battants de la vue actuelle et nouvelle page qui avance, 950 ms. Mouvement réduit sans animation ; liens, historique et formulaire de recherche vérifiés. [Réalisation et limites](docs/NAVIGATION_PORTES_3D_2026-11-02.md). Aucun déploiement.
+> **Ralenti et pentagone — 2 novembre :** ouverture des pages portée à 2 200 ms, sans changer les angles ni les autres animations. Prototype séparé de carrousel à cinq faces, rotation manuelle sans fin, trois profils existants et deux faces pédagogiques. Les carrousels actuels ne sont pas remplacés avant revue utilisateur. [Aperçu, contrôles et inventaire](docs/PENTAGONE_RALENTI_2026-11-02.md). Aucun déploiement.
+
+> **Navigation 3D — 2 novembre :** prototype validé intégré localement : deux battants de la vue actuelle et nouvelle page qui avance. Mouvement réduit sans animation ; liens, historique et formulaire de recherche vérifiés. [Réalisation et limites](docs/NAVIGATION_PORTES_3D_2026-11-02.md). Aucun déploiement.
 
 > **Arrivée des équipements — 2 novembre :** séquence unique sur l'accueil : entrée depuis les deux coins supérieurs, deux rebonds répartis dans la fenêtre puis rangement dans le header. Mobile à la première ouverture Sports. Mouvement réduit, liens fixes et interruption immédiate sur interaction préservés. Aperçu doté de Rejouer. [Comportement, contrôles et limites](docs/ARRIVEE_OBJETS_2026-11-02.md). Non déployé.
 

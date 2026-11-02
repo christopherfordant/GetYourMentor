@@ -1,0 +1,143 @@
+[WebServer] (node:16092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 8 tests using 1 worker
+
+(node:14448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+  1) [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#stage')
+    Expected: "idle"
+    Received: "turning"
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 10000ms
+      - waiting for locator('#stage')
+        23 × locator resolved to <div id="stage" tabindex="0" role="group" class="stage" data-step="0" data-active="0" data-ready="true" data-state="turning" aria-roledescription="carrousel" aria-label="Cinq faces : mentors et parcours de réservation">…</div>
+           - unexpected value "turning"
+
+
+      27 |     for (let index = 0; index < 5; index++) {
+      28 |       await page.getByRole('button', { name: `Afficher la face ${index + 1}`, exact: true }).click();
+    > 29 |       await expect(page.locator('#stage')).toHaveAttribute('data-state', 'idle');
+         |                                            ^
+      30 |       const fits = await page.locator('.face[data-active="true"]').evaluate(face => {
+      31 |         const outer = face.getBoundingClientRect(), link = face.querySelector('a')!.getBoundingClientRect();
+      32 |         return link.bottom <= outer.bottom + 1 && link.top >= outer.top;
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\pentagon-preview.spec.ts:29:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\error-context.md
+
+
+(node:13924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 390px
+[3/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 768px
+[4/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+  2) [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#stage')
+    Expected: "idle"
+    Received: "turning"
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toHaveAttribute" with timeout 10000ms
+      - waiting for locator('#stage')
+        23 × locator resolved to <div id="stage" tabindex="0" role="group" class="stage" data-step="0" data-active="0" data-ready="true" data-state="turning" aria-roledescription="carrousel" aria-label="Cinq faces : mentors et parcours de réservation">…</div>
+           - unexpected value "turning"
+
+
+      27 |     for (let index = 0; index < 5; index++) {
+      28 |       await page.getByRole('button', { name: `Afficher la face ${index + 1}`, exact: true }).click();
+    > 29 |       await expect(page.locator('#stage')).toHaveAttribute('data-state', 'idle');
+         |                                            ^
+      30 |       const fits = await page.locator('.face[data-active="true"]').evaluate(face => {
+      31 |         const outer = face.getBoundingClientRect(), link = face.querySelector('a')!.getBoundingClientRect();
+      32 |         return link.bottom <= outer.bottom + 1 && link.top >= outer.top;
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\pentagon-preview.spec.ts:29:44
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-4dea0-s-and-no-overflow-at-1440px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-4dea0-s-and-no-overflow-at-1440px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\pentagon-preview-pentagona-4dea0-s-and-no-overflow-at-1440px-desktop-chromium\error-context.md
+
+
+(node:2700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:40:5 › unbounded rotations in both directions, keyboard and rapid clicks
+[6/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:56:5 › swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate
+[7/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+  3) [desktop-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('.face').first().locator('img')
+    Expected: hidden
+    Received: visible
+    Timeout:  10000ms
+
+    Call log:
+      - Expect "toBeHidden" with timeout 10000ms
+      - waiting for locator('.face').first().locator('img')
+        23 × locator resolved to <img hidden="" width="640" height="427" draggable="false" src="coach-basketball-640.webp" alt="Portrait illustratif créé par IA, sans représentation de la personne nommée."/>
+           - unexpected value "visible"
+
+
+      73 |   await page.route('**/coach-basketball-640.webp', route => route.abort());
+      74 |   await page.goto(preview);
+    > 75 |   await expect(page.locator('.face').first().locator('img')).toBeHidden();
+         |                                                              ^
+      76 |   await expect(page.locator('.face').first()).toContainText('Portrait indisponible');
+      77 |   await expect(page.getByRole('heading', { name: 'Steven Fordant' })).toBeVisible();
+      78 |   await page.getByRole('button', { name: 'Face suivante', exact: true }).click();
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\pentagon-preview.spec.ts:75:62
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\pentagon-preview-missing-p-1adf8-ation-and-usable-navigation-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\pentagon-preview-missing-p-1adf8-ation-and-usable-navigation-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\pentagon-preview-missing-p-1adf8-ation-and-usable-navigation-desktop-chromium\error-context.md
+
+
+(node:18236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/8] [desktop-chromium] › tests\pentagon-preview.spec.ts:82:5 › door opening uses full slow duration and remains alive after former cleanup deadline
+  3 failed
+    [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+    [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+    [desktop-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+  5 passed (1.3m)

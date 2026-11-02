@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-02",
+  "mode": "isolated prototype; not installed in existing carousels",
+  "fixture_source": "gym-next/lib/domain.ts:coachProfiles",
+  "portrait_mapping_source": "gym-next/lib/demo-visuals.ts",
+  "guidance_sources": [
+    "gym-next/components/home/home-data.ts:faqItems",
+    "gym-next/components/search-legacy/RechercheCoachLegacyPage.tsx"
+  ],
+  "portraits": "Existing AI illustrations, not photographs of the named people",
+  "files": {
+    "coach-basketball-640.webp": {
+      "source": "gym-next/public/design_assets/ai-2026-10-28/coach-basketball-640.webp",
+      "sha256": "76b6474a773b07a664903f16eab45c82262805f012bb7065ad3744732110e032"
+    },
+    "coach-football-640.webp": {
+      "source": "gym-next/public/design_assets/ai-2026-10-28/coach-football-640.webp",
+      "sha256": "946d73aea9508f75fe05bdd06add975838aeedaf4ca0d56d17a1e6ae8985ba57"
+    },
+    "coach-fitness-640.webp": {
+      "source": "gym-next/public/design_assets/ai-2026-10-28/coach-fitness-640.webp",
+      "sha256": "31af3fc0122fd0da706b4cfde33931493379852038d1aa12799c4cdaa10b0111"
+    }
+  }
+}

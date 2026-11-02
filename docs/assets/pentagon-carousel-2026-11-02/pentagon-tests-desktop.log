@@ -1,0 +1,63 @@
+[WebServer] (node:12512) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 17 tests using 1 worker
+
+(node:8088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/17] [desktop-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 390px
+[2/17] [desktop-chromium] › tests\door-navigation.spec.ts:28:6 › real page opens with two opposite doors at 1440px
+[3/17] [desktop-chromium] › tests\door-navigation.spec.ts:54:5 › history, query and legacy location navigation retain working live pages
+[4/17] [desktop-chromium] › tests\door-navigation.spec.ts:73:5 › reduced motion, hashes, downloads and external links never create doors
+[5/17] [desktop-chromium] › tests\door-navigation.spec.ts:83:5 › escape, resize, motion change and repeated navigation clean all temporary trees
+[6/17] [desktop-chromium] › tests\door-navigation.spec.ts:96:5 › slow route never traps the interface and the next page still completes
+[7/17] [desktop-chromium] › tests\door-navigation.spec.ts:106:5 › fallback without Navigation API keeps links and back navigation working
+[8/17] [desktop-chromium] › tests\door-navigation.spec.ts:113:5 › scrolled snapshots keep the fixed sidebar handle at the original position
+[9/17] [desktop-chromium] › tests\door-navigation.spec.ts:126:5 › keyboard sports links and sidebar links keep focusable live destinations
+[10/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+  1) [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+
+    Error: CTA of face 5 must fit
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      32 |         return link.bottom <= outer.bottom + 1 && link.top >= outer.top;
+      33 |       });
+    > 34 |       expect(fits, `CTA of face ${index + 1} must fit`).toBe(true);
+         |                                                         ^
+      35 |       await expect(page.locator('.face[data-active="true"] .cta')).toHaveAttribute('href', /^\//);
+      36 |     }
+      37 |   });
+        at C:\Users\cashe\Documents\GYM-door-navigation-20261102\gym-next\tests\pentagon-preview.spec.ts:34:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\pentagon-preview-pentagona-2f8d8-ds-and-no-overflow-at-320px-desktop-chromium\error-context.md
+
+
+(node:4784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[11/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 390px
+[12/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 768px
+[13/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+[14/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:40:5 › unbounded rotations in both directions, keyboard and rapid clicks
+[15/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:56:5 › swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate
+[16/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+[17/17] [desktop-chromium] › tests\pentagon-preview.spec.ts:82:5 › door opening uses full slow duration and remains alive after former cleanup deadline
+  1 failed
+    [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+  16 passed (1.8m)

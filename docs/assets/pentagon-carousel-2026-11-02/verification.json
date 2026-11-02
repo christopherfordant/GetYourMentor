@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-02",
+  "source_head": "de7aec50b042f762b222880dba26a3ca55a17f04",
+  "worktree": "C:\\Users\\cashe\\Documents\\GYM-door-navigation-20261102",
+  "build": {
+    "exit": 0,
+    "id": "tKv23SNWe5zJxW21e9MW3"
+  },
+  "checks": {
+    "check:types": 0,
+    "check:client-secret-boundary": 0,
+    "check:netlify-config": 0,
+    "tracked-secrets": 0
+  },
+  "door_duration_ms": 2200,
+  "opening_cleanup_guard_ms": 2650,
+  "route_wait_guard_ms": 5000,
+  "verified_navigation_regressions": [
+    {
+      "title": "real page opens with two opposite doors at 390px",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "real page opens with two opposite doors at 1440px",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "history, query and legacy location navigation retain working live pages",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "reduced motion, hashes, downloads and external links never create doors",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "escape, resize, motion change and repeated navigation clean all temporary trees",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "slow route never traps the interface and the next page still completes",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "fallback without Navigation API keeps links and back navigation working",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "scrolled snapshots keep the fixed sidebar handle at the original position",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "keyboard sports links and sidebar links keep focusable live destinations",
+      "file": "door-navigation.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    }
+  ],
+  "prototype_final_stats": {
+    "startTime": "2026-11-02T13:02:01.512Z",
+    "duration": 90218.328,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "final_keyboard_cases": [
+    {
+      "title": "keyboard retains focus when leaving the active card link",
+      "file": "pentagon-preview.spec.ts",
+      "project": "desktop-chromium",
+      "status": "expected"
+    },
+    {
+      "title": "keyboard retains focus when leaving the active card link",
+      "file": "pentagon-preview.spec.ts",
+      "project": "mobile-chromium",
+      "status": "expected"
+    }
+  ],
+  "distinct_passes": 27,
+  "counting": "16 final prototype cases + 9 navigation regressions + 2 new focus cases. Other runs superseded, not added.",
+  "browser_review": {
+    "url": "http://127.0.0.1:4321/",
+    "viewport_widths": [
+      1440,
+      390
+    ],
+    "step": 5,
+    "active": 0,
+    "animations_remaining": 0,
+    "links_in_static_mode": "disabled with explanatory text",
+    "server": "Python HTTP, loopback only, prototype public folder only",
+    "pid": 17148,
+    "session": 37872,
+    "running_at_delivery": true
+  },
+  "source_sha256": {
+    "gym-next/lib/door-navigation.ts": "fde13652fcc8f8a166eea8c670842233d5ea13d6af9c88f31f952bebedafb439",
+    "gym-next/public/design_assets/pentagon-carousel-2026-11-02/index.html": "1570029609cd176f329660fbd06d727cb0b7b4a6632464050fe51d0240fc8a67",
+    "gym-next/tests/pentagon-preview.spec.ts": "5aea6c64ae2f0d65e9b430ed5d6986672914e8f562510e2fdbaa33ed4076ba11"
+  },
+  "deployment": "none",
+  "existing_carousels_replaced": false,
+  "push": "pending",
+  "limits": [
+    "Chromium desktop and emulated touch; no real mobile device, Firefox or Safari run",
+    "Five physical faces: three can face the viewer; the other two appear during rotation",
+    "Application links available only under the application URL; disabled for static/offline preview",
+    "Static server optional: index.html also opens locally with its three images"
+  ]
+}

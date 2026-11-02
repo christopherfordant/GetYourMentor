@@ -1,0 +1,31 @@
+[WebServer] (node:10332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 16 tests using 1 worker
+
+(node:15844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+[2/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 390px
+[3/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 768px
+[4/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+[5/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:40:5 › unbounded rotations in both directions, keyboard and rapid clicks
+[6/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:56:5 › swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate
+[7/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+[8/16] [desktop-chromium] › tests\pentagon-preview.spec.ts:82:5 › door opening uses full slow duration and remains alive after former cleanup deadline
+(node:7008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 320px
+[10/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 390px
+[11/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 768px
+[12/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:7:7 › pentagonal geometry, readable cards and no overflow at 1440px
+[13/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:40:5 › unbounded rotations in both directions, keyboard and rapid clicks
+[14/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:56:5 › swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate
+[15/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:72:5 › missing portrait retains textual information and usable navigation
+[16/16] [mobile-chromium] › tests\pentagon-preview.spec.ts:82:5 › door opening uses full slow duration and remains alive after former cleanup deadline
+  16 passed (1.5m)

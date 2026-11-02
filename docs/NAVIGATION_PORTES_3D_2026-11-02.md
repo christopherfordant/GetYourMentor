@@ -1,5 +1,7 @@
 # Navigation : ouverture 3D en deux battants — 2 novembre 2026
 
+> Ajustement ultérieur du 2 novembre : durée portée à **2 200 ms**, nettoyage de secours dérivé à **2 650 ms**, sans autre changement visuel. [Rapport et preuves](PENTAGONE_RALENTI_2026-11-02.md). Les 950 ms ci-dessous décrivent la version initiale conservée dans l'historique.
+
 Demande : intégrer le prototype validé après un commit préalable. Point de retour créé avant le code : `c29b8cd2c69674b385a1f258a70d96380bd447e7`. Sauvegarde privée décrite dans POINT_RETOUR_PORTES_2026-11-02.md. Vingt modifications suivies antérieures exclues.
 
 ## Réalisation locale

@@ -1,0 +1,25 @@
+{
+  "preexisting_files": [
+    "DOCUMENT_MAITRE_GYM.md",
+    "docs/README.md",
+    "governance/ai/DECISIONS_LOG_GYM.md",
+    "governance/ai/auto_git_checkpoint_journal.md",
+    "governance/ai/auto_mode_journal.md",
+    "governance/ai/auto_mode_state.json",
+    "governance/ai/auto_orchestrator_journal.md",
+    "governance/ai/fil_rouge_state.json",
+    "governance/ai/last_supervision_report.md",
+    "governance/ai/supervisor_loop.log",
+    "gym-next/app/api/webhooks/stripe/route.ts",
+    "gym-next/app/final-motion-overrides.css",
+    "gym-next/app/layout.tsx",
+    "gym-next/components/CookieConsentBanner.tsx",
+    "gym-next/components/home/HomePageClient.tsx",
+    "gym-next/next.config.ts",
+    "gym-next/playwright.config.ts",
+    "gym-next/scripts/production-safety-smoke.mjs",
+    "gym-next/tests/stripe-webhook.spec.ts",
+    "supabase/README.md"
+  ],
+  "private_backup": "C:\\Users\\cashe\\Documents\\GYM-backups\\ralenti-pentagone-20261102-140934"
+}

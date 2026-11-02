@@ -108,7 +108,8 @@ export function installDoorNavigation(router: Router) {
       if (!layer || disposed || generation !== activeGeneration) return;
       if (motion.matches) { clean(); return; }
       document.documentElement.dataset.doorTransition = 'opening';
-      const timing: KeyframeAnimationOptions = { duration: 950, easing: 'cubic-bezier(.22,.75,.2,1)', fill: 'both' };
+      const duration = 2200;
+      const timing: KeyframeAnimationOptions = { duration, easing: 'cubic-bezier(.22,.75,.2,1)', fill: 'both' };
       animations = Array.from(layer.children).map((door, index) => door.animate([
         { transform: 'rotateY(0deg)', opacity: 1 },
         { transform: `rotateY(${index ? 110 : -110}deg)`, opacity: 1 }
@@ -119,7 +120,7 @@ export function installDoorNavigation(router: Router) {
         { transform: 'perspective(1600px) translateZ(0) scale(1)', filter: 'brightness(1)' }
       ], timing));
       void Promise.allSettled(animations.map(animation => animation.finished)).then(() => { if (opening && generation === activeGeneration) clean(); });
-      timer = window.setTimeout(clean, 1400);
+      timer = window.setTimeout(clean, duration + 450);
     }); });
   };
   const click = (event: MouseEvent) => {
