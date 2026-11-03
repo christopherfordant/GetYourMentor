@@ -33,3 +33,14 @@ L'offre Free documentée comprend 500 Mo de base et jusqu'à deux projets actifs
 Sources officielles consultées le 3 novembre 2026 : [offre base seule](https://supabase.com/kb/faqs/platform/database-only-cost), [colonnes vectorielles](https://supabase.com/docs/guides/ai/vector-columns), [index](https://supabase.com/docs/guides/ai/vector-indexes), [modèle candidat](https://huggingface.co/intfloat/multilingual-e5-small).
 
 Les preuves du contrôle syntaxique et des régressions locales se trouvent dans `docs/assets/supabase-pgvector-s2-2026-11-03/checks.json`. Ce contrôle de syntaxe ne valide pas les corps PL/pgSQL, les permissions effectives ni les opérations de pgvector.
+
+
+## Connexion et restauration - 3 novembre 2026, vers 17h10 Europe/Madrid
+
+Session Supabase connectee verifiee. La liste des projets contient `getyourmentor-preprod`, reference `pqxqqbwesfrefzjoawmx`, dans une organisation affichee FREE. Le projet ouvert initialement appartient a un autre chantier : aucune modification ni interrogation de ses donnees.
+
+Le projet GetYourMentor etait en pause. Le bouton natif Resume project a ete active sans changement de plan. L'interface confirme ensuite Restoration in progress et indique que le projet reste hors ligne pendant la restauration, avec une duree allant de quelques minutes a plusieurs heures. La fin n'est pas encore confirmee. Aucune extension, table, migration ou donnee documentaire n'a ete ajoutee. Les schemas, la version de pgvector et les droits restent a verifier apres disponibilite.
+
+Point de reprise : https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx . L'etiquette main/PRODUCTION designe la branche Supabase visible; le nom preprod et la confirmation utilisateur identifient la recette, sans preuve supplementaire d'isolation avec une application de production. Verifier les raccordements avant toute mutation. GYM-A4.2 reste bloque. Le choix du projet et sa remise en service ne constituent pas une autorisation d'application de la proposition SQL distante.
+
+Controle suivant : le tableau de bord est reapparu, statut Coming up... puis Checking...; la navigation vers Extensions redirige encore vers cet ecran. Disponibilite SQL toujours non demontree. Tests de politique Kanban 3/3 PASS. Aucun test DB execute.

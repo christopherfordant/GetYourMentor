@@ -1,3 +1,7 @@
+## Reprise active - 3 novembre 2026 : Supabase connecte, recette en restauration
+
+Session verifiee, projet getyourmentor-preprod retrouve (pqxqqbwesfrefzjoawmx), organisation FREE. Projet en pause remis en service par Resume project; interface affiche Restoration in progress. Fin et disponibilite non confirmees. Aucun SQL, changement de schema ou ingestion distante. Attendre la disponibilite puis verifier extension pgvector, schemas, droits et raccordements en lecture seule. [Compte rendu actualise](SUPABASE_PGVECTOR_S2_2026-11-03.md#connexion-et-restauration---3-novembre-2026-vers-17h10-europemadrid). GYM-A4.2 reste bloque; aucun test vectoriel ou modele qualifie. Git : preuves locales dans delivery-private/s2-connection-git.json, divergence existante preservee.
+
 ## Reprise active - 3 novembre 2026 : S2, Supabase + pgvector uniquement
 
 Decision utilisateur : Supabase + pgvector, sans SQLite ni autre base vectorielle. Projet de recette distinct confirme par l'utilisateur; navigateur Supabase redirige vers la connexion, intervention demandee. Proposition SQL privee additive et recette synthetique avec rollback preparees, non appliquees. Schema historique vector(1536) preserve; dimension 384 candidate non qualifiee. GYM-A4.2 reste bloque, aucune inference ou base distante testee. [Rapport et ordre de reprise](SUPABASE_PGVECTOR_S2_2026-11-03.md).
