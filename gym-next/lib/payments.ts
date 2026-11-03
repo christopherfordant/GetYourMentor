@@ -3,6 +3,7 @@ import type { Reservation } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { eurosToCents } from "@/lib/domain/commission";
 import { updatePersistedReservation } from "@/lib/repositories/reservation-repository";
+import { stripeTestConfig } from '@/lib/stripe-test-config';
 
 type CheckoutResult = { checkoutUrl: string; sessionId: string };
 
@@ -12,7 +13,7 @@ function stripeConfig() {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const provider = process.env.PAYMENT_PROVIDER ?? "local";
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3001";
-  if (provider === "stripe" && secretKey) return { secretKey, appUrl: appUrl.replace(/\/$/, "") };
+  if (provider === "stripe") return stripeTestConfig();
   assertDemoFallbackAllowed("Stripe");
   return null;
 }
@@ -23,16 +24,9 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   const config = stripeConfig();
   if (!config) return null;
 
-  const returnParams = new URLSearchParams({
-    reservationId: reservation.id,
-    coach: reservation.coachName,
-    city: reservation.city,
-    service: reservation.service,
-    duration: reservation.duration,
-    price: String(reservation.price),
-    slot: reservation.slots[0] ?? "",
-    mentor: reservation.coachName,
-  });
+  const returnParams = new URLSearchParams({ reservationId: reservation.id });
+  const amount = reservation.financials?.grossCents ?? eurosToCents(reservation.price);
+  if (!Number.isSafeInteger(amount) || amount <= 0) throw new Error('Montant de paiement invalide');
   const form = new URLSearchParams();
   form.set("mode", "payment");
   form.set("success_url", `${config.appUrl}/paiement?${returnParams.toString()}&payment=success`);
@@ -40,7 +34,7 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   form.set("customer_email", reservation.ownerEmail ?? "");
   form.set("line_items[0][quantity]", "1");
   form.set("line_items[0][price_data][currency]", "eur");
-  form.set("line_items[0][price_data][unit_amount]", String(reservation.financials?.grossCents ?? eurosToCents(reservation.price)));
+  form.set("line_items[0][price_data][unit_amount]", String(amount));
   form.set("line_items[0][price_data][product_data][name]", reservation.service);
   form.set("line_items[0][price_data][product_data][description]", `${reservation.coachName} — ${reservation.duration}`);
   form.set("metadata[reservation_id]", reservation.id);
@@ -52,7 +46,7 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   });
   if (!response.ok) throw new Error("Création de la session de paiement impossible");
   const payload = await response.json();
-  if (typeof payload.url !== "string" || typeof payload.id !== "string") throw new Error("Session Stripe invalide");
+  if (typeof payload.url !== "string" || typeof payload.id !== "string" || !payload.id.startsWith('cs_test_') || payload.livemode !== false || new URL(payload.url).origin !== 'https://checkout.stripe.com') throw new Error("Session Stripe de test invalide");
   const saved = await updatePersistedReservation(reservation.id, { stripe_checkout_session_id: payload.id, owner_email: reservation.ownerEmail ?? null }, "accepted");
   if (!saved) throw new Error("La réservation n’est plus payable");
   return { checkoutUrl: payload.url, sessionId: payload.id };
@@ -72,6 +66,7 @@ export async function refundStripePayment(input: {
   if (!Number.isInteger(input.amountCents) || input.amountCents <= 0) {
     throw new Error("Montant de remboursement Stripe invalide");
   }
+  stripeTestConfig();
 
   const form = new URLSearchParams({
     payment_intent: input.paymentIntentId,

@@ -1,3 +1,9 @@
+## Reprise active ? 3 novembre 2026 : Stripe TEST et Telegram
+
+Lot local contr?l? : connecteur Stripe limit? au test, webhook renforc?, donn?es de paiement serveur, association Telegram facultative et file priv?e d?dupliqu?e. **20/20 contr?les cibl?s PASS**, build/TypeScript, fronti?re client et configuration Netlify PASS. Les appels Stripe et messages Telegram sont simul?s dans les tests ; aucun essai externe ni durabilit? Stripe apr?s red?marrage n'est confirm?. L'utilisateur dispose des deux services ; saisie locale des acc?s encore attendue, r?ception des webhooks et destinataires de recette ? raccorder. Migration Telegram pr?par?e, non appliqu?e. Aucun d?ploiement ou paiement r?el.
+
+Aper?u http://127.0.0.1:3005/ (recette locale sans acc?s externe), checkout `C:/Users/cashe/Documents/GYM-stripe-telegram-20261103`, relance `node gym-next/scripts/run-test-preview.cjs`. [Rapport, contr?les, configuration s?curis?e et limites](STRIPE_TELEGRAM_2026-11-03.md). Push initial refus? non-fast-forward, aucun contournement ; ?tat Git final dans les preuves du rapport. Les anciens travaux hors du webhook et de son test r?employ?s sont pr?serv?s. Prochaine action indispensable : configuration locale, transfert des ?v?nements et v?rification du stockage persistant avant essais r?els de test.
+
 # Reprise opérationnelle — GetYourMentor
 
 ## Footers partagés — 3 novembre 2026 : titre et flèche regroupés

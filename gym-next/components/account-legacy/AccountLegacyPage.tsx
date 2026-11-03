@@ -631,6 +631,7 @@ function ClubDashboard({ allowDemoFallback }: { allowDemoFallback: boolean }) {
 }
 
 import { SiteFooter } from "@/components/SiteFooter";
+import { TelegramPreferences } from '@/components/account/TelegramPreferences';
 function AccountFooter() {
   return <SiteFooter />;
   /*
@@ -857,6 +858,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
             {dashboardMode === "club" ? <ClubDashboard allowDemoFallback={allowDemoFallback} /> : null}
           </section>
         </main>
+        <TelegramPreferences key={`${dashboardMode}:${authenticatedAthleteEmail}:${authenticatedCoachId}:${step}`} />
         <AccountFooter />
       </div>
     </>

@@ -1,0 +1,13 @@
+"use client";
+import {useEffect,useState} from 'react';
+type Preferences={configured:boolean;linked:boolean;candidate:boolean};
+export function TelegramPreferences(){
+ const [data,setData]=useState<Preferences|null>(null),[command,setCommand]=useState(''),[message,setMessage]=useState(''),[busy,setBusy]=useState(false);
+ async function refresh(){try{const response=await fetch('/api/telegram/preferences',{cache:'no-store'});if(response.status===401){setData(null);return;}if(!response.ok)throw Error();setData(await response.json());}catch{setMessage('Les notifications sont momentanément indisponibles.');}}
+ useEffect(()=>{void refresh();const update=()=>void refresh();window.addEventListener('focus',update);return()=>window.removeEventListener('focus',update);},[]);
+ async function action(action:string){if(busy)return;setBusy(true);setMessage('');try{const response=await fetch('/api/telegram/preferences',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action})});const result=await response.json();if(!response.ok)throw Error(result.error);if(result.command){setCommand(result.command);setMessage('Commande valable cinq minutes. Ne la partagez pas.');}else{setCommand('');setData(result);setMessage(result.linked?'Conversation associée.':'Notifications désactivées.');}}catch(error){setMessage(error instanceof Error?error.message:'Action impossible');}finally{setBusy(false);}}
+ if(!data&&!message)return null;
+ return <section aria-labelledby="telegram-title" style={{maxWidth:720,width:'100%',margin:'24px auto',padding:20,border:'1px solid #756657',borderRadius:12}}><h2 id="telegram-title">Notifications sur téléphone</h2><p>Les notifications Telegram sont facultatives. Le suivi des réservations reste disponible dans votre compte.</p>
+ {data&&!data.configured?<p>Telegram n’est pas configuré pour cette démonstration. Aucun message n’est envoyé.</p>:data?.linked?<><p>Conversation Telegram associée.</p><button disabled={busy} onClick={()=>action('retry')}>Reprendre les notifications en attente</button><button disabled={busy} onClick={()=>action('unlink')}>Désactiver Telegram</button></>:data&&<><button disabled={busy} onClick={()=>action('start')}>Associer Telegram</button>{command&&<div><p>Ouvrez le bot indiqué par le responsable de la démonstration et envoyez :</p><code style={{display:'block',overflowWrap:'anywhere'}}>{command}</code><button onClick={()=>void refresh()}>Vérifier la réception</button></div>}{data.candidate&&<button disabled={busy} onClick={()=>action('confirm')}>Confirmer la conversation que je viens d’utiliser</button>}</>}
+ <p role="status" aria-live="polite">{message}</p></section>;
+}

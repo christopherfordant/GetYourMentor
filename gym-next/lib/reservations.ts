@@ -20,6 +20,7 @@ import { sendReservationConfirmation } from "@/lib/notifications";
 import { refundStripePayment } from "@/lib/payments";
 import { financialSnapshot, eurosToCents, refundedCommissionCents } from "@/lib/domain/commission";
 import { getCommissionSettings } from "@/lib/repositories/commission-repository";
+import {notifyTelegram} from '@/lib/telegram';
 
 function supabaseConfig() {
   return reservationPersistenceConfig();
@@ -46,7 +47,9 @@ export async function hasSlotConflict(coachId: string, slots: string[], excludeI
 
 export async function createReservation(reservation: Reservation, attempt?: AttemptInput) {
   const settings = await getCommissionSettings();
-  return createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) }, attempt);
+  const saved=await createPersistedReservation({ ...reservation, financials: financialSnapshot(reservation.price, settings.bps, settings.version) }, attempt);
+  if(saved)await notifyTelegram(saved,'requested');
+  return saved;
 }
 
 export async function listReservations(options: { coachId?: string; ownerEmail?: string } = {}): Promise<Reservation[]> {
@@ -80,10 +83,12 @@ export async function transitionReservation(id: string, status: "accepted" | "re
     const unused = current.slots.filter(slot => slot !== chosen);
     if (unused.length) await releaseReservationSlots(config, id, unused);
   }
+  if(status==='accepted'||status==='rejected')await notifyTelegram(saved,status);
   return saved;
 }
 
 export async function payReservation(id: string, ownerEmail?: string, stripePaymentIntentId?: string) {
+  if(process.env.PAYMENT_PROVIDER==='stripe'&&!stripePaymentIntentId)throw new Error('Confirmation serveur Stripe requise');
   const current = await getReservation(id);
   if (!current) return null;
   if (current.ownerEmail && current.ownerEmail !== ownerEmail) throw new Error("Cette réservation appartient à un autre compte");
@@ -110,6 +115,7 @@ export async function payReservation(id: string, ownerEmail?: string, stripePaym
   }
   if(!confirmedNow)return saved;
   const confirmation=await sendReservationConfirmation(saved).catch(()=>({status:"skipped" as const}));
+  if(stripePaymentIntentId)await notifyTelegram(saved,'paid');
   return {...saved,confirmationStatus:confirmation.status};
 }
 

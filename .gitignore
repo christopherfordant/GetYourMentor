@@ -12,6 +12,7 @@ tmp_menu_accueil_profil_coach.jpg
 
 # Variables d’environnement locales : ne jamais versionner de secrets.
 .env
+/.private-data/
 .env.*
 !.env.example
 gym-next/.env

@@ -1,0 +1,960 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=delivery-private/playwright.config.ts",
+      "stripe-webhook.spec.ts",
+      "telegram-preferences.spec.ts",
+      "test-services-unit.spec.ts",
+      "payment-flow.spec.ts",
+      "demo-payment-proof.spec.ts",
+      "--workers=1"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\delivery-private\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-stripe-telegram-20261103/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-stripe-telegram-20261103/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-stripe-telegram-20261103/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-stripe-telegram-20261103/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-stripe-telegram-20261103/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../docs/assets/stripe-telegram-2026-11-03/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "demo-payment-proof.spec.ts",
+      "file": "demo-payment-proof.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "mémoire : échec sans preuve, historique absent et protection des mises à jour",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 58,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:13.634Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-a70deae02a517bfa85a9",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "adaptateur Blobs hors ligne : CAS, relecture, annulation et échec de stockage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 79,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:13.753Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-5f5fb646f1612cdfcfcb",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "API : confirmation serveur unique, champs forgés et conservation après remboursement",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 531,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:13.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-91d98c4644de29b8f271",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 49,
+          "column": 5
+        },
+        {
+          "title": "mémoire : échec sans preuve, historique absent et protection des mises à jour",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 68,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:28.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-a090ffbc5dc8aaaf00f8",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "adaptateur Blobs hors ligne : CAS, relecture, annulation et échec de stockage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 89,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:28.210Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-72e03794d567162d12bc",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "API : confirmation serveur unique, champs forgés et conservation après remboursement",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 299,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:28.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f45fa936b2fd3e669c9f-702a7c5b5117799d57a2",
+          "file": "demo-payment-proof.spec.ts",
+          "line": 49,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "payment-flow.spec.ts",
+      "file": "payment-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "le paiement est verrouillé avant acceptation puis confirmé après",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6821,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:14.415Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "78204f79ba8de233d4ca-a064b9b1879b81239fed",
+          "file": "payment-flow.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "le paiement est verrouillé avant acceptation puis confirmé après",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5610,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:28.665Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "78204f79ba8de233d4ca-1b5e681604a7bb560005",
+          "file": "payment-flow.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "stripe-webhook.spec.ts",
+      "file": "stripe-webhook.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "le webhook Stripe signé confirme une réservation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 103,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts:30:56",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                      "column": 56,
+                      "line": 30
+                    },
+                    "snippet": "  28 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n  29 |   bad.data.object.currency='eur';bad.data.object.customer_details.email='other@test.invalid';\n> 30 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n     |                                                        ^\n  31 |   bad.data.object.customer_details.email='sportif@example.com';bad.data.object.payment_status='unpaid';\n  32 |   expect((await (await signed(JSON.stringify(bad))).json()).processed).toBe(false);\n  33 |   const signature = createHmac(\"sha256\", \"test-webhook-secret\").update(`${timestamp}.${payload}`).digest(\"hex\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                        "column": 56,
+                        "line": 30
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n\n  28 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n  29 |   bad.data.object.currency='eur';bad.data.object.customer_details.email='other@test.invalid';\n> 30 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n     |                                                        ^\n  31 |   bad.data.object.customer_details.email='sportif@example.com';bad.data.object.payment_status='unpaid';\n  32 |   expect((await (await signed(JSON.stringify(bad))).json()).processed).toBe(false);\n  33 |   const signature = createHmac(\"sha256\", \"test-webhook-secret\").update(`${timestamp}.${payload}`).digest(\"hex\");\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts:30:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:22.997Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\stripe-webhook-le-webhook--e57d9-né-confirme-une-réservation-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                    "column": 56,
+                    "line": 30
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e4f4bbc2fb1283c30dcc-1cd8cd087b6a1be2dc2e",
+          "file": "stripe-webhook.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "le webhook Stripe signé confirme une réservation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 106,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts:30:56",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                      "column": 56,
+                      "line": 30
+                    },
+                    "snippet": "  28 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n  29 |   bad.data.object.currency='eur';bad.data.object.customer_details.email='other@test.invalid';\n> 30 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n     |                                                        ^\n  31 |   bad.data.object.customer_details.email='sportif@example.com';bad.data.object.payment_status='unpaid';\n  32 |   expect((await (await signed(JSON.stringify(bad))).json()).processed).toBe(false);\n  33 |   const signature = createHmac(\"sha256\", \"test-webhook-secret\").update(`${timestamp}.${payload}`).digest(\"hex\");"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                        "column": 56,
+                        "line": 30
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m409\u001b[39m\nReceived: \u001b[31m200\u001b[39m\n\n  28 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n  29 |   bad.data.object.currency='eur';bad.data.object.customer_details.email='other@test.invalid';\n> 30 |   expect((await signed(JSON.stringify(bad))).status()).toBe(409);\n     |                                                        ^\n  31 |   bad.data.object.customer_details.email='sportif@example.com';bad.data.object.payment_status='unpaid';\n  32 |   expect((await (await signed(JSON.stringify(bad))).json()).processed).toBe(false);\n  33 |   const signature = createHmac(\"sha256\", \"test-webhook-secret\").update(`${timestamp}.${payload}`).digest(\"hex\");\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts:30:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:34.489Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\stripe-webhook-le-webhook--e57d9-né-confirme-une-réservation-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\stripe-webhook.spec.ts",
+                    "column": 56,
+                    "line": 30
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e4f4bbc2fb1283c30dcc-ac3f2b307474ff8dabd7",
+          "file": "stripe-webhook.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "telegram-preferences.spec.ts",
+      "file": "telegram-preferences.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Telegram preferences require authentication and same origin",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 681,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts:6:95",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                      "column": 95,
+                      "line": 6
+                    },
+                    "snippet": "  4 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  5 |  await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n> 6 |  const response=await page.request.get('/api/telegram/preferences');expect(response.status()).toBe(200);\n    |                                                                                               ^\n  7 |  expect(await response.json()).toMatchObject({configured:false,linked:false});\n  8 |  await page.goto('/compte?mode=sportif');\n  9 |  await expect(page.getByRole('heading',{name:'Notifications sur téléphone'})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                        "column": 95,
+                        "line": 6
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n\n  4 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  5 |  await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n> 6 |  const response=await page.request.get('/api/telegram/preferences');expect(response.status()).toBe(200);\n    |                                                                                               ^\n  7 |  expect(await response.json()).toMatchObject({configured:false,linked:false});\n  8 |  await page.goto('/compte?mode=sportif');\n  9 |  await expect(page.getByRole('heading',{name:'Notifications sur téléphone'})).toBeVisible();\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts:6:95"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:24.305Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                    "column": 95,
+                    "line": 6
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "409fdb457a55295daa89-c3947f4f04a5fd809346",
+          "file": "telegram-preferences.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "Telegram preferences require authentication and same origin",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 637,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts:6:95",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                      "column": 95,
+                      "line": 6
+                    },
+                    "snippet": "  4 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  5 |  await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n> 6 |  const response=await page.request.get('/api/telegram/preferences');expect(response.status()).toBe(200);\n    |                                                                                               ^\n  7 |  expect(await response.json()).toMatchObject({configured:false,linked:false});\n  8 |  await page.goto('/compte?mode=sportif');\n  9 |  await expect(page.getByRole('heading',{name:'Notifications sur téléphone'})).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                        "column": 95,
+                        "line": 6
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m401\u001b[39m\n\n  4 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  5 |  await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n> 6 |  const response=await page.request.get('/api/telegram/preferences');expect(response.status()).toBe(200);\n    |                                                                                               ^\n  7 |  expect(await response.json()).toMatchObject({configured:false,linked:false});\n  8 |  await page.goto('/compte?mode=sportif');\n  9 |  await expect(page.getByRole('heading',{name:'Notifications sur téléphone'})).toBeVisible();\n    at C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts:6:95"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:35.660Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-stripe-telegram-20261103\\gym-next\\tests\\telegram-preferences.spec.ts",
+                    "column": 95,
+                    "line": 6
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "409fdb457a55295daa89-618e5bcaa63f4750e02c",
+          "file": "telegram-preferences.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "test-services-unit.spec.ts",
+      "file": "test-services-unit.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "notifications: recipients, deduplication and retention",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:26.495Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-c06b44c4615590a98c70",
+          "file": "test-services-unit.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "Stripe rejects live keys and unsafe return origins",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:26.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-f7aae78d0268abf1b304",
+          "file": "test-services-unit.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "Telegram: private pairing, explicit confirmation, dedup and ambiguous delivery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 128,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:26.623Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-0cdb7f82a3d22a66aaec",
+          "file": "test-services-unit.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "Stripe checkout: server amount, test response and persisted session (mock API)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 22,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:26.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-2558a0f07a013ea427ef",
+          "file": "test-services-unit.spec.ts",
+          "line": 75,
+          "column": 5
+        },
+        {
+          "title": "notifications: recipients, deduplication and retention",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 24,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:37.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-c690b6301547d333cd80",
+          "file": "test-services-unit.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "Stripe rejects live keys and unsafe return origins",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:37.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-7fd91ab3be85a7a7fe8f",
+          "file": "test-services-unit.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "Telegram: private pairing, explicit confirmation, dedup and ambiguous delivery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:37.942Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-c569424844be1a1d1282",
+          "file": "test-services-unit.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "Stripe checkout: server amount, test response and persisted session (mock API)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-03T12:22:38.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a4480812a92e295b084b-bc45c670a993d63aa4e9",
+          "file": "test-services-unit.spec.ts",
+          "line": 75,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-03T12:22:11.783Z",
+    "duration": 26378.487,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

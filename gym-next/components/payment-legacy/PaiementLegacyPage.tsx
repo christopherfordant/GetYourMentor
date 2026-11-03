@@ -209,16 +209,16 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
   const demo=useDemoPayment(provider==="local",params.reservationId || "",athleteEmail);
   const [stripeReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
   const serverReservation=provider==="local"?demo.reservation:stripeReservation;
-  const coach = provider==="local"?(serverReservation?.coachName || "À vérifier"):serverReservation?.coachName || params.coach || "Studio Form Marseille";
-  const city = provider==="local"?(serverReservation?.city || "À vérifier"):serverReservation?.city || params.city || "Marseille";
-  const service = provider==="local"?(serverReservation?.service || "À vérifier"):serverReservation?.service || params.service || "Coaching remise en forme";
-  const duration = provider==="local"?(serverReservation?.duration || "À vérifier"):serverReservation?.duration || params.duration || "30min";
-  const price = serverReservation ? `${serverReservation.price.toFixed(2)} EUR` : provider==="local"?"À vérifier":params.price || "35 ";
+  const coach = serverReservation?.coachName || "À vérifier";
+  const city = serverReservation?.city || "À vérifier";
+  const service = serverReservation?.service || "À vérifier";
+  const duration = serverReservation?.duration || "À vérifier";
+  const price = serverReservation ? `${serverReservation.price.toFixed(2)} EUR` : "À vérifier";
   const objective = params.objective || "";
   const format = params.format || "";
   const packageLabel = params.package || "";
   const slot = params.slot || "10:00";
-  const mentor = serverReservation?.coachName || (provider==="local"?"À vérifier":params.mentor || "Coach confirme");
+  const mentor = serverReservation?.coachName || "À vérifier";
   const reservationId = params.reservationId || "";
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [stripeSuccess, setSuccess] = useState(false);
@@ -272,7 +272,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
   }, [params.payment, reservationId,provider]);
 
   useEffect(() => {
-    if (provider==="stripe" && params.payment === "cancelled") setPaymentError("Le paiement a été annulé. Votre demande reste en attente.");
+    if (provider==="stripe" && params.payment === "cancelled") setPaymentError("Le paiement a été annulé. La demande reste acceptée mais non payée ; vous pouvez reprendre le paiement.");
   }, [params.payment,provider]);
 
   async function handlePayment() {
@@ -310,6 +310,7 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
         <PaymentHeader />
 
         <main className="payment-page" data-payment-page>
+          <p role="note" style={{padding:16,border:'1px solid currentColor',borderRadius:8}}>{provider === 'stripe' ? 'Démonstration — paiement Stripe en mode test, aucun débit réel.' : 'Démonstration locale — paiement simulé sans connexion à Stripe, aucun débit réel.'}</p>
           <PaymentMain selectedMethod={selectedMethod} onSelectMethod={setSelectedMethod} provider={provider} />
           <PaymentSide
             coach={coach}
