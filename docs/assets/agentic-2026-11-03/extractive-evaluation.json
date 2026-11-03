@@ -1,0 +1,113 @@
+{
+  "method": "lexical-chunks-top5",
+  "holdout": false,
+  "passed": 6,
+  "total": 8,
+  "cases": [
+    {
+      "id": "source-of-truth",
+      "expected": [
+        "master"
+      ],
+      "cited": [
+        "architecture",
+        "memory-rag",
+        "rag-readiness",
+        "master"
+      ],
+      "pass": true
+    },
+    {
+      "id": "critical-path",
+      "expected": [
+        "memory-rag",
+        "architecture"
+      ],
+      "cited": [
+        "master",
+        "memory-rag",
+        "rag-readiness"
+      ],
+      "pass": false
+    },
+    {
+      "id": "mcp-safety",
+      "expected": [
+        "memory-rag",
+        "architecture"
+      ],
+      "cited": [
+        "architecture",
+        "master"
+      ],
+      "pass": false
+    },
+    {
+      "id": "mvp-flow",
+      "expected": [
+        "mvp-screens",
+        "master"
+      ],
+      "cited": [
+        "master",
+        "design-system",
+        "mvp-screens"
+      ],
+      "pass": true
+    },
+    {
+      "id": "web-first",
+      "expected": [
+        "master",
+        "architecture"
+      ],
+      "cited": [
+        "master",
+        "architecture"
+      ],
+      "pass": true
+    },
+    {
+      "id": "rag-boundary",
+      "expected": [
+        "memory-rag",
+        "rag-readiness",
+        "architecture"
+      ],
+      "cited": [
+        "rag-readiness",
+        "architecture",
+        "memory-rag",
+        "master"
+      ],
+      "pass": true
+    },
+    {
+      "id": "mcp-permissions",
+      "expected": [
+        "memory-rag",
+        "architecture"
+      ],
+      "cited": [
+        "architecture",
+        "memory-rag",
+        "design-system"
+      ],
+      "pass": true
+    },
+    {
+      "id": "design-priority",
+      "expected": [
+        "design-system",
+        "master"
+      ],
+      "cited": [
+        "master",
+        "architecture",
+        "design-system",
+        "decisions"
+      ],
+      "pass": true
+    }
+  ]
+}

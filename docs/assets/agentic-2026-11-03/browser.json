@@ -1,0 +1,24 @@
+[
+  {
+    "width": 1440,
+    "tickets": 18,
+    "s1Tickets": 10,
+    "roles": 5,
+    "keyboard": true,
+    "citations": true,
+    "abstention": true,
+    "reducedMotion": true,
+    "horizontalPageOverflow": false
+  },
+  {
+    "width": 390,
+    "tickets": 18,
+    "s1Tickets": 10,
+    "roles": 5,
+    "keyboard": true,
+    "citations": true,
+    "abstention": true,
+    "reducedMotion": true,
+    "horizontalPageOverflow": false
+  }
+]

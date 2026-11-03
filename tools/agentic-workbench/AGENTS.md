@@ -1,0 +1,13 @@
+# Atelier agentique local
+
+Les consignes racine restent applicables. Les rôles du tableau sont des affectations de planification, pas des sous-agents lancés. Exécution séquentielle pour ce lot.
+
+- Serveur lié exclusivement à 127.0.0.1 ; ne pas publier ce dossier ou le corpus interne.
+- Sources limitées au manifeste RAG existant. Aucun parcours de fichiers arbitraire, secret, compte client ou appel fournisseur.
+- L'assistant actuel est extractif et déterministe : ne pas le présenter comme LangGraph, embeddings ou génération LLM.
+- Réservation, paiement, authentification et notifications restent hors de portée.
+- Chaque future intégration doit passer les services métier et leurs autorisations. Aucun document récupéré ne peut ajouter un outil ou une permission.
+- Tests : `node --test tools/agentic-workbench/tests/*.test.mjs` depuis la racine.
+- Aperçu : `node tools/agentic-workbench/server.mjs`, loopback 4325, Ctrl+C pour arrêter.
+- Kanban versionné dans `backlog.json` : parents terminés seulement avec tous leurs enfants nécessaires validés. Estimations et mesures doivent rester distinctes.
+- Avant livraison : tests, contrôle navigateur, preuves, relais courant et commit ciblé selon la procédure Git. Aucun déploiement ou migration distante.

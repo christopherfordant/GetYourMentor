@@ -1,0 +1,32 @@
+name: Agentic workbench (local-only checks)
+# Manual activation: no new automatic billable run or deployment is introduced.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: agentic-local-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  offline-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7, verified 2026-11-03
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7, verified 2026-11-03
+        with:
+          node-version: '22'
+      - name: Offline graph, retrieval, provenance and Kanban checks
+        run: node --test tools/agentic-workbench/tests/*.test.mjs
+      - name: Existing lexical corpus and evaluation gates
+        working-directory: gym-next
+        run: |
+          node scripts/check-rag-corpus.mjs
+          node scripts/evaluate-rag-corpus.mjs
+      - name: Existing tracked-secret check
+        working-directory: gym-next
+        run: node scripts/check-tracked-secrets.mjs
+# Existing mvp-gates.yml keeps types/build/client-boundary/business tests.
+# No secrets, model provider, deployment, ingestion or migration in this workflow.

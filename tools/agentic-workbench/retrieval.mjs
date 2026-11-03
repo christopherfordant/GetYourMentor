@@ -1,0 +1,38 @@
+import {readFile,realpath} from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+
+export const terms=value=>new Set((value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').match(/[a-z0-9]{3,}/g)??[]).filter(t=>!['les','des','une','pour','dans','avec','est','que','qui','sur','comment','quel','quelle','sont','mes','mon'].includes(t)));
+// Same governed manifest and lexical baseline as scripts/evaluate-rag-corpus.mjs.
+// Chunk scoring adds no embedding model and must not be described as semantic search.
+export async function loadCorpus(root,signal){
+ const base=await realpath(root);
+ const manifest=JSON.parse(await readFile(path.join(base,'docs/architecture/rag-corpus.json'),{encoding:'utf8',signal}));
+ if(!Array.isArray(manifest.documents)||manifest.documents.length>16)throw Error('Invalid corpus');
+ const chunks=[];
+ for(const document of manifest.documents){
+  const file=await realpath(path.resolve(base,document.path));
+  if(!file.startsWith(base+path.sep)||!file.endsWith('.md'))throw Error('Source outside corpus');
+  const text=await readFile(file,{encoding:'utf8',signal});
+  if(Buffer.byteLength(text)>1024*1024)throw Error('Source too large');
+  const version=createHash('sha256').update(text).digest('hex');
+  const pieces=text.split(/\r?\n\s*\r?\n/).filter(p=>p.trim());
+  pieces.forEach((piece,index)=>{
+   // Fixed-size chunks with deterministic identifiers, no generated paraphrases.
+   for(let offset=0;offset<piece.length;offset+=1200){
+    const excerpt=piece.slice(offset,offset+1200).trim();
+    chunks.push({id:`${document.id}:${index}:${offset}`,documentId:document.id,path:document.path,priority:document.priority,version,excerpt,visibility:'internal',status:'active'});
+   }
+  });
+ }
+ return chunks;
+}
+
+export function retrieve(chunks,question){
+ const query=terms(question);if(!query.size)return [];
+ return chunks.filter(c=>c.visibility==='internal'&&c.status==='active').map(chunk=>{
+  const present=terms(chunk.excerpt);
+  const hits=[...query].filter(t=>present.has(t)).length;
+  return {...chunk,score:hits/query.size,hits};
+ }).filter(c=>c.hits>0).sort((a,b)=>b.score-a.score||a.priority-b.priority||a.id.localeCompare(b.id)).slice(0,5);
+}

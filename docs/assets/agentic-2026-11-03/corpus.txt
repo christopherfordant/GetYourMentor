@@ -1,0 +1,1 @@
+Corpus RAG valide : 8 documents gouvernés, aucun secret détecté.

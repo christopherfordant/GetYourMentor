@@ -1,5 +1,9 @@
 # GetYourMentor — consignes obligatoires de reprise
 
+## Chantier documentaire local — 3 novembre 2026
+
+Pour la refonte agentique, consulter `docs/architecture/AGENTIC_REFACTOR_2026-11-03.md`, le Kanban versionné et `tools/agentic-workbench/AGENTS.md`. L'atelier actuel est extractif, local et sans modèle ; ses rôles planifiés ne sont pas des agents lancés. Ne pas publier les documents internes ou ajouter des outils de mutation. Les consignes de sécurité, Git, reprise et exécution séquentielle ci-dessous restent applicables.
+
 Avant toute intervention, lire la « Procédure obligatoire à chaque demande » de [BRANCH_STRATEGY_GYM.md](BRANCH_STRATEGY_GYM.md), puis les documents qu’elle désigne.
 
 À chaque prompt : inventaire Git et documentaire au départ ; vérification, documentation, commit ciblé et push sur la branche appropriée avant la réponse finale de livraison ; confirmation du SHA distant. Préserver les changements antérieurs non vérifiés. Aucun commit vide pour une simple discussion.

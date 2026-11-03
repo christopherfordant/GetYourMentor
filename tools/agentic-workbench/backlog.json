@@ -1,0 +1,685 @@
+{
+  "version": 1,
+  "updated": "2026-11-03",
+  "mode": "simulation de repartition des roles, execution sequentielle",
+  "roles": [
+    "Architecture",
+    "RAG",
+    "Securite",
+    "QA",
+    "DevOps"
+  ],
+  "sprints": [
+    {
+      "id": "S1",
+      "title": "Socle et preuve locale",
+      "start": "2026-11-03",
+      "end": "2026-11-06",
+      "goal": "Audit, Kanban et assistance extractive bornee",
+      "capacityAssumption": "20 h/semaine pour un executant; dates proposees, pas engagement"
+    },
+    {
+      "id": "S2",
+      "title": "Vecteurs et evaluation",
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "goal": "Choisir embeddings et tester un index isole",
+      "capacityAssumption": "A replanifier apres S1 et disponibilite du stockage"
+    },
+    {
+      "id": "S3",
+      "title": "Orchestration et integration",
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "goal": "Evaluer LangGraph, supervision et integration admin",
+      "capacityAssumption": "Prevision conditionnelle aux preuves S2"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "GYM-A1",
+      "title": "Cartographier et choisir le socle",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Cartographier et choisir le socle",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Inventaire source et etats verifies disponibles",
+        "Architecture et limites explicites"
+      ],
+      "files": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md"
+      ],
+      "tests": [
+        "Revue documentaire"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A1.1",
+      "title": "Auditer les dossiers reutilisables",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": "GYM-A1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Auditer les dossiers reutilisables",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Distinguer atelier reel, vitrine et worktrees"
+      ],
+      "files": [
+        "systeme_agentique_prompt",
+        "docs/architecture/rag-corpus.json"
+      ],
+      "tests": [
+        "Inventaire cible et revue de code"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A1.2",
+      "title": "Definir les frontieres et AGENTS.md",
+      "role": "Securite",
+      "assignment": "simulated-role",
+      "parent": "GYM-A1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Definir les frontieres et AGENTS.md",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Aucun outil de mutation autorise",
+        "Roles planifies distincts des agents actifs"
+      ],
+      "files": [
+        "tools/agentic-workbench/AGENTS.md"
+      ],
+      "tests": [
+        "Revue de permissions"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A2",
+      "title": "Livrer la tranche documentaire locale",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        4,
+        7
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Livrer la tranche documentaire locale",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Sources traceables et abstention",
+        "Aucune inference externe"
+      ],
+      "files": [
+        "tools/agentic-workbench"
+      ],
+      "tests": [
+        "Tests unitaires et navigateur"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt",
+        "docs/assets/agentic-2026-11-03/browser.json"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A2.1",
+      "title": "Reprendre manifeste et retrieval lexical",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-A2",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Reprendre manifeste et retrieval lexical",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Sources limitees au manifeste",
+        "Version SHA256 et suppression repercutee au prochain chargement"
+      ],
+      "files": [
+        "tools/agentic-workbench/retrieval.mjs"
+      ],
+      "tests": [
+        "Acces refuse avant lecture",
+        "Classement et source absente"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A2.2",
+      "title": "Orchestrer une lecture bornee",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-A2",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        2,
+        3
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Orchestrer une lecture bornee",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Une recherche, delai et arret explicites",
+        "Aucune instruction documentaire executee"
+      ],
+      "files": [
+        "tools/agentic-workbench/workflow.mjs"
+      ],
+      "tests": [
+        "Injection",
+        "Panne",
+        "Timeout",
+        "Contradictions conservees"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A2.3",
+      "title": "Verifier citations et interface",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": "GYM-A2",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Verifier citations et interface",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Resultats documentes",
+        "Mobile, clavier et rendu controles"
+      ],
+      "files": [
+        "tools/agentic-workbench/tests"
+      ],
+      "tests": [
+        "Tests Node",
+        "Playwright"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt",
+        "docs/assets/agentic-2026-11-03/browser.json"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A3",
+      "title": "Organiser le suivi et les controles CI",
+      "role": "DevOps",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Organiser le suivi et les controles CI",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Parents et sous-tickets coherents",
+        "CI sans secret ni deploiement"
+      ],
+      "files": [
+        "tools/agentic-workbench/backlog.json",
+        ".github/workflows/agentic-local.yml"
+      ],
+      "tests": [
+        "Validation backlog",
+        "Revue workflow"
+      ],
+      "evidence": [
+        "docs/assets/agentic-2026-11-03/legacy-evaluation.txt",
+        ".github/workflows/agentic-local.yml"
+      ],
+      "blocker": "Evaluation lexicale existante 7/8; gate CI non verte. Aucun run GitHub lance.",
+      "next": "Corriger le retrieval sur critical-path et ajouter des questions inedites avant validation CI."
+    },
+    {
+      "id": "GYM-A3.1",
+      "title": "Construire le Kanban et la charge par role",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": "GYM-A3",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Construire le Kanban et la charge par role",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Sous-tickets visibles",
+        "Pas de double compte",
+        "Estimations distinctes des mesures"
+      ],
+      "files": [
+        "tools/agentic-workbench/app.js",
+        "tools/agentic-workbench/backlog.json"
+      ],
+      "tests": [
+        "Integrite JSON",
+        "Navigation et filtres"
+      ],
+      "evidence": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "docs/assets/agentic-2026-11-03/node-tests.txt",
+        "docs/assets/agentic-2026-11-03/browser.json"
+      ],
+      "blocker": null,
+      "next": "Revue utilisateur puis reprise des tickets dependants"
+    },
+    {
+      "id": "GYM-A3.2",
+      "title": "Ajouter des gates CI reproductibles",
+      "role": "DevOps",
+      "assignment": "simulated-role",
+      "parent": "GYM-A3",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Ajouter des gates CI reproductibles",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [],
+      "acceptance": [
+        "Execution locale sans installation externe",
+        "Pas de secret, publication ni migration"
+      ],
+      "files": [
+        ".github/workflows/agentic-local.yml"
+      ],
+      "tests": [
+        "Node tests",
+        "Verification statique workflow"
+      ],
+      "evidence": [
+        "docs/assets/agentic-2026-11-03/legacy-evaluation.txt",
+        ".github/workflows/agentic-local.yml"
+      ],
+      "blocker": "Evaluation lexicale existante 7/8; gate CI non verte. Aucun run GitHub lance.",
+      "next": "Corriger le retrieval sur critical-path et ajouter des questions inedites avant validation CI."
+    },
+    {
+      "id": "GYM-A4",
+      "title": "Activer les embeddings sur un stockage isole",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "blocked",
+      "estimateHours": [
+        10,
+        16
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Activer les embeddings sur un stockage isole",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A2"
+      ],
+      "acceptance": [
+        "Modele, dimensions et droits evalues",
+        "Aucune ingestion privee non autorisee"
+      ],
+      "files": [
+        "supabase/schemas/memory.sql"
+      ],
+      "tests": [
+        "Recall et abstention",
+        "Isolation",
+        "Reindexation"
+      ],
+      "evidence": [],
+      "blocker": "Modele local et environnement de stockage isole a qualifier; migration distante non autorisee",
+      "next": "Lever le prerequis sans contourner les autorisations"
+    },
+    {
+      "id": "GYM-A4.1",
+      "title": "Qualifier modele, licence et ressources",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-A4",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "prepare",
+      "estimateHours": [
+        3,
+        5
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Qualifier modele, licence et ressources",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A2"
+      ],
+      "acceptance": [
+        "Modele et dimension prouves",
+        "Budget nul et ressources compatibles"
+      ],
+      "files": [
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md"
+      ],
+      "tests": [
+        "Essai local borne"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-A4.2",
+      "title": "Tester index, mises a jour et suppression",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-A4",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "blocked",
+      "estimateHours": [
+        4,
+        6
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Tester index, mises a jour et suppression",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A4.1"
+      ],
+      "acceptance": [
+        "Versionnement embeddings",
+        "Suppression avant retrieval",
+        "Aucun melange de dimensions"
+      ],
+      "files": [
+        "supabase/schemas/memory.sql"
+      ],
+      "tests": [
+        "Migrations locales",
+        "Reindexation et ACL"
+      ],
+      "evidence": [],
+      "blocker": "Stockage de recette et modele non qualifies",
+      "next": "Lever le prerequis sans contourner les autorisations"
+    },
+    {
+      "id": "GYM-A4.3",
+      "title": "Comparer lexical et vectoriel",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": "GYM-A4",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "backlog",
+      "estimateHours": [
+        3,
+        5
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Comparer lexical et vectoriel",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A4.2"
+      ],
+      "acceptance": [
+        "Metriques sur questions documentees",
+        "Seuils justifies par evaluation"
+      ],
+      "files": [
+        "docs/architecture/rag-evaluation.json"
+      ],
+      "tests": [
+        "Sources absentes",
+        "Contradictions",
+        "Injection"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-A5",
+      "title": "Integrer une orchestration applicative supervisee",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S3",
+      "priority": "P1",
+      "status": "backlog",
+      "estimateHours": [
+        8,
+        14
+      ],
+      "actualHours": null,
+      "due": "2026-11-20",
+      "objective": "Integrer une orchestration applicative supervisee",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A4"
+      ],
+      "acceptance": [
+        "Service metier inchange",
+        "Agent lecture seule avec acces serveur"
+      ],
+      "files": [
+        "gym-next/lib/knowledge"
+      ],
+      "tests": [
+        "Regression metier",
+        "Panne outil et modele"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-A5.1",
+      "title": "Comparer graphe natif et LangGraph sur un cas",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": "GYM-A5",
+      "sprint": "S3",
+      "priority": "P1",
+      "status": "backlog",
+      "estimateHours": [
+        3,
+        5
+      ],
+      "actualHours": null,
+      "due": "2026-11-20",
+      "objective": "Comparer graphe natif et LangGraph sur un cas",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A4.3"
+      ],
+      "acceptance": [
+        "Decision architecture par besoin mesurable",
+        "Etat et reprise bornes"
+      ],
+      "files": [
+        "gym-next/lib/knowledge"
+      ],
+      "tests": [
+        "Interruptions et reprise"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-A5.2",
+      "title": "Raccorder uniquement la console admin",
+      "role": "Securite",
+      "assignment": "simulated-role",
+      "parent": "GYM-A5",
+      "sprint": "S3",
+      "priority": "P1",
+      "status": "backlog",
+      "estimateHours": [
+        3,
+        5
+      ],
+      "actualHours": null,
+      "due": "2026-11-20",
+      "objective": "Raccorder uniquement la console admin",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A5.1"
+      ],
+      "acceptance": [
+        "Session admin validee cote serveur",
+        "Aucun acces donnees clients depuis les sources"
+      ],
+      "files": [
+        "gym-next/app/api/knowledge"
+      ],
+      "tests": [
+        "403 inter-roles",
+        "Fail closed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-A5.3",
+      "title": "Recetter et documenter le sprint",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": "GYM-A5",
+      "sprint": "S3",
+      "priority": "P1",
+      "status": "backlog",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "due": "2026-11-20",
+      "objective": "Recetter et documenter le sprint",
+      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "dependencies": [
+        "GYM-A5.2"
+      ],
+      "acceptance": [
+        "Preuves reelles distinctes des doubles",
+        "Decision de livraison explicite"
+      ],
+      "files": [
+        "docs/architecture"
+      ],
+      "tests": [
+        "Build et regression",
+        "Demonstration"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Executer les criteres puis archiver les preuves"
+    }
+  ]
+}
