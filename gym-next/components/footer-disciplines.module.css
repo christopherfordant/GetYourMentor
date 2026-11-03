@@ -1,7 +1,9 @@
 .disciplines { position:relative; }
-.disciplines h2 { padding-inline-end:38px; }
+.heading { clip-path:inset(50%); }
 .more { min-width:0; }
-.more summary { position:absolute; top:-4px; inset-inline-end:0; display:grid; place-items:center; width:32px; height:32px; border:1px solid var(--gym-line); border-radius:6px; color:var(--gym-ink); cursor:pointer; list-style:none; }
+.more summary { position:absolute; top:-7px; inset-inline-start:0; display:flex; align-items:center; gap:8px; width:max-content; max-width:100%; min-height:32px; padding:7px 0; color:var(--gym-ink); cursor:pointer; list-style:none; }
+.toggleTitle { font:700 13px/1.4 var(--gym-font-body); }
+.chevron { flex-shrink:0; }
 .more summary::-webkit-details-marker { display:none; }
 .more summary:hover { color:var(--gym-primary-hover); }
 .more summary:focus-visible { outline:3px solid var(--gym-focus); outline-offset:3px; }

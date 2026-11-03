@@ -27,7 +27,7 @@ function DisciplinesColumn() {
   const first = discoverySports.slice(0,4);
   const remaining = discoverySports.slice(4);
   const links = (sports: typeof first) => sports.map(([slug,label])=><Link key={slug} href={`/recherche?sport=${slug}`}>{label}</Link>);
-  return <nav className={`gym-footer-column ${styles.disciplines}`} aria-label="Disciplines"><h2>Disciplines</h2>{links(first)}
-    {remaining.length > 0 && <details className={styles.more}><summary aria-label={`Autres disciplines (${remaining.length})`} title="Afficher ou masquer les autres disciplines"><svg className={styles.chevron} width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></summary><div className={styles.remaining}>{links(remaining)}</div></details>}
+  return <nav className={`gym-footer-column ${styles.disciplines}`} aria-label="Disciplines"><h2 className={remaining.length ? styles.heading : undefined}>Disciplines</h2>{links(first)}
+    {remaining.length > 0 && <details className={styles.more}><summary aria-label={`Disciplines : autres sports (${remaining.length})`} title="Afficher ou masquer les autres disciplines"><span className={styles.toggleTitle} aria-hidden="true">Disciplines</span><svg className={styles.chevron} width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 7 5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></summary><div className={styles.remaining}>{links(remaining)}</div></details>}
   </nav>;
 }

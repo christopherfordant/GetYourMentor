@@ -1,0 +1,881 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "route": "/",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/recherche?sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/coachs?sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/coach?coach=madison-seck&sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/seances",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/compte",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 1440,
+      "route": "/compte?mode=coach",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 1440,
+      "route": "/compte?mode=club",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 1440,
+      "route": "/creneau?coach=madison-seck&sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/recapitulatif",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/paiement",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "payment without valid reservation"
+    },
+    {
+      "width": 1440,
+      "route": "/inscription-club",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/structures",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/offres",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/contenus",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/suivi",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/plan-du-site",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/cgu",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/cgv",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/confidentialite",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/cookies",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/accessibilite",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/legal/mentions-legales",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 1440,
+      "route": "/admin/knowledge",
+      "status": 404,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public 404, private screen not accessed"
+    },
+    {
+      "width": 1440,
+      "route": "/demo-portraits",
+      "status": 200,
+      "footer": "intentional local gallery without footer"
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/recherche?sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/coachs?sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/coach?coach=madison-seck&sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/seances",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/compte",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 390,
+      "route": "/compte?mode=coach",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 390,
+      "route": "/compte?mode=club",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "anonymous account view"
+    },
+    {
+      "width": 390,
+      "route": "/creneau?coach=madison-seck&sport=football",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/recapitulatif",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/paiement",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "payment without valid reservation"
+    },
+    {
+      "width": 390,
+      "route": "/inscription-club",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/structures",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/offres",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/contenus",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/suivi",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/plan-du-site",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/cgu",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/cgv",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/confidentialite",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/cookies",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/accessibilite",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/legal/mentions-legales",
+      "status": 200,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public view"
+    },
+    {
+      "width": 390,
+      "route": "/admin/knowledge",
+      "status": 404,
+      "footerCount": 1,
+      "style": {
+        "background": "rgb(28, 28, 28)",
+        "color": "rgb(252, 251, 249)",
+        "font": "system-ui, -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif"
+      },
+      "arrowGap": 8,
+      "closedSports": 4,
+      "openSports": 14,
+      "keyboard": true,
+      "sameLinks": true,
+      "noOverflow": true,
+      "scope": "public 404, private screen not accessed"
+    },
+    {
+      "width": 390,
+      "route": "/demo-portraits",
+      "status": 200,
+      "footer": "intentional local gallery without footer"
+    }
+  ],
+  "scope": "anonymous local Chromium; no account login, reservation creation, payment or remote service"
+}

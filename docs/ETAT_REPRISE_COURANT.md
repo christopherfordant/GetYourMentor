@@ -1,5 +1,9 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Footers partagés — 3 novembre 2026 : titre et flèche regroupés
+
+Chevron à 8 px de « Disciplines », titre et flèche dans une commande native commune ; quatre sports visibles, dix dépliables. Footer commun déjà réutilisé sur les pages actives : correction propagée via `SiteFooter` sans duplication ou réactivation de prototypes. **25 parcours/variantes × 1440/390 : 50 observations**, 48 avec un footer identique et 2 vues de galerie sans footer volontairement. Contenus, couleurs/police, clavier, ouverture/repli, écart 8 px et absence de débordement vérifiés. Comptes anonymes/paiement sans référence valide seulement ; administration 404 protégée. [Inventaire, preuves et limites](FOOTERS_UNIFIES_2026-11-03.md). Build/type, frontière client et Netlify PASS ; aperçu 3004, session 43318. Aucun déploiement ; changements antérieurs préservés.
+
 ## Intention corrigée — 3 novembre 2026 : footer compact repliable
 
 La dernière consigne remplace la grille précédente : quatre sports visibles par défaut, dix autres dépliables via une petite flèche à côté de « Disciplines ». Une colonne et aucune ligne supplémentaire pour le contrôle en mode fermé ; autres rubriques préservées. `details/summary` natif, clavier et liens masqués hors Tab. [Rapport et contrôles](FOOTER_DISCIPLINES_REPLIABLE_2026-11-03.md). Aucun déploiement ; aperçu local sur 3004, checkout/lanceur existants. La section suivante décrit une version historique désormais remplacée.
