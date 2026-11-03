@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "cards": 9,
+      "existingProfiles": 3,
+      "fictionalPortraits": 6,
+      "wrap": true,
+      "keyboard": true,
+      "images": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "cards": 9,
+      "existingProfiles": 3,
+      "fictionalPortraits": 6,
+      "wrap": true,
+      "keyboard": true,
+      "images": true,
+      "noOverflow": true
+    },
+    {
+      "width": 320,
+      "cards": 9,
+      "existingProfiles": 3,
+      "fictionalPortraits": 6,
+      "wrap": true,
+      "keyboard": true,
+      "images": true,
+      "noOverflow": true
+    }
+  ],
+  "allSixDetailLinks": true,
+  "noPortraitsOnEmpty": true,
+  "apiProfileCount": 3,
+  "apiBoundUnchanged": true,
+  "errors": [],
+  "scope": "Local acceptance only; no coach accounts or remote data created"
+}

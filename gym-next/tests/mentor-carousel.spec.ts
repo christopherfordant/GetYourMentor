@@ -4,10 +4,23 @@ import { coachProfiles } from '../lib/domain';
 import { toPublicCoach } from '../lib/public-coach';
 import { readMentorPreview } from '../lib/mentor-preview';
 import { readPublicMentorRows } from '../lib/mentor-preview-query';
+import { isLocalPortraitPreview } from '../lib/runtime';
 
 const endpoint = '/api/coaches/preview';
 const folder = '../docs/assets/mentors-integration-2026-11-02';
 const fixture = (index: number) => ({ id: `test-mentor-${index}`, name: `Mentor de test ${index}`, sport: 'football', specialty: 'Accompagnement de test', city: 'Paris', priceFrom: 40, description: 'Présentation de démonstration.', sessionTypes: 'Individuel, duo', format: 'visio', practice: 'interieur', level: 'debutant' });
+test('fictional portrait flag requires local acceptance and cannot activate for non-demo data',()=>{
+  const keys=['GETYOURMENTOR_ACCEPTANCE_MODE','GETYOURMENTOR_ALLOW_DEMO','CI','NEXT_PUBLIC_APP_URL'];
+  const previous=keys.map(key=>process.env[key]);
+  try {
+    Object.assign(process.env,{GETYOURMENTOR_ACCEPTANCE_MODE:'true',GETYOURMENTOR_ALLOW_DEMO:'true',CI:'true',NEXT_PUBLIC_APP_URL:'http://127.0.0.1:3004'});
+    expect(isLocalPortraitPreview()).toBe(true);
+    process.env.NEXT_PUBLIC_APP_URL='https://example.netlify.app';expect(isLocalPortraitPreview()).toBe(false);
+    process.env.NEXT_PUBLIC_APP_URL='http://127.0.0.1:3004';process.env.GETYOURMENTOR_ALLOW_DEMO='false';expect(isLocalPortraitPreview()).toBe(false);
+    expect(readMentorPreview({demo:false,data:[],showDemoPortraits:true}).showDemoPortraits).toBe(false);
+    expect(()=>readMentorPreview({demo:true,data:[],showDemoPortraits:'yes'})).toThrow();
+  } finally { keys.forEach((key,index)=>{if(previous[index]===undefined)delete process.env[key];else process.env[key]=previous[index];}); }
+});
 async function open(page: Page) {
   await page.goto('/');
   await page.getByRole('button', { name: 'Refuser le non nécessaire', exact: true }).click();
@@ -53,13 +66,14 @@ test('remote catalogue query uses only bounded public columns, no histories or p
 for (const width of [320,390,768,1440]) {
  test(`square fan, keyboard and circular navigation at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:1000});await page.emulateMedia({reducedMotion:'reduce'});await open(page);
-  await expect(page.locator('#mentors [data-fan-card]')).toHaveCount(3);
+  await expect(page.locator('#mentors [data-fan-card]')).toHaveCount(9);
+  await expect(page.locator('#mentors [data-demo-coach-portrait]')).toHaveCount(6);
   await expect(page.locator('[data-catalogue-action]')).toHaveCount(0);
   const stage=page.locator('#mentors [tabindex="0"]');
-  for(let i=0;i<4;i++)await page.getByRole('button',{name:'Carte suivante',exact:true}).click();
+  for(let i=0;i<10;i++)await page.getByRole('button',{name:'Carte suivante',exact:true}).click();
   await expect(stage).toHaveAttribute('data-active','1');
-  for(let i=0;i<5;i++)await page.getByRole('button',{name:'Carte précédente',exact:true}).click();
-  await expect(stage).toHaveAttribute('data-active','2');
+  for(let i=0;i<11;i++)await page.getByRole('button',{name:'Carte précédente',exact:true}).click();
+  await expect(stage).toHaveAttribute('data-active','8');
   await stage.locator('[data-active=true] a').focus();await page.keyboard.press('ArrowRight');await expect(stage).toBeFocused();await expect(stage).toHaveAttribute('data-active','0');
   expect(await stage.locator('[data-active=true]').evaluate(el=>el.clientWidth===el.clientHeight)).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

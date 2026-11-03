@@ -4,8 +4,8 @@ import type { SportSlug } from './domain';
 export const MENTOR_PREVIEW_LIMIT = 6;
 export type MentorPreview = { id: string; name: string; sport: SportSlug; specialty: string; city: string; priceFrom: number | null; photoUrl?: string; description?: string; sessionTypes?: string; format?: 'presentiel' | 'visio'; practice?: 'interieur' | 'exterieur'; level?: 'debutant' | 'intermediaire' | 'confirme' };
 
-export function readMentorPreview(value: unknown): { data: MentorPreview[]; demo: boolean } {
-  const response = value as { data?: unknown; demo?: unknown } | null;
+export function readMentorPreview(value: unknown): { data: MentorPreview[]; demo: boolean; showDemoPortraits: boolean } {
+  const response = value as { data?: unknown; demo?: unknown; showDemoPortraits?: unknown } | null;
   if (!response || !Array.isArray(response.data) || response.data.length > MENTOR_PREVIEW_LIMIT || typeof response.demo !== 'boolean') throw new Error('Invalid preview');
   const ids = new Set<string>();
   const data = response.data.map((value: unknown) => {
@@ -26,5 +26,6 @@ export function readMentorPreview(value: unknown): { data: MentorPreview[]; demo
       ...(row.sessionTypes?.trim() ? { sessionTypes: row.sessionTypes.trim() } : {}), ...(row.format ? { format: row.format } : {}),
       ...(row.practice ? { practice: row.practice } : {}), ...(row.level ? { level: row.level } : {}) };
   });
-  return { data, demo: response.demo };
+  if (response.showDemoPortraits !== undefined && typeof response.showDemoPortraits !== 'boolean') throw new Error('Invalid demo option');
+  return { data, demo: response.demo, showDemoPortraits: response.demo && response.showDemoPortraits === true };
 }

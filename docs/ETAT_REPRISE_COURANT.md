@@ -1,5 +1,11 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Accueil plus fourni — 3 novembre 2026 : neuf cartes locales
+
+Sur demande utilisateur, les six nouveaux portraits fictifs sont maintenant ajoutés à l'éventail de l'accueil en recette locale, avec les trois profils existants : neuf cartes distinctes. Pas de comptes coachs créés, tarifs/avis/diplômes inventés ou image réattribuée à une personne réelle. Cartes explicitement fictives et détail de portrait sans réservation. Activation protégée par `isLocalPortraitPreview` ; API catalogue toujours bornée, illustratifs séparés des profils réels, aucune addition sur catalogue vide/erreur. [Rapport et contrôles](ACCUEIL_NEUF_CARTES_2026-11-03.md). Aperçu http://127.0.0.1:3004/#mentors, checkout et lanceur précédents réutilisés. Aucun déploiement Netlify, nouvelle génération ou crédit d'image requis. Attendre la revue utilisateur.
+
+Build, typage, frontière client et Netlify PASS ; **28 tests ciblés PASS** (14 ordinateur/14 mobile). Contrôle des neuf cartes, six liens de détail et captures 1440/390/320 PASS ; preuves `assets/home-nine-coaches-2026-11-03/`. Serveur local session 69737. Les tests et captures précédents à trois cartes sont historiques pour l'accueil.
+
 ## Intégration locale — 3 novembre 2026 : éventail et portraits
 
 L'utilisateur a validé la proposition 03 : attente de choix ci-dessous levée pour l'éventail. Accueil des mentors adapté au composant circulaire `FanCarousel`, cartes carrées, aucun groupe de cinq ou face de remplissage. L'API d'aperçu reste bornée à six, l'annuaire complet reste accessible. Six portraits fictifs ImageGen créés et conservés avec prompts/originaux/WebP ; galerie séparée, aucun faux compte ni photo attribuée à un coach réel. Aperçu isolé : http://127.0.0.1:3004/#mentors et http://127.0.0.1:3004/demo-portraits. [Rapport, provenance, contrôles et relance](EVENTAIL_PORTRAITS_2026-11-03.md). Aucun déploiement ; attendre la revue utilisateur. Modifications antérieures préservées ; divergence Git existante non résolue.

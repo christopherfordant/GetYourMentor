@@ -1,0 +1,46 @@
+
+Running 28 tests using 1 worker
+
+
+
+node : (node:16828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+Au caractère Ligne:2 : 1
++ node gym-next/node_modules/@playwright/test/cli.js test tests/mentor- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:16828) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:12:5 › fictional portrait flag requires local acceptance and cannot activate for non-demo data
+[2/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:31:5 › public projection excludes current and future private fields, including nested extras
+[3/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:39:5 › public preview remains bounded, includes only existing public fields and validates the payload
+[4/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:54:5 › remote catalogue query uses only bounded public columns, no histories or private documents
+[5/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 320px
+[6/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 390px
+[7/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 768px
+[8/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 1440px
+[9/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 1 supplied profiles remain in one fan
+[10/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 2 supplied profiles remain in one fan
+[11/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 5 supplied profiles remain in one fan
+[12/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 6 supplied profiles remain in one fan
+[13/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:90:5 › loading, error, retry and empty states remove stale profiles
+[14/28] [desktop-chromium] › gym-next\tests\mentor-carousel.spec.ts:99:5 › card to profile keeps identity, city and declared formats through the slow door transition
+(node:17568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[15/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:12:5 › fictional portrait flag requires local acceptance and cannot activate for non-demo data
+[16/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:31:5 › public projection excludes current and future private fields, including nested extras
+[17/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:39:5 › public preview remains bounded, includes only existing public fields and validates the payload
+[18/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:54:5 › remote catalogue query uses only bounded public columns, no histories or private documents
+[19/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 320px
+[20/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 390px
+[21/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 768px
+[22/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:67:6 › square fan, keyboard and circular navigation at 1440px
+[23/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 1 supplied profiles remain in one fan
+[24/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 2 supplied profiles remain in one fan
+[25/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 5 supplied profiles remain in one fan
+[26/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:83:6 › all 6 supplied profiles remain in one fan
+[27/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:90:5 › loading, error, retry and empty states remove stale profiles
+[28/28] [mobile-chromium] › gym-next\tests\mentor-carousel.spec.ts:99:5 › card to profile keeps identity, city and declared formats through the slow door transition
+  28 passed (48.2s)

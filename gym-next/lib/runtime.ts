@@ -10,6 +10,11 @@ export function isDemoFallbackAllowed() {
     || (process.env.NODE_ENV !== "production" && process.env.GETYOURMENTOR_ALLOW_DEMO === "true");
 }
 
+// Visual fixtures must never be promoted into the hosted/public coach catalogue.
+export function isLocalPortraitPreview() {
+  return isAcceptanceTestMode() && process.env.GETYOURMENTOR_ALLOW_DEMO === "true";
+}
+
 // A hosted demo is deliberately isolated: no Supabase, Stripe or email credentials.
 // GETYOURMENTOR_ALLOW_DEMO alone still never enables fallbacks in production.
 export function isHostedDemo() {
