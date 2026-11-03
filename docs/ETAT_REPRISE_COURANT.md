@@ -1,3 +1,9 @@
+## Reprise active - 3 novembre 2026 : S2, Supabase + pgvector uniquement
+
+Decision utilisateur : Supabase + pgvector, sans SQLite ni autre base vectorielle. Projet de recette distinct confirme par l'utilisateur; navigateur Supabase redirige vers la connexion, intervention demandee. Proposition SQL privee additive et recette synthetique avec rollback preparees, non appliquees. Schema historique vector(1536) preserve; dimension 384 candidate non qualifiee. GYM-A4.2 reste bloque, aucune inference ou base distante testee. [Rapport et ordre de reprise](SUPABASE_PGVECTOR_S2_2026-11-03.md).
+
+Syntaxe SQL externe analysee avec pglast 7.22 (corps PL/pgSQL non valides), 26/26 tests Node et 12/12 evaluations historiques PASS. Preuves dans assets/supabase-pgvector-s2-2026-11-03/checks.json. Aucune migration, ingestion distante, activation produit ou modification des services metier. Connexion seule ne vaut pas autorisation de migration distante. Checkout de preparation C:/Users/cashe/Documents/GYM-vector-index-20261103. Etat Git final dans delivery-private/supabase-pgvector-s2-git.json; ne pas contourner la divergence connue.
+
 ## Reprise active - 3 novembre 2026 : deux regressions RAG corrigees
 
 Restitution de plusieurs passages par document, diversification puis complements et admission avant classement : deux regressions de la revue corrigees. Budget : 8 passages, 7200 unites JS de texte, 3 passages/document. 26/26 tests Node et 12/12 evaluations de reference PASS. Nouveaux controles 2/3 : faux positif Jupiter preexistant conserve en echec, pas de garantie semantique generale. [Rapport, preuves et limite ouverte](RAG_REGRESSIONS_CORRIGEES_2026-11-03.md).

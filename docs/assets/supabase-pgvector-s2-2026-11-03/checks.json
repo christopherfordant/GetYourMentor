@@ -1,0 +1,27 @@
+{
+  "sqlParser": "v7.22",
+  "databaseExecuted": false,
+  "modelInferenceExecuted": false,
+  "checks": [
+    {
+      "file": "supabase/proposals/20261103_rag_s2_pgvector.sql",
+      "sqlSyntax": "PASS",
+      "statements": 17,
+      "plpgsqlBodiesValidated": false
+    },
+    {
+      "file": "supabase/verification/rag-s2-pgvector.sql",
+      "sqlSyntax": "PASS",
+      "statements": 4,
+      "plpgsqlBodiesValidated": false
+    }
+  ],
+  "nodeTests": {
+    "exitCode": 0,
+    "output": "✔ parent status follows children; reopening prevents completed parent (6.5121ms)\n✔ completion needs dependencies and explicitly checked evidence (1.1008ms)\n✔ WIP, valid statuses and a blocking reason are enforced (0.6829ms)\n✔ French accents and regular plurals share lexical terms (6.6641ms)\n✔ specific evidence outranks boilerplate and duplicate passages (41.0945ms)\n✔ private and archived sources cannot influence frequencies (0.9921ms)\n✔ regression: contradictory passages in one document remain available (41.3312ms)\n✔ regression: a rare isolated word cannot hide qualified candidates (2.3493ms)\n✔ complementary passages survive while exact duplicate passages do not monopolize (4.205ms)\n✔ passage, character and per-document budgets retain exact excerpts (3.6086ms)\n✔ insufficient, private and archived candidates cannot satisfy admission (0.74ms)\n✔ oversized evidence is not silently truncated to manufacture a citation (0.7004ms)\n✔ only the explicit UI assets are served, with protective headers (265.5219ms)\n✔ cross-origin requests cannot invoke retrieval (12.669ms)\n✔ local read-only query returns exact citations; malformed and large input fail (88.6074ms)\n✔ authorization precedes retrieval (4.1034ms)\n✔ citations are exact excerpts, with no generation or tool side effect (6.7312ms)\n✔ empty, irrelevant and insufficient sources abstain (1.9383ms)\n✔ invalid question is rejected before retrieval (0.5855ms)\n✔ prompt injection and business mutation do not execute (3.0529ms)\n✔ contradictions stay separate, without inventing a resolution (33.8915ms)\n✔ unavailable tool and timeout stop without provider fallback (13.3157ms)\n✔ private and archived candidates are filtered before ranking (0.3479ms)\n✔ real governed corpus yields traceable chunks with versions (57.0344ms)\n✔ manifest escape is rejected and removed documents disappear on reload (24.8182ms)\n✔ backlog hierarchy, estimates, dates and proof integrity (2.4041ms)\nℹ tests 26\nℹ suites 0\nℹ pass 26\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 733.3421\n"
+  },
+  "ragEvaluation": {
+    "exitCode": 0,
+    "output": "PASS source-of-truth: sources memory-rag, architecture, master\nPASS critical-path: sources architecture, memory-rag, rag-readiness\nPASS mcp-safety: sources architecture, memory-rag\nPASS mvp-flow: sources mvp-screens, design-system, master\nPASS web-first: sources master, decisions, architecture\nPASS rag-boundary: sources architecture, rag-readiness, memory-rag\nPASS mcp-permissions: sources architecture, memory-rag, decisions\nPASS design-priority: sources design-system, decisions, master\nPASS schema-separation-new: sources rag-readiness, memory-rag, architecture\nPASS document-provenance-new: sources memory-rag, master, decisions\nPASS unrelated-abstention-new: abstained \nPASS mutation-abstention-new: abstained \nÉvaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.\n"
+  }
+}

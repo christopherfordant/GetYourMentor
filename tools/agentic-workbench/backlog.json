@@ -436,8 +436,10 @@
         "Isolation",
         "Reindexation"
       ],
-      "evidence": [],
-      "blocker": "Modele local et environnement de stockage isole a qualifier; migration distante non autorisee",
+      "evidence": [
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+      ],
+      "blocker": "Choix Supabase + pgvector confirme; acces recette et qualification du modele restent a verifier",
       "next": "Lever le prerequis sans contourner les autorisations"
     },
     {
@@ -470,9 +472,11 @@
       "tests": [
         "Essai local borne"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+      ],
       "blocker": null,
-      "next": "Executer les criteres puis archiver les preuves"
+      "next": "Qualifier localement le candidat multilingue 384 dimensions, licence, revision, inference et ressources mesurees"
     },
     {
       "id": "GYM-A4.2",
@@ -500,15 +504,18 @@
         "Aucun melange de dimensions"
       ],
       "files": [
-        "supabase/schemas/memory.sql"
+        "supabase/proposals/20261103_rag_s2_pgvector.sql",
+        "supabase/verification/rag-s2-pgvector.sql"
       ],
       "tests": [
         "Migrations locales",
         "Reindexation et ACL"
       ],
-      "evidence": [],
-      "blocker": "Stockage de recette et modele non qualifies",
-      "next": "Lever le prerequis sans contourner les autorisations"
+      "evidence": [
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+      ],
+      "blocker": "Supabase + pgvector retenus; connexion au projet de recette et autorisation distante manquantes; modele non qualifie",
+      "next": "Identifier le projet de recette, qualifier le modele puis appliquer et tester seulement apres autorisation distante"
     },
     {
       "id": "GYM-A4.3",
