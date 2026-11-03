@@ -1,5 +1,9 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Choix visuel en attente — 3 novembre 2026 : carrousels larges
+
+Trois démonstrations autonomes avec cartes carrées : anneau à N faces, ellipse panoramique et éventail horizontal. Sélecteur 3/8/12/20 cartes ; seuls trois profils de démonstration existants sont repris, les autres faces sont explicitement des emplacements de maquette. Aperçu http://127.0.0.1:4323/carousel-large-2026-11-03/ ; serveur statique loopback session 6899. [Périmètre, provenance, relance et limites](CARROUSELS_LARGES_2026-11-03.md). Contrôles et captures dans `assets/carousel-large-2026-11-03/`. Aucun remplacement dans l'application ni publication Netlify. Attendre le choix utilisateur avant intégration. Divergence Git préexistante conservée, aucun force-push ni fusion autorisés.
+
 ## Reprise active — 2 novembre 2026 : catalogue métier de 14 disciplines
 
 Commit applicatif local d74e846506dac35c8ba577f37bf6c40c55803eb8. Push normal rejete non-fast-forward (code 1), distant relu inchange d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a. Aucun force-push, fusion ou repetition identique. Diff binaire des vingt changements anterieurs toujours identique.

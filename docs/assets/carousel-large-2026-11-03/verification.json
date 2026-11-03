@@ -1,0 +1,178 @@
+{
+  "date": "2026-11-03",
+  "results": [
+    {
+      "width": 1440,
+      "n": 3,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 3,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 3,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 8,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 8,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 8,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 12,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 12,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 12,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 20,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 20,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 1440,
+      "n": 20,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 3,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 3,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 3,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 8,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 8,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 8,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 12,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 12,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 12,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 20,
+      "mode": "polygon",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 20,
+      "mode": "ellipse",
+      "square": true,
+      "wrapBothDirections": true
+    },
+    {
+      "width": 390,
+      "n": 20,
+      "mode": "fan",
+      "square": true,
+      "wrapBothDirections": true
+    }
+  ],
+  "keyboard": true,
+  "reducedMotion": true,
+  "images": true,
+  "errors": [],
+  "limitations": "Chromium local, gestes tactiles non testés sur téléphone physique, maquette sans raccordement métier."
+}
