@@ -1,3 +1,5 @@
+Compl?ment Git/contr?les du lot Stripe-Telegram : commit applicatif local `38dd18e`, push refus? non-fast-forward, distant `d50b9eb` inchang?. Build/TypeScript du checkout isol? PASS ; contr?le global du dossier principal bloqu? par les anciennes copies sous `playwright-artifacts`, pr?serv?es. Test Telegram portable 2/2 PASS apr?s la suite compl?te 20/20. Voir le rapport pour les preuves et les essais externes encore bloqu?s.
+
 ## Reprise active ? 3 novembre 2026 : Stripe TEST et Telegram
 
 Lot local contr?l? : connecteur Stripe limit? au test, webhook renforc?, donn?es de paiement serveur, association Telegram facultative et file priv?e d?dupliqu?e. **20/20 contr?les cibl?s PASS**, build/TypeScript, fronti?re client et configuration Netlify PASS. Les appels Stripe et messages Telegram sont simul?s dans les tests ; aucun essai externe ni durabilit? Stripe apr?s red?marrage n'est confirm?. L'utilisateur dispose des deux services ; saisie locale des acc?s encore attendue, r?ception des webhooks et destinataires de recette ? raccorder. Migration Telegram pr?par?e, non appliqu?e. Aucun d?ploiement ou paiement r?el.

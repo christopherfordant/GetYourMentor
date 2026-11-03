@@ -67,3 +67,11 @@ Preuves finales : `assets/stripe-telegram-2026-11-03/results.json`, `build.txt`,
 Push initial refusé non-fast-forward, distant observé `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a`. Aucun force-push, fusion ou rebase. Le commit local de ce lot et l'état distant final sont consignés dans la preuve Git de livraison. Aucun déploiement Netlify.
 
 Prochaine action nécessaire : saisie locale des accès, raccordement de la réception Stripe/Telegram, choix des seuls destinataires de recette, vérification du stockage durable existant avant les essais externes. Une migration distante éventuelle exige une autorisation distincte. Ne pas annoncer le parcours externe terminé avant ces preuves.
+
+### Compl?ment de livraison
+
+Commit applicatif local : `38dd18ed628214577e36f027252bab5e2ebe1bb8`. Push normal refus? non-fast-forward ; distant relu inchang? `d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a` (preuve `assets/stripe-telegram-2026-11-03/git-delivery.json`). Aucun contournement.
+
+Le contr?le TypeScript global relanc? dans le dossier principal ?choue sur des copies historiques non suivies sous `gym-next/playwright-artifacts/.../delivery-originals`, `originals` et `avant` (imports absents et anciennes signatures de composants). Le build/TypeScript PASS d?crit plus haut concerne le checkout isol?, pas l'ensemble du dossier principal charg? de ces archives. Ces fichiers ant?rieurs n'ont pas ?t? supprim?s ou modifi?s pour faire passer le contr?le.
+
+Le test Telegram utilise maintenant le baseURL du runner plut?t qu'un port fix?. Contr?le compl?mentaire cibl? ordinateur/mobile **2/2 PASS**, sans addition au total de la suite initiale ; preuve `preferences-final.json`. Captures r?archiv?es ? leur emplacement canonique. Aucun acc?s r?el n'est encore enregistr? au moment de cette cl?ture du lot local.

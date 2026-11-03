@@ -1,0 +1,10 @@
+{
+  "commit": "38dd18ed628214577e36f027252bab5e2ebe1bb8",
+  "branch": "design/refonte-progressive-lot1",
+  "pushExit": 1,
+  "pushOutput": "To https://github.com/christopherfordant/GetYourMentor.git\n ! [rejected]        design/refonte-progressive-lot1 -> design/refonte-progressive-lot1 (non-fast-forward)\nerror: failed to push some refs to 'https://github.com/christopherfordant/GetYourMentor.git'\nhint: Updates were rejected because the tip of your current branch is behind\nhint: its remote counterpart. If you want to integrate the remote changes,\nhint: use 'git pull' before pushing again.\nhint: See the 'Note about fast-forwards' in 'git push --help' for details.\n",
+  "remote": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a\trefs/heads/design/refonte-progressive-lot1",
+  "deployment": "none",
+  "externalStripeTestCalls": 0,
+  "realTelegramMessages": 0
+}
