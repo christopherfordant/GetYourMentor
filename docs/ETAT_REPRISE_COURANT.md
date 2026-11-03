@@ -1,3 +1,7 @@
+## Revue croisee - 3 novembre 2026 : changements depuis 15h50
+
+Commits ee2e1b3 / 1e3f840 relus, 20/20 tests Node et 12/12 evaluations reproduits. Deux limites P2 reproduites hors des tests actuels : une seule citation par document masque des passages contradictoires ; un terme rare peut provoquer une abstention malgre des candidats a meilleure couverture. [Rapport et reproductions](REVUE_SESSION_2026-11-03.md). Pas de correction applicative ou de reinitialisation du Kanban dans cette revue ; apercu 4325 non joignable lors du controle. Les 18 fichiers anterieurement modifies gardent les memes empreintes. Les constats sont a traiter avant de revendiquer une qualite de recherche generale.
+
 ## Reprise active - 3 novembre 2026 : GYM-A3.2, controles RAG
 
 Evaluation historique 8/8 et nouvelle suite 12/12, citations exactes et abstentions verifiees ; tests Node 20/20. Voir [rapport et preuves](RAG_GATES_2026-11-03.md). GYM-A3.2 termine localement, parent GYM-A3 derive de ses enfants. Workflow GitHub manuel deja raccorde, aucun run distant lance. Prochaine action GYM-A4.1 : qualification, sans installation ou migration implicite. Kanban du navigateur 4325 non synchronise ni reinitialise ; modifications anterieures preservees. Etat Git final dans delivery-private/rag-gates-20261103-git.json.
