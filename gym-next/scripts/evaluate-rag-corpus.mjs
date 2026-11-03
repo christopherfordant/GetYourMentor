@@ -1,39 +1,22 @@
-import fs from "node:fs";
-import path from "node:path";
-
-const root = path.resolve(process.cwd(), "..");
-const manifest = JSON.parse(fs.readFileSync(path.join(root, "docs", "architecture", "rag-corpus.json"), "utf8"));
-const evaluation = JSON.parse(fs.readFileSync(path.join(root, "docs", "architecture", "rag-evaluation.json"), "utf8"));
-
-function terms(value) {
-  return new Set(value.toLocaleLowerCase("fr-FR").normalize("NFD").replace(/[\u0300-\u036f]/g, "").match(/[a-z0-9]{3,}/g) ?? []);
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {loadCorpus} from '../../tools/agentic-workbench/retrieval.mjs';
+import {runAssistant} from '../../tools/agentic-workbench/workflow.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+const evaluation=JSON.parse(fs.readFileSync(path.join(root,'docs/architecture/rag-evaluation.json'),'utf8'));
+const chunks=await loadCorpus(root);
+let failures=0;
+for(const testCase of evaluation.cases){
+ const result=await runAssistant({question:testCase.question,principal:'local-owner',load:async()=>chunks});
+ // Preserve the original three-document acceptance window, exercising the
+ // actual assistant instead of a separate whole-document ranking proxy.
+ const cited=result.sources.slice(0,3).map(source=>source.documentId);
+ const missing=(testCase.expectedDocuments??[]).filter(id=>!cited.includes(id));
+ const badStatus=result.status!==(testCase.expectedStatus??'sources');
+ const ungrounded=result.sources.some(source=>!chunks.some(chunk=>chunk.id===source.id&&chunk.version===source.version&&chunk.path===source.path&&chunk.excerpt===source.excerpt));
+ if(missing.length||badStatus||ungrounded){failures++;console.error(`FAIL ${testCase.id}: missing=${missing.join(',')} status=${result.status} ungrounded=${ungrounded}`);}
+ else console.log(`PASS ${testCase.id}: ${result.status} ${cited.join(', ')}`);
 }
-
-const documents = manifest.documents.map((document) => ({
-  ...document,
-  text: fs.readFileSync(path.resolve(root, document.path), "utf8"),
-}));
-
-let failures = 0;
-for (const testCase of evaluation.cases) {
-  const queryTerms = terms(testCase.question);
-  const ranked = documents.map((document) => {
-    const documentTerms = terms(document.text);
-    const score = [...queryTerms].reduce((total, term) => total + (documentTerms.has(term) ? 1 : 0), 0);
-    return { document, score };
-  }).sort((left, right) => right.score - left.score || left.document.priority - right.document.priority);
-  const cited = ranked.filter((item) => item.score > 0).slice(0, 3).map((item) => item.document.id);
-  const missing = testCase.expectedDocuments.filter((id) => !cited.includes(id));
-  if (missing.length) {
-    failures += 1;
-    console.error(`FAIL ${testCase.id}: sources attendues absentes (${missing.join(", ")})`);
-  } else {
-    console.log(`PASS ${testCase.id}: ${cited.join(", ")}`);
-  }
-}
-
-if (failures) {
-  console.error(`Évaluation RAG lexicale échouée : ${failures} cas.`);
-  process.exit(1);
-}
-console.log(`Évaluation RAG lexicale réussie : ${evaluation.cases.length} cas avec sources candidates.`);
+if(failures){console.error(`Évaluation RAG lexicale échouée : ${failures} cas.`);process.exitCode=1;}
+else console.log(`Évaluation RAG lexicale réussie : ${evaluation.cases.length} cas, citations exactes et statuts contrôlés.`);

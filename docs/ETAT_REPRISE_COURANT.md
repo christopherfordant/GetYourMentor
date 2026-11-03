@@ -1,3 +1,7 @@
+## Reprise active - 3 novembre 2026 : GYM-A3.2, controles RAG
+
+Evaluation historique 8/8 et nouvelle suite 12/12, citations exactes et abstentions verifiees ; tests Node 20/20. Voir [rapport et preuves](RAG_GATES_2026-11-03.md). GYM-A3.2 termine localement, parent GYM-A3 derive de ses enfants. Workflow GitHub manuel deja raccorde, aucun run distant lance. Prochaine action GYM-A4.1 : qualification, sans installation ou migration implicite. Kanban du navigateur 4325 non synchronise ni reinitialise ; modifications anterieures preservees. Etat Git final dans delivery-private/rag-gates-20261103-git.json.
+
 ## Reprise active — 3 novembre 2026 : Kanban en couloirs
 
 Nouvelle consigne visuelle utilisateur appliquee : tableau a lignes par lot, post-it compacts colores, fiche de ticket, glisser-deposer et statut modifiable au clavier/tactile. Source : 18 tickets dont 13 sous-tickets, cinq couloirs parents ; huit etapes conservees. Apercu courant http://127.0.0.1:4325/, checkout `C:/Users/cashe/Documents/GYM-kanban-20261103`, relance `node tools/agentic-workbench/server.mjs`.

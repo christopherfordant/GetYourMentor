@@ -1,0 +1,45 @@
+{
+  "base": "2bafb8c",
+  "before_exit": 1,
+  "checks": [
+    {
+      "name": "evaluation",
+      "command": [
+        "node",
+        "gym-next/scripts/evaluate-rag-corpus.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "node-tests",
+      "command": [
+        "node",
+        "--test",
+        "tools/agentic-workbench/tests/*.test.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "corpus",
+      "command": [
+        "node",
+        "scripts/check-rag-corpus.mjs"
+      ],
+      "exit": 0
+    },
+    {
+      "name": "tracked-secrets",
+      "command": [
+        "node",
+        "scripts/check-tracked-secrets.mjs"
+      ],
+      "exit": 0
+    }
+  ],
+  "original_cases": 8,
+  "extended_cases": 12,
+  "node_tests": 20,
+  "preserved_tracked_files": 18,
+  "remote_ci_run": false,
+  "ui_changed": false
+}

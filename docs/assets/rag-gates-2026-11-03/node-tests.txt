@@ -1,0 +1,28 @@
+✔ parent status follows children; reopening prevents completed parent (6.6665ms)
+✔ completion needs dependencies and explicitly checked evidence (0.7812ms)
+✔ WIP, valid statuses and a blocking reason are enforced (0.4086ms)
+✔ French accents and regular plurals share lexical terms (4.1464ms)
+✔ specific evidence outranks boilerplate and duplicate passages (28.0318ms)
+✔ private and archived sources cannot influence frequencies (0.5531ms)
+✔ only the explicit UI assets are served, with protective headers (262.4861ms)
+✔ cross-origin requests cannot invoke retrieval (13.8949ms)
+✔ local read-only query returns exact citations; malformed and large input fail (93.5787ms)
+✔ authorization precedes retrieval (3.5205ms)
+✔ citations are exact excerpts, with no generation or tool side effect (3.802ms)
+✔ empty, irrelevant and insufficient sources abstain (1.1823ms)
+✔ invalid question is rejected before retrieval (0.4869ms)
+✔ prompt injection and business mutation do not execute (2.8294ms)
+✔ contradictions stay separate, without inventing a resolution (31.9429ms)
+✔ unavailable tool and timeout stop without provider fallback (11.2485ms)
+✔ private and archived candidates are filtered before ranking (0.3978ms)
+✔ real governed corpus yields traceable chunks with versions (54.0805ms)
+✔ manifest escape is rejected and removed documents disappear on reload (24.486ms)
+✔ backlog hierarchy, estimates, dates and proof integrity (3.7145ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 672.2279

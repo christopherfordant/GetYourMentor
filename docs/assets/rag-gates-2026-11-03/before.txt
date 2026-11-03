@@ -1,0 +1,9 @@
+PASS source-of-truth: master, architecture, memory-rag
+PASS mcp-safety: architecture, memory-rag, master
+PASS mvp-flow: master, architecture, mvp-screens
+PASS web-first: master, architecture, decisions
+PASS rag-boundary: architecture, memory-rag, rag-readiness
+PASS mcp-permissions: architecture, master, memory-rag
+PASS design-priority: master, memory-rag, design-system
+FAIL critical-path: sources attendues absentes (memory-rag)
+Évaluation RAG lexicale échouée : 1 cas.

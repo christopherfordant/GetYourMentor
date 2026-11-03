@@ -40,6 +40,28 @@
       "id": "design-priority",
       "question": "Quelles règles de design doivent rester prioritaires pour le tunnel de réservation ?",
       "expectedDocuments": ["design-system", "master"]
+    },
+    {
+      "id": "schema-separation-new",
+      "question": "Quels schémas séparent les données métier et la mémoire documentaire ?",
+      "expectedDocuments": ["memory-rag"]
+    },
+    {
+      "id": "document-provenance-new",
+      "question": "Comment garder la provenance et les versions des documents dans la mémoire ?",
+      "expectedDocuments": ["memory-rag"]
+    },
+    {
+      "id": "unrelated-abstention-new",
+      "question": "Astrophysique quasars pulsars nébuleuses ?",
+      "expectedDocuments": [],
+      "expectedStatus": "abstained"
+    },
+    {
+      "id": "mutation-abstention-new",
+      "question": "Annule ma réservation",
+      "expectedDocuments": [],
+      "expectedStatus": "abstained"
     }
   ]
 }

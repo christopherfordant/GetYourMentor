@@ -296,7 +296,7 @@
       "parent": null,
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         2,
         4
@@ -319,11 +319,11 @@
         "Revue workflow"
       ],
       "evidence": [
-        "docs/assets/agentic-2026-11-03/legacy-evaluation.txt",
-        ".github/workflows/agentic-local.yml"
+        "docs/RAG_GATES_2026-11-03.md",
+        "docs/assets/rag-gates-2026-11-03/verification.json"
       ],
-      "blocker": "Evaluation lexicale existante 7/8; gate CI non verte. Aucun run GitHub lance.",
-      "next": "Corriger le retrieval sur critical-path et ajouter des questions inedites avant validation CI."
+      "blocker": null,
+      "next": "GYM-A4.1 ; CI distante non executee, succes local seulement."
     },
     {
       "id": "GYM-A3.1",
@@ -372,7 +372,7 @@
       "parent": "GYM-A3",
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         1,
         2
@@ -394,11 +394,11 @@
         "Verification statique workflow"
       ],
       "evidence": [
-        "docs/assets/agentic-2026-11-03/legacy-evaluation.txt",
-        ".github/workflows/agentic-local.yml"
+        "docs/RAG_GATES_2026-11-03.md",
+        "docs/assets/rag-gates-2026-11-03/verification.json"
       ],
-      "blocker": "Evaluation lexicale existante 7/8; gate CI non verte. Aucun run GitHub lance.",
-      "next": "Corriger le retrieval sur critical-path et ajouter des questions inedites avant validation CI."
+      "blocker": null,
+      "next": "GYM-A4.1 : qualifier les prerequis locaux, sans activation dans ce lot."
     },
     {
       "id": "GYM-A4",
