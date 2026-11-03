@@ -8,6 +8,6 @@ PASS mcp-permissions: sources architecture, memory-rag, decisions
 PASS design-priority: sources design-system, decisions, master
 PASS schema-separation-new: sources rag-readiness, memory-rag, architecture
 PASS document-provenance-new: sources memory-rag, design-system, master
-PASS unrelated-abstention-new: abstained 
-PASS mutation-abstention-new: abstained 
+PASS unrelated-abstention-new: abstained
+PASS mutation-abstention-new: abstained
 Évaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.
