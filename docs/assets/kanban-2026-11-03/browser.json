@@ -1,0 +1,32 @@
+[
+  {
+    "width": 1440,
+    "subTickets": 13,
+    "parentLanes": 5,
+    "s1SubTickets": 7,
+    "roles": 5,
+    "dialog": true,
+    "statusPersistence": true,
+    "dragDrop": true,
+    "keyboard": true,
+    "citations": true,
+    "abstention": true,
+    "reducedMotion": true,
+    "horizontalPageOverflow": false
+  },
+  {
+    "width": 390,
+    "subTickets": 13,
+    "parentLanes": 5,
+    "s1SubTickets": 7,
+    "roles": 5,
+    "dialog": true,
+    "statusPersistence": true,
+    "dragDrop": false,
+    "keyboard": true,
+    "citations": true,
+    "abstention": true,
+    "reducedMotion": true,
+    "horizontalPageOverflow": false
+  }
+]

@@ -11,7 +11,7 @@ const port=Number(process.env.GYM_WORKBENCH_PORT??4325);
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('Invalid local port');
 const origin=`http://127.0.0.1:${port}`;
 let busy=false;
-const files=new Map([['/','index.html'],['/app.js','app.js'],['/style.css','style.css'],['/backlog.json','backlog.json']]);
+const files=new Map([['/','index.html'],['/app.js','app.js'],['/board-policy.mjs','board-policy.mjs'],['/style.css','style.css'],['/backlog.json','backlog.json']]);
 const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'"};
 const server=http.createServer(async(req,res)=>{
  const send=(code,data,type='application/json; charset=utf-8')=>{res.writeHead(code,{...headers,'Content-Type':type});res.end(type.startsWith('application/json')?JSON.stringify(data):data);};
@@ -19,7 +19,7 @@ const server=http.createServer(async(req,res)=>{
  try{
   if(req.method==='GET'&&files.has(req.url)){
    const file=files.get(req.url);const data=await readFile(path.join(directory,file));
-   const type=file.endsWith('.html')?'text/html':file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'application/json';
+   const type=file.endsWith('.html')?'text/html':/\.m?js$/.test(file)?'text/javascript':file.endsWith('.css')?'text/css':'application/json';
    res.writeHead(200,{...headers,'Content-Type':type+'; charset=utf-8'});return res.end(data);
   }
   if(req.url!=='/api/assistant'||req.method!=='POST')return send(404,{error:'Not found'});

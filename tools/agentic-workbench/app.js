@@ -1,28 +1,62 @@
-const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
-const statuses={backlog:'Backlog',prepare:'À préparer',ready:'Prêt',progress:'En cours',review:'En revue',verify:'À vérifier',done:'Terminé',blocked:'Bloqué'};
-let data;
+import {statuses,isLeaf,effective,ticketStatus,proposeMove} from './board-policy.mjs';
+const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
+const $=id=>document.getElementById(id),storageKey='gym-kanban-local-v2';
+let data,changes={},selectedId;
+function message(text){$('board-message').textContent=text;}
+function save(){try{localStorage.setItem(storageKey,JSON.stringify({base:JSON.stringify(data.tickets),changes}));return true;}catch{message('Statut modifié dans la vue, mais sauvegarde navigateur impossible. Exportez votre état JSON.');return false;}}
+function leafStatus(t){return ticketStatus(t.id,data.tickets,changes);}
+function move(id,status,extra={}){
+ const result=proposeMove({ticketId:id,status,tickets:data.tickets,changes,...extra});
+ if(result.error){message(result.error);return result.error;}
+ changes[id]={...changes[id],...result.patch};const stored=save();render();if(stored)message(`${id} → ${statuses[status]}. Modification manuelle sauvegardée dans ce navigateur, sans mise à jour de Git ni test automatique.`);return null;
+}
 function card(ticket){
- const node=element('article',undefined,'ticket'+(ticket.status==='blocked'?' blocked':''));
- node.append(element('span',`${ticket.id} · ${ticket.priority}`,'id'),element('h4',ticket.title),element('span',ticket.role+' · rôle planifié','tag'),element('p',`${ticket.estimateHours[0]}–${ticket.estimateHours[1]} h estimées · mesuré : ${ticket.actualHours===null?'non disponible':ticket.actualHours+' h'}`));
- const details=element('details');details.append(element('summary','Critères, sous-tickets et preuves'));
- for(const [label,value] of [['Objectif',ticket.objective],['Périmètre',ticket.scope],['Parent',ticket.parent??'Aucun'],['Dépendances',ticket.dependencies.join(', ')||'Aucune'],['Échéance proposée',ticket.due],['Fichiers',ticket.files.join(', ')],['Tests attendus',ticket.tests.join(' ; ')],['Preuves',ticket.evidence.join(' ; ')||'Pas encore de preuve'],['Blocage',ticket.blocker??'Aucun'],['Suite',ticket.next]])details.append(element('p',label+' : '+value));
- const list=element('ul');for(const c of ticket.acceptance)list.append(element('li',c));details.append(list);
- const children=data.tickets.filter(t=>t.parent===ticket.id);for(const child of children)details.append(element('p',`${child.id} — ${child.title} · ${statuses[child.status]}`));
- node.append(details);return node;
+ const t=effective(ticket,changes),status=leafStatus(ticket);
+ const n=el('button',undefined,'ticket'+(ticket.priority==='P0'?' p0':'')+(status==='blocked'?' blocked':'')+(status==='done'?' completed':'')+(t.manual?' manual':''));
+ n.type='button';n.dataset.ticket=t.id;n.draggable=true;
+ n.append(el('span',t.id,'id'),el('h3',t.title),el('span',t.role,'tag'),el('span',`${t.estimateHours[0]}–${t.estimateHours[1]} h · ${t.due.slice(5).split('-').reverse().join('/')}`,'meta'));
+ if(t.manual)n.append(el('span','Statut manuel','meta'));
+ n.addEventListener('click',()=>openTicket(t.id));
+ n.addEventListener('dragstart',event=>{event.dataTransfer.setData('text/plain',t.id);event.dataTransfer.effectAllowed='move';});return n;
 }
 function render(){
- const sprint=document.querySelector('#sprint').value;
- const tickets=data.tickets.filter(t=>sprint==='all'||t.sprint===sprint),leaves=tickets.filter(t=>!data.tickets.some(c=>c.parent===t.id));
- const stats=document.querySelector('#stats');stats.replaceChildren();
- const sum=leaves.reduce((v,t)=>[v[0]+t.estimateHours[0],v[1]+t.estimateHours[1]],[0,0]);
- for(const value of [`${tickets.length} tickets, dont ${leaves.length} feuilles`,`${leaves.filter(t=>t.status==='done').length} feuilles terminées`,`${leaves.filter(t=>t.status==='blocked').length} bloquées`,`${sum[0]}–${sum[1]} h estimées, sans double compte`])stats.append(element('p',value));
- const board=document.querySelector('#board');board.replaceChildren();
- for(const [key,label] of Object.entries(statuses)){const column=element('div',undefined,'column');column.tabIndex=0;column.setAttribute('role','region');column.setAttribute('aria-label',label);const subset=tickets.filter(t=>t.status===key);column.append(element('h3',`${label} · ${subset.length}`));for(const ticket of subset)column.append(card(ticket));board.append(column);}
- const agents=document.querySelector('#agents');agents.replaceChildren();
- for(const role of data.roles){const assigned=leaves.filter(t=>t.role===role);const effort=assigned.reduce((v,t)=>[v[0]+t.estimateHours[0],v[1]+t.estimateHours[1]],[0,0]);const node=element('article',undefined,'agent');node.append(element('span','AFFECTATION SIMULÉE','eyebrow'),element('h3',role),element('p',`${assigned.length} sous-tickets · ${assigned.filter(t=>t.status==='done').length} terminés · ${assigned.filter(t=>t.status==='progress').length} en cours · ${assigned.filter(t=>t.status==='blocked').length} bloqués`),element('p',`${effort[0]}–${effort[1]} h estimées. Temps consommé non mesuré.`));agents.append(node);}
+ const sprint=$('sprint').value,role=$('role').value,search=$('search').value.toLowerCase().trim();
+ const leaves=data.tickets.filter(t=>isLeaf(t,data.tickets));
+ const visible=leaves.filter(t=>(sprint==='all'||t.sprint===sprint)&&(role==='all'||t.role===role)&&`${t.id} ${t.title} ${data.tickets.find(p=>p.id===t.parent)?.title}`.toLowerCase().includes(search));
+ $('stats').textContent=`${visible.length} sous-tickets · ${visible.filter(t=>leafStatus(t)==='done').length} terminés · ${leaves.filter(t=>leafStatus(t)==='progress').length}/2 en cours`;
+ const board=$('board');board.replaceChildren(el('div','Lots / sous-tickets','corner'));
+ for(const [key,label] of Object.entries(statuses)){const head=el('div',label,'column-head');head.append(el('span',`${visible.filter(t=>leafStatus(t)===key).length}${key==='progress'?'/2':''}`));board.append(head);}
+ const parents=data.tickets.filter(t=>!isLeaf(t,data.tickets));
+ for(const parent of parents){
+  const children=visible.filter(t=>t.parent===parent.id);if(!children.length)continue;
+  const lane=el('div',undefined,'lane-title');const button=el('button',parent.title);button.type='button';button.addEventListener('click',()=>openTicket(parent.id));
+  lane.append(el('small',`${parent.id} / ${parent.sprint}`),button,el('small',`${children.length} sous-tickets · ${parent.due}`),el('strong',statuses[ticketStatus(parent.id,data.tickets,changes)]));board.append(lane);
+  for(const key of Object.keys(statuses)){
+   const cell=el('div',undefined,'cell');cell.dataset.status=key;cell.dataset.parent=parent.id;cell.setAttribute('aria-label',`${parent.title} : ${statuses[key]}`);
+   for(const ticket of children.filter(t=>leafStatus(t)===key))cell.append(card(ticket));
+   cell.addEventListener('dragover',event=>{event.preventDefault();cell.classList.add('drop-target');});cell.addEventListener('dragleave',()=>cell.classList.remove('drop-target'));
+   cell.addEventListener('drop',event=>{event.preventDefault();cell.classList.remove('drop-target');const id=event.dataTransfer.getData('text/plain');const ticket=data.tickets.find(t=>t.id===id);if(ticket?.parent!==parent.id){message('Le ticket conserve son lot : déplacez-le dans la même ligne.');return;}const error=move(id,key);if(error)openTicket(id,key,error);});board.append(cell);
+  }
+ }
+ const agents=$('agents');agents.replaceChildren();for(const roleName of data.roles){const assigned=leaves.filter(t=>t.role===roleName),range=assigned.reduce((r,t)=>[r[0]+t.estimateHours[0],r[1]+t.estimateHours[1]],[0,0]);const n=el('article',undefined,'agent');n.append(el('h2',roleName),el('p',`${assigned.length} sous-tickets · ${assigned.filter(t=>leafStatus(t)==='done').length} terminés · ${assigned.filter(t=>leafStatus(t)==='progress').length} en cours · ${assigned.filter(t=>leafStatus(t)==='blocked').length} bloqués`),el('p',`${range[0]}–${range[1]} h estimées. Temps consommé non mesuré.`));agents.append(n);}
 }
-try{const response=await fetch('/backlog.json');if(!response.ok)throw Error();data=await response.json();const select=document.querySelector('#sprint');for(const sprint of data.sprints){const option=element('option',sprint.id+' · '+sprint.title);option.value=sprint.id;select.append(option);}document.querySelector('#calendar').textContent=data.sprints.map(s=>`${s.id} : ${s.start} → ${s.end}`).join(' / ');select.addEventListener('change',render);render();}catch{document.querySelector('#calendar').textContent='Le planning est indisponible. Aucun statut de remplacement inventé.';}
-document.querySelector('#question-form').addEventListener('submit',async event=>{
- event.preventDefault();const button=event.currentTarget.querySelector('button');button.disabled=true;const status=document.querySelector('#answer-status');status.textContent='Recherche locale…';document.querySelector('#sources').replaceChildren();document.querySelector('#trace').replaceChildren();
- try{const response=await fetch('/api/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:document.querySelector('#question').value})});if(!response.ok)throw Error();const result=await response.json();status.textContent=result.reason;for(const step of result.trace)document.querySelector('#trace').append(element('li',step));for(const source of result.sources){const node=element('article',undefined,'source');node.append(element('strong',source.documentId),element('small',`${source.path} · ${source.id} · SHA256 ${source.version}`),element('pre',source.excerpt));document.querySelector('#sources').append(node);}}catch{status.textContent='Recherche indisponible. Aucun appel externe effectué.';}finally{button.disabled=false;}
-});
+function openTicket(id,status,error=''){
+ const original=data.tickets.find(t=>t.id===id);if(!original)return;selectedId=id;const t=effective(original,changes),leaf=isLeaf(original,data.tickets);
+ $('ticket-id').textContent=`${t.id} · ${t.priority} · ${t.sprint}`;$('ticket-title').textContent=t.title;const details=$('ticket-details');details.replaceChildren();
+ for(const [label,value] of [['Responsable',t.role+' (rôle planifié)'],['Objectif',t.objective],['Périmètre',t.scope],['Statut',statuses[ticketStatus(id,data.tickets,changes)]],['Charge estimée',t.estimateHours.join('–')+' h'],['Temps mesuré','Non disponible'],['Remise proposée',t.due],['Dépendances',t.dependencies.join(', ')||'Aucune'],['Fichiers',t.files.join(', ')],['Tests attendus',t.tests.join(' ; ')],['Preuves',t.evidence.join(' ; ')||'Aucune'],['Prochaine action',t.next]])details.append(el('p',`${label} : ${value}`));
+ const list=el('ul');for(const criterion of t.acceptance)list.append(el('li',criterion));details.append(list);
+ for(const child of data.tickets.filter(c=>c.parent===id)){const n=el('p',`${child.id} · ${statuses[leafStatus(child)]} · ${child.title}`);details.append(n);}
+ $('ticket-edit').hidden=!leaf;$('ticket-status').value=status??t.status;$('ticket-blocker').value=t.blocker??'';$('ticket-evidence').value='';$('ticket-verified').checked=false;$('ticket-feedback').textContent=error;
+ if(!$('ticket-dialog').open)$('ticket-dialog').showModal();
+}
+for(const [key,label] of Object.entries(statuses)){const option=el('option',label);option.value=key;$('ticket-status').append(option);}
+$('close-dialog').addEventListener('click',()=>$('ticket-dialog').close());
+$('ticket-form').addEventListener('submit',event=>{event.preventDefault();const error=move(selectedId,$('ticket-status').value,{evidence:$('ticket-evidence').value,verified:$('ticket-verified').checked,blocker:$('ticket-blocker').value});$('ticket-feedback').textContent=error??'';if(!error){$('ticket-dialog').close();document.querySelector(`[data-ticket="${selectedId}"]`)?.focus();}});
+for(const button of document.querySelectorAll('[data-view]'))button.addEventListener('click',()=>{for(const id of ['planning','roles','assistant'])$(id).hidden=id!==button.dataset.view;for(const b of document.querySelectorAll('[data-view]'))b.setAttribute('aria-pressed',String(b===button));});
+for(const id of ['sprint','role','search'])$(id).addEventListener(id==='search'?'input':'change',()=>data&&render());
+$('reset').addEventListener('click',()=>{changes={};try{localStorage.removeItem(storageKey);}catch{}render();message('Vue initiale rétablie. Le dossier source n’a pas été modifié.');});
+$('export').addEventListener('click',()=>{if(!data)return;const exported={...data,exportKind:'manual-browser-planning-copy',tickets:data.tickets.map(t=>({...effective(t,changes),status:leafStatus(t)}))};const url=URL.createObjectURL(new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download='GetYourMentor-kanban-local.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+try{const response=await fetch('/backlog.json');if(!response.ok)throw Error();data=await response.json();for(const s of data.sprints){const option=el('option',`${s.id} · ${s.start} → ${s.end}`);option.value=s.id;$('sprint').append(option);}for(const role of data.roles){const option=el('option',role);option.value=role;$('role').append(option);}
+ try{const saved=JSON.parse(localStorage.getItem(storageKey));if(saved?.base===JSON.stringify(data.tickets)){for(const [id,patch] of Object.entries(saved.changes??{})){if(data.tickets.some(t=>t.id===id&&isLeaf(t,data.tickets))&&patch&&Object.hasOwn(statuses,patch.status)&&(!patch.evidence||Array.isArray(patch.evidence)&&patch.evidence.every(v=>typeof v==='string')))changes[id]=patch;}}else if(saved)message('Le dossier a évolué : vos anciens déplacements ne sont pas appliqués automatiquement.');}catch{message('Sauvegarde locale illisible : affichage du dossier source.');}render();
+}catch{message('Chargement du tableau impossible. Aucun statut inventé.');}
+$('question-form').addEventListener('submit',async event=>{event.preventDefault();const button=event.currentTarget.querySelector('button');button.disabled=true;$('answer-status').textContent='Recherche locale…';$('sources').replaceChildren();$('trace').replaceChildren();try{const response=await fetch('/api/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:$('question').value})});if(!response.ok)throw Error();const result=await response.json();$('answer-status').textContent=result.reason;for(const step of result.trace)$('trace').append(el('li',step));for(const source of result.sources){const node=el('article',undefined,'source');node.append(el('strong',source.documentId),el('small',`${source.path} · SHA256 ${source.version}`),el('pre',source.excerpt));$('sources').append(node);}}catch{$('answer-status').textContent='Recherche indisponible. Aucun appel externe effectué.';}finally{button.disabled=false;}});

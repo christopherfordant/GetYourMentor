@@ -9,7 +9,9 @@ node tools/agentic-workbench/server.mjs
 
 Ouvrir http://127.0.0.1:4325/ ; Ctrl+C pour arrêter. Node 22 ou plus récent. Aucun paquet nécessaire au serveur ou aux tests Node. Le contrôle navigateur optionnel réutilise Playwright existant : `node tools/agentic-workbench/tests/browser-check.cjs`, serveur déjà ouvert.
 
-Le Kanban est lu depuis `backlog.json`. Modifications manuelles et versionnées, pas de synchronisation GitHub Projects. Les rôles sont simulés, les temps sont estimés, les mesures absentes restent nulles. Les parents terminés exigent tous les sous-tickets nécessaires terminés et des preuves.
+Le Kanban reprend `backlog.json` : un couloir par ticket parent, des post-it pour ses sous-tickets et une fiche accessible au clic, au clavier et au tactile. Glisser-déposer entre colonnes dans le même couloir ; alternative par sélection du statut dans la fiche. Filtres sprint, rôle et texte, limite de deux tâches en cours, contrôle des dépendances et preuve explicitement vérifiée pour une nouvelle clôture.
+
+Les déplacements sont des modifications de planification manuelles, conservées dans le localStorage de ce navigateur. Ils ne modifient ni le JSON versionné, ni Git, ni les preuves des tests. Export JSON et remise à l'état initial disponibles. Pas de synchronisation GitHub Projects ou multi-utilisateur. Un dossier source différent invalide l'application automatique des anciens déplacements. Les rôles sont simulés, les temps sont estimés, les mesures absentes restent nulles. Les statuts parents sont dérivés des sous-tickets ; pas de clôture directe d'un parent.
 
 L'assistant lit le manifeste `docs/architecture/rag-corpus.json`, découpe les sources Markdown autorisées et retourne des extraits exacts avec leur version. Recherche lexicale, pas d'embeddings, de génération ou de LangGraph actifs. Pas de clé, modèle ou fournisseur chargé. Pas d'écriture métier.
 

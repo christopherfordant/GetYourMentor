@@ -10,4 +10,5 @@ Les consignes racine restent applicables. Les rôles du tableau sont des affecta
 - Tests : `node --test tools/agentic-workbench/tests/*.test.mjs` depuis la racine.
 - Aperçu : `node tools/agentic-workbench/server.mjs`, loopback 4325, Ctrl+C pour arrêter.
 - Kanban versionné dans `backlog.json` : parents terminés seulement avec tous leurs enfants nécessaires validés. Estimations et mesures doivent rester distinctes.
+- La vue interactive utilise des modifications manuelles en localStorage, distinctes des faits du JSON versionné. Exporter explicitement ; aucune synchronisation ou vérification automatique des preuves ajoutées n'est revendiquée. Ne pas compter le statut d'une carte comme une preuve de test.
 - Avant livraison : tests, contrôle navigateur, preuves, relais courant et commit ciblé selon la procédure Git. Aucun déploiement ou migration distante.

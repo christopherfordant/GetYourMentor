@@ -1,3 +1,9 @@
+## Reprise active — 3 novembre 2026 : Kanban en couloirs
+
+Nouvelle consigne visuelle utilisateur appliquee : tableau a lignes par lot, post-it compacts colores, fiche de ticket, glisser-deposer et statut modifiable au clavier/tactile. Source : 18 tickets dont 13 sous-tickets, cinq couloirs parents ; huit etapes conservees. Apercu courant http://127.0.0.1:4325/, checkout `C:/Users/cashe/Documents/GYM-kanban-20261103`, relance `node tools/agentic-workbench/server.mjs`.
+
+17/17 tests Node PASS ; Playwright 1440/390 : filtres, deplacement, rechargement, limite de cloture, preuve manuelle, export JSON, tactile et clavier verifies. Changements en localStorage de ce navigateur seulement, pas de synchronisation Git/Jira, pas de preuve automatique inventee. [Rapport, limites et controles](KANBAN_SWIMLANES_2026-11-03.md). Les vues precedentes sont historiques. Aucun deploiement ou service externe, divergence Git preservee sans contournement ; empreintes des modifications anterieures controlees. RAG et services metier inchanges.
+
 Compl?ment Git/contr?les du lot Stripe-Telegram : commit applicatif local `38dd18e`, push refus? non-fast-forward, distant `d50b9eb` inchang?. Build/TypeScript du checkout isol? PASS ; contr?le global du dossier principal bloqu? par les anciennes copies sous `playwright-artifacts`, pr?serv?es. Test Telegram portable 2/2 PASS apr?s la suite compl?te 20/20. Voir le rapport pour les preuves et les essais externes encore bloqu?s.
 
 ## Reprise active ? 3 novembre 2026 : Stripe TEST et Telegram
