@@ -1,0 +1,92 @@
+   ▲ Next.js 15.5.27
+   - Experiments (use with caution):
+     · cpus: 2
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 14.5s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/37) ...
+   Generating static pages (9/37)
+   Generating static pages (18/37)
+   Generating static pages (27/37)
+ ✓ Generating static pages (37/37)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                         Size  First Load JS
+┌ ○ /                                            13.4 kB         127 kB
+├ ○ /_not-found                                    328 B         102 kB
+├ ƒ /admin/knowledge                             1.55 kB         112 kB
+├ ƒ /api/admin/club-leads/[id]/documents/[kind]    248 B         102 kB
+├ ƒ /api/admin/coaches/[id]                        248 B         102 kB
+├ ƒ /api/admin/commission                          248 B         102 kB
+├ ƒ /api/admin/overview                            248 B         102 kB
+├ ƒ /api/affiliations                              248 B         102 kB
+├ ƒ /api/auth/phone/request                        248 B         102 kB
+├ ƒ /api/auth/phone/verify                         248 B         102 kB
+├ ƒ /api/auth/sign-in                              248 B         102 kB
+├ ƒ /api/auth/sign-out                             248 B         102 kB
+├ ƒ /api/auth/sign-up                              248 B         102 kB
+├ ƒ /api/clubs/leads                               248 B         102 kB
+├ ƒ /api/clubs/me                                  248 B         102 kB
+├ ƒ /api/coaches                                   248 B         102 kB
+├ ƒ /api/coaches/[id]                              248 B         102 kB
+├ ƒ /api/coaches/[id]/documents                    248 B         102 kB
+├ ƒ /api/coaches/group-prices                      248 B         102 kB
+├ ƒ /api/coaches/preview                           248 B         102 kB
+├ ƒ /api/coaches/sessions                          248 B         102 kB
+├ ƒ /api/contents                                  248 B         102 kB
+├ ƒ /api/contents/[id]                             248 B         102 kB
+├ ƒ /api/cron/reservation-reminders                248 B         102 kB
+├ ƒ /api/feedback                                  248 B         102 kB
+├ ƒ /api/health                                    248 B         102 kB
+├ ƒ /api/health/live                               248 B         102 kB
+├ ƒ /api/knowledge/context                         248 B         102 kB
+├ ƒ /api/knowledge/search                          248 B         102 kB
+├ ƒ /api/messages                                  248 B         102 kB
+├ ƒ /api/messages/[id]/attachment                  248 B         102 kB
+├ ƒ /api/offers/preview                            248 B         102 kB
+├ ƒ /api/progress                                  248 B         102 kB
+├ ƒ /api/reservations                              248 B         102 kB
+├ ƒ /api/reservations/[id]                         248 B         102 kB
+├ ƒ /api/reservations/[id]/cancel                  248 B         102 kB
+├ ƒ /api/reservations/[id]/payment                 248 B         102 kB
+├ ƒ /api/reservations/[id]/reschedule              248 B         102 kB
+├ ƒ /api/reservations/recovery                     248 B         102 kB
+├ ƒ /api/reservations/summary                      248 B         102 kB
+├ ƒ /api/reviews                                   248 B         102 kB
+├ ƒ /api/sessions                                  248 B         102 kB
+├ ƒ /api/sessions/preview                          248 B         102 kB
+├ ƒ /api/structures/offers                         248 B         102 kB
+├ ƒ /api/structures/reservations                   248 B         102 kB
+├ ƒ /api/webhooks/stripe                           248 B         102 kB
+├ ƒ /beta                                         4.3 kB         115 kB
+├ ƒ /coach                                       7.57 kB         125 kB
+├ ƒ /coachs                                      7.92 kB         118 kB
+├ ƒ /compte                                        38 kB         156 kB
+├ ƒ /contenus                                    5.08 kB         116 kB
+├ ƒ /creneau                                     8.29 kB         119 kB
+├ ƒ /demo-portraits                              1.47 kB         103 kB
+├ ƒ /inscription-club                            6.72 kB         117 kB
+├ ƒ /legal/[slug]                                  200 B         111 kB
+├ ƒ /offres                                      4.21 kB         115 kB
+├ ƒ /paiement                                    9.86 kB         124 kB
+├ ○ /plan-du-site                                2.04 kB         113 kB
+├ ƒ /recapitulatif                               5.48 kB         116 kB
+├ ƒ /recherche                                   4.43 kB         115 kB
+├ ○ /robots.txt                                    248 B         102 kB
+├ ƒ /seances                                       182 B         118 kB
+├ ○ /sitemap.xml                                   248 B         102 kB
+├ ƒ /structures                                    182 B         118 kB
+└ ƒ /suivi                                       3.96 kB         114 kB
++ First Load JS shared by all                     102 kB
+  ├ chunks/5473-cabbf37d176fddb5.js              45.7 kB
+  ├ chunks/8f89665b-4156a680fd9d3494.js          54.2 kB
+  └ other shared chunks (total)                  2.06 kB
+
+
+ƒ Middleware                                     32.7 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

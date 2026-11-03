@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "initialSports": 4,
+      "expandedSports": 14,
+      "click": true,
+      "keyboard": true,
+      "hiddenLinksSkippedByTab": true,
+      "labelsAndLinksUnchanged": true,
+      "noOverflow": true
+    },
+    {
+      "width": 768,
+      "initialSports": 4,
+      "expandedSports": 14,
+      "click": true,
+      "keyboard": true,
+      "hiddenLinksSkippedByTab": true,
+      "labelsAndLinksUnchanged": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "initialSports": 4,
+      "expandedSports": 14,
+      "click": true,
+      "keyboard": true,
+      "hiddenLinksSkippedByTab": true,
+      "labelsAndLinksUnchanged": true,
+      "noOverflow": true
+    },
+    {
+      "width": 320,
+      "initialSports": 4,
+      "expandedSports": 14,
+      "click": true,
+      "keyboard": true,
+      "hiddenLinksSkippedByTab": true,
+      "labelsAndLinksUnchanged": true,
+      "noOverflow": true
+    }
+  ],
+  "implementation": "native details/summary, no JavaScript required for disclosure"
+}

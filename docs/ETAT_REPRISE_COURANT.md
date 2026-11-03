@@ -1,5 +1,11 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Intention corrigée — 3 novembre 2026 : footer compact repliable
+
+La dernière consigne remplace la grille précédente : quatre sports visibles par défaut, dix autres dépliables via une petite flèche à côté de « Disciplines ». Une colonne et aucune ligne supplémentaire pour le contrôle en mode fermé ; autres rubriques préservées. `details/summary` natif, clavier et liens masqués hors Tab. [Rapport et contrôles](FOOTER_DISCIPLINES_REPLIABLE_2026-11-03.md). Aucun déploiement ; aperçu local sur 3004, checkout/lanceur existants. La section suivante décrit une version historique désormais remplacée.
+
+Build/type, frontière client et Netlify PASS. Clic/Entrée/Espace, quatre puis quatorze liens visibles, ordre/destinations préservés, liens cachés hors Tab et absence de débordement vérifiés à 1440/768/390/320. Captures dans `assets/footer-fold-2026-11-03/`, serveur session 62808.
+
 ## Footer ciblé — 3 novembre 2026 : disciplines alignées
 
 Rubrique « Disciplines » du footer actif convertie en grille commune à deux colonnes, titre sur toute la largeur et liens alignés en haut de leurs lignes. Quatorze libellés/destinations et ordre du catalogue conservés ; une colonne sous 481 px pour la lisibilité. Autres rubriques et animations inchangées. [Rapport, captures et contrôles](FOOTER_DISCIPLINES_2026-11-03.md). Checkout de recette et lanceur sur 3004 réutilisés. Aucun déploiement Netlify ; changements antérieurs non vérifiés préservés.
