@@ -1,5 +1,11 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Footer ciblé — 3 novembre 2026 : disciplines alignées
+
+Rubrique « Disciplines » du footer actif convertie en grille commune à deux colonnes, titre sur toute la largeur et liens alignés en haut de leurs lignes. Quatorze libellés/destinations et ordre du catalogue conservés ; une colonne sous 481 px pour la lisibilité. Autres rubriques et animations inchangées. [Rapport, captures et contrôles](FOOTER_DISCIPLINES_2026-11-03.md). Checkout de recette et lanceur sur 3004 réutilisés. Aucun déploiement Netlify ; changements antérieurs non vérifiés préservés.
+
+Build/type, frontière client et configuration Netlify PASS ; géométrie et absence de débordement vérifiées à 1440/768/390/320. Sept paires alignées en haut, quatorze libellés/liens inchangés et quatorze destinations HTTP 200. Captures avant/après dans `assets/footer-disciplines-2026-11-03/`. Serveur session 22015 ; divergence Git antérieure conservée.
+
 ## Accueil plus fourni — 3 novembre 2026 : neuf cartes locales
 
 Sur demande utilisateur, les six nouveaux portraits fictifs sont maintenant ajoutés à l'éventail de l'accueil en recette locale, avec les trois profils existants : neuf cartes distinctes. Pas de comptes coachs créés, tarifs/avis/diplômes inventés ou image réattribuée à une personne réelle. Cartes explicitement fictives et détail de portrait sans réservation. Activation protégée par `isLocalPortraitPreview` ; API catalogue toujours bornée, illustratifs séparés des profils réels, aucune addition sur catalogue vide/erreur. [Rapport et contrôles](ACCUEIL_NEUF_CARTES_2026-11-03.md). Aperçu http://127.0.0.1:3004/#mentors, checkout et lanceur précédents réutilisés. Aucun déploiement Netlify, nouvelle génération ou crédit d'image requis. Attendre la revue utilisateur.
