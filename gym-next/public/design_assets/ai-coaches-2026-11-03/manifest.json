@@ -1,0 +1,116 @@
+[
+  {
+    "id": "crossfit",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-crossfit.png",
+    "original_sha256": "88a739f8f004a1281605f3ec2f1b43d4e3bf260fb0519a7fd4908aba4efbe7bd",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-crossfit-640.webp",
+        "bytes": 20902,
+        "sha256": "7b1b43e8f83b7a944a8dbea82dd75a7bb233fdf89001ece566defeb7ac981ccd"
+      },
+      {
+        "file": "coach-crossfit-1280.webp",
+        "bytes": 56722,
+        "sha256": "d34469f2d7618f960d7fd8851da5256acb4ae397649ecc0e63103f31f214daa7"
+      }
+    ]
+  },
+  {
+    "id": "padel",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-padel.png",
+    "original_sha256": "2e23786fb9fbef8b955e81416bf87dec1c9b19529a974059633182acd66aaf85",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-padel-640.webp",
+        "bytes": 39002,
+        "sha256": "e20833d615818fce0dddd4cae74762c7a8bfc8cb018d1b5f2c9052d5ea9c6d5c"
+      },
+      {
+        "file": "coach-padel-1280.webp",
+        "bytes": 105034,
+        "sha256": "6e84014b2a727c3d7fd09080ad9400be29fb3aac873c545b6d7bb3afc91cffcd"
+      }
+    ]
+  },
+  {
+    "id": "pilates",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-pilates.png",
+    "original_sha256": "dce7189b5e45b39a318318200375f8766d2c4d35d5bbaa8a13652bf6ddb6b1ec",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-pilates-640.webp",
+        "bytes": 26368,
+        "sha256": "759dab11e0a3e7aa546c90e9fd1ce74df29aad67d02efd4e130343da6196c733"
+      },
+      {
+        "file": "coach-pilates-1280.webp",
+        "bytes": 72340,
+        "sha256": "6e0a35bf12379b7d93c0e0b468f928c61d80a09c540a6b43670f5fba54e706ec"
+      }
+    ]
+  },
+  {
+    "id": "musculation",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-musculation.png",
+    "original_sha256": "b494a6feff3c777e3c25b6d6aa64545db67c3c27f08685f9afb27981f215d717",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-musculation-640.webp",
+        "bytes": 20792,
+        "sha256": "587f0381b39cc9a1cedda2b8ea0f966845948be3582aea1d846cc59de49dd995"
+      },
+      {
+        "file": "coach-musculation-1280.webp",
+        "bytes": 56148,
+        "sha256": "34438bb1fd1dbb080c860b722a715d80042459ee3cd65da3cb28016f48c45e47"
+      }
+    ]
+  },
+  {
+    "id": "boxe",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-boxe.png",
+    "original_sha256": "a37bf3b972a99538f23ccc5b9332eeac11c6739a1cd44fc5bd8d90d6477ce8c9",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-boxe-640.webp",
+        "bytes": 21344,
+        "sha256": "f53e66d8e5b2eba8593bdf4a0c51cecb33f574a0d0f3392c0ecc99fb6abcdcf2"
+      },
+      {
+        "file": "coach-boxe-1280.webp",
+        "bytes": 57532,
+        "sha256": "476483255e7b024e4d88e65265a73e5db2d7d2c0f392f6f69bfb087a195924b1"
+      }
+    ]
+  },
+  {
+    "id": "preparation-physique",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-preparation-physique.png",
+    "original_sha256": "c1d1bdf8e10c218540764882b7b2724be6c70283d778ba28f5824785dd535c21",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-preparation-physique-640.webp",
+        "bytes": 28848,
+        "sha256": "8dc6553f45348ca4e27e4315408b05e94e4a97a14c535f10d502045741a06489"
+      },
+      {
+        "file": "coach-preparation-physique-1280.webp",
+        "bytes": 93086,
+        "sha256": "79ac868096909636910ebe939613e995251d3df0688515e34555ebe0e29f1b49"
+      }
+    ]
+  }
+]

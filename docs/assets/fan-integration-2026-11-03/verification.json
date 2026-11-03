@@ -1,0 +1,135 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "n": 0,
+      "empty": true
+    },
+    {
+      "width": 1440,
+      "n": 1,
+      "square": true,
+      "wrap": false,
+      "keyboard": false
+    },
+    {
+      "width": 1440,
+      "n": 2,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 1440,
+      "n": 6,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 1440,
+      "n": 8,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 1440,
+      "n": 20,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 390,
+      "n": 0,
+      "empty": true
+    },
+    {
+      "width": 390,
+      "n": 1,
+      "square": true,
+      "wrap": false,
+      "keyboard": false
+    },
+    {
+      "width": 390,
+      "n": 2,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 390,
+      "n": 6,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 390,
+      "n": 8,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 390,
+      "n": 20,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 320,
+      "n": 0,
+      "empty": true
+    },
+    {
+      "width": 320,
+      "n": 1,
+      "square": true,
+      "wrap": false,
+      "keyboard": false
+    },
+    {
+      "width": 320,
+      "n": 2,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 320,
+      "n": 6,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 320,
+      "n": 8,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    },
+    {
+      "width": 320,
+      "n": 20,
+      "square": true,
+      "wrap": true,
+      "keyboard": true
+    }
+  ],
+  "errorAndRetry": true,
+  "missingPortraitAndLongText": true,
+  "touchSwipe": true,
+  "profileLink": true,
+  "doorDurations": [
+    2200,
+    2200,
+    2200
+  ],
+  "pageErrors": [],
+  "scope": "Local isolated demo; no remote services or physical phone"
+}

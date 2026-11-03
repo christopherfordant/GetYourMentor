@@ -1,0 +1,41 @@
+{
+  "scope": "localhost only, fresh browser context, not public-site performance",
+  "navigation": [
+    {
+      "domContentLoadedMs": 502.70000000018626,
+      "loadMs": 642.4000000003725
+    }
+  ],
+  "images": [
+    {
+      "file": "coach-crossfit-640.webp",
+      "durationMs": 26.300000000745058,
+      "encodedBytes": 20902
+    },
+    {
+      "file": "coach-padel-640.webp",
+      "durationMs": 25.600000000558794,
+      "encodedBytes": 39002
+    },
+    {
+      "file": "coach-pilates-640.webp",
+      "durationMs": 43.59999999962747,
+      "encodedBytes": 26368
+    },
+    {
+      "file": "coach-musculation-640.webp",
+      "durationMs": 43.19999999925494,
+      "encodedBytes": 20792
+    },
+    {
+      "file": "coach-boxe-640.webp",
+      "durationMs": 60.799999999813735,
+      "encodedBytes": 21344
+    },
+    {
+      "file": "coach-preparation-physique-640.webp",
+      "durationMs": 62,
+      "encodedBytes": 28848
+    }
+  ]
+}

@@ -1,5 +1,11 @@
 # Reprise opérationnelle — GetYourMentor
 
+## Intégration locale — 3 novembre 2026 : éventail et portraits
+
+L'utilisateur a validé la proposition 03 : attente de choix ci-dessous levée pour l'éventail. Accueil des mentors adapté au composant circulaire `FanCarousel`, cartes carrées, aucun groupe de cinq ou face de remplissage. L'API d'aperçu reste bornée à six, l'annuaire complet reste accessible. Six portraits fictifs ImageGen créés et conservés avec prompts/originaux/WebP ; galerie séparée, aucun faux compte ni photo attribuée à un coach réel. Aperçu isolé : http://127.0.0.1:3004/#mentors et http://127.0.0.1:3004/demo-portraits. [Rapport, provenance, contrôles et relance](EVENTAIL_PORTRAITS_2026-11-03.md). Aucun déploiement ; attendre la revue utilisateur. Modifications antérieures préservées ; divergence Git existante non résolue.
+
+Build, frontière client, configuration Netlify et secrets PASS. Suite ciblée **26/26 PASS** ; contrôle complémentaire **18 combinaisons PASS**, avec recoupements explicités. Portes mesurées à 2 200 ms ; galerie HTTP 404 hors recette. Six portraits retenus : CrossFit, padel, Pilates, musculation, boxe, préparation physique. Quatre essais hors catalogue archivés et écartés de la sélection finale. Serveur loopback session 39405. Preuves et limites dans le rapport.
+
 ## Choix visuel en attente — 3 novembre 2026 : carrousels larges
 
 Trois démonstrations autonomes avec cartes carrées : anneau à N faces, ellipse panoramique et éventail horizontal. Sélecteur 3/8/12/20 cartes ; seuls trois profils de démonstration existants sont repris, les autres faces sont explicitement des emplacements de maquette. Aperçu http://127.0.0.1:4323/carousel-large-2026-11-03/ ; serveur statique loopback session 6899. [Périmètre, provenance, relance et limites](CARROUSELS_LARGES_2026-11-03.md). Contrôles et captures dans `assets/carousel-large-2026-11-03/`. Aucun remplacement dans l'application ni publication Netlify. Attendre le choix utilisateur avant intégration. Divergence Git préexistante conservée, aucun force-push ni fusion autorisés.

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "tennis",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-tennis.png",
+    "original_sha256": "0b66c35b50ae9c5b2734a55c09c5844e5e22fd0126210f291a939ddb0197ae3b",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-tennis-640.webp",
+        "bytes": 25800,
+        "sha256": "752992be615569d5c5266cb493844f4d315470d1590ac94d8100fe2d67f7ad2c"
+      },
+      {
+        "file": "coach-tennis-1280.webp",
+        "bytes": 62650,
+        "sha256": "805e0f774acb12feeabba13862018d78650cda81847c81955855f3fa23ebdba7"
+      }
+    ]
+  },
+  {
+    "id": "padel",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-padel.png",
+    "original_sha256": "2e23786fb9fbef8b955e81416bf87dec1c9b19529a974059633182acd66aaf85",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-padel-640.webp",
+        "bytes": 39002,
+        "sha256": "e20833d615818fce0dddd4cae74762c7a8bfc8cb018d1b5f2c9052d5ea9c6d5c"
+      },
+      {
+        "file": "coach-padel-1280.webp",
+        "bytes": 105034,
+        "sha256": "6e84014b2a727c3d7fd09080ad9400be29fb3aac873c545b6d7bb3afc91cffcd"
+      }
+    ]
+  },
+  {
+    "id": "yoga",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-yoga.png",
+    "original_sha256": "fab314c38155e82f2c321856df6b145904ce49c40ef712c815a91b239399d03d",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-yoga-640.webp",
+        "bytes": 27472,
+        "sha256": "875ce21a0e24fe48a0b986b0f64d3b5ce75e53b96e57308352995dd061639b45"
+      },
+      {
+        "file": "coach-yoga-1280.webp",
+        "bytes": 76088,
+        "sha256": "91494dd7815e27f847fa9a43771a87ee20c8ae1f8e46c9dcdf77cc344c0d19cc"
+      }
+    ]
+  },
+  {
+    "id": "natation",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-natation.png",
+    "original_sha256": "ef5917858ab455c846559ef1a7137eab2bab5037e7a0374867cea0d7d946afb8",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-natation-640.webp",
+        "bytes": 22910,
+        "sha256": "2af259de37829635e40fb168c9ef2c174979dfcf1cd5cfe2dd3c4e1a4c1227d5"
+      },
+      {
+        "file": "coach-natation-1280.webp",
+        "bytes": 60936,
+        "sha256": "d07def6c9f7bcbe4785c92892bd5a3c7ab038e0467f6c1a926b679ba635c51be"
+      }
+    ]
+  },
+  {
+    "id": "boxe",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-boxe.png",
+    "original_sha256": "a37bf3b972a99538f23ccc5b9332eeac11c6739a1cd44fc5bd8d90d6477ce8c9",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-boxe-640.webp",
+        "bytes": 21344,
+        "sha256": "f53e66d8e5b2eba8593bdf4a0c51cecb33f574a0d0f3392c0ecc99fb6abcdcf2"
+      },
+      {
+        "file": "coach-boxe-1280.webp",
+        "bytes": 57532,
+        "sha256": "476483255e7b024e4d88e65265a73e5db2d7d2c0f392f6f69bfb087a195924b1"
+      }
+    ]
+  },
+  {
+    "id": "course",
+    "original": "docs/assets/ai-coaches-2026-11-03/originals/coach-course.png",
+    "original_sha256": "88c24bd7ac77642e97e33947cf7e15fdd62af8f4c7b85f73adb253dd082fd3cb",
+    "origin": "built-in image_gen",
+    "fictional": true,
+    "variants": [
+      {
+        "file": "coach-course-640.webp",
+        "bytes": 37488,
+        "sha256": "dca69de7c4445f44ebcdda6aa4718179232c90b09321d85b5dded85cd67c56c2"
+      },
+      {
+        "file": "coach-course-1280.webp",
+        "bytes": 118988,
+        "sha256": "61b0ba8e2c5db3a46d2edd4994e9b6a65cf413c634e5fc1fd669586ca8589167"
+      }
+    ]
+  }
+]

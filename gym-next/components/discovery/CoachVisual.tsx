@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { coachVisual } from '@/lib/demo-visuals';
 import styles from './visual-library.module.css';
 
-export function CoachVisual({ coachId, name, demo = false, photoUrl, priority = false, sizes = '(max-width: 760px) 100vw, 42vw' }: {
-  coachId?: string; name: string; demo?: boolean; photoUrl?: string; priority?: boolean; sizes?: string;
+export function CoachVisual({ coachId, name, demo = false, photoUrl, priority = false, compactCaption = false, sizes = '(max-width: 760px) 100vw, 42vw' }: {
+  coachId?: string; name: string; demo?: boolean; photoUrl?: string; priority?: boolean; compactCaption?: boolean; sizes?: string;
 }) {
   const visual = coachVisual(coachId, demo, photoUrl);
   const [failedSource, setFailedSource] = useState('');
@@ -23,6 +23,6 @@ export function CoachVisual({ coachId, name, demo = false, photoUrl, priority = 
       : <div className={styles.initials} role="img" aria-label={`Photo indisponible pour ${name}`}>
         <span aria-hidden="true">{name.split(/\s+/).filter(Boolean).map(part => part[0]).slice(0, 2).join('')}</span>
       </div>}
-    {showImage && visual.ai && <figcaption>Illustration IA · profil de démonstration</figcaption>}
+    {showImage && visual.ai && <figcaption>{compactCaption ? 'Illustration IA · démo' : 'Illustration IA · profil de démonstration'}</figcaption>}
   </figure>;
 }
