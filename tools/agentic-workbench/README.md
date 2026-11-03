@@ -17,4 +17,6 @@ L'assistant lit le manifeste `docs/architecture/rag-corpus.json`, découpe les s
 
 Réservé au poste du propriétaire sur loopback. Host et origine contrôlés ; aucune authentification multi-utilisateur. Ne pas publier cet atelier, ni l'intégrer à `public` ou à Netlify. Le rôle admin de l'application reste à raccorder via l'authentification serveur existante dans un lot ultérieur.
 
-Limites connues, architecture, inventaire et sprints : `docs/architecture/AGENTIC_REFACTOR_2026-11-03.md`. Évaluation lexicale existante 7/8 et récupération par extraits 6/8 ; ne pas présenter ces résultats comme un RAG prêt pour la production. Aucun workflow GitHub Actions exécuté.
+État courant : `docs/RAG_REGRESSIONS_CORRIGEES_2026-11-03.md`. Les deux régressions revues sont corrigées, avec un budget de huit passages, 7 200 unités de texte JavaScript, trois passages par document et cinq documents prioritaires avant les compléments. Les extraits restent exacts ; aucune détection sémantique universelle des contradictions. Évaluation de référence 12/12, nouveaux contrôles 2/3 : un faux positif hors sujet reste ouvert. Aucun workflow GitHub Actions exécuté.
+
+Les déplacements utilisent maintenant une clé locale par version du dossier (SHA256). Les anciennes clés restent intactes et exportables avec « Exporter mes anciens déplacements ». Une ancienne vue correspondant exactement au dossier est reprise ; une vue d'un autre dossier n'est pas appliquée silencieusement. Les tests navigateur utilisent leurs propres contextes, jamais le localStorage de la session utilisateur.

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "purpose": "Formulations de contrôle ajoutées après le correctif, sans réglage du classement sur leurs résultats. Petit échantillon, pas une validation universelle.",
+  "cases": [
+    {"id":"control-schema-boundary","question":"Comment distinguer données métier et contexte documentaire ?","expectedDocuments":["memory-rag"]},
+    {"id":"control-payment-boundary","question":"Pourquoi éviter de mettre la recherche documentaire sur le chemin critique du paiement ?","expectedDocuments":["memory-rag","architecture"]},
+    {"id":"control-unrelated","question":"Quand décolleront les missions habitées vers Jupiter ?","expectedDocuments":[],"expectedStatus":"abstained"}
+  ]
+}

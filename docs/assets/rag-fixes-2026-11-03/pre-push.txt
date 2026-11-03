@@ -1,0 +1,161 @@
+[fil-rouge] Verification avant push...
+# Rapport de supervision Fil Rouge GYM
+
+- Date d'execution : 2026-11-03 16:46:20
+- Racine : `C:\Users\cashe\Documents\GetYourMentor`
+
+## Resultat
+
+STATUT : CONFORME
+
+## Fichiers verifies
+
+- OK fichier present : `governance/README.md`
+- OK fichier present : `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
+- OK fichier present : `governance/USER_STORIES_MVP_GYM.md`
+- OK fichier present : `governance/TRACEABILITY_MATRIX_GYM.md`
+- OK fichier present : `governance/roles/README_CTO.md`
+- OK fichier present : `governance/roles/README_DESIGN.md`
+- OK fichier present : `governance/roles/README_PRODUCT.md`
+- OK fichier present : `governance/roles/README_DEVOPS.md`
+- OK fichier present : `governance/roles/README_QA.md`
+- OK fichier present : `governance/roles/README_SEO.md`
+- OK fichier present : `governance/prompts/PROMPT_CTO_GYM.md`
+- OK fichier present : `governance/prompts/PROMPT_DESIGN_GYM.md`
+- OK fichier present : `governance/prompts/PROMPT_PRODUCT_GYM.md`
+- OK fichier present : `governance/prompts/PROMPT_DEVOPS_GYM.md`
+- OK fichier present : `governance/prompts/PROMPT_QA_GYM.md`
+- OK fichier present : `governance/prompts/PROMPT_SEO_GYM.md`
+- OK fichier present : `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
+- OK fichier present : `governance/ai/ARCHITECTURE_IA_RAG_GYM.md`
+- OK fichier present : `governance/ai/MODE_AUTO_PROJET_GYM.md`
+- OK fichier present : `governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md`
+- OK fichier present : `governance/ai/PHASES_EXECUTION_GYM.md`
+- OK fichier present : `governance/ai/CONTEXT_RAG_GYM.md`
+- OK fichier present : `governance/ai/DECISIONS_LOG_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_001_ORCHESTRATION_GYM.md`
+- OK fichier present : `governance/ai/MVP_ROUTE_CONTROL_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_002_FICHE_COACH_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_003_CRENEAU_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_004_RECAPITULATIF_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_005_PAIEMENT_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_006_TUNNEL_TRANSVERSE_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_008_COMPTE_BIFURCATIONS_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_009_INSCRIPTION_CLUB_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_011_QA_PLAYWRIGHT_GYM.md`
+- OK fichier present : `governance/ai/CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md`
+- OK fichier present : `governance/ai/mission_registry.json`
+- OK fichier present : `governance/ai/NEXT_MISSION_GYM.md`
+- OK fichier present : `scripts/run_auto_mission_planning.ps1`
+- OK fichier present : `scripts/complete_auto_mission.ps1`
+- OK fichier present : `scripts/run_codex_mission_agent.ps1`
+- OK fichier present : `governance/ai/AGENT_MISSION_EXECUTION_PROMPT.md`
+- OK source referencee : `DOCUMENT_MAITRE_GYM.md`
+- OK source referencee : `Bussiness Plan.pdf`
+- OK source referencee : `GetYourMentor MVP_V1 - Fonctionnalités générales.pdf`
+- OK source referencee : `Copie de Devis DEV - GetYourMentor.pdf`
+- OK source referencee : `MVP_ECRANS_GYM.md`
+- OK source referencee : `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
+- OK source referencee : `DESIGN_SYSTEM_GYM.md`
+- OK source referencee : `MIGRATION_NEXT_GYM.md`
+- OK source referencee : `RESPONSIVE_LAYOUT_GYM.md`
+- OK source referencee : `CARTOGRAPHIE_GLOBALE_GYM.md`
+- OK source referencee : `SOURCES_PRIORITAIRES_2026_03_19.md`
+- OK source referencee : `project_readable/INDEX.md`
+- OK aucun marqueur de texte corrompu detecte dans les zones sensibles
+- OK modifications code sensibles accompagnees de mises a jour de gouvernance
+
+## Changements detectes depuis le dernier passage
+
+- Ajoutes :
+  - `gym-next/app/api/coaches/preview/route.ts`
+  - `gym-next/app/api/contents/[id]/route.ts`
+  - `gym-next/app/api/contents/route.ts`
+  - `gym-next/app/api/feedback/route.ts`
+  - `gym-next/app/api/messages/[id]/attachment/route.ts`
+  - `gym-next/app/api/offers/preview/route.ts`
+  - `gym-next/app/api/progress/route.ts`
+  - `gym-next/app/api/reservations/recovery/route.ts`
+  - `gym-next/app/api/reservations/summary/route.ts`
+  - `gym-next/app/api/sessions/preview/route.ts`
+  - `gym-next/app/api/sessions/route.ts`
+  - `gym-next/app/api/telegram/preferences/route.ts`
+  - `gym-next/app/api/webhooks/telegram/route.ts`
+  - `gym-next/app/beta/page.tsx`
+  - `gym-next/app/contenus/page.tsx`
+  - `gym-next/app/demo-portraits/page.tsx`
+  - `gym-next/app/gym-factory-design.css`
+  - `gym-next/app/not-found.tsx`
+  - `gym-next/app/offres/page.tsx`
+  - `gym-next/app/plan-du-site/page.tsx`
+  - `gym-next/app/seances/page.tsx`
+  - `gym-next/app/suivi/page.tsx`
+  - `gym-next/app/template.tsx`
+  - `gym-next/components/BetaFeedback.tsx`
+  - `gym-next/components/ContentExplorer.tsx`
+  - `gym-next/components/OfferExplorer.tsx`
+  - `gym-next/components/PersonalProgress.tsx`
+  - `gym-next/components/account-legacy/AthleteCancellation.tsx`
+  - `gym-next/components/account-legacy/AthleteReschedule.tsx`
+  - `gym-next/components/account-legacy/CoachFinanceSummary.tsx`
+  - `gym-next/components/account-legacy/CoachPlanningSchedule.tsx`
+  - `gym-next/components/account-legacy/MessageFileDownload.tsx`
+  - `gym-next/components/account-legacy/MessageTemplates.tsx`
+  - `gym-next/components/account-legacy/ReservationReview.tsx`
+  - `gym-next/components/account-legacy/athlete-cancellation-data.ts`
+  - `gym-next/components/account-legacy/athlete-cancellation.module.css`
+  - `gym-next/components/account-legacy/athlete-reschedule-data.ts`
+  - `gym-next/components/account-legacy/coach-finance-filter.module.css`
+  - `gym-next/components/account-legacy/coach-request-data.ts`
+  - `gym-next/components/account-legacy/message-filters.module.css`
+- Modifies :
+  - `governance/FIL_ROUGE_OPERATOIRE_GYM.md`
+  - `governance/README.md`
+  - `governance/TRACEABILITY_MATRIX_GYM.md`
+  - `governance/ai/AGENT_MISSION_EXECUTION_PROMPT.md`
+  - `governance/ai/CONTEXT_RAG_GYM.md`
+  - `governance/ai/fil_rouge_state.json`
+  - `governance/ai/last_supervision_report.md`
+  - `gym-next/app/admin/knowledge/page.tsx`
+  - `gym-next/app/api/clubs/leads/route.ts`
+  - `gym-next/app/api/coaches/[id]/route.ts`
+  - `gym-next/app/api/coaches/sessions/route.ts`
+  - `gym-next/app/api/messages/route.ts`
+  - `gym-next/app/api/reservations/[id]/cancel/route.ts`
+  - `gym-next/app/api/reservations/[id]/payment/route.ts`
+  - `gym-next/app/api/reservations/[id]/reschedule/route.ts`
+  - `gym-next/app/api/reservations/[id]/route.ts`
+  - `gym-next/app/api/reservations/route.ts`
+  - `gym-next/app/api/reviews/route.ts`
+  - `gym-next/app/api/structures/offers/route.ts`
+  - `gym-next/app/api/webhooks/stripe/route.ts`
+  - `gym-next/app/coach/page.tsx`
+  - `gym-next/app/coachs/page.tsx`
+  - `gym-next/app/compte/page.tsx`
+  - `gym-next/app/creneau/page.tsx`
+  - `gym-next/app/gym-account-design.css`
+  - `gym-next/app/gym-booking-design.css`
+  - `gym-next/app/gym-design-tokens.css`
+  - `gym-next/app/gym-discovery-design.css`
+  - `gym-next/app/gym-editorial-design.css`
+  - `gym-next/app/gym-footer-design.css`
+  - `gym-next/app/layout.tsx`
+  - `gym-next/app/legal/[slug]/page.tsx`
+  - `gym-next/app/paiement/page.tsx`
+  - `gym-next/app/recapitulatif/page.tsx`
+  - `gym-next/app/recherche/page.tsx`
+  - `gym-next/app/redesign-2026.css`
+  - `gym-next/app/sitemap.ts`
+  - `gym-next/app/structures/page.tsx`
+  - `gym-next/components/ClientEnhancers.tsx`
+  - `gym-next/components/InternalNavigationEnhancer.tsx`
+- Supprimes :
+  - `gym-next/components/payment-legacy/ReviewForm.tsx`
+
+## Alertes
+
+- Aucune alerte
+
+[fil-rouge] STATUT : CONFORME. Push autorise.

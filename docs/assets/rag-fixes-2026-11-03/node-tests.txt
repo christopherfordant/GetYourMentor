@@ -1,0 +1,34 @@
+✔ parent status follows children; reopening prevents completed parent (6.0993ms)
+✔ completion needs dependencies and explicitly checked evidence (0.9282ms)
+✔ WIP, valid statuses and a blocking reason are enforced (0.6533ms)
+✔ French accents and regular plurals share lexical terms (4.6656ms)
+✔ specific evidence outranks boilerplate and duplicate passages (32.1666ms)
+✔ private and archived sources cannot influence frequencies (0.7653ms)
+✔ regression: contradictory passages in one document remain available (33.5722ms)
+✔ regression: a rare isolated word cannot hide qualified candidates (1.2913ms)
+✔ complementary passages survive while exact duplicate passages do not monopolize (2.4814ms)
+✔ passage, character and per-document budgets retain exact excerpts (3.1713ms)
+✔ insufficient, private and archived candidates cannot satisfy admission (0.7712ms)
+✔ oversized evidence is not silently truncated to manufacture a citation (0.7017ms)
+✔ only the explicit UI assets are served, with protective headers (237.7499ms)
+✔ cross-origin requests cannot invoke retrieval (11.6102ms)
+✔ local read-only query returns exact citations; malformed and large input fail (85.6125ms)
+✔ authorization precedes retrieval (3.2553ms)
+✔ citations are exact excerpts, with no generation or tool side effect (4.2314ms)
+✔ empty, irrelevant and insufficient sources abstain (1.7143ms)
+✔ invalid question is rejected before retrieval (0.4007ms)
+✔ prompt injection and business mutation do not execute (2.4632ms)
+✔ contradictions stay separate, without inventing a resolution (33.9503ms)
+✔ unavailable tool and timeout stop without provider fallback (12.5921ms)
+✔ private and archived candidates are filtered before ranking (0.3311ms)
+✔ real governed corpus yields traceable chunks with versions (53.2461ms)
+✔ manifest escape is rejected and removed documents disappear on reload (23.1032ms)
+✔ backlog hierarchy, estimates, dates and proof integrity (2.7917ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 651.7522

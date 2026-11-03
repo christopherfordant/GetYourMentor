@@ -1,10 +1,10 @@
-import {retrieve,terms} from './retrieval.mjs';
+import {retrieve,terms,CONTEXT_BUDGET} from './retrieval.mjs';
 const suspicious=/(ignore (?:all |previous)|ignorez les instructions|révèle.*secret|reveal.*secret|system prompt|exfiltrat)/i;
 const mutation=/(?:paie|payer|payez|annule|annuler|confirme|confirmer|modifie|modifier|supprime|supprimer|rembourse)\s+(?:ma|la|une|cette|mon|le|un|cette)?\s*(?:réservation|reservation|paiement|compte|transaction)/i;
 
 export async function runAssistant({question,principal,load,timeoutMs=2000}){
  const trace=[];
- const result=(status,reason,sources=[])=>({status,reason,sources,trace,mode:'extractive-lexical',modelCalls:0,embeddingCalls:0});
+ const result=(status,reason,sources=[])=>({status,reason,sources,trace,mode:'extractive-lexical',contextBudget:CONTEXT_BUDGET,modelCalls:0,embeddingCalls:0});
  trace.push('authorize');
  if(principal!=='local-owner'&&principal!=='admin')return result('denied','Accès documentaire interne requis.');
  trace.push('validate');
@@ -20,7 +20,7 @@ export async function runAssistant({question,principal,load,timeoutMs=2000}){
   if(!sources.length)return result('abstained','Aucune source suffisamment reliée à la question.');
   // Conservative exploratory gate, not a calibrated semantic confidence score.
   const required=Math.min(2,terms(question).size);
-  if(!required||sources[0].hits<required)return result('abstained','Les correspondances sont insuffisantes ; précisez la question.');
+  if(!required||!sources.some(source=>source.hits>=required))return result('abstained','Les correspondances sont insuffisantes ; précisez la question.');
   if(sources.some(s=>suspicious.test(s.excerpt)))return result('review','Une source contient une instruction suspecte ; revue humaine nécessaire.');
   // No synthesis: even conflicting sources stay distinct and must be reviewed.
   trace.push('cite');

@@ -7,8 +7,8 @@ test('French accents and regular plurals share lexical terms',()=>{
  assert.equal(terms('peut doit faut quelles').size,0);
 });
 test('specific evidence outranks boilerplate and duplicate passages',()=>{
- const data=[chunk('a1','a','projet dossier général'),chunk('a2','a','projet dossier général'),chunk('b','b','projet dossier suppression'),chunk('c','c','projet dossier')];
- const result=retrieve(data,'projet suppression');
+ const data=[chunk('a1','a','projet suppression général'),chunk('a2','a','projet suppression général'),chunk('b','b','projet suppression spécifique'),chunk('c','c','projet dossier')];
+ const result=retrieve(data,'projet suppression spécifique');
  assert.equal(result[0].documentId,'b');
  assert.equal(result.filter(c=>c.documentId==='a').length,1);
  assert.equal(result[0].excerpt,data[2].excerpt);

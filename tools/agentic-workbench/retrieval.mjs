@@ -29,6 +29,7 @@ export async function loadCorpus(root,signal){
  return chunks;
 }
 
+export const CONTEXT_BUDGET=Object.freeze({maxPassages:8,maxCharacters:7200,maxPerDocument:3,diverseDocuments:5});
 export function retrieve(chunks,question){
  const query=terms(question);if(!query.size)return [];
  const active=chunks.filter(c=>c.visibility==='internal'&&c.status==='active');
@@ -45,12 +46,18 @@ export function retrieve(chunks,question){
   const present=terms(chunk.excerpt);
   const matched=[...query].filter(t=>present.has(t));
   const score=matched.reduce((total,term)=>{const df=frequency.get(term)??0;return total+Math.log(1+(documents.size-df+.5)/(df+.5));},0);
-  // Coverage prevents one rare but isolated word outranking a passage that
-  // jointly addresses several parts of the question (the abstention gate
-  // still requires at least two matching terms for multi-term questions).
   return {...chunk,score:score*matched.length,hits:matched.length};
- }).filter(c=>c.hits>0).sort((a,b)=>b.score-a.score||a.priority-b.priority||a.id.localeCompare(b.id));
- // One best exact passage per document; duplicate hits cannot crowd out sources.
- const seen=new Set();
- return ranked.filter(chunk=>{if(seen.has(chunk.documentId))return false;seen.add(chunk.documentId);return true;}).slice(0,5);
+ // Enforce the same exploratory coverage requirement BEFORE ranking/selection.
+ }).filter(c=>c.hits>=Math.min(2,query.size)).sort((a,b)=>b.score-a.score||a.priority-b.priority||a.id.localeCompare(b.id));
+ const selected=[],counts=new Map(),seen=new Set();let characters=0;
+ const add=chunk=>{
+  const key=JSON.stringify([chunk.documentId,chunk.excerpt.replace(/\s+/g,' ').trim()]);
+  if(seen.has(key)||selected.length>=CONTEXT_BUDGET.maxPassages||(counts.get(chunk.documentId)??0)>=CONTEXT_BUDGET.maxPerDocument||characters+chunk.excerpt.length>CONTEXT_BUDGET.maxCharacters)return false;
+  selected.push(chunk);seen.add(key);characters+=chunk.excerpt.length;counts.set(chunk.documentId,(counts.get(chunk.documentId)??0)+1);return true;
+ };
+ // First preserve document diversity, then retain complementary/contradictory
+ // exact passages. No automatic semantic contradiction resolution is claimed.
+ for(const chunk of ranked)if(!counts.has(chunk.documentId)&&counts.size<CONTEXT_BUDGET.diverseDocuments)add(chunk);
+ for(const chunk of ranked)add(chunk);
+ return selected;
 }

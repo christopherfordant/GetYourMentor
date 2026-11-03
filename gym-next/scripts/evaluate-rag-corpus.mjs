@@ -4,7 +4,8 @@ import {fileURLToPath} from 'node:url';
 import {loadCorpus} from '../../tools/agentic-workbench/retrieval.mjs';
 import {runAssistant} from '../../tools/agentic-workbench/workflow.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
-const evaluation=JSON.parse(fs.readFileSync(path.join(root,'docs/architecture/rag-evaluation.json'),'utf8'));
+const dataset=process.argv.includes('--controls')?'rag-controls-2026-11-03.json':'rag-evaluation.json';
+const evaluation=JSON.parse(fs.readFileSync(path.join(root,'docs/architecture',dataset),'utf8'));
 const chunks=await loadCorpus(root);
 let failures=0;
 for(const testCase of evaluation.cases){
@@ -14,7 +15,7 @@ for(const testCase of evaluation.cases){
  const cited=result.sources.slice(0,3).map(source=>source.documentId);
  const missing=(testCase.expectedDocuments??[]).filter(id=>!cited.includes(id));
  const badStatus=result.status!==(testCase.expectedStatus??'sources');
- const ungrounded=result.sources.some(source=>!chunks.some(chunk=>chunk.id===source.id&&chunk.version===source.version&&chunk.path===source.path&&chunk.excerpt===source.excerpt));
+ const ungrounded=result.sources.some(source=>!chunks.some(chunk=>chunk.id===source.id&&chunk.documentId===source.documentId&&chunk.version===source.version&&chunk.path===source.path&&chunk.excerpt===source.excerpt));
  if(missing.length||badStatus||ungrounded){failures++;console.error(`FAIL ${testCase.id}: missing=${missing.join(',')} status=${result.status} ungrounded=${ungrounded}`);}
  else console.log(`PASS ${testCase.id}: ${result.status} ${cited.join(', ')}`);
 }

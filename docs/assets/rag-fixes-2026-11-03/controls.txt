@@ -1,0 +1,4 @@
+PASS control-schema-boundary: sources rag-readiness, memory-rag, master
+PASS control-payment-boundary: sources decisions, architecture, memory-rag
+FAIL control-unrelated: missing= status=sources ungrounded=false
+Évaluation RAG lexicale échouée : 1 cas.

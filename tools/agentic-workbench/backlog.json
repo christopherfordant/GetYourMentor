@@ -320,10 +320,12 @@
       ],
       "evidence": [
         "docs/RAG_GATES_2026-11-03.md",
-        "docs/assets/rag-gates-2026-11-03/verification.json"
+        "docs/assets/rag-gates-2026-11-03/verification.json",
+        "docs/RAG_REGRESSIONS_CORRIGEES_2026-11-03.md",
+        "docs/assets/rag-fixes-2026-11-03/node-tests.txt"
       ],
       "blocker": null,
-      "next": "GYM-A4.1 ; CI distante non executee, succes local seulement."
+      "next": "Deux regressions corrigees et controlees. Limite ouverte : faux positif sur la question Jupiter (nouveaux controles 2/3). Aucun run CI distant."
     },
     {
       "id": "GYM-A3.1",
@@ -395,10 +397,12 @@
       ],
       "evidence": [
         "docs/RAG_GATES_2026-11-03.md",
-        "docs/assets/rag-gates-2026-11-03/verification.json"
+        "docs/assets/rag-gates-2026-11-03/verification.json",
+        "docs/RAG_REGRESSIONS_CORRIGEES_2026-11-03.md",
+        "docs/assets/rag-fixes-2026-11-03/node-tests.txt"
       ],
       "blocker": null,
-      "next": "GYM-A4.1 : qualifier les prerequis locaux, sans activation dans ce lot."
+      "next": "Deux regressions corrigees et controlees. Limite ouverte : faux positif sur la question Jupiter (nouveaux controles 2/3). Aucun run CI distant."
     },
     {
       "id": "GYM-A4",

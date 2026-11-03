@@ -1,0 +1,14 @@
+{
+  "reviewedCommit": "5a2d0601e89473e48201f6ecb740009bbff18a81",
+  "fixturesOnly": true,
+  "contradiction": {
+    "oldPassages": 2,
+    "currentPassages": 1,
+    "currentStatus": "sources"
+  },
+  "coverage": {
+    "oldTopHits": 2,
+    "currentTopHits": 1,
+    "currentStatus": "abstained"
+  }
+}

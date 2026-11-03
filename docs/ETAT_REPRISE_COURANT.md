@@ -1,3 +1,9 @@
+## Reprise active - 3 novembre 2026 : deux regressions RAG corrigees
+
+Restitution de plusieurs passages par document, diversification puis complements et admission avant classement : deux regressions de la revue corrigees. Budget : 8 passages, 7200 unites JS de texte, 3 passages/document. 26/26 tests Node et 12/12 evaluations de reference PASS. Nouveaux controles 2/3 : faux positif Jupiter preexistant conserve en echec, pas de garantie semantique generale. [Rapport, preuves et limite ouverte](RAG_REGRESSIONS_CORRIGEES_2026-11-03.md).
+
+Apercu reel http://127.0.0.1:4325/, checkout `C:/Users/cashe/Documents/GYM-rag-fixes-20261103`, relance `node tools/agentic-workbench/server.mjs`. SHA256 des fichiers HTTP compares au disque, API comparee au moteur local. Kanban et preservation/export des anciens deplacements verifies dans des contextes Playwright distincts (1440/390), sans reinitialiser la session utilisateur. Preuves ajoutees a GYM-A3/A3.2, prochains travaux de pertinence indiques. Aucun modele, embedding, fournisseur, migration, deploiement ou changement metier. Etat Git final dans le delivery-private du checkout ; divergence existante non contournee.
+
 ## Revue croisee - 3 novembre 2026 : changements depuis 15h50
 
 Commits ee2e1b3 / 1e3f840 relus, 20/20 tests Node et 12/12 evaluations reproduits. Deux limites P2 reproduites hors des tests actuels : une seule citation par document masque des passages contradictoires ; un terme rare peut provoquer une abstention malgre des candidats a meilleure couverture. [Rapport et reproductions](REVUE_SESSION_2026-11-03.md). Pas de correction applicative ou de reinitialisation du Kanban dans cette revue ; apercu 4325 non joignable lors du controle. Les 18 fichiers anterieurement modifies gardent les memes empreintes. Les constats sont a traiter avant de revendiquer une qualite de recherche generale.
