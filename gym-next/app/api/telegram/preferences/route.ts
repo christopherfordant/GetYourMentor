@@ -7,7 +7,7 @@ import {telegramPreferences,startTelegramPairing,confirmTelegramPairing,unlinkTe
 export const dynamic='force-dynamic';
 export async function GET(){const session=await currentSession();if(!session)return NextResponse.json({error:'Connexion requise'},{status:401});try{return NextResponse.json(await telegramPreferences(session),{headers:{'Cache-Control':'no-store'}});}catch{return NextResponse.json({error:'Préférences indisponibles'},{status:503});}}
 export async function POST(request:Request){
- if(request.headers.get('origin')!==new URL(request.url).origin)return NextResponse.json({error:'Origine refusée'},{status:403});
+ if(request.headers.get('origin')!==new URL(process.env.NEXT_PUBLIC_APP_URL || request.url).origin)return NextResponse.json({error:'Origine refusée'},{status:403});
  const session=await currentSession();if(!session)return NextResponse.json({error:'Connexion requise'},{status:401});
  if(Number(request.headers.get('content-length'))>1024)return NextResponse.json({error:'Requête trop volumineuse'},{status:413});
  const text=await request.text();if(Buffer.byteLength(text)>1024)return NextResponse.json({error:'Requête trop volumineuse'},{status:413});

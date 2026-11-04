@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-04",
+  "project": "pqxqqbwesfrefzjoawmx",
+  "authorization": "User attachment 546b4ce8-f3d2-4741-b857-322eb130777e",
+  "bundleSha256": "d6cf8f653968818bbee8f9388a8f5787c4509bcb8db543bb8738c3599dc6e4d6",
+  "baselineSavedPrivately": true,
+  "initialCoachRows": 0,
+  "initialReservationRows": 0,
+  "initialDuplicatePaymentIntents": 0,
+  "initialActiveTransactions": 0,
+  "rehearsalAssertionsPassed": true,
+  "rollbackSnapshotUnchanged": true,
+  "persistentMigrationAssertionsPassed": true,
+  "ragMetadataUnchanged": {
+    "columns": true,
+    "tables": true,
+    "constraints": true,
+    "indexes": true,
+    "policies": true,
+    "functions": true
+  },
+  "databaseContractsRollbackPassed": true,
+  "sqlReservationFixturesRemaining": 0,
+  "restAnonymousDeniedTables": 5,
+  "restServiceAccessibleTables": 5,
+  "actualTestAccounts": {
+    "coach": {
+      "created": 1,
+      "confirmed": 1
+    },
+    "sportif": {
+      "created": 1,
+      "confirmed": 0
+    }
+  },
+  "coach2RegistrationHttpStatus": 400,
+  "coach2FailureCause": "Not established; no automatic retry",
+  "coachVerificationApproved": false,
+  "connectAccountCreation": {
+    "httpStatus": 400,
+    "type": "invalid_request_error",
+    "reason": "Stripe Connect not activated on platform",
+    "accountsCreated": 0
+  },
+  "telegramAuthenticatedBindingPersisted": true,
+  "telegramReceiver": "single exact private challenge forwarded to signed local endpoint; no offset advancement or webhook modification",
+  "businessPaymentTestExecuted": false,
+  "businessTelegramNotificationExecuted": false,
+  "deployment": false,
+  "productionMutation": false
+}

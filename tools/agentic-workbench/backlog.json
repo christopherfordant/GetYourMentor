@@ -917,8 +917,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Migration specifique non autorisee; bot Telegram et destinataire manquants",
-      "next": "Acces locaux absents et migration distante specifique non autorisee"
+      "blocker": "Stripe Connect non active; confirmations des comptes et approbation coach de demonstration a terminer",
+      "next": "Activer Connect, confirmer sportif puis poursuivre recette reelle"
     },
     {
       "id": "GYM-B1.1",
@@ -996,7 +996,7 @@
       "parent": "GYM-B1",
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         1,
         2
@@ -1018,8 +1018,8 @@
       "evidence": [
         "supabase/proposals/20261104_business_test_bundle.sql"
       ],
-      "blocker": "Autorisation utilisateur specifique manquante",
-      "next": "Autorisation utilisateur specifique manquante"
+      "blocker": null,
+      "next": "Migration recette verifiee; ne pas reexecuter CREATE TABLE Connect"
     },
     {
       "id": "GYM-B1.4",
@@ -1051,8 +1051,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Bot et destinataire DPAPI verifies; transport Telegram direct accepte. Association applicative et reception entrante restent a raccorder apres migration autorisee",
-      "next": "Autoriser la migration de recette bornee puis verifier association authentifiee, reception et notifications metier"
+      "blocker": "Association Telegram reelle persistee; reception ponctuelle verifiee. Transport Stripe a reverifier avant paiement, Connect non active",
+      "next": "Activer Connect et achever essais de receptions metier"
     },
     {
       "id": "GYM-B1.5",
@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Dependances externes non raccordees; aucun essai externe realise",
-      "next": "Dependances externes non raccordees; aucun essai externe realise"
+      "blocker": "Coach confirme et sportif non confirme; coach2 refuse400; aucun paiement externe, approbation coach non effectuee",
+      "next": "Confirmer sportif, diagnostiquer inscription suivante puis recette avec Connect active"
     }
   ]
 }

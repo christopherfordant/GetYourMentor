@@ -1,0 +1,22 @@
+[
+  {
+    "origin": "https://example.com",
+    "action": "start",
+    "status": 403
+  },
+  {
+    "origin": null,
+    "action": "start",
+    "status": 403
+  },
+  {
+    "origin": "http://127.0.0.1:3005",
+    "action": "invalid",
+    "status": 400
+  },
+  {
+    "origin": "http://127.0.0.1:3005",
+    "action": "start",
+    "status": 200
+  }
+]
