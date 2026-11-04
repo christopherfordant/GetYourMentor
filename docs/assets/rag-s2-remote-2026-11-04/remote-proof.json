@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-04",
+  "projectRef": "pqxqqbwesfrefzjoawmx",
+  "projectName": "getyourmentor-preprod",
+  "authorization": "User replied oui to creation of gym_rag_s2 and synthetic recipe, preserving existing tables",
+  "before": {
+    "s2Exists": false,
+    "vectorVersion": "0.8.2",
+    "preservedMetadataHash": "0ded7adc5481a43cb4f53ed3a880b28b"
+  },
+  "rehearsal": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/3b62c4dc-662e-412f-8b4c-13a3f6beb3e6",
+    "result": "\nChart\n\n1 row\n\nExport\ncheckpoint\ns2_rehearsal_passed"
+  },
+  "afterRehearsal": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/3b62c4dc-662e-412f-8b4c-13a3f6beb3e6",
+    "result": "\nChart\n\n1 row\n\nExport\nrecipe_state\n{\"s2Exists\":false,\"vectorVersion\":\"0.8.2\",\"preservedMetadataHash\":\"0ded7adc5481a43cb4f53ed3a880b28b\"}"
+  },
+  "application": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/3b62c4dc-662e-412f-8b4c-13a3f6beb3e6",
+    "result": "\nChart\n\n1 row\n\nExport\ncheckpoint\ns2_schema_created",
+    "dialogs": []
+  },
+  "persistentRecipe": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/3b62c4dc-662e-412f-8b4c-13a3f6beb3e6",
+    "result": "\nChart\n\n1 row\n\nExport\ncheckpoint\ns2_persistent_recipe_passed"
+  },
+  "finalReadOnly": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/a88b82f9-18d4-4c54-9883-2adac5bcadc2",
+    "result": "\nChart\n\n1 row\n\nExport\nrecipe_state\n{\"rls\":[{\"table\":\"collections\",\"enabled\":true},{\"table\":\"sources\",\"enabled\":true},{\"table\":\"chunks\",\"enabled\":true}],\"s2Exists\":true,\"rowCounts\":{\"chunks\":0,\"sources\":0,\"collections\":0},\"privileges\":[{\"role\":\"authenticated\",\"schemaUsage\":false,\"chunksSelect\":false,\"searchExecute\":false,\"collectionUpdate\":false},{\"role\":\"anon\",\"schemaUsage\":false,\"chunksSelect\":false,\"searchExecute\":false,\"collectionUpdate\":false},{\"role\":\"service_role\",\"schemaUsage\":true,\"chunksSelect\":true,\"searchExecute\":true,\"collectionUpdate\":false}],\"embeddingType\":\"vector(384)\",\"vectorVersion\":\"0.8.2\",\"preservedMetadataHash\":\"0ded7adc5481a43cb4f53ed3a880b28b\",\"searchSecurityDefiner\":false}"
+  },
+  "finalState": {
+    "rls": [
+      {
+        "table": "collections",
+        "enabled": true
+      },
+      {
+        "table": "sources",
+        "enabled": true
+      },
+      {
+        "table": "chunks",
+        "enabled": true
+      }
+    ],
+    "s2Exists": true,
+    "rowCounts": {
+      "chunks": 0,
+      "sources": 0,
+      "collections": 0
+    },
+    "privileges": [
+      {
+        "role": "authenticated",
+        "schemaUsage": false,
+        "chunksSelect": false,
+        "searchExecute": false,
+        "collectionUpdate": false
+      },
+      {
+        "role": "anon",
+        "schemaUsage": false,
+        "chunksSelect": false,
+        "searchExecute": false,
+        "collectionUpdate": false
+      },
+      {
+        "role": "service_role",
+        "schemaUsage": true,
+        "chunksSelect": true,
+        "searchExecute": true,
+        "collectionUpdate": false
+      }
+    ],
+    "embeddingType": "vector(384)",
+    "vectorVersion": "0.8.2",
+    "preservedMetadataHash": "0ded7adc5481a43cb4f53ed3a880b28b",
+    "searchSecurityDefiner": false
+  },
+  "dataApi": {
+    "url": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/database/policies?schema=gym_rag_s2",
+    "exposed": false,
+    "observation": "This schema is not exposed via the Supabase APIs."
+  },
+  "limits": [
+    "Synthetic unit vectors, not embedding relevance evaluation",
+    "No private corpus ingestion or application integration",
+    "Historical row contents not read or compared; metadata fingerprint covers column names/types, table OIDs, RLS flags and ACLs",
+    "No ANN index or load test; exact pgvector search on recipe fixtures"
+  ],
+  "localModelQualification": "docs/assets/supabase-pgvector-s2-2026-11-04/model-qualification.json"
+}

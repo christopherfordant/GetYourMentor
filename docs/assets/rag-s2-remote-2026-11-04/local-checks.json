@@ -1,0 +1,19 @@
+{
+  "remoteProofAssertions": "PASS",
+  "sourceCommit": "c679b8bc7436e5d077929fce45d497c6247fee4a",
+  "executedSqlSha256": {
+    "01_before_after_state.sql": "1f5e1faf9e05646845b5c89ef41f36e291df7ac83cb7af4bdeb00391146e39a0",
+    "02_rehearsal.sql": "bd67bf33401b145b5921938c552bdd36bad68606e5eb1dc7cf603afe1ffce652",
+    "03_application.sql": "2b8ef86198227f7f22a8f519ee2903eabfb3ee1d3d8014fdbf2d91c1de88ca8f",
+    "04_persistent_recipe.sql": "286d8c69f6157f7e4a3e37229d17b2f64ae22ad7cda48e115e2a4c07c923c9af",
+    "05_final_state.sql": "cce010fd8dfe3af3bcfe037dda60ab8c13185a38a0b55eba118c55c60e9e93ae"
+  },
+  "nodeTests": {
+    "exitCode": 0,
+    "output": "✔ parent status follows children; reopening prevents completed parent (4.6814ms)\n✔ completion needs dependencies and explicitly checked evidence (0.6766ms)\n✔ WIP, valid statuses and a blocking reason are enforced (0.434ms)\n✔ French accents and regular plurals share lexical terms (4.0493ms)\n✔ specific evidence outranks boilerplate and duplicate passages (36.8389ms)\n✔ private and archived sources cannot influence frequencies (0.8559ms)\n✔ regression: contradictory passages in one document remain available (54.6149ms)\n✔ regression: a rare isolated word cannot hide qualified candidates (1.8021ms)\n✔ complementary passages survive while exact duplicate passages do not monopolize (3.841ms)\n✔ passage, character and per-document budgets retain exact excerpts (3.1028ms)\n✔ insufficient, private and archived candidates cannot satisfy admission (0.5263ms)\n✔ oversized evidence is not silently truncated to manufacture a citation (0.4657ms)\n✔ only the explicit UI assets are served, with protective headers (661.5515ms)\n✔ cross-origin requests cannot invoke retrieval (20.5657ms)\n✔ local read-only query returns exact citations; malformed and large input fail (144.7782ms)\n✔ authorization precedes retrieval (3.0989ms)\n✔ citations are exact excerpts, with no generation or tool side effect (5.0047ms)\n✔ empty, irrelevant and insufficient sources abstain (1.6085ms)\n✔ invalid question is rejected before retrieval (0.576ms)\n✔ prompt injection and business mutation do not execute (2.7511ms)\n✔ contradictions stay separate, without inventing a resolution (33.994ms)\n✔ unavailable tool and timeout stop without provider fallback (12.6866ms)\n✔ private and archived candidates are filtered before ranking (0.3351ms)\n✔ real governed corpus yields traceable chunks with versions (51.0726ms)\n✔ manifest escape is rejected and removed documents disappear on reload (24.1777ms)\n✔ backlog hierarchy, estimates, dates and proof integrity (2.8292ms)\nℹ tests 26\nℹ suites 0\nℹ pass 26\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1184.4709\n"
+  },
+  "ragEvaluation": {
+    "exitCode": 0,
+    "output": "PASS source-of-truth: sources memory-rag, architecture, master\nPASS critical-path: sources architecture, memory-rag, rag-readiness\nPASS mcp-safety: sources architecture, memory-rag\nPASS mvp-flow: sources mvp-screens, design-system, master\nPASS web-first: sources master, decisions, architecture\nPASS rag-boundary: sources architecture, rag-readiness, memory-rag\nPASS mcp-permissions: sources architecture, memory-rag, decisions\nPASS design-priority: sources design-system, decisions, master\nPASS schema-separation-new: sources rag-readiness, memory-rag, architecture\nPASS document-provenance-new: sources memory-rag, master, decisions\nPASS unrelated-abstention-new: abstained \nPASS mutation-abstention-new: abstained \nÉvaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.\n"
+  }
+}

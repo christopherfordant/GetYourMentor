@@ -1,5 +1,27 @@
 # S2 — Supabase et pgvector
 
+## Recette effective du 4 novembre 2026 — A4.2 terminé dans le périmètre de recette
+
+L'utilisateur a répondu « oui » à la création de `gym_rag_s2` et à sa recette synthétique sur `getyourmentor-preprod`. Cette autorisation remplace l'attente décrite dans les sections historiques ci-dessous, pour ce seul schéma. Aucun achat, changement d'abonnement, ingestion documentaire ou déploiement du site n'est inclus.
+
+Exécution réelle dans l'éditeur SQL Supabase du projet `pqxqqbwesfrefzjoawmx` :
+1. Contrôle préalable en transaction READ ONLY : pgvector 0.8.2, schéma S2 absent ; empreinte des colonnes/types, OID, ACL et indicateurs RLS des tables `public` et `gym_memory` archivée.
+2. Création et recette dans une transaction terminée par ROLLBACK : checkpoint `s2_rehearsal_passed`. Contrôle indépendant suivant : schéma toujours absent et empreinte identique.
+3. Création persistante du seul schéma privé, de ses trois tables et de sa fonction de recherche : checkpoint `s2_schema_created`, COMMIT exécuté.
+4. Nouvelle recette sur le schéma persistant, terminée par ROLLBACK des fixtures : checkpoint `s2_persistent_recipe_passed`.
+5. Nouveau contrôle READ ONLY depuis un nouvel écran SQL : schéma présent, vecteurs `vector(384)`, trois tables avec RLS, fonction SECURITY INVOKER, et **zéro ligne** dans chacune des trois tables. L'empreinte historique est toujours `0ded7adc5481a43cb4f53ed3a880b28b`.
+6. Interface Policies du nouveau schéma : absence d'exposition via les API Supabase confirmée.
+
+Les deux recettes ont exercé l'isolation des collections, le plafond de huit résultats, les refus de dimensions incompatibles et de requête zéro, l'exclusion des chunks périmés, leur mise à jour, la désactivation et la suppression en cascade. Les appels sous `anon` et `authenticated` ont réellement échoué pour privilèges insuffisants ; la recherche sous `service_role` a réussi, tandis que son réétiquetage d'une collection a été refusé. Les métadonnées finales confirment les privilèges attendus. Les confirmations natives de l'éditeur concernant les opérations de suppression ont été acceptées pour les seules fixtures autorisées.
+
+**GYM-A4.2 est terminé pour le stockage et la recette synthétique.** A4.1 conserve sa qualification locale bornée ; A4.3, comparaison de pertinence lexical/vectoriel, reste à faire. Le parent A4 n'est pas terminé. Aucun HNSW/IVFFlat n'a été ajouté : recherche exacte pour ce petit stockage de recette. Aucun connecteur d'ingestion, assistant vectoriel applicatif ou LangGraph n'est activé par ce lot. Aucun document privé n'a été envoyé à Supabase.
+
+L'empreinte historique porte sur les métadonnées indiquées, pas sur les contenus des lignes ou tous les objets du projet. Aucune lecture de données métier ni écriture sur les tables historiques n'a été exécutée. Les données synthétiques ont toutes été annulées ; le schéma privé persiste vide, prêt pour la prochaine étape autorisée.
+
+Preuves et SQL exacts exécutés : [remote-proof.json](assets/rag-s2-remote-2026-11-04/remote-proof.json) et fichiers `01` à `05` du même dossier. Les marqueurs SELECT ajoutés avant COMMIT/ROLLBACK servent uniquement à constater le passage de toutes les assertions ; aucun changement de la logique SQL préparée. Application manuelle via SQL Editor, pas de migration CLI ou déploiement GitHub/Netlify revendiqué.
+
+Le script de rollback du schéma vide reste disponible pour une décision explicite de retour arrière ; il n'a pas été exécuté sur le schéma persistant. Les limites de pertinence, de charge et de raccordement applicatif restent celles décrites plus bas. Git et contrôles locaux finaux : `delivery-private/s2-recipe-git.json` et [local-checks.json](assets/rag-s2-remote-2026-11-04/local-checks.json).
+
 ## Reprise du 4 novembre 2026 : préparation contrôlée, application distante en attente
 
 Le projet `getyourmentor-preprod` répond de nouveau. Playwright puis une transaction SQL **READ ONLY**, timeout de cinq secondes et `ROLLBACK`, ont contrôlé uniquement les métadonnées. Aucune donnée métier ou documentaire n'a été lue ou transférée. La connexion navigateur a d'abord été indisponible, puis rétablie ; aucune intervention de connexion n'est encore nécessaire au dernier contrôle.

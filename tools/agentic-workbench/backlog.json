@@ -412,7 +412,7 @@
       "parent": null,
       "sprint": "S2",
       "priority": "P1",
-      "status": "blocked",
+      "status": "progress",
       "estimateHours": [
         10,
         16
@@ -438,10 +438,11 @@
       ],
       "evidence": [
         "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
-        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json"
+        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json",
+        "docs/assets/rag-s2-remote-2026-11-04/remote-proof.json"
       ],
-      "blocker": "Projet disponible, pgvector 0.8.2 verifie; application et recette ecriture du schema prive en attente d autorisation specifique",
-      "next": "Obtenir autorisation du schema prive puis executer la repetition transactionnelle et les controles reels"
+      "blocker": null,
+      "next": "Traiter A4.3 : comparer lexical/vectoriel avec des preuves; aucune activation automatique du produit"
     },
     {
       "id": "GYM-A4.1",
@@ -489,7 +490,7 @@
       "parent": "GYM-A4",
       "sprint": "S2",
       "priority": "P1",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         4,
         6
@@ -516,10 +517,11 @@
       ],
       "evidence": [
         "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
-        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json"
+        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json",
+        "docs/assets/rag-s2-remote-2026-11-04/remote-proof.json"
       ],
-      "blocker": "Projet disponible, pgvector 0.8.2 verifie; application et recette ecriture du schema prive en attente d autorisation specifique",
-      "next": "Obtenir autorisation du schema prive puis executer la repetition transactionnelle et les controles reels"
+      "blocker": null,
+      "next": "Recette Supabase synthetique terminee; comparaison lexical/vectoriel dans A4.3, aucune ingestion privee autorisee"
     },
     {
       "id": "GYM-A4.3",

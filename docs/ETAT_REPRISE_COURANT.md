@@ -1,3 +1,11 @@
+## Reprise active - 4 novembre 2026 : A4.2 recette Supabase terminee
+
+Autorisation utilisateur oui executee sur getyourmentor-preprod (pqxqqbwesfrefzjoawmx) uniquement. Repetition transactionnelle PASS, rollback du schema verifie, puis schema prive gym_rag_s2 cree et recette persistante PASS. Trois tables RLS, vector(384), fonction SECURITY INVOKER; anon/authenticated refuses et service_role autorise sans droit de reetiqueter les collections. Controle final independant : trois tables vides, pas d exposition Data API, empreinte historique colonnes/types/OID/ACL/RLS inchangee. Aucune ingestion privee, lecture de lignes historiques ou modification metier. [Rapport, preuves et limites](SUPABASE_PGVECTOR_S2_2026-11-03.md).
+
+A4.1 et A4.2 termines dans leurs perimetres bornes; A4.3 comparaison lexical/vectoriel reste a faire. Parent A4 en cours. Assistant applicatif toujours lexical, aucun connecteur vectoriel ou LangGraph active. Aucun deploiement Netlify ou changement de plan. Preuves reelles et SQL executes : docs/assets/rag-s2-remote-2026-11-04/. Controle d acces SQL effectif, pas de garantie de pertinence ou de charge.
+
+Checkout C:/Users/cashe/Documents/GYM-s2-recipe-20261104. Kanban versionne mis a jour, vues navigateur non reinitialisees et aucune synchronisation automatique revendiquee. Git : delivery-private/s2-recipe-git.json, divergence connue preservee. Prochaine action : A4.3 sur donnees synthetiques/locales; aucune ingestion distante de documents internes sans autorisation specifique.
+
 ## Reprise active - 4 novembre 2026 : A4.1 qualifie, A4.2 attend l autorisation distante
 
 Projet Supabase getyourmentor-preprod disponible. Transaction READ ONLY executee : pgvector 0.8.2 dans public, gym_memory prive non expose API, neuf tables RLS, ancien embedding vector(1536), schema gym_rag_s2 absent. anon/authenticated/service_role sans USAGE ni SELECT sur la memoire historique; aucun droit historique modifie. Variables Netlify actives et raccordement public non verifies. [Rapport detaille et application proposee](SUPABASE_PGVECTOR_S2_2026-11-03.md).
