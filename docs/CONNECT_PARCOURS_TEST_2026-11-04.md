@@ -96,3 +96,7 @@ L utilisateur confirme Telegram connecte : champ de recherche visible et BotFath
 Le forwarder Stripe TEST a ete effectivement lance : connexion prete, secret concordant avec le coffre DPAPI. Aucun evenement de paiement genere; ce controle valide uniquement la connexion de reception. Scripts helper et version CLI syntaxes/empreinte verifies. Le serveur Next reste en simulation locale tant que migration et Telegram manquent; ne pas confondre transport Stripe connecte et parcours externe acheve.
 
 Etat du coffre : huit parametres sur dix presents; manquent TELEGRAM_BOT_TOKEN et TELEGRAM_TEST_CHAT_IDS. Les acces Supabase, Stripe test et secrets generes ne doivent plus etre redemandes a l utilisateur. Migration distante toujours non autorisee, aucun compte ou paiement externe cree.
+
+### Bot choisi et incident de copie Telegram
+
+Choix explicite utilisateur : @Christopherfordantbot. BotFather est maintenant accessible. La tentative de clic sur le code a expire et son message d erreur a inclus le jeton courant. Aucune valeur de jeton n est reproduite ou archivee dans ce rapport. Incident signale; renouvellement dans BotFather et copie manuelle du nouveau jeton demandes. L API navigateur de presse-papiers a refuse la copie; pas de contournement de cette permission. Jeton Telegram non configure a ce stade, aucun getMe/getWebhookInfo encore reussi ni message envoye. Ne pas reutiliser le jeton expose. La rotation invalide les autres usages de l ancien jeton : information transmise a l utilisateur.

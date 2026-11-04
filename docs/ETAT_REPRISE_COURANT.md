@@ -1,3 +1,9 @@
+## Reprise active - 4 novembre 2026 : bot Telegram choisi, renouvellement attendu
+
+Utilisateur : BotFather ouvert dans navigateur et choix explicite @Christopherfordantbot. Conversation accessible et bot identifie sans consulter les autres conversations. Copie automatisee echouee (clic en delai depasse, API presse-papiers refusee). Le retour technique du clic a expose le jeton courant; aucune valeur n est reproduite dans les fichiers de livraison. Incident signale a l utilisateur, renouvellement /revoke puis copie manuelle du nouveau jeton demandes. Ne pas reutiliser l ancien jeton ni le recopier. Aucune rotation ou configuration du bot encore confirmee; aucun message de notification envoye.
+
+A reception de la confirmation nouveau jeton copie : lire uniquement le presse-papiers local sans affichage, verifier getMe pour Christopherfordantbot et getWebhookInfo sans changer le webhook, puis enregistrer via DPAPI. Restaurer le presse-papiers initial depuis la sauvegarde chiffree hors Git apres capture. Ne pas perturber un webhook ou polling preexistant. Migration Supabase specifique toujours en attente; aucune autorisation deduite du choix de bot. Sources et rapport : docs/CONNECT_PARCOURS_TEST_2026-11-04.md.
+
 ## Reprise active - 4 novembre 2026 : acces configures par autonomie
 
 Demande utilisateur : ne sait pas executer le script, faire la configuration. Parametres Supabase recette et cle Stripe test recuperes via sessions ouvertes puis DPAPI hors Git. Projet/roles et mode Stripe test verifies; Auth email autoconfirm false. CLI Stripe 1.55.8 local, archive officielle verifiee, secret de reception chiffre. Forwarder Stripe test lance, connexion prete et secret concordant; aucun evenement genere. Aucun paiement externe, compte de demonstration ou migration cree. Details dans docs/CONNECT_PARCOURS_TEST_2026-11-04.md, derniere section.
