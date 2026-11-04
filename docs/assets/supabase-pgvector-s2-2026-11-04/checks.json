@@ -1,0 +1,42 @@
+{
+  "sqlParser": "v7.22",
+  "databaseMetadataReadExecuted": true,
+  "databaseWriteTestsExecuted": false,
+  "checks": [
+    {
+      "file": "supabase/proposals/20261103_rag_s2_pgvector.sql",
+      "statements": 18,
+      "sqlSyntax": "PASS",
+      "databaseSemanticValidation": false,
+      "plpgsqlSyntax": "PASS"
+    },
+    {
+      "file": "supabase/verification/rag-s2-pgvector.sql",
+      "statements": 13,
+      "sqlSyntax": "PASS",
+      "databaseSemanticValidation": false,
+      "plpgsqlSyntax": "PASS"
+    },
+    {
+      "file": "supabase/verification/rag-s2-preflight-readonly.sql",
+      "statements": 4,
+      "sqlSyntax": "PASS",
+      "databaseSemanticValidation": false
+    },
+    {
+      "file": "supabase/proposals/20261104_rag_s2_rollback_empty.sql",
+      "statements": 8,
+      "sqlSyntax": "PASS",
+      "databaseSemanticValidation": false,
+      "plpgsqlSyntax": "PASS"
+    }
+  ],
+  "nodeTests": {
+    "exitCode": 0,
+    "output": "✔ parent status follows children; reopening prevents completed parent (17.0647ms)\n✔ completion needs dependencies and explicitly checked evidence (1.0267ms)\n✔ WIP, valid statuses and a blocking reason are enforced (0.6289ms)\n✔ French accents and regular plurals share lexical terms (8.1045ms)\n✔ specific evidence outranks boilerplate and duplicate passages (62.0538ms)\n✔ private and archived sources cannot influence frequencies (0.9325ms)\n✔ regression: contradictory passages in one document remain available (63.7234ms)\n✔ regression: a rare isolated word cannot hide qualified candidates (1.7402ms)\n✔ complementary passages survive while exact duplicate passages do not monopolize (4.0371ms)\n✔ passage, character and per-document budgets retain exact excerpts (2.6729ms)\n✔ insufficient, private and archived candidates cannot satisfy admission (0.5335ms)\n✔ oversized evidence is not silently truncated to manufacture a citation (0.6301ms)\n✔ only the explicit UI assets are served, with protective headers (298.7713ms)\n✔ cross-origin requests cannot invoke retrieval (15.0515ms)\n✔ local read-only query returns exact citations; malformed and large input fail (98.9096ms)\n✔ authorization precedes retrieval (5.1938ms)\n✔ citations are exact excerpts, with no generation or tool side effect (3.6172ms)\n✔ empty, irrelevant and insufficient sources abstain (1.102ms)\n✔ invalid question is rejected before retrieval (0.3762ms)\n✔ prompt injection and business mutation do not execute (2.9695ms)\n✔ contradictions stay separate, without inventing a resolution (34.3042ms)\n✔ unavailable tool and timeout stop without provider fallback (16.6205ms)\n✔ private and archived candidates are filtered before ranking (0.5488ms)\n✔ real governed corpus yields traceable chunks with versions (70.798ms)\n✔ manifest escape is rejected and removed documents disappear on reload (24.8792ms)\n✔ backlog hierarchy, estimates, dates and proof integrity (3.115ms)\nℹ tests 26\nℹ suites 0\nℹ pass 26\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 800.8173\n"
+  },
+  "ragEvaluation": {
+    "exitCode": 0,
+    "output": "PASS source-of-truth: sources memory-rag, architecture, master\nPASS critical-path: sources architecture, memory-rag, rag-readiness\nPASS mcp-safety: sources architecture, memory-rag\nPASS mvp-flow: sources mvp-screens, design-system, master\nPASS web-first: sources master, decisions, architecture\nPASS rag-boundary: sources architecture, rag-readiness, memory-rag\nPASS mcp-permissions: sources architecture, memory-rag, decisions\nPASS design-priority: sources design-system, decisions, master\nPASS schema-separation-new: sources rag-readiness, memory-rag, architecture\nPASS document-provenance-new: sources memory-rag, master, decisions\nPASS unrelated-abstention-new: abstained \nPASS mutation-abstention-new: abstained \nÉvaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.\n"
+  }
+}

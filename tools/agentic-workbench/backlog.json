@@ -437,10 +437,11 @@
         "Reindexation"
       ],
       "evidence": [
-        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
+        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json"
       ],
-      "blocker": "Choix Supabase + pgvector confirme; acces recette et qualification du modele restent a verifier",
-      "next": "Lever le prerequis sans contourner les autorisations"
+      "blocker": "Projet disponible, pgvector 0.8.2 verifie; application et recette ecriture du schema prive en attente d autorisation specifique",
+      "next": "Obtenir autorisation du schema prive puis executer la repetition transactionnelle et les controles reels"
     },
     {
       "id": "GYM-A4.1",
@@ -450,7 +451,7 @@
       "parent": "GYM-A4",
       "sprint": "S2",
       "priority": "P1",
-      "status": "prepare",
+      "status": "done",
       "estimateHours": [
         3,
         5
@@ -467,16 +468,18 @@
         "Budget nul et ressources compatibles"
       ],
       "files": [
-        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md"
+        "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "tools/agentic-workbench/qualify_embeddings.py"
       ],
       "tests": [
         "Essai local borne"
       ],
       "evidence": [
-        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
+        "docs/assets/supabase-pgvector-s2-2026-11-04/model-qualification.json"
       ],
       "blocker": null,
-      "next": "Qualifier localement le candidat multilingue 384 dimensions, licence, revision, inference et ressources mesurees"
+      "next": "Qualification technique locale terminee; comparaison de pertinence dans A4.3, aucune activation applicative"
     },
     {
       "id": "GYM-A4.2",
@@ -512,10 +515,11 @@
         "Reindexation et ACL"
       ],
       "evidence": [
-        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md"
+        "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
+        "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json"
       ],
-      "blocker": "Projet Supabase de recette retrouve mais en restauration; pgvector et modele non qualifies; application distante non autorisee",
-      "next": "Verifier la fin de restauration puis inspecter pgvector et les schemas en lecture seule; qualifier le modele"
+      "blocker": "Projet disponible, pgvector 0.8.2 verifie; application et recette ecriture du schema prive en attente d autorisation specifique",
+      "next": "Obtenir autorisation du schema prive puis executer la repetition transactionnelle et les controles reels"
     },
     {
       "id": "GYM-A4.3",

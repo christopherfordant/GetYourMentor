@@ -1,0 +1,83 @@
+{
+  "model": "intfloat/multilingual-e5-small",
+  "upstreamRevision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "conversion": "Xenova/multilingual-e5-small",
+  "conversionRevision": "761b726dd34fb83930e26aab4e9ac3899aa1fa78",
+  "pipeline": "e5-onnx-int8-mean-mask-l2-max256-v1",
+  "dimension": 384,
+  "maxTokens": 256,
+  "prefixes": [
+    "query: ",
+    "passage: "
+  ],
+  "pooling": "attention-mask mean then L2",
+  "license": "MIT declared by upstream; conversion card has no independent license declaration",
+  "assets": {
+    "model_quantized.onnx": {
+      "sha256": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+      "bytes": 118308185,
+      "url": "https://huggingface.co/Xenova/multilingual-e5-small/resolve/761b726dd34fb83930e26aab4e9ac3899aa1fa78/onnx/model_quantized.onnx"
+    },
+    "tokenizer.json": {
+      "sha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+      "bytes": 17082730,
+      "url": "https://huggingface.co/Xenova/multilingual-e5-small/resolve/761b726dd34fb83930e26aab4e9ac3899aa1fa78/tokenizer.json"
+    },
+    "original-model-card.md": {
+      "sha256": "0038de97aee16258cecbad7ffda4b4febd6953e747a00e0ddbc8e6ed241e9c1c",
+      "bytes": 497538,
+      "url": "https://huggingface.co/intfloat/multilingual-e5-small/resolve/614241f622f53c4eeff9890bdc4f31cfecc418b3/README.md"
+    },
+    "conversion-model-card.md": {
+      "sha256": "561a19594636657fe033f8b4427a7743b5f6f3a12f16cecc5f286feca0453245",
+      "bytes": 1077,
+      "url": "https://huggingface.co/Xenova/multilingual-e5-small/resolve/761b726dd34fb83930e26aab4e9ac3899aa1fa78/README.md"
+    }
+  },
+  "dependencies": {
+    "numpy": "2.2.6",
+    "onnxruntime": "1.31.0",
+    "tokenizers": "0.23.3"
+  },
+  "provider": [
+    "CPUExecutionProvider"
+  ],
+  "threads": {
+    "intra": 2,
+    "inter": 1
+  },
+  "sessionLoadSeconds": 0.6779947999998512,
+  "inferenceSeconds": [
+    0.009270500000184256,
+    0.014705600000070262,
+    0.011354999999866777,
+    0.008804800000007162,
+    0.15567910000004304
+  ],
+  "tokenCounts": [
+    13,
+    21,
+    14,
+    13,
+    256
+  ],
+  "norms": [
+    1.0,
+    0.9999998807907104,
+    0.9999999403953552,
+    1.0,
+    1.0
+  ],
+  "finite": true,
+  "repeatabilityMaxAbsDifference": 0.0,
+  "longSyntheticInputTruncatedTo256": true,
+  "tinyFrenchSimilarity": {
+    "related": 0.9005511999130249,
+    "unrelated": 0.750761091709137
+  },
+  "peakProcessWorkingSetBytes": 546533376,
+  "databaseAccess": false,
+  "privateCorpusRead": false,
+  "paidProviderCalls": 0,
+  "limits": "Five synthetic inputs, including truncation at 256 tokens; no recall, abstention, concurrent load or real corpus qualification. Quantized conversion; max256 truncates longer inputs. Not an operational RAG."
+}

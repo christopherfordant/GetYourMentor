@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-04",
+  "project": "getyourmentor-preprod",
+  "projectRef": "pqxqqbwesfrefzjoawmx",
+  "planShown": "FREE",
+  "inspection": "native Supabase UI; read-only SQL transaction with ROLLBACK",
+  "queryUrl": "https://supabase.com/dashboard/project/pqxqqbwesfrefzjoawmx/sql/dfef9ced-1b04-47f5-ad64-511d030d0c3b",
+  "metadata": {
+    "vector": {
+      "schema": "public",
+      "version": "0.8.2"
+    },
+    "s2Exists": false,
+    "privileges": [
+      {
+        "role": "authenticated",
+        "bypassRls": false,
+        "memoryUsage": false,
+        "chunksSelect": false,
+        "publicCreate": false
+      },
+      {
+        "role": "anon",
+        "bypassRls": false,
+        "memoryUsage": false,
+        "chunksSelect": false,
+        "publicCreate": false
+      },
+      {
+        "role": "service_role",
+        "bypassRls": true,
+        "memoryUsage": false,
+        "chunksSelect": false,
+        "publicCreate": false
+      }
+    ],
+    "memoryTables": [
+      {
+        "rls": true,
+        "table": "decisions"
+      },
+      {
+        "rls": true,
+        "table": "documents"
+      },
+      {
+        "rls": true,
+        "table": "document_chunks"
+      },
+      {
+        "rls": true,
+        "table": "weekly_briefs"
+      },
+      {
+        "rls": true,
+        "table": "features"
+      },
+      {
+        "rls": true,
+        "table": "roadmap_items"
+      },
+      {
+        "rls": true,
+        "table": "meetings"
+      },
+      {
+        "rls": true,
+        "table": "contacts"
+      },
+      {
+        "rls": true,
+        "table": "tasks_sync"
+      }
+    ],
+    "embeddingType": "vector(1536)"
+  },
+  "productDataRead": false,
+  "ddlExecuted": false,
+  "writeRecipeExecuted": false,
+  "limitations": [
+    "Live Netlify environment and application connectivity not inspected",
+    "Privilege metadata is not an executed cross-role RLS test"
+  ]
+}

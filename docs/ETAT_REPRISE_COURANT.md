@@ -1,3 +1,11 @@
+## Reprise active - 4 novembre 2026 : A4.1 qualifie, A4.2 attend l autorisation distante
+
+Projet Supabase getyourmentor-preprod disponible. Transaction READ ONLY executee : pgvector 0.8.2 dans public, gym_memory prive non expose API, neuf tables RLS, ancien embedding vector(1536), schema gym_rag_s2 absent. anon/authenticated/service_role sans USAGE ni SELECT sur la memoire historique; aucun droit historique modifie. Variables Netlify actives et raccordement public non verifies. [Rapport detaille et application proposee](SUPABASE_PGVECTOR_S2_2026-11-03.md).
+
+A4.1 termine pour la qualification locale bornee : modele E5 quantifie, revisions/hashes figes, 384 dimensions normalisees, cinq entrees synthetiques, 256 tokens maximum, pic processus 521 Mio. Aucun corpus prive ou appel payant. A4.2 bloque sur autorisation specifique pour schema prive et recette synthetique; A4.3 non termine. Proposition corrigee, tests de refus de roles et rollback schema vide prepares, SQL/PLpgSQL analyses mais non executes en ecriture. Preuves assets/supabase-pgvector-s2-2026-11-04/. Aucun deploiement ou changement metier.
+
+Checkout C:/Users/cashe/Documents/GYM-s2-qualification-20261104. Kanban versionne actualise; aucune remise a zero des vues navigateur ou synchronisation manuelle locale revendiquee. Git : delivery-private/s2-qualification-git.json, divergence connue preservee. Prochaine action : decision specifique de l utilisateur sur la proposition distante; ne pas confondre connexion et autorisation de migration.
+
 ## Reprise active - 3 novembre 2026 : Supabase connecte, recette en restauration
 
 Session verifiee, projet getyourmentor-preprod retrouve (pqxqqbwesfrefzjoawmx), organisation FREE. Projet en pause remis en service par Resume project; interface affiche Restoration in progress. Fin et disponibilite non confirmees. Aucun SQL, changement de schema ou ingestion distante. Attendre la disponibilite puis verifier extension pgvector, schemas, droits et raccordements en lecture seule. [Compte rendu actualise](SUPABASE_PGVECTOR_S2_2026-11-03.md#connexion-et-restauration---3-novembre-2026-vers-17h10-europemadrid). GYM-A4.2 reste bloque; aucun test vectoriel ou modele qualifie. Git : preuves locales dans delivery-private/s2-connection-git.json, divergence existante preservee.

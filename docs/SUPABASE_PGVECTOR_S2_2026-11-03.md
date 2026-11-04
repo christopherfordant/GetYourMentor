@@ -1,5 +1,47 @@
 # S2 — Supabase et pgvector
 
+## Reprise du 4 novembre 2026 : préparation contrôlée, application distante en attente
+
+Le projet `getyourmentor-preprod` répond de nouveau. Playwright puis une transaction SQL **READ ONLY**, timeout de cinq secondes et `ROLLBACK`, ont contrôlé uniquement les métadonnées. Aucune donnée métier ou documentaire n'a été lue ou transférée. La connexion navigateur a d'abord été indisponible, puis rétablie ; aucune intervention de connexion n'est encore nécessaire au dernier contrôle.
+
+Constats distants archivés dans [supabase-preflight.json](assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json) :
+- offre FREE affichée ; pgvector **0.8.2**, schéma `public` ;
+- `gym_memory` existe, neuf tables avec RLS activée, et `document_chunks.embedding` est `vector(1536)` ;
+- l'interface indique que `gym_memory` n'est pas exposé par les API Supabase ;
+- `anon`, `authenticated` et `service_role` n'ont ni USAGE sur `gym_memory` ni SELECT sur ses chunks ; aucun de ces rôles ne peut créer dans `public` ;
+- `service_role` possède BYPASSRLS, ce qui ne lui donne pas les privilèges SQL manquants ;
+- `gym_rag_s2` est absent. Aucun schéma ou droit n'a été modifié.
+
+Les variables actives du déploiement Netlify et sa connexion réelle à cette base ne sont pas vérifiées. Le dépôt comporte une référence au projet dans un script d'ingestion et une ancienne documentation ; cela ne démontre pas un raccordement du site public. L'étiquette Supabase main/PRODUCTION ne prouve pas non plus l'usage métier de ce projet nommé preprod. Les opérations envisagées restent séparées dans un nouveau schéma privé.
+
+### Qualification locale A4.1
+
+Essai CPU exécuté avec `tools/agentic-workbench/qualify_embeddings.py`, sans document interne ni appel fournisseur facturable. Dépendances déjà installées : NumPy 2.2.6, ONNX Runtime 1.31.0, tokenizers 0.23.3. Poids ONNX quantifiés de 118 308 185 octets et tokenizer de 17 082 730 octets conservés hors Git dans LOCALAPPDATA/GetYourMentor/models. Les quatre fichiers téléchargés ont des SHA256 figés et contrôlés ; aucun code distant du modèle n'est exécuté.
+
+Modèle amont : `intfloat/multilingual-e5-small`, révision `614241f622f53c4eeff9890bdc4f31cfecc418b3`, licence MIT déclarée par sa carte. Conversion : `Xenova/multilingual-e5-small`, révision `761b726dd34fb83930e26aab4e9ac3899aa1fa78`. La carte de conversion référence le modèle amont sans déclaration de licence indépendante : cette provenance et cette limite sont conservées, aucune certification juridique ou équivalence exacte avec les poids non quantifiés n'est revendiquée. Les poids ne sont pas redistribués dans le dépôt.
+
+Pipeline `e5-onnx-int8-mean-mask-l2-max256-v1` : préfixes query/passage, moyenne masquée, normalisation L2, batch un, plafond 256 tokens, deux threads intra-op et un inter-op. Cinq entrées synthétiques, dont une répétition et une entrée longue tronquée : 384 dimensions finies, normes proches de un et répétabilité contrôlée à 1e-6. Dernier essai : chargement 0,678 s ; inférences courtes 0,009 à 0,015 s ; entrée de 256 tokens 0,156 s ; pic du processus **546 533 376 octets**, environ 521 Mio. Ce n'est ni une mesure de toute la RAM du poste ni un test de charge.
+
+La vérification française élémentaire classe le passage apparenté devant celui sur les fruits (cosinus 0,901 contre 0,751). Deux valeurs sur des exemples synthétiques ne définissent aucun seuil d'abstention et ne mesurent pas Recall. A4.1 est terminé pour cette qualification technique locale bornée ; A4.2 reste bloqué sur l'autorisation distante et A4.3 reste distinct. [Mesures exactes](assets/supabase-pgvector-s2-2026-11-04/model-qualification.json).
+
+### Changement distant concret proposé — non appliqué
+
+Le SQL préparé crée uniquement `gym_rag_s2`, trois tables (`collections`, `sources`, `chunks`) et une fonction `search_chunks`. Il réserve l'accès au service serveur, active RLS, retire les éventuels grants hérités avant d'accorder les seuls droits nécessaires et refuse la modification de l'identité d'une collection par `service_role`. Le schéma historique et les tables métier sont préservés. Recherche exacte bornée, pas d'index HNSW prématuré ni exposition Data API.
+
+Les sources désactivées ou dont le hash ne correspond plus sont exclues avant restitution. Les suppressions de sources suppriment leurs chunks. Le remplacement atomique d'un document reste à effectuer dans une transaction par le futur connecteur ; cette proposition ne livre pas une ingestion opérationnelle.
+
+Recette synthétique préparée : isolation, plafond de résultats, dimensions, requête zéro, mise à jour, invalidation, désactivation, suppression, appels réellement refusés sous anon/authenticated et appel permis sous service_role. Le test serveur vérifie également le refus de réétiquetage des collections. **Aucun de ces tests d'écriture n'a été exécuté sur Supabase.**
+
+Après autorisation spécifique :
+1. Reconfirmer le projet et l'absence du schéma, puis exécuter une répétition transactionnelle : proposition sans son COMMIT final + recette sans son BEGIN initial, terminée par le ROLLBACK de la recette. Elle doit annuler également le schéma d'essai.
+2. Si cette répétition réussit et que l'autorisation couvre la création persistante, appliquer la proposition puis exécuter séparément la recette. Ne pas poursuivre après une erreur ; contrôler le rollback effectif et archiver le résultat.
+3. Contrôler l'absence des UUID synthétiques après rollback. Aucune ingestion de document privé ni modification des accès historiques n'est incluse.
+4. Si un retour arrière est nécessaire, le script manuel `supabase/proposals/20261104_rag_s2_rollback_empty.sql` refuse la présence d'une collection et supprime les seuls objets attendus, sans CASCADE global. Une dépendance inattendue bloque et annule sa transaction. Ne pas le lancer automatiquement ; inventorier les données et obtenir une décision si le schéma n'est plus vide.
+
+SQL et corps PL/pgSQL analysés avec pglast 7.22 ; cette analyse ne vérifie pas leur sémantique dans la base. Régressions locales : 26/26 tests Node et 12/12 évaluations lexicales PASS. [Contrôles du lot](assets/supabase-pgvector-s2-2026-11-04/checks.json). RAG applicatif, réservations, paiements et notifications inchangés.
+
+La demande de reprise impose explicitement une autorisation spécifique pour l'application distante. La préparation est terminée ; la prochaine décision porte uniquement sur la création de ce schéma privé et sa recette synthétique sur le projet identifié. Historique ci-dessous conservé.
+
 ## Décision et état réel
 
 Décision utilisateur du 3 novembre 2026 : utiliser **Supabase + pgvector**, sans autre base vectorielle ni stockage SQLite. Un projet de recette distinct existe selon confirmation utilisateur. Son identifiant et son abonnement ne sont pas encore vérifiés. Le navigateur consulté redirige vers la connexion Supabase ; aucune configuration Supabase dans les emplacements locaux vérifiés. Une demande de connexion est en attente, sans collecte de secrets dans la conversation.

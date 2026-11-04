@@ -24,6 +24,11 @@ begin
     (b,'other',0,repeat('a',64),'Synthetic source B',v);
   select count(*) into n from gym_rag_s2.search_chunks(a,v,8);
   if n <> 1 then raise exception 'Collection isolation failed'; end if;
+  insert into gym_rag_s2.chunks
+    select a,'fixture',i,repeat('a',64),'Synthetic extra chunk',v from generate_series(1,10) i;
+  select count(*) into n from gym_rag_s2.search_chunks(a,v,999);
+  if n <> 8 then raise exception 'Result budget exceeded'; end if;
+  delete from gym_rag_s2.chunks where collection_id=a and chunk_index>0;
   begin
     insert into gym_rag_s2.chunks values (a,'fixture',1,repeat('a',64),'Wrong dimensions','[1,0]'::vector);
     raise exception 'Wrong dimensions accepted';
@@ -40,6 +45,12 @@ begin
       ('91e3559a-3070-46da-a98d-f70b09374003','invalid',repeat('c',40),'fixture-v1',1536);
     raise exception 'Wrong model dimension accepted';
   exception when check_violation then null;
+  end;
+  begin
+    perform * from gym_rag_s2.search_chunks(a,array_fill(0::real,array[384])::vector,8);
+    raise exception 'Zero query accepted';
+  exception when raise_exception then
+    if sqlerrm <> 'Expected a finite, normalised 384-dimensional query' then raise; end if;
   end;
   update gym_rag_s2.sources set content_hash = repeat('b',64) where collection_id=a;
   select count(*) into n from gym_rag_s2.search_chunks(a,v,8);
@@ -63,4 +74,42 @@ begin
   end if;
   raise notice 'Recipe assertions passed; synthetic vectors only, no embedding qualification';
 end $$;
+
+-- Real permission-denial calls, not just introspection of grants. Recipe owner only.
+set local role anon;
+do $$
+begin
+  begin
+    perform * from gym_rag_s2.search_chunks(null, null, 8);
+    raise exception 'Anonymous call unexpectedly allowed';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+reset role;
+set local role authenticated;
+do $$
+begin
+  begin
+    perform * from gym_rag_s2.search_chunks(null, null, 8);
+    raise exception 'Authenticated client call unexpectedly allowed';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+reset role;
+set local role service_role;
+do $$
+declare n integer;
+begin
+  select count(*) into n from gym_rag_s2.search_chunks(
+    '91e3559a-3070-46da-a98d-f70b09374002',
+    (array[1::real] || array_fill(0::real, array[383]))::vector, 8);
+  if n <> 1 then raise exception 'Server role search failed'; end if;
+  begin
+    update gym_rag_s2.collections set model_revision=repeat('c',40)
+      where id='91e3559a-3070-46da-a98d-f70b09374002';
+    raise exception 'Server role relabelled collection';
+  exception when insufficient_privilege then null;
+  end;
+end $$;
+reset role;
 rollback;

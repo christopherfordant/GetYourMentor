@@ -16,7 +16,8 @@ create schema gym_rag_s2;
 revoke all on schema gym_rag_s2 from public, anon, authenticated;
 grant usage on schema gym_rag_s2 to service_role;
 
--- One fixed model space. 384 is a candidate contract, not a qualification claim.
+-- Each collection identifies the actual encoder artifact and preprocessing pipeline.
+-- Qualification evidence is separate; never relabel an existing vector collection.
 create table gym_rag_s2.collections (
   id uuid primary key,
   model_id text not null check (length(model_id) between 1 and 200),
@@ -47,8 +48,9 @@ create table gym_rag_s2.chunks (
 alter table gym_rag_s2.collections enable row level security;
 alter table gym_rag_s2.sources enable row level security;
 alter table gym_rag_s2.chunks enable row level security;
-revoke all on all tables in schema gym_rag_s2 from public, anon, authenticated;
-grant select, insert, update, delete on all tables in schema gym_rag_s2 to service_role;
+revoke all on all tables in schema gym_rag_s2 from public, anon, authenticated, service_role;
+grant select, insert, delete on gym_rag_s2.collections to service_role;
+grant select, insert, update, delete on gym_rag_s2.sources, gym_rag_s2.chunks to service_role;
 
 -- Exact search is deliberate for the small recipe corpus. No HNSW overhead yet.
 -- Hash mismatch and disabled sources are excluded BEFORE candidate selection.
