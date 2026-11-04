@@ -1,0 +1,15 @@
+{
+  "selectedBot": "Christopherfordantbot",
+  "renewalConfirmed": false,
+  "botFatherErrorObserved": "353933650",
+  "newOwnedBotListObserved": false,
+  "historicalWrongBotCandidateRejected": true,
+  "pendingCredentialRemoved": true,
+  "telegramBotConfigured": false,
+  "recipientConfigured": false,
+  "webhookChanged": false,
+  "notificationSent": false,
+  "clipboardRestored": true,
+  "commandDraftCleared": true,
+  "secretValuesIncluded": false
+}
