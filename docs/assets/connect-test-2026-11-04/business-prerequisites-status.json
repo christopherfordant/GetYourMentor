@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-04",
+  "stripeDashboardConnectVisible": true,
+  "stripeTestAccountCreationHttpStatus": 400,
+  "stripeErrorType": "invalid_request_error",
+  "stripeReason": "Platform still not signed up for Connect",
+  "appConnectHttpStatus": 503,
+  "setupCommandsObservedDisabled": true,
+  "setupProtectionBypassed": false,
+  "coachProfessionalVerificationChanged": false,
+  "recipeApprovalProposal": "docs/RECETTE_APPROBATION_COACH_2026-11-04.md",
+  "recipeApprovalApplied": false,
+  "sportif2Attempt": {
+    "status": 429,
+    "code": "over_email_send_rate_limit"
+  },
+  "paymentExecuted": false,
+  "transferExecuted": false,
+  "refundExecuted": false,
+  "businessNotificationExecuted": false,
+  "migrationExecuted": false,
+  "deployment": false
+}
