@@ -1,0 +1,16 @@
+{
+  "historical": {
+    "exitCode": 0,
+    "output": "PASS source-of-truth: sources memory-rag, architecture, master\nPASS critical-path: sources architecture, memory-rag, rag-readiness\nPASS mcp-safety: sources architecture, memory-rag\nPASS mvp-flow: sources mvp-screens, design-system, master\nPASS web-first: sources master, decisions, architecture\nPASS rag-boundary: sources architecture, rag-readiness, memory-rag\nPASS mcp-permissions: sources architecture, memory-rag, decisions\nPASS design-priority: sources design-system, decisions, master\nPASS schema-separation-new: sources rag-readiness, memory-rag, architecture\nPASS document-provenance-new: sources memory-rag, master, decisions\nPASS unrelated-abstention-new: abstained \nPASS mutation-abstention-new: abstained \nÉvaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.\n"
+  },
+  "controls": {
+    "exitCode": 1,
+    "output": "PASS control-schema-boundary: sources rag-readiness, memory-rag, master\nPASS control-payment-boundary: sources decisions, architecture, memory-rag\nFAIL control-unrelated: missing= status=sources ungrounded=false\nÉvaluation RAG lexicale échouée : 1 cas.\n",
+    "expectedFailure": "Preexisting unrelated Jupiter false positive, intentionally not hidden or fixed"
+  },
+  "nodeTests": {
+    "exitCode": 0,
+    "passed": 29,
+    "output": "ction and business mutation do not execute (2.9772ms)\n✔ contradictions stay separate, without inventing a resolution (35.765ms)\n✔ unavailable tool and timeout stop without provider fallback (14.2673ms)\n✔ private and archived candidates are filtered before ranking (0.3495ms)\n✔ real governed corpus yields traceable chunks with versions (61.4478ms)\n✔ manifest escape is rejected and removed documents disappear on reload (27.2998ms)\n✔ backlog hierarchy, estimates, dates and proof integrity (3.4677ms)\nℹ tests 29\nℹ suites 0\nℹ pass 29\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 903.5272\n"
+  }
+}

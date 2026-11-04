@@ -49,6 +49,11 @@ export function retrieve(chunks,question){
   return {...chunk,score:score*matched.length,hits:matched.length};
  // Enforce the same exploratory coverage requirement BEFORE ranking/selection.
  }).filter(c=>c.hits>=Math.min(2,query.size)).sort((a,b)=>b.score-a.score||a.priority-b.priority||a.id.localeCompare(b.id));
+ return selectPassages(ranked);
+}
+
+// Shared context budget for offline evaluations; does not change lexical admission.
+export function selectPassages(ranked){
  const selected=[],counts=new Map(),seen=new Set();let characters=0;
  const add=chunk=>{
   const key=JSON.stringify([chunk.documentId,chunk.excerpt.replace(/\s+/g,' ').trim()]);

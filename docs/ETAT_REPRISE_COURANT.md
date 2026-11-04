@@ -1,3 +1,13 @@
+## Reprise active - 4 novembre 2026 : A4.3 comparaison locale terminee
+
+Comparaison E5/lexical effectuee sans ingestion distante : 16 cas de reglage, 22 validation, 15 references/controles diagnostiques. Seuil 0,84 choisi seulement sur reglage. Validation synthetique 16/22 lexical, 19/22 vectoriel; sur corpus reel 14/15 chacun, mais le vectoriel perd la source de verite retrouvee par le lexical. Jupiter reste un faux positif lexical preexistant, non corrige. Hybride non evalue faute de complementarite sur reglage. [Rapport, protocole et preuves](RAG_COMPARAISON_A4_3_2026-11-04.md).
+
+Recommandation : conserver le lexical dans le produit; vectoriel experimental seulement. 629 passages autorises calcules localement; huit tronques a 256 tokens, citations completes preservees. Deux essais donnent les memes 106 couples cas/methode. 29 tests Node PASS; historique 12/12 PASS; controle Jupiter conserve en echec documente. Pas de mesure de pertinence universelle, performance Supabase ou audit reseau.
+
+A4.3 et parent A4 termines pour les criteres S2 de qualification/recette/comparaison; cela ne vaut ni ingestion operationnelle, ni orchestration A5 ou architecture agentique terminee. Supabase non appele, aucun changement du schema ou du site. Prochaine etape : annotation humaine des passages reels, nouveaux controles independants et traitement de troncature avant toute integration applicative autorisee.
+
+Checkout C:/Users/cashe/Documents/GYM-rag-comparison-20261104. Kanban versionne actualise, session navigateur non reinitialisee ni synchronisee automatiquement. Etat Git et preservation des brouillons dans delivery-private/rag-comparison-git.json du depot principal. Aucun deploiement Netlify.
+
 ## Reprise active - 4 novembre 2026 : reconciliation Git autorisee
 
 Demande utilisateur explicite : regler la divergence. Fusion des 52 commits locaux et neuf commits distants sur design/refonte-progressive-lot1, sans rebase ni force-push. Quatorze fichiers en conflit examines; adaptations recentes conservees, calendrier prive, onglets accessibles et chargement autoritatif distant integres. [Rapport et preuves de synchronisation](RECONCILIATION_GIT_2026-11-04.md). Aucun deploiement demande ou lance.

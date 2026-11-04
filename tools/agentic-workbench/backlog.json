@@ -412,7 +412,7 @@
       "parent": null,
       "sprint": "S2",
       "priority": "P1",
-      "status": "progress",
+      "status": "done",
       "estimateHours": [
         10,
         16
@@ -420,7 +420,7 @@
       "actualHours": null,
       "due": "2026-11-13",
       "objective": "Activer les embeddings sur un stockage isole",
-      "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
+      "scope": "S2 : qualification locale, recette du stockage prive et comparaison bornee; aucune ingestion privee ou activation publique",
       "dependencies": [
         "GYM-A2"
       ],
@@ -439,10 +439,11 @@
       "evidence": [
         "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
         "docs/assets/supabase-pgvector-s2-2026-11-04/supabase-preflight.json",
-        "docs/assets/rag-s2-remote-2026-11-04/remote-proof.json"
+        "docs/assets/rag-s2-remote-2026-11-04/remote-proof.json",
+        "docs/RAG_COMPARAISON_A4_3_2026-11-04.md"
       ],
       "blocker": null,
-      "next": "Traiter A4.3 : comparer lexical/vectoriel avec des preuves; aucune activation automatique du produit"
+      "next": "Lot S2 qualifie dans ses limites; integration applicative A5 distincte et non activee"
     },
     {
       "id": "GYM-A4.1",
@@ -531,7 +532,7 @@
       "parent": "GYM-A4",
       "sprint": "S2",
       "priority": "P1",
-      "status": "backlog",
+      "status": "done",
       "estimateHours": [
         3,
         5
@@ -548,16 +549,23 @@
         "Seuils justifies par evaluation"
       ],
       "files": [
-        "docs/architecture/rag-evaluation.json"
+        "docs/architecture/rag-evaluation.json",
+        "docs/architecture/rag-comparison-2026-11-04.json",
+        "tools/agentic-workbench/compare_retrieval.py",
+        "tools/agentic-workbench/comparison-bridge.mjs"
       ],
       "tests": [
         "Sources absentes",
         "Contradictions",
         "Injection"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/RAG_COMPARAISON_A4_3_2026-11-04.md",
+        "docs/assets/rag-comparison-2026-11-04/results.json",
+        "docs/assets/rag-comparison-2026-11-04/reproducibility.json"
+      ],
       "blocker": null,
-      "next": "Executer les criteres puis archiver les preuves"
+      "next": "Comparaison locale terminee; conserver le lexical, valider des annotations reelles et la troncature avant A5"
     },
     {
       "id": "GYM-A5",

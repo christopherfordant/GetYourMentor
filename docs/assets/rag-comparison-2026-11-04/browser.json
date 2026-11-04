@@ -1,0 +1,18 @@
+[
+  {
+    "width": 1440,
+    "a43Status": "done",
+    "tickets": 13,
+    "assistantMode": "extractive-lexical",
+    "embeddingCalls": 0,
+    "userStorageReset": false
+  },
+  {
+    "width": 390,
+    "a43Status": "done",
+    "tickets": 13,
+    "assistantMode": "extractive-lexical",
+    "embeddingCalls": 0,
+    "userStorageReset": false
+  }
+]

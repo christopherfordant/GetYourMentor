@@ -1,5 +1,6 @@
 import {retrieve,terms,CONTEXT_BUDGET} from './retrieval.mjs';
 const suspicious=/(ignore (?:all |previous)|ignorez les instructions|révèle.*secret|reveal.*secret|system prompt|exfiltrat)/i;
+export const requiresHumanReview=sources=>sources.some(s=>suspicious.test(s.excerpt));
 const mutation=/(?:paie|payer|payez|annule|annuler|confirme|confirmer|modifie|modifier|supprime|supprimer|rembourse)\s+(?:ma|la|une|cette|mon|le|un|cette)?\s*(?:réservation|reservation|paiement|compte|transaction)/i;
 
 export async function runAssistant({question,principal,load,timeoutMs=2000}){
@@ -21,7 +22,7 @@ export async function runAssistant({question,principal,load,timeoutMs=2000}){
   // Conservative exploratory gate, not a calibrated semantic confidence score.
   const required=Math.min(2,terms(question).size);
   if(!required||!sources.some(source=>source.hits>=required))return result('abstained','Les correspondances sont insuffisantes ; précisez la question.');
-  if(sources.some(s=>suspicious.test(s.excerpt)))return result('review','Une source contient une instruction suspecte ; revue humaine nécessaire.');
+  if(requiresHumanReview(sources))return result('review','Une source contient une instruction suspecte ; revue humaine nécessaire.');
   // No synthesis: even conflicting sources stay distinct and must be reviewed.
   trace.push('cite');
   return result('sources','Extraits documentaires à vérifier ; aucune synthèse générée ni arbitrage automatique des contradictions.',sources);

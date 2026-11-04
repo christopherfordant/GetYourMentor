@@ -1,0 +1,18 @@
+{
+  "semanticReplayIdentical": true,
+  "datasetChangedAfterFirstRun": false,
+  "thresholdRecalibratedOnValidation": false,
+  "replayReason": "Disable ONNX telemetry explicitly and verify identical outcomes; add defensive visibility/status checks with no effect on the allowed dataset",
+  "caseMethodOutcomesCompared": 106,
+  "codeAndDatasetSha256": {
+    "tools/agentic-workbench/compare_retrieval.py": "f226732667908706d5da8a5fcfadd1886186a7434a7c6eb13175e7e19fccb163",
+    "tools/agentic-workbench/comparison-bridge.mjs": "a969c54c30946144289c2875d5a8f2a63293ae49349ca8aedf0fbc907b835602",
+    "tools/agentic-workbench/qualify_embeddings.py": "5d2b3ed5e4e1b44deec9262f51c2f704b98e01f0e4bbe6635b61b8137568c213",
+    "tools/agentic-workbench/retrieval.mjs": "b9e18b346334dfdbab8e665ccab28a05a5c9157c2008da68768b9a52aa66cc15",
+    "tools/agentic-workbench/workflow.mjs": "4923a4e040d46f62f1e1a8605554d9de5707e555479a774d14e0af885be70e9e",
+    "docs/architecture/rag-comparison-2026-11-04.json": "aba6094cd51e437c2fba3b3098c737da9cd7c3ee48e4a253143bb121bbfebb8b"
+  },
+  "nodeTests": 29,
+  "nodeTestsExitCode": 0,
+  "applicationNetworkCalls": "No HTTP client invoked by benchmark; network traffic not packet-captured"
+}

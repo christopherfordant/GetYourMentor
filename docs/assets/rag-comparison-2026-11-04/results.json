@@ -1,0 +1,2258 @@
+{
+  "datasetSha256": "aba6094cd51e437c2fba3b3098c737da9cd7c3ee48e4a253143bb121bbfebb8b",
+  "sourceCommit": "372892942f3566fce922a2f669b49d0acfaaec36",
+  "pipeline": "e5-onnx-int8-mean-mask-l2-max256-v1",
+  "modelSha256": "f80102d3f2a1229f387d3c81909990d8945513e347b0eab049f7de3c6f98c193",
+  "sourceVersions": {
+    "DOCUMENT_MAITRE_GYM.md": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+    "docs/architecture/ARCHITECTURE_TARGET_GYM.md": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+    "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md": "f31d17b850b56d2229970b1947e7250aba84b6507ee05329ed8c773bc57bfb19",
+    "docs/architecture/RAG_READINESS_GYM.md": "6b0302d015737abfd7196f13baa72da8cff10ae76783b4d9abc0b42b1516e587",
+    "MVP_ECRANS_GYM.md": "e28ae73f0a6997a42c1e19f46ff36fe763f5097c5455bd14f0bb045b3ca1381b",
+    "DESIGN_SYSTEM_GYM.md": "a03ac8381460d04c9cf959c577d95ac7c9885064e84569371a49ec50e482f87b",
+    "MIGRATION_NEXT_GYM.md": "dfffcaf5e12db18c262217b46ae6bb8f42272fad19d26a4d6d774c4e2fe596df",
+    "governance/ai/DECISIONS_LOG_GYM.md": "fb6424d16d409d8794a2fd2166657a3ad69f4091cd5b412756191787a6f65100"
+  },
+  "threshold": 0.84,
+  "calibration": [
+    {
+      "threshold": 0.6,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.62,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.64,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.66,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.68,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.7,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.72,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.74,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.76,
+      "cost": 9.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 5,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 4,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.78,
+      "cost": 6.857142857142858,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 7,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 1,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 3,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.8,
+      "cost": 2.428571428571429,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 12,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 4,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 1,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.82,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 15,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 7,
+        "syntheticMeanRecallAt8": 1.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 1,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.84,
+      "cost": 0.2857142857142857,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 14,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 5,
+        "syntheticMeanRecallAt8": 0.7142857142857143,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 2,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.86,
+      "cost": 0.5714285714285714,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 12,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 3,
+        "syntheticMeanRecallAt8": 0.42857142857142855,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 4,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.88,
+      "cost": 1.7142857142857144,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 10,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 2,
+        "syntheticMeanRecallAt8": 0.2857142857142857,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 5,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.9,
+      "cost": 1.8571428571428572,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 9,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 1,
+        "syntheticMeanRecallAt8": 0.14285714285714285,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 6,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.92,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 8,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 0.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 7,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.94,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 8,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 0.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 7,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.96,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 8,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 0.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 7,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 0.98,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 8,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 0.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 7,
+        "wrongPositiveSourceSet": 0
+      }
+    },
+    {
+      "threshold": 1.000001,
+      "cost": 2.0,
+      "metrics": {
+        "cases": 16,
+        "strictCorrect": 8,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 0,
+        "syntheticMeanRecallAt8": 0.0,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 7,
+        "wrongPositiveSourceSet": 0
+      }
+    }
+  ],
+  "hybridCondition": {
+    "uniqueLexicalTuneSuccesses": [
+      "t-log"
+    ],
+    "uniqueVectorTuneSuccesses": [],
+    "evaluated": false
+  },
+  "summaries": {
+    "lexical": {
+      "tune": {
+        "cases": 16,
+        "strictCorrect": 15,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 6,
+        "syntheticMeanRecallAt8": 0.8571428571428571,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 1,
+        "wrongPositiveSourceSet": 0
+      },
+      "validation": {
+        "cases": 22,
+        "strictCorrect": 16,
+        "positiveCases": 10,
+        "positiveAllGoldRetrieved": 5,
+        "syntheticMeanRecallAt8": 0.55,
+        "negativeCases": 7,
+        "falsePositiveNegatives": 1,
+        "falseAbstentionPositives": 4,
+        "wrongPositiveSourceSet": 1
+      },
+      "historical": {
+        "cases": 15,
+        "strictCorrect": 14,
+        "positiveCases": 12,
+        "positiveAllGoldRetrieved": 12,
+        "syntheticMeanRecallAt8": null,
+        "negativeCases": 2,
+        "falsePositiveNegatives": 1,
+        "falseAbstentionPositives": 0,
+        "wrongPositiveSourceSet": 0
+      },
+      "medianRankMilliseconds": 0.5522999999999882
+    },
+    "vector": {
+      "tune": {
+        "cases": 16,
+        "strictCorrect": 14,
+        "positiveCases": 7,
+        "positiveAllGoldRetrieved": 5,
+        "syntheticMeanRecallAt8": 0.7142857142857143,
+        "negativeCases": 6,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 2,
+        "wrongPositiveSourceSet": 0
+      },
+      "validation": {
+        "cases": 22,
+        "strictCorrect": 19,
+        "positiveCases": 10,
+        "positiveAllGoldRetrieved": 7,
+        "syntheticMeanRecallAt8": 0.75,
+        "negativeCases": 7,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 2,
+        "wrongPositiveSourceSet": 1
+      },
+      "historical": {
+        "cases": 15,
+        "strictCorrect": 14,
+        "positiveCases": 12,
+        "positiveAllGoldRetrieved": 11,
+        "syntheticMeanRecallAt8": null,
+        "negativeCases": 2,
+        "falsePositiveNegatives": 0,
+        "falseAbstentionPositives": 1,
+        "wrongPositiveSourceSet": 0
+      },
+      "medianRankMilliseconds": 0.011499999999998067
+    }
+  },
+  "details": [
+    {
+      "case": "t-fee",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "commission-current",
+        "commission-older"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "commission-current",
+        "commission-older"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 26.408600000000007
+    },
+    {
+      "case": "t-flow",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "booking"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.9356999999999971
+    },
+    {
+      "case": "t-provenance",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "provenance"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.6747000000000014
+    },
+    {
+      "case": "t-semantic",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5922999999999945
+    },
+    {
+      "case": "t-boundary",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "boundary"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "boundary"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.680499999999995
+    },
+    {
+      "case": "t-phone",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "phone"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "phone"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.7634999999999934
+    },
+    {
+      "case": "t-log",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "trace"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.684899999999999
+    },
+    {
+      "case": "t-unrelated",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 1.316299999999984
+    },
+    {
+      "case": "t-cooking",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.6781000000000006
+    },
+    {
+      "case": "t-invented",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.7936000000000263
+    },
+    {
+      "case": "t-missing",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5198000000000036
+    },
+    {
+      "case": "t-private",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.08899999999999864
+    },
+    {
+      "case": "t-retired",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.06490000000002283
+    },
+    {
+      "case": "t-denied",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "denied",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "denied",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.01850000000001728
+    },
+    {
+      "case": "t-query-injection",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.01820000000000732
+    },
+    {
+      "case": "t-source-injection",
+      "split": "tune",
+      "method": "lexical",
+      "expectedStatus": "review",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "review",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.14730000000000132
+    },
+    {
+      "case": "v-contradiction",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "commission-current",
+        "commission-older"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "commission-older"
+      ],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5760999999999967
+    },
+    {
+      "case": "v-flow-paraphrase",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5511999999999944
+    },
+    {
+      "case": "v-cancel",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "cancel"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "booking",
+        "cancel"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.6126999999999896
+    },
+    {
+      "case": "v-origin",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "provenance"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5803999999999974
+    },
+    {
+      "case": "v-separation",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "boundary"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5759000000000185
+    },
+    {
+      "case": "v-access",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "access"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "access"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.577699999999993
+    },
+    {
+      "case": "v-mobile",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "phone"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 1.4243999999999915
+    },
+    {
+      "case": "v-trace",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "trace"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5460999999999956
+    },
+    {
+      "case": "v-tail-truncation",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "tail"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "tail"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.9472000000000094
+    },
+    {
+      "case": "v-ambiguous",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking",
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.809599999999989
+    },
+    {
+      "case": "v-jupiter-fixture",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "mission"
+      ],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5999999999999943
+    },
+    {
+      "case": "v-unknown-price",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.6432000000000073
+    },
+    {
+      "case": "v-medical",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.5533999999999821
+    },
+    {
+      "case": "v-current-weather",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.46249999999997726
+    },
+    {
+      "case": "v-private",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.06409999999999627
+    },
+    {
+      "case": "v-deleted",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.06339999999997303
+    },
+    {
+      "case": "v-disabled",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.05510000000001014
+    },
+    {
+      "case": "v-mutating",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.013300000000015189
+    },
+    {
+      "case": "v-denied",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "denied",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "denied",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.010500000000007503
+    },
+    {
+      "case": "v-query-injection",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.01079999999998904
+    },
+    {
+      "case": "v-source-injection",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "review",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "review",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.12640000000001805
+    },
+    {
+      "case": "v-invalid",
+      "split": "validation",
+      "method": "lexical",
+      "expectedStatus": "invalid",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "invalid",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.02039999999999509
+    },
+    {
+      "case": "historical:source-of-truth",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "master"
+      ],
+      "status": "sources",
+      "ids": [
+        "memory-rag:4:0",
+        "architecture:9:0",
+        "master:187:1200",
+        "rag-readiness:6:0",
+        "decisions:13:0",
+        "memory-rag:25:0",
+        "memory-rag:11:0",
+        "master:5:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 23.129599999999982
+    },
+    {
+      "case": "historical:critical-path",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:13:0",
+        "memory-rag:34:0",
+        "rag-readiness:12:0",
+        "master:101:0",
+        "design-system:32:0",
+        "architecture:5:0",
+        "master:128:0",
+        "master:147:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 22.769000000000005
+    },
+    {
+      "case": "historical:mcp-safety",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:14:0",
+        "memory-rag:34:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.588700000000017
+    },
+    {
+      "case": "historical:mvp-flow",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "mvp-screens",
+        "master"
+      ],
+      "status": "sources",
+      "ids": [
+        "mvp-screens:5:0",
+        "design-system:32:0",
+        "master:192:0",
+        "architecture:5:0",
+        "migration:4:0",
+        "mvp-screens:6:0",
+        "design-system:72:0",
+        "master:213:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 20.064600000000013
+    },
+    {
+      "case": "historical:web-first",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "master",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "master:187:0",
+        "decisions:17:0",
+        "architecture:7:0",
+        "mvp-screens:2:0",
+        "migration:30:0",
+        "master:64:0",
+        "master:74:0",
+        "architecture:2:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.526900000000012
+    },
+    {
+      "case": "historical:rag-boundary",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "rag-readiness",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:5:0",
+        "rag-readiness:12:0",
+        "memory-rag:34:0",
+        "decisions:12:0",
+        "migration:22:0",
+        "architecture:13:0",
+        "memory-rag:4:0",
+        "memory-rag:40:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 18.975099999999998
+    },
+    {
+      "case": "historical:mcp-permissions",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:14:0",
+        "memory-rag:34:0",
+        "decisions:6:0",
+        "architecture:5:1200",
+        "architecture:31:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.884299999999996
+    },
+    {
+      "case": "historical:design-priority",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "design-system",
+        "master"
+      ],
+      "status": "sources",
+      "ids": [
+        "design-system:32:0",
+        "decisions:43:0",
+        "master:119:0",
+        "architecture:9:0",
+        "memory-rag:22:0",
+        "master:211:0",
+        "design-system:119:0",
+        "design-system:82:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.83329999999995
+    },
+    {
+      "case": "historical:schema-separation-new",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "rag-readiness:3:0",
+        "memory-rag:22:0",
+        "architecture:7:0",
+        "decisions:8:0",
+        "master:119:0",
+        "rag-readiness:14:0",
+        "architecture:9:0",
+        "memory-rag:19:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.789099999999962
+    },
+    {
+      "case": "historical:document-provenance-new",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "memory-rag:1:0",
+        "master:110:0",
+        "decisions:39:0",
+        "rag-readiness:1:0",
+        "master:125:0",
+        "memory-rag:34:0",
+        "memory-rag:4:0",
+        "rag-readiness:3:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 18.862799999999993
+    },
+    {
+      "case": "historical:unrelated-abstention-new",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 16.447400000000016
+    },
+    {
+      "case": "historical:mutation-abstention-new",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.057900000000017826
+    },
+    {
+      "case": "control:control-schema-boundary",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "rag-readiness:3:0",
+        "memory-rag:16:0",
+        "master:110:0",
+        "decisions:8:0",
+        "architecture:5:0",
+        "master:32:0",
+        "memory-rag:11:0",
+        "memory-rag:28:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 17.65859999999998
+    },
+    {
+      "case": "control:control-payment-boundary",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "decisions:43:0",
+        "architecture:13:0",
+        "memory-rag:4:0",
+        "rag-readiness:12:0",
+        "migration:22:0",
+        "decisions:8:0",
+        "decisions:35:0",
+        "memory-rag:40:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 19.441899999999976
+    },
+    {
+      "case": "control:control-unrelated",
+      "split": "historical",
+      "method": "lexical",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "sources",
+      "ids": [
+        "memory-rag:42:0"
+      ],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 17.230200000000025
+    },
+    {
+      "case": "t-fee",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "commission-current",
+        "commission-older"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "commission-current",
+        "commission-older"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009627800000089337,
+      "rankMilliseconds": 0.9185999999999979
+    },
+    {
+      "case": "t-flow",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "booking"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009764799999175011,
+      "rankMilliseconds": 0.05210000000001003
+    },
+    {
+      "case": "t-provenance",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "provenance"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010221700000329292,
+      "rankMilliseconds": 0.03490000000000748
+    },
+    {
+      "case": "t-semantic",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.008465199998681783,
+      "rankMilliseconds": 0.011499999999998067
+    },
+    {
+      "case": "t-boundary",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "boundary"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "boundary"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009331399998700363,
+      "rankMilliseconds": 0.04830000000001178
+    },
+    {
+      "case": "t-phone",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "phone"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "phone"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008450299999822164,
+      "rankMilliseconds": 0.06690000000000396
+    },
+    {
+      "case": "t-log",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.00968749999992724,
+      "rankMilliseconds": 0.01820000000000732
+    },
+    {
+      "case": "t-unrelated",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008958099999290425,
+      "rankMilliseconds": 0.009999999999990905
+    },
+    {
+      "case": "t-cooking",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.01020530000096187,
+      "rankMilliseconds": 0.008799999999993702
+    },
+    {
+      "case": "t-invented",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.00967549999950279,
+      "rankMilliseconds": 0.008900000000011232
+    },
+    {
+      "case": "t-missing",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.007647599999472732,
+      "rankMilliseconds": 0.008399999999994634
+    },
+    {
+      "case": "t-private",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.005099999999998772
+    },
+    {
+      "case": "t-retired",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.003999999999990678
+    },
+    {
+      "case": "t-denied",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "denied",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "denied",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.00909999999998945
+    },
+    {
+      "case": "t-query-injection",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.001599999999996271
+    },
+    {
+      "case": "t-source-injection",
+      "split": "tune",
+      "method": "vector",
+      "expectedStatus": "review",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "review",
+      "ids": [
+        "injection"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008534699998563156,
+      "rankMilliseconds": 0.04959999999999809
+    },
+    {
+      "case": "v-contradiction",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "commission-current",
+        "commission-older"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "commission-older",
+        "commission-current"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009840400000030058,
+      "rankMilliseconds": 0.043199999999998795
+    },
+    {
+      "case": "v-flow-paraphrase",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "booking",
+        "cancel"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.01021259999834001,
+      "rankMilliseconds": 0.06119999999999948
+    },
+    {
+      "case": "v-cancel",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "cancel"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "cancel"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008359999999811407,
+      "rankMilliseconds": 0.04100000000001103
+    },
+    {
+      "case": "v-origin",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "provenance"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "provenance"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.01194999999825086,
+      "rankMilliseconds": 0.02379999999999427
+    },
+    {
+      "case": "v-separation",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "boundary"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.012201899999126908,
+      "rankMilliseconds": 0.010699999999999932
+    },
+    {
+      "case": "v-access",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "access"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "access"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.014815299999099807,
+      "rankMilliseconds": 0.02389999999999759
+    },
+    {
+      "case": "v-mobile",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "phone"
+      ],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.011013099998308462,
+      "rankMilliseconds": 0.024900000000002365
+    },
+    {
+      "case": "v-trace",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "trace"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009222000000590924,
+      "rankMilliseconds": 0.02740000000000009
+    },
+    {
+      "case": "v-tail-truncation",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "tail"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "cancel",
+        "tail"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009074500001588603,
+      "rankMilliseconds": 0.0794000000000068
+    },
+    {
+      "case": "v-ambiguous",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": [
+        "booking",
+        "trace"
+      ],
+      "expectedDocuments": null,
+      "status": "sources",
+      "ids": [
+        "trace"
+      ],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.007388899999568821,
+      "rankMilliseconds": 0.02779999999999916
+    },
+    {
+      "case": "v-jupiter-fixture",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009323000000222237,
+      "rankMilliseconds": 0.012299999999996203
+    },
+    {
+      "case": "v-unknown-price",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008980200000223704,
+      "rankMilliseconds": 0.008899999999997021
+    },
+    {
+      "case": "v-medical",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.00914290000218898,
+      "rankMilliseconds": 0.006500000000002615
+    },
+    {
+      "case": "v-current-weather",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008964900000137277,
+      "rankMilliseconds": 0.008200000000002206
+    },
+    {
+      "case": "v-private",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.008399999999994634
+    },
+    {
+      "case": "v-deleted",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.005400000000008731
+    },
+    {
+      "case": "v-disabled",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.0023999999999944066
+    },
+    {
+      "case": "v-mutating",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.006000000000000227
+    },
+    {
+      "case": "v-denied",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "denied",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "denied",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.0033999999999991815
+    },
+    {
+      "case": "v-query-injection",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.0009000000000014552
+    },
+    {
+      "case": "v-source-injection",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "review",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "review",
+      "ids": [
+        "injection"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008547699999326142,
+      "rankMilliseconds": 0.041399999999995885
+    },
+    {
+      "case": "v-invalid",
+      "split": "validation",
+      "method": "vector",
+      "expectedStatus": "invalid",
+      "expectedIds": [],
+      "expectedDocuments": null,
+      "status": "invalid",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.0007999999999981355
+    },
+    {
+      "case": "historical:source-of-truth",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "master"
+      ],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": false,
+      "queryEmbeddingAndDotSeconds": 0.008890400002201204,
+      "rankMilliseconds": 0.2686999999999955
+    },
+    {
+      "case": "historical:critical-path",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:13:0",
+        "rag-readiness:12:0",
+        "memory-rag:34:0",
+        "decisions:15:0",
+        "mvp-screens:72:0",
+        "memory-rag:5:0",
+        "rag-readiness:11:0",
+        "rag-readiness:1:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.011939199999687844,
+      "rankMilliseconds": 0.5996999999999986
+    },
+    {
+      "case": "historical:mcp-safety",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:14:0",
+        "architecture:5:1200"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010258100001010462,
+      "rankMilliseconds": 0.22650000000000148
+    },
+    {
+      "case": "historical:mvp-flow",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "mvp-screens",
+        "master"
+      ],
+      "status": "sources",
+      "ids": [
+        "mvp-screens:6:0",
+        "master:58:0",
+        "migration:4:0",
+        "decisions:11:0",
+        "design-system:32:0",
+        "mvp-screens:5:0",
+        "master:140:0",
+        "mvp-screens:52:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008894299999155919,
+      "rankMilliseconds": 0.4878999999999962
+    },
+    {
+      "case": "historical:web-first",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "master",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "master:74:0",
+        "architecture:2:0",
+        "mvp-screens:2:0",
+        "design-system:28:0",
+        "migration:27:0",
+        "master:187:0",
+        "master:64:0",
+        "architecture:7:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.015902600000117673,
+      "rankMilliseconds": 1.4103000000000065
+    },
+    {
+      "case": "historical:rag-boundary",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "rag-readiness",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:13:0",
+        "rag-readiness:12:0",
+        "memory-rag:34:0",
+        "decisions:7:0",
+        "mvp-screens:27:0",
+        "rag-readiness:11:0",
+        "memory-rag:0:0",
+        "memory-rag:1:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.012655599999561673,
+      "rankMilliseconds": 0.5969000000000051
+    },
+    {
+      "case": "historical:mcp-permissions",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:5:1200",
+        "memory-rag:34:0",
+        "master:95:0",
+        "decisions:6:0",
+        "architecture:14:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.01233440000032715,
+      "rankMilliseconds": 0.3158999999999992
+    },
+    {
+      "case": "historical:design-priority",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "design-system",
+        "master"
+      ],
+      "status": "sources",
+      "ids": [
+        "design-system:32:0",
+        "decisions:17:0",
+        "architecture:13:0",
+        "master:95:0",
+        "decisions:25:0",
+        "decisions:19:0",
+        "design-system:123:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010775399998237845,
+      "rankMilliseconds": 0.3713999999999942
+    },
+    {
+      "case": "historical:schema-separation-new",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "memory-rag:22:0",
+        "migration:4:0",
+        "memory-rag:19:0",
+        "memory-rag:4:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010233299999526935,
+      "rankMilliseconds": 0.2639999999999958
+    },
+    {
+      "case": "historical:document-provenance-new",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "memory-rag:30:0",
+        "rag-readiness:9:0",
+        "master:60:0",
+        "migration:4:0",
+        "architecture:13:0",
+        "memory-rag:4:0",
+        "memory-rag:0:0",
+        "master:196:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010932999999567983,
+      "rankMilliseconds": 0.7717999999999989
+    },
+    {
+      "case": "historical:unrelated-abstention-new",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.009324200000264682,
+      "rankMilliseconds": 0.31050000000000466
+    },
+    {
+      "case": "historical:mutation-abstention-new",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.0,
+      "rankMilliseconds": 0.006699999999995043
+    },
+    {
+      "case": "control:control-schema-boundary",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag"
+      ],
+      "status": "sources",
+      "ids": [
+        "memory-rag:28:0",
+        "migration:4:0",
+        "decisions:11:0",
+        "master:201:0",
+        "memory-rag:4:0",
+        "memory-rag:30:0",
+        "migration:16:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.008484699998007272,
+      "rankMilliseconds": 0.44489999999998986
+    },
+    {
+      "case": "control:control-payment-boundary",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "sources",
+      "expectedIds": null,
+      "expectedDocuments": [
+        "memory-rag",
+        "architecture"
+      ],
+      "status": "sources",
+      "ids": [
+        "architecture:13:0",
+        "rag-readiness:12:0",
+        "migration:4:0",
+        "decisions:29:0",
+        "mvp-screens:77:0",
+        "rag-readiness:9:0",
+        "master:206:0",
+        "migration:9:0"
+      ],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.010348799998610048,
+      "rankMilliseconds": 2.332400000000007
+    },
+    {
+      "case": "control:control-unrelated",
+      "split": "historical",
+      "method": "vector",
+      "expectedStatus": "abstained",
+      "expectedIds": null,
+      "expectedDocuments": [],
+      "status": "abstained",
+      "ids": [],
+      "strictCorrect": true,
+      "queryEmbeddingAndDotSeconds": 0.00959080000029644,
+      "rankMilliseconds": 0.18529999999999802
+    }
+  ],
+  "truncations": [
+    {
+      "id": "master:147:0",
+      "kind": "passage",
+      "fullTokens": 292,
+      "usedTokens": 256
+    },
+    {
+      "id": "master:187:0",
+      "kind": "passage",
+      "fullTokens": 293,
+      "usedTokens": 256
+    },
+    {
+      "id": "architecture:5:0",
+      "kind": "passage",
+      "fullTokens": 375,
+      "usedTokens": 256
+    },
+    {
+      "id": "architecture:7:0",
+      "kind": "passage",
+      "fullTokens": 291,
+      "usedTokens": 256
+    },
+    {
+      "id": "rag-readiness:3:0",
+      "kind": "passage",
+      "fullTokens": 282,
+      "usedTokens": 256
+    },
+    {
+      "id": "design-system:9:0",
+      "kind": "passage",
+      "fullTokens": 320,
+      "usedTokens": 256
+    },
+    {
+      "id": "migration:22:0",
+      "kind": "passage",
+      "fullTokens": 391,
+      "usedTokens": 256
+    },
+    {
+      "id": "migration:30:0",
+      "kind": "passage",
+      "fullTokens": 321,
+      "usedTokens": 256
+    }
+  ],
+  "resources": {
+    "sessionLoadSeconds": 0.7361979000015708,
+    "localPassagesEncoded": 629,
+    "localPassageEncodingSeconds": 16.01874179999868,
+    "queryEmbeddingAndDotMedianSeconds": 0.009627800000089337,
+    "peakProcessWorkingSetBytes": 548823040
+  },
+  "safety": {
+    "providerCalls": 0,
+    "databaseCalls": 0,
+    "applicationNetworkCalls": 0,
+    "onnxTelemetryDisabled": true,
+    "unauthorizedPassagesEmbedded": 0,
+    "retrievedIdsAuthorized": true,
+    "citationExactByConstructionAndIdentity": true
+  },
+  "limitations": [
+    "Small author-annotated fixture; no independent benchmark or population estimate",
+    "Validation vocabulary and corpus overlap with calibration; not an external generalization test",
+    "Real corpus document labels are alternatives and incomplete; no real-corpus passage precision claimed",
+    "Latency excludes tokenizer, Node IPC and end-to-end workflow; cold load/indexing reported separately",
+    "Vector uses 256-token truncation while lexical/citations use entire original chunks",
+    "Cosine dot products in volatile RAM, not a Supabase performance measurement; no vector store persisted",
+    "Existing lexical Jupiter false positive is diagnostic, not silently fixed",
+    "Safety gates reused from native workflow; no comprehensive prompt-injection protection claimed"
+  ]
+}
