@@ -917,7 +917,7 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Acces locaux absents et migration distante specifique non autorisee",
+      "blocker": "Migration specifique non autorisee; bot Telegram et destinataire manquants",
       "next": "Acces locaux absents et migration distante specifique non autorisee"
     },
     {
@@ -1051,8 +1051,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Configuration locale non enregistree; reception externe non raccordee",
-      "next": "Configuration locale non enregistree; reception externe non raccordee"
+      "blocker": "Supabase et Stripe test configures, forwarder pret; Telegram connecte mais conversation BotFather bloquee",
+      "next": "Ouverture manuelle de BotFather puis recuperation securisee bot et association destinataire"
     },
     {
       "id": "GYM-B1.5",

@@ -1,0 +1,17 @@
+{
+  "supabaseRecipeConfigured": true,
+  "supabaseAuthSettingsRead": true,
+  "emailAutoconfirm": false,
+  "stripeSandboxKeyVerified": true,
+  "stripeCliVersion": "1.55.8",
+  "stripeCliArchiveSha256": "d0650b491dcccab3b38ee807b6ee239713a8fff071818d672ec967abea60efed",
+  "stripeForwarderReady": true,
+  "matchingWebhookSecretVerified": true,
+  "telegramLoggedIn": true,
+  "telegramBotConfigured": false,
+  "telegramRecipientConfigured": false,
+  "remoteMigrationAuthorized": false,
+  "externalPaymentsCreated": false,
+  "telegramMessagesSent": false,
+  "credentialValuesIncluded": false
+}

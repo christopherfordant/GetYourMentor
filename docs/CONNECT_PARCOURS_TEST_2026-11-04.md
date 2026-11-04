@@ -78,3 +78,21 @@ Après migration autorisée et configuration, arrêter l'aperçu simulé puis la
 Le provisionnement Auth/rôle/profil est encore multi-étapes : une panne intermédiaire peut laisser un compte partiel nécessitant une reprise contrôlée. Aucune transaction distribuée ou reprise automatique de ce cas revendiquée. Les sessions existantes et leurs expirations doivent être contrôlées lors de la recette réelle. Les six anciens échecs diagnostiques RAG restent hors de ce lot et ne conditionnent pas le paiement.
 
 Avant le réel : vérifier comptes et capacités, responsabilités de la plateforme, pays compatibles, calendrier des versements, frais, remboursements différés/litiges, données de production, secrets et webhooks distincts, monitoring et contrôles d'accès réels. Les protections actuelles refusent les clés live ; aucune bascule automatique, encaissement réel, achat ou publication autorisée.
+
+## Reprise autonome des acces apres demande utilisateur
+
+L utilisateur ne souhaite pas executer de script : configuration poursuivie depuis les sessions ouvertes. Les trois parametres Supabase du seul projet de recette sont enregistres avec DPAPI et leurs JWT verifies pour ce projet/role, sans rotation. Auth settings atteint en lecture : confirmation email requise (autoconfirm false). Cle Stripe test enregistree avec DPAPI et verification reelle du mode test par API; pays Connect derive du compte configure, sans changement de compte. Aucun paiement ni compte connecte cree.
+
+Un fragment de cle Stripe test a ete remonte par une inspection de libelle dans une sortie technique; il n est pas recopie ici. Les copies suivantes utilisent directement le presse-papiers Windows vers DPAPI sans retour de valeur. Le presse-papiers initial a ete restaure. Aucune cle live utilisee.
+
+Stripe CLI 1.55.8 installe localement depuis la release officielle, archive SHA256 verifiee. Secret de reception obtenu via CLI test et enregistre avec DPAPI; forwarding continu pas encore lance. Lanceur filtre : gym-next/scripts/start-stripe-test-forwarder.ps1. Aucun log brut de secret ou payload prevu.
+
+Telegram Web A n a pas charge; variante officielle K accessible et demandant une connexion par QR code. Le scan sur le telephone est une intervention personnelle indispensable; aucune extraction de session Telegram Desktop tentee. Token du bot et destinataire non recuperes. Autorisation de migration toujours en attente. L ancien constat de coffre absent plus haut decrit le debut du lot; il est remplace par cet etat plus recent.
+
+### Etat le plus recent du raccordement
+
+L utilisateur confirme Telegram connecte : champ de recherche visible et BotFather officiel verifie retrouve. La conversation reste en chargement et les clics ordinaires expirent; navigation clavier et lien de conversation sans succes. Aucune protection contournee, aucune autre conversation inspectee. Intervention minimale demandee : ouvrir manuellement BotFather officiel et laisser la conversation affichee, sans transmettre de cle dans la conversation Codex.
+
+Le forwarder Stripe TEST a ete effectivement lance : connexion prete, secret concordant avec le coffre DPAPI. Aucun evenement de paiement genere; ce controle valide uniquement la connexion de reception. Scripts helper et version CLI syntaxes/empreinte verifies. Le serveur Next reste en simulation locale tant que migration et Telegram manquent; ne pas confondre transport Stripe connecte et parcours externe acheve.
+
+Etat du coffre : huit parametres sur dix presents; manquent TELEGRAM_BOT_TOKEN et TELEGRAM_TEST_CHAT_IDS. Les acces Supabase, Stripe test et secrets generes ne doivent plus etre redemandes a l utilisateur. Migration distante toujours non autorisee, aucun compte ou paiement externe cree.

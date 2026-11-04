@@ -1,3 +1,9 @@
+## Reprise active - 4 novembre 2026 : acces configures par autonomie
+
+Demande utilisateur : ne sait pas executer le script, faire la configuration. Parametres Supabase recette et cle Stripe test recuperes via sessions ouvertes puis DPAPI hors Git. Projet/roles et mode Stripe test verifies; Auth email autoconfirm false. CLI Stripe 1.55.8 local, archive officielle verifiee, secret de reception chiffre. Forwarder Stripe test lance, connexion prete et secret concordant; aucun evenement genere. Aucun paiement externe, compte de demonstration ou migration cree. Details dans docs/CONNECT_PARCOURS_TEST_2026-11-04.md, derniere section.
+
+Telegram Web K connecte (confirme par utilisateur et recherche visible); BotFather officiel retrouve mais conversation ne s ouvre pas via automation. Demande minimale en attente : ouvrir manuellement BotFather et le laisser affiche. Bot/destinataire encore manquants; autorisation migration specifique toujours en attente. Aucun script demande a l utilisateur pour les parametres deja recuperes. Presse-papiers restaure; fragment de cle test apparu dans sortie technique documente sans reproduction. Lot applicatif pousse 0e48564 avec SHA distant confirme, brouillons preserves.
+
 ## Reprise active - 4 novembre 2026 : parcours metier Connect test prioritaire
 
 GYM-B1 en cours de livraison locale, bloque sur acces et migration specifique. Connect test prepare (onboarding coach, commission historique, destination, references confirmees serveur, remboursement avec reprise de transfert); inscription Supabase/confirmation et identifiants de coach corriges. Configuration DPAPI et lanceur recette sans repli local. Rapport : docs/CONNECT_PARCOURS_TEST_2026-11-04.md.
