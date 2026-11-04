@@ -2,7 +2,8 @@ import {readFile,realpath} from 'node:fs/promises';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 
-const stopwords=new Set(['les','des','une','pour','dans','avec','est','que','qui','sur','comment','quel','quelle','quels','quelles','sont','mes','mon','peut','doit','faut']);
+// French grammatical/question words do not establish documentary relevance.
+const stopwords=new Set(['les','des','une','pour','dans','avec','est','que','qui','sur','comment','quel','quelle','quels','quelles','sont','mes','mon','peut','doit','faut','quand','vers','pourquoi','entre','sans','aux','ses','ces','cet','cette','son','leur','leurs','notre','votre','nous','vous','elle','elles','ils','par','plus','moins','etre','avoir']);
 export const terms=value=>new Set((value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').match(/[a-z0-9]{3,}/g)??[]).filter(t=>!stopwords.has(t)).map(t=>t.length>4?t.replace(/s$/,''):t));
 // Same governed manifest and lexical baseline as scripts/evaluate-rag-corpus.mjs.
 // Chunk scoring adds no embedding model and must not be described as semantic search.

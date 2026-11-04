@@ -1,3 +1,11 @@
+## Reprise active - 4 novembre 2026 : fiabilisation locale avant A5
+
+Lot GYM-Q1 livre : exclusion des correspondances grammaticales parasites, Jupiter abstention, historique 12/12 et controles 3/3; 35 tests Node PASS. Rejeu diagnostique A4.3 45/53 avant, 47/53 apres, sans regression selon ses criteres; six cas restent non conformes. Jeu et preuves A4.3 preserves, aucune validation independante revendiquee. Rapport : docs/RAG_FIABILISATION_2026-11-04.md.
+
+Six propositions d annotations avec extraits/lignes/versions a relire, zero validation humaine. Huit troncatures reelles confirmees; deux stress 1313/1315 tokens prouvent la perte de fin. Fenetres 200 tokens/recouvrement 32 proposees et couverture verifiee, aucune inference ni activation. GYM-Q2 bloque sur relecture humaine/nouveau jeu reserve, dependance ajoutee a A5/A5.1. Supabase et pgvector inchanges; lexical seul, aucun deploiement.
+
+Checkout C:/Users/cashe/Documents/GYM-rag-quality-20261104. Brouillons du depot principal preserves. Preuves Git finales : delivery-private/rag-quality-final.json dans le depot principal. Le Kanban versionne ne reinitialise pas les deplacements du navigateur utilisateur.
+
 ## Reprise active - 4 novembre 2026 : economie de tokens
 
 AGENTS.md complete a la demande utilisateur : modele disponible et effort les plus economes compatibles avec les criteres du lot, lectures ciblees, aucun changement de modele pretendu ni controle essentiel supprime. Configuration globale non modifiee. Prochain lot recommande : corriger le faux positif lexical Jupiter et preparer les annotations/controles de troncature avant A5; ce lot n est pas execute par cette mise a jour documentaire. Les resultats A4.3 ci-dessous restent inchanges.

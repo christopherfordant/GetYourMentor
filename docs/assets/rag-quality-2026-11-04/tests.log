@@ -1,0 +1,43 @@
+✔ parent status follows children; reopening prevents completed parent (8.655ms)
+✔ completion needs dependencies and explicitly checked evidence (0.9871ms)
+✔ WIP, valid statuses and a blocking reason are enforced (0.7421ms)
+✔ offline ranks cannot admit a high-scoring unauthorized source or bypass the question gate (329.6392ms)
+✔ offline vector and RRF preserve exact complementary chunks and the common per-document budget (383.3646ms)
+✔ a retrieved injection source triggers human review with either offline ranking (293.7234ms)
+✔ French accents and regular plurals share lexical terms (8.463ms)
+✔ specific evidence outranks boilerplate and duplicate passages (46.1643ms)
+✔ private and archived sources cannot influence frequencies (1.1558ms)
+✔ grammatical matches alone never establish relevance, without a domain blacklist (11.3462ms)
+✔ substantive matches retain exact citations with the same surrounding grammar (2.1817ms)
+✔ ambiguous query with insufficient evidence abstains instead of inventing a decision (2.4589ms)
+✔ missing, disabled, private and removed evidence cannot satisfy relevance (18.8963ms)
+✔ suspicious relevant evidence still requires human review (2.5275ms)
+✔ real corpus retains source of truth and rejects the known unrelated question (284.2717ms)
+✔ regression: contradictory passages in one document remain available (90.3867ms)
+✔ regression: a rare isolated word cannot hide qualified candidates (2.3764ms)
+✔ complementary passages survive while exact duplicate passages do not monopolize (7.3961ms)
+✔ passage, character and per-document budgets retain exact excerpts (4.2588ms)
+✔ insufficient, private and archived candidates cannot satisfy admission (0.9239ms)
+✔ oversized evidence is not silently truncated to manufacture a citation (1.2632ms)
+✔ only the explicit UI assets are served, with protective headers (437.9172ms)
+✔ cross-origin requests cannot invoke retrieval (13.0372ms)
+✔ local read-only query returns exact citations; malformed and large input fail (109.4818ms)
+✔ authorization precedes retrieval (9.5349ms)
+✔ citations are exact excerpts, with no generation or tool side effect (10.9965ms)
+✔ empty, irrelevant and insufficient sources abstain (4.5832ms)
+✔ invalid question is rejected before retrieval (2.0163ms)
+✔ prompt injection and business mutation do not execute (9.9861ms)
+✔ contradictions stay separate, without inventing a resolution (53.9757ms)
+✔ unavailable tool and timeout stop without provider fallback (20.3287ms)
+✔ private and archived candidates are filtered before ranking (0.9516ms)
+✔ real governed corpus yields traceable chunks with versions (71.4944ms)
+✔ manifest escape is rejected and removed documents disappear on reload (45.7155ms)
+✔ backlog hierarchy, estimates, dates and proof integrity (5.9277ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1346.1881

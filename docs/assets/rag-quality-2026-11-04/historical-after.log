@@ -1,0 +1,13 @@
+PASS source-of-truth: sources memory-rag, architecture, master
+PASS critical-path: sources architecture, memory-rag, rag-readiness
+PASS mcp-safety: sources architecture, memory-rag
+PASS mvp-flow: sources mvp-screens, design-system, master
+PASS web-first: sources master, architecture, mvp-screens
+PASS rag-boundary: sources architecture, memory-rag, rag-readiness
+PASS mcp-permissions: sources architecture, memory-rag, architecture
+PASS design-priority: sources design-system, decisions, master
+PASS schema-separation-new: sources rag-readiness, memory-rag, architecture
+PASS document-provenance-new: sources memory-rag, master, decisions
+PASS unrelated-abstention-new: abstained
+PASS mutation-abstention-new: abstained
+Évaluation RAG lexicale réussie : 12 cas, citations exactes et statuts contrôlés.

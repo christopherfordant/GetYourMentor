@@ -1,0 +1,168 @@
+{
+  "humanValidatedCount": 0,
+  "exhaustive": false,
+  "annotations": [
+    {
+      "id": "historical:source-of-truth",
+      "question": "Quel document est la source de vérité du produit ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "master:187:1200",
+          "path": "DOCUMENT_MAITRE_GYM.md",
+          "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+          "excerptSha256": "bcfe60d47a23c9c0b8a001fad5d60df7bd220ba1393ad389f09086f8c58a6660",
+          "startLine": 571,
+          "endLine": 572,
+          "excerpt": "un premier module de fidelite.\r\n13. L'equipe se donne une verite unique dans ce document maitre."
+        },
+        {
+          "id": "master:5:0",
+          "path": "DOCUMENT_MAITRE_GYM.md",
+          "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+          "excerptSha256": "00353303fab1c4261c654ec9269a8883b6d4d32689464a88ea1a03aae9d73925",
+          "startLine": 11,
+          "endLine": 11,
+          "excerpt": "> Parcours recruteur — 22 octobre : [correction de la note transitoire et preuves](docs/REVUE_RECRUTEUR_2026-10-22.md). Source de vérité API, états attente/erreur/absent distincts et données de démonstration explicites. Lot local ciblé, aucun déploiement ; les règles métier restent inchangées."
+        }
+      ]
+    },
+    {
+      "id": "historical:critical-path",
+      "question": "Le RAG peut-il décider ou bloquer une réservation ou un paiement ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "architecture:13:0",
+          "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+          "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+          "excerptSha256": "e8f525c51aa463c4d3b792521203e481d5df3f174432c6b64a3946c538e8733e",
+          "startLine": 76,
+          "endLine": 76,
+          "excerpt": "Le RAG n'est pas placé dans le chemin critique des réservations ou paiements. Une future base documentaire pourra utiliser Supabase/Postgres + pgvector, avec retrieval hybride et métadonnées de priorité, conformément à `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`."
+        },
+        {
+          "id": "memory-rag:34:0",
+          "path": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+          "documentVersion": "f31d17b850b56d2229970b1947e7250aba84b6507ee05329ed8c773bc57bfb19",
+          "excerptSha256": "91e467ec60160ad182e66b8bca07cf7ec2ab547fc7e7fdcef27c6776d3485c61",
+          "startLine": 90,
+          "endLine": 93,
+          "excerpt": "- relier Trello, n8n, Supabase et les documents ;\r\n- automatiser l’ingestion et les briefs ;\r\n- exposer uniquement les outils MCP nécessaires, avec droits minimaux ;\r\n- garder le RAG hors du chemin critique de réservation, paiement et authentification."
+        }
+      ]
+    },
+    {
+      "id": "historical:mcp-safety",
+      "question": "Quels accès sont interdits à un outil MCP ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "architecture:14:0",
+          "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+          "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+          "excerptSha256": "044b8e92870c08d771d352e08294d9cb652f14917753c5b00f90fec0ef4ff58d",
+          "startLine": 78,
+          "endLine": 78,
+          "excerpt": "Pour MCP, préférer une exposition minimale d'outils et choisir le pattern selon le besoin : wrapper d'API pour une API stable, composite pour un parcours regroupé, event-driven pour un traitement asynchrone. Aucun accès arbitraire aux fichiers, secrets, commandes ou réseaux."
+        },
+        {
+          "id": "memory-rag:34:0",
+          "path": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+          "documentVersion": "f31d17b850b56d2229970b1947e7250aba84b6507ee05329ed8c773bc57bfb19",
+          "excerptSha256": "91e467ec60160ad182e66b8bca07cf7ec2ab547fc7e7fdcef27c6776d3485c61",
+          "startLine": 90,
+          "endLine": 93,
+          "excerpt": "- relier Trello, n8n, Supabase et les documents ;\r\n- automatiser l’ingestion et les briefs ;\r\n- exposer uniquement les outils MCP nécessaires, avec droits minimaux ;\r\n- garder le RAG hors du chemin critique de réservation, paiement et authentification."
+        }
+      ]
+    },
+    {
+      "id": "historical:mvp-flow",
+      "question": "Quel est le parcours principal de réservation du MVP ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "mvp-screens:5:0",
+          "path": "MVP_ECRANS_GYM.md",
+          "documentVersion": "e28ae73f0a6997a42c1e19f46ff36fe763f5097c5455bd14f0bb045b3ca1381b",
+          "excerptSha256": "9d15410af2bdb3f8097835dda6d4baef185a8babc734d1f9ad05ecf385312c50",
+          "startLine": 24,
+          "endLine": 24,
+          "excerpt": "## 2. Parcours MVP principal"
+        },
+        {
+          "id": "master:192:0",
+          "path": "DOCUMENT_MAITRE_GYM.md",
+          "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+          "excerptSha256": "795372b45da58132725a90ab4382cdc2393b57d8cfd7af46ec2757dc785db1e7",
+          "startLine": 586,
+          "endLine": 590,
+          "excerpt": "- structurer le board Trello\r\n- preparer la base de coachs et clubs a contacter\r\n- finaliser le pitch court et la version de prospection\r\n- decider du mode de construction technique\r\n- realiser la maquette Figma / Figma Make du parcours principal"
+        }
+      ]
+    },
+    {
+      "id": "historical:web-first",
+      "question": "Pourquoi GetYourMentor commence-t-il par un site web responsive plutôt qu’une application mobile native ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "master:187:0",
+          "path": "DOCUMENT_MAITRE_GYM.md",
+          "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+          "excerptSha256": "02e584e5f9db73620cc2b7733e29016ab5733f1b79f5260f4e924b5c147efd9f",
+          "startLine": 560,
+          "endLine": 571,
+          "excerpt": "1. GYM commence comme un site web responsive.\r\n2. Le MVP reste volontairement simple et centre sur coach + sportif.\r\n3. Le club entre dans le MVP en mode leger, pas en gestion avancee.\r\n4. La direction visuelle est propre a GetYourMentor : une application web responsive de coaching sportif, mobile-first, sombre, dynamique et orientee progression.\r\n5. La reservation du MVP fonctionne en demande de reservation validee par le coach, pas en agenda instantane complexe.\r\n6. Une maquette courte de 5 a 8 ecrans doit etre realisee avant le developpement complet pour valider le process, la charte graphique et le MVP.\r\n7. Les fonctions V2/V3 restent hors lancement.\r\n8. L'interface du MVP est en francais par defaut avec selecteur de langue.\r\n9. Le MVP ne montre que 4 sports : `football`, `basketball`, `fitness`, `sports de combat`.\r\n10. La direction visuelle de la maquette MVP utilise un theme bleu nuit, un accent vert performance et un accent orange pour les etats actifs.\r\n11. L'application peut traduire automatiquement l'interface selon la langue disponible de l'utilisateur, avec changement manuel possible.\r\n12. La maquette doit montrer explicitement le paiement apres acceptation du coach et"
+        },
+        {
+          "id": "architecture:7:0",
+          "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+          "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+          "excerptSha256": "b0f1ae72a0290136065ed9ba4a61600febefd5f25401aaedd8b6ee76f6d93767",
+          "startLine": 27,
+          "endLine": 49,
+          "excerpt": "```text\r\nGetYourMentor/\r\n├─ docs/                         # décisions, architecture, spécifications, validation\r\n│  └─ architecture/\r\n├─ governance/                   # rôles, fil rouge, décisions et contrôle\r\n├─ gym-next/                     # application web Next.js\r\n│  ├─ app/                       # routes, pages et API minces\r\n│  ├─ components/                # composants UI et parcours migrés\r\n│  │  ├─ common/\r\n│  │  ├─ home/\r\n│  │  ├─ search/\r\n│  │  ├─ booking/\r\n│  │  ├─ account/\r\n│  │  └─ legacy/                 # compatibilité temporaire uniquement\r\n│  ├─ lib/                       # accès données, domaine et protections serveur\r\n│  │  ├─ domain/                 # règles métier pures et types\r\n│  │  ├─ repositories/           # Supabase ou adaptateurs de persistance\r\n│  │  ├─ policies/               # autorisation et contrôles\r\n│  │  └─ integrations/           # Stripe, Resend, n8n, fournisseurs externes\r\n│  ├─ public/                    # assets réellement utilisés par l'application\r\n│  ├─ tests/                     # tests fonctionnels et visuels\r\n│  └─ scripts/                   # contrôles reproductibles et smoke tests\r\n├─ supabase/                     # schémas, migra"
+        }
+      ]
+    },
+    {
+      "id": "historical:rag-boundary",
+      "question": "Le RAG doit-il être placé dans le chemin critique de réservation paiement authentification ?",
+      "status": "proposed-pending-human-review",
+      "humanValidated": false,
+      "justification": "Candidate matching the historical expected document; relevance and completeness still require human passage-level review.",
+      "candidates": [
+        {
+          "id": "architecture:5:0",
+          "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+          "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+          "excerptSha256": "9749cc0ce1bc714f8f8c446dbe0aaa21daff270f18485f48bd9265926f75e7d1",
+          "startLine": 11,
+          "endLine": 23,
+          "excerpt": "| Domaine | Décision | Justification |\r\n|---|---|---|\r\n| Frontend | Next.js + React + TypeScript | Stack déjà en place, adaptée au web responsive et au SEO. |\r\n| Styles | CSS Modules et CSS global ciblé | Réduire les dépendances et préserver l'identité visuelle existante. |\r\n| Backend web | Route Handlers Next.js | Garder les règles métier et les secrets côté serveur. |\r\n| Données | Supabase/Postgres + RLS | Persistance, authentification et contrôle par rôle. |\r\n| Paiement | Stripe via serveur et webhook signé | Ne jamais faire confiance au prix ou à l'état envoyés par le navigateur. |\r\n| Emails | Resend, uniquement après configuration réelle | Notifications transactionnelles séparées du parcours principal. |\r\n| Automatisation | n8n hors du chemin critique | Orchestration opérationnelle, jamais source de vérité métier. |\r\n| Déploiement | Netlify + runtime Next.js | Contrat de déploiement déjà versionné. |\r\n| Tests | TypeScript + Playwright + scripts de garde | Couvrir les parcours, les rôles, le responsive et les frontières de sécurité. |\r\n| RAG | Phase ultérieure, retrieval hybride dans Supabase/pgvector | Ne pas ajouter un RAG cosmétique avant d'avoir un besoin mesurable. |\r\n| MC"
+        },
+        {
+          "id": "memory-rag:34:0",
+          "path": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+          "documentVersion": "f31d17b850b56d2229970b1947e7250aba84b6507ee05329ed8c773bc57bfb19",
+          "excerptSha256": "91e467ec60160ad182e66b8bca07cf7ec2ab547fc7e7fdcef27c6776d3485c61",
+          "startLine": 90,
+          "endLine": 93,
+          "excerpt": "- relier Trello, n8n, Supabase et les documents ;\r\n- automatiser l’ingestion et les briefs ;\r\n- exposer uniquement les outils MCP nécessaires, avec droits minimaux ;\r\n- garder le RAG hors du chemin critique de réservation, paiement et authentification."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "tokenizerSha256": "0b44a9d7b51c3c62626640cda0e2c2f70fdacdc25bbbd68038369d14ebdf4c39",
+  "prefix": "passage: ",
+  "maxTokens": 256,
+  "realTruncatedCount": 8,
+  "sameIdsAsA43": true,
+  "real": [
+    {
+      "id": "master:147:0",
+      "path": "DOCUMENT_MAITRE_GYM.md",
+      "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+      "fullTokens": 292,
+      "usedTokens": 256,
+      "unseenCharacters": 161,
+      "visibleEndCharacter": 1039,
+      "unseenTailPreview": "pres plusieurs seances\r\n- messagerie simple ou systeme de contact integre\r\n- masquage du mail et du numero avant reservation\r\n- avis apres seance\r\n- espace coach",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 853,
+          "tokensWithPrefix": 204,
+          "sha256": "b588442bf59e33e1a4601c34850a2cb4ccde1d21e547cf1f849aeea048a20cc1"
+        },
+        {
+          "startCharacter": 714,
+          "endCharacter": 1200,
+          "tokensWithPrefix": 124,
+          "sha256": "cd929da8a2ed7586e8058ae451edfc945e42a9d6207476e3e938a92dfff33fde"
+        }
+      ]
+    },
+    {
+      "id": "master:187:0",
+      "path": "DOCUMENT_MAITRE_GYM.md",
+      "documentVersion": "a4f5786bd2a183bec05cdbdfad6a2abf99f7e5a703b68514cfc123b429f0cdf4",
+      "fullTokens": 293,
+      "usedTokens": 256,
+      "unseenCharacters": 197,
+      "visibleEndCharacter": 1003,
+      "unseenTailPreview": "duire automatiquement l'interface selon la langue disponible de l'utilisateur, avec changement manuel possible.\r\n12. La maquette doit montrer explicitement le paiement apres accept",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 800,
+          "tokensWithPrefix": 204,
+          "sha256": "379d561641853ad52b312a48f98f3c22547ae6fa2be42b1cbd9421695ef750ce"
+        },
+        {
+          "startCharacter": 692,
+          "endCharacter": 1200,
+          "tokensWithPrefix": 125,
+          "sha256": "7f0bf3eaf4d3f78cce3af3f66dc76a1d1ecfcaa124e6a8cffadfbb2ad56b7cc5"
+        }
+      ]
+    },
+    {
+      "id": "architecture:5:0",
+      "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+      "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+      "fullTokens": 375,
+      "usedTokens": 256,
+      "unseenCharacters": 362,
+      "visibleEndCharacter": 838,
+      "unseenTailPreview": "ploiement | Netlify + runtime Next.js | Contrat de déploiement déjà versionné. |\r\n| Tests | TypeScript + Playwright + scripts de garde | Couvrir les parcours, les rôles, le respons",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 623,
+          "tokensWithPrefix": 204,
+          "sha256": "95533e11d37f944c6fc2d492a3802b3ef85f9c7743ebdfb870b482390c5e79d6"
+        },
+        {
+          "startCharacter": 515,
+          "endCharacter": 1194,
+          "tokensWithPrefix": 204,
+          "sha256": "67533293c857657dc74dd5df1ad3d6ae92b2d3796ce8ae6e944803e58fe4298d"
+        },
+        {
+          "startCharacter": 1098,
+          "endCharacter": 1200,
+          "tokensWithPrefix": 39,
+          "sha256": "d8ada26d7cc48f1f75f5bc46055f8f08b5a67d209dc40b2d361cf64901f830f5"
+        }
+      ]
+    },
+    {
+      "id": "architecture:7:0",
+      "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+      "documentVersion": "c794f3dbc551315332f198c188e20e0cc44f253092907e2db93bdba92b2e7e3f",
+      "fullTokens": 291,
+      "usedTokens": 256,
+      "unseenCharacters": 157,
+      "visibleEndCharacter": 1043,
+      "unseenTailPreview": " tests fonctionnels et visuels\r\n│  └─ scripts/                   # contrôles reproductibles et smoke tests\r\n├─ supabase/                     # schémas, migra",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 804,
+          "tokensWithPrefix": 204,
+          "sha256": "7923e83b6ada66edb10895ecd341334b613f739a413242422b19fede21e01658"
+        },
+        {
+          "startCharacter": 679,
+          "endCharacter": 1200,
+          "tokensWithPrefix": 123,
+          "sha256": "4479552bd1797e631dbf3569898709b251741debdfb78e714d93679e2d2eb35f"
+        }
+      ]
+    },
+    {
+      "id": "rag-readiness:3:0",
+      "path": "docs/architecture/RAG_READINESS_GYM.md",
+      "documentVersion": "6b0302d015737abfd7196f13baa72da8cff10ae76783b4d9abc0b42b1516e587",
+      "fullTokens": 282,
+      "usedTokens": 256,
+      "unseenCharacters": 84,
+      "visibleEndCharacter": 775,
+      "unseenTailPreview": " | Non branchés au RAG | Les prompts restent gouvernés par les documents existants |",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 622,
+          "tokensWithPrefix": 204,
+          "sha256": "7edb89f9cf179a6215c7525affb62b0a601aa00699d208df340e933c44a9a10a"
+        },
+        {
+          "startCharacter": 524,
+          "endCharacter": 859,
+          "tokensWithPrefix": 114,
+          "sha256": "78f630815b27c17c0cf734d58c66cb968b54c91f51e2f2c4993e47ee9071371f"
+        }
+      ]
+    },
+    {
+      "id": "design-system:9:0",
+      "path": "DESIGN_SYSTEM_GYM.md",
+      "documentVersion": "a03ac8381460d04c9cf959c577d95ac7c9885064e84569371a49ec50e482f87b",
+      "fullTokens": 320,
+      "usedTokens": 256,
+      "unseenCharacters": 219,
+      "visibleEndCharacter": 834,
+      "unseenTailPreview": "26-10-15.md`. Uber sert uniquement à l'étude des interactions publiques, sans copier ses ressources ni déduire ses mécanismes serveur. Aucune ressource culinaire importée. Rapport ",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 674,
+          "tokensWithPrefix": 204,
+          "sha256": "3f635693216dc2e3c6ca04f9d10546ef4b9df643e2b786cb4b268cbdc62e5eba"
+        },
+        {
+          "startCharacter": 571,
+          "endCharacter": 1053,
+          "tokensWithPrefix": 152,
+          "sha256": "a5b7c288220ee1b0ecbf40be5d7becd25b46d50e034218572703329e4f9ef6f4"
+        }
+      ]
+    },
+    {
+      "id": "migration:22:0",
+      "path": "MIGRATION_NEXT_GYM.md",
+      "documentVersion": "dfffcaf5e12db18c262217b46ae6bb8f42272fad19d26a4d6d774c4e2fe596df",
+      "fullTokens": 391,
+      "usedTokens": 256,
+      "unseenCharacters": 484,
+      "visibleEndCharacter": 716,
+      "unseenTailPreview": " `OK`\r\n- Note compte : le CTA d'inscription valide est `Nouveau ? Inscription`, pas `Creer mon compte`\r\n- Derniere verification visuelle et fonctionnelle automatisee : `OK` le `202",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 588,
+          "tokensWithPrefix": 204,
+          "sha256": "4831595587da5101fbe1636dbfefdc8a5c5acd064b01cb20a97db120129e22fb"
+        },
+        {
+          "startCharacter": 508,
+          "endCharacter": 1122,
+          "tokensWithPrefix": 204,
+          "sha256": "f874a6bc4d5b5364224e080cec7aaef9512288478ad3cfe49021011fcd3cf383"
+        },
+        {
+          "startCharacter": 1009,
+          "endCharacter": 1200,
+          "tokensWithPrefix": 55,
+          "sha256": "039d03ba31a5631a2dee5eadfaf7c24dfd176cb42bee3f7aef7c8a7d0f94c5a5"
+        }
+      ]
+    },
+    {
+      "id": "migration:30:0",
+      "path": "MIGRATION_NEXT_GYM.md",
+      "documentVersion": "dfffcaf5e12db18c262217b46ae6bb8f42272fad19d26a4d6d774c4e2fe596df",
+      "fullTokens": 321,
+      "usedTokens": 256,
+      "unseenCharacters": 295,
+      "visibleEndCharacter": 904,
+      "unseenTailPreview": " du stockage des pièces jointes, les validations juridiques ou l'acceptation utilisateur.\r\n- Le dashboard coach lit désormais les données métier via les APIs ; le dashboard club es",
+      "proposedWindows": [
+        {
+          "startCharacter": 0,
+          "endCharacter": 683,
+          "tokensWithPrefix": 204,
+          "sha256": "9d047708b86203832bd76962b41d6da7fb3ee9328d52e858dcec568e63d09b52"
+        },
+        {
+          "startCharacter": 572,
+          "endCharacter": 1199,
+          "tokensWithPrefix": 153,
+          "sha256": "38068a8e154a3a6899a0828ba164d55fe9ba4e1fe842bac3e11b6980f0723923"
+        }
+      ]
+    }
+  ],
+  "stress": [
+    {
+      "id": "payment",
+      "fullTokens": 1313,
+      "tailStartCharacter": 5300,
+      "visibleEndCharacter": 1024,
+      "decisiveTailAbsentBefore": true,
+      "tailCoveredByProposedWindow": true,
+      "windows": 8,
+      "textSha256": "12b9077429681c3748197f0ceae02337efb5dd0a729fdcc4bd0e8c4f74552fd7"
+    },
+    {
+      "id": "access",
+      "fullTokens": 1315,
+      "tailStartCharacter": 5300,
+      "visibleEndCharacter": 1024,
+      "decisiveTailAbsentBefore": true,
+      "tailCoveredByProposedWindow": true,
+      "windows": 8,
+      "textSha256": "64d7d5d80a1d393d4d718135a0b4a041b4e65df06b93bd6a0175b6e574fa2e26"
+    }
+  ],
+  "proposalOnly": true,
+  "embeddingInferenceExecuted": false,
+  "limitations": [
+    "Token visibility only, not measured retrieval accuracy",
+    "Windows are experimental; corpus, IDs and live citations unchanged",
+    "A43 files unchanged; stress cases are separate and author-created"
+  ]
+}

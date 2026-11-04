@@ -1,0 +1,54 @@
+{
+  "http": [
+    {
+      "question": "Quand décolleront les missions habitées vers Jupiter ?",
+      "status": "abstained",
+      "mode": "extractive-lexical",
+      "embeddingCalls": 0,
+      "ids": []
+    },
+    {
+      "question": "Quel document est la source de vérité du produit ?",
+      "status": "sources",
+      "mode": "extractive-lexical",
+      "embeddingCalls": 0,
+      "ids": [
+        "memory-rag:4:0",
+        "architecture:9:0",
+        "master:187:1200",
+        "rag-readiness:6:0",
+        "decisions:13:0",
+        "memory-rag:25:0",
+        "memory-rag:11:0",
+        "master:5:0"
+      ]
+    }
+  ],
+  "kanban": [
+    {
+      "id": "GYM-Q1",
+      "status": "done"
+    },
+    {
+      "id": "GYM-Q1.1",
+      "status": "done"
+    },
+    {
+      "id": "GYM-Q1.2",
+      "status": "done"
+    },
+    {
+      "id": "GYM-Q1.3",
+      "status": "done"
+    },
+    {
+      "id": "GYM-Q2",
+      "status": "blocked"
+    }
+  ],
+  "browser": {
+    "verified": false,
+    "reason": "New context refused by browser protection; existing-page click timed out; subsequent inspection interrupted. No desktop/mobile interaction success claimed.",
+    "userStorageReset": false
+  }
+}

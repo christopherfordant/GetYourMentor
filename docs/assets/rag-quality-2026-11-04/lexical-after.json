@@ -1,0 +1,1001 @@
+{
+  "datasetSha256": "defdfeb709cf35a91969dd8cf60be0e8086f1c8cb275fd4df4b453fbac1b90d0",
+  "purpose": "Diagnostic replay after correction; previously observed cases, not independent validation",
+  "rows": [
+    {
+      "id": "t-fee",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "commission-current",
+          "commission-older"
+        ],
+        "milliseconds": 25.808099999999982
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "commission-current",
+          "commission-older"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-flow",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "booking"
+        ],
+        "milliseconds": 1.0831000000000017
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "booking"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-provenance",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "provenance"
+        ],
+        "milliseconds": 0.9465999999999894
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "provenance"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-semantic",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.6298999999999921
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "t-boundary",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "boundary"
+        ],
+        "milliseconds": 0.7309999999999945
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "boundary"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-phone",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "phone"
+        ],
+        "milliseconds": 0.781800000000004
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "phone"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-log",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "trace"
+        ],
+        "milliseconds": 0.6862999999999886
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "trace"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-unrelated",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 1.4659000000000049
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-cooking",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.7113000000000227
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-invented",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.8153000000000077
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-missing",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.5745000000000005
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-private",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.09310000000002105
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-retired",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.06739999999999213
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-denied",
+      "before": {
+        "status": "denied",
+        "ids": [],
+        "milliseconds": 0.01850000000001728
+      },
+      "after": {
+        "status": "denied",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-query-injection",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.018900000000002137
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "t-source-injection",
+      "before": {
+        "status": "review",
+        "ids": [],
+        "milliseconds": 0.15559999999999263
+      },
+      "after": {
+        "status": "review",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-contradiction",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "commission-older"
+        ],
+        "milliseconds": 0.5785000000000196
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "commission-older"
+        ]
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "v-flow-paraphrase",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.5649999999999977
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "v-cancel",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "booking",
+          "cancel"
+        ],
+        "milliseconds": 0.8007000000000062
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "booking",
+          "cancel"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-origin",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "provenance"
+        ],
+        "milliseconds": 0.6280999999999892
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "provenance"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-separation",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.6048000000000116
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "v-access",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "access"
+        ],
+        "milliseconds": 0.594600000000014
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "access"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-mobile",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 1.445600000000013
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "v-trace",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "trace"
+        ],
+        "milliseconds": 0.5361999999999796
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "trace"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-tail-truncation",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "tail"
+        ],
+        "milliseconds": 0.5975999999999999
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "tail"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-ambiguous",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.6341999999999928
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": false
+    },
+    {
+      "id": "v-jupiter-fixture",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "mission"
+        ],
+        "milliseconds": 0.6482000000000028
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-unknown-price",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.4771000000000072
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-medical",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.7839999999999918
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-current-weather",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.4870000000000232
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-private",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.07079999999999131
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-deleted",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.06729999999998881
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-disabled",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.05760000000000787
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-mutating",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.013899999999978263
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-denied",
+      "before": {
+        "status": "denied",
+        "ids": [],
+        "milliseconds": 0.01079999999998904
+      },
+      "after": {
+        "status": "denied",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-query-injection",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.011399999999980537
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-source-injection",
+      "before": {
+        "status": "review",
+        "ids": [],
+        "milliseconds": 0.13229999999998654
+      },
+      "after": {
+        "status": "review",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "v-invalid",
+      "before": {
+        "status": "invalid",
+        "ids": [],
+        "milliseconds": 0.02199999999999136
+      },
+      "after": {
+        "status": "invalid",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:source-of-truth",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "memory-rag:4:0",
+          "architecture:9:0",
+          "master:187:1200",
+          "rag-readiness:6:0",
+          "decisions:13:0",
+          "memory-rag:25:0",
+          "memory-rag:11:0",
+          "master:5:0"
+        ],
+        "milliseconds": 22.476899999999972
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "memory-rag:4:0",
+          "architecture:9:0",
+          "master:187:1200",
+          "rag-readiness:6:0",
+          "decisions:13:0",
+          "memory-rag:25:0",
+          "memory-rag:11:0",
+          "master:5:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:critical-path",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "architecture:13:0",
+          "memory-rag:34:0",
+          "rag-readiness:12:0",
+          "master:101:0",
+          "design-system:32:0",
+          "architecture:5:0",
+          "master:128:0",
+          "master:147:0"
+        ],
+        "milliseconds": 24.10069999999999
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "architecture:13:0",
+          "memory-rag:34:0",
+          "rag-readiness:12:0",
+          "master:101:0",
+          "design-system:32:0",
+          "architecture:5:0",
+          "master:128:0",
+          "master:147:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:mcp-safety",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "architecture:14:0",
+          "memory-rag:34:0"
+        ],
+        "milliseconds": 23.20149999999998
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "architecture:14:0",
+          "memory-rag:34:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:mvp-flow",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "mvp-screens:5:0",
+          "design-system:32:0",
+          "master:192:0",
+          "architecture:5:0",
+          "migration:4:0",
+          "mvp-screens:6:0",
+          "design-system:72:0",
+          "master:213:0"
+        ],
+        "milliseconds": 21.044200000000018
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "mvp-screens:5:0",
+          "design-system:32:0",
+          "master:192:0",
+          "architecture:5:0",
+          "migration:4:0",
+          "mvp-screens:6:0",
+          "design-system:72:0",
+          "master:213:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:web-first",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "master:187:0",
+          "decisions:17:0",
+          "architecture:7:0",
+          "mvp-screens:2:0",
+          "migration:30:0",
+          "master:64:0",
+          "master:74:0",
+          "architecture:2:0"
+        ],
+        "milliseconds": 20.175899999999984
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "master:187:0",
+          "architecture:7:0",
+          "mvp-screens:2:0",
+          "decisions:17:0",
+          "design-system:15:0",
+          "master:64:0",
+          "master:74:0",
+          "architecture:2:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:rag-boundary",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "architecture:5:0",
+          "rag-readiness:12:0",
+          "memory-rag:34:0",
+          "decisions:12:0",
+          "migration:22:0",
+          "architecture:13:0",
+          "memory-rag:4:0",
+          "memory-rag:40:0"
+        ],
+        "milliseconds": 20.019100000000037
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "architecture:5:0",
+          "memory-rag:34:0",
+          "rag-readiness:12:0",
+          "decisions:12:0",
+          "migration:22:0",
+          "architecture:13:0",
+          "memory-rag:4:0",
+          "memory-rag:40:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:mcp-permissions",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "architecture:14:0",
+          "memory-rag:34:0",
+          "decisions:6:0",
+          "architecture:5:1200",
+          "architecture:31:0"
+        ],
+        "milliseconds": 19.609399999999994
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "architecture:5:1200",
+          "memory-rag:34:0",
+          "architecture:14:0",
+          "architecture:31:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:design-priority",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "design-system:32:0",
+          "decisions:43:0",
+          "master:119:0",
+          "architecture:9:0",
+          "memory-rag:22:0",
+          "master:211:0",
+          "design-system:119:0",
+          "design-system:82:0"
+        ],
+        "milliseconds": 21.261699999999962
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "design-system:32:0",
+          "decisions:43:0",
+          "master:119:0",
+          "architecture:9:0",
+          "memory-rag:22:0",
+          "master:211:0",
+          "design-system:119:0",
+          "design-system:82:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:schema-separation-new",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "rag-readiness:3:0",
+          "memory-rag:22:0",
+          "architecture:7:0",
+          "decisions:8:0",
+          "master:119:0",
+          "rag-readiness:14:0",
+          "architecture:9:0",
+          "memory-rag:19:0"
+        ],
+        "milliseconds": 21.165999999999997
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "rag-readiness:3:0",
+          "memory-rag:22:0",
+          "architecture:7:0",
+          "decisions:8:0",
+          "master:119:0",
+          "rag-readiness:14:0",
+          "architecture:9:0",
+          "memory-rag:19:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:document-provenance-new",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "memory-rag:1:0",
+          "master:110:0",
+          "decisions:39:0",
+          "rag-readiness:1:0",
+          "master:125:0",
+          "memory-rag:34:0",
+          "memory-rag:4:0",
+          "rag-readiness:3:0"
+        ],
+        "milliseconds": 19.595000000000027
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "memory-rag:1:0",
+          "master:110:0",
+          "decisions:39:0",
+          "rag-readiness:1:0",
+          "master:125:0",
+          "memory-rag:34:0",
+          "memory-rag:4:0",
+          "rag-readiness:3:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:unrelated-abstention-new",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 17.329200000000014
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "historical:mutation-abstention-new",
+      "before": {
+        "status": "abstained",
+        "ids": [],
+        "milliseconds": 0.0625
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "control:control-schema-boundary",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "rag-readiness:3:0",
+          "memory-rag:16:0",
+          "master:110:0",
+          "decisions:8:0",
+          "architecture:5:0",
+          "master:32:0",
+          "memory-rag:11:0",
+          "memory-rag:28:0"
+        ],
+        "milliseconds": 17.97679999999997
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "rag-readiness:3:0",
+          "memory-rag:16:0",
+          "master:110:0",
+          "decisions:8:0",
+          "architecture:5:0",
+          "master:32:0",
+          "memory-rag:11:0",
+          "memory-rag:28:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "control:control-payment-boundary",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "decisions:43:0",
+          "architecture:13:0",
+          "memory-rag:4:0",
+          "rag-readiness:12:0",
+          "migration:22:0",
+          "decisions:8:0",
+          "decisions:35:0",
+          "memory-rag:40:0"
+        ],
+        "milliseconds": 18.66300000000001
+      },
+      "after": {
+        "status": "sources",
+        "ids": [
+          "architecture:13:0",
+          "memory-rag:4:0",
+          "rag-readiness:12:0",
+          "migration:22:0",
+          "decisions:43:0",
+          "memory-rag:40:0",
+          "architecture:5:0",
+          "memory-rag:34:0"
+        ]
+      },
+      "beforeCorrect": true,
+      "afterCorrect": true
+    },
+    {
+      "id": "control:control-unrelated",
+      "before": {
+        "status": "sources",
+        "ids": [
+          "memory-rag:42:0"
+        ],
+        "milliseconds": 20.5342
+      },
+      "after": {
+        "status": "abstained",
+        "ids": []
+      },
+      "beforeCorrect": false,
+      "afterCorrect": true
+    }
+  ]
+}

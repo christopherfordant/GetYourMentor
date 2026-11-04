@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "mode": "simulation de repartition des roles, execution sequentielle",
   "roles": [
     "Architecture",
@@ -585,7 +585,8 @@
       "objective": "Integrer une orchestration applicative supervisee",
       "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
       "dependencies": [
-        "GYM-A4"
+        "GYM-A4",
+        "GYM-Q2"
       ],
       "acceptance": [
         "Service metier inchange",
@@ -600,7 +601,7 @@
       ],
       "evidence": [],
       "blocker": null,
-      "next": "Executer les criteres puis archiver les preuves"
+      "next": "Attendre GYM-Q2; ne pas activer le vectoriel ou LangGraph sur les seuls resultats A4.3"
     },
     {
       "id": "GYM-A5.1",
@@ -620,7 +621,8 @@
       "objective": "Comparer graphe natif et LangGraph sur un cas",
       "scope": "Local uniquement; aucune mutation metier ni fournisseur payant",
       "dependencies": [
-        "GYM-A4.3"
+        "GYM-A4.3",
+        "GYM-Q2"
       ],
       "acceptance": [
         "Decision architecture par besoin mesurable",
@@ -634,7 +636,7 @@
       ],
       "evidence": [],
       "blocker": null,
-      "next": "Executer les criteres puis archiver les preuves"
+      "next": "Attendre GYM-Q2; ne pas activer le vectoriel ou LangGraph sur les seuls resultats A4.3"
     },
     {
       "id": "GYM-A5.2",
@@ -705,6 +707,185 @@
       "evidence": [],
       "blocker": null,
       "next": "Executer les criteres puis archiver les preuves"
+    },
+    {
+      "id": "GYM-Q1",
+      "title": "Fiabiliser le RAG avant integration",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "done",
+      "estimateHours": [
+        3,
+        6
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Fiabiliser le RAG avant integration",
+      "scope": "Local uniquement; propositions non validees humainement; aucun appel Supabase",
+      "dependencies": [
+        "GYM-A4.3"
+      ],
+      "acceptance": [
+        "Correctif general, annotations proposees et diagnostic de troncature livres"
+      ],
+      "files": [
+        "tools/agentic-workbench",
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "tests": [
+        "Tests Node et diagnostics locaux documentes"
+      ],
+      "evidence": [
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "blocker": null,
+      "next": "Relecture humaine avant A5"
+    },
+    {
+      "id": "GYM-Q1.1",
+      "title": "Corriger les correspondances grammaticales parasites",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-Q1",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Corriger les correspondances grammaticales parasites",
+      "scope": "Local uniquement; propositions non validees humainement; aucun appel Supabase",
+      "dependencies": [
+        "GYM-A4.3"
+      ],
+      "acceptance": [
+        "Jupiter abstention; references historiques preservees"
+      ],
+      "files": [
+        "tools/agentic-workbench",
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "tests": [
+        "Tests Node et diagnostics locaux documentes"
+      ],
+      "evidence": [
+        "docs/RAG_FIABILISATION_2026-11-04.md",
+        "docs/assets/rag-quality-2026-11-04/controls-after.log"
+      ],
+      "blocker": null,
+      "next": "Relecture humaine avant A5"
+    },
+    {
+      "id": "GYM-Q1.2",
+      "title": "Preparer six annotations de passages a relire",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": "GYM-Q1",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Preparer six annotations de passages a relire",
+      "scope": "Local uniquement; propositions non validees humainement; aucun appel Supabase",
+      "dependencies": [
+        "GYM-A4.3"
+      ],
+      "acceptance": [
+        "Provenance, extraits et statut propose sans validation humaine inventee"
+      ],
+      "files": [
+        "tools/agentic-workbench",
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "tests": [
+        "Tests Node et diagnostics locaux documentes"
+      ],
+      "evidence": [
+        "docs/RAG_ANNOTATIONS_A_RELIRE_2026-11-04.md"
+      ],
+      "blocker": null,
+      "next": "Relecture humaine avant A5"
+    },
+    {
+      "id": "GYM-Q1.3",
+      "title": "Mesurer la perte de texte par troncature",
+      "role": "RAG",
+      "assignment": "simulated-role",
+      "parent": "GYM-Q1",
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Mesurer la perte de texte par troncature",
+      "scope": "Local uniquement; propositions non validees humainement; aucun appel Supabase",
+      "dependencies": [
+        "GYM-A4.3"
+      ],
+      "acceptance": [
+        "Huit passages examines et deux stress superieurs a 256 tokens"
+      ],
+      "files": [
+        "tools/agentic-workbench",
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "tests": [
+        "Tests Node et diagnostics locaux documentes"
+      ],
+      "evidence": [
+        "docs/assets/rag-quality-2026-11-04/truncation.json"
+      ],
+      "blocker": null,
+      "next": "Relecture humaine avant A5"
+    },
+    {
+      "id": "GYM-Q2",
+      "title": "Valider humainement les passages et reserver un nouveau jeu",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S2",
+      "priority": "P1",
+      "status": "blocked",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "due": "2026-11-13",
+      "objective": "Valider humainement les passages et reserver un nouveau jeu",
+      "scope": "Local uniquement; propositions non validees humainement; aucun appel Supabase",
+      "dependencies": [
+        "GYM-Q1"
+      ],
+      "acceptance": [
+        "Annotations relues par un humain; nouveaux cas fixes avant tout reglage"
+      ],
+      "files": [
+        "tools/agentic-workbench",
+        "docs/RAG_FIABILISATION_2026-11-04.md"
+      ],
+      "tests": [
+        "Tests Node et diagnostics locaux documentes"
+      ],
+      "evidence": [],
+      "blocker": "Aucune validation humaine obtenue; aucun nouveau jeu independant reserve",
+      "next": "Faire relire les candidats et ajouter un jeu independant avant integration"
     }
   ]
 }

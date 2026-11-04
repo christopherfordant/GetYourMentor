@@ -1,0 +1,4 @@
+PASS control-schema-boundary: sources rag-readiness, memory-rag, master
+PASS control-payment-boundary: sources architecture, memory-rag, rag-readiness
+PASS control-unrelated: abstained
+Évaluation RAG lexicale réussie : 3 cas, citations exactes et statuts contrôlés.
