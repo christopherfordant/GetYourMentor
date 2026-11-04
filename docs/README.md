@@ -1,3 +1,15 @@
+> **Priorité V1 démo — 21 octobre :** [checklist de clôture](STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md#clôture-v1-démo--reprise-du-21-octobre-2026), premier [export calendrier manuel](CALENDRIER_V1_DEMO_2026-10-21.md). V1 non terminée ; aucune synchronisation externe ou clôture globale implicite.
+
+> **Direction active — 21 octobre :** [refonte Kebab Factory](REFONTE_FACTORY_2026-10-21.md), police système et palette anthracite/orange remplaçant le violet fixe ; migration et prochaines pages dans [la couverture existante](REFONTE_PROGRESSIVE_2026-10-15.md). Consulter le relais pour les vérifications réellement terminées.
+
+> Fiche coach/footer — 21 octobre : [onglets accessibles et réserve cookies mesurée](COACH_ONGLETS_FOOTER_2026-10-21.md), références WAI/Opquast et recette ciblée ; pas de conformité globale ou nouveau déploiement.
+
+> Réservation — 21 octobre : [créneaux et récapitulatif Factory](RESERVATION_FACTORY_2026-10-21.md), transposition CSS sans modification des contrats privés, tests et limites distingués.
+
+> Paiement et suivi personnel — 21 octobre : [harmonisation Factory](PAIEMENT_SUIVI_FACTORY_2026-10-21.md), rôles des pages conservés et contrats de simulation/reprise inchangés ; résultats et limites dans le rapport.
+
+> Parcours recruteur — 22 octobre : [correction de la note transitoire et preuves](REVUE_RECRUTEUR_2026-10-22.md), lecture API et statuts démo explicites ; aucun déploiement ni recette globale.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.

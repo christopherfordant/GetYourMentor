@@ -17,6 +17,18 @@
 
 > **Arbitrage prioritaire — 28 octobre 2026 :** Factory anthracite/orange et police système est conservé ; les anciennes instructions violettes ci-dessous sont historiques. La référence Lovable prime pour les contenus, libellés, sections, disciplines et comportements réellement vérifiés. Exceptions approuvées : structure du header local adaptée, images IA de notre bibliothèque, panneau droit validé et futurs carrousels avec carte centrale mise en avant. Premier lot : [navigation Factory](docs/REFONTE_NAVIGATION_FACTORY_2026-10-28.md). Quatorze entrées de découverte exposent les disciplines de référence et conservent les routes historiques ; les nouveaux modèles de profils/réservation et images restent à traiter par lots. Aucun service réel ou déploiement implicite.
 
+<!-- Historique distant du 21-22 octobre; les decisions plus recentes ci-dessus priment. -->
+> **Contrat actif — décision utilisateur du 21 octobre 2026 : Kebab Factory.** Police système identique à la référence, fond #141414, surfaces #1c1c1c / #222222, texte #fcfbf9 et secondaire #d4d4d8, accent #ff5400. Actions à texte blanc : #c2410c, survol #9a3412 ; accent de texte clair #ff8a4c. Titres gras 800, casse naturelle, arrondis 8/16 px. Cette direction remplace la palette violette fixe et les prescriptions visuelles incompatibles ci-dessous, désormais historiques. Les règles métier et d'accessibilité restent actives. Tokens communs dans `gym-next/app/gym-design-tokens.css`, activation explicite `gym-theme-factory` ; pas de sélecteur de thème utilisateur. Migration vérifiée route par route dans `docs/REFONTE_PROGRESSIVE_2026-10-15.md`. Uber sert uniquement à l'étude des interactions publiques, sans copier ses ressources ni déduire ses mécanismes serveur. Aucune ressource culinaire importée. Rapport : `docs/REFONTE_FACTORY_2026-10-21.md`.
+
+> **Fiche coach et footer — 21 octobre :** onglets WAI-ARIA, sélection soulignée/gras, cibles 48 px et retour à la ligne selon le texte ; aucun défilement automatique vers le panneau à l'activation. Footer dans le flux et réserve cookies mesurée uniquement pendant son ouverture ; supprimer les anciens paddings concurrents, sans recouvrir les liens. Rapport : `docs/COACH_ONGLETS_FOOTER_2026-10-21.md`.
+
+> **Réservation — 21 octobre :** `/creneau` et `/recapitulatif` activent Factory ; les styles bk-* consomment les tokens de surface, action et erreur. Calendrier horizontal borné sur mobile, sélection soulignée et progression explicite ; aucune modification des dates ou du protocole de réservation. Rapport : `docs/RESERVATION_FACTORY_2026-10-21.md`.
+
+> **Paiement et suivi personnel — 21 octobre :** Factory sur `/paiement` et `/suivi`, header/footer partagés, styles de paiement hérités exclus de Factory, contrôles et alertes assortis. Le suivi personnel ne devient pas un suivi de paiement. Rapport `docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md`.
+
+> **Historique remplacé — pilote recherche du 21 octobre 2026 :** adaptation originale des principes éditoriaux du site public getyourmentor.fr. Son ancienne palette violette ne s'applique plus aux routes migrées ; le rapport `docs/HARMONISATION_REFERENCE_2026-10-21.md` conserve les preuves de cette version.
+
+
 > **Précision utilisateur active — 16 octobre 2026 :** les textes de conception, validations de maquette et citations internes quittent l'interface. Les sections « suite » et « sources » conservent leurs compositions/ancres mais deviennent guide de réservation et aide visiteurs. Les actions nomment leur effet réel ; les offres indisponibles restent signalées. Aucun achat, abonnement ou droit n'est activé par la refonte. Rapport : `docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md`.
 
 > **Direction active : maquette HTML intégralement validée.** La référence est `GetYourMentor_Audit_Design_2026-10-15/maquette/index.html`, son CSS et ses interactions. Reprendre sa composition complète, ses panneaux, ses sections et ses surfaces foncées ciblées, avec textes adaptés au fonctionnement réel. La prescription précédente d’une interface exclusivement claire est historique. **Précision utilisateur la plus récente : palette violette fixe, sans contrôle de changement de coloris sur l’accueil.** Les variantes du prototype original restent des références de conception, pas une fonction de l’application.
@@ -36,6 +48,12 @@ Les instructions ci-dessous restent historiques lorsque leur apparence contredit
 # GetYourMentor - Design system v1
 
 > Direction validée le 15 octobre 2026 : refonte progressive inspirée du pitch, violet `#872BBF`, papier `#F6F4F0`, encre `#141316`, surfaces blanches et bordures `#D8D2DF`. Implémentation opt-in avec tokens `--gym-*`, premier lot dans les comptes. Les palettes historiques ci-dessous restent des références ; elles ne priment pas sur cette validation. Header conservé dans sa structure. Suivi : `docs/REFONTE_PROGRESSIVE_2026-10-15.md`.
+
+## Références et animations — complément du 22 octobre 2026
+
+Pour une référence autorisée, relever les proportions, polices, couleurs, placements et états réellement observables ; séparer ces observations des hypothèses (comportement hors champ, responsive ou données absentes). Signaler les éléments indéterminables au lieu d'inventer une alternative. La direction Factory active en tête reste prioritaire : une capture ancienne ne réactive pas une charte remplacée. Aucun code, marque ou asset protégé n'est importé sans droits.
+
+Les animations sont facultatives et servent une interaction identifiable. Réutiliser les capacités installées ; GSAP, Motion et Three.js ne sont pas des prérequis. Respecter `prefers-reduced-motion`, conserver l'accès au contenu et vérifier le coût sur mobile avant de retenir un effet. Les suggestions historiques de carrousel/3D ne valent pas décision d'implémentation. La recette visuelle est décrite dans [Playwright Autonomie](governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md).
 
 ## 1. Direction
 

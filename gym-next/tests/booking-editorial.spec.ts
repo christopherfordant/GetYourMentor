@@ -18,8 +18,8 @@ test("créneaux et récapitulatif restent lisibles aux petites et grandes largeu
       const panel = page.locator(route === "creneau" ? ".bk-reservation-selection-panel" : ".bk-recap-auth-card");
       await expect(panel).toBeVisible();
       expect(await panel.evaluate(element => Number(getComputedStyle(element).opacity))).toBe(1);
-      expect(await page.locator("#gym-booking h1").evaluate(element => getComputedStyle(element).color)).toBe("rgb(20, 19, 22)");
-      expect(await page.locator(".booking-note").evaluate(element => getComputedStyle(element).color)).toBe("rgb(20, 19, 22)");
+      expect(await page.locator("#gym-booking h1").evaluate(element => getComputedStyle(element).color)).toBe("rgb(252, 251, 249)");
+      expect(await page.locator(".booking-note").evaluate(element => getComputedStyle(element).color)).toBe("rgb(252, 251, 249)");
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
       await expect(page.locator("#gym-booking")).toContainText(/coach/i);
       await expect(page.locator("#gym-booking")).not.toContainText(/284 avis|423 avis|10 Rue du Sport|Bilan express/);

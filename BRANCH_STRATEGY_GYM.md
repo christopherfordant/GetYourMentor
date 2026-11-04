@@ -1,6 +1,12 @@
 # GetYourMentor - Strategie de branches
 
+> 4 novembre 2026 : autorisation utilisateur specifique de resoudre la divergence de design/refonte-progressive-lot1 par fusion controlee et push normal. Cette exception concerne ce chantier; aucun force-push, rebase, fusion automatique future ou deploiement implicite. Rapport : docs/RECONCILIATION_GIT_2026-11-04.md.
+
 > Arbitrage utilisateur du 28 octobre 2026 : référence Lovable prioritaire pour les contenus et comportements effectivement vérifiés, Factory conservé, header local adapté, images IA prioritaires et menu latéral droit validé. Ces décisions remplacent les anciennes directions violet/quatre disciplines dans ce périmètre ; sécurité, historiques et consentements restent protégés. Reprise : docs/REFONTE_NAVIGATION_FACTORY_2026-10-28.md et docs/ETAT_REPRISE_COURANT.md. Aucun changement de la procédure Git ni déploiement implicite.
+
+<!-- Historique distant du 21-22 octobre; les decisions plus recentes ci-dessus priment. -->
+> Arbitrage visuel utilisateur du 21 octobre 2026 : Kebab Factory remplace le violet fixe et les anciennes prescriptions incompatibles, selon `DESIGN_SYSTEM_GYM.md` et la couverture de `docs/REFONTE_PROGRESSIVE_2026-10-15.md`. Les règles métier, confidentialité, priorités d'usage et de contexte restent applicables. Les références au violet dans les sections anciennes sont historiques. Dépôt original privé ; export public `GetYourMentor-site` limité au code publiable, sans historique ou documents privés.
+
 
 ## Procedure obligatoire a chaque demande - 15 octobre 2026
 

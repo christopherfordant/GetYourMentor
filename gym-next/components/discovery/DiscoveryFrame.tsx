@@ -5,7 +5,7 @@ export { discoverySports } from "@/lib/discovery-sports";
 import { SiteFooter } from "@/components/SiteFooter";
 import type { ReactNode } from "react";
 
-export function DiscoveryFrame({ children, page, demo = false }: { children: ReactNode; page: "search" | "directory" | "profile" | "slot" | "recap"; demo?: boolean }) {
+export function DiscoveryFrame({ children, page, demo = false }: { children: ReactNode; page: "search" | "directory" | "profile" | "slot" | "recap" | "payment" | "progress"; demo?: boolean }) {
   return <div id="gym-discovery" className="discovery-editorial gym-theme-factory" data-gym-discovery={page}>
     <PlatformHeader />
     {demo && <p className="de-demo" role="note">Démonstration · profils, notes et tarifs de test. Aucun paiement réel.</p>}

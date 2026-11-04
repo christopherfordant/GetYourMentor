@@ -1,3 +1,33 @@
+## Méthode de modification visuelle — complément du 22 octobre 2026
+
+Avant un lot visuel, cibler les composants, consommateurs, tokens, styles concurrents, animations et dépendances concernés ; pas d'audit global pour une correction locale. Compléter le [design system existant](../DESIGN_SYSTEM_GYM.md), sans nouvelle charte ou accumulation d'overrides. Les validations acquises restent valables ; seuls les choix structurants réellement nouveaux exigent un arbitrage. La branche et les ressources suivent [la procédure existante](../BRANCH_STRATEGY_GYM.md), sans branche supplémentaire automatique.
+
+La protection du métier interdit d'altérer règles, droits, authentification, réservations, paiements, abonnements, politiques de données et historiques ; elle n'interdit pas une modification autorisée de leur présentation. Vérifier les contrats effectivement touchés et leurs régressions. Appliquer la [recette visuelle](../governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md) aux pages et états modifiés, puis corriger et reprendre seulement les contrôles invalidés. Un lot exclusivement documentaire ne lance ni build ni navigateur.
+
+Bilan du prompt UI/UX intégré : audit ciblé, composants/tokens, états interactifs, responsive, Opquast, protection métier, Git et ressources étaient déjà couverts. Compléments retenus : observations versus hypothèses d'une référence, animations facultatives et conditions de comparaison des preuves. Écartés comme prescriptions générales : nouvelle charte, validation avant tout fichier, nouvelle branche systématique, bibliothèque imposée et audit complet répété. Aucun rôle supplémentaire ni lecture obligatoire ajoutée ; REA et Playwright conservent leurs fonctions distinctes définies dans la procédure Git.
+
+## Refonte Factory — direction active du 21 octobre 2026
+
+Source : demande utilisateur jointe du 21 octobre ; typographies/couleurs de Kebab Factory, ergonomie de réservation étudiée sur les pages publiques Uber. Remplace le violet fixe ; les anciens lots restent historiques et ne sont pas recommencés. [Rapport du socle](REFONTE_FACTORY_2026-10-21.md), contrat `DESIGN_SYSTEM_GYM.md`.
+
+Lot complémentaire du 21 octobre : [onglets coach et accès au footer](COACH_ONGLETS_FOOTER_2026-10-21.md). Composants partagés corrigés sans migrer prématurément les styles des autres pages. Prochain lot maintenu : créneaux et récapitulatif.
+
+| Pages / variantes inventoriées dans app | Composants existants à réutiliser | Migration Factory |
+|---|---|---|
+| `/recherche`, `/coachs`, `/coach` | DiscoveryFrame, RechercheCoachLegacyPage, SelectionCoachsLegacyPage, ReserverSeanceLegacyPage, CoachDetails/Reviews | Premier lot vérifié localement : tokens, contrôles, header/footer ; 15 scénarios, MCP quatre largeurs, types/build PASS ; services distants non recettés |
+| `/creneau`, `/recapitulatif` | DiscoveryFrame, ChoixCoachCreneauLegacyPage, RecapitulatifReservationLegacyPage, styles bk-* | Factory appliqué le 21 octobre ; styles/tokens seulement, contrats métier inchangés ; recette et limites dans RESERVATION_FACTORY_2026-10-21.md |
+| `/paiement`, `/suivi` | DiscoveryFrame, PaiementLegacyPage, PersonalProgress et ReservationProofBoundary | Factory appliqué le 21 octobre ; suivi personnel distinct du paiement, contrats inchangés, recette et limites dans PAIEMENT_SUIVI_FACTORY_2026-10-21.md |
+| `/` | EditorialHome, composants partagés, SiteFooter | À migrer ; aucune ressource de restauration à importer |
+| `/compte` sportif / coach / structure / administrateur | AccountLegacyPage et panneaux existants | À migrer par variante ; accès/connexion/inscription, finances, planning et messagerie à recetter |
+| `/structures`, `/inscription-club` | annuaire structures, InscriptionClubLegacyPage | À migrer ; consentements bilatéraux inchangés |
+| `/seances`, `/offres`, `/contenus`, `/beta` | DiscoveryFrame et explorateurs/feedback existants | À migrer ; utiliser Frame ne vaut pas migration automatique des enfants |
+| `/legal/[slug]`, `/plan-du-site` | SiteFooter, mise en page légale | À migrer ; vérifier les slugs et les liens réels |
+| `/admin/knowledge`, erreurs système, chargements et indisponibilités | KnowledgeSearch, limites/erreurs existantes | À qualifier séparément ; outil privé exclu de l'export public |
+
+Les composants partagés sont rendus compatibles avec les surfaces sémantiques, sans imposer la palette sombre aux pages non recettées. Aucun nouvel écran, abonnement ou service commercial n'est créé par cette matrice. Contrôler états interactifs et rendu à 320/390/768/1440 ; cocher chaque page seulement après preuves. Ne pas annoncer une couverture intégrale sur la seule présence des tokens.
+
+---
+
 > **Reprise du paiement simulé — 18 octobre 2026 :** preuve serveur vérifiée, résultat incertain bloquant jusqu’à relecture, reprise sans nouvel envoi automatique et distinction des dossiers sans preuve. Rapport `docs/REPRISE_PAIEMENT_SIMULE_2026-10-18.md`, preuves `docs/assets/payment-recovery-2026-10-18/verification.json`. Aucun débit réel ou déploiement.
 
 > **Actions des demandes coach — 18 octobre 2026 :** Accepter/Refuser protégés contre double envoi, confirmations vérifiées, résultats incertains soumis à relecture et relais cohérent vers le compte. Rapport `docs/ACTIONS_DEMANDES_COACH_2026-10-18.md`, preuves `docs/assets/coach-actions-2026-10-18/verification.json`. Règles serveur et historiques conservés ; aucun déploiement.

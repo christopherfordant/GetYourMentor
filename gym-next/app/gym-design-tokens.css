@@ -29,3 +29,17 @@
   --border: var(--gym-line);
   color-scheme: dark;
 }
+
+/* Compatibility tokens for the integrated Factory components, current palette retained. */
+:root, body, .gym-theme-factory {
+  --gym-control-line: #858585;
+  --gym-inverse-surface: var(--gym-surface-raised);
+  --gym-brand-surface: var(--gym-action);
+  --gym-brand-accent: #ffffff;
+  --gym-error: var(--gym-danger);
+  --gym-error-surface: var(--gym-danger-soft);
+  --gym-heading-weight: 800;
+  --gym-heading-case: none;
+  --gym-control-scheme: dark;
+  --gym-card-radius: 16px;
+}

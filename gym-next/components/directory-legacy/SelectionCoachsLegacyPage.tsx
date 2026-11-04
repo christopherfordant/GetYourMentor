@@ -454,7 +454,7 @@ export function SelectionCoachsLegacyPage({
         setLocatedCoaches((payload.data ?? []).map((coach) => ({
           ...coach,
           address: coach.city ?? "Zone d’intervention",
-          meta: `${coach.rating?.toFixed(1) ?? "0.0"} (${coach.reviewCount ?? 0} avis) · ${coach.specialty ?? "Coach sportif"}`,
+          meta: `${(coach.reviewCount ?? 0) > 0 ? `${coach.rating?.toFixed(1)} (${coach.reviewCount} avis)` : "Pas encore de note"} · ${coach.specialty ?? "Coach sportif"}`,
           morning: [],
           afternoon: [],
           cta: "Voir le profil",

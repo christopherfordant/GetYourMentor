@@ -1,0 +1,35 @@
+# Refonte Factory — socle et découverte
+
+## Autorité et périmètre
+Décision utilisateur du 21 octobre : reprendre les couleurs et typographies de Kebab Factory, abandonner le violet fixe, étudier les interactions publiques Uber. Le texte joint autorise l'implémentation progressive, les contrôles et les pushes ciblés ; aucune fusion ni publication Netlify/production. Sources consultées progressivement : AGENTS, procédure/hiérarchie, maître/index/relais, couverture, contrat visuel, catalogue REA et socle Opquast. Aucun PDF annoncé relu intégralement.
+
+Base privée `18061bd`, copie isolée `C:/Users/cashe/Documents/GYM-factory-theme-20261021`. Originaux et modifications locales antérieures préservés. Export public séparé, sans documents privés ni historique du dépôt métier.
+
+## Extraction et transposition
+Code local `site_kebab/kebab-factory-demo/src/index.css`, Header/Hero et rendu [public](https://kebab-factory-demo.netlify.app/) consultés avec Playwright MCP. Police système : system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif ; h1 de référence 800 et 60 px en desktop. Fond #141414, surfaces #1c1c1c / #222222, blanc cassé #fcfbf9, secondaire #d4d4d8, accent #ff5400, action contrastée #c2410c. Arrondis 8/16 px, titres à casse naturelle. Aucune photographie ou formulation culinaire transférée.
+
+Les tokens Factory sont activés explicitement sur recherche/annuaire/fiche. Les tokens historiques restent disponibles aux routes non migrées ; ils ne constituent plus la direction cible. Styles existants remplacés par surfaces sémantiques, pas de nouvelle pile d'overrides. Header, cartes, champs et options natives, boutons, onglets, erreurs, footer et préférences cookies utilisent les mêmes variables. Réduit-motion conservé. Pas de téléchargement de police supplémentaire.
+
+## Étude des mécanismes publics
+Question : comment rendre une recherche/réservation lisible avant l'identification ? [Uber Ride France](https://www.uber.com/fr/fr/ride/) observé avec MCP desktop et 390 px : deux champs visibles de départ/destination sur mobile, parcours d'entrée mis au premier plan. Adaptation GYM : discipline + lieu, action explorer, comparaison des profils et créneau ; aucune modification des règles serveur. Ordre et composant natif existants réutilisés, pas de copie de code ou contenu Uber.
+
+Catalogue REA consulté : observation directe suffisante pour ce mécanisme visuel, donc aucun moteur REA exécuté ni installé. Observations DOM distinctes des inférences ergonomiques ; algorithme d'affectation, prix, disponibilité et traitements serveur Uber inconnus et non investigués. Aucun formulaire tiers soumis, paiement ou géolocalisation déclenché, aucune donnée privée envoyée en recherche.
+
+Références de vérification : [WAI formulaires](https://www.w3.org/WAI/tutorials/forms/instructions/) et [Opquast V5](https://checklists.opquast.com/fr/qualite-numerique/). Contrôles ciblés, pas de certification globale ni heatmap mesurée.
+
+## Preuves et limites
+Playwright local : 15 scénarios distincts PASS : 11 sur serveur de développement (`factory-theme`, `discovery-editorial`, `journey-ux`) puis 4 sur le build de production en mode recette locale (`discovery-design`). Catalogue quatre sports/ville, filtres/tri, profil → créneau, chargement/erreur, SEO/liens, cookies/focus, isolation des routes non migrées, reflow et contrastes du bouton/champ/texte secondaire. Catalogue démo local ; scénarios d'erreur et récapitulatif utilisant aussi des réponses synthétiques injectées. Pas de fournisseur distant validé.
+
+MCP : trois pages × quatre largeurs 320/390/768/1440, aucun débordement mesuré. Captures dans `docs/assets/factory-theme-2026-10-21`, avant recherche mobile puis après recherche/annuaire/fiche desktop/mobile. Les six captures `factory-search/directory/profile-*` définitives ont été refaites sur l'export autonome, avec profils de démonstration et illustration neutre, après chargement des avis. Les scénarios locaux produisent aussi leurs captures de parcours. Ces images ne représentent pas des comptes authentifiés ou des disponibilités réelles. Les dimensions des images peuvent exclure la barre de défilement ; mesures réalisées séparément sur le viewport CSS. Le premier essai local avant disponibilité du serveur a échoué (connexion refusée), puis navigation réussie ; la capture d'erreur est remplacée et n'est pas une preuve de rendu.
+
+Typage, build, frontière client/serveur et scan des fichiers suivis PASS sur le candidat privé ; preuves synthétiques dans verification.json. Avertissements CSS hérités `align-items:end` connus, pas de revendication de campagne complète. Ancien test `discovery-design` actualisé : header sombre, menu ouvert avant vérification des liens, fiche issue du catalogue. Premier passage arrêté après un échec de sélecteur au viewport 720 px (menu fermé) ; correction du scénario puis 4/4 PASS, sans masquer un défaut applicatif. Un lancement depuis la mauvaise racine a été interrompu lorsque npx a proposé une autre version ; la recette utilise ensuite le CLI des dépendances locales existantes. Le catalogue privé et l'export public n'ont pas les mêmes ressources : recettes et SHA distingués à la livraison.
+
+Export autonome : typage/build/frontière/scans PASS ; six scénarios locaux PASS (`factory-theme`, `export-smoke`, `journey-ux`) avec un worker. Seuls tokens, styles, Frame, test Factory et texte public du README transférés ; aucun document métier, preuve privée, ressource externe ou historique privé. Aucun déploiement commandé.
+
+## Suite et retour arrière
+La couverture complète des pages et profils est dans le document de refonte existant. Créneau/récapitulatif utilisent les styles bk-* ; les migrer dans le prochain lot après lecture de leurs contrats de reprise/preuves privées, sans recoloration automatique. Puis paiement/suivi, accueil, comptes par rôle et pages secondaires. Les règles métier, 15 % administrable et historiques restent inchangés.
+
+Revert ciblé après revue ; aucun changement de données ni migration. Ne pas réactiver comme cible le violet historique à partir d'une archive. Compteurs Codex/Netlify non accessibles : aucune promesse de plafond évité. Pas de travail annoncé en arrière-plan.
+
+## Prompt de continuation
+Reprendre AGENTS et hiérarchie active, `docs/ETAT_REPRISE_COURANT.md`, contrat Factory, couverture et ce rapport. Vérifier HEAD/distant et worktrees ; préserver les modifications sans rapport. Réaliser un lot réservation : migrer `/creneau` et `/recapitulatif` vers le socle Factory existant, après inspection des styles bk-* et des contrats de création/reprise/récapitulatif serveur. Préserver droits, cookies HttpOnly, absence de token dans les liens, anti-doublon, dates Europe/Paris, acceptation avant paiement et montants historiques. Tester chargement/erreur/résultat incertain, clavier et quatre largeurs. Documenter et pousser sur la branche appropriée ; export public limité au code vérifié. Aucune fusion, paiement réel ou publication Netlify/production.

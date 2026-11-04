@@ -10,7 +10,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { buildNextPath, nextRoutes } from "@/lib/next-routes";
 import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 import { CoachDetails } from "@/components/discovery/CoachDetails";
-import { coachProfiles, type CoachProfile } from "@/lib/domain";
+import type { CoachProfile } from "@/lib/domain";
 
 type ReserverSeanceLegacyPageProps = {
   params: Record<string, string | undefined>;
@@ -78,7 +78,7 @@ function BookingScorePanel({
       <p className="de-booking-score-meta" data-booking-score-copy>
         {profile.reviews}
       </p>
-      <p className="de-booking-score-breakdown">Note du catalogue ; sous-notes non disponibles.</p>
+      <p className="de-booking-score-breakdown">Note calculée sur les avis enregistrés ; sous-notes non disponibles.</p>
       <div className="de-booking-score-facts">
         <div className="de-booking-score-fact">
           <span>Activité</span>
@@ -153,40 +153,30 @@ function BookingHeroSection({
           <strong data-booking-heading>{`Construis ta prochaine session avec ${coach}`}</strong>
           <p>Choisis ton objectif, propose tes disponibilités et reçois la validation du coach.</p>
         </div>
-        <button className="de-booking-primary-action" type="button" onClick={() => onTabChange("planning")}>
+        <button className="de-booking-primary-action" type="button" onClick={() => { onTabChange("planning"); document.getElementById("booking-tab-planning")?.focus(); }}>
           Réserver
         </button>
       </div>
 
-      <nav
-        className={`de-booking-tabs de-booking-tabs-profile ${profileStyles.tabs}`}
-        aria-label="Sections du profil"
-      >
-        <button
-          className={`de-booking-tab${activeTab === "apropos" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="apropos" aria-pressed={activeTab === "apropos"} aria-controls="booking-apropos-section"
-          onClick={() => onTabChange("apropos")}
-        >
-          A propos
-        </button>
-        <button
-          className={`de-booking-tab${activeTab === "planning" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="planning" aria-pressed={activeTab === "planning"} aria-controls="booking-planning-section"
-          onClick={() => onTabChange("planning")}
-        >
-          Planning
-        </button>
-        <button
-          className={`de-booking-tab${activeTab === "contenus" ? " is-active" : ""}`}
-          type="button"
-          data-booking-tab="contenus" aria-pressed={activeTab === "contenus"} aria-controls="booking-contenus-section"
-          onClick={() => onTabChange("contenus")}
-        >
-          Contenus
-        </button>
-      </nav>
+      <div className={`de-booking-tabs de-booking-tabs-profile ${profileStyles.tabs}`} role="tablist" aria-label="Sections du profil"
+        onKeyDown={event => {
+          const keys = ["apropos", "planning", "contenus"] as const;
+          const current = keys.indexOf(activeTab);
+          const next = event.key === "ArrowRight" ? (current + 1) % keys.length
+            : event.key === "ArrowLeft" ? (current + keys.length - 1) % keys.length
+            : event.key === "Home" ? 0 : event.key === "End" ? keys.length - 1 : -1;
+          if (next < 0) return;
+          event.preventDefault();
+          onTabChange(keys[next]);
+          event.currentTarget.querySelector<HTMLButtonElement>(`[data-booking-tab="${keys[next]}"]`)?.focus();
+        }}>
+        {([ ["apropos", "À propos"], ["planning", "Planning"], ["contenus", "Contenus"] ] as const).map(([key, label]) =>
+          <button key={key} id={`booking-tab-${key}`} role="tab" type="button"
+            className={`de-booking-tab${activeTab === key ? " is-active" : ""}`}
+            data-booking-tab={key} aria-selected={activeTab === key} aria-controls={`booking-${key}-section`}
+            tabIndex={activeTab === key ? 0 : -1} onClick={() => onTabChange(key)}>{label}</button>
+        )}
+      </div>
       <div className="de-booking-tabs-spacer" data-booking-tabs-spacer aria-hidden="true"></div>
     </section>
   );
@@ -212,7 +202,7 @@ function BookingPlanningPane({
   const currentWeek = weekSets[weekIndex];
 
   return (
-    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="planning" id="booking-planning-section">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="planning" id="booking-planning-section" role="tabpanel" aria-labelledby="booking-tab-planning" tabIndex={0}>
       <div className="de-booking-planning-shell">
         <p className="de-discovery-note">Planning indicatif de présentation. Les créneaux, la durée et le prix de la prestation sont vérifiés à l’étape de réservation. Toute demande reste soumise à l’acceptation du coach.</p>
         <header className="de-booking-section-head de-booking-section-head-planning">
@@ -281,7 +271,7 @@ function BookingContenusPane({
   const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="contenus" id="booking-contenus-section">
+    <section className={`de-booking-pane${isActive ? " is-active" : ""}`} hidden={!isActive} data-booking-pane="contenus" id="booking-contenus-section" role="tabpanel" aria-labelledby="booking-tab-contenus" tabIndex={0}>
       <section className="de-booking-content-social" data-content-lock-root>
         <div className="de-booking-content-profile">
           <div className="de-booking-content-cover"></div>
@@ -335,31 +325,38 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
   const sportSlug = knownDiscoverySport(params.sport)?.[0] ?? params.sport ?? "";
   const coach = params.coach || (params.sport ? "" : "Studio Form Marseille");
   const city = params.city || "Paris";
-  const [coachData, setCoachData] = useState<CoachProfile | null>(() => allowDemoFallback ? coachProfiles.find(item => item.id === coach || item.name.toLowerCase() === coach.toLowerCase()) ?? null : null);
-  const [profileState, setProfileState] = useState<"loading" | "ready" | "error">(() => coachData ? "ready" : "loading");
+  // The API owns review statistics. Presentation fixtures must never appear as reviews.
+  const [coachData, setCoachData] = useState<CoachProfile | null>(null);
+  const [profileState, setProfileState] = useState<"loading" | "ready" | "missing" | "error">("loading");
+  const [attempt, setAttempt] = useState(0);
   useEffect(() => {
-    let active = true;
+    const controller = new AbortController();
+    setCoachData(null); setProfileState("loading");
     if (!coach) { setProfileState("error"); return; }
-    fetch(`/api/coaches/${encodeURIComponent(coach)}`)
-      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Profil indisponible"))))
-      .then((payload) => {
-        if (!payload.data || !(payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) throw new Error("Profil indisponible");
-        if (active) { setCoachData(payload.data as CoachProfile); setProfileState("ready"); }
+    fetch(`/api/coaches/${encodeURIComponent(coach)}`, { cache: "no-store", signal: AbortSignal.any([controller.signal, AbortSignal.timeout(10000)]) })
+      .then(async response => {
+        if (response.status === 404) return null;
+        if (!response.ok) throw new Error("Profil indisponible");
+        return response.json();
       })
-      .catch(() => { if (active) setProfileState("error"); });
-    return () => {
-      active = false;
-    };
-  }, [coach]);
+      .then((payload) => {
+        if (controller.signal.aborted) return;
+        if (payload === null) { setProfileState("missing"); return; }
+        if (!payload.data || !(payload.data.id === coach || payload.data.name?.toLowerCase() === coach.toLowerCase())) throw new Error("Profil indisponible");
+        setCoachData(payload.data as CoachProfile); setProfileState("ready");
+      })
+      .catch(() => { if (!controller.signal.aborted) setProfileState("error"); });
+    return () => controller.abort();
+  }, [coach, attempt]);
   const profile = {
     followers: "Activité non publiée",
-    qualification: coachData?.verified ? "Profil validé dans le catalogue" : "Vérification à confirmer",
+    qualification: allowDemoFallback ? "Validation simulée — profil de test" : coachData?.verified ? "Profil validé dans le catalogue" : "Vérification à confirmer",
     reviews: coachData?.reviewCount ? `${coachData.reviewCount} avis` : "Pas encore d’avis",
     ratingValue: coachData?.reviewCount ? `${coachData.rating.toFixed(1)} / 5` : "Pas encore de note",
     priceFrom: coachData?.priceFrom,
     specialty: coachData?.specialty ?? "",
     bio: coachData?.description ?? "",
-    diploma: coachData?.diplomas ?? "",
+    diploma: coachData?.diplomas ? `${coachData.diplomas}${allowDemoFallback ? " — donnée fictive" : ""}` : "Non renseigné",
     disciplines: coachData?.disciplines ?? "",
     sessionTypes: coachData?.sessionTypes ?? "",
     availability: coachData?.availability ?? "",
@@ -388,24 +385,6 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
   const [activeTab, setActiveTab] = useState<"apropos" | "planning" | "contenus">("apropos");
   const [weekIndex, setWeekIndex] = useState(0);
   const galleryMainRef = useRef<HTMLDivElement | null>(null);
-  const hasMountedRef = useRef(false);
-
-
-  useEffect(() => {
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
-
-    const targets = {
-      apropos: "booking-apropos-section",
-      planning: "booking-planning-section",
-      contenus: "booking-contenus-section",
-    } as const;
-
-    const target = document.getElementById(targets[activeTab]);
-    target?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
-  }, [activeTab]);
 
   return (
     <>
@@ -413,9 +392,10 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
         <main className="de-booking-page de-booking-profile-page" data-booking-page>
           {!coachData ? (
             <section className="de-booking-card" data-coach-unavailable role="status" aria-busy={profileState === "loading"}>
-              <h1>{profileState === "loading" ? "Chargement du profil…" : "Profil coach indisponible"}</h1>
-              <p>{profileState === "loading" ? "Nous récupérons les informations du catalogue." : "Ce profil est introuvable ou le catalogue est momentanément indisponible."}</p>
-              {profileState === "error" && <a className="de-button" href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city })}>Revenir aux coachs</a>}
+              <h1>{profileState === "loading" ? "Chargement du profil…" : profileState === "missing" ? "Profil coach introuvable" : "Profil coach indisponible"}</h1>
+              <p>{profileState === "loading" ? "Nous récupérons les informations du catalogue." : profileState === "missing" ? "Ce profil n’est pas disponible dans le catalogue." : "Le catalogue est momentanément indisponible. Aucune donnée de présentation ne remplace sa réponse."}</p>
+              {profileState === "error" && <button className="de-button" type="button" onClick={() => setAttempt(value => value + 1)}>Réessayer le profil</button>}
+              {profileState !== "loading" && <a className="de-button" href={buildNextPath(nextRoutes.directory, { sport: sportSlug, city })}>Revenir aux coachs</a>}
             </section>
           ) : (
             <>
@@ -430,7 +410,7 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
                 onTabChange={setActiveTab}
                 galleryMainRef={galleryMainRef}
               />
-              <CoachDetails coach={coachLabel} profile={profile} isActive={activeTab === "apropos"} />
+              <CoachDetails coach={coachLabel} profile={profile} demo={allowDemoFallback} isActive={activeTab === "apropos"} />
               <BookingPlanningPane
                 isActive={activeTab === "planning"}
                 weekIndex={weekIndex}

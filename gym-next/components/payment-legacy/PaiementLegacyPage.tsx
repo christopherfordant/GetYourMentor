@@ -1,21 +1,17 @@
 "use client";
-import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 import {useDemoPayment} from "./useDemoPayment";
 import recoveryStyles from "./payment-recovery.module.css";
 import { formatBookingSlot, reservationStart } from "@/lib/domain/booking-time";
 
-import { useEffect, useMemo, useState, type RefObject } from "react";
-import { buildNextPath, nextRoutes } from "@/lib/next-routes";
-import { LanguageSelector } from "@/components/common/LanguageSelector";
+import { useEffect, useState, type RefObject } from "react";
+import { nextRoutes } from "@/lib/next-routes";
+import { DiscoveryFrame } from "@/components/discovery/DiscoveryFrame";
 
 type PaiementLegacyPageProps = {
-  legacyStyles: string;
   params: Record<string, string | undefined>;
   provider?: "local" | "stripe";
   athleteEmail?:string;
 };
-
-function PaymentHeader() { return <PlatformHeader />; }
 
 function PaymentMain({
   selectedMethod,
@@ -46,19 +42,19 @@ function PaymentMain({
         </header>
 
         {provider === "local" ? <div className="payment-methods" aria-label="Modes illustratifs, tous utilisent la même simulation">
-          <button className={`payment-method${selectedMethod === "card" ? " is-active" : ""}`} type="button" data-method="card" onClick={() => onSelectMethod("card")}>
+          <button aria-pressed={selectedMethod === "card"} className={`payment-method${selectedMethod === "card" ? " is-active" : ""}`} type="button" data-method="card" onClick={() => onSelectMethod("card")}>
             <strong>Carte fictive</strong>
             <span>Visa, Mastercard, CB</span>
           </button>
-          <button className={`payment-method${selectedMethod === "apple-pay" ? " is-active" : ""}`} type="button" data-method="apple-pay" onClick={() => onSelectMethod("apple-pay")}>
+          <button aria-pressed={selectedMethod === "apple-pay"} className={`payment-method${selectedMethod === "apple-pay" ? " is-active" : ""}`} type="button" data-method="apple-pay" onClick={() => onSelectMethod("apple-pay")}>
             <strong>Apple Pay</strong>
             <span>Illustration sans service externe</span>
           </button>
-          <button className={`payment-method${selectedMethod === "google-pay" ? " is-active" : ""}`} type="button" data-method="google-pay" onClick={() => onSelectMethod("google-pay")}>
+          <button aria-pressed={selectedMethod === "google-pay"} className={`payment-method${selectedMethod === "google-pay" ? " is-active" : ""}`} type="button" data-method="google-pay" onClick={() => onSelectMethod("google-pay")}>
             <strong>Google Pay</strong>
             <span>Illustration sans service externe</span>
           </button>
-          <button className={`payment-method${selectedMethod === "onsite" ? " is-active" : ""}`} type="button" data-method="onsite" onClick={() => onSelectMethod("onsite")}>
+          <button aria-pressed={selectedMethod === "onsite"} className={`payment-method${selectedMethod === "onsite" ? " is-active" : ""}`} type="button" data-method="onsite" onClick={() => onSelectMethod("onsite")}>
             <strong>Sur place</strong>
             <span>Illustration de démonstration</span>
           </button>
@@ -201,11 +197,9 @@ function PaymentSide({
   );
 }
 
-import { SiteFooter } from "@/components/SiteFooter";
-function PaymentFooter() { return <SiteFooter />; }
 
 export function PaiementLegacyPage(props:PaiementLegacyPageProps){return <PaymentPage key={`${props.provider}:${props.athleteEmail ?? ""}:${props.params.reservationId ?? ""}`} {...props}/>;}
-function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
+function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacyPageProps) {
   const demo=useDemoPayment(provider==="local",params.reservationId || "",athleteEmail);
   const [stripeReservation, setServerReservation] = useState<{ coachName: string; city: string; service: string; duration: string; price: number; appointmentAt?: string; slots: string[] } | null>(null);
   const serverReservation=provider==="local"?demo.reservation:stripeReservation;
@@ -305,9 +299,8 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
 
   return (
     <>
-      <style jsx global>{legacyStyles}</style>
-      <div className="site-shell payment-shell">
-        <PaymentHeader />
+      <DiscoveryFrame page="payment" demo={provider === "local"}>
+      <div className={recoveryStyles.page}>
 
         <main className="payment-page" data-payment-page>
           <p role="note" style={{padding:16,border:'1px solid currentColor',borderRadius:8}}>{provider === 'stripe' ? 'Démonstration — paiement Stripe en mode test, aucun débit réel.' : 'Démonstration locale — paiement simulé sans connexion à Stripe, aucun débit réel.'}</p>
@@ -338,8 +331,8 @@ function PaymentPage({ legacyStyles, params, provider = "local",athleteEmail }: 
           />
         </main>
 
-        <PaymentFooter />
       </div>
+      </DiscoveryFrame>
     </>
   );
 }

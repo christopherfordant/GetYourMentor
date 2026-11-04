@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-21",
+  "base": "18061bdbbabb0838afcd861f81325bdffce7bde3",
+  "scope": [
+    "/recherche",
+    "/coachs",
+    "/coach"
+  ],
+  "playwright_local": {
+    "tests": 15,
+    "result": "PASS",
+    "suites": [
+      "factory-theme",
+      "discovery-editorial",
+      "journey-ux",
+      "discovery-design"
+    ],
+    "data": "local demo catalogue; error and summary scenarios also use injected responses",
+    "worker_count": 1,
+    "servers": "11 scenarios development; 4 scenarios production build acceptance mode"
+  },
+  "playwright_mcp": {
+    "pages": 3,
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "horizontal_overflow_cases": 0,
+    "reference_pages": [
+      "https://kebab-factory-demo.netlify.app/",
+      "https://www.uber.com/fr/fr/ride/"
+    ],
+    "external_form_submissions": 0
+  },
+  "contrast_checks": {
+    "primary_button_text_minimum": 4.5,
+    "input_border_minimum": 3,
+    "secondary_text_minimum": 4.5,
+    "result": "PASS"
+  },
+  "types": "PASS",
+  "build": "PASS",
+  "client_secret_boundary": "PASS",
+  "tracked_secret_scan": "PASS",
+  "rea_external_engine": "NOT_RUN; catalogue consulted, direct observation sufficient",
+  "remote_business_services": "NOT_RUN",
+  "netlify_deployment": "NOT_RUN",
+  "full_application_migration": "INCOMPLETE",
+  "standalone_export": {
+    "tests": 6,
+    "result": "PASS",
+    "types": "PASS",
+    "build": "PASS",
+    "client_secret_boundary": "PASS",
+    "tracked_secret_scan": "PASS",
+    "public_files_only": true
+  }
+}

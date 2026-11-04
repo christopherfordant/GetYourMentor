@@ -1,3 +1,15 @@
+> **Priorité produit — 21 octobre :** clôturer la V1 démo avant V2 selon la [checklist sourcée](docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md#clôture-v1-démo--reprise-du-21-octobre-2026). Premier lot : [calendrier manuel du sportif](docs/CALENDRIER_V1_DEMO_2026-10-21.md). Aucune réduction du périmètre documentaire, V1 non achevée.
+
+> **Décision visuelle active — 21 octobre 2026 :** identité Kebab Factory, police système et anthracite/orange, remplaçant la palette violette fixe et les contrats visuels incompatibles. Migration progressive selon [couverture](docs/REFONTE_PROGRESSIVE_2026-10-15.md) et `DESIGN_SYSTEM_GYM.md` ; [rapport](docs/REFONTE_FACTORY_2026-10-21.md). Les règles métier, permissions et historiques ne changent pas. Première tranche découverte, pas une refonte intégrale déclarée terminée.
+
+> **Correction UI du 21 octobre :** [onglets coach et footer](docs/COACH_ONGLETS_FOOTER_2026-10-21.md), navigation clavier WAI-ARIA, réserve cookies mesurée et suppression des paddings concurrents. Recette compilée locale, pas de conformité globale ni nouveau déploiement.
+
+> **Réservation Factory — 21 octobre :** [créneaux et récapitulatif](docs/RESERVATION_FACTORY_2026-10-21.md), tokens et styles sans modification des contrats privés, données serveur ou protections de reprise. Lire le relais pour le mode et les limites de chaque recette.
+
+> **Paiement et suivi personnel — 21 octobre :** [Factory sans changement de contrat métier](docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md), simulation et objectif privé distincts ; consulter le rapport pour les modes et limites de recette.
+
+> Parcours recruteur — 22 octobre : [correction de la note transitoire et preuves](docs/REVUE_RECRUTEUR_2026-10-22.md). Source de vérité API, états attente/erreur/absent distincts et données de démonstration explicites. Lot local ciblé, aucun déploiement ; les règles métier restent inchangées.
+
 > Parcours privé et ergonomie — 20 octobre : [preuves bornées et menu mobile](docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md), contrôles ciblés locaux, captures synthétiques avant/après ; aucune heatmap réelle ni validation distante.
 
 > Transport privé — 20 octobre : [parcours navigateur sans token URL](docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md), cookie HttpOnly existant réutilisé, compatibilités API historiques restantes explicites. Recette locale, aucun déploiement.

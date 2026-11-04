@@ -81,7 +81,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     city: coach.city || city,
     sessionTypes: coach.sessionTypes,
     specialty: coach.specialty,
-    meta: `${coach.rating.toFixed(1)} (${coach.reviewCount} avis) · ${coach.specialty}`,
+    meta: `${coach.reviewCount > 0 ? `${coach.rating.toFixed(1)} (${coach.reviewCount} avis)` : "Pas encore de note"} · ${coach.specialty}`,
     morning: [],
     afternoon: [],
     cta: "Voir le profil",

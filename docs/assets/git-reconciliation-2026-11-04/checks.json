@@ -1,0 +1,73 @@
+{
+  "initialLocalHead": "4d0760f97554358d9b1e0194a12e3d157125bdac",
+  "initialRemoteHead": "d50b9eb5cfceeb4b79b4105b9417eb5d94f3793a",
+  "initialDivergence": {
+    "localOnly": 52,
+    "remoteOnly": 9
+  },
+  "conflictFiles": 14,
+  "types": "PASS",
+  "nextBuild": "PASS",
+  "nodeTests": 26,
+  "historicalRagEvaluation": 12,
+  "initialBrowserRun": {
+    "cases": 33,
+    "passed": 32,
+    "failed": 1,
+    "failure": "Closed details visibility check; then cookie reserve and drawer handle integration conflicts, corrected"
+  },
+  "finalFooterDesktopMobile": {
+    "passed": 6,
+    "failed": 0
+  },
+  "distinctOtherBrowserCasesPassed": 30,
+  "staticGates": {
+    "check-netlify-config.mjs": {
+      "exitCode": 0,
+      "output": "Configuration Netlify valide : base gym-next, build Next.js et publication .next.\n"
+    },
+    "check-client-secret-boundary.mjs": {
+      "exitCode": 0,
+      "output": "Frontière client/serveur valide : aucun marqueur de secret serveur dans .next/static.\n"
+    },
+    "check-tracked-secrets.mjs": {
+      "exitCode": 0,
+      "output": "Dépôt propre : aucun secret à haute confiance ni fichier sensible suivi par Git.\n"
+    },
+    "check-supabase-schema.mjs": {
+      "exitCode": 0,
+      "output": "Schéma Supabase valide : tables, RLS, bucket privé et contraintes MVP présents.\n"
+    },
+    "check-rag-route.mjs": {
+      "exitCode": 0,
+      "output": "Route RAG valide : accès optionnel, serveur uniquement, lecture seule et citations présentes.\n"
+    },
+    "check-rag-context-route.mjs": {
+      "exitCode": 0,
+      "output": "Assembleur RAG valide : role allowliste, lecture seule, citations et garde-fous presents.\n"
+    }
+  },
+  "preservationPrepared": {
+    "trackedModified": 18,
+    "untracked": 380,
+    "requiresThreeWayReapply": 4,
+    "manualLocalDraftResolution": "CookieConsentBanner: preserve banner measurement and draft control wrapper"
+  },
+  "deploymentGuard": {
+    "netlifyDemoGitConnected": false,
+    "legacyProductionBranch": "feat/nextjs-migration",
+    "legacyAllowedBranches": [
+      "feat/nextjs-migration"
+    ],
+    "mergeCommitSkipNetlify": true,
+    "githubPushGatesBranches": [
+      "feat/nextjs-migration",
+      "main"
+    ],
+    "manualDeploymentExecuted": false
+  },
+  "limitations": [
+    "Clean merge candidate tested; prior uncommitted application drafts remain outside the merge and outside these test claims",
+    "No full application E2E, live payment, remote RLS or deployment validation in this Git task"
+  ]
+}

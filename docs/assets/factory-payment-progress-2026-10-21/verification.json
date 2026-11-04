@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-21",
+  "private_base": "d7cbbe354bdf25e51c42f3f38e6675ca7c3b99c6",
+  "public_base": "a428f8921b6508fc158f37537c70d21cc935fa20",
+  "private_demo_scenarios": {
+    "passed": 21,
+    "failed": 0,
+    "runner": "Playwright local Chromium desktop; viewports 320,390,768,1440; development loopback with matching APP_URL"
+  },
+  "types": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "build": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "client_secret_boundary": {
+    "private": "PASS",
+    "public": "PASS"
+  },
+  "mcp": {
+    "payment_anonymous": "observed",
+    "progress_anonymous": "observed",
+    "authenticated_payment": "not executed",
+    "viewport": 390
+  },
+  "production_runtime": "NOT VALIDATED: compiled acceptance server launch rejected by automatic control (blocked by policy); no bypass attempted",
+  "remote_services": "NOT VALIDATED: Stripe, RLS, Netlify, production HTTPS",
+  "deployed": false,
+  "business_changes": false,
+  "notes": [
+    "Initial test-file encoding corrected before final recipe",
+    "Matching APP_URL fixes test-origin setup without changing origin protection",
+    "Payment-flow test now waits for authenticated account before navigation",
+    "Private tests mix explicit injected DTO scenarios and actual local API persistence scenarios; no remote banking proof",
+    "Historical captures preserved; only selected synthetic evidence in private repository"
+  ],
+  "captures": {
+    "after-payment-confirme-1440.png": "ba66e78aad74fd27dd62eea971f97ff7639b9714efcaf098deed66696440a1c5",
+    "after-payment-confirme-390.png": "37029c8f38f4d16f6e4d7a5b3cbd380f6329830ebabc5bf210f9caa18f9afbcd",
+    "after-payment-non-confirme-390.png": "338b60c1aa0b5ee9941e5137169e068b4ff033a29d560d65888d25a7f18849cf",
+    "before-payment-confirme-1440.png": "71b3bc8c1742fd5bb070e39b6ed799862fbdd65564d6abb6bed0c1e70dc59d64",
+    "before-payment-confirme-390.png": "8c504d78ad01f2e42affc003828faa35edd901a99122ba4a3e3fabd8e787d4f8",
+    "before-progress-1440.png": "d7085a8bb08dfb32ff56d4419b3f5c4bdf97f5b2f94d278647553ce6e2c1ace6",
+    "before-progress-390.png": "16f3d12c70faf173a43c4897aa334469522141906b3e603f27b9bee10fd3d1b1",
+    "factory-payment-1440.png": "ddab9ab9eddc9783ee9c93263b56f3d6d8975563876154f0b4b43dc49112e0e8",
+    "factory-payment-390.png": "9598c9e4496a3694e1e768f0dbd64c16e8fc2d04340df4189bb18f9577c8a201",
+    "factory-progress-1440.png": "5a363c87952868d0cbc28392dc17b3ff32d7176811bd4dc559b2f26241065203",
+    "factory-progress-390.png": "0119731df306bb6825fe64477e59d7c36008231852120ebe424626b7cc8a78d6"
+  },
+  "public_demo_scenarios": {
+    "passed": 10,
+    "failed": 0,
+    "mode": "development loopback; Playwright config starts and stops a single demo server",
+    "suites": [
+      "factory-payment-progress",
+      "factory-theme",
+      "factory-booking",
+      "coach-tabs-footer"
+    ]
+  }
+}

@@ -1,10 +1,14 @@
 @import "./gym-factory-design.css";
 /* One utility row in each footer. Consent stays outside the footer; only its preference control is portalled. */
-body:has(:is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) [data-footer-utilities]) { min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: calc(var(--mobile-navigation-space,0px) + env(safe-area-inset-bottom,0px)) !important; }
+body:has([data-footer-utilities]) { min-height: 100dvh; display: flex; flex-direction: column; padding-bottom: calc(var(--mobile-navigation-space,0px) + var(--cookie-banner-space,0px) + env(safe-area-inset-bottom,0px)) !important; }
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell) { display: flex; flex-direction: column; flex: 1; min-height: calc(100dvh - var(--mobile-navigation-space,0px)); }
 body:has([data-footer-utilities]) :is(#gym-editorial,#gym-discovery,#gym-account,.site-shell)>main { flex: 1; min-height: 0 !important; }
 body:has([data-footer-utilities]) footer { position: relative; margin-top: auto; }
 .footer-utilities { position: relative; z-index: 2; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; width: 100%; flex: 0 0 100%; grid-column: 1/-1; min-height: 44px; }
+@media (max-width: 760px) {
+  /* Keep footer controls outside the fixed right-hand section drawer handle. */
+  .footer-utilities { box-sizing: border-box; padding-inline-end: 40px; }
+}
 body:has([data-footer-utilities]) [data-footer-utilities] .cookie-controls { position: static !important; width: auto !important; max-height: none !important; overflow: visible; margin: 0 !important; pointer-events: auto; }
 body:has([data-footer-utilities]) [data-footer-utilities] .cookie-preferences-trigger { position: static !important; inset: auto !important; width: auto !important; min-height: 44px !important; margin: 0 !important; padding: 10px 14px; border-radius: 6px !important; background: var(--gym-surface) !important; color: var(--gym-ink) !important; border: 1px solid var(--gym-line) !important; }
 body:has([data-footer-utilities]) [data-footer-utilities] .back-to-top { position: static !important; inset: auto !important; display: inline-grid !important; place-items: center; flex: 0 0 44px; width: 44px !important; height: 44px !important; min-height: 44px; margin: 0 !important; padding: 0 !important; line-height: 1 !important; border-radius: 6px !important; background: var(--gym-surface) !important; color: var(--gym-primary-hover) !important; border: 1px solid var(--gym-line) !important; transform: none !important; }

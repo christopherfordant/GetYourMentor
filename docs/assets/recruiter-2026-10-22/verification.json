@@ -1,0 +1,80 @@
+﻿{
+    "date":  "2026-10-22",
+    "baseCommit":  "c0eaf47d775cc17e2904598e842370752a829f2a",
+    "environment":  "Local Windows, Chromium emulated viewports; Next 15.5.27, existing dependencies reused",
+    "reproduction":  {
+                         "coach":  "madison-seck",
+                         "beforeApi":  "4.8 / 5, 24 avis",
+                         "responseStatus":  200,
+                         "afterApi":  "Pas encore de note, Pas encore d’avis",
+                         "method":  "API response held until initial rendered text was observed, then released and awaited"
+                     },
+    "checks":  {
+                   "check:types":  "PASS",
+                   "build":  "PASS",
+                   "check:client-secret-boundary":  "PASS",
+                   "check:tracked-secrets":  "PASS",
+                   "developmentTargetedTests":  {
+                                                    "passed":  6,
+                                                    "failed":  0,
+                                                    "durationSeconds":  38.5
+                                                },
+                   "productionBuildTargetedTests":  {
+                                                        "passed":  6,
+                                                        "failed":  0,
+                                                        "durationSeconds":  17.2
+                                                    },
+                   "journeyWidths":  [
+                                         390,
+                                         768,
+                                         1440
+                                     ],
+                   "journeyPages":  [
+                                        "recherche",
+                                        "coachs",
+                                        "coach",
+                                        "creneau"
+                                    ],
+                   "journeyOverflow":  false,
+                   "profileTabsKeyboardWidths":  [
+                                                     320,
+                                                     390,
+                                                     768,
+                                                     1440
+                                                 ],
+                   "journeyApiMutations":  0
+               },
+    "testCases":  [
+                      "Delayed profile API: loading visible, no fixture rating, empty API stats shown after completion",
+                      "Injected statistics 3.5/2 displayed instead of historical fixture 4.8/24",
+                      "Injected 503: unavailable, keyboard retry succeeds; real absent id 404 distinguished",
+                      "Injected reviews: loading, 503, keyboard retry, empty result distinguished",
+                      "Keyboard journey preserves Madison Seck, Paris and 40 EUR; selects an available slot, checks preview and enabled send button, stops without submission",
+                      "Existing profile tabs support arrows/Home/End/Tab and remain within viewport"
+                  ],
+    "warnings":  [
+                     "Existing Autoprefixer start/end compatibility warnings",
+                     "FORCE_COLOR/NO_COLOR runner warning"
+                 ],
+    "diagnosticFailures":  [
+                               "First cold navigation timed out during compilation; reproduced after compilation",
+                               "Initial external-run configuration used port 3001 instead of 4313; interrupted and corrected without changing product protections"
+                           ],
+    "netlifyReadOnly":  {
+                            "site":  "getyourmentor-demo-20261014",
+                            "publishedDeploy":  "6ad93730f89f5b5157ba9dd6",
+                            "state":  "ready",
+                            "repository_url":  null,
+                            "repo_url":  null,
+                            "repo_path":  null
+                        },
+    "notValidated":  [
+                         "Real devices",
+                         "Full V1 or accessibility certification",
+                         "Real payments/messages/notifications",
+                         "Remote business journey",
+                         "Supabase RLS or production services"
+                     ],
+    "deploymentPerformed":  false,
+    "publicExportPerformed":  false
+}

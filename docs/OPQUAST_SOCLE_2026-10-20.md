@@ -1,5 +1,14 @@
 # Socle qualité Opquast — 20 octobre 2026
 
+## Paiement et suivi Factory — 21 octobre
+Sélection des modes illustratifs avec aria-pressed et soulignement, champs fictifs en lecture seule, simulation explicitement nommée, erreurs et résultats incertains distingués. Suivi personnel : labels, confirmation de données fictives, objectif privé, statut payé distinct d'une présence réelle. Navigation et footer partagés, contrôle des quatre largeurs et des cookies. [Rapport](PAIEMENT_SUIVI_FACTORY_2026-10-21.md), références WAI notifications/Opquast, sans conformité globale revendiquée.
+
+## Réservation Factory — 21 octobre
+Contrôles ciblés de lisibilité, instruction de sélection obligatoire/fuseau, état choisi non fondé uniquement sur la couleur, focus et accès clavier aux jours hors champ du calendrier borné. Récapitulatif : distinguer données serveur confirmées, chargement et refus ; ne jamais inventer un prix depuis l'URL. [Rapport et preuves](RESERVATION_FACTORY_2026-10-21.md). La présence des tokens ne vaut pas conformité globale ou validation d'un service de paiement.
+
+## Vérification ciblée — 21 octobre, fiche coach et footer
+Voir [causes, correction et preuves](COACH_ONGLETS_FOOTER_2026-10-21.md). Les trois sections coach sont des panneaux d'onglets : relations WAI-ARIA, flèches/Home/End, focus et état actif non fondé uniquement sur la couleur. Règles 165/166 vérifiées sur ce périmètre, sans conformité globale annoncée. Le footer doit rester atteignable élément par élément, y compris avec bannière cookies ; une hauteur supérieure au viewport est acceptable si le défilement permet tout accès. Réserve mesurée de la bannière, pas de footer fixe ni de z-index masquant ses liens. Les anciennes réserves body accueil/découverte sont remplacées par le calcul partagé. Le contrat Factory remplace les anciennes mentions de palette claire dans les preuves historiques.
+
 Annexe opérationnelle du document maître existant, à consulter pour toute modification de navigation, footer, formulaire ou parcours. Aucun maître concurrent, nouvel agent ou outil ajouté. La hiérarchie et les décisions utilisateur de BRANCH_STRATEGY_GYM restent applicables. Le mode démo ne devient pas une certification ou une validation juridique.
 
 Source publique : [référentiel officiel V5 2025–2030](https://checklists.opquast.com/fr/qualite-numerique/), consulté le 20 octobre. Sélection de règles et reformulations, pas reproduction intégrale. Le choix du footer du compte coach est une décision de design de l'utilisateur ; Opquast ne prescrit pas son apparence exacte.
