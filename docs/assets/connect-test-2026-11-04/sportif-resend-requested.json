@@ -1,0 +1,6 @@
+{
+  "status": 200,
+  "resendAccepted": true,
+  "deliveryConfirmed": false,
+  "attemptsThisRequest": 1
+}

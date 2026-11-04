@@ -140,3 +140,7 @@ Stripe : dernier ecran observe avant cette reprise connect/set-up/profile, aucun
 ### Confirmation sportif non recue : renvoi refuse
 
 Mise a jour apres retour utilisateur : confirmation du premier sportif non recue. Un seul renvoi normal via /auth/v1/resend a ete tente; refus429 avec code fournisseur over_email_send_rate_limit. Aucun nouvel envoi apres ce refus, aucune confirmation administrateur et aucune protection desactivee. Cette preuve concerne le renvoi actuel; elle ne demontre pas retroactivement la cause du refus historique ni la livraison du premier message. Compte sportif conserve en attente. Prochaine action : permettre de nouveau l envoi legitime selon la configuration de messagerie, puis un seul renvoi controle; aucun delai de reset affirme sans preuve.
+
+### Nouveau renvoi demande par utilisateur
+
+Sur nouvelle demande explicite utilisateur, et apres verification du compte sportif encore non confirme : un seul renvoi /auth/v1/resend effectue, accepte HTTP200. Reception en boite et confirmation non verifiees. Ce resultat remplace le blocage429 pour cette nouvelle tentative uniquement; aucun reset de quota deduit. Attendre le clic du lien recu sur l alias sportif1 Gmail, sans relancer automatiquement.
