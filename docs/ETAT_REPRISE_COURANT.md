@@ -1,3 +1,7 @@
+## Reprise active - 4 novembre 2026 : economie de tokens
+
+AGENTS.md complete a la demande utilisateur : modele disponible et effort les plus economes compatibles avec les criteres du lot, lectures ciblees, aucun changement de modele pretendu ni controle essentiel supprime. Configuration globale non modifiee. Prochain lot recommande : corriger le faux positif lexical Jupiter et preparer les annotations/controles de troncature avant A5; ce lot n est pas execute par cette mise a jour documentaire. Les resultats A4.3 ci-dessous restent inchanges.
+
 ## Reprise active - 4 novembre 2026 : A4.3 comparaison locale terminee
 
 Comparaison E5/lexical effectuee sans ingestion distante : 16 cas de reglage, 22 validation, 15 references/controles diagnostiques. Seuil 0,84 choisi seulement sur reglage. Validation synthetique 16/22 lexical, 19/22 vectoriel; sur corpus reel 14/15 chacun, mais le vectoriel perd la source de verite retrouvee par le lexical. Jupiter reste un faux positif lexical preexistant, non corrige. Hybride non evalue faute de complementarite sur reglage. [Rapport, protocole et preuves](RAG_COMPARAISON_A4_3_2026-11-04.md).

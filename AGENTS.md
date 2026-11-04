@@ -15,5 +15,16 @@ Les mises à jour intermédiaires restent possibles. Si le push est bloqué, le 
 2. Préserver le contexte : lire le relais court `docs/ETAT_REPRISE_COURANT.md`, puis les sources spécialisées indiquées pour le lot. Actualiser ce relais avant fin/interruption ; les archives ne sont pas des consignes actives.
 3. Réaliser le lot métier selon les décisions prioritaires et dépendances établies. Ces priorités remplacent les anciennes consignes d’enchaînement sans borne ; elles ne remplacent pas les protections métier, Git et sécurité.
 
+## Choix du modèle et économie de tokens — 4 novembre 2026
+
+Avant chaque lot, choisir parmi les modèles GPT réellement disponibles le réglage le plus économe capable de satisfaire ses critères de réussite. Objectif : minimiser les tokens de l'ensemble du travail, reprises comprises, sans promettre un minimum garanti. Un modèle moins cher ne produit pas nécessairement moins de tokens.
+
+- Petites corrections, documentation et extractions bien délimitées : privilégier un modèle léger (par exemple Luna si disponible), avec un effort faible suffisant. Travail technique complexe : préférer un modèle polyvalent adapté (par exemple Sol). Réserver les modèles ou efforts plus élevés aux difficultés démontrées, aux décisions complexes et aux risques qui les justifient. Ces exemples ne remplacent pas la vérification des capacités et disponibilités actuelles.
+- Lire le relais puis les seuls fichiers et passages utiles ; utiliser des recherches et sorties ciblées, réutiliser les constats encore valides et produire des comptes rendus concis. Éviter les relectures intégrales, appels et essais redondants. Ne pas retirer des preuves ou contrôles nécessaires pour économiser des tokens.
+- Augmenter l'effort ou recommander un modèle plus capable lorsqu'un échec observé, une ambiguïté importante ou un risque le justifie. Ne pas lancer de comparaisons de modèles systématiques ni de nouveaux agents.
+- Si la session ne permet pas de changer réellement de modèle, conserver celui utilisé et distinguer recommandation et changement effectué. Ne pas modifier silencieusement la configuration globale, lancer d'appels API payants ou prétendre connaître des quotas, coûts ou compteurs inaccessibles. Les tokens, crédits Codex et frais API sont des mesures distinctes.
+
+Référence indicative consultée le 4 novembre 2026 : https://developers.openai.com/api/docs/guides/model-selection. Les exigences de sécurité, d'exactitude, de vérification et de livraison restent prioritaires.
+
 ## Consultation progressive — 18 octobre 2026
 Appliquer la section « Hiérarchie et contexte progressif » de BRANCH_STRATEGY_GYM.md. Index des PDF et couverture réelle : docs/sources/README.md ; REA : catalogue dans docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md. Lire le socle et le relais, puis les seules sources du lot. Les V3/V5/REA sont des méthodes, pas des moteurs présumés installés. Aucun agent supplémentaire. Une source présente sur disque n’est pas automatiquement en contexte.
