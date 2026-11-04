@@ -42,5 +42,10 @@
   "outlookConfirmedSignInHttpStatus": 200,
   "clientRoleOverrideIgnored": true,
   "crossCoachIsolationChecksPassed": 8,
-  "finalBuildPassed": true
+  "finalBuildPassed": true,
+  "sportif1ConfirmationReceivedByUser": false,
+  "sportif1ResendAttempts": 1,
+  "sportif1ResendHttpStatus": 429,
+  "sportif1ResendCode": "over_email_send_rate_limit",
+  "automaticRetryAfterRefusal": false
 }

@@ -1089,7 +1089,7 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Deux coachs persistants et confirmes, sportif1 non confirme; sportif2 refuse400 sans compte; Connect non confirme actif; approbation coach absente",
+      "blocker": "Deux coachs persistants et confirmes, sportif1 non confirme, renvoi refuse429 over_email_send_rate_limit; sportif2 refuse400 sans compte; Connect non confirme actif; approbation coach absente",
       "next": "Confirmer sportif1, puis diagnostiquer prochain refus et finaliser Connect test sans contourner les gardes"
     }
   ]
