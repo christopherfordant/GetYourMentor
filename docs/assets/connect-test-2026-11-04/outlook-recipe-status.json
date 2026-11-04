@@ -9,7 +9,7 @@
     {
       "account": "sportif1",
       "exists": true,
-      "confirmed": false,
+      "confirmed": true,
       "role": "sportif"
     },
     {
@@ -47,5 +47,7 @@
   "sportif1ResendAttempts": 1,
   "sportif1ResendHttpStatus": 429,
   "sportif1ResendCode": "over_email_send_rate_limit",
-  "automaticRetryAfterRefusal": false
+  "automaticRetryAfterRefusal": false,
+  "sportif1ConfirmedSignInHttpStatus": 200,
+  "sportif1ClientRoleOverrideIgnored": true
 }

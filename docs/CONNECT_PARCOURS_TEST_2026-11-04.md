@@ -144,3 +144,7 @@ Mise a jour apres retour utilisateur : confirmation du premier sportif non recue
 ### Nouveau renvoi demande par utilisateur
 
 Sur nouvelle demande explicite utilisateur, et apres verification du compte sportif encore non confirme : un seul renvoi /auth/v1/resend effectue, accepte HTTP200. Reception en boite et confirmation non verifiees. Ce resultat remplace le blocage429 pour cette nouvelle tentative uniquement; aucun reset de quota deduit. Attendre le clic du lien recu sur l alias sportif1 Gmail, sans relancer automatiquement.
+
+### Sportif1 confirme et connexion verifiee
+
+Confirmation sportif1 annoncee par utilisateur puis verifiee dans Supabase : compte unique confirme, role sportif. Connexion locale reelle HTTP200, role sportif conserve malgre demande client coach. Cookie stocke DPAPI hors Git. Le signalement precedent de mail vide ne justifie plus de renvoi; cause visuelle du message non diagnostiquee. Aucun modele email modifie. Deux coachs et un sportif confirmes; sportif2 absent. Reservations toujours soumises a approbation coach et Connect test restant a configurer.
