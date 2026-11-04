@@ -132,13 +132,15 @@ export async function signIn(email: string, password: string, role: Session["rol
 }
 
 export async function signUp(email: string, password: string, role: UserRole, profile?: SignupProfile) {
+  if (!['sportif','coach','club'].includes(role)) throw new Error('Inscription à ce rôle interdite');
   if (profile && (!profile.firstName || !profile.lastName || !profile.phone || !profile.termsAccepted)) {
     throw new Error("Les informations personnelles et l'acceptation des CGU sont requises");
   }
   if (!email || !password || password.length < 8) throw new Error("Un email et un mot de passe de 8 caractères sont requis");
   const config = supabaseConfig();
   if (config) {
-    const coachId = role === "coach" && profile ? coachIdForName(`${profile.firstName} ${profile.lastName}`.trim()) : undefined;
+    const startedAt=Date.now();
+    if(!process.env.SUPABASE_SERVICE_ROLE_KEY)throw new Error('Configuration serveur des inscriptions indisponible');
     const response = await fetch(`${config.url}/auth/v1/signup`, {
       method: "POST",
       headers: { apikey: config.key, "Content-Type": "application/json" },
@@ -146,7 +148,13 @@ export async function signUp(email: string, password: string, role: UserRole, pr
     });
     if (!response.ok) throw new Error("Inscription impossible");
     const signupPayload = await response.json();
-    const userId = typeof signupPayload?.user?.id === "string" ? signupPayload.user.id : undefined;
+    // GoTrue returns a user directly when confirmation is required, and a
+    // session wrapping user otherwise. Obfuscated duplicate users are refused.
+    const user=signupPayload?.user??signupPayload;
+    const userId=typeof user?.id==='string'?user.id:undefined;
+    if(!userId||!Array.isArray(user.identities)||!user.identities.length||!Number.isFinite(Date.parse(user.created_at))||Date.parse(user.created_at)<startedAt-1000)throw new Error('Inscription non confirmée ou compte déjà créé. Essayez de vous connecter ou vérifiez votre email.');
+    // Names are not ownership identifiers: homonyms must get distinct profiles.
+    const coachId=role==='coach'&&profile?`coach-${userId}`:undefined;
     const adminKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
     if (!userId || !adminKey) {
       assertDemoFallbackAllowed("Supabase Auth role metadata");
@@ -159,6 +167,7 @@ export async function signUp(email: string, password: string, role: UserRole, pr
       if (!metadataResponse.ok) throw new Error("Profil de rôle indisponible");
     }
     if (coachId && profile) await createStoredCoachProfile({ id: coachId, name: `${profile.firstName} ${profile.lastName}`.trim(), city: profile.city });
+    if(!signupPayload.access_token&&!signupPayload.session?.access_token)return {email,role,confirmationRequired:true as const};
   } else if (isHostedDemo()) {
     if (!/^[^@\s]+@example\.com$/.test(email) || ["sportif@example.com", "coach@example.com", "club@example.com", "admin@example.com"].includes(email)) throw new Error("Utilisez une adresse fictive unique @example.com");
     if (role === "admin") throw new Error("Inscription administrateur interdite");

@@ -1,6 +1,7 @@
 "use client";
 import { PlatformHeader } from "@/components/navigation/PlatformHeader";
 import { FormRejection, readAuthFormData } from "@/lib/access-form-response";
+import {StripeConnectPreferences} from '@/components/account/StripeConnectPreferences';
 import { readCoachReservations } from "./coach-request-data";
 import { CoachPlanningSchedule } from "./CoachPlanningSchedule";
 import { coachNextSession } from "@/lib/domain/coach-next-session";
@@ -810,6 +811,11 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ ...pendingSignup, role }),
                   });
+                  if(response.status===202){
+                    const pending=await response.json();
+                    if(pending?.data?.confirmationRequired!==true||pending.data.email!==pendingSignup.email||pending.data.role!==role)throw Error('Unconfirmed signup');
+                    setStatus('Compte créé. Confirmez votre adresse email, puis connectez-vous.');setStep('signin');return;
+                  }
                   const payload = {data: await readAuthFormData(response,pendingSignup.email,role)};
                   if (role === "coach" && payload.data?.coachName) setAuthenticatedCoachName(payload.data.coachName);
                   if (role === "coach" && payload.data?.coachId) setAuthenticatedCoachId(payload.data.coachId);
@@ -858,6 +864,7 @@ export function AccountLegacyPage({ legacyStyles, params, allowDemoFallback = fa
             {dashboardMode === "club" ? <ClubDashboard allowDemoFallback={allowDemoFallback} /> : null}
           </section>
         </main>
+        {dashboardMode==='coach'?<StripeConnectPreferences key={authenticatedCoachId}/>:null}
         <TelegramPreferences key={`${dashboardMode}:${authenticatedAthleteEmail}:${authenticatedCoachId}:${step}`} />
         <AccountFooter />
       </div>

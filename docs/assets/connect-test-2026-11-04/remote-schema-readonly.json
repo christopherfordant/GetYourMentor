@@ -1,0 +1,58 @@
+{
+  "project": "pqxqqbwesfrefzjoawmx",
+  "operation": "BEGIN READ ONLY; information_schema.columns; COMMIT",
+  "tables": {
+    "gym_coaches": [
+      "id",
+      "name",
+      "sport",
+      "specialty",
+      "city",
+      "rating",
+      "review_count",
+      "price_from",
+      "verified",
+      "description",
+      "disciplines",
+      "diplomas",
+      "session_types",
+      "availability",
+      "photo_url",
+      "bank_account_last4",
+      "created_at",
+      "updated_at",
+      "latitude",
+      "longitude",
+      "service_radius_km"
+    ],
+    "gym_reservations": [
+      "id",
+      "owner_email",
+      "coach_id",
+      "coach_name",
+      "sport",
+      "city",
+      "service",
+      "duration",
+      "price",
+      "slots",
+      "status",
+      "reservation_code",
+      "accepted_at",
+      "appointment_at",
+      "cancelled_at",
+      "refund_percent",
+      "refund_amount",
+      "stripe_payment_intent_id",
+      "stripe_refund_id",
+      "refund_status",
+      "created_at"
+    ]
+  },
+  "absentTables": [
+    "gym_telegram_state",
+    "gym_stripe_coach_accounts"
+  ],
+  "noBusinessRowsRead": true,
+  "noRemoteWrites": true
+}

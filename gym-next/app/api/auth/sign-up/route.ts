@@ -10,7 +10,8 @@ export async function POST(request: Request) {
   if ([body?.email, body?.password, body?.firstName, body?.lastName, body?.phone, body?.city].some((value) => textExceedsLimit(value, 512))) {
     return NextResponse.json({ error: "Données d’inscription trop longues" }, { status: 400 });
   }
-  const role = ["sportif", "coach", "club"].includes(body?.role) ? body.role as UserRole : "sportif";
+  if(!['sportif','coach','club'].includes(body?.role))return NextResponse.json({error:'Rôle d’inscription invalide'},{status:400});
+  const role=body.role as UserRole;
   try {
     const session = await signUp(body?.email, body?.password, role, {
       firstName: body?.firstName,
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
       city: body?.city,
       termsAccepted: body?.termsAccepted === true,
     });
-    return NextResponse.json({ data: session }, { status: 201 });
+    return NextResponse.json({ data: session }, { status: 'confirmationRequired' in session?202:201 });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Inscription impossible" }, { status: 400 });
   }

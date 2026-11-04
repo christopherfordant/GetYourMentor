@@ -54,6 +54,9 @@ export type Reservation = {
   refundAmount?: number;
   stripePaymentIntentId?: string;
   stripeCheckoutSessionId?: string;
+  stripeConnectAccountId?: string;
+  stripeTransferId?: string;
+  stripeApplicationFeeId?: string;
   structureOfferId?: string;
   stripeRefundId?: string;
   refundStatus?: "not_required" | "pending" | "succeeded";

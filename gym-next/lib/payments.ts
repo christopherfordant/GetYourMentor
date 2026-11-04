@@ -4,6 +4,7 @@ import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { eurosToCents } from "@/lib/domain/commission";
 import { updatePersistedReservation } from "@/lib/repositories/reservation-repository";
 import { stripeTestConfig } from '@/lib/stripe-test-config';
+import {connectEnabled,checkoutConnectFields} from '@/lib/stripe-connect';
 
 type CheckoutResult = { checkoutUrl: string; sessionId: string };
 
@@ -38,16 +39,25 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   form.set("line_items[0][price_data][product_data][name]", reservation.service);
   form.set("line_items[0][price_data][product_data][description]", `${reservation.coachName} — ${reservation.duration}`);
   form.set("metadata[reservation_id]", reservation.id);
+  const connect=connectEnabled()?await checkoutConnectFields(reservation):null;
+  if(connect){
+    form.set('payment_intent_data[application_fee_amount]',String(connect.feeCents));
+    form.set('payment_intent_data[transfer_data][destination]',connect.accountId);
+    form.set('payment_intent_data[metadata][reservation_id]',reservation.id);
+    // Card-only sandbox avoids presenting delayed settlement as instant payout.
+    form.set('payment_method_types[0]','card');
+  }
 
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
-    headers: { Authorization: `Bearer ${config.secretKey}`, "Content-Type": "application/x-www-form-urlencoded", "Idempotency-Key": `gym-checkout-${reservation.id}` },
+    headers: { Authorization: `Bearer ${config.secretKey}`, "Content-Type": "application/x-www-form-urlencoded", "Idempotency-Key": connect?`gym-connect-checkout-${reservation.id}`:`gym-checkout-${reservation.id}` },
     body: form,
+    signal: AbortSignal.timeout(15000),
   });
   if (!response.ok) throw new Error("Création de la session de paiement impossible");
   const payload = await response.json();
   if (typeof payload.url !== "string" || typeof payload.id !== "string" || !payload.id.startsWith('cs_test_') || payload.livemode !== false || new URL(payload.url).origin !== 'https://checkout.stripe.com') throw new Error("Session Stripe de test invalide");
-  const saved = await updatePersistedReservation(reservation.id, { stripe_checkout_session_id: payload.id, owner_email: reservation.ownerEmail ?? null }, "accepted");
+  const saved = await updatePersistedReservation(reservation.id, { stripe_checkout_session_id: payload.id, owner_email: reservation.ownerEmail ?? null,...(connect?{stripe_connect_account_id:connect.accountId}:{}) }, "accepted");
   if (!saved) throw new Error("La réservation n’est plus payable");
   return { checkoutUrl: payload.url, sessionId: payload.id };
 }
@@ -56,6 +66,7 @@ export async function refundStripePayment(input: {
   paymentIntentId: string;
   amountCents: number;
   reservationId: string;
+  connectAccountId?: string;
 }): Promise<RefundResult | null> {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const provider = process.env.PAYMENT_PROVIDER ?? "local";
@@ -72,6 +83,7 @@ export async function refundStripePayment(input: {
     payment_intent: input.paymentIntentId,
     amount: String(input.amountCents),
   });
+  if(input.connectAccountId){form.set('reverse_transfer','true');form.set('refund_application_fee','true');}
   const response = await fetch("https://api.stripe.com/v1/refunds", {
     method: "POST",
     headers: {
@@ -80,6 +92,7 @@ export async function refundStripePayment(input: {
       "Idempotency-Key": `gym-refund-${input.reservationId}-${input.amountCents}`,
     },
     body: form,
+    signal: AbortSignal.timeout(15000),
   });
   if (!response.ok) throw new Error("Remboursement Stripe impossible");
   const payload = await response.json();

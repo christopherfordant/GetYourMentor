@@ -1,0 +1,31 @@
+{
+  "parser": "pglast 7.22",
+  "results": [
+    {
+      "file": "supabase/proposals/20261104_business_test_bundle.sql",
+      "statements": 94,
+      "syntax": "PASS",
+      "sha256": "d6cf8f653968818bbee8f9388a8f5787c4509bcb8db543bb8738c3599dc6e4d6"
+    },
+    {
+      "file": "supabase/proposals/20261104_business_test_rehearsal.sql",
+      "statements": 94,
+      "syntax": "PASS",
+      "sha256": "b550fd901ba84192d82ab3a7b4515ae24384b2d9d46a0a8acdab046f4fbbd195"
+    },
+    {
+      "file": "supabase/proposals/20261104_stripe_connect_test.sql",
+      "statements": 11,
+      "syntax": "PASS",
+      "sha256": "7bba2050c79e7baf02a14718f48d51b8f2201c62e56c2209bd58bf8c1f8b5a52"
+    },
+    {
+      "file": "supabase/proposals/20261104_stripe_connect_test_rollback_empty.sql",
+      "statements": 7,
+      "syntax": "PASS",
+      "sha256": "3c44ea8f5df246f60ce0bf9460f55cc260c1e1d8ec4d4db259dc24ef7a1e5830"
+    }
+  ],
+  "remoteExecution": false,
+  "limitation": "SQL syntax only; PL/pgSQL bodies and database semantics require rehearsal"
+}

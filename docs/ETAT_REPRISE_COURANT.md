@@ -1,3 +1,11 @@
+## Reprise active - 4 novembre 2026 : parcours metier Connect test prioritaire
+
+GYM-B1 en cours de livraison locale, bloque sur acces et migration specifique. Connect test prepare (onboarding coach, commission historique, destination, references confirmees serveur, remboursement avec reprise de transfert); inscription Supabase/confirmation et identifiants de coach corriges. Configuration DPAPI et lanceur recette sans repli local. Rapport : docs/CONNECT_PARCOURS_TEST_2026-11-04.md.
+
+Build et types PASS; 13 tests unitaires mocks, 26 controles locaux API/parcours et deux rendus de panneau ordinateur/mobile PASS. Aucun compte, paiement, transfert ou message Telegram reel execute. Deux lectures READ ONLY confirment ancien schema et absence des tables Telegram/Connect. SQL propose uniquement, autorisation specifique demandee; coffre local encore absent au controle de livraison. Toutes les preuves distinguent simulation et externe.
+
+Checkout C:/Users/cashe/Documents/GYM-connect-test-20261104; apercu simule 127.0.0.1:3005. Avant essais externes : enregistrer acces masques, autoriser la repetition/migration bornee, raccorder receptions Stripe/Telegram, puis creer et verifier deux coachs/deux sportifs. Ne pas inventer approbation de coach, confirmation email ou reception telephone. A5 differe; RAG hors chemin critique. Aucun deploiement. Preuves Git finales : delivery-private/business-test-final.json dans le depot principal.
+
 ## Reprise active - 4 novembre 2026 : fiabilisation locale avant A5
 
 Lot GYM-Q1 livre : exclusion des correspondances grammaticales parasites, Jupiter abstention, historique 12/12 et controles 3/3; 35 tests Node PASS. Rejeu diagnostique A4.3 45/53 avant, 47/53 apres, sans regression selon ses criteres; six cas restent non conformes. Jeu et preuves A4.3 preserves, aucune validation independante revendiquee. Rapport : docs/RAG_FIABILISATION_2026-11-04.md.

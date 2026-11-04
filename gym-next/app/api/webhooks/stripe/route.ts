@@ -5,6 +5,8 @@ import { eurosToCents } from "@/lib/domain/commission";
 import { bodyExceedsLimit } from "@/lib/request-guards";
 import { notifyTelegram } from '@/lib/telegram';
 import { stripeTestConfig } from '@/lib/stripe-test-config';
+import {verifyConnectSettlement,connectEnabled} from '@/lib/stripe-connect';
+import {updatePersistedReservation} from '@/lib/repositories/reservation-repository';
 
 function validSignature(rawBody: string, signature: string, secret: string) {
   const fields = signature.split(",").map((part) => part.trim().split("=", 2));
@@ -59,6 +61,11 @@ export async function POST(request: Request) {
     if(reservation.status === "paid") await notifyTelegram(reservation, "paid");
     if (reservation.status === "paid" || (reservation.status === "cancelled" && reservation.stripePaymentIntentId === checkout.payment_intent)) return NextResponse.json({ received: true, processed: false });
     if (reservation.status !== "accepted") return NextResponse.json({ error: "Réservation non payable" }, { status: 409 });
+    if(connectEnabled()&&!reservation.stripeConnectAccountId)return NextResponse.json({error:'Bénéficiaire Connect absent'},{status:409});
+    if(reservation.stripeConnectAccountId){
+      const references=await verifyConnectSettlement(reservation,checkout.payment_intent);
+      if(!await updatePersistedReservation(reservation.id,references,'accepted'))throw Error('Persistance Connect en attente');
+    }
     const saved = await payReservation(reservation.id, email, checkout.payment_intent);
     if (!saved) throw new Error("Persistance indisponible");
     return NextResponse.json({ received: true, processed: true });

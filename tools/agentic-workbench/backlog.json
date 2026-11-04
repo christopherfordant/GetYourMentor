@@ -886,6 +886,211 @@
       "evidence": [],
       "blocker": "Aucune validation humaine obtenue; aucun nouveau jeu independant reserve",
       "next": "Faire relire les candidats et ajouter un jeu independant avant integration"
+    },
+    {
+      "id": "GYM-B1",
+      "title": "Parcours metier persistant et paiement Connect test",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": null,
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        6,
+        12
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Parcours metier persistant et paiement Connect test",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [],
+      "acceptance": [
+        "Deux coachs et deux sportifs en base; reservation acceptee, paiement Connect test et Telegram verifies"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "blocker": "Acces locaux absents et migration distante specifique non autorisee",
+      "next": "Acces locaux absents et migration distante specifique non autorisee"
+    },
+    {
+      "id": "GYM-B1.1",
+      "title": "Preparer Connect test, commission et remboursement",
+      "role": "Architecture",
+      "assignment": "simulated-role",
+      "parent": "GYM-B1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Preparer Connect test, commission et remboursement",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [],
+      "acceptance": [
+        "Implementation locale et tests simules explicites"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "docs/assets/connect-test-2026-11-04/unit-results.json"
+      ],
+      "blocker": null,
+      "next": "Poursuivre la recette externe apres autorisation/configuration"
+    },
+    {
+      "id": "GYM-B1.2",
+      "title": "Corriger inscription et configuration de recette",
+      "role": "Securite",
+      "assignment": "simulated-role",
+      "parent": "GYM-B1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "done",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Corriger inscription et configuration de recette",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [],
+      "acceptance": [
+        "Roles proteges, confirmation sans fausse session, configuration chiffree"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "docs/assets/connect-test-2026-11-04/unit-results.json"
+      ],
+      "blocker": null,
+      "next": "Poursuivre la recette externe apres autorisation/configuration"
+    },
+    {
+      "id": "GYM-B1.3",
+      "title": "Repeter puis appliquer le schema de recette",
+      "role": "DevOps",
+      "assignment": "simulated-role",
+      "parent": "GYM-B1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Repeter puis appliquer le schema de recette",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [],
+      "acceptance": [
+        "Autorisation specifique, capture DDL/droits, rehearsal rollback et recette acces"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "supabase/proposals/20261104_business_test_bundle.sql"
+      ],
+      "blocker": "Autorisation utilisateur specifique manquante",
+      "next": "Autorisation utilisateur specifique manquante"
+    },
+    {
+      "id": "GYM-B1.4",
+      "title": "Raccorder les acces et receptions Stripe Telegram",
+      "role": "DevOps",
+      "assignment": "simulated-role",
+      "parent": "GYM-B1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Raccorder les acces et receptions Stripe Telegram",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [],
+      "acceptance": [
+        "Coffre local, reception Stripe et Telegram fonctionnelles"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "blocker": "Configuration locale non enregistree; reception externe non raccordee",
+      "next": "Configuration locale non enregistree; reception externe non raccordee"
+    },
+    {
+      "id": "GYM-B1.5",
+      "title": "Verifier le parcours externe complet",
+      "role": "QA",
+      "assignment": "simulated-role",
+      "parent": "GYM-B1",
+      "sprint": "S1",
+      "priority": "P0",
+      "status": "blocked",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "due": "2026-11-06",
+      "objective": "Verifier le parcours externe complet",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "dependencies": [
+        "GYM-B1.1",
+        "GYM-B1.2",
+        "GYM-B1.3",
+        "GYM-B1.4"
+      ],
+      "acceptance": [
+        "Comptes persistants, isolation, acceptation, paiement/repartition/remboursement test, Telegram"
+      ],
+      "files": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "tests": [
+        "Controles locaux et preuves externes distincts"
+      ],
+      "evidence": [
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+      ],
+      "blocker": "Dependances externes non raccordees; aucun essai externe realise",
+      "next": "Dependances externes non raccordees; aucun essai externe realise"
     }
   ]
 }

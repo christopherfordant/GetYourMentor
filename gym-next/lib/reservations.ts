@@ -153,6 +153,7 @@ export async function cancelReservation(id: string, ownerEmail?: string) {
           paymentIntentId: current.stripePaymentIntentId,
           amountCents: Math.round((next.refundAmount ?? 0) * 100),
           reservationId: id,
+          connectAccountId: current.stripeConnectAccountId,
         })
       : null;
     if (refund) {

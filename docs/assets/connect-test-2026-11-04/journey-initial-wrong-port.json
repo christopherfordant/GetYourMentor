@@ -1,0 +1,1368 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/connect-access.spec.ts",
+      "tests/payment-flow.spec.ts",
+      "tests/stripe-webhook.spec.ts",
+      "tests/telegram-preferences.spec.ts",
+      "tests/access-form-response.spec.ts",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\playwright.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "access-form-response.spec.ts",
+      "file": "access-form-response.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "reject unconfirmed session null",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:50.948Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-9cab21aea43f85ad1be8",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.039Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-bc88aaac25505513a9fd",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session []",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.059Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-07002afe7a5b1091f0db",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"unknown\",\"email\":\"test@example.com\"}",
+          "ok": true,
+          "tags": [
+            "example.com\"}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.083Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-9a18a29db8f96033e569",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"sportif\",\"email\":\"other@example.com\"}",
+          "ok": true,
+          "tags": [
+            "example.com\"}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.101Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-e09a29a08741dd437ba4",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"coach\",\"email\":\"test@example.com\",\"coachId\":123}",
+          "ok": true,
+          "tags": [
+            "example.com\",\"coachId\":123}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.120Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-0cad3f5a6f6beaa3b209",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "server role is authoritative at sign-in, constrained at sign-up",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.139Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-c91bc0b1fef5b637b136",
+          "file": "access-form-response.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "rejection and malformed JSON cannot appear successful",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.168Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-d7c68995933eb7cdb9a3",
+          "file": "access-form-response.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "reject unconfirmed session null",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:59.915Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-d6c556c7ae9cc0079454",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {}",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:59.998Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-7b1f20be3713ff24b6c7",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session []",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.019Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-9d0a5e7a00366447a846",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"unknown\",\"email\":\"test@example.com\"}",
+          "ok": true,
+          "tags": [
+            "example.com\"}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.042Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-9216ae54a9caaa87c4f5",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"sportif\",\"email\":\"other@example.com\"}",
+          "ok": true,
+          "tags": [
+            "example.com\"}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.060Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-25da970a2c70d299bfe6",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "reject unconfirmed session {\"role\":\"coach\",\"email\":\"test@example.com\",\"coachId\":123}",
+          "ok": true,
+          "tags": [
+            "example.com\",\"coachId\":123}"
+          ],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.077Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-bd4e45c88921f84ca3a3",
+          "file": "access-form-response.spec.ts",
+          "line": 2,
+          "column": 173
+        },
+        {
+          "title": "server role is authoritative at sign-in, constrained at sign-up",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.096Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-00f70211357bf2e1fe49",
+          "file": "access-form-response.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "rejection and malformed JSON cannot appear successful",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.123Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "091a0077a3785ea39659-f1f490e52f4774a69689",
+          "file": "access-form-response.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "connect-access.spec.ts",
+      "file": "connect-access.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Connect endpoints never accept a browser-supplied role or beneficiary",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 74,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:3:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                      "column": 24,
+                      "line": 3
+                    },
+                    "snippet": "  1 | import {test,expect} from '@playwright/test';\n  2 | test('Connect endpoints never accept a browser-supplied role or beneficiary',async({request})=>{\n> 3 |  expect((await request.get('/api/stripe/connect')).status()).toBe(403);\n    |                        ^\n  4 |  expect((await request.post('/api/stripe/connect',{headers:{Origin:'https://example.com'},data:{coachId:'victim'}})).status()).toBe(403);\n  5 |  const signin=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});expect(signin.ok()).toBe(true);\n  6 |  const cookie=signin.headers()['set-cookie'].split(';')[0];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                        "column": 24,
+                        "line": 3
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  1 | import {test,expect} from '@playwright/test';\n  2 | test('Connect endpoints never accept a browser-supplied role or beneficiary',async({request})=>{\n> 3 |  expect((await request.get('/api/stripe/connect')).status()).toBe(403);\n    |                        ^\n  4 |  expect((await request.post('/api/stripe/connect',{headers:{Origin:'https://example.com'},data:{coachId:'victim'}})).status()).toBe(403);\n  5 |  const signin=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});expect(signin.ok()).toBe(true);\n  6 |  const cookie=signin.headers()['set-cookie'].split(';')[0];\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:3:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:51.197Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\connect-access-Connect-end-275b8-upplied-role-or-beneficiary-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                    "column": 24,
+                    "line": 3
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e5cd33af9b40df2beda-9f069b6c16df02c37517",
+          "file": "connect-access.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "signup refuses administrator and invalid roles without creating an account",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 40,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:12:62",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                      "column": 62,
+                      "line": 12
+                    },
+                    "snippet": "  10 | });\n  11 | test('signup refuses administrator and invalid roles without creating an account',async({request})=>{\n> 12 |  for(const role of ['admin','unknown'])expect((await request.post('/api/auth/sign-up',{data:{email:'forbidden@example.com',password:'test-password',role}})).status()).toBe(400);\n     |                                                              ^\n  13 | });\n  14 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                        "column": 62,
+                        "line": 12
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n\n  10 | });\n  11 | test('signup refuses administrator and invalid roles without creating an account',async({request})=>{\n> 12 |  for(const role of ['admin','unknown'])expect((await request.post('/api/auth/sign-up',{data:{email:'forbidden@example.com',password:'test-password',role}})).status()).toBe(400);\n     |                                                              ^\n  13 | });\n  14 |\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:12:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:52.247Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\connect-access-signup-refu-9fbd4-without-creating-an-account-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                    "column": 62,
+                    "line": 12
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e5cd33af9b40df2beda-4e3adec4eaf2d7efd562",
+          "file": "connect-access.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "Connect endpoints never accept a browser-supplied role or beneficiary",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 36,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:3:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                      "column": 24,
+                      "line": 3
+                    },
+                    "snippet": "  1 | import {test,expect} from '@playwright/test';\n  2 | test('Connect endpoints never accept a browser-supplied role or beneficiary',async({request})=>{\n> 3 |  expect((await request.get('/api/stripe/connect')).status()).toBe(403);\n    |                        ^\n  4 |  expect((await request.post('/api/stripe/connect',{headers:{Origin:'https://example.com'},data:{coachId:'victim'}})).status()).toBe(403);\n  5 |  const signin=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});expect(signin.ok()).toBe(true);\n  6 |  const cookie=signin.headers()['set-cookie'].split(';')[0];"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                        "column": 24,
+                        "line": 3
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/stripe/connect\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  1 | import {test,expect} from '@playwright/test';\n  2 | test('Connect endpoints never accept a browser-supplied role or beneficiary',async({request})=>{\n> 3 |  expect((await request.get('/api/stripe/connect')).status()).toBe(403);\n    |                        ^\n  4 |  expect((await request.post('/api/stripe/connect',{headers:{Origin:'https://example.com'},data:{coachId:'victim'}})).status()).toBe(403);\n  5 |  const signin=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});expect(signin.ok()).toBe(true);\n  6 |  const cookie=signin.headers()['set-cookie'].split(';')[0];\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:3:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:00.149Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\connect-access-Connect-end-275b8-upplied-role-or-beneficiary-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                    "column": 24,
+                    "line": 3
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e5cd33af9b40df2beda-15fc0574e96d4cc7a25c",
+          "file": "connect-access.spec.ts",
+          "line": 2,
+          "column": 5
+        },
+        {
+          "title": "signup refuses administrator and invalid roles without creating an account",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 40,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:12:62",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                      "column": 62,
+                      "line": 12
+                    },
+                    "snippet": "  10 | });\n  11 | test('signup refuses administrator and invalid roles without creating an account',async({request})=>{\n> 12 |  for(const role of ['admin','unknown'])expect((await request.post('/api/auth/sign-up',{data:{email:'forbidden@example.com',password:'test-password',role}})).status()).toBe(400);\n     |                                                              ^\n  13 | });\n  14 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                        "column": 62,
+                        "line": 12
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-up\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n\n  10 | });\n  11 | test('signup refuses administrator and invalid roles without creating an account',async({request})=>{\n> 12 |  for(const role of ['admin','unknown'])expect((await request.post('/api/auth/sign-up',{data:{email:'forbidden@example.com',password:'test-password',role}})).status()).toBe(400);\n     |                                                              ^\n  13 | });\n  14 |\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts:12:62"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:01.117Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\connect-access-signup-refu-9fbd4-without-creating-an-account-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\connect-access.spec.ts",
+                    "column": 62,
+                    "line": 12
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5e5cd33af9b40df2beda-9ba439a3ad1e5e7c2028",
+          "file": "connect-access.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "payment-flow.spec.ts",
+      "file": "payment-flow.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "le paiement est verrouillé avant acceptation puis confirmé après",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 972,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts:5:33",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                      "column": 33,
+                      "line": 5
+                    },
+                    "snippet": "  3 | test(\"le paiement est verrouillé avant acceptation puis confirmé après\", async ({ page, request }, info) => {\n  4 |   const appointmentAt = new Date(Date.now() + (info.project.name.includes(\"mobile\") ? 96 : 72) * 3_600_000).toISOString();\n> 5 |   const created = await request.post(\"/api/reservations\", {\n    |                                 ^\n  6 |     data: {\n  7 |       coachId: \"steven-fordant\",\n  8 |       service: \"Coaching basketball\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                        "column": 33,
+                        "line": 5
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n\n\n  3 | test(\"le paiement est verrouillé avant acceptation puis confirmé après\", async ({ page, request }, info) => {\n  4 |   const appointmentAt = new Date(Date.now() + (info.project.name.includes(\"mobile\") ? 96 : 72) * 3_600_000).toISOString();\n> 5 |   const created = await request.post(\"/api/reservations\", {\n    |                                 ^\n  6 |     data: {\n  7 |       coachId: \"steven-fordant\",\n  8 |       service: \"Coaching basketball\",\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts:5:33"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:53.330Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                    "column": 33,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "78204f79ba8de233d4ca-a064b9b1879b81239fed",
+          "file": "payment-flow.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "le paiement est verrouillé avant acceptation puis confirmé après",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 511,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts:5:33",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                      "column": 33,
+                      "line": 5
+                    },
+                    "snippet": "  3 | test(\"le paiement est verrouillé avant acceptation puis confirmé après\", async ({ page, request }, info) => {\n  4 |   const appointmentAt = new Date(Date.now() + (info.project.name.includes(\"mobile\") ? 96 : 72) * 3_600_000).toISOString();\n> 5 |   const created = await request.post(\"/api/reservations\", {\n    |                                 ^\n  6 |     data: {\n  7 |       coachId: \"steven-fordant\",\n  8 |       service: \"Coaching basketball\","
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                        "column": 33,
+                        "line": 5
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/reservations\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 172\u001b[22m\n\n\n  3 | test(\"le paiement est verrouillé avant acceptation puis confirmé après\", async ({ page, request }, info) => {\n  4 |   const appointmentAt = new Date(Date.now() + (info.project.name.includes(\"mobile\") ? 96 : 72) * 3_600_000).toISOString();\n> 5 |   const created = await request.post(\"/api/reservations\", {\n    |                                 ^\n  6 |     data: {\n  7 |       coachId: \"steven-fordant\",\n  8 |       service: \"Coaching basketball\",\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts:5:33"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:02.113Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-mobile-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-mobile-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\payment-flow-le-paiement-e-52435-ptation-puis-confirmé-après-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\payment-flow.spec.ts",
+                    "column": 33,
+                    "line": 5
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "78204f79ba8de233d4ca-1b5e681604a7bb560005",
+          "file": "payment-flow.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "stripe-webhook.spec.ts",
+      "file": "stripe-webhook.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "le webhook Stripe signé confirme une réservation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 39,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts:6:30",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                      "column": 30,
+                      "line": 6
+                    },
+                    "snippet": "  4 | test(\"le webhook Stripe signé confirme une réservation\", async ({ request }, testInfo) => {\n  5 |   const slot = new Date(Date.now() + (150 + (testInfo.project.name.includes(\"mobile\") ? 1 : 0)) * 86400000).toISOString();\n> 6 |   const client=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n    |                              ^\n  7 |   expect(client.status()).toBe(200);\n  8 |   const clientCookie=client.headers()['set-cookie'].split(';')[0];\n  9 |   const created = await request.post(\"/api/reservations\", {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                        "column": 30,
+                        "line": 6
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n\n  4 | test(\"le webhook Stripe signé confirme une réservation\", async ({ request }, testInfo) => {\n  5 |   const slot = new Date(Date.now() + (150 + (testInfo.project.name.includes(\"mobile\") ? 1 : 0)) * 86400000).toISOString();\n> 6 |   const client=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n    |                              ^\n  7 |   expect(client.status()).toBe(200);\n  8 |   const clientCookie=client.headers()['set-cookie'].split(';')[0];\n  9 |   const created = await request.post(\"/api/reservations\", {\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts:6:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:57.054Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\stripe-webhook-le-webhook--e57d9-né-confirme-une-réservation-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                    "column": 30,
+                    "line": 6
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e4f4bbc2fb1283c30dcc-1cd8cd087b6a1be2dc2e",
+          "file": "stripe-webhook.spec.ts",
+          "line": 4,
+          "column": 5
+        },
+        {
+          "title": "le webhook Stripe signé confirme une réservation",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 38,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts:6:30",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                      "column": 30,
+                      "line": 6
+                    },
+                    "snippet": "  4 | test(\"le webhook Stripe signé confirme une réservation\", async ({ request }, testInfo) => {\n  5 |   const slot = new Date(Date.now() + (150 + (testInfo.project.name.includes(\"mobile\") ? 1 : 0)) * 86400000).toISOString();\n> 6 |   const client=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n    |                              ^\n  7 |   expect(client.status()).toBe(200);\n  8 |   const clientCookie=client.headers()['set-cookie'].split(';')[0];\n  9 |   const created = await request.post(\"/api/reservations\", {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                        "column": 30,
+                        "line": 6
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3001/api/auth/sign-in\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\u001b[2m    - content-type: application/json\u001b[22m\n\u001b[2m    - content-length: 75\u001b[22m\n\n\n  4 | test(\"le webhook Stripe signé confirme une réservation\", async ({ request }, testInfo) => {\n  5 |   const slot = new Date(Date.now() + (150 + (testInfo.project.name.includes(\"mobile\") ? 1 : 0)) * 86400000).toISOString();\n> 6 |   const client=await request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n    |                              ^\n  7 |   expect(client.status()).toBe(200);\n  8 |   const clientCookie=client.headers()['set-cookie'].split(';')[0];\n  9 |   const created = await request.post(\"/api/reservations\", {\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts:6:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:03.786Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\stripe-webhook-le-webhook--e57d9-né-confirme-une-réservation-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\stripe-webhook.spec.ts",
+                    "column": 30,
+                    "line": 6
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e4f4bbc2fb1283c30dcc-ac3f2b307474ff8dabd7",
+          "file": "stripe-webhook.spec.ts",
+          "line": 4,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "telegram-preferences.spec.ts",
+      "file": "telegram-preferences.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Telegram preferences require authentication and same origin",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 588,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts:4:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                      "column": 24,
+                      "line": 4
+                    },
+                    "snippet": "  2 | import path from 'node:path';\n  3 | test('Telegram preferences require authentication and same origin',async({request,page,baseURL},info)=>{\n> 4 |  expect((await request.get('/api/telegram/preferences')).status()).toBe(401);\n    |                        ^\n  5 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  6 |  const signed=await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n  7 |  expect(signed.status()).toBe(200);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                        "column": 24,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.34 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 | import path from 'node:path';\n  3 | test('Telegram preferences require authentication and same origin',async({request,page,baseURL},info)=>{\n> 4 |  expect((await request.get('/api/telegram/preferences')).status()).toBe(401);\n    |                        ^\n  5 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  6 |  const signed=await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n  7 |  expect(signed.status()).toBe(200);\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts:4:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:44:58.147Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-desktop-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                    "column": 24,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "409fdb457a55295daa89-c3947f4f04a5fd809346",
+          "file": "telegram-preferences.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "Telegram preferences require authentication and same origin",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile-chromium",
+              "projectName": "mobile-chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 525,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts:4:24",
+                    "location": {
+                      "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                      "column": 24,
+                      "line": 4
+                    },
+                    "snippet": "  2 | import path from 'node:path';\n  3 | test('Telegram preferences require authentication and same origin',async({request,page,baseURL},info)=>{\n> 4 |  expect((await request.get('/api/telegram/preferences')).status()).toBe(401);\n    |                        ^\n  5 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  6 |  const signed=await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n  7 |  expect(signed.status()).toBe(200);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                        "column": 24,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.get: connect ECONNREFUSED 127.0.0.1:3001\nCall log:\n\u001b[2m  - → GET http://127.0.0.1:3001/api/telegram/preferences\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 | import path from 'node:path';\n  3 | test('Telegram preferences require authentication and same origin',async({request,page,baseURL},info)=>{\n> 4 |  expect((await request.get('/api/telegram/preferences')).status()).toBe(401);\n    |                        ^\n  5 |  expect((await request.post('/api/telegram/preferences',{data:{action:'start'},headers:{Origin:'https://untrusted.invalid'}})).status()).toBe(403);\n  6 |  const signed=await page.request.post('/api/auth/sign-in',{data:{email:'sportif@example.com',password:'demo-password',role:'sportif'}});\n  7 |  expect(signed.status()).toBe(200);\n    at C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts:4:24"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-04T13:45:04.787Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\test-results\\telegram-preferences-Teleg-35f77-hentication-and-same-origin-mobile-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\tests\\telegram-preferences.spec.ts",
+                    "column": 24,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "409fdb457a55295daa89-618e5bcaa63f4750e02c",
+          "file": "telegram-preferences.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-04T13:44:49.464Z",
+    "duration": 16157.289999999999,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}
