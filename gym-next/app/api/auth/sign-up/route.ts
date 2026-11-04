@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { SignupProviderError } from '@/lib/signup-provider-error';
 import { signUp, type UserRole } from "@/lib/auth";
 import { bodyExceedsLimit, rateLimit, textExceedsLimit } from "@/lib/request-guards";
 
@@ -22,6 +23,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ data: session }, { status: 'confirmationRequired' in session?202:201 });
   } catch (error) {
+    if(error instanceof SignupProviderError)return NextResponse.json({error:error.message,code:error.code},{status:error.status});
     return NextResponse.json({ error: error instanceof Error ? error.message : "Inscription impossible" }, { status: 400 });
   }
 }

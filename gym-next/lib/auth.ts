@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { signupProviderError } from './signup-provider-error';
 import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID, scryptSync, timingSafeEqual } from "node:crypto";
 import { coachIdForName, coachProfiles, createCoachProfile } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
@@ -146,7 +147,7 @@ export async function signUp(email: string, password: string, role: UserRole, pr
       headers: { apikey: config.key, "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, data: profile }),
     });
-    if (!response.ok) throw new Error("Inscription impossible");
+    if (!response.ok) throw await signupProviderError(response);
     const signupPayload = await response.json();
     // GoTrue returns a user directly when confirmation is required, and a
     // session wrapping user otherwise. Obfuscated duplicate users are refused.

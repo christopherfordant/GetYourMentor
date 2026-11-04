@@ -1,0 +1,44 @@
+[
+  {
+    "account": "coach1",
+    "check": "foreign-documents",
+    "status": 403
+  },
+  {
+    "account": "coach1",
+    "check": "foreign-profile",
+    "status": 403
+  },
+  {
+    "account": "coach1",
+    "check": "own-authorized-invalid-kind",
+    "status": 400
+  },
+  {
+    "account": "coach1",
+    "check": "own-telegram",
+    "status": 200,
+    "linked": true
+  },
+  {
+    "account": "coach2",
+    "check": "foreign-documents",
+    "status": 403
+  },
+  {
+    "account": "coach2",
+    "check": "foreign-profile",
+    "status": 403
+  },
+  {
+    "account": "coach2",
+    "check": "own-authorized-invalid-kind",
+    "status": 400
+  },
+  {
+    "account": "coach2",
+    "check": "own-telegram",
+    "status": 200,
+    "linked": false
+  }
+]

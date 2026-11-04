@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Coach confirme et sportif non confirme; coach2 refuse400; aucun paiement externe, approbation coach non effectuee",
-      "next": "Confirmer sportif, diagnostiquer inscription suivante puis recette avec Connect active"
+      "blocker": "Deux coachs persistants et confirmes, sportif1 non confirme; sportif2 refuse400 sans compte; Connect non confirme actif; approbation coach absente",
+      "next": "Confirmer sportif1, puis diagnostiquer prochain refus et finaliser Connect test sans contourner les gardes"
     }
   ]
 }

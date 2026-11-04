@@ -1,0 +1,46 @@
+{
+  "accounts": [
+    {
+      "account": "coach2",
+      "exists": true,
+      "confirmed": true,
+      "role": "coach"
+    },
+    {
+      "account": "sportif1",
+      "exists": true,
+      "confirmed": false,
+      "role": "sportif"
+    },
+    {
+      "account": "coach1",
+      "exists": true,
+      "confirmed": true,
+      "role": "coach"
+    },
+    {
+      "account": "sportif2",
+      "exists": false,
+      "confirmed": false,
+      "role": null
+    }
+  ],
+  "coachProfiles": 2,
+  "verifiedCoachProfiles": 0,
+  "telegramBindings": 1,
+  "date": "2026-11-04",
+  "outlookSignupHttpStatus": 202,
+  "outlookUnconfirmedSignInHttpStatus": 401,
+  "sportif2SignupHttpStatus": 400,
+  "sportif2SafeCode": "signup_provider_error",
+  "historicalFailureCause": "not established",
+  "telegramAssociationPreserved": true,
+  "migrationExecuted": false,
+  "deployment": false,
+  "paymentExecuted": false,
+  "providerRawMessagesExposed": false,
+  "outlookConfirmedSignInHttpStatus": 200,
+  "clientRoleOverrideIgnored": true,
+  "crossCoachIsolationChecksPassed": 8,
+  "finalBuildPassed": true
+}
