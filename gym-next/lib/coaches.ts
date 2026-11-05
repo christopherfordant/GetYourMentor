@@ -8,6 +8,7 @@ import { withReviewStats } from "@/lib/domain/review-rules";
 import { listReviews } from "@/lib/reviews";
 import { listReservations } from "@/lib/reservations";
 import { MENTOR_PREVIEW_LIMIT, type MentorPreview } from "@/lib/mentor-preview";
+import {canReserveCoach,recipeProjection} from './recipe-coach-approval';
 import { readPublicMentorRows } from "@/lib/mentor-preview-query";
 
 import { toPublicCoach, type PublicCoachProfile } from './public-coach';
@@ -174,7 +175,7 @@ export async function listCoaches() {
     throw new Error(`Supabase coach error (${response.status})`);
   }
   const rows = (await response.json()) as Record<string, unknown>[];
-  return rows.map(fromRow);
+  return rows.map(row=>recipeProjection(fromRow(row)));
 }
 
 // A bounded public projection of the same catalogue, without private documents,
@@ -210,7 +211,7 @@ export async function getCoach(idOrName?: string) {
     throw new Error(`Supabase coach error (${response.status})`);
   }
   const [row] = (await response.json()) as Record<string, unknown>[];
-  return row ? fromRow(row) : null;
+  return row ? recipeProjection(fromRow(row)) : null;
 }
 
 export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile, "sport" | "specialty" | "city" | "priceFrom" | "description" | "disciplines" | "diplomas" | "sessionTypes" | "availability" | "photoUrl" | "bankAccountLast4" | "serviceRadiusKm" | "gender" | "practice" | "level" | "format" | "availabilityTags" | "groupPrices">> & { latitude?: number | null; longitude?: number | null }) {
@@ -233,7 +234,7 @@ export async function updateCoach(id: string, updates: Partial<Pick<CoachProfile
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
   const [row] = (await response.json()) as Record<string, unknown>[];
-  return row ? fromRow(row) : null;
+  return row ? recipeProjection(fromRow(row)) : null;
 }
 
 export async function createStoredCoachProfile(input: { name: string; id?: string; city?: string }) {
@@ -288,7 +289,7 @@ export async function setStoredCoachVerification(id: string, verified: boolean) 
   });
   if (!response.ok) throw new Error(`Supabase coach error (${response.status})`);
   const [row] = (await response.json()) as Record<string, unknown>[];
-  return row ? fromRow(row) : null;
+  return row ? recipeProjection(fromRow(row)) : null;
 }
 
 export async function filterStoredCoaches(filters: SearchFilters) {
@@ -299,7 +300,7 @@ export async function filterStoredCoaches(filters: SearchFilters) {
   const canonicalSport = normalizedFilters.sport;
   return coaches
     .map((coach) => ({ ...coach, ...(origin && coach.latitude != null && coach.longitude != null ? { distanceKm: distanceKm(origin, { latitude: coach.latitude, longitude: coach.longitude }) } : {}) }))
-    .filter((coach) => coach.verified
+    .filter((coach) => canReserveCoach(coach)
       && (!canonicalSport || coach.sport === canonicalSport)
       && (!normalizedFilters.city || coach.city.toLowerCase() === normalizedFilters.city.toLowerCase())
       && (!origin || isWithinCoachServiceRadius(coach.distanceKm, radiusKm, coach.serviceRadiusKm))

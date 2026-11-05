@@ -2,6 +2,8 @@ import { canonicalSportSlug, type SportSlug } from './sports-catalogue';
 export { canonicalSportSlug, type SportSlug } from './sports-catalogue';
 
 export type CoachProfile = {
+  recipeDemo?: boolean;
+  bookingAllowed?: boolean;
   id: string;
   name: string;
   sport: SportSlug;

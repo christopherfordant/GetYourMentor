@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../gym-booking-design.css";
 import { ChoixCoachCreneauLegacyPage } from "@/components/reservation-legacy/ChoixCoachCreneauLegacyPage";
 import { ProductionUnavailable } from "@/components/common/ProductionUnavailable";
+import {canReserveCoach} from '@/lib/recipe-coach-approval';
 import { getBookingGate } from "@/lib/booking-gates";
 import { buildCanonical, buildPageMetadata } from "@/lib/seo";
 
@@ -42,6 +43,6 @@ export default async function CreneauPage({ searchParams }: CreneauPageProps) {
   }
 
   const profile = gate.coach ?? await getCoach(normalizedParams.coach ?? "steven-fordant");
-  if (!profile?.verified) return <ProductionUnavailable title="Coach indisponible" description="Choisissez un coach disponible depuis la recherche." />;
-  return <ChoixCoachCreneauLegacyPage key={profile.id} calendarNow={Date.now()} demo={gate.mode === "demo"} params={{ ...normalizedParams, coachId: profile.id, coach: profile.name, city: profile.city, sport: profile.sport, price: String(profile.priceFrom), service: normalizedParams.service || profile.specialty }} />;
+  if (!profile || !canReserveCoach(profile)) return <ProductionUnavailable title="Coach indisponible" description="Choisissez un coach disponible depuis la recherche." />;
+  return <>{profile.recipeDemo && <aside role="note">Profil fictif de démonstration — réservation de recette uniquement</aside>}<ChoixCoachCreneauLegacyPage key={profile.id} calendarNow={Date.now()} demo={gate.mode === "demo"} params={{ ...normalizedParams, coachId: profile.id, coach: profile.name, city: profile.city, sport: profile.sport, price: String(profile.priceFrom), service: normalizedParams.service || profile.specialty }} /></>;
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {recipeApprovalActive} from '@/lib/recipe-coach-approval';
 import "../gym-booking-design.css";
 import { RecapitulatifReservationLegacyPage } from "@/components/reservation-legacy/RecapitulatifReservationLegacyPage";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
@@ -10,5 +11,5 @@ export const metadata: Metadata = {
 export default async function RecapitulatifPage({searchParams}:{searchParams:Promise<Record<string,string|string[]|undefined>>}) {
   const params=await searchParams;const id=Array.isArray(params.reservationId)?params.reservationId[0]:params.reservationId;
   // No commercial query value or private proof serialized into component props/metadata.
-  return <RecapitulatifReservationLegacyPage demo={isDemoFallbackAllowed()} params={{reservationId:id}} />;
+  return <>{recipeApprovalActive() && <aside role="note">Profil fictif de démonstration — réservation de recette uniquement</aside>}<RecapitulatifReservationLegacyPage demo={isDemoFallbackAllowed()} params={{reservationId:id}} /></>;
 }

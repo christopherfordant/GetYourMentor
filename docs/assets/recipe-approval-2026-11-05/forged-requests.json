@@ -1,0 +1,15 @@
+[
+  {
+    "check": "forged-profile-approval",
+    "status": 400
+  },
+  {
+    "check": "forged-other-booking",
+    "status": 404
+  },
+  {
+    "check": "initial-invalid-fixture",
+    "status": 400,
+    "reason": "Timestamp format corrected before authorization check"
+  }
+]

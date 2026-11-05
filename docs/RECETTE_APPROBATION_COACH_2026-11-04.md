@@ -41,3 +41,9 @@ Ne pas activer simplement GETYOURMENTOR_ALLOW_DEMO ou ACCEPTANCE_MODE : cela cha
 ## Limites actuelles
 
 Proposition non executee : aucun coach rendu reservable, aucune nouvelle regle active. Le blocage Stripe Connect demeure independant. La configuration exacte du mecanisme administratif distinct doit etre revue avant de le brancher au parcours, comme demande par l utilisateur.
+
+## Realisation du 5 novembre 2026
+
+Orientation validee par consigne utilisateur bf8ee1c7 puis reprise 8eaffb04. Integration locale controlee et appliquee, aucune migration ni modification de verified. Les sections Proposition ci-dessus conservent le contexte historique. Details actuels et limites : docs/CONNECT_PARCOURS_TEST_2026-11-04.md, section du5novembre; preuves docs/assets/recipe-approval-2026-11-05/.
+
+Operation administrative : scripts/set-recipe-coach-approval.ps1 depuis gym-next, option -Revoke pour retirer. Ces operations sont locales et necessitent une relance du lanceur start-test-services.ps1, sans fabrication de session admin. Audit prive : LOCALAPPDATA/GetYourMentor-Test/recipe-approval-audit.jsonl. Configuration DPAPI, aucune valeur a copier dans Git.

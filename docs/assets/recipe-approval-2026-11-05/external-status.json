@@ -1,0 +1,11 @@
+{
+  "telegramBindings": 1,
+  "outboxEntries": 3,
+  "acceptedNotifications": 3,
+  "uncertainNotifications": 0,
+  "professionallyVerifiedCoaches": 0,
+  "acceptedReservationStatus": "accepted",
+  "price": 40.0,
+  "financialSnapshotPresent": true,
+  "paymentIntentPresent": false
+}

@@ -1,3 +1,4 @@
+import {canReserveCoach} from '@/lib/recipe-coach-approval';
 import { attemptFingerprint, attemptIdValid, attemptScope, BookingAttemptError, type AttemptInput } from "@/lib/booking-attempt-server";
 import { readBookingAttempt } from "@/lib/repositories/reservation-repository";
 import { reservationForRole } from "@/lib/domain/reservation-privacy";
@@ -61,7 +62,7 @@ export async function POST(request: Request) {
   const coach = await getCoach(input.data.coachId);
   const { coachId, service, duration, slots, appointmentAt } = input.data;
 
-  if (!coach || !coach.verified) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
+  if (!coach || !canReserveCoach(coach)) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
 
   if (structureOfferId && input.data.participantCount === 1 && coach.priceFrom <= 0) return NextResponse.json({ error: "Le coach doit définir un tarif pour un participant" }, { status: 409 });
 
@@ -110,7 +111,7 @@ export async function GET(request: Request) {
     const requestedCoach = new URL(request.url).searchParams.get("coachId") ?? undefined;
     const requestedProfile = requestedCoach ? await getCoach(requestedCoach) : null;
     if (requestedCoach && !requestedProfile) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
-    if (requestedProfile && !requestedProfile.verified && (!session || (session.role !== "admin" && !(session.role === "coach" && session.coachId === requestedProfile.id)))) {
+    if (requestedProfile && !canReserveCoach(requestedProfile) && (!session || (session.role !== "admin" && !(session.role === "coach" && session.coachId === requestedProfile.id)))) {
       return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
     }
 

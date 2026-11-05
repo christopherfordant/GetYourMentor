@@ -17,6 +17,7 @@ type SelectionCoachsLegacyPageProps = {
 };
 
 type CoachEntry = {
+  recipeDemo?: boolean;
   specialty?: string;
   sessionTypes?: string;
   photoUrl?: string;
@@ -300,6 +301,7 @@ function CoachResultCard({
       <div className="de-coach-result-body">
         <div className="de-coach-result-top">
           <h2>{coach.name}</h2>
+          {coach.recipeDemo && <p role="note">Profil fictif de démonstration — réservation de recette uniquement</p>}
           <div className="de-coach-result-address">{coach.address}</div>
           {coach.distanceKm != null ? <div className="de-coach-result-distance">À {coach.distanceKm.toFixed(1)} km</div> : null}
           <div className="de-coach-result-meta">{coach.meta}</div>

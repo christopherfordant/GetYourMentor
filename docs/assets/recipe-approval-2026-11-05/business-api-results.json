@@ -1,0 +1,67 @@
+[
+  {
+    "check": "prepare-own-demo-profile",
+    "status": 200,
+    "expected": 200
+  },
+  {
+    "check": "public-demo-projection",
+    "status": 200,
+    "expected": 200
+  },
+  {
+    "check": "other-coach-unavailable",
+    "status": 404,
+    "expected": 404
+  },
+  {
+    "check": "create-accepted",
+    "status": 201,
+    "expected": 201
+  },
+  {
+    "check": "duplicate-slot-refused",
+    "status": 409,
+    "expected": 409
+  },
+  {
+    "check": "other-coach-action-refused",
+    "status": 403,
+    "expected": 403
+  },
+  {
+    "check": "accepted",
+    "status": 200,
+    "expected": 200
+  },
+  {
+    "check": "transition-replay-refused",
+    "status": 409,
+    "expected": 409
+  },
+  {
+    "check": "accepted-persists",
+    "status": 200,
+    "expected": 200
+  },
+  {
+    "check": "create-rejected",
+    "status": 201,
+    "expected": 201
+  },
+  {
+    "check": "rejected",
+    "status": 200,
+    "expected": 200
+  },
+  {
+    "check": "create-cancelled",
+    "status": 201,
+    "expected": 201
+  },
+  {
+    "check": "cancelled",
+    "status": 200,
+    "expected": 200
+  }
+]

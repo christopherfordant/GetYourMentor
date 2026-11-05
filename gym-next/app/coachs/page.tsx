@@ -88,6 +88,7 @@ export default async function CoachsPage({ searchParams }: CoachsPageProps) {
     price: coach.priceFrom,
     rating: coach.rating,
     verified: coach.verified,
+    recipeDemo: coach.recipeDemo,
     distanceKm: coach.distanceKm,
     format: coach.format,
     gender: coach.gender,

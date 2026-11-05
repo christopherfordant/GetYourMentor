@@ -18,9 +18,11 @@ Object.assign(env, {
   GETYOURMENTOR_ACCEPTANCE_MODE: 'true',
 });
 if (process.env.GYM_REAL_TEST_SERVICES === 'true') {
-  for (const key of ['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','SESSION_SECRET','STRIPE_SECRET_KEY','STRIPE_WEBHOOK_SECRET','STRIPE_CONNECT_COUNTRY','TELEGRAM_BOT_TOKEN','TELEGRAM_WEBHOOK_SECRET','TELEGRAM_TEST_CHAT_IDS']) if(process.env[key]) env[key]=process.env[key];
+  for (const key of ['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY','SESSION_SECRET','STRIPE_SECRET_KEY','STRIPE_WEBHOOK_SECRET','STRIPE_CONNECT_COUNTRY','TELEGRAM_BOT_TOKEN','TELEGRAM_WEBHOOK_SECRET','TELEGRAM_TEST_CHAT_IDS','RECIPE_COACH_APPROVAL']) if(process.env[key]) env[key]=process.env[key];
   if(env.SUPABASE_URL!=='https://pqxqqbwesfrefzjoawmx.supabase.co'||!env.SUPABASE_ANON_KEY||!env.SUPABASE_SERVICE_ROLE_KEY||!env.SESSION_SECRET||!env.STRIPE_WEBHOOK_SECRET||!env.TELEGRAM_BOT_TOKEN||!env.TELEGRAM_TEST_CHAT_IDS||!/^(sk|rk)_test_[A-Za-z0-9]+$/.test(env.STRIPE_SECRET_KEY??'')) throw Error('Configuration de recette incomplete ou interdite; aucun repli local autorise.');
   env.PAYMENT_PROVIDER='stripe';
+  env.GYM_REAL_TEST_SERVICES='true';
+  env.DEPLOY_ENV='recipe';
   env.STRIPE_CONNECT_ENABLED='true';
   env.GETYOURMENTOR_ALLOW_DEMO='false';
   env.GETYOURMENTOR_ACCEPTANCE_MODE='false';

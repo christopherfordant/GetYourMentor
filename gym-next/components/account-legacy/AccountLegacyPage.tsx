@@ -508,7 +508,7 @@ function CoachDashboard({
           </div>
           <div className="coach-home-profile-preview-head">
             <strong>{coachProfile?.name ?? coachName}</strong>
-            <span>{coachProfile?.verified ? "Coach vérifié" : "Profil en attente de vérification"}</span>
+            <span>{coachProfile?.recipeDemo ? "Profil fictif de démonstration — réservation de recette uniquement" : coachProfile?.verified ? "Coach vérifié" : "Profil en attente de vérification"}</span>
           </div>
           <div className="coach-home-profile-preview-grid">
             <div>

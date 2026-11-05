@@ -1,0 +1,14 @@
+{
+  "connect-status": {
+    "status": 200,
+    "linked": false,
+    "ready": false,
+    "error": null
+  },
+  "checkout-attempt": {
+    "status": 409,
+    "linked": null,
+    "ready": null,
+    "error": "Le coach doit terminer son association Stripe de test"
+  }
+}

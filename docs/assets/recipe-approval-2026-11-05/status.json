@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-05",
+  "approvalAppliedLocally": true,
+  "professionalVerificationChanged": false,
+  "expiryMaximumSeconds": 3600,
+  "revocationExecuted": true,
+  "revokedPublicProfileHttpStatus": 404,
+  "approvalReenabledAfterRevocationTest": true,
+  "businessApiChecksPassed": 13,
+  "reservationsCreated": 3,
+  "states": [
+    "accepted",
+    "rejected",
+    "cancelled"
+  ],
+  "telegramRequestsAccepted": 3,
+  "phoneReceiptConfirmedByUser": true,
+  "telegramBindingMoved": false,
+  "forgedRequestsRefused": 2,
+  "unitTestsPassed": 16,
+  "browserProjectsPassed": 2,
+  "screensPerProject": 3,
+  "privateViewsAlsoChecked": [
+    "recapitulatif",
+    "compte-coach"
+  ],
+  "buildPassed": true,
+  "checkoutHttpStatus": 409,
+  "checkoutReason": "Coach must complete Stripe test association",
+  "stripeConnectStatus": {
+    "httpStatus": 200,
+    "linked": false,
+    "ready": false
+  },
+  "stripeScreen": "Review your setup - Connect Platform Agreement",
+  "responsibilitiesAcceptedByAgent": false,
+  "paymentExecuted": false,
+  "transferExecuted": false,
+  "refundExecuted": false,
+  "migrationExecuted": false,
+  "deployment": false,
+  "stripeResponsibilitiesConfirmedByUser": true,
+  "stripeTechnicalSetupPrepared": true,
+  "connectAgreementAcceptedByAgent": false,
+  "connectAgreementAcceptanceConfirmed": false
+}

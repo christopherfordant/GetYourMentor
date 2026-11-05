@@ -350,7 +350,7 @@ export function ReserverSeanceLegacyPage({ params, allowDemoFallback = false, de
   }, [coach, attempt]);
   const profile = {
     followers: "Activité non publiée",
-    qualification: allowDemoFallback ? "Validation simulée — profil de test" : coachData?.verified ? "Profil validé dans le catalogue" : "Vérification à confirmer",
+    qualification: coachData?.recipeDemo ? "Profil fictif de démonstration — réservation de recette uniquement" : allowDemoFallback ? "Validation simulée — profil de test" : coachData?.verified ? "Profil validé dans le catalogue" : "Vérification à confirmer",
     reviews: coachData?.reviewCount ? `${coachData.reviewCount} avis` : "Pas encore d’avis",
     ratingValue: coachData?.reviewCount ? `${coachData.rating.toFixed(1)} / 5` : "Pas encore de note",
     priceFrom: coachData?.priceFrom,

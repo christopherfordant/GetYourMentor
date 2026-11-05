@@ -1,3 +1,4 @@
+import {canReserveCoach} from './recipe-coach-approval';
 import { getCoach, type PublicCoachProfile } from "@/lib/coaches";
 import { isDemoFallbackAllowed } from "@/lib/runtime";
 
@@ -14,7 +15,7 @@ export async function getBookingGate(coachIdOrName: string | undefined) {
 
   try {
     const coach = await getCoach(coachIdOrName);
-    if (!coach?.verified) return { mode: "unavailable" as const, coach: null };
+    if (!coach || !canReserveCoach(coach)) return { mode: "unavailable" as const, coach: null };
     return { mode: "production" as const, coach: coach as PublicCoachProfile };
   } catch {
     return { mode: "unavailable" as const, coach: null };

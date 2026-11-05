@@ -1,3 +1,4 @@
+import {canReserveCoach} from '@/lib/recipe-coach-approval';
 import { canonicalSportSlug } from '@/lib/sports-catalogue';
 import { NextResponse } from "next/server";
 import { currentSession, requireRole } from "@/lib/auth";
@@ -12,7 +13,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ id:
     if (!coach) return NextResponse.json({ error: "Coach introuvable" }, { status: 404 });
     const session = await currentSession();
     const isAuthorizedPrivateView = canViewPrivateCoach(session, coach.id);
-    if (!coach.verified && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
+    if (!canReserveCoach(coach) && !isAuthorizedPrivateView) return NextResponse.json({ error: "Coach indisponible" }, { status: 404 });
     return NextResponse.json({ data: isAuthorizedPrivateView ? coach : toPublicCoach(coach) });
   } catch {
     return NextResponse.json({ error: "Profil coach temporairement indisponible" }, { status: 503 });
