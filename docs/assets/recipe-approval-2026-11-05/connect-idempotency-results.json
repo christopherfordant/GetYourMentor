@@ -1,0 +1,408 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "playwright.connect-test.config.ts",
+      "tests/stripe-connect.spec.ts",
+      "--project",
+      "desktop-chromium",
+      "--workers",
+      "1",
+      "--reporter=json"
+    ],
+    "configFile": "C:\\Users\\cashe\\Documents\\GYM-connect-test-20261104\\gym-next\\playwright.connect-test.config.ts",
+    "rootDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "desktop-chromium",
+        "name": "desktop-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile-chromium",
+        "name": "mobile-chromium",
+        "testDir": "C:/Users/cashe/Documents/GYM-connect-test-20261104/gym-next/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "stripe-connect.spec.ts",
+      "file": "stripe-connect.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Checkout uses immutable historical fee and server-side beneficiary, with stable idempotency",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-d129e5b72602c39feaa9",
+          "file": "stripe-connect.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "Checkout rejects unaccepted reservations and live keys before provider access",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.709Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-fac46ee1e0348e09fc35",
+          "file": "stripe-connect.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "Connect rejects missing bindings, inactive capabilities and invalid commission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.761Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-2402b3d5e8d33a14ef95",
+          "file": "stripe-connect.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "A binding to a different coach is rejected and onboarding link origin is constrained",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-8c08aec5512857c0e0fb",
+          "file": "stripe-connect.spec.ts",
+          "line": 41,
+          "column": 5
+        },
+        {
+          "title": "initial onboarding persists a test-only immutable binding and uses a stable creation key",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.841Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-33ebed826def3d0086ff",
+          "file": "stripe-connect.spec.ts",
+          "line": 47,
+          "column": 5
+        },
+        {
+          "title": "unconfigured recipe storage fails before creating external accounts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.888Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-32c69e90bfd3fda00e08",
+          "file": "stripe-connect.spec.ts",
+          "line": 59,
+          "column": 5
+        },
+        {
+          "title": "Settlement requires Stripe-confirmed fee, destination and exact transfer references",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.917Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-38937134b506660118d2",
+          "file": "stripe-connect.spec.ts",
+          "line": 62,
+          "column": 5
+        },
+        {
+          "title": "Connect refunds reverse the transfer and refund the proportional application fee",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.947Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-de787ce8f58be7cb018c",
+          "file": "stripe-connect.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "Connect references survive the persistence mapper round trip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-chromium",
+              "projectName": "desktop-chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-05T08:50:37.987Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fd06add8ad0bb5c1e8e2-6f6cafee3ee0b4e30632",
+          "file": "stripe-connect.spec.ts",
+          "line": 72,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-05T08:50:35.340Z",
+    "duration": 2721.2250000000004,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

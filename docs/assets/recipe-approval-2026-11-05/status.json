@@ -32,7 +32,7 @@
     "linked": false,
     "ready": false
   },
-  "stripeScreen": "Review your setup - Connect Platform Agreement",
+  "stripeScreen": "Test API policies - Accounts v1 support",
   "responsibilitiesAcceptedByAgent": false,
   "paymentExecuted": false,
   "transferExecuted": false,
@@ -42,5 +42,13 @@
   "stripeResponsibilitiesConfirmedByUser": true,
   "stripeTechnicalSetupPrepared": true,
   "connectAgreementAcceptedByAgent": false,
-  "connectAgreementAcceptanceConfirmed": false
+  "connectAgreementAcceptanceConfirmed": true,
+  "oldConnectFailureReplayed": true,
+  "newIdempotencyNamespace": "gym-connect-test-v2",
+  "accountsApiVersionStill": "v1",
+  "currentConnectBlocker": "Accounts v1 creation disabled by provider policy",
+  "accountsV1CompatibilitySaved": false,
+  "policyScopeObserved": "Entire account; test-only guarantee not observed",
+  "stripeForwarderReady": true,
+  "stripeForwarderSecretMatchesVault": true
 }

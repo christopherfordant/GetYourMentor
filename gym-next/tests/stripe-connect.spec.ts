@@ -51,7 +51,7 @@ test('initial onboarding persists a test-only immutable binding and uses a stabl
    if(init?.method==='POST'){const body=JSON.parse(String(init.body));expect(body).toEqual({coach_id:'coach-test',stripe_account_id:'acct_fixture',mode:'test'});expect(new Headers(init.headers).get('Prefer')).toBe('resolution=ignore-duplicates');linked=true;return new Response(null,{status:201});}
    return Response.json(linked?[{stripe_account_id:'acct_fixture'}]:[]);
   }
-  if(url.endsWith('/v1/accounts')){const form=new URLSearchParams(String(init?.body));expect(form.get('metadata[gym_environment]')).toBe('test');expect(new Headers(init?.headers).get('Idempotency-Key')).toBe('gym-connect-test-coach-test');return Response.json({id:'acct_fixture'});}
+  if(url.endsWith('/v1/accounts')){const form=new URLSearchParams(String(init?.body));expect(form.get('metadata[gym_environment]')).toBe('test');expect(new Headers(init?.headers).get('Idempotency-Key')).toBe('gym-connect-test-v2-coach-test');return Response.json({id:'acct_fixture'});}
   return good(i,init);
  };
  await expect(connectOnboarding('coach-test')).resolves.toEqual({mode:'test',url:'https://connect.stripe.com/setup/test_fixture'});expect(linked).toBe(true);

@@ -917,8 +917,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Parcours avant paiement verifie; responsabilites Connect attendent decision utilisateur, aucun paiement externe confirme",
-      "next": "Finir Connect puis paiement test complet"
+      "blocker": "Avant paiement verifie; politique API Accounts v1 desactivee, choix de portee compte en attente",
+      "next": "Decision compatibilite v1 ou migration locale v2 puis paiement externe test"
     },
     {
       "id": "GYM-B1.1",
@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Reservation/Telegram externes verifies; Checkout409 sans compte coach Connect pret; decision personnelle Stripe sur responsabilites en attente",
-      "next": "Decision personnelle Stripe puis onboarding et paiement/webhook/transfert/remboursement test; conserver approbation recette bornee"
+      "blocker": "Accord Connect accepte par utilisateur; Accounts v1 desactive par politique fournisseur, portee compte a arbitrer; aucun paiement externe",
+      "next": "Choix explicite compatibilite v1 compte ou adaptation Accounts v2; puis onboarding et paiement test"
     }
   ]
 }

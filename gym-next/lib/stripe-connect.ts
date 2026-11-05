@@ -34,7 +34,7 @@ export async function connectOnboarding(coachId:string){
  if(!id){
   const country=process.env.STRIPE_CONNECT_COUNTRY;if(!country||!/^[A-Z]{2}$/.test(country))throw Error('Pays du compte Connect de test non configuré');
   const form=new URLSearchParams({type:'express',country,'capabilities[card_payments][requested]':'true','capabilities[transfers][requested]':'true','metadata[coach_id]':coachId,'metadata[gym_environment]':'test'});
-  const created=await stripe('accounts',form,`gym-connect-test-${coachId}`);
+  const created=await stripe('accounts',form,`gym-connect-test-v2-${coachId}`);
   if(typeof created.id!=='string'||!/^acct_[A-Za-z0-9]+$/.test(created.id))throw Error('Compte Connect absent');
   await account(coachId,created.id);
   const db=store();const response=await fetch(db.url+'/rest/v1/gym_stripe_coach_accounts?on_conflict=coach_id',{method:'POST',headers:{...db.headers,Prefer:'resolution=ignore-duplicates'},body:JSON.stringify({coach_id:coachId,stripe_account_id:created.id,mode:'test'}),signal:AbortSignal.timeout(8000)});
