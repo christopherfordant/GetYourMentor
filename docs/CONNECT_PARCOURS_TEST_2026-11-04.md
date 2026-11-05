@@ -178,3 +178,31 @@ Mise a jour Stripe du 5 novembre : utilisateur a confirme personnellement les re
 Mise a jour Connect : utilisateur confirme personnellement l accord Connect; retour au guide observe et parcours Testez votre integration maintenant accessible. Le refus historique etait rejoue : en-tete Idempotent-Replayed=true. Aucun compte dans la liste test avant changement. Cle de creation passee au namespace stable gym-connect-test-v2-... (ce nom ne signifie PAS Accounts v2); aucun changement des beneficiaires ni des montants. Apres ce changement, Stripe revele un nouveau refus precis : creation Accounts v1 desactivee pour cette nouvelle integration, option officielle de compatibilite dans les politiques API. Nouvelle erreur egalement mise en cache, aucune autre rotation ni creation repetee prevue tant que politique non decidee.
 
 Ecran test des politiques ouvert, support Accounts v1 desactive. Fenetre indique modifications applicables au compte entier, sans garantie d isolation test : aucune activation enregistree. Choix utilisateur demande compte tenu de l exclusion production : autoriser explicitement compatibilite v1 sur compte, ou conserver politique et adapter a Accounts v2. Source officielle consultee : https://docs.stripe.com/connect/accounts-v2/account-creation . L utilisateur a accepte les contrats lui-meme; l agent n a accepte aucun engagement. Forwarder Stripe test relance, secret concordant avec coffre; aucun evenement metier encore traite.
+
+
+### Accounts v2 - adaptation et blocage sandbox, 5 novembre 2026
+
+Decision utilisateur : Accounts v2 retenu, aucune activation de la politique Accounts v1. Endpoint comptes et liens : /v2/core/accounts et /v2/core/account_links, JSON, version explicite 2026-10-28.endive (reference API stable consultee). Checkout, PaymentIntent et remboursements restent sur leurs endpoints v1 compatibles. Aucun montant, commission ou beneficiaire choisi par navigateur.
+
+Integration : configuration recipient seule pour les destination charges (encaissement plateforme, transfert au coach), dashboard Express et responsabilites application conformes au modele deja retenu. Capacites stripe_transfers ET payouts actives exigees avant Checkout. Merchant non necessaire pour ce flux; son ajout initial a expose account_token_required en France. Aucune tokenisation fictive ni acceptation de contrat effectuee. Email de contact requis, fourni uniquement par la session authentifiee, corps client ignore. Lecture explicite configuration.recipient et requirements, controles objet v2, livemode=false, identifiant et metadata coach. Liens HTTPS exclusivement accounts.stripe.com/connect.stripe.com, compte correspondant et mode test. Cle de creation stable distincte gym-connect-accounts-v2-create-{coach}; liaison existante relue avant creation, aucune rotation aveugle.
+
+Appels reels : premiere creation refusee faute de contact_email, seconde avec merchant refusee account_token_required. Creation recipient ensuite reussie; une liaison test persistee puis relue en Supabase. Verification v2 distante : objet v2.core.account, livemode=false, metadata concordante, payouts restricted et stripe_transfers restricted. Aucun doublon cree. Le test fournisseur a ete execute avec le module serveur source transpile localement et les secrets DPAPI en environnement ephemere, pas par une session utilisateur inventee.
+
+Lien : champ configurations apparait dans la reponse documentaire mais n est pas accepte en requete stable; retire apres erreur invalid_fields, sans changer la version API. Requete conforme suivante refusee400 : Stripe exige un compte cree dans un sandbox pour cette configuration recipient en testmode. Message expurge : Cannot create a v2 account link ... with recipient config capabilities other than stripe_balance.stripe_transfers requested in testmode. Please switch to an account created in a sandbox to test. Ne pas retirer les exigences, activer v1 ou recreer en boucle. Compte existant preserve.
+
+Preuves : docs/assets/accounts-v2-2026-11-05/ : 11 tests fournisseurs mocks PASS, statut externe expurge. Les tests couvrent commission/destination historiques, refus live, capacites absentes/inactives, compte autre coach, origine du lien, liaison persistante/idempotence, remboursement et mapping. Ils ne prouvent ni paiement externe ni recette visuelle. Aucune nouvelle notification Telegram; les trois receptions precedentes confirmees par utilisateur restent historiques. Pas de Checkout, webhook metier, transfert ou remboursement execute dans ce lot. Aucun rendu mobile du paiement declare.
+
+Prochaine etape : examiner un sandbox Stripe existant ou preparer un environnement isole autorise et ses cles test. L association actuelle est immuable et les objets Stripe ne se transportent pas entre environnements : definir une strategie de stockage par plateforme/sandbox avant de changer les cles. Toute migration distante supplementaire reste hors autorisation actuelle. Ne pas supprimer la liaison existante ou reutiliser ses identifiants avec une autre plateforme. Onboarding personnel/contrats eventuels restent a effectuer par utilisateur. GYM-B1.5 demeure bloque, pas DONE.
+
+Sources officielles consultees :
+- https://docs.stripe.com/connect/accounts-v2
+- https://docs.stripe.com/api/v2/core/accounts/create
+- https://docs.stripe.com/api/v2/core/accounts/object
+- https://docs.stripe.com/api/v2/core/account-links/create
+- https://docs.stripe.com/connect/accounts-v2/connected-account-configuration
+- https://docs.stripe.com/connect/account-tokens
+- https://docs.stripe.com/sandboxes
+
+Controles finaux du lot Accounts v2 : build release PASS (types inclus), frontiere client/serveur PASS apres build; 11 tests mocks PASS et Kanban35/35 PASS. Un premier controle frontiere lance pendant le build avait signale artefacts absents; aucun PASS premature declare, controle reexecute sur build termine. Dix-huit fichiers anterieurs compares par SHA256 et preserves.
+
+Controle API authentifie sur build final : statut Connect200 linked=true/ready=false; paiement de la reservation acceptee refuse409 (compte Stripe coach non pret), aucun Checkout cree. Serveur recette session86047, loopback3005. Frontiere secrets et fil rouge PASS, controle secrets suivis PASS depuis gym-next.

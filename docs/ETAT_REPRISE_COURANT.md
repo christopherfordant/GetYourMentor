@@ -1,3 +1,13 @@
+## Reprise active - 5 novembre 2026 : Accounts v2 integre, onboarding bloque sur sandbox
+
+Decision v2 executee, politique v1 inchangee. Endpoints comptes/liens v2 JSON version stable 2026-10-28.endive; recipient seul pour destination charges, email de session authentifiee. Un compte connecte test cree et liaison Supabase persistee; verifie distant v2.core.account/livemode=false/metadata concordante. Capacites payouts et stripe_transfers restricted, Checkout toujours refuse. Aucun paiement, webhook metier, transfert ou remboursement externe effectue.
+
+Blocage reel : lien d onboarding refuse400 par Stripe, demande explicite de compte cree dans sandbox pour cette configuration recipient en testmode. Aucun contournement, aucune nouvelle creation repetee, aucune politique globale modifiee. Compte et association existants preserves. Examiner sandbox disponible puis plan de stockage par environnement avant toute bascule de cles : association actuelle immuable, migration distante supplementaire non autorisee. Approvals recette expires a reverifier avant reprise metier, aucun renouvellement silencieux.
+
+API serveur du build final : GET Connect200 linked=true/ready=false et paiement409 compte non pret. Serveur recette final session86047 sur 127.0.0.1:3005.
+
+11 tests fournisseurs mocks PASS; preuves docs/assets/accounts-v2-2026-11-05/. Rapport canonique docs/CONNECT_PARCOURS_TEST_2026-11-04.md, section Accounts v2. Pas de nouvelle recette navigateur du paiement ni nouvelle reception Telegram. Build final (compilation/types) et frontiere secrets client PASS; tests Kanban 35/35 PASS. SHA final a retrouver dans Git apres livraison. Changements anterieurs preserves; aucun deploiement. GYM-B1.5 bloque, aucune cloture globale.
+
 ## Reprise active - 5 novembre 2026 : approbation recette integree et reservations externes verifiees
 
 Mise a jour Connect : utilisateur confirme personnellement l accord Connect; retour au guide observe et parcours Testez votre integration maintenant accessible. Le refus historique etait rejoue : en-tete Idempotent-Replayed=true. Aucun compte dans la liste test avant changement. Cle de creation passee au namespace stable gym-connect-test-v2-... (ce nom ne signifie PAS Accounts v2); aucun changement des beneficiaires ni des montants. Apres ce changement, Stripe revele un nouveau refus precis : creation Accounts v1 desactivee pour cette nouvelle integration, option officielle de compatibilite dans les politiques API. Nouvelle erreur egalement mise en cache, aucune autre rotation ni creation repetee prevue tant que politique non decidee.

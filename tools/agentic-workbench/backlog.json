@@ -917,8 +917,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Avant paiement verifie; politique API Accounts v1 desactivee, choix de portee compte en attente",
-      "next": "Decision compatibilite v1 ou migration locale v2 puis paiement externe test"
+      "blocker": "Accounts v2 integre; un compte test persiste; onboarding exige sandbox; paiement externe non verifie",
+      "next": "Examiner sandbox et isolation des associations avant bascule; conserver compte existant"
     },
     {
       "id": "GYM-B1.1",
@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Accord Connect accepte par utilisateur; Accounts v1 desactive par politique fournisseur, portee compte a arbitrer; aucun paiement externe",
-      "next": "Choix explicite compatibilite v1 compte ou adaptation Accounts v2; puis onboarding et paiement test"
+      "blocker": "Accounts v2 recipient cree et persiste; Stripe refuse onboarding testmode et exige sandbox; aucun paiement externe",
+      "next": "Preparer sandbox et stockage par environnement sans supprimer liaison; puis onboarding et paiement test"
     }
   ]
 }

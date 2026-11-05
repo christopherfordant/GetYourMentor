@@ -13,5 +13,5 @@ export async function POST(request:Request){
  const s=await currentSession();if(!s||s.role!=='coach'||!s.coachId)return NextResponse.json({error:'Connexion coach requise'},{status:403});
  if(!rateLimit(request,'connect-onboarding',5,60000).allowed)return NextResponse.json({error:'Réessayez plus tard'},{status:429});
  // Body intentionally ignored: a browser cannot assign a coach or beneficiary.
- try{return NextResponse.json(await connectOnboarding(s.coachId),{headers:{'Cache-Control':'no-store'}});}catch{return NextResponse.json({error:'Association Stripe de test indisponible. Vérifiez la configuration de recette.'},{status:503});}
+ try{return NextResponse.json(await connectOnboarding(s.coachId,s.email),{headers:{'Cache-Control':'no-store'}});}catch{return NextResponse.json({error:'Association Stripe de test indisponible. Vérifiez la configuration de recette.'},{status:503});}
 }

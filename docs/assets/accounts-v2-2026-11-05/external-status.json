@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-05T09:16:20.788509+00:00",
+  "providerObject": "v2.core.account",
+  "livemode": false,
+  "bindingCount": 1,
+  "metadataMatches": true,
+  "capabilities": {
+    "payouts": "restricted",
+    "stripe_transfers": "restricted"
+  },
+  "onboarding": "blocked: provider requires sandbox for this recipient configuration in testmode",
+  "paymentExecuted": false,
+  "v1PolicyChanged": false,
+  "newDeployment": false
+}

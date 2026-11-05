@@ -1,0 +1,16 @@
+[
+  {
+    "check": "connect-status",
+    "status": 200,
+    "linked": true,
+    "ready": false,
+    "error": null
+  },
+  {
+    "check": "payment-incomplete-account-refused",
+    "status": 409,
+    "linked": null,
+    "ready": null,
+    "error": "Le compte Stripe de test du coach n\u2019est pas pr\u00eat"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "build": "PASS",
+  "typecheck": "PASS included in build",
+  "clientSecretBoundary": "PASS after build",
+  "kanbanTests": 35,
+  "priorFilesChecked": 18,
+  "priorFilesChanged": [],
+  "newPaymentBrowserChecks": false
+}
