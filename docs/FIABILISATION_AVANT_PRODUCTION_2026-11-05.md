@@ -31,3 +31,8 @@ Limites : pas de revocation globale immediate des cookies copies avant leur expi
 Preuves expurgees : docs/assets/session-hardening-2026-11-05/. Guide : DEMONSTRATION_PARCOURS_2026-11-05.md. Resultats exacts des commandes dans checks.json; aucun test non execute revendique. Capture browser synthetique et captures du Kanban local. Temps reel non mesure, estimations et dates cibles proposees.
 
 Aucune nouvelle decision metier imposee. Avant paiements reels : pays/obligations/frais/litiges, verification professionnelle des coachs, politique de revocation et exploitation doivent etre valides par le proprietaire. Aucun achat, migration, compte distant modifie, notification ou paiement nouveau, deploiement ou bascule live.
+
+
+## Avancement H1.2 - 5 novembre 2026
+
+Premier moteur local et CLI fixture-only livres avec tests de reprise et concurrence. H1.2.1 termine, parent H1.2 en cours : aucun raccordement produit ou validation externe revendiques. Rapport : [RECONCILIATION_H1_2_2026-11-05.md](RECONCILIATION_H1_2_2026-11-05.md). Suite : adaptateurs metier et CAS durable H1.2.2, puis recette externe distincte H1.2.3. Les autres ecarts H1 restent ouverts.

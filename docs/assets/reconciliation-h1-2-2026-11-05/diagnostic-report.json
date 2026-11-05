@@ -1,0 +1,20 @@
+{
+  "mode": "diagnose",
+  "processed": 1,
+  "remaining": 0,
+  "results": [
+    {
+      "item": 1,
+      "action": "would_patch",
+      "code": "verified_transition",
+      "fields": [
+        "stripePaymentIntentId",
+        "stripeTransferId",
+        "stripeApplicationFeeId",
+        "status"
+      ]
+    }
+  ],
+  "notifications": "not_sent",
+  "financialOperations": "not_supported"
+}

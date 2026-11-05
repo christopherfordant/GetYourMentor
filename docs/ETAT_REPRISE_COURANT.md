@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : H1.2 premiere reconciliation locale livree
+
+Moteur/CLI fixture-only dans tools/payment-reconciliation : diagnostic sans mutation des lignes, reprise explicite vers copie nouvelle, lectures fournisseur simulees, CAS sur ligne complete et rapports expurges. Reutilise module de commission partage, aucun appel financier ou notification possible via ses ports. 36 tests locaux PASS : pannes, concurrence, doublons, remboursement pending/succeeded/failed, annulations et incoherences;35 tests Kanban PASS. Aucun fichier applicatif modifie, serveur recette3005 non relance, aucun compte distant ou migration touche.
+
+Rapport docs/RECONCILIATION_H1_2_2026-11-05.md et preuves docs/assets/reconciliation-h1-2-2026-11-05/. H1.2.1 local termine; H1.2 parent et H1 en cours, H1.2.2 raccordement services/stockage/CAS durable et H1.2.3 validation externe/exploitation a preparer. Les fixtures et marqueurs de plateforme ne prouvent aucun appel Stripe reel. Aucun remboursement orphelin traite sans intention locale durable, aucun faux succeeded pour failed, aucune resurrection cancelled->paid.
+
+Prochaine action : H1.2.2 sur code/tests locaux seulement; pas de permission distante implicite. Validation externe, ordonnanceur, timeouts reseau et CAS inter-processus non livres. GYM-B1 et H1.1 restent termines. Kanban4325 et preuve de statuts a verifier dans le rapport final. Historique conserve.
+
 ## Reprise active - 5 novembre 2026 : guide, audit cible et expiration serveur des sessions
 
 Guide docs/DEMONSTRATION_PARCOURS_2026-11-05.md prepare sur preuves existantes, sans nouveau compte/paiement/notification. Audit docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md : premier ecart retenu, cookies chiffres sans echeance serveur. Nouvelle enveloppe authentifiee version1, issuedAt/expiresAt, maximum7jours identique au cookie; anciens formats sans date refuses, reconnexion normale requise. Map memoire locale aussi bornee. Aucun compte distant modifie ni changement de droits. Pas de refresh/revocation globale Supabase revendiques.

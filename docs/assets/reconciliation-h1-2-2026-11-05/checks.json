@@ -1,0 +1,27 @@
+{
+  "reconciliation": {
+    "tests": 36,
+    "passed": 36,
+    "failed": 0,
+    "skipped": 0
+  },
+  "kanban": {
+    "tests": 35,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0
+  },
+  "nodeVersion": "24.14.0",
+  "cliDiagnosisExecuted": true,
+  "cliResumeOnNewCopyExecuted": true,
+  "prePushPassed": true,
+  "previous18ModifiedFilesPreserved": true,
+  "remoteStripeOrSupabaseOperations": 0,
+  "financialOperations": 0,
+  "notificationsSent": 0,
+  "applicationCodeChanged": false,
+  "nextBuildRun": false,
+  "productionDeployed": false,
+  "validationScope": "Local synthetic fixtures only; integration and external validation pending",
+  "trackedSecretsPassed": true
+}

@@ -1257,10 +1257,13 @@
       "due": "2026-11-13",
       "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
       "files": [
-        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md",
+        "tools/payment-reconciliation/engine.mjs",
+        "tools/payment-reconciliation/cli.mjs"
       ],
       "evidence": [
-        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md",
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
       ],
       "tests": [
         "Tests proportionnes et preuves expurgees; pas de validation production"
@@ -1270,7 +1273,7 @@
       "title": "Concevoir reconciliation paiement et remboursement differe",
       "objective": "Concevoir reconciliation paiement et remboursement differe",
       "parent": "GYM-H1",
-      "status": "prepare",
+      "status": "progress",
       "role": "Architecture",
       "estimateHours": [
         3,
@@ -1282,7 +1285,7 @@
       "acceptance": [
         "Strategie bornee et idempotente; interruptions et evenements desordonnes testes sans double paiement/remboursement"
       ],
-      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+      "next": "H1.2.2 : adaptateurs locaux de lecture et CAS durable, sans operation distante"
     },
     {
       "sprint": "S2",
@@ -1388,6 +1391,112 @@
         "429/panne/uncertain et reprises verifies sans renvoi aveugle; alertes sans secrets"
       ],
       "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.1",
+      "title": "Moteur et diagnostic locaux de reconciliation",
+      "objective": "Moteur et diagnostic locaux de reconciliation",
+      "parent": "GYM-H1.2",
+      "status": "done",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-B1"
+      ],
+      "acceptance": [
+        "Diagnostic sans ecriture; reprises bornees et CAS; tests pannes et concurrence; aucune operation financiere ou notification"
+      ],
+      "files": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests locaux avec assertions sur effets interdits"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md",
+        "docs/assets/reconciliation-h1-2-2026-11-05/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves locales, integration non revendiquee"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.2",
+      "title": "Raccorder les lectures et la persistance durable",
+      "objective": "Raccorder les lectures et la persistance durable",
+      "parent": "GYM-H1.2",
+      "status": "prepare",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.1"
+      ],
+      "acceptance": [
+        "Adaptateurs reprenant autorisations et controles metier; CAS durable et tests interruptions/concurrence; intention annulation non devinee"
+      ],
+      "files": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+      ],
+      "tests": [
+        "A definir avant implementation"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+      ],
+      "blocker": null,
+      "next": "Lot distinct; aucune operation distante autorisee par le ticket"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.3",
+      "title": "Valider la recette externe et la procedure exploitation",
+      "objective": "Valider la recette externe et la procedure exploitation",
+      "parent": "GYM-H1.2",
+      "status": "prepare",
+      "role": "QA",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.2"
+      ],
+      "acceptance": [
+        "Validation externe distincte autorisee; reprise bornee observable; protections et gestion des cas manuels verifiees"
+      ],
+      "files": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+      ],
+      "tests": [
+        "A definir avant implementation"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+      ],
+      "blocker": null,
+      "next": "Lot distinct; aucune operation distante autorisee par le ticket"
     }
   ]
 }
