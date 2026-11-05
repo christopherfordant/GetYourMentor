@@ -917,8 +917,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Accounts v2 integre; un compte test persiste; onboarding exige sandbox; paiement externe non verifie",
-      "next": "Examiner sandbox et isolation des associations avant bascule; conserver compte existant"
+      "blocker": "Sandbox cree; migration isolation preparee/testee localement, autorisation distante requise; paiement externe non verifie",
+      "next": "Autoriser SQL isolation recette puis adapter runtime; conserver compte existant"
     },
     {
       "id": "GYM-B1.1",
@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Accounts v2 recipient cree et persiste; Stripe refuse onboarding testmode et exige sandbox; aucun paiement externe",
-      "next": "Preparer sandbox et stockage par environnement sans supprimer liaison; puis onboarding et paiement test"
+      "blocker": "Sandbox isole cree; migration environnement en attente autorisation; routage runtime a adapter; aucun paiement externe",
+      "next": "Autorisation migration sur recette puis isolation runtime verifiee, onboarding sandbox et paiement test"
     }
   ]
 }

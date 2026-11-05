@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : sandbox cree, migration isolation prete a autoriser
+
+Sandbox GetYourMentor - Recette Accounts v2 cree, acct_1UYN06LfnWg4ERQJ, copie production desactivee, titre verifie apres rechargement. Aucune cle sandbox collectee ni bascule runtime; compte legacy et association preserves. Aucun paiement ni nouvel evenement metier Telegram.
+
+Migration PROPOSEE uniquement : supabase/proposals/20261105_stripe_environment_isolation.sql, preflight et rollback associes. Registre plateformes/test, associations par environnement, environnement fige sur reservations et FK beneficiaire. Tests PostgreSQL12 local synthetique PASS, refus melanges et rollback avec historique; retour arriere equivalence schema/lignes (ordre COPY normalise). Serveur temporaire arrete. Sauvegarde donnees chiffree DPAPI hors Git; DDL actuel et capture coherente a rafraichir sous ecrivains suspendus avant application.
+
+Utilisateur exige autorisation specifique avant migration distante : NON appliquee. Le code actuel ne gere pas encore le routage par environnement; ne pas changer les cles actives avant cette adaptation. Dossier concret : docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md. Preuves : docs/assets/stripe-sandbox-2026-11-05/sql-rehearsal.json. Prochaine action : autorisation du SQL sur pqxqqbwesfrefzjoawmx seulement puis adaptation/test runtime, onboarding et paiement test. GYM-B1.5 bloque, aucun DONE global ni deploiement.
+
 ## Reprise active - 5 novembre 2026 : Accounts v2 integre, onboarding bloque sur sandbox
 
 Decision v2 executee, politique v1 inchangee. Endpoints comptes/liens v2 JSON version stable 2026-10-28.endive; recipient seul pour destination charges, email de session authentifiee. Un compte connecte test cree et liaison Supabase persistee; verifie distant v2.core.account/livemode=false/metadata concordante. Capacites payouts et stripe_transfers restricted, Checkout toujours refuse. Aucun paiement, webhook metier, transfert ou remboursement externe effectue.

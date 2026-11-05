@@ -206,3 +206,7 @@ Sources officielles consultees :
 Controles finaux du lot Accounts v2 : build release PASS (types inclus), frontiere client/serveur PASS apres build; 11 tests mocks PASS et Kanban35/35 PASS. Un premier controle frontiere lance pendant le build avait signale artefacts absents; aucun PASS premature declare, controle reexecute sur build termine. Dix-huit fichiers anterieurs compares par SHA256 et preserves.
 
 Controle API authentifie sur build final : statut Connect200 linked=true/ready=false; paiement de la reservation acceptee refuse409 (compte Stripe coach non pret), aucun Checkout cree. Serveur recette session86047, loopback3005. Frontiere secrets et fil rouge PASS, controle secrets suivis PASS depuis gym-next.
+
+### Sandbox et migration proposee - 5 novembre 2026
+
+Sandbox isole cree et recharge, sans copie production, cles actives inchangees. Migration non appliquee; proposition testee sur PostgreSQL12 local synthetique, protections et rollback verifies; autorisation specifique requise. Rapport : docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md. Aucun paiement ou notification metier nouveau.

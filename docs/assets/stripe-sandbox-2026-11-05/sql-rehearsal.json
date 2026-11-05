@@ -1,0 +1,17 @@
+{
+  "engine": "local PostgreSQL 12",
+  "fixture": "synthetic minimal business tables; not a full Supabase clone",
+  "migration": "PASS",
+  "assertions": "PASS",
+  "rollbackWithSandboxBinding": "REFUSED as expected",
+  "rollbackWithoutSandboxHistory": "PASS",
+  "schemaAndRowsEquivalentAfterRollback": true,
+  "byteIdenticalDump": false,
+  "dumpDifference": "COPY row order only; compared after canonical row sorting",
+  "remoteMigrationExecuted": false,
+  "sandboxCreated": true,
+  "sandboxPlatform": "acct_1UYN06LfnWg4ERQJ",
+  "liveSettingsCopied": false,
+  "keysSwitched": false,
+  "paymentExecuted": false
+}
