@@ -1,0 +1,16 @@
+{
+  "signIn": true,
+  "serverRole": "sportif",
+  "clientRoleIgnored": true,
+  "ownSpaceRendered": true,
+  "ownReservationPersisted": true,
+  "otherAthleteReadDenied403": true,
+  "otherAthleteCancellationDenied403": true,
+  "coachActionDenied401": true,
+  "reciprocalIsolation": true,
+  "ownListDoesNotLeakOtherAthlete": true,
+  "ownTestReservationCancelled": true,
+  "signOutProtectedApi401": true,
+  "signInAgain": true,
+  "noPaymentAttemptedForSecondAthlete": true
+}

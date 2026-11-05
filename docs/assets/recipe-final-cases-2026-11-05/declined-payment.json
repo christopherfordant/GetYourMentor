@@ -1,0 +1,31 @@
+{
+  "checkoutStatus": "open",
+  "checkoutPaymentStatus": "unpaid",
+  "intentStatus": "requires_payment_method",
+  "livemode": false,
+  "chargeFailureCode": "card_declined",
+  "chargePaid": false,
+  "chargeCaptured": false,
+  "transferCreated": false,
+  "applicationFeeCreated": false,
+  "reservationStatus": "accepted",
+  "paidNotificationCount": 0,
+  "retryReturnsSameCheckout": true,
+  "httpConfirmation": {
+    "confirmRequests": 1,
+    "confirmResponses": [
+      {
+        "http": 402,
+        "code": "card_declined",
+        "declineCode": "generic_decline"
+      }
+    ],
+    "clickAttempted": true,
+    "declineVisible": true,
+    "checkoutVisible": true,
+    "visibleErrorLines": [
+      "Recette refus de paiement",
+      "Votre carte de crédit a été refusée. Essayez de payer avec une carte de débit."
+    ]
+  }
+}

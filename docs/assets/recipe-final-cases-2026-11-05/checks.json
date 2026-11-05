@@ -1,0 +1,10 @@
+{
+  "kanbanTestsPassed": 35,
+  "applicationCodeChanged": false,
+  "newApplicationBuildRun": false,
+  "desktopAndMobileKanbanVerified": true,
+  "prePushPassed": true,
+  "previous18ModifiedFilesPreserved": true,
+  "newSuccessfulPaymentAttempted": false,
+  "productionDeployed": false
+}

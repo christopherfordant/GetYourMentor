@@ -895,7 +895,7 @@
       "parent": null,
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         6,
         12
@@ -916,10 +916,13 @@
       ],
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
-        "docs/STRIPE_RECOVERY_2026-11-05.md"
+        "docs/STRIPE_RECOVERY_2026-11-05.md",
+        "docs/RECETTE_CAS_RESTANTS_2026-11-05.md",
+        "docs/assets/recipe-final-cases-2026-11-05/accounts-persistence.json",
+        "docs/assets/recipe-final-cases-2026-11-05/sportif2-controls.json"
       ],
-      "blocker": "Deuxieme sportif absent (quota email); refus de carte externe non teste",
-      "next": "Completer cas restants sans refaire le paiement deja rembourse"
+      "blocker": null,
+      "next": "Recette bornee validee; preparer separement les exigences avant production"
     },
     {
       "id": "GYM-B1.1",
@@ -1064,7 +1067,7 @@
       "parent": "GYM-B1",
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         2,
         4
@@ -1090,10 +1093,85 @@
       ],
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
-        "docs/STRIPE_RECOVERY_2026-11-05.md"
+        "docs/STRIPE_RECOVERY_2026-11-05.md",
+        "docs/RECETTE_CAS_RESTANTS_2026-11-05.md",
+        "docs/assets/recipe-final-cases-2026-11-05/accounts-persistence.json",
+        "docs/assets/recipe-final-cases-2026-11-05/sportif2-controls.json"
       ],
-      "blocker": "Deuxieme sportif absent (quota email); refus de carte externe non teste",
-      "next": "Completer cas restants sans refaire le paiement deja rembourse"
+      "blocker": null,
+      "next": "Recette bornee validee; preparer separement les exigences avant production"
+    },
+    {
+      "role": "QA",
+      "assignment": "simulated-role",
+      "sprint": "S1",
+      "priority": "P0",
+      "due": "2026-11-06",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "id": "GYM-B1.5.1",
+      "title": "Confirmer et verifier le deuxieme sportif",
+      "parent": "GYM-B1.5",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "objective": "Confirmer et verifier le deuxieme sportif",
+      "dependencies": [
+        "GYM-B1.4"
+      ],
+      "acceptance": [
+        "Compte confirme, role sportif persistant, connexion/deconnexion et isolation entre sportifs"
+      ],
+      "files": [
+        "docs/RECETTE_CAS_RESTANTS_2026-11-05.md"
+      ],
+      "tests": [
+        "Recette externe reelle; preuves separees des tests mocks"
+      ],
+      "evidence": [
+        "docs/RECETTE_CAS_RESTANTS_2026-11-05.md",
+        "docs/assets/recipe-final-cases-2026-11-05/accounts-persistence.json",
+        "docs/assets/recipe-final-cases-2026-11-05/sportif2-controls.json"
+      ],
+      "blocker": null,
+      "next": "Recette bornee validee; preparer separement les exigences avant production"
+    },
+    {
+      "role": "QA",
+      "assignment": "simulated-role",
+      "sprint": "S1",
+      "priority": "P0",
+      "due": "2026-11-06",
+      "scope": "Recette uniquement; Stripe et Connect test; Telegram personnel; aucun deploiement",
+      "id": "GYM-B1.5.2",
+      "title": "Verifier un refus reel dans Checkout sandbox",
+      "parent": "GYM-B1.5",
+      "status": "done",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "objective": "Verifier un refus reel dans Checkout sandbox",
+      "dependencies": [
+        "GYM-B1.4"
+      ],
+      "acceptance": [
+        "Refus Stripe observe; reservation impayee; aucun transfert, commission encaissee ou notification paid; reprise possible"
+      ],
+      "files": [
+        "docs/RECETTE_CAS_RESTANTS_2026-11-05.md"
+      ],
+      "tests": [
+        "Recette externe reelle; preuves separees des tests mocks"
+      ],
+      "evidence": [
+        "docs/assets/recipe-final-cases-2026-11-05/declined-payment.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuve; ne pas recommencer le paiement"
     }
   ]
 }

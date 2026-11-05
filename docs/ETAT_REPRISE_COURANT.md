@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : derniers cas de recette valides, GYM-B1 termine dans son perimetre
+
+Deux coachs et deux sportifs confirmes en Supabase. Second sportif inscrit normalement puis lien confirme par utilisateur; profil et role persistants, connexion/deconnexion/reconnexion et isolation croisee verifies. Une reservation propre de test creee puis annulee sans paiement. Aucun compte auto-confirme.
+
+Nouvelle reservation pour refus Checkout : une vraie requete sandbox402 card_declined/generic_decline observee, message visible. Session open/unpaid, PI requires_payment_method, aucune capture/transfert/commission ou notification paid. Reprise meme Checkout et lien Retour controles; reservation reste accepted/impayee. Paiement deja rembourse precedent non refait et toujours cancelled/refund succeeded. Approbation temporaire valide au test, pas de renouvellement.
+
+GYM-B1.5.1, GYM-B1.5.2, GYM-B1.5 et parent GYM-B1 termines avec preuves; GYM-B1.4 conserve done. Tableau local4325 controle ordinateur/mobile, source JSON et absence de surcharge dans contextes de controle; anciens brouillons personnels preserves. Rapport : docs/RECETTE_CAS_RESTANTS_2026-11-05.md; preuves docs/assets/recipe-final-cases-2026-11-05/. Aucun code applicatif change, nouveau paiement reussi, migration ou deploiement. Cloture recette bornee, pas validation globale production ni RAG. Prochaine action : choisir un lot distinct parmi les exigences avant production, sans activer les cles live. Historique suivant conserve.
+
 ## Reprise active - 5 novembre 2026 : paiement sandbox recupere, rembourse et Telegram recu
 
 Routage runtime par environnement termine; coffre sandbox distinct. Paiement test utilisateur 40 EUR confirme par rejeu officiel du webhook (200), references persistees. Second rejeu sans doublon, une notification paid acceptee puis reception telephone confirmee par utilisateur. Annulation/remboursement test 100 % execute deux fois : un seul remboursement, transfert repris et commission 6 EUR remboursee. Rejeu apres remboursement 200, statut cancelled conserve. Cause exacte du premier 503 non etablie, diagnostics de phase recette ajoutes sans relachement des controles.

@@ -1,0 +1,6 @@
+{
+  "normalCheckoutReturnLinkFollowed": true,
+  "returnedToLocalApplication": true,
+  "noPaymentConfirmedMessage": true,
+  "reservationStillAccepted": true
+}

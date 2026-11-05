@@ -1,0 +1,103 @@
+{
+  "retryCardFieldEditable": true,
+  "desktop": {
+    "cards": [
+      {
+        "id": "GYM-B1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.4",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.5.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.5.2",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parentLanes": [
+      {
+        "id": "GYM-B1",
+        "status": "Terminé"
+      },
+      {
+        "id": "GYM-B1.5",
+        "status": "Terminé"
+      }
+    ],
+    "storage": {
+      "keys": [],
+      "manualDrafts": []
+    },
+    "source": "http://127.0.0.1:4325/backlog.json",
+    "note": "Fresh isolated browser context; no existing user localStorage modified"
+  },
+  "mobile": {
+    "cards": [
+      {
+        "id": "GYM-B1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.4",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.5.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-B1.5.2",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parentLanes": [
+      {
+        "id": "GYM-B1",
+        "status": "Terminé"
+      },
+      {
+        "id": "GYM-B1.5",
+        "status": "Terminé"
+      }
+    ],
+    "storage": {
+      "keys": [],
+      "manualDrafts": []
+    },
+    "source": "http://127.0.0.1:4325/backlog.json",
+    "note": "Fresh isolated browser context; no existing user localStorage modified"
+  }
+}

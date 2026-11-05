@@ -1,0 +1,38 @@
+{
+  "accounts": [
+    {
+      "role": "coach",
+      "unique": true,
+      "emailConfirmed": true,
+      "rolePersisted": true,
+      "coachProfilePersisted": true
+    },
+    {
+      "role": "coach",
+      "unique": true,
+      "emailConfirmed": true,
+      "rolePersisted": true,
+      "coachProfilePersisted": true
+    },
+    {
+      "role": "sportif",
+      "unique": true,
+      "emailConfirmed": true,
+      "rolePersisted": true
+    },
+    {
+      "role": "sportif",
+      "unique": true,
+      "emailConfirmed": true,
+      "rolePersisted": true,
+      "signupProfilePersisted": true
+    }
+  ],
+  "confirmedCoaches": 2,
+  "confirmedAthletes": 2,
+  "athleteProfileStorage": "Supabase Auth user_metadata/app_metadata; no separate athlete table claimed",
+  "previousRefundedReservationUnchanged": true,
+  "humanEmailConfirmationUsed": true,
+  "autoConfirmationUsed": false,
+  "testPhoneValue": "Fictitious placeholder; no SMS or call attempted"
+}

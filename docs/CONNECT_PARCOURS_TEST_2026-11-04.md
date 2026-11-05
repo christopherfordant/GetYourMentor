@@ -219,3 +219,8 @@ Oui utilisateur recu pour migration preparee; appliquee sur pqxqqbwesfrefzjoawmx
 ## Mise a jour - 5 novembre : recette sandbox recuperee
 
 Routage et sandbox testes, paiement test confirme puis rembourse integralement, rejouabilite verifiee, Telegram recu au telephone. Rapport et limites : [STRIPE_RECOVERY_2026-11-05.md](STRIPE_RECOVERY_2026-11-05.md). Les blocages runtime precedents sont historiques. Aucun deploiement ni paiement reel.
+
+
+## Derniers cas de recette - 5 novembre 2026
+
+Deuxieme sportif confirme et isolation croisee verifiee. Refus Checkout sandbox402 observe, absence de faux paiement ou notification; reprise et sortie verifiees. GYM-B1 et GYM-B1.5 termines dans leur perimetre, sans validation globale de production. Rapport : [RECETTE_CAS_RESTANTS_2026-11-05.md](RECETTE_CAS_RESTANTS_2026-11-05.md). Les blocages anterieurs de ces deux cas sont historiques.
