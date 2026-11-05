@@ -1,8 +1,9 @@
+import {activeStripeEnvironment,assertReservationEnvironment,claimStripeEnvironment} from './stripe-environment';
 import { validateReservationSlots } from "@/lib/domain/booking-rules";
 import type { Reservation } from "@/lib/domain";
 import { assertDemoFallbackAllowed } from "@/lib/runtime";
 import { eurosToCents } from "@/lib/domain/commission";
-import { updatePersistedReservation } from "@/lib/repositories/reservation-repository";
+import { getPersistedReservation, updatePersistedReservation } from "@/lib/repositories/reservation-repository";
 import { stripeTestConfig } from '@/lib/stripe-test-config';
 import {connectEnabled,checkoutConnectFields} from '@/lib/stripe-connect';
 
@@ -25,6 +26,15 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
   const config = stripeConfig();
   if (!config) return null;
 
+  const environment=await activeStripeEnvironment();
+  reservation=await claimStripeEnvironment(reservation.id,environment.environmentId);
+  if(!validateReservationSlots(reservation.slots).valid)throw Error('Creneau invalide');
+  if(reservation.stripeCheckoutSessionId){
+    const read=await fetch('https://api.stripe.com/v1/checkout/sessions/'+encodeURIComponent(reservation.stripeCheckoutSessionId),{headers:{Authorization:`Bearer ${config.secretKey}`,'Stripe-Version':'2026-10-28.endive'},cache:'no-store',signal:AbortSignal.timeout(15000)});
+    if(!read.ok)throw Error('Session existante indisponible');const existing=await read.json();
+    if(existing.id!==reservation.stripeCheckoutSessionId||existing.livemode!==false||existing.mode!=='payment'||existing.status!=='open'||existing.metadata?.reservation_id!==reservation.id||existing.amount_total!==reservation.financials?.grossCents||existing.currency!=='eur'||typeof existing.url!=='string'||new URL(existing.url).origin!=='https://checkout.stripe.com')throw Error('Session existante non reutilisable');
+    return {checkoutUrl:existing.url,sessionId:existing.id};
+  }
   const returnParams = new URLSearchParams({ reservationId: reservation.id });
   const amount = reservation.financials?.grossCents ?? eurosToCents(reservation.price);
   if (!Number.isSafeInteger(amount) || amount <= 0) throw new Error('Montant de paiement invalide');
@@ -45,12 +55,12 @@ export async function createCheckoutSession(reservation: Reservation): Promise<C
     form.set('payment_intent_data[transfer_data][destination]',connect.accountId);
     form.set('payment_intent_data[metadata][reservation_id]',reservation.id);
     // Card-only sandbox avoids presenting delayed settlement as instant payout.
-    form.set('payment_method_types[0]','card');
+    form.set('allowed_payment_method_types[0]','card');
   }
 
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
-    headers: { Authorization: `Bearer ${config.secretKey}`, "Content-Type": "application/x-www-form-urlencoded", "Idempotency-Key": connect?`gym-connect-checkout-${reservation.id}`:`gym-checkout-${reservation.id}` },
+    headers: { Authorization: `Bearer ${config.secretKey}`, "Stripe-Version":"2026-10-28.endive", "Content-Type": "application/x-www-form-urlencoded", "Idempotency-Key": connect?(environment.environmentId==='legacy-test'?`gym-connect-checkout-${reservation.id}`:`gym-connect-checkout-${environment.environmentId}-${reservation.id}-allowed1`):(environment.environmentId==='legacy-test'?`gym-checkout-${reservation.id}`:`gym-checkout-${environment.environmentId}-${reservation.id}-allowed1`) },
     body: form,
     signal: AbortSignal.timeout(15000),
   });
@@ -78,6 +88,9 @@ export async function refundStripePayment(input: {
     throw new Error("Montant de remboursement Stripe invalide");
   }
   stripeTestConfig();
+  const reservation=await getPersistedReservation(input.reservationId);
+  if(!reservation||reservation.stripePaymentIntentId!==input.paymentIntentId||reservation.stripeConnectAccountId!==input.connectAccountId||!['paid','cancelled'].includes(reservation.status)||input.amountCents>(reservation.financials?.grossCents??eurosToCents(reservation.price)))throw Error('Remboursement incoherent avec reservation');
+  const environment=await assertReservationEnvironment(reservation);
 
   const form = new URLSearchParams({
     payment_intent: input.paymentIntentId,
@@ -89,7 +102,7 @@ export async function refundStripePayment(input: {
     headers: {
       Authorization: `Bearer ${secretKey}`,
       "Content-Type": "application/x-www-form-urlencoded",
-      "Idempotency-Key": `gym-refund-${input.reservationId}-${input.amountCents}`,
+      "Idempotency-Key": environment.environmentId==='legacy-test'?`gym-refund-${input.reservationId}-${input.amountCents}`:`gym-refund-${environment.environmentId}-${input.reservationId}-${input.amountCents}`,
     },
     body: form,
     signal: AbortSignal.timeout(15000),

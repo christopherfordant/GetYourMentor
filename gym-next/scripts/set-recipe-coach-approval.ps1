@@ -1,7 +1,8 @@
-param([switch]$Revoke)
+param([switch]$Revoke,[ValidateSet('legacy-test','recipe-accounts-v2')][string]$StripeEnvironment='legacy-test')
 $ErrorActionPreference='Stop'
 $folder=Join-Path $env:LOCALAPPDATA 'GetYourMentor-Test'
-$file=Join-Path $folder 'services.clixml'
+$vaultName=if($StripeEnvironment -eq 'legacy-test'){'services.clixml'}else{'services-sandbox.clixml'}
+$file=Join-Path $folder $vaultName
 $v=Import-Clixml $file
 $stage='configuration'
 try{

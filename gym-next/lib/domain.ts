@@ -54,6 +54,7 @@ export type Reservation = {
   appointmentAt?: string;
   refundPercent?: number;
   refundAmount?: number;
+  stripeEnvironmentId?: string;
   stripePaymentIntentId?: string;
   stripeCheckoutSessionId?: string;
   stripeConnectAccountId?: string;

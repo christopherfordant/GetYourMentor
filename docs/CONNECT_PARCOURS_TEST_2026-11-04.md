@@ -214,3 +214,8 @@ Sandbox isole cree et recharge, sans copie production, cles actives inchangees. 
 ### Isolation distante appliquee apres autorisation - 5 novembre 2026
 
 Oui utilisateur recu pour migration preparee; appliquee sur pqxqqbwesfrefzjoawmx apres sauvegarde et gardes. Donnees anciennes preservees, droits/RLS verifies, tests SQL transaction annulee PASS, REST anon401/service_role2 registres et1 liaison. Rapport detaille docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md, preuves remote-migration.json/rest-after-migration.json. Serveur recette suspendu; runtime par environnement restant a implementer avant cles sandbox et paiement. Aucun paiement/notification nouveau.
+
+
+## Mise a jour - 5 novembre : recette sandbox recuperee
+
+Routage et sandbox testes, paiement test confirme puis rembourse integralement, rejouabilite verifiee, Telegram recu au telephone. Rapport et limites : [STRIPE_RECOVERY_2026-11-05.md](STRIPE_RECOVERY_2026-11-05.md). Les blocages runtime precedents sont historiques. Aucun deploiement ni paiement reel.

@@ -1,0 +1,15 @@
+{
+  "reservationStatus": "cancelled",
+  "refundStatus": "succeeded",
+  "refundAmountCents": 4000,
+  "refundMatchesPersistedIntent": true,
+  "refundCount": 1,
+  "transferAmountCents": 4000,
+  "transferReversed": true,
+  "transferReversedCents": 4000,
+  "feeAmountCents": 600,
+  "feeRefunded": true,
+  "feeRefundedCents": 600,
+  "livemode": false,
+  "financialSnapshotUnchanged": true
+}

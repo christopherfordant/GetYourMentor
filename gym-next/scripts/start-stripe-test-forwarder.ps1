@@ -1,12 +1,16 @@
+param([ValidateSet('legacy-test','recipe-accounts-v2')][string]$StripeEnvironment='legacy-test')
 $ErrorActionPreference='Stop'
 $dir=Join-Path $env:LOCALAPPDATA 'GetYourMentor-Test'
-$file=Join-Path $dir 'services.clixml'
+$vaultName=if($StripeEnvironment -eq 'legacy-test'){'services.clixml'}else{'services-sandbox.clixml'}
+$file=Join-Path $dir $vaultName
 $exe=Join-Path $dir 'tools/stripe-1.55.8/stripe.exe'
 if(!(Test-Path -LiteralPath $file) -or !(Test-Path -LiteralPath $exe)){throw 'Configuration locale ou Stripe CLI absent'}
 $values=Import-Clixml -LiteralPath $file
 if(!$values.ContainsKey('STRIPE_SECRET_KEY') -or !$values.ContainsKey('STRIPE_WEBHOOK_SECRET')){throw 'Acces Stripe test incomplets'}
 $key=[Net.NetworkCredential]::new('',$values['STRIPE_SECRET_KEY']).Password
 if($key -notmatch '^(sk|rk)_test_[A-Za-z0-9]+$'){throw 'Stripe test uniquement'}
+$expectedPlatform=if($StripeEnvironment -eq 'legacy-test'){'acct_1UGhVXPwRppadkVH'}else{'acct_1UYN06LfnWg4ERQJ'}
+try{$platform=Invoke-RestMethod -Uri 'https://api.stripe.com/v1/account' -Headers @{Authorization="Bearer $key"};if($platform.id -ne $expectedPlatform){throw 'mismatch'}}catch{throw 'Mauvaise plateforme Stripe; forwarder refuse'}
 $previous=[Environment]::GetEnvironmentVariable('STRIPE_API_KEY','Process')
 $expected=[Net.NetworkCredential]::new('',$values['STRIPE_WEBHOOK_SECRET']).Password
 try{

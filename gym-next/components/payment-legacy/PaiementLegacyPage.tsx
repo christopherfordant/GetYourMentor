@@ -225,7 +225,7 @@ function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacy
   const reservationCode=provider==="local"?(demo.reservation?.reservationCode ?? ""):stripeReservationCode;
   const paymentError=provider==="local"?(demo.message):stripePaymentError;
   const processing=provider==="local"?(demo.processing):stripeProcessing;
-  const awaitingConfirmation = provider==="stripe" && params.payment === "success" && !success;
+  const awaitingConfirmation = provider==="stripe" && params.payment === "success" && !success && reservationStatus!=="cancelled";
 
   useEffect(() => {
     if(provider!=="stripe")return;
@@ -239,6 +239,7 @@ function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacy
       .then((payload) => {
         setServerReservation(payload.data);
         setReservationStatus(payload.data.status);
+        if(payload.data.status==="cancelled")setPaymentError("Cette réservation a été annulée. Consultez votre espace pour le remboursement.");
         setReservationCode(payload.data.reservationCode ?? "");
         if (payload.data.status === "paid") setSuccess(true);
       })
@@ -256,6 +257,7 @@ function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacy
           const payload = await response.json();
           setServerReservation(payload.data);
           setReservationStatus(payload.data.status);
+        if(payload.data.status==="cancelled")setPaymentError("Cette réservation a été annulée. Consultez votre espace pour le remboursement.");
           setReservationCode(payload.data.reservationCode ?? "");
           if (payload.data.status === "paid") { setSuccess(true); window.clearInterval(interval); }
         }
@@ -288,6 +290,7 @@ function PaymentPage({ params, provider = "local",athleteEmail }: PaiementLegacy
         return;
       }
       setReservationStatus(payload.data.status);
+        if(payload.data.status==="cancelled")setPaymentError("Cette réservation a été annulée. Consultez votre espace pour le remboursement.");
       setReservationCode(payload.data.reservationCode ?? "");
       setSuccess(true);
     } catch {

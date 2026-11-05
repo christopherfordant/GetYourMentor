@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : paiement sandbox recupere, rembourse et Telegram recu
+
+Routage runtime par environnement termine; coffre sandbox distinct. Paiement test utilisateur 40 EUR confirme par rejeu officiel du webhook (200), references persistees. Second rejeu sans doublon, une notification paid acceptee puis reception telephone confirmee par utilisateur. Annulation/remboursement test 100 % execute deux fois : un seul remboursement, transfert repris et commission 6 EUR remboursee. Rejeu apres remboursement 200, statut cancelled conserve. Cause exacte du premier 503 non etablie, diagnostics de phase recette ajoutes sans relachement des controles.
+
+21 tests mocks PASS; build/types/frontiere secrets PASS; retour navigateur ordinateur/mobile controle avec reservation autorisee et refus autre compte. Rapport : docs/STRIPE_RECOVERY_2026-11-05.md; preuves expurgees docs/assets/stripe-recovery-2026-11-05/. Donnees brutes/coffres/captures privees hors Git. Aucun deploiement, paiement reel ou nouvelle migration distante. Ne pas refaire ce paiement deja rembourse.
+
+GYM-B1.4 reception Stripe/Telegram validee; GYM-B1.5 et parent non termines : deuxieme sportif absent (quota mail) et refus de carte externe non teste. Prochain lot : completer ces cas sans recreer les comptes existants, puis recette finale. Approbation coach recette temporaire : verifier expiration, jamais renouveler silencieusement. Les sections suivantes sont historiques et leurs blocages runtime sont depasses par cette reprise.
+
 ## Reprise active - 5 novembre 2026 : migration isolation distante appliquee apres oui utilisateur
 
 Autorisation explicite oui recue pour isolation.sql, cible getyourmentor-preprod uniquement. APPLIQUEE et relue : deux registres plateformes, une liaison legacy copiee, table historique inchangee, trois reservations conservees hors nouvelle colonne stripe_environment_id null. Sauvegarde schema/donnees actuelle DPAPI hors Git; verrou et garde de comparaison lors application. Premier garde genere refuse42601 puis corrige, aucun effet du premier essai. PostgreSQL17.6 distant.

@@ -1,4 +1,5 @@
 // Server-only sandbox boundary. No client-supplied beneficiary or fee.
+import {activeStripeEnvironment,assertReservationEnvironment} from './stripe-environment';
 import {stripeTestConfig} from './stripe-test-config';
 import {supabaseHeaders} from './supabase';
 import type {Reservation} from './domain';
@@ -6,13 +7,13 @@ import type {Reservation} from './domain';
 export const connectEnabled=()=>process.env.STRIPE_CONNECT_ENABLED==='true';
 function config(){const c=stripeTestConfig();if(!c||!connectEnabled())throw Error('Stripe Connect de test indisponible');return c;}
 async function stripe(resource:string,form?:URLSearchParams,idempotency?:string){
- const c=config();const response=await fetch('https://api.stripe.com/v1/'+resource,{method:form?'POST':'GET',headers:{Authorization:`Bearer ${c.secretKey}`,...(form?{'Content-Type':'application/x-www-form-urlencoded'}:{}),...(idempotency?{'Idempotency-Key':idempotency}:{})},body:form,cache:'no-store',signal:AbortSignal.timeout(15000)});
+ const c=await activeStripeEnvironment();config();const response=await fetch('https://api.stripe.com/v1/'+resource,{method:form?'POST':'GET',headers:{Authorization:`Bearer ${c.secretKey}`,...(form?{'Content-Type':'application/x-www-form-urlencoded'}:{}),...(idempotency?{'Idempotency-Key':idempotency}:{})},body:form,cache:'no-store',signal:AbortSignal.timeout(15000)});
  if(!response.ok)throw Error('Opération Stripe Connect de test indisponible');return response.json();
 }
 // Pin the documented stable API; do not change the platform-wide API policy.
 const ACCOUNTS_VERSION='2026-10-28.endive';
 async function stripeAccounts(resource:string,body?:Record<string,unknown>,idempotency?:string){
- const c=config();const response=await fetch('https://api.stripe.com/v2/core/'+resource,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${c.secretKey}`,'Stripe-Version':ACCOUNTS_VERSION,...(body?{'Content-Type':'application/json'}:{}),...(idempotency?{'Idempotency-Key':idempotency}:{})},body:body?JSON.stringify(body):undefined,cache:'no-store',signal:AbortSignal.timeout(15000)});
+ const c=await activeStripeEnvironment();config();const response=await fetch('https://api.stripe.com/v2/core/'+resource,{method:body?'POST':'GET',headers:{Authorization:`Bearer ${c.secretKey}`,'Stripe-Version':ACCOUNTS_VERSION,...(body?{'Content-Type':'application/json'}:{}),...(idempotency?{'Idempotency-Key':idempotency}:{})},body:body?JSON.stringify(body):undefined,cache:'no-store',signal:AbortSignal.timeout(15000)});
  if(!response.ok)throw Error('Operation Accounts v2 de test indisponible');return response.json();
 }
 function accountReady(a:any){
@@ -24,14 +25,15 @@ function store(){
  return {url,headers:supabaseHeaders(key,{'Content-Type':'application/json'})};
 }
 async function accountId(coachId:string){
- const c=store();const response=await fetch(`${c.url}/rest/v1/gym_stripe_coach_accounts?coach_id=eq.${encodeURIComponent(coachId)}&mode=eq.test&select=stripe_account_id&limit=1`,{headers:c.headers,cache:'no-store',signal:AbortSignal.timeout(8000)});
+ const env=await activeStripeEnvironment();const c=store();const response=await fetch(`${c.url}/rest/v1/gym_stripe_coach_bindings?coach_id=eq.${encodeURIComponent(coachId)}&environment_id=eq.${encodeURIComponent(env.environmentId)}&select=stripe_account_id&limit=1`,{headers:c.headers,cache:'no-store',signal:AbortSignal.timeout(8000)});
  if(!response.ok)throw Error('Migration ou stockage Connect indisponible');
  const rows=await response.json();if(!Array.isArray(rows))throw Error('Stockage Connect invalide');
  const id=rows[0]?.stripe_account_id;if(id!==undefined&&!/^acct_[A-Za-z0-9]+$/.test(id))throw Error('Compte Connect invalide');return id as string|undefined;
 }
 async function account(coachId:string,id:string){
+ const env=await activeStripeEnvironment();
  const value=await stripeAccounts('accounts/'+encodeURIComponent(id)+'?include[0]=configuration.recipient&include[1]=requirements');
- if(value.id!==id||value.object!=='v2.core.account'||value.livemode!==false||value.closed===true||value.metadata?.gym_environment!=='test'||value.metadata?.coach_id!==coachId)throw Error('Compte Connect incohérent');
+ if(value.id!==id||value.object!=='v2.core.account'||value.livemode!==false||value.closed===true||value.metadata?.gym_environment!=='test'||value.metadata?.coach_id!==coachId||(env.environmentId!=='legacy-test'&&value.metadata?.gym_stripe_environment!==env.environmentId)||(value.metadata?.gym_stripe_environment&&value.metadata.gym_stripe_environment!==env.environmentId))throw Error('Compte Connect incohérent');
  return value;
 }
 export async function connectStatus(coachId:string){
@@ -39,7 +41,7 @@ export async function connectStatus(coachId:string){
  const a=await account(coachId,id);return {mode:'test',linked:true,ready:accountReady(a),detailsSubmitted:accountReady(a)};
 }
 export async function connectOnboarding(coachId:string,contactEmail?:string){
- const c=config();let id=await accountId(coachId);
+ const c=await activeStripeEnvironment();config();let id=await accountId(coachId);
  if(!id){
   const country=process.env.STRIPE_CONNECT_COUNTRY;if(!country||!/^[A-Z]{2}$/.test(country))throw Error('Pays du compte Connect de test non configuré');
   if(!contactEmail||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail))throw Error('Email coach authentifie requis');
@@ -47,11 +49,11 @@ export async function connectOnboarding(coachId:string,contactEmail?:string){
    contact_email:contactEmail,dashboard:'express',identity:{country:country.toLowerCase()},
    defaults:{currency:'eur',responsibilities:{fees_collector:'application',losses_collector:'application'}},
    configuration:{recipient:{capabilities:{stripe_balance:{stripe_transfers:{requested:true}}}}},
-   metadata:{coach_id:coachId,gym_environment:'test'}
-  },`gym-connect-accounts-v2-create-${coachId}`);
+   metadata:{coach_id:coachId,gym_environment:'test',gym_stripe_environment:c.environmentId}
+  },`gym-connect-accounts-v2-create-${c.environmentId}-${coachId}`);
   if(typeof created.id!=='string'||!/^acct_[A-Za-z0-9]+$/.test(created.id))throw Error('Compte Connect absent');
   await account(coachId,created.id);
-  const db=store();const response=await fetch(db.url+'/rest/v1/gym_stripe_coach_accounts?on_conflict=coach_id',{method:'POST',headers:{...db.headers,Prefer:'resolution=ignore-duplicates'},body:JSON.stringify({coach_id:coachId,stripe_account_id:created.id,mode:'test'}),signal:AbortSignal.timeout(8000)});
+  const db=store();const response=await fetch(db.url+'/rest/v1/gym_stripe_coach_bindings?on_conflict=environment_id,coach_id',{method:'POST',headers:{...db.headers,Prefer:'resolution=ignore-duplicates'},body:JSON.stringify({environment_id:c.environmentId,coach_id:coachId,stripe_account_id:created.id}),signal:AbortSignal.timeout(8000)});
   if(!response.ok)throw Error('Association Connect non enregistrée');
   id=await accountId(coachId);if(id!==created.id)throw Error('Association Connect concurrente incohérente');
  }
@@ -63,7 +65,7 @@ export async function connectOnboarding(coachId:string,contactEmail?:string){
  return {mode:'test',url:link.url};
 }
 export async function checkoutConnectFields(reservation:Reservation){
- config();const id=await accountId(reservation.coachId);if(!id)throw Error('Le coach doit terminer son association Stripe de test');
+ config();await assertReservationEnvironment(reservation);const id=await accountId(reservation.coachId);if(!id)throw Error('Le coach doit terminer son association Stripe de test');
  const a=await account(reservation.coachId,id);
  if(!accountReady(a))throw Error('Le compte Stripe de test du coach n’est pas prêt');
  const f=reservation.financials;
@@ -72,7 +74,7 @@ export async function checkoutConnectFields(reservation:Reservation){
 }
 export async function verifyConnectSettlement(reservation:Reservation,paymentIntentId:string){
  if(!reservation.stripeConnectAccountId)return {};
- config();if(!/^pi_[A-Za-z0-9]+$/.test(paymentIntentId))throw Error('Paiement invalide');
+ config();await assertReservationEnvironment(reservation);if(!/^pi_[A-Za-z0-9]+$/.test(paymentIntentId))throw Error('Paiement invalide');
  const p=await stripe(`payment_intents/${encodeURIComponent(paymentIntentId)}?expand%5B%5D=latest_charge`);
  if(p.id!==paymentIntentId||p.livemode!==false||p.status!=='succeeded'||p.currency!=='eur'||p.amount!==reservation.financials?.grossCents||p.application_fee_amount!==reservation.financials?.platformFeeCents||p.transfer_data?.destination!==reservation.stripeConnectAccountId||p.metadata?.reservation_id!==reservation.id)throw Error('Répartition Connect incohérente');
  const charge=p.latest_charge;

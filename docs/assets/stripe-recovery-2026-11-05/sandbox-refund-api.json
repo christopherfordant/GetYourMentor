@@ -1,0 +1,22 @@
+[
+  {
+    "attempt": 1,
+    "httpStatus": 200,
+    "status": "cancelled",
+    "refundStatus": "succeeded",
+    "refundPercent": 100,
+    "refundAmount": 40,
+    "refundReferencePresent": true,
+    "error": null
+  },
+  {
+    "attempt": 2,
+    "httpStatus": 200,
+    "status": "cancelled",
+    "refundStatus": "succeeded",
+    "refundPercent": 100,
+    "refundAmount": 40,
+    "refundReferencePresent": true,
+    "error": null
+  }
+]

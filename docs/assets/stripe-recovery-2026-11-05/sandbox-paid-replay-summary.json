@@ -1,0 +1,17 @@
+{
+  "reservationStatus": "paid",
+  "environment": "recipe-accounts-v2",
+  "paymentPersisted": true,
+  "transferPersisted": true,
+  "feePersisted": true,
+  "grossCents": 4000,
+  "feeCents": 600,
+  "transferGrossCents": 4000,
+  "transferLivemode": false,
+  "feeLivemode": false,
+  "matchingCheckoutSessions": 1,
+  "notificationCount": 1,
+  "notificationAccepted": true,
+  "replayDidNotResendTelegram": true,
+  "originalReservationsPreserved": true
+}

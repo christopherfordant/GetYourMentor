@@ -1,3 +1,4 @@
+import {assertReservationEnvironment} from '@/lib/stripe-environment';
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { getReservation, payReservation } from "@/lib/reservations";
@@ -48,9 +49,12 @@ export async function POST(request: Request) {
   if (checkout.payment_status !== "paid" || checkout.mode !== "payment" || checkout.status !== "complete"
     || typeof checkout.id !== "string" || typeof checkout.payment_intent !== "string"
     || typeof checkout.metadata?.reservation_id !== "string" || checkout.metadata.reservation_id.length > 128) return NextResponse.json({ error: "Session non payable ou incomplète" }, { status: 400 });
+  let phase="reservation-read";
   try {
     const reservation = await getReservation(checkout.metadata.reservation_id);
     if (!reservation) return NextResponse.json({ error: "Réservation introuvable" }, { status: 409 });
+    phase='environment';
+    if(process.env.PAYMENT_PROVIDER==='stripe')await assertReservationEnvironment(reservation);
     const expectedAmount = reservation.financials?.grossCents ?? eurosToCents(reservation.price);
     if (checkout.currency !== "eur" || !Number.isSafeInteger(checkout.amount_total) || checkout.amount_total !== expectedAmount
       || (process.env.PAYMENT_PROVIDER === "stripe" && !reservation.stripeCheckoutSessionId)
@@ -63,13 +67,20 @@ export async function POST(request: Request) {
     if (reservation.status !== "accepted") return NextResponse.json({ error: "Réservation non payable" }, { status: 409 });
     if(connectEnabled()&&!reservation.stripeConnectAccountId)return NextResponse.json({error:'Bénéficiaire Connect absent'},{status:409});
     if(reservation.stripeConnectAccountId){
+      phase="connect-settlement";
       const references=await verifyConnectSettlement(reservation,checkout.payment_intent);
+      phase='connect-persistence';
       if(!await updatePersistedReservation(reservation.id,references,'accepted'))throw Error('Persistance Connect en attente');
     }
+    phase="paid-persistence";
     const saved = await payReservation(reservation.id, email, checkout.payment_intent);
     if (!saved) throw new Error("Persistance indisponible");
     return NextResponse.json({ received: true, processed: true });
-  } catch {
+  } catch(error) {
+    if(process.env.GYM_REAL_TEST_SERVICES==='true'&&process.env.DEPLOY_ENV==='recipe'){
+      const status=error instanceof Error?error.message.match(/^Supabase reservation error \((\d{3})\)$/)?.[1]:undefined;
+      console.warn('stripe-recipe-webhook-failed',{phase,...(status?{persistenceStatus:status}:{})});
+    }
     // Preserve Stripe retries on transient persistence failures, without logging secrets.
     return NextResponse.json({ error: "Confirmation en attente, réessai nécessaire" }, { status: 503 });
   }

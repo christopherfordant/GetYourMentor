@@ -1,0 +1,20 @@
+{
+  "stripe-recovery-unit-final.json": {
+    "startTime": "2026-11-05T13:39:24.393Z",
+    "duration": 3728.267,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "stripe-recovery-delivery-views.json": {
+    "startTime": "2026-11-05T13:51:30.975Z",
+    "duration": 10396.207999999999,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "kanbanPassed": true,
+  "buildPassed": true
+}

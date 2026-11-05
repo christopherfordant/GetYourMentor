@@ -1,0 +1,7 @@
+{
+  "afterRefundReplayStatus": "cancelled",
+  "refundStatus": "succeeded",
+  "refundAmount": 40.0,
+  "phoneReceptionConfirmedByUser": true,
+  "paidNotificationUnchangedAfterRefundReplay": true
+}

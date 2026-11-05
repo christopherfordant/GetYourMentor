@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "mode": "simulation de repartition des roles, execution sequentielle",
   "roles": [
     "Architecture",
@@ -915,10 +915,11 @@
         "Controles locaux et preuves externes distincts"
       ],
       "evidence": [
-        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "docs/STRIPE_RECOVERY_2026-11-05.md"
       ],
-      "blocker": "Migration isolation autorisee et appliquee, runtime par environnement non adapte; paiement externe non verifie",
-      "next": "Adapter et tester runtime par environnement avant cles sandbox et onboarding"
+      "blocker": "Deuxieme sportif absent (quota email); refus de carte externe non teste",
+      "next": "Completer cas restants sans refaire le paiement deja rembourse"
     },
     {
       "id": "GYM-B1.1",
@@ -1029,7 +1030,7 @@
       "parent": "GYM-B1",
       "sprint": "S1",
       "priority": "P0",
-      "status": "blocked",
+      "status": "done",
       "estimateHours": [
         1,
         2
@@ -1049,10 +1050,11 @@
         "Controles locaux et preuves externes distincts"
       ],
       "evidence": [
-        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "docs/STRIPE_RECOVERY_2026-11-05.md"
       ],
-      "blocker": "Telegram metier accepte et recu au telephone; reception Stripe metier encore non testee faute Connect",
-      "next": "Achever Connect puis tester reception webhook signee avec paiement test"
+      "blocker": null,
+      "next": "Reception webhook Stripe et Telegram telephone validees; conserver preuves expurgees"
     },
     {
       "id": "GYM-B1.5",
@@ -1087,10 +1089,11 @@
         "Controles locaux et preuves externes distincts"
       ],
       "evidence": [
-        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
+        "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "docs/STRIPE_RECOVERY_2026-11-05.md"
       ],
-      "blocker": "Migration environnement appliquee et controlee, routage runtime a adapter; aucun paiement externe",
-      "next": "Isolation runtime verifiee puis configuration sandbox distincte, onboarding et paiement test"
+      "blocker": "Deuxieme sportif absent (quota email); refus de carte externe non teste",
+      "next": "Completer cas restants sans refaire le paiement deja rembourse"
     }
   ]
 }

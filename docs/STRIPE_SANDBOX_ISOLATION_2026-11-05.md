@@ -51,3 +51,8 @@ Apres application : deux registres environnements, une liaison legacy copiee; an
 Tests SQL reels en transaction ROLLBACK : association sandbox synthetique temporaire du meme coach, revendication reservation acceptee, puis refus de changement environnement, beneficiaire d un autre environnement, doublon et reference sans environnement. Resultat201 rollback_assertions_passed=true. Relecture finale confirme reservations et liaison ancienne identiques; REST service_role deux environnements/une seule liaison (fixture absent), anon401 pour les deux tables. Aucun profil, paiement, message ou compte Stripe invente et persiste. Le fixture de compte SQL n etait pas un compte fournisseur et a ete annule.
 
 Preuves expurgees : remote-migration.json et rest-after-migration.json dans docs/assets/stripe-sandbox-2026-11-05/. Validation locale du lot documentaire/Kanban et protections Git executee avant livraison; pas de nouveau build applicatif car runtime non modifie. Prochaine action : implementer et tester routage par environnement et revendication atomique, configuration DPAPI/forwarder sandbox distincts, puis seulement onboarding et paiement test. Le schema seul ne rend pas le parcours executable; aucun DONE global.
+
+
+## Mise a jour - 5 novembre : recette sandbox recuperee
+
+Routage et sandbox testes, paiement test confirme puis rembourse integralement, rejouabilite verifiee, Telegram recu au telephone. Rapport et limites : [STRIPE_RECOVERY_2026-11-05.md](STRIPE_RECOVERY_2026-11-05.md). Les blocages runtime precedents sont historiques. Aucun deploiement ni paiement reel.

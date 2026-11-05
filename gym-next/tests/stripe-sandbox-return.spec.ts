@@ -1,0 +1,20 @@
+import {test,expect} from '@playwright/test';
+import path from 'node:path';
+test.use({baseURL:'http://127.0.0.1:3005'});
+test('sandbox return derives authorized coach and never offers another payment after refund',async({page},info)=>{
+ const rid=process.env.GYM_RECIPE_VIEW_RESERVATION,owner=process.env.GYM_RECIPE_VIEW_SPORTIF_COOKIE,other=process.env.GYM_RECIPE_VIEW_OTHER_COOKIE;
+ test.skip(!rid||!owner||!other,'Requires authorized recipe reservation and real test account sessions');
+ const cookie=(raw:string)=>({name:'gym_session',value:raw.slice(raw.indexOf('=')+1),domain:'127.0.0.1',path:'/',httpOnly:true,sameSite:'Lax' as const,secure:false});
+ await page.context().addCookies([cookie(owner!)]);
+ const response=await page.request.get('/api/reservations/'+encodeURIComponent(rid!));expect(response.status()).toBe(200);const row=(await response.json()).data;expect(row.status).toBe('cancelled');expect(row.refundStatus).toBe('succeeded');
+ await page.goto('/paiement?reservationId='+encodeURIComponent(rid!)+'&payment=success&coach=not-the-reservation-coach');
+ await expect(page.getByText(/Cette r.servation a .t. annul.e/)).toBeVisible();
+ await expect(page.getByRole('button',{name:'Paiement indisponible',exact:true})).toBeDisabled();
+ expect(await page.getByRole('button',{name:'Paiement confirme',exact:true}).count()).toBe(0);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+ await page.screenshot({path:path.resolve('../delivery-private/stripe-refunded-return-'+info.project.name+'.png'),fullPage:true});
+ await page.context().clearCookies();await page.context().addCookies([cookie(other!)]);
+ expect((await page.request.get('/api/reservations/'+encodeURIComponent(rid!))).status()).toBe(403);
+ await page.goto('/paiement?reservationId='+encodeURIComponent(rid!));
+ await expect(page.getByText("Cette reservation n'est pas accessible depuis votre compte.")).toBeVisible();
+});
