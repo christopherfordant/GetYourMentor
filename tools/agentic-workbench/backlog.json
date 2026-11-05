@@ -1172,6 +1172,222 @@
       ],
       "blocker": null,
       "next": "Conserver preuve; ne pas recommencer le paiement"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1",
+      "title": "Fiabilisation avant production apres recette",
+      "objective": "Fiabilisation avant production apres recette",
+      "parent": null,
+      "status": "progress",
+      "role": "Architecture",
+      "estimateHours": [
+        10,
+        20
+      ],
+      "dependencies": [
+        "GYM-B1"
+      ],
+      "acceptance": [
+        "Expiration serveur controlee; reprises remboursement/Auth et exploitation verifiees avant cloture"
+      ],
+      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md",
+        "gym-next/lib/session-envelope.ts",
+        "gym-next/lib/auth.ts",
+        "gym-next/tests/session-envelope.spec.ts",
+        "gym-next/tests/session-expiry-route.spec.ts"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md",
+        "docs/DEMONSTRATION_PARCOURS_2026-11-05.md",
+        "docs/assets/session-hardening-2026-11-05/checks.json"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1.1",
+      "title": "Borner les sessions cote serveur et guider la demonstration",
+      "objective": "Borner les sessions cote serveur et guider la demonstration",
+      "parent": "GYM-H1",
+      "status": "done",
+      "role": "Securite",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "dependencies": [
+        "GYM-B1"
+      ],
+      "acceptance": [
+        "Cookie conserve mais expire refuse; ancien format refuse; connexion et deconnexion normales; guide et audit livres"
+      ],
+      "next": "Conserver les preuves et traiter les autres ecarts"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1.2",
+      "title": "Concevoir reconciliation paiement et remboursement differe",
+      "objective": "Concevoir reconciliation paiement et remboursement differe",
+      "parent": "GYM-H1",
+      "status": "prepare",
+      "role": "Architecture",
+      "estimateHours": [
+        3,
+        6
+      ],
+      "dependencies": [
+        "GYM-B1"
+      ],
+      "acceptance": [
+        "Strategie bornee et idempotente; interruptions et evenements desordonnes testes sans double paiement/remboursement"
+      ],
+      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1.3",
+      "title": "Prevoir la reprise des inscriptions partielles",
+      "objective": "Prevoir la reprise des inscriptions partielles",
+      "parent": "GYM-H1",
+      "status": "prepare",
+      "role": "Securite",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "dependencies": [
+        "GYM-B1"
+      ],
+      "acceptance": [
+        "Reprise Auth/role/profil idempotente; e-mail non auto-confirme; droits preserves"
+      ],
+      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1.4",
+      "title": "Verifier revocation et validite fournisseur des sessions",
+      "objective": "Verifier revocation et validite fournisseur des sessions",
+      "parent": "GYM-H1",
+      "status": "prepare",
+      "role": "Securite",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "dependencies": [
+        "GYM-H1.1"
+      ],
+      "acceptance": [
+        "Politique documentee; session revoquee/role modifie traites et testes sans contourner Auth"
+      ],
+      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "actualHours": null,
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "files": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "evidence": [
+        "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md"
+      ],
+      "tests": [
+        "Tests proportionnes et preuves expurgees; pas de validation production"
+      ],
+      "blocker": null,
+      "id": "GYM-H1.5",
+      "title": "Superviser reprises Telegram et erreurs expurgees",
+      "objective": "Superviser reprises Telegram et erreurs expurgees",
+      "parent": "GYM-H1",
+      "status": "prepare",
+      "role": "DevOps",
+      "estimateHours": [
+        2,
+        3
+      ],
+      "dependencies": [
+        "GYM-B1.4"
+      ],
+      "acceptance": [
+        "429/panne/uncertain et reprises verifies sans renvoi aveugle; alertes sans secrets"
+      ],
+      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
     }
   ]
 }

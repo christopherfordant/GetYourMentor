@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : guide, audit cible et expiration serveur des sessions
+
+Guide docs/DEMONSTRATION_PARCOURS_2026-11-05.md prepare sur preuves existantes, sans nouveau compte/paiement/notification. Audit docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md : premier ecart retenu, cookies chiffres sans echeance serveur. Nouvelle enveloppe authentifiee version1, issuedAt/expiresAt, maximum7jours identique au cookie; anciens formats sans date refuses, reconnexion normale requise. Map memoire locale aussi bornee. Aucun compte distant modifie ni changement de droits. Pas de refresh/revocation globale Supabase revendiques.
+
+GYM-B1 reste termine. GYM-H1 parent en cours, H1.1 expiration/guide traite; H1.2 reconciliation financiere, H1.3 inscriptions partielles, H1.4 validite/revocation fournisseur et H1.5 supervision Telegram restent a preparer. Dates/estimations proposees, temps reel non mesure. 6 tests unitaires et2 projets navigateur PASS, build/types/frontiere secrets client PASS,35 tests Kanban PASS. Voir checks.json et rapport.
+
+Serveur recette3005 arrete pour reconstruire son build; aucune approbation renouvelee, pas de relance automatique avec des acces anciens. Tests navigateur uniquement sur serveur isole3006, secret et comptes synthetiques locaux, serveur arrete apres tests. Apercu Kanban4325 a conserver si actif. Preuves docs/assets/session-hardening-2026-11-05/. Aucun nouveau paiement, migration ou deploiement. Prochain ticket recommande H1.2, sans autorisation implicite d'operation distante. Historique conserve ci-dessous.
+
 ## Reprise active - 5 novembre 2026 : derniers cas de recette valides, GYM-B1 termine dans son perimetre
 
 Deux coachs et deux sportifs confirmes en Supabase. Second sportif inscrit normalement puis lien confirme par utilisateur; profil et role persistants, connexion/deconnexion/reconnexion et isolation croisee verifies. Une reservation propre de test creee puis annulee sans paiement. Aucun compte auto-confirme.

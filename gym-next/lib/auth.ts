@@ -1,6 +1,7 @@
+import {sealSession,openSession,SESSION_MAX_AGE_SECONDS} from './session-envelope';
 import { cookies } from "next/headers";
 import { signupProviderError } from './signup-provider-error';
-import { createCipheriv, createDecipheriv, createHash, randomBytes, randomUUID, scryptSync, timingSafeEqual } from "node:crypto";
+import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from "node:crypto";
 import { coachIdForName, coachProfiles, createCoachProfile } from "@/lib/domain";
 import { createStoredCoachProfile } from "@/lib/coaches";
 import { assertDemoFallbackAllowed, isHostedDemo } from "@/lib/runtime";
@@ -10,10 +11,10 @@ export type UserRole = "sportif" | "coach" | "club" | "admin";
 export type Session = { email: string; role: UserRole; coachId?: string; accessToken?: string };
 type SignupProfile = { firstName: string; lastName: string; phone: string; city?: string; termsAccepted: boolean };
 
-const sessions = new Map<string, Session>();
+const sessions = new Map<string, {session:Session;expiresAt:number}>();
 const localUsers = new Map<string, { password: string; role: UserRole; coachId?: string }>();
 const COOKIE_NAME = "gym_session";
-const SESSION_MAX_AGE = 60 * 60 * 24 * 7;
+const SESSION_MAX_AGE = SESSION_MAX_AGE_SECONDS;
 
 function isUserRole(value: unknown): value is UserRole {
   return value === "sportif" || value === "coach" || value === "club" || value === "admin";
@@ -29,47 +30,19 @@ function supabaseCoachId(profile: Record<string, unknown>) {
   return typeof metadata?.coach_id === "string" ? metadata.coach_id : undefined;
 }
 
-function sessionKey() {
-  const secret = process.env.SESSION_SECRET;
-  if (secret && secret.length >= 32) return createHash("sha256").update(secret).digest();
-  assertDemoFallbackAllowed("SESSION_SECRET");
-  return null;
+function configuredSessionSecret() {
+  const secret=process.env.SESSION_SECRET;
+  if(secret&&secret.length>=32)return secret;
+  assertDemoFallbackAllowed('SESSION_SECRET');return null;
 }
-
-function encodeSession(session: Session) {
-  const key = sessionKey();
-  if (!key) {
-    const sessionId = randomUUID();
-    sessions.set(sessionId, session);
-    return sessionId;
-  }
-
-  const iv = randomBytes(12);
-  const cipher = createCipheriv("aes-256-gcm", key, iv);
-  const encrypted = Buffer.concat([cipher.update(JSON.stringify(session), "utf8"), cipher.final()]);
-  return [iv, cipher.getAuthTag(), encrypted].map((value) => value.toString("base64url")).join(".");
+function encodeSession(session:Session) {
+  const secret=configuredSessionSecret();if(secret)return sealSession(session,secret);
+  const id=randomUUID();sessions.set(id,{session,expiresAt:Date.now()+SESSION_MAX_AGE*1000});return id;
 }
-
-function decodeSession(value: string) {
-  const key = sessionKey();
-  if (!key) return sessions.get(value) ?? null;
-
-  try {
-    const [ivValue, tagValue, encryptedValue] = value.split(".");
-    if (!ivValue || !tagValue || !encryptedValue) return null;
-    const decipher = createDecipheriv("aes-256-gcm", key, Buffer.from(ivValue, "base64url"));
-    decipher.setAuthTag(Buffer.from(tagValue, "base64url"));
-    const decrypted = Buffer.concat([
-      decipher.update(Buffer.from(encryptedValue, "base64url")),
-      decipher.final(),
-    ]).toString("utf8");
-    const parsed = JSON.parse(decrypted) as Partial<Session>;
-    return typeof parsed.email === "string" && isUserRole(parsed.role)
-      ? { email: parsed.email, role: parsed.role, coachId: typeof parsed.coachId === "string" ? parsed.coachId : undefined, accessToken: typeof parsed.accessToken === "string" ? parsed.accessToken : undefined }
-      : null;
-  } catch {
-    return null;
-  }
+function decodeSession(value:string):Session|null {
+  const secret=configuredSessionSecret();if(secret)return openSession(value,secret);
+  const stored=sessions.get(value);if(!stored)return null;
+  if(stored.expiresAt<=Date.now()){sessions.delete(value);return null;}return stored.session;
 }
 
 function supabaseConfig() {

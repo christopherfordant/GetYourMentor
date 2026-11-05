@@ -1,0 +1,29 @@
+{
+  "unit": {
+    "startTime": "2026-11-05T14:31:45.956Z",
+    "duration": 2096.175,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "browser": {
+    "startTime": "2026-11-05T14:37:09.586Z",
+    "duration": 16333.262999999999,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "kanbanTestsPassed": 35,
+  "buildPassed": true,
+  "browserFirstAttempt": "Wrong fixture base URL (3001); corrected test-only URL to3006; final run passed",
+  "externalAccountsOrServicesUsed": false,
+  "paymentsAttempted": false,
+  "notificationsSent": false,
+  "legacyCookiesRequireNormalLogin": true,
+  "supabaseRevocationImplemented": false,
+  "clientSecretBoundaryPassed": true,
+  "trackedSecretsPassed": true,
+  "prePushPassed": true
+}
