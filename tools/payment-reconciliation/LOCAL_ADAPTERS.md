@@ -17,3 +17,7 @@ SQLite est exclusivement un backend de laboratoire, Supabase du produit reste in
 Les URL autorisees sont uniquement http://127.0.0.1:PORT sans identifiant, query ou fragment. Ni localhost/DNS, ni redirection ou proxy automatique. Enregistrement distant et cles live refuses. Le token fournisseur des tests est une simple fixture, pas un acces Stripe. Les requetes HTTP sont uniquement GET.
 
 Sch?ma et rollback sont SQLite local uniquement; ne pas les lancer sur Supabase. Pour une verification complete : docs/RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md. Les avertissements Node relatifs a SQLite experimental et a la detection du module TypeScript sont attendus avec Node24.14, sans installation ni modification de package.
+
+## Preparation PostgreSQL H1.2.3 - 5 novembre
+
+Port explicite localPostgres/postgresStore/runPostgresMaintenance, PostgreSQL12.15 isole, aucun acces Supabase/Stripe. Instructions et limites : ../../docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md. Les scripts postgres-rehearsal.mjs puis postgres-integration.mjs exigent GYM_LOCAL_PG_PORT=55441 et un cluster jetable vierge cree explicitement. Ils ne font pas partie de la commande historique *.test.mjs et ne s'executent pas implicitement. Ne jamais les lancer sur une base existante. Pas de client distant, ni de secrets charges. Ne pas supprimer les protections loopback.

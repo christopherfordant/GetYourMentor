@@ -1,0 +1,47 @@
+import assert from 'node:assert/strict';
+import http from 'node:http';
+import {readFile,writeFile} from 'node:fs/promises';
+import {localPostgres,postgresStore,runPostgresMaintenance} from './postgres-local.mjs';
+import {sample} from './fixtures.mjs';
+import {reservationToRow} from '../../gym-next/lib/repositories/reservation-mapper.ts';
+if(process.env.GYM_LOCAL_PG_PORT!=='55441')throw Error('Explicit isolated cluster required');
+const connect=user=>localPostgres({psql:'C:/Program Files/PostgreSQL/12/bin/psql.exe',port:55441,user});
+const admin=connect('gym_lab_admin'),operator=connect('gym_test_operator');
+const q=v=>"'"+String(v).replaceAll("'","''")+"'";
+const root=new URL('../../',import.meta.url),evidence=new URL('docs/assets/reconciliation-pg-2026-11-05/checks.json',root);
+const report=JSON.parse(await readFile(evidence,'utf8'));
+async function check(name,run){await run();report.checks.push({name,status:'PASS'});}
+const fixture=sample(),row=reservationToRow(fixture.rows[0]),snapshot=fixture.snapshots[fixture.rows[0].id];
+await admin('UPDATE public.gym_reservations SET '+Object.entries(row).filter(([,v])=>v!==undefined).map(([k,v])=>`${k}=${v===null?'NULL':typeof v==='object'?q(JSON.stringify(v))+'::jsonb':q(v)}`).join(',')+" WHERE id='res-fixture-1';");
+const calls=[];
+const server=http.createServer((req,res)=>{calls.push({method:req.method,path:new URL(req.url,'http://127.0.0.1').pathname});let body;const path=new URL(req.url,'http://127.0.0.1').pathname;
+if(path==='/v1/account')body={object:'account',id:'acct_platform'};
+else if(path==='/v1/checkout/sessions/cs_test_fixture')body=snapshot.checkout;
+else if(path==='/v1/payment_intents/pi_fixture')body=snapshot.intent;
+else if(path==='/v1/refunds')body={object:'list',has_more:false,data:[]};
+res.writeHead(body?200:404,{'Content-Type':'application/json'});res.end(JSON.stringify(body??{}));});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+try{
+ const store=postgresStore({query:operator,environmentId:'recipe-accounts-v2',origin:'http://127.0.0.1:'+server.address().port});
+ const args={store,ids:['res-fixture-1'],apiKey:'sk_test_localfixture'};
+ await check('PostgreSQL plus HTTP diagnosis has no mutation',async()=>{const before=await admin('SELECT to_jsonb(r) FROM public.gym_reservations r;');const result=await runPostgresMaintenance(args);assert.equal(result.results[0].action,'would_patch');assert.equal(await admin('SELECT to_jsonb(r) FROM public.gym_reservations r;'),before);});
+ await check('PostgreSQL plus HTTP resume persists verified transition',async()=>{const result=await runPostgresMaintenance({...args,mode:'resume'});assert.equal(result.results[0].action,'updated');assert.equal(await admin("SELECT status FROM public.gym_reservations WHERE id='res-fixture-1';"),'paid');});
+ await check('repeated resume is idempotent',async()=>{const before=await admin('SELECT to_jsonb(r) FROM public.gym_reservations r;');const result=await runPostgresMaintenance({...args,mode:'resume'});assert.equal(result.results[0].action,'none');assert.equal(await admin('SELECT to_jsonb(r) FROM public.gym_reservations r;'),before);});
+ await check('HTTP only GET, no financial or notification endpoint',async()=>{assert.ok(calls.length>0);assert.ok(calls.every(x=>x.method==='GET'&&/^\/v1\/(account|checkout\/sessions\/cs_test_fixture|payment_intents\/pi_fixture|refunds)$/.test(x.path)));});
+ await check('amount change invalidates same-status snapshot',async()=>{const s=JSON.parse(await operator("SELECT gym_reconciliation_private.snapshot('recipe-accounts-v2','res-fixture-1');"));await admin("UPDATE public.gym_reservations SET price=41 WHERE id='res-fixture-1';");assert.equal(await operator(`SELECT gym_reconciliation_private.cas('recipe-accounts-v2','res-fixture-1',${q(JSON.stringify(s))},'{"stripe_transfer_id":"tr_fixture"}');`),'f');});
+ await check('forbidden paid to accepted transition refused',async()=>{const s=await operator("SELECT gym_reconciliation_private.snapshot('recipe-accounts-v2','res-fixture-1');");await assert.rejects(operator(`SELECT gym_reconciliation_private.cas('recipe-accounts-v2','res-fixture-1',${q(s)},'{"status":"accepted"}');`));});
+ await check('beneficiary mutation invalidates snapshot',async()=>{const s=await operator("SELECT gym_reconciliation_private.snapshot('recipe-accounts-v2','res-fixture-1');");await admin("UPDATE public.gym_stripe_coach_bindings SET stripe_account_id='acct_other';");assert.equal(await operator(`SELECT gym_reconciliation_private.cas('recipe-accounts-v2','res-fixture-1',${q(s)},'{"stripe_transfer_id":"tr_fixture"}');`),'f');await admin("UPDATE public.gym_stripe_coach_bindings SET stripe_account_id='acct_coach';");});
+ await check('platform mutation invalidates snapshot',async()=>{const s=await operator("SELECT gym_reconciliation_private.snapshot('recipe-accounts-v2','res-fixture-1');");await admin("UPDATE public.gym_stripe_environments SET platform_account_id='acct_other';");assert.equal(await operator(`SELECT gym_reconciliation_private.cas('recipe-accounts-v2','res-fixture-1',${q(s)},'{"stripe_transfer_id":"tr_fixture"}');`),'f');await admin("UPDATE public.gym_stripe_environments SET platform_account_id='acct_platform';");});
+ await check('executor row-lock privileges do not allow registry update under RLS',()=>assert.rejects(admin("SET ROLE gym_reconciliation_executor;UPDATE public.gym_stripe_environments SET id='other';")));
+ await check('executor row-lock privileges do not allow binding update under RLS',()=>assert.rejects(admin("SET ROLE gym_reconciliation_executor;UPDATE public.gym_stripe_coach_bindings SET stripe_account_id='acct_other';")));
+ const baseline=await admin("SELECT jsonb_agg(to_jsonb(r)-'reconciliation_revision') FROM public.gym_reservations r;");
+ const backup=await admin("SELECT jsonb_build_object('operators',(SELECT jsonb_agg(to_jsonb(t)) FROM gym_reconciliation_private.operators t),'intentions',(SELECT jsonb_agg(to_jsonb(t)) FROM gym_reconciliation_private.cancellation_intents t));");
+ await writeFile(new URL('delivery-private/reconciliation-pg-backup.json',root),backup+'\n');
+ const rollback=await readFile(new URL('supabase/proposals/reconciliation-20261105/rollback.sql',root),'utf8');
+ await check('rollback refuses absent backup acknowledgement',()=>assert.rejects(admin(rollback)));
+ await check('rollback preserves business data and removes added objects',async()=>{await admin("SET gym_reconciliation.backup_confirmed='yes';\n"+rollback);assert.equal(await admin('SELECT jsonb_agg(to_jsonb(r)) FROM public.gym_reservations r;'),baseline);assert.equal(await admin("SELECT count(*) FROM pg_namespace WHERE nspname='gym_reconciliation_private';"),'0');});
+ await admin('DROP ROLE gym_reconciliation_executor;DROP ROLE gym_reconciliation_operator;DROP ROLE gym_cancellation_decider;');
+ await check('migration can be reapplied after explicit role cleanup',async()=>{await admin(await readFile(new URL('supabase/proposals/reconciliation-20261105/migration.sql',root),'utf8'));await admin(await readFile(new URL('supabase/proposals/reconciliation-20261105/postflight.sql',root),'utf8'));});
+ report.count=report.checks.length;report.httpRequests=calls.length;report.rollback='executed, business data preserved; private backup synthetic only';report.schemaAfter='proposal reapplied, zero permissions; local cluster must be stopped';
+ await writeFile(evidence,JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({count:report.count,status:'PASS',httpRequests:calls.length}));
+}finally{await new Promise(resolve=>server.close(resolve));}

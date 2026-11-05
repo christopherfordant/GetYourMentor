@@ -71,3 +71,7 @@ Aucun achat, appel distant Stripe/Supabase, migration distante, message, nouveau
 Depuis la racine : node --test tools/payment-reconciliation/*.test.mjs; details operateur dans tools/payment-reconciliation/LOCAL_ADAPTERS.md. Kanban http://127.0.0.1:4325/ filtre GYM-H1.2. Les captures sont issues de contextes neufs, sans effacer les brouillons personnels.
 
 References officielles consultees : [pagination des remboursements Stripe](https://docs.stripe.com/api/refunds/list), [SQLite Node](https://nodejs.org/api/sqlite.html). L'API utilisee a aussi ete executee directement avec Node24.14 local; aucune compatibilite avec toutes les versions Node n'est revendiquee.
+
+## Suite preparee, sans reouverture du ticket valide
+
+Le lot H1.2.3 PostgreSQL local est documente dans [le dossier du 5 novembre](RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md). H1.2.2 reste termine dans son perimetre SQLite/HTTP local. Aucune validation distante implicite.

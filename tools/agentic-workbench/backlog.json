@@ -1479,7 +1479,7 @@
       "title": "Valider la recette externe et la procedure exploitation",
       "objective": "Valider la recette externe et la procedure exploitation",
       "parent": "GYM-H1.2",
-      "status": "prepare",
+      "status": "progress",
       "role": "QA",
       "estimateHours": [
         1,
@@ -1496,13 +1496,156 @@
         "docs/RECONCILIATION_H1_2_2026-11-05.md"
       ],
       "tests": [
-        "A definir avant implementation"
+        "31 controles PostgreSQL12.15 locaux PASS; 62 tests historiques PASS; recette distante non executee"
       ],
       "evidence": [
-        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md",
+        "docs/assets/reconciliation-pg-2026-11-05/checks.json"
       ],
       "blocker": null,
-      "next": "Lot distinct; aucune operation distante autorisee par le ticket"
+      "next": "H1.2.3.3 : autorisation distincte du preflight distant en lecture seule, puis qualification PostgreSQL17.6"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.3.1",
+      "title": "Preparer le CAS PostgreSQL et le dossier SQL",
+      "objective": "Preparer le CAS PostgreSQL et le dossier SQL",
+      "parent": "GYM-H1.2.3",
+      "status": "done",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.2"
+      ],
+      "acceptance": [
+        "SQL et protocole local prepares; aucun raccordement actif"
+      ],
+      "files": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "tests": [
+        "SQL et protocole local prepares; aucun raccordement actif"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md",
+        "docs/assets/reconciliation-pg-2026-11-05/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver les preuves locales"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.3.2",
+      "title": "Repeter la proposition sur PostgreSQL local isole",
+      "objective": "Repeter la proposition sur PostgreSQL local isole",
+      "parent": "GYM-H1.2.3",
+      "status": "done",
+      "role": "QA",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.3.1"
+      ],
+      "acceptance": [
+        "31 controles PG12.15 PASS, rollback et concurrence; limites PG17.6 explicites"
+      ],
+      "files": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "tests": [
+        "31 controles PG12.15 PASS, rollback et concurrence; limites PG17.6 explicites"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md",
+        "docs/assets/reconciliation-pg-2026-11-05/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver les preuves locales"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.3.3",
+      "title": "Obtenir autorisation et prerequis de recette distante",
+      "objective": "Obtenir autorisation et prerequis de recette distante",
+      "parent": "GYM-H1.2.3",
+      "status": "prepare",
+      "role": "Securite",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.3.2"
+      ],
+      "acceptance": [
+        "Preflight distant en lecture seule a autoriser; compatibilite PG17.6 a qualifier"
+      ],
+      "files": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "tests": [
+        "Non execute"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "blocker": null,
+      "next": "Preflight distant en lecture seule a autoriser; compatibilite PG17.6 a qualifier"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-13",
+      "scope": "Fiabilisation locale avant production; aucune operation distante ou financiere",
+      "id": "GYM-H1.2.3.4",
+      "title": "Executer et verifier la recette distante autorisee",
+      "objective": "Executer et verifier la recette distante autorisee",
+      "parent": "GYM-H1.2.3",
+      "status": "prepare",
+      "role": "QA",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.2.3.3"
+      ],
+      "acceptance": [
+        "Non autorisee, aucun acces distant execute"
+      ],
+      "files": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "tests": [
+        "Non execute"
+      ],
+      "evidence": [
+        "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md"
+      ],
+      "blocker": null,
+      "next": "Non autorisee, aucun acces distant execute"
     }
   ]
 }

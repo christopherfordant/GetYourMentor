@@ -13,3 +13,7 @@ Les consignes racine s'appliquent. Ce dossier est un outil local sur fixtures sy
 ## Perimetre autorise H1.2.2 - 5 novembre 2026
 
 La derniere consigne utilisateur autorise explicitement adaptateurs HTTP de lecture sur127.0.0.1 et base SQLite de laboratoire uniquement. Cette exception remplace le refus historique d adaptateur implicite pour ce lot. Ne pas permettre api.stripe.com, Supabase distant, autre hote ou redirection. Aucun paiement, notification ou coffre reel. Le moteur/CLI fixture-only initial reste conserve.
+
+## Exception explicite H1.2.3 - 5 novembre 2026
+
+La derniere consigne autorise aussi PostgreSQL local isole et HTTP simule : postgres-local.mjs reste bloque sur127.0.0.1 et ne charge aucun acces distant. SQL propose dans supabase/proposals/reconciliation-20261105/, tests explicites sur cluster jetable55441. Cette exception complete SQLite sans changer le backend du site. 31 controles PG12.15 PASS, version distante17.6 non validee. Schema prive et logins synthetiques uniquement, aucun endpoint public ni migration distante. Rapport docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md. H1.2.3.1/.2 seulement termines, parent et recette externe ouverts.

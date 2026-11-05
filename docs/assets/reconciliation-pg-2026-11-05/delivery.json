@@ -1,0 +1,16 @@
+{
+  "postgresChecks": 31,
+  "historicalTests": 62,
+  "kanbanTests": 35,
+  "postgresVersion": "12.15",
+  "remoteValidated": false,
+  "cluster55441Stopped": true,
+  "preexistingFilesHashIdentical": 18,
+  "kanbanBrowser": "desktop and mobile, fresh contexts, existing drafts untouched",
+  "sqlFiles": {
+    "supabase/proposals/reconciliation-20261105/migration.sql": "5a8125cc4903eb4a607daad7ab4e9ae1ab60bb05ee6e14e256c37d98b0fd1bf3",
+    "supabase/proposals/reconciliation-20261105/postflight.sql": "0ab96eba562b3b63d230e5c825eccba354fe404b1590830818d09be3f5712494",
+    "supabase/proposals/reconciliation-20261105/preflight.sql": "29d20dffc4f43784fb2f0a11be6aaece071f0e00a6961fc203702fa12e36d900",
+    "supabase/proposals/reconciliation-20261105/rollback.sql": "675db7e16b921a24acfb9d275be7303336bb94bb0036567178466045c3d6e4af"
+  }
+}

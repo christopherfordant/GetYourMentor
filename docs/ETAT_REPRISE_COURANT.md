@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : H1.2.3 preparation PostgreSQL locale livree
+
+Proposition SQL privee dans supabase/proposals/reconciliation-20261105/ : preflight, migration, postflight, rollback. Adaptateur psql loopback avec mapper du produit, CAS transactionnel sur ligne/revision/intention/plateforme/liaison, droits operateur bornes et decideur distinct. Aucun raccordement au parcours actif. Protocole annulation prepare sans creation de remboursement par la reconciliation.
+
+31 controles PostgreSQL12.15 reels PASS, dont deux processus, changements sans nouveau statut, diagnostic/reprise/repetition avec HTTP simule, rollback avant commit et reponse ignoree apres commit, privileges/RLS et retour arriere SQL avec donnees metier preservees. Pas de crash serveur injecte. 62 tests moteur/adaptateurs historiques PASS. PostgreSQL17.6 distant NON valide : fixture synthetique basee sur archives4/5novembre, pas une copie complete Supabase. Cluster temporaire55441 arrete apres tests ; aucun service existant reconfigure. Preuves docs/assets/reconciliation-pg-2026-11-05/ et rapport docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md.
+
+H1.2.3.1 et H1.2.3.2 termines localement; .3 autorisation/prerequis et .4 recette distante restent a preparer. H1.2.3/H1.2/H1 restent en cours. Kanban4325 a verifier sur captures. Aucune operation distante Stripe/Supabase, coffre, migration distante, paiement/remboursement, notification ou deploiement. Anciens tickets valides preserves ; aucune reprise RAG. Prochaine action precise : autoriser seulement le preflight distant en lecture seule sur getyourmentor-preprod pqxqqbwesfrefzjoawmx, scope et arrets detailles dans le dossier; aucune ancienne permission reutilisee. Historique conserve ci-dessous.
+
 ## Reprise active - 5 novembre 2026 : H1.2.2 adaptateurs locaux durables valides
 
 HTTP GET127.0.0.1 et SQLite de laboratoire livres, CLI operateur prive avec permission provisionnee en base, expiration/modes/cibles verifies avant lecture et dans le commit. Diagnostic readOnly par defaut, reprise explicite, pagination/timeout/annulation, CAS sur ligne+revision+intention durable et concurrence de processus verifies. 62 tests locaux PASS incluant36 tests du moteur; controles Kanban et preuves dans docs/assets/reconciliation-adapters-2026-11-05/. Rapport docs/RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md.

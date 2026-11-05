@@ -1,0 +1,141 @@
+{
+  "version": "12.15",
+  "fixture": "synthetic public table columns based on archived metadata, not a full Supabase clone",
+  "remoteAccess": false,
+  "checks": [
+    {
+      "name": "migration preserves synthetic business row",
+      "status": "PASS"
+    },
+    {
+      "name": "operator cannot read private tables directly",
+      "status": "PASS"
+    },
+    {
+      "name": "outsider cannot execute snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "operator cannot write public table directly",
+      "status": "PASS"
+    },
+    {
+      "name": "target outside permission refused",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong environment refused",
+      "status": "PASS"
+    },
+    {
+      "name": "diagnostic does not mutate",
+      "status": "PASS"
+    },
+    {
+      "name": "two processes one CAS winner",
+      "status": "PASS"
+    },
+    {
+      "name": "same status business mutation invalidates snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback before commit preserves row",
+      "status": "PASS"
+    },
+    {
+      "name": "commit with discarded acknowledgement durable",
+      "status": "PASS"
+    },
+    {
+      "name": "null patch rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "arbitrary field rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "reference replacement rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "operator cannot record cancellation intention",
+      "status": "PASS"
+    },
+    {
+      "name": "durable intention invalidates prior CAS",
+      "status": "PASS"
+    },
+    {
+      "name": "revocation blocks previously read CAS",
+      "status": "PASS"
+    },
+    {
+      "name": "application mapper and async store read match SQL identity",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL plus HTTP diagnosis has no mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "PostgreSQL plus HTTP resume persists verified transition",
+      "status": "PASS"
+    },
+    {
+      "name": "repeated resume is idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "HTTP only GET, no financial or notification endpoint",
+      "status": "PASS"
+    },
+    {
+      "name": "amount change invalidates same-status snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "forbidden paid to accepted transition refused",
+      "status": "PASS"
+    },
+    {
+      "name": "beneficiary mutation invalidates snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "platform mutation invalidates snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "executor row-lock privileges do not allow registry update under RLS",
+      "status": "PASS"
+    },
+    {
+      "name": "executor row-lock privileges do not allow binding update under RLS",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback refuses absent backup acknowledgement",
+      "status": "PASS"
+    },
+    {
+      "name": "rollback preserves business data and removes added objects",
+      "status": "PASS"
+    },
+    {
+      "name": "migration can be reapplied after explicit role cleanup",
+      "status": "PASS"
+    }
+  ],
+  "count": 31,
+  "limitations": [
+    "PostgreSQL 12 only; PostgreSQL 17.6 not executed",
+    "No PostgREST/JWT or real Supabase role compatibility proven",
+    "No live provider or financial operation",
+    "Interruption simulated by rollback/discarded acknowledgement; no server crash injected"
+  ],
+  "httpRequests": 12,
+  "rollback": "executed, business data preserved; private backup synthetic only",
+  "schemaAfter": "proposal reapplied, zero permissions; local cluster must be stopped"
+}

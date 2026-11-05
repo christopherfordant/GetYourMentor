@@ -31,7 +31,7 @@ export function localReadProvider({environment,store,apiKey,timeoutMs=2000,maxPa
    return {data,has_more:true};
   }
   if(row.stripeEnvironmentId!==environment.id)throw Error('Reservation environment mismatch');
-  const bound=store.binding(environment.id,row.coachId);if(!bound||bound!==row.stripeConnectAccountId)throw Error('Coach binding mismatch');
+  const bound=await store.binding(environment.id,row.coachId,row.id);if(!bound||bound!==row.stripeConnectAccountId)throw Error('Coach binding mismatch');
   const account=await get('/v1/account');if(account.object!=='account'||account.id!==environment.platform)throw Error('Platform mismatch');
   const checkout=await object(row.stripeCheckoutSessionId,'cs_test_','/v1/checkout/sessions/','checkout.session');
   const result={environmentId:environment.id,platformAccountId:account.id,platformVerified:true,boundCoachId:row.coachId,boundAccountId:bound,livemode:checkout.livemode,checkout};
