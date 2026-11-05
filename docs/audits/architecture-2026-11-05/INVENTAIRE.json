@@ -1,0 +1,245 @@
+{
+  "root": "C:\\Users\\cashe\\Documents\\GetYourMentor",
+  "date": "2026-11-05",
+  "directoriesEnumerated": 41288,
+  "filesEnumerated": 306968,
+  "bytesEnumerated": 5694640228,
+  "projectDirectoriesPublished": 456,
+  "coverage": "metadata of all traversable non-symlink directories; generated/private contents not read; private descendants omitted from published CSV",
+  "errors": [
+    "PermissionError",
+    "PermissionError",
+    "stat unavailable",
+    "stat unavailable",
+    "stat unavailable",
+    "stat unavailable",
+    "stat unavailable",
+    "stat unavailable",
+    "PermissionError",
+    "PermissionError",
+    "PermissionError"
+  ],
+  "symlinkDirectoryCount": 0,
+  "topLevel": {
+    "(root files)": {
+      "directories": 1,
+      "files": 102,
+      "bytes": 13732839
+    },
+    ".git": {
+      "directories": 790,
+      "files": 5700,
+      "bytes": 282959598
+    },
+    ".github": {
+      "directories": 2,
+      "files": 2,
+      "bytes": 5840
+    },
+    ".mempalace": {
+      "directories": 3,
+      "files": 6,
+      "bytes": 27856946
+    },
+    ".mempalace-exec": {
+      "directories": 6,
+      "files": 8,
+      "bytes": 174510925
+    },
+    ".mempalace-home": {
+      "directories": 6,
+      "files": 3,
+      "bytes": 83180274
+    },
+    ".mempalace-runtime": {
+      "directories": 5,
+      "files": 2,
+      "bytes": 83178857
+    },
+    ".netlify": {
+      "directories": 4,
+      "files": 9,
+      "bytes": 12903
+    },
+    ".playwright-cli": {
+      "directories": 1,
+      "files": 206,
+      "bytes": 6402785
+    },
+    ".playwright-mcp": {
+      "directories": 1,
+      "files": 22,
+      "bytes": 335370
+    },
+    ".tools": {
+      "directories": 36377,
+      "files": 266819,
+      "bytes": 3385905635
+    },
+    "Analyse concurrents": {
+      "directories": 1,
+      "files": 1,
+      "bytes": 116995
+    },
+    "assets": {
+      "directories": 6,
+      "files": 15,
+      "bytes": 265934
+    },
+    "Ateliers": {
+      "directories": 3,
+      "files": 5,
+      "bytes": 762032
+    },
+    "Branding": {
+      "directories": 1,
+      "files": 1,
+      "bytes": 11557
+    },
+    "delivery-private": {
+      "directories": 54,
+      "files": 2173,
+      "bytes": 85181649
+    },
+    "design_assets": {
+      "directories": 7,
+      "files": 28,
+      "bytes": 10426681
+    },
+    "Devis": {
+      "directories": 1,
+      "files": 6,
+      "bytes": 535059
+    },
+    "docs": {
+      "directories": 129,
+      "files": 1068,
+      "bytes": 113391844
+    },
+    "Dossier Banque": {
+      "directories": 1,
+      "files": 10,
+      "bytes": 21463179
+    },
+    "Dossier Business Plan": {
+      "directories": 1,
+      "files": 9,
+      "bytes": 2255626
+    },
+    "Financement": {
+      "directories": 1,
+      "files": 2,
+      "bytes": 174773
+    },
+    "Fonctionnalité": {
+      "directories": 1,
+      "files": 3,
+      "bytes": 79259
+    },
+    "governance": {
+      "directories": 5,
+      "files": 58,
+      "bytes": 1274520
+    },
+    "gym-next": {
+      "directories": 2208,
+      "files": 16507,
+      "bytes": 1013136213
+    },
+    "Idée V2, V3 etc___": {
+      "directories": 1,
+      "files": 2,
+      "bytes": 36720
+    },
+    "Les commerciaux": {
+      "directories": 1,
+      "files": 3,
+      "bytes": 22402
+    },
+    "Les Contacts (perso et clubs)": {
+      "directories": 4,
+      "files": 18,
+      "bytes": 6394983
+    },
+    "maquettes": {
+      "directories": 2,
+      "files": 2,
+      "bytes": 10570
+    },
+    "mempalace": {
+      "directories": 1601,
+      "files": 13483,
+      "bytes": 309084639
+    },
+    "montage_planity": {
+      "directories": 2,
+      "files": 389,
+      "bytes": 39838754
+    },
+    "n8n": {
+      "directories": 2,
+      "files": 7,
+      "bytes": 25292
+    },
+    "Objectifs - Planification - Plan d_action": {
+      "directories": 1,
+      "files": 3,
+      "bytes": 563511
+    },
+    "Parcours Utilisateur (user flow)": {
+      "directories": 2,
+      "files": 8,
+      "bytes": 3051530
+    },
+    "Pitch Deck": {
+      "directories": 1,
+      "files": 2,
+      "bytes": 19488617
+    },
+    "playwright-artifacts": {
+      "directories": 1,
+      "files": 2,
+      "bytes": 74457
+    },
+    "project_readable": {
+      "directories": 33,
+      "files": 145,
+      "bytes": 5293372
+    },
+    "Projet et Organisation GYM_": {
+      "directories": 1,
+      "files": 2,
+      "bytes": 1126081
+    },
+    "prototype-site": {
+      "directories": 1,
+      "files": 20,
+      "bytes": 295202
+    },
+    "scripts": {
+      "directories": 1,
+      "files": 36,
+      "bytes": 107538
+    },
+    "Sondage": {
+      "directories": 1,
+      "files": 1,
+      "bytes": 6533
+    },
+    "Stratégie": {
+      "directories": 4,
+      "files": 4,
+      "bytes": 1705660
+    },
+    "supabase": {
+      "directories": 10,
+      "files": 31,
+      "bytes": 113748
+    },
+    "tools": {
+      "directories": 4,
+      "files": 45,
+      "bytes": 243326
+    }
+  }
+}

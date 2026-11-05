@@ -1,3 +1,9 @@
+## Reprise active - 5 novembre 2026 : audit architecture et rangement livre
+
+Audit documentaire dans docs/audits/architecture-2026-11-05/ : verdict partiel, assistant lexical local et embeddings/vectoriel de recette prepares, pas d agent autonome applicatif demontre. Lanceur Codex de developpement present mais non execute/verifie ici; roles Kanban simules et A5 en backlog. Inventaire metadata41288 dossiers/306968 fichiers avec5 refus de repertoire et6 erreurs de stat, dependances/prive sans lecture de contenu; pas une lecture integrale de tous les fichiers. Analyse AST385 sources/681 imports internes, un cycle metier de5 modules, zero doublon exact dans ce sous-ensemble.
+
+35 tests atelier/Kanban et12+3 cas lexicaux PASS dans ce lot. Aucun code applicatif, AGENTS, workflow, SQL ou Kanban modifie, aucun service lance, acces distant de compte, secret ouvert, migration ou deploiement. Rapports : RAPPORT.md, CONSTATS.md, CIBLE_ET_PLAN.md, COUVERTURE.md et inventaires JSON/CSV. Propositions de tickets dans le rapport uniquement. Prochaine decision recommandee : lot cible pour casser le cycle coaches/reservations/payments/repository/structure-offers, puis clarifier scripts/prototypes et reprendre A5 seulement apres les prerequis documentaires. H1.2.3 distant reste ouvert sans nouvelle autorisation. Historique conserve.
+
 ## Reprise active - 5 novembre 2026 : H1.2.3 preparation PostgreSQL locale livree
 
 Proposition SQL privee dans supabase/proposals/reconciliation-20261105/ : preflight, migration, postflight, rollback. Adaptateur psql loopback avec mapper du produit, CAS transactionnel sur ligne/revision/intention/plateforme/liaison, droits operateur bornes et decideur distinct. Aucun raccordement au parcours actif. Protocole annulation prepare sans creation de remboursement par la reconciliation.

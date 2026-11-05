@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-05",
+  "baseCommit": "91ac4ab2de162d08a68ccd84ef6ddbaaff2bc228",
+  "inventoryDirectories": 41288,
+  "inventoryFiles": 306968,
+  "inventoryErrors": 11,
+  "sourceFilesParsed": 385,
+  "staticCycles": 1,
+  "workbenchTests": 35,
+  "lexicalHistoricalCases": 12,
+  "lexicalControls": 3,
+  "allPassed": true,
+  "preexistingModifiedFilesHashIdentical": 18,
+  "localDocumentLinksChecked": 12,
+  "secretCheck": "high-confidence patterns over new audit deliverables only; private files not scanned",
+  "businessTestsRerun": false,
+  "remoteAccountAccess": false,
+  "kanbanModified": false,
+  "applicationModified": false
+}
