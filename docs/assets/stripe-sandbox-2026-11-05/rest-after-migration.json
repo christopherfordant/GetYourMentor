@@ -1,0 +1,14 @@
+﻿[
+    {
+        "table":  "gym_stripe_environments",
+        "anonStatus":  401,
+        "rows":  2,
+        "serverRead":  true
+    },
+    {
+        "table":  "gym_stripe_coach_bindings",
+        "anonStatus":  401,
+        "rows":  1,
+        "serverRead":  true
+    }
+]

@@ -210,3 +210,7 @@ Controle API authentifie sur build final : statut Connect200 linked=true/ready=f
 ### Sandbox et migration proposee - 5 novembre 2026
 
 Sandbox isole cree et recharge, sans copie production, cles actives inchangees. Migration non appliquee; proposition testee sur PostgreSQL12 local synthetique, protections et rollback verifies; autorisation specifique requise. Rapport : docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md. Aucun paiement ou notification metier nouveau.
+
+### Isolation distante appliquee apres autorisation - 5 novembre 2026
+
+Oui utilisateur recu pour migration preparee; appliquee sur pqxqqbwesfrefzjoawmx apres sauvegarde et gardes. Donnees anciennes preservees, droits/RLS verifies, tests SQL transaction annulee PASS, REST anon401/service_role2 registres et1 liaison. Rapport detaille docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md, preuves remote-migration.json/rest-after-migration.json. Serveur recette suspendu; runtime par environnement restant a implementer avant cles sandbox et paiement. Aucun paiement/notification nouveau.

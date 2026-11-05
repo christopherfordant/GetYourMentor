@@ -917,8 +917,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Sandbox cree; migration isolation preparee/testee localement, autorisation distante requise; paiement externe non verifie",
-      "next": "Autoriser SQL isolation recette puis adapter runtime; conserver compte existant"
+      "blocker": "Migration isolation autorisee et appliquee, runtime par environnement non adapte; paiement externe non verifie",
+      "next": "Adapter et tester runtime par environnement avant cles sandbox et onboarding"
     },
     {
       "id": "GYM-B1.1",
@@ -1089,8 +1089,8 @@
       "evidence": [
         "docs/CONNECT_PARCOURS_TEST_2026-11-04.md"
       ],
-      "blocker": "Sandbox isole cree; migration environnement en attente autorisation; routage runtime a adapter; aucun paiement externe",
-      "next": "Autorisation migration sur recette puis isolation runtime verifiee, onboarding sandbox et paiement test"
+      "blocker": "Migration environnement appliquee et controlee, routage runtime a adapter; aucun paiement externe",
+      "next": "Isolation runtime verifiee puis configuration sandbox distincte, onboarding et paiement test"
     }
   ]
 }

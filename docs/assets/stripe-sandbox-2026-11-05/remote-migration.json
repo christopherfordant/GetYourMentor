@@ -1,0 +1,28 @@
+﻿{
+  "target": "pqxqqbwesfrefzjoawmx",
+  "authorization": "explicit user yes following review of 20261105_stripe_environment_isolation.sql",
+  "remoteEngine": "PostgreSQL 17.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit",
+  "migrationApplied": true,
+  "oldBindingCount": 1,
+  "legacyBindingsPreserved": true,
+  "reservationCount": 3,
+  "reservationsUnchangedExceptEnvironmentColumn": true,
+  "snapshotAfterSqlTestsUnchanged": true,
+  "permissions": {
+    "anonRead": false,
+    "authenticatedRead": false,
+    "serverRead": true,
+    "serverInsertBinding": true,
+    "serverUpdateBinding": false,
+    "serverDeleteBinding": false
+  },
+  "registryCount": 2,
+  "copiedBindingCount": 1,
+  "sqlRollbackAssertions": true,
+  "ragTableMetadataUnchanged": true,
+  "testFixturePersisted": false,
+  "activeKeysChanged": false,
+  "paymentExecuted": false,
+  "runtimeServer": "suspended until environment routing adapted",
+  "initialAttempt": "syntax error 42601 in generated safety guard; no schema change; corrected guard then successful apply"
+}

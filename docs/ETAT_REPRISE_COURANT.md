@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : migration isolation distante appliquee apres oui utilisateur
+
+Autorisation explicite oui recue pour isolation.sql, cible getyourmentor-preprod uniquement. APPLIQUEE et relue : deux registres plateformes, une liaison legacy copiee, table historique inchangee, trois reservations conservees hors nouvelle colonne stripe_environment_id null. Sauvegarde schema/donnees actuelle DPAPI hors Git; verrou et garde de comparaison lors application. Premier garde genere refuse42601 puis corrige, aucun effet du premier essai. PostgreSQL17.6 distant.
+
+Tests SQL en transaction annulee PASS : refus environnement change, beneficiaire croise, doublon et reference sans environnement; fixture supprime par ROLLBACK confirme par relecture. RLS et privileges verifies; REST service_role2 registres/1 liaison et anon401. Metadonnees tables RAG comparees inchangees, aucune operation Auth ou Stripe. Preuves remote-migration.json et rest-after-migration.json dans docs/assets/stripe-sandbox-2026-11-05/.
+
+Runtime NON adapte a isolation; cles sandbox NON collectees/basculees. Serveur recette local3005 volontairement suspendu avant migration, ne pas relancer pour paiements avant routage/claim environnement testes. Sandbox acct_1UYN06LfnWg4ERQJ conserve, ancien acct_1UGhVXPwRppadkVH preserve. Prochain lot : adaptation serveur/mapper/checkout/webhook/remboursement et lanceurs distincts, tests melanges; puis onboarding/paiement/Telegram reels de test. Aucune autorisation migration a redemander pour celle deja appliquee; aucune nouvelle migration implicite. Aucun DONE global, deploiement ou paiement. Rapport : docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md.
+
 ## Reprise active - 5 novembre 2026 : sandbox cree, migration isolation prete a autoriser
 
 Sandbox GetYourMentor - Recette Accounts v2 cree, acct_1UYN06LfnWg4ERQJ, copie production desactivee, titre verifie apres rechargement. Aucune cle sandbox collectee ni bascule runtime; compte legacy et association preserves. Aucun paiement ni nouvel evenement metier Telegram.
