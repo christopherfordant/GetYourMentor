@@ -1,0 +1,34 @@
+{
+  "reconciliationAndAdapters": {
+    "tests": 62,
+    "passed": 62,
+    "failed": 0,
+    "skipped": 0
+  },
+  "kanban": {
+    "tests": 35,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0
+  },
+  "sqliteBackend": "Isolated local laboratory, not Supabase replacement",
+  "httpProvider": "127.0.0.1 fake server, GET only, no redirects/proxy",
+  "crossProcessCasTested": true,
+  "twoMaintenanceProcessesTested": true,
+  "databaseRestartTested": true,
+  "readonlyDiagnosticDatabaseBytesUnchanged": true,
+  "cancellationIntentTested": true,
+  "localSqlRollbackTested": true,
+  "privateOperatorAuthorizationTested": true,
+  "remoteStripeSupabaseOperations": 0,
+  "telegramNotifications": 0,
+  "activeApplicationChanged": false,
+  "nextBuildRun": false,
+  "prePushPassed": true,
+  "previous18ModifiedFilesPreserved": true,
+  "productionDeployed": false,
+  "externalValidation": "Not performed; H1.2.3 remains open",
+  "providerFinancialWrites": 0,
+  "localReservationWritesTested": true,
+  "trackedSecretsPassed": true
+}

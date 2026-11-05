@@ -1438,7 +1438,7 @@
       "title": "Raccorder les lectures et la persistance durable",
       "objective": "Raccorder les lectures et la persistance durable",
       "parent": "GYM-H1.2",
-      "status": "prepare",
+      "status": "done",
       "role": "Architecture",
       "estimateHours": [
         1,
@@ -1452,16 +1452,22 @@
         "Adaptateurs reprenant autorisations et controles metier; CAS durable et tests interruptions/concurrence; intention annulation non devinee"
       ],
       "files": [
-        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+        "docs/RECONCILIATION_H1_2_2026-11-05.md",
+        "tools/payment-reconciliation/sqlite-store.mjs",
+        "tools/payment-reconciliation/local-provider.mjs",
+        "tools/payment-reconciliation/maintenance.mjs",
+        "tools/payment-reconciliation/operator-cli.mjs"
       ],
       "tests": [
-        "A definir avant implementation"
+        "62 tests locaux PASS dont36 du moteur; HTTP loopback, SQLite et deux processus; aucune operation distante"
       ],
       "evidence": [
-        "docs/RECONCILIATION_H1_2_2026-11-05.md"
+        "docs/RECONCILIATION_H1_2_2026-11-05.md",
+        "docs/RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md",
+        "docs/assets/reconciliation-adapters-2026-11-05/checks.json"
       ],
       "blocker": null,
-      "next": "Lot distinct; aucune operation distante autorisee par le ticket"
+      "next": "H1.2.3 reste a preparer : aucune validation externe ou connexion produit implicite"
     },
     {
       "sprint": "S2",

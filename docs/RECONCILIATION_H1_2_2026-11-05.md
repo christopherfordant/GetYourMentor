@@ -58,3 +58,8 @@ Le parent H1.2 et H1 restent ouverts. Aucune validation humaine, duree mesuree o
 Les evenements peuvent etre dupliques et livres hors ordre; relire les objets lie(s) et ne pas se fier a leur timestamp comme ordre unique : [webhooks Stripe](https://docs.stripe.com/webhooks#event-ordering). Les etats de remboursement comprennent aussi les echecs et actions requises : [objet Refund](https://docs.stripe.com/api/refunds/object). Liens financiers compares : [Transfer Reversal](https://docs.stripe.com/api/transfer_reversals/object), [Application Fee](https://docs.stripe.com/api/application_fees/object).
 
 Pour le futur branchement evenementiel, examiner checkout.session.completed, refund.created, refund.updated, refund.failed et application_fee.refund.updated selon les besoins reels : [catalogue Stripe](https://docs.stripe.com/api/events/types). Aucun abonnement evenementiel ni configuration distante change dans ce lot.
+
+
+## Suite H1.2.2 - 5 novembre 2026
+
+Adaptateurs HTTP loopback et SQLite durable testes, CLI operateur prive; H1.2.2 valide localement, parent encore ouvert. Aucun branchement au site actif ou validation distante. Rapport : [RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md](RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md). Les mentions precedentes du raccordement a faire restent historiques pour le laboratoire et applicables pour le produit.

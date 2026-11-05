@@ -1,3 +1,11 @@
+## Reprise active - 5 novembre 2026 : H1.2.2 adaptateurs locaux durables valides
+
+HTTP GET127.0.0.1 et SQLite de laboratoire livres, CLI operateur prive avec permission provisionnee en base, expiration/modes/cibles verifies avant lecture et dans le commit. Diagnostic readOnly par defaut, reprise explicite, pagination/timeout/annulation, CAS sur ligne+revision+intention durable et concurrence de processus verifies. 62 tests locaux PASS incluant36 tests du moteur; controles Kanban et preuves dans docs/assets/reconciliation-adapters-2026-11-05/. Rapport docs/RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md.
+
+H1.2.2 termine en local, H1.2.3 a preparer, H1.2 et H1 restent en cours. Supabase reste le backend du site; SQLite n'est qu'un laboratoire, schema/rollback non compatibles Supabase. Aucun parcours actif modifie, coffre reel charge, appel distant Stripe/Supabase, migration distante, paiement ou notification. Intention d'annulation preparee et immuable, pas branchee au parcours actif ni utilisee pour inventer une annulation.
+
+Prochaine action : cadrer H1.2.3 et l'equivalence PostgreSQL du CAS/protocole d'annulation avant toute validation externe. Autorisation distante et migration specifique eventuelle a obtenir sur un resultat concret; ne pas retirer la restriction loopback pour reutiliser ce CLI directement sur internet. GYM-B1/H1.1/H1.2.1 restent valides. Historique conserve.
+
 ## Reprise active - 5 novembre 2026 : H1.2 premiere reconciliation locale livree
 
 Moteur/CLI fixture-only dans tools/payment-reconciliation : diagnostic sans mutation des lignes, reprise explicite vers copie nouvelle, lectures fournisseur simulees, CAS sur ligne complete et rapports expurges. Reutilise module de commission partage, aucun appel financier ou notification possible via ses ports. 36 tests locaux PASS : pannes, concurrence, doublons, remboursement pending/succeeded/failed, annulations et incoherences;35 tests Kanban PASS. Aucun fichier applicatif modifie, serveur recette3005 non relance, aucun compte distant ou migration touche.

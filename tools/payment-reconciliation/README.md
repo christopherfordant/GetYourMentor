@@ -19,3 +19,8 @@ Le moteur expose un plan pur puis un compare-and-swap (CAS) sur l'empreinte de l
 Les champs fournisseur sont des objets de forme Stripe dans une enveloppe locale : platformVerified, environmentId, platformAccountId et liaison coach sont declares par la fixture. Ils ne prouvent aucun appel /v1/account. Un futur adaptateur devra produire ces informations depuis les verifications serveur existantes. Aucun mode remote n'est accepte ici.
 
 Conception, limites et preuves : docs/RECONCILIATION_H1_2_2026-11-05.md. Le parent H1.2 reste ouvert jusqu'au raccordement metier et aux validations distinctes.
+
+
+## Extension locale H1.2.2
+
+Le CLI ci-dessus reste fixture-only. Des adaptateurs HTTP127.0.0.1 et SQLite transactionnel, avec CLI operateur prive, sont testes separement : [LOCAL_ADAPTERS.md](LOCAL_ADAPTERS.md). Aucun branchement au produit ni acces distant implicite.
