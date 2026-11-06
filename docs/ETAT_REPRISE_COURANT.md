@@ -1,3 +1,13 @@
+## Reprise active - 6 novembre 2026 : ARC3.3 candidat valide et ARC3 termine
+
+Build Next isole PASS avec controle TypeScript,92 sources archives preservees et environnement sans cles de services. Copie privee delivery-private/arc33-candidate-*,incluant les brouillons anterieurs sans les commiter/approuver globalement.6 chemins extraits404,110 ressources publiques200 avec SHA256 identiques;4 chemins internes404 et identite du build servi verifiee. Frontiere secrets client PASS.
+
+6 scenarios applicatifs PASS : accueil/annuaire ordinateur et mobile,header/mouvement reduit/menu Sports mobile,ouverture3D complete2200ms. Parcours complementaire accueil/eventail9 entrees de demo,annuaire puis fiche liee verifie ordinateur/mobile,sans erreur JS ni requete externe observee. Captures et preuves docs/assets/prototype-candidate-2026-11-06/. Build original et18 modifications anterieures preserves,aucun code applicatif/public modifie.
+
+GYM-ARC3.3 et parent ARC3 termines;enfants .1/.2 conserves done.35 tests Kanban et tableau ordinateur/mobile PASS. Serveur candidat3006 arrete apres recette,le dossier prive reste disponible;apercus preexistants non touches. Rapport docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md et commandes outils public-assets. Avertissements CSS/cache non bloquants consignes;pas de controle global production,compte,paiement,migration ou Netlify.
+
+Prochaine priorite recommandee ARC-04 : index documents actuels/historiques/copies et matrice CI des vrais declencheurs,sans deplacement massif ou nouvelle orchestration. A5/H1 inchanges;pas de nouvelle permission distante. Historique ci-dessous conserve.
+
 ## Reprise active - 6 novembre 2026 : ARC3.2 extraction locale des demonstrations
 
 4 HTML et2 fichiers propres au comparatif carrousels deplaces vers prototypes/design-assets, six SHA256 preserves et110 fichiers publics inchanges dont entrance.js/images du header. Manifeste109 ressources pour serveur local127.0.0.1:4336 uniquement, aucun acces aux API/comptes/documents prives. Guide prototypes/README.md. Apercu manuel lance pour controle; Ctrl+C pour arreter, commande de reouverture documentee.

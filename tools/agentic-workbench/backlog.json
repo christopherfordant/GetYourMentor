@@ -2202,7 +2202,7 @@
       "priority": "P1",
       "assignment": "simulated-role",
       "due": "2026-11-06",
-      "scope": "Inventaire public local sans deplacement, suppression ou deploiement",
+      "scope": "Validation locale du rangement des prototypes;aucun deploiement ni service metier distant",
       "role": "Architecture",
       "estimateHours": [
         1,
@@ -2213,25 +2213,27 @@
         "GYM-ARC2"
       ],
       "acceptance": [
-        "Inventorier les assets et leurs consommateurs avant toute mutation; conserver les incertitudes"
+        "Prototypes hors public,ressources applicatives preservees,apercu local conserve,candidat compile et parcours representatifs controles"
       ],
       "files": [
-        "tools/public-assets/audit.py",
-        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+        "docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md",
+        "tools/public-assets/validate-candidate.cjs",
+        "tools/public-assets/check-candidate.mjs"
       ],
       "tests": [
-        "8 tests Python PASS;35 tests Kanban PASS"
+        "Build Next/typecheck isoles PASS;110 hashes HTTP conserves;6 chemins extraits404;6 tests applicatifs PASS;parcours desktop/mobile PASS;frontiere secrets client PASS"
       ],
       "evidence": [
-        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md",
-        "docs/assets/public-assets-2026-11-06/inventory.json"
+        "docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md",
+        "docs/assets/prototype-candidate-2026-11-06/build.json",
+        "docs/assets/prototype-candidate-2026-11-06/http-assets.json"
       ],
       "blocker": null,
-      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "next": "ARC-04 : index documentaire courant/historique/copies et matrice CI reelle",
       "id": "GYM-ARC3",
       "title": "Distinguer ressources actives et demonstrations publiques",
       "objective": "Distinguer ressources actives et demonstrations publiques",
-      "status": "progress"
+      "status": "done"
     },
     {
       "sprint": "S1",
@@ -2314,7 +2316,7 @@
       "priority": "P1",
       "assignment": "simulated-role",
       "due": "2026-11-06",
-      "scope": "Lot ulterieur non execute",
+      "scope": "Validation locale du rangement des prototypes;aucun deploiement ni service metier distant",
       "role": "Architecture",
       "estimateHours": [
         1,
@@ -2325,22 +2327,27 @@
         "GYM-ARC3.2"
       ],
       "acceptance": [
-        "Preserver medias applicatifs, references et historique; prouver preview et build apres deplacement"
+        "Prototypes hors public,ressources applicatives preservees,apercu local conserve,candidat compile et parcours representatifs controles"
       ],
       "files": [
-        "tools/public-assets/audit.py",
-        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+        "docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md",
+        "tools/public-assets/validate-candidate.cjs",
+        "tools/public-assets/check-candidate.mjs"
       ],
       "tests": [
-        "A executer : preview locale, dependances relatives, liens conserves et build isole apres deplacement"
+        "Build Next/typecheck isoles PASS;110 hashes HTTP conserves;6 chemins extraits404;6 tests applicatifs PASS;parcours desktop/mobile PASS;frontiere secrets client PASS"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md",
+        "docs/assets/prototype-candidate-2026-11-06/build.json",
+        "docs/assets/prototype-candidate-2026-11-06/http-assets.json"
+      ],
       "blocker": null,
-      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "next": "ARC-04 : index documentaire courant/historique/copies et matrice CI reelle",
       "id": "GYM-ARC3.3",
       "title": "Verifier demos, liens et build apres extraction",
       "objective": "Verifier demos, liens et build apres extraction",
-      "status": "backlog",
+      "status": "done",
       "parent": "GYM-ARC3"
     }
   ]

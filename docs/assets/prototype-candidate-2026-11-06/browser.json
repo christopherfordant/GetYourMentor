@@ -1,0 +1,26 @@
+{
+  "desktop": {
+    "homeFanCount": 9,
+    "continuousNavigation": true,
+    "directoryToProfile": "/coach?sport=football&city=Paris&coach=madison-seck",
+    "profileHeading": "Chargement du profil…",
+    "allProfileImagesLoaded": true,
+    "profileOverflow": 0,
+    "externalRequests": [],
+    "jsErrors": [],
+    "failedResponses": [],
+    "context": "Fresh, demo fixtures only; no auth or payment"
+  },
+  "mobile": {
+    "homeFanCount": 9,
+    "continuousNavigation": true,
+    "directoryToProfile": "/coach?sport=football&city=Paris&coach=madison-seck",
+    "profileHeading": "Madison Seck",
+    "allProfileImagesLoaded": true,
+    "profileOverflow": 0,
+    "externalRequests": [],
+    "jsErrors": [],
+    "failedResponses": [],
+    "context": "Fresh, demo fixtures only; no auth or payment"
+  }
+}

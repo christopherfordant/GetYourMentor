@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-06",
+  "ticket": "GYM-ARC3.3",
+  "parentTicket": "GYM-ARC3",
+  "status": "done",
+  "build": "PASS;isolated Next candidate with TypeScript",
+  "candidateIdentityVerified": true,
+  "retainedAssetsHttp200AndHashMatch": 110,
+  "removedPrototypePathsHttp404": 6,
+  "internalPathsHttp404": 4,
+  "clientSecretBoundary": "PASS",
+  "applicationPlaywrightTests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "additionalBrowser": [
+    "desktop:home fan,directory,linked profile",
+    "mobile:home fan,directory,linked profile"
+  ],
+  "additionalBrowserErrors": 0,
+  "additionalBrowserRemoteRequests": 0,
+  "kanbanTests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "preexistingDirtyFilesByteIdentical": 18,
+  "unrelatedTicketsPreserved": true,
+  "appFilesChanged": false,
+  "publicFilesChanged": false,
+  "candidateContainsPreexistingDrafts": true,
+  "candidateServerStopped": true,
+  "candidateRetainedPrivately": true,
+  "deployed": false,
+  "servicesSupabaseStripeTelegramAccessed": false,
+  "warnings": [
+    "Non-blocking existing Autoprefixer and Webpack cache warnings"
+  ],
+  "nextRecommended": "ARC-04:document index and CI trigger matrix"
+}

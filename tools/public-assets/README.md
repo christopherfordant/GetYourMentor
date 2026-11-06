@@ -1,5 +1,7 @@
 # Inventaire local des ressources publiques
 
+Validation du candidat après extraction : [rapport ARC3.3](../../docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md). Contrairement à l'inventaire en lecture seule, `validate-candidate.cjs` écrit une copie et un build sous `delivery-private` ainsi que des preuves locales. `serve-candidate.cjs` démarre ce candidat uniquement sur le loopback ; `check-candidate.mjs` contrôle ses ressources par HTTP. Aucun déploiement ni installation automatique.
+
 Aperçu des prototypes extraits : [guide](../../prototypes/README.md), commande `node tools/public-assets/preview.mjs`. La recette HTTP est `node --test tools/public-assets/preview.test.mjs` ; les scénarios de démonstration utilisent `tools/public-assets/prototypes.config.cjs`. L'inventaire ci-dessous reste statique et ne doit pas assimiler les anciens chemins publics des rapports historiques à des erreurs du site actif.
 
 Depuis la racine du dépôt, avec Python standard et Git :
