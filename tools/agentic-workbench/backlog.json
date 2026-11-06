@@ -2349,6 +2349,161 @@
       "objective": "Verifier demos, liens et build apres extraction",
       "status": "done",
       "parent": "GYM-ARC3"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Orientation documentaire, declarations CI locales et metadonnees superficielles des voisins;aucune mutation externe",
+      "role": "Architecture",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3"
+      ],
+      "acceptance": [
+        "References actuelles/historiques/copies explicites,CI declaree distinguee des executions et voisins qualifies sans lecture privee"
+      ],
+      "files": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "tools/documentation-audit/audit.py"
+      ],
+      "tests": [
+        "4 tests outil PASS;35 tests Kanban PASS;liens et inventaire controles"
+      ],
+      "evidence": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "docs/assets/documentation-ci-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC-05 : separer types et fixtures via facade;distinct de A5 agentique",
+      "id": "GYM-ARC4",
+      "title": "Clarifier documents,CI et dossiers de chantier",
+      "objective": "Clarifier documents,CI et dossiers de chantier",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Orientation documentaire, declarations CI locales et metadonnees superficielles des voisins;aucune mutation externe",
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3"
+      ],
+      "acceptance": [
+        "References actuelles/historiques/copies explicites,CI declaree distinguee des executions et voisins qualifies sans lecture privee"
+      ],
+      "files": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "tools/documentation-audit/audit.py"
+      ],
+      "tests": [
+        "4 tests outil PASS;35 tests Kanban PASS;liens et inventaire controles"
+      ],
+      "evidence": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "docs/assets/documentation-ci-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC-05 : separer types et fixtures via facade;distinct de A5 agentique",
+      "id": "GYM-ARC4.1",
+      "title": "Indexer references,historiques et copies",
+      "objective": "Indexer references,historiques et copies",
+      "status": "done",
+      "parent": "GYM-ARC4"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Orientation documentaire, declarations CI locales et metadonnees superficielles des voisins;aucune mutation externe",
+      "role": "QA",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3"
+      ],
+      "acceptance": [
+        "References actuelles/historiques/copies explicites,CI declaree distinguee des executions et voisins qualifies sans lecture privee"
+      ],
+      "files": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "tools/documentation-audit/audit.py"
+      ],
+      "tests": [
+        "4 tests outil PASS;35 tests Kanban PASS;liens et inventaire controles"
+      ],
+      "evidence": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "docs/assets/documentation-ci-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC-05 : separer types et fixtures via facade;distinct de A5 agentique",
+      "id": "GYM-ARC4.2",
+      "title": "Documenter les vrais declencheurs CI locaux",
+      "objective": "Documenter les vrais declencheurs CI locaux",
+      "status": "done",
+      "parent": "GYM-ARC4"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Orientation documentaire, declarations CI locales et metadonnees superficielles des voisins;aucune mutation externe",
+      "role": "QA",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3"
+      ],
+      "acceptance": [
+        "References actuelles/historiques/copies explicites,CI declaree distinguee des executions et voisins qualifies sans lecture privee"
+      ],
+      "files": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "tools/documentation-audit/audit.py"
+      ],
+      "tests": [
+        "4 tests outil PASS;35 tests Kanban PASS;liens et inventaire controles"
+      ],
+      "evidence": [
+        "docs/architecture/DOCUMENTATION_CI_2026-11-06.md",
+        "docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md",
+        "docs/assets/documentation-ci-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC-05 : separer types et fixtures via facade;distinct de A5 agentique",
+      "id": "GYM-ARC4.3",
+      "title": "Confirmer les dossiers voisins et verifier la livraison",
+      "objective": "Confirmer les dossiers voisins et verifier la livraison",
+      "status": "done",
+      "parent": "GYM-ARC4"
     }
   ]
 }

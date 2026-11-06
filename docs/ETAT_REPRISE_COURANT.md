@@ -1,3 +1,13 @@
+## Reprise active - 6 novembre 2026 : ARC4 index documentaire,CI et voisins Documents
+
+Guide docs/architecture/DOCUMENTATION_CI_2026-11-06.md reference par index architecture existant,sans nouveau maitre. Entrees actives et historiques explicites;les2 onglets governance ouverts sont historiques et renvoient aux references actuelles. Inventaire Markdown suivis avec SHA256,qualification semantique ciblee et inconnus conserves;pas de deplacement ni changement de corpus RAG. YAML CI lus sans activation:aucun des2 workflows ne declare un push sur la branche actuelle;Netlify distant et protections GitHub non inspectes.
+
+Confirmation utilisateur :76 dossiers apparentes voisins du principal dans Documents,dont68 worktrees declares,1 checkout Git independant GetYourMentor-site et7 supports/copies possibles sans .git a la racine.69 worktrees registre avec principal,67 voisins detaches. Metadonnees superficielles seulement,pas de lecture des sources/cles ni statut/synchro/historique des voisins;aucune suppression,deplacement,prune ou fusion. Anciens worktrees a revalider avant push apres purge. Derniers candidats ARC3 sont dans delivery-private du principal.
+
+Rapport docs/DOCUMENTATION_ET_DOSSIERS_ARC4_2026-11-06.md et preuves docs/assets/documentation-ci-2026-11-06/.4 tests outil PASS;35 tests Kanban PASS;liens et tableau controles avant livraison. GYM-ARC4 et3 enfants termines dans ce perimetre d index/declarations/metadonnees;inconnus semantiques restent explicitement a qualifier selon lot.18 brouillons anterieurs preserves,aucun code applicatif/workflow/service distant modifie ou execute. Pas de build applicatif,deploiement ou agent lance.
+
+Prochaine priorite recommandee ARC-05 : types purs/fixtures via facade compatible,distinct du ticket agentique A5 conserve en backlog. H1 inchange,pas d autorisation distante implicite. Historique suivant conserve.
+
 ## Reprise active - 6 novembre 2026 : ARC3.3 candidat valide et ARC3 termine
 
 Build Next isole PASS avec controle TypeScript,92 sources archives preservees et environnement sans cles de services. Copie privee delivery-private/arc33-candidate-*,incluant les brouillons anterieurs sans les commiter/approuver globalement.6 chemins extraits404,110 ressources publiques200 avec SHA256 identiques;4 chemins internes404 et identite du build servi verifiee. Frontiere secrets client PASS.

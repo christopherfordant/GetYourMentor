@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-06",
+  "ticket": "GYM-ARC4",
+  "scope": "Document index,local CI declarations,shallow relevant sibling metadata",
+  "trackedMarkdownHashed": 225,
+  "semanticReview": "targeted;unknown roles remain explicit",
+  "exactDuplicateGroups": 0,
+  "markdownOmissions": [],
+  "relatedSiblingsExcludingMain": 76,
+  "siblingKinds": {
+    "support-or-copy-without-git-marker": 7,
+    "independent-git-checkout": 1,
+    "registered-worktree": 68
+  },
+  "registeredWorktreesIncludingMain": 69,
+  "siblingContentsRead": false,
+  "siblingMutationCommands": false,
+  "historicWorktreeHeadsExported": false,
+  "toolTests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "kanbanTests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "inventoryReproducible": true,
+  "canonicalReplacementsExist": true,
+  "preexistingDirtyFilesByteIdentical": 18,
+  "oldKanbanTicketsUnchanged": true,
+  "workflowsChanged": false,
+  "workflowsDispatched": false,
+  "remoteGitHubOrNetlifySettingsChecked": false,
+  "applicationOrRagCodeChanged": false,
+  "applicationBuildRun": false,
+  "deployed": false,
+  "localLinksVerified": 33
+}

@@ -1,5 +1,7 @@
 # Architecture GetYourMentor
 
+Entrée d'orientation actuelle : [documents de référence, historiques, copies et matrice CI](DOCUMENTATION_CI_2026-11-06.md). Cet index ne crée pas de nouveau maître ; la hiérarchie Git et le relais courant restent prioritaires.
+
 L’index documentaire général est [`../README.md`](../README.md). Cette rubrique ne contient que les décisions d’architecture et leurs documents de référence.
 
 Documents de référence :

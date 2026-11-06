@@ -1,0 +1,2530 @@
+{
+  "version": 1,
+  "documents": {
+    "scope": "Tracked Markdown only; actual working bytes; targeted semantic review, not full semantic audit",
+    "count": 225,
+    "counts": {
+      "instructions": 1,
+      "historique-confirme": 2,
+      "instructions-git-hierarchie": 1,
+      "a-qualifier-selon-lot": 69,
+      "contrat-selon-lot": 3,
+      "reference-produit": 1,
+      "rapport-date-non-consigne-permanente": 113,
+      "relais-operationnel": 1,
+      "preuve-active-orchestration": 1,
+      "index-general": 1,
+      "couverture-design": 1,
+      "preuve-active-rangement": 1,
+      "plan-et-preuve-datee-atelier": 1,
+      "canonique-memoire-rag": 1,
+      "cible-architecture-non-preuve-runtime": 1,
+      "criteres-rag-non-activation": 1,
+      "index-architecture": 1,
+      "preuve-a-contextualiser": 1,
+      "contrat-runner-historique": 1,
+      "historique-orchestration": 17,
+      "copie-export-non-canonique": 2,
+      "guide-apercu-local": 1,
+      "guide-entrees-encadrees": 1,
+      "index-donnees-selon-lot": 1,
+      "instructions-atelier-local": 1
+    },
+    "records": [
+      {
+        "path": "AGENTS.md",
+        "status": "instructions",
+        "replacement": null,
+        "sha256": "b67f0d07cb6c8fc0f4e2afb30dda109358ee695843de35b0c51cb9e2dc3c72e5"
+      },
+      {
+        "path": "ARCHITECTURE_MEMOIRE_GYM.md",
+        "status": "historique-confirme",
+        "replacement": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+        "sha256": "eeaea01de52b16ac8a5b5533b52e28f5e698877c1a31b2ede7c37e28a4229659"
+      },
+      {
+        "path": "BRANCH_STRATEGY_GYM.md",
+        "status": "instructions-git-hierarchie",
+        "replacement": null,
+        "sha256": "d660b017b00c166e0be0b94bdad298880d0cbd2f8d614105182f162e1ba3208d"
+      },
+      {
+        "path": "CARTOGRAPHIE_GLOBALE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "ebe049661da427f51e62defa4551167b70db1c3444ed93ed7a58ccdc54a72421"
+      },
+      {
+        "path": "DESIGN_SYSTEM_GYM.md",
+        "status": "contrat-selon-lot",
+        "replacement": null,
+        "sha256": "a03ac8381460d04c9cf959c577d95ac7c9885064e84569371a49ec50e482f87b"
+      },
+      {
+        "path": "DOCUMENT_MAITRE_GYM.md",
+        "status": "reference-produit",
+        "replacement": null,
+        "sha256": "d05c686f03598c40acc9ffa2acff60a36452590fef3b158a857085367eff815d"
+      },
+      {
+        "path": "FIGMA_CONTENU_ECRANS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "7b9447884d5919ef8e6126951cafdcb243b3007c6472679af2384c110897b74d"
+      },
+      {
+        "path": "FIGMA_MAKE_MOTION_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "9da3752e2c93408af4075478c18896bfbcd6c9321ac2ccdc903bb95fe11b515b"
+      },
+      {
+        "path": "FIGMA_MAKE_PROMPTS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "39bbb350310d9054103a446f9997636f164eb316e869b5fdf3cc80ebf96c6871"
+      },
+      {
+        "path": "FIGMA_MAKE_READY_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "eda19d88dd15ec6613b6df6b12af53813aaa103aaf98044b3381aa4f1aeb4df2"
+      },
+      {
+        "path": "FIGMA_MAQUETTE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "2aeb4fe3947fdf16f53b447777767775d9e092b35f9b3d24c919fd95039a361a"
+      },
+      {
+        "path": "FIGMA_MICROCOPY_3_ECRANS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "412e85fa5695f7b5a5bcb86f5826f2eb27c36965d9f03267dfc2b79bb9973d80"
+      },
+      {
+        "path": "FIGMA_MICROCOPY_TUNNEL_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "2515dd7651adfec23cdd86ed5c0dfaae7e078bf8ad0d1edb3b94e6bb4a0c9331"
+      },
+      {
+        "path": "FIGMA_VIEW_GUIDE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "bf48b9450daf442e71a535e32d6baeced5b81249ad5a8dbfa2583db153957caf"
+      },
+      {
+        "path": "INSPIRATIONS_PLANITY_MYM_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "974680f1ccf17125a0d4386ecc39e5d4812e9a4421d7945d79af90de8388bd0d"
+      },
+      {
+        "path": "MIGRATION_NEXT_GYM.md",
+        "status": "contrat-selon-lot",
+        "replacement": null,
+        "sha256": "36d592abf68b774f75fb049333121d70fa1a052ff45de57b0ae4b7cf1b3f2eff"
+      },
+      {
+        "path": "MVP_ECRANS_GYM.md",
+        "status": "contrat-selon-lot",
+        "replacement": null,
+        "sha256": "e28ae73f0a6997a42c1e19f46ff36fe763f5097c5455bd14f0bb045b3ca1381b"
+      },
+      {
+        "path": "N8N_WORKFLOWS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "093c4203ab57a0287a5146e50072c74087b926000bdd5d70ef99f532c009daf5"
+      },
+      {
+        "path": "N8N_WORKFLOW_1_TRELLO_SUPABASE.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "288ae43579ad0edf610c2a5cf3bb5583daeca27f7ac5ad46266d5e4457edac05"
+      },
+      {
+        "path": "PREPRODUCTION_EVIDENCE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "6ec6474d25a0852646797a40667f390f55c34b8dde843dc645d095175a806fd0"
+      },
+      {
+        "path": "PREPRODUCTION_READINESS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "7ea94c8f13e09e82dd0ed3276ce1527a6d2e9e38d3efc92c1309f5c6129d79ef"
+      },
+      {
+        "path": "PREPRODUCTION_RUNBOOK_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "46ab34f215601ce48e902d438ba74bcd048e1a54228e53ce1ee8de105614a6d9"
+      },
+      {
+        "path": "PREVIEW_MAQUETTE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "bca1f2c1ae998c8816d37cef3afb75809b6257a103d7834f1c39846ca6457e86"
+      },
+      {
+        "path": "README_CONTINUATION_ARCHITECTURE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0bfa047ef69ec04c253bf68cdbb53c2481e43ed69b9489c45e4be944805981c8"
+      },
+      {
+        "path": "RESPONSIVE_LAYOUT_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "06ecc4eac651e4a09f8e1b314e403820b7483179b7da46f8a2e8fffdf40bb5b0"
+      },
+      {
+        "path": "SOURCES_PRIORITAIRES_2026_03_19.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "ed6aeea56dc8ee77ef9ca819be4bcb6b2156e9d3a74d65bdf6ce28225c80131d"
+      },
+      {
+        "path": "TRELLO_SETUP_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "b4586e865729e0b9d00bd03d8d9cfaad0f2cea0a8ffe3b619c8596532dbc0ebe"
+      },
+      {
+        "path": "docs/ACCUEIL_NEUF_CARTES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "bd34f59f2b9529013e4920df5276b81eb55c020fffc091f39abd5f788b7b72f8"
+      },
+      {
+        "path": "docs/ACTIONS_DEMANDES_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "552a163b8f4330ccbc18d44210adc5a7e2c75c40a33d4857406024a99fe3ff8d"
+      },
+      {
+        "path": "docs/ANIMATIONS_LUDIQUES_2026-10-30.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0ccd89174d0e682672206d3a22906fe654981343ec84721dc5abe18ce6b7df60"
+      },
+      {
+        "path": "docs/ANNULATIONS_FINANCES_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "14994ac6d3428f7cda48bb14abd46424d2adddcd5090165b9f350b279b2e9fae"
+      },
+      {
+        "path": "docs/APER\u00c7U_COLLECTIF_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d06d3f8b0eb88c7cccc48048f6d552f6268a07fe478ac24b5c1162c47c4cad53"
+      },
+      {
+        "path": "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "aa5bb1f13d8e2d3868b75ede698c309bc0eeed56bbda10d4a134a3f35ac27125"
+      },
+      {
+        "path": "docs/ARRIVEE_OBJETS_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b2d3888644d31a6c818e44213221d55470a24b3c38b4156775fe70af477c9a48"
+      },
+      {
+        "path": "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "ddd788c9c69574ae65805503f26226024dcb8d88f85a7e16ddcf77883992c757"
+      },
+      {
+        "path": "docs/AUDIT_ECARTS_REFONTE_2026-10-15.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8c188c85d46ef1eba3e6c17659c3c5908ed09d94234e11e43c5f610e83d0a481"
+      },
+      {
+        "path": "docs/AUDIT_REPRISE_REFONTE_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "489a8d4eccc892d57b77b049a6800adb43e9c700a36da0e9559456bb617f7d27"
+      },
+      {
+        "path": "docs/AUDIT_SECTIONS_LOVABLE_MENU_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "2239f0f1d7c3535553ebf8cd303e0cf57502c8b72abbe26989f05bdc433497a3"
+      },
+      {
+        "path": "docs/AUDIT_TEXTES_ACTIONS_2026-10-16.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c16df31c1740850369a907c3ccb59b65595bfa8609a3e1e01ce6a8b894a4fd73"
+      },
+      {
+        "path": "docs/AVIS_STRUCTURES_PERSISTANCE_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c7e79ea2986a0ee407bfe08504538e1002f78dd77b010b9fc3438ea36e5f83e8"
+      },
+      {
+        "path": "docs/CALENDRIER_V1_DEMO_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "58119dee24ed58ac639199f2301d9ae1b7e35db238edf83d9bcacbe675c6651d"
+      },
+      {
+        "path": "docs/CARROUSELS_LARGES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e735f198eab99a3712b6d0aab7a30c22527de5204dbc6fa8847d6ba7d68b6bff"
+      },
+      {
+        "path": "docs/CARROUSEL_MENTORS_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d9bb9fd69035ba3f599d9f783c856f154a99ef23e74bfded8e268b846f07e5a7"
+      },
+      {
+        "path": "docs/COACH_ONGLETS_FOOTER_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b1f6097c9b1aa212a0f0896e6b7764eb0734e5e6eb2e55055e0ee5ccdb491ac8"
+      },
+      {
+        "path": "docs/CONNECT_PARCOURS_TEST_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "05bbf311e8d61bae06ce10d862338c1db0a657668560834bd638f16326a61a6e"
+      },
+      {
+        "path": "docs/CONSOLIDATION_RESERVATION_2026-10-16.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "a62111875eaaaf7f2caff9c0d81e6065eadb3e60c94e52c2da127fad68383425"
+      },
+      {
+        "path": "docs/CONTENUS_DEMO_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b4a628767fa58ada07476a70fba828906353ae12e20efa389edb2e2a9337f6f8"
+      },
+      {
+        "path": "docs/CRENEAUX_PLANNING_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8c7ee4923d79167337ebb12d2e48c0c00fe84d33224ef427be9ce2edc00b0d8d"
+      },
+      {
+        "path": "docs/DECOUVERTE_COLLECTIVE_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "482b88e5203d62b682d9414192842f552208033cbfbfd9cfb5ef360107d15e7f"
+      },
+      {
+        "path": "docs/DEMONSTRATION_PARCOURS_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9d8b469fb6641e5e2144f105dd9f4294795a33394e1c57c4062992eda77ffaeb"
+      },
+      {
+        "path": "docs/DEMO_TRANSITION_PORTES_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6537d5cdfb88add87f8eed92a665ac3698d6f65cdb7ba9b25049e0cd4c230561"
+      },
+      {
+        "path": "docs/DEPLOIEMENT_DEMO_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e10a83f2027978d29c0a1a3c1262d4a3991804bb0f526a588ddf4b578c38bdf9"
+      },
+      {
+        "path": "docs/DEPLOIEMENT_DEMO_54BB709_2026-10-22.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9a9fec874f82d91b0f25432be0af26b7bea6615a6bbd9f64e8c251d406cd65c5"
+      },
+      {
+        "path": "docs/ETATS_PLANNING_COLLECTIF_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "7c6b9e52b6e8e15dc9ca6accffd7b82eeb92715ebc76c3f6adca425203c1c0f9"
+      },
+      {
+        "path": "docs/ETAT_REPRISE_COURANT.md",
+        "status": "relais-operationnel",
+        "replacement": null,
+        "sha256": "db66e516671f6eab524c12fb30b5bf4b33cab636dba017d9ee547ef8eec82ae9"
+      },
+      {
+        "path": "docs/EVENTAIL_PORTRAITS_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "12a3defa03fcf4b118aa89057c3bca6ca233b458876db67f0acf61d254667c90"
+      },
+      {
+        "path": "docs/EXTRACTION_PROTOTYPES_ARC3_2_2026-11-06.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "acd05effffd0c8922766f344868bf048dd3151d2c97ccfa1f4993a844628e8e1"
+      },
+      {
+        "path": "docs/FACTORY_HARMONISATION_NETLIFY_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9bace21b5cdb07f622302ab2aebeae9253c229e43bfbf2eb9e9bc66b30113695"
+      },
+      {
+        "path": "docs/FIABILISATION_AVANT_PRODUCTION_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "968a472a6274f1856dbababe370dbb157615fac867203ed95da308a20091f91c"
+      },
+      {
+        "path": "docs/FILTRES_MESSAGERIE_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "3624b8a430176ed564893a64414d97b3e5a90e92c3c0c17f39df7c37a1fdf836"
+      },
+      {
+        "path": "docs/FILTRE_MENSUEL_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "fbe9bff820ddff4e64418f26ccaa7f288546a77b56de73e175edb91c6e4a3f57"
+      },
+      {
+        "path": "docs/FINANCES_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "69b88088e34b68a825e879f93a95dee516092713bf3fdcccd06b2a56972a5ecf"
+      },
+      {
+        "path": "docs/FOOTERS_UNIFIES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6f81f9ba59d91cb9c0e3d5f392a2a7799ef5599011fc988e1fbf2072961fe0e7"
+      },
+      {
+        "path": "docs/FOOTER_CONNEXION_2026-10-15.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0477a07deef06b207308feda032b574086edfa34186869fdf31000a17ce981d4"
+      },
+      {
+        "path": "docs/FOOTER_DISCIPLINES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "83d09fc3a42f0176362fd30b0d8ef710c3820255ae7b64014cab7cbe80227532"
+      },
+      {
+        "path": "docs/FOOTER_DISCIPLINES_REPLIABLE_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "3b1e2e94d0b4b859004cbee59d719db5f46a7d32f2a56e3b44216ebc658b2b3c"
+      },
+      {
+        "path": "docs/FORMULAIRE_RESERVATION_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8e265cae34288b35c84717be2da80868b4f93abf7aa61d9b15be5d7de9ded0d4"
+      },
+      {
+        "path": "docs/GESTION_CONTENUS_DEMO_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "af1e41393624d65881b441c2ebbc2b33fd67b8ff2c3d869608af6288f5981164"
+      },
+      {
+        "path": "docs/HARMONISATION_REFERENCE_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8d478a844a550e198ae0c8bc21c332215812e42f23ce37068fbdbc54957bd80d"
+      },
+      {
+        "path": "docs/ICONES_REALISTES_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "abda427c60ecec507b1321eef8f5fd3510f8bf5a9e6c32af2378d709fca6183e"
+      },
+      {
+        "path": "docs/IMAGES_IA_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6432c9ccf79ee7704fc3d7a0ef1e105b10119010a429814cdd9e454739816301"
+      },
+      {
+        "path": "docs/KANBAN_SWIMLANES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d14d911ed2dcb861643ec99defe15521cba4f7c729e0f294f3515cd428de9055"
+      },
+      {
+        "path": "docs/LANGUES_FORMULAIRES_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8b9ef1e29282c6a95192d506d1ba58732a28ad173ac9fb9b95800ff6f7b7da38"
+      },
+      {
+        "path": "docs/LIENS_ET_PUBLICATION_NETLIFY_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e7d958066f377492567d47008e298fd654d093a39d0aef1e15c466c9d4c1c739"
+      },
+      {
+        "path": "docs/MENTORS_PENTAGONE_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "920fc419986b5570bfaffdec8697074feea57f1f895f2cd3a99d67bab6840b90"
+      },
+      {
+        "path": "docs/MESSAGERIE_DEMO_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c38b885d6042bb7bf5d6bad79e7bc25e7c239276041a06622518a8a2b8e84823"
+      },
+      {
+        "path": "docs/MODELES_MESSAGES_COACH_2026-10-19.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0aff8f3380fa4c38025dbba131f59096b19d3a95ed20b062df5f4e394a1ec276"
+      },
+      {
+        "path": "docs/NAVIGATION_PORTES_3D_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d7e00fa1695e32ea11e28fda10a222fd1d2f084b82eae48bf4f0a65dbb915c41"
+      },
+      {
+        "path": "docs/OBSERVATEUR_MESSAGE_PRIVE_2026-10-19.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "044bd9682eb6292a652fd3d5dd017bb59a506c89a5be9b853a1bc8efb6e6fb40"
+      },
+      {
+        "path": "docs/OFFRES_ABONNEMENTS_DEMO_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "671edf5cd85d66f3b9d5fe8665c0c6e5a32fd524b1ce30a625ce0a64e3e084fa"
+      },
+      {
+        "path": "docs/OPQUAST_SOCLE_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "68df79a5bd3f067b1c36cfbdb3753780c8228c3b063cc8ce291e23435bd390fc"
+      },
+      {
+        "path": "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "status": "preuve-active-orchestration",
+        "replacement": null,
+        "sha256": "bc60726a49f34f7e4098c01e3d51be955e625caa716e050e797f2e988d4b4cc0"
+      },
+      {
+        "path": "docs/PAIEMENT_SUIVI_FACTORY_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "cdcc48b6cc65b07dadc806d01dff501d0849e645b3bf909855711473d8809e0b"
+      },
+      {
+        "path": "docs/PANNES_STOCKAGE_PIECES_JOINTES_2026-10-19.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "7751f50f6e4e8539eb5ae6929498ac9e2ce13604b732e0384b496ea9f1dd3760"
+      },
+      {
+        "path": "docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "cdc49db28e71602c46099fe0104ef6b94e72394e2f5603b3aa5e0707b4a29062"
+      },
+      {
+        "path": "docs/PENTAGONE_RALENTI_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c31fd1aeca0b2a799526a588295384d79cf37bb726ae03cd59e27ab344f266df"
+      },
+      {
+        "path": "docs/PIECES_JOINTES_DEMO_2026-10-19.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "ce2061a37813f9afc6921119e36e16c7d3f484d0aaa30125c1a554a1c9dcf21c"
+      },
+      {
+        "path": "docs/POINT_RETOUR_AVANT_REFONTE_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8d303099e149cbdb49ee2d46606b2ff1fcdf5efa9f060102e37f14f48da58255"
+      },
+      {
+        "path": "docs/POINT_RETOUR_PORTES_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "bab624498f9f9fe312188cd4ce371030fe8a46a1340e91734af1a5b5a83c3c83"
+      },
+      {
+        "path": "docs/PREUVE_PAIEMENT_DEMO_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "5295993b1c908989ff34733baa577b17db86ee338268e58d02d83e7bfcafcb56"
+      },
+      {
+        "path": "docs/PROCHAINE_SEANCE_COACH_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "2c8bf89a31bba6870538cde9052a211028c2ef05428b0706d073326bc4315dbc"
+      },
+      {
+        "path": "docs/PROMPT_SUITE_RESERVATION_2026-10-15.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "77a089ddf0e933c82df61bff0511ff206297afe81b781cb10bd96f5111353b32"
+      },
+      {
+        "path": "docs/QUALIFICATION_PIECES_JOINTES_2026-10-19.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "a3ce9679942d5ae66784d63c1625c12f862152883a715fb38816c5632f7cbdeb"
+      },
+      {
+        "path": "docs/RAG_ANNOTATIONS_A_RELIRE_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "7fe9e92f83b86d3d6f9ab22e04a92b155774ee7c8a30590f8aeea89a677632c4"
+      },
+      {
+        "path": "docs/RAG_COMPARAISON_A4_3_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "66b642823cea9acddd7bdee585a487d0f35fe452b5c3a3ee0126ecd4a0a58b3d"
+      },
+      {
+        "path": "docs/RAG_FIABILISATION_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "4c8fbbf7295b49ca78523580e0b743eb5a35baf608c0e98032fa6646a777535e"
+      },
+      {
+        "path": "docs/RAG_GATES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "ac369df164abe12afd5034f1d31fae62745c094b84eaa1ca97a390b0d852e32b"
+      },
+      {
+        "path": "docs/RAG_REGRESSIONS_CORRIGEES_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e7f2c44e52b45dc5c27bf03ba91e8a2c4370bebe9a0507f721a1c8dc81378ff4"
+      },
+      {
+        "path": "docs/README.md",
+        "status": "index-general",
+        "replacement": null,
+        "sha256": "4eadbd0932a39e692e4ff275e6fa7d6a5c6d6d25427b1ced22ea6283b63e97a5"
+      },
+      {
+        "path": "docs/REA_COMPLEMENT_PLAYWRIGHT_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8107a1501b4f501998ad19dbebf8cdfcb6e00a08d4b40ac4ed711e7011138c6d"
+      },
+      {
+        "path": "docs/RECAPITULATIF_SERVEUR_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "bf1c926e08d55434d097cdc250934e6c365ae21c80d618ff0e3b4b56cad5bb52"
+      },
+      {
+        "path": "docs/RECETTE_APPROBATION_COACH_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "2df5fd235378084c5d2ec4986f1c6ea394c3a330b769ee7c2217efbd32e7d797"
+      },
+      {
+        "path": "docs/RECETTE_CAS_RESTANTS_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "dd93e4f1f26c9af3307d492264948d5a918c2c510609dfeb9b9730a80e73421f"
+      },
+      {
+        "path": "docs/RECETTE_DEMO_HEBERGEE_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9dd2dba9c06b740cde0c46718d52cd954eb9258233d8c538ad33e83b5789f767"
+      },
+      {
+        "path": "docs/RECONCILIATION_ADAPTATEURS_H1_2_2_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "3c7f602bbbe55c89702e6a1a9e1d84fbd356ffde9c614d6c838692475916aaf9"
+      },
+      {
+        "path": "docs/RECONCILIATION_GIT_2026-11-04.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b9ad07c45dd712719b98181b5a208ac0c0186d3859c158afd10255bbc2db1a57"
+      },
+      {
+        "path": "docs/RECONCILIATION_H1_2_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "2ca28445dc6eee94e866261ca532503249cac5b2439f251960b2ac216b107795"
+      },
+      {
+        "path": "docs/RECONCILIATION_POSTGRES_H1_2_3_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6c80a75b67b5f8c37af7be1c5d2a9f0acc07db8eea438601226d2c36698c20ef"
+      },
+      {
+        "path": "docs/REFONTE_DECOUVERTE_EDITORIALE_2026-10-15.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "40d30f13ad19966b97b5cdab73537b3732a2f66036de3cd3ef37a81b3fd50ddb"
+      },
+      {
+        "path": "docs/REFONTE_FACTORY_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0e8d921db4a01f8641373a4c4bb32a959785eb920534eab52e38840407c48124"
+      },
+      {
+        "path": "docs/REFONTE_NAVIGATION_FACTORY_2026-10-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "5a266a7373aa2f5a1a1c37b7121c1fb9ba3ad4e64fcaafabf53ce2fc1668b567"
+      },
+      {
+        "path": "docs/REFONTE_PROGRESSIVE_2026-10-15.md",
+        "status": "couverture-design",
+        "replacement": null,
+        "sha256": "c084e812d999d96b19721f3116d68a7b067ff7616471546dc49aaa0c74dd1684"
+      },
+      {
+        "path": "docs/REFONTE_RESERVATION_2026-10-15.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "a1619e867386a80716c13cbde07444df707a7cfb8229f8e8c80867d1c27c244f"
+      },
+      {
+        "path": "docs/REPRISE_ANNULATION_SIMULEE_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "69f20c7e6b7b9ee5bd6406825e677ebf7931f3bca0d693eb0d2502014abb6dcb"
+      },
+      {
+        "path": "docs/REPRISE_DEPLACEMENT_SPORTIF_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9689a378cb19dbaafd1722133a3da6bfaafa613074e38ad6cf2aa970f176f4ee"
+      },
+      {
+        "path": "docs/REPRISE_PAIEMENT_SIMULE_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "3be6aed0d7009b24e687e7d2e9a1292fdc5585564c28186a8d2a41b543ced49f"
+      },
+      {
+        "path": "docs/REPRISE_USAGE_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "73b4b784461c8c703fb155a3b8794dce3ec6ae005f65a18d77fc5ebb53578f0f"
+      },
+      {
+        "path": "docs/RESERVATIONS_GROUPES_2026-10-16.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b3a3280403d91af7d2208194ddc10289fd7e1b0b3e05f0aa6db500300b5ea368"
+      },
+      {
+        "path": "docs/RESERVATION_FACTORY_2026-10-21.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d0878291cdafdc135700f275a5821036e77491feb1b42fa7f0256b7fd1df093e"
+      },
+      {
+        "path": "docs/RETOURS_BETA_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c10a601e62c7c85ed696bf2ba8478312a49ebaa26c782fa4b88e5ce7a1760020"
+      },
+      {
+        "path": "docs/RETRAIT_DOCUMENTS_INTERNES_2026-11-06.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "1390179cc4d6d37804dfcd844db6ae73a780497cfb7faf5535a14a814296d226"
+      },
+      {
+        "path": "docs/REVUE_RECRUTEUR_2026-10-22.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "cc437818211ddd7d205c459ad6874486f9e77e1b1a8ddb0fcfc13df4c2d12133"
+      },
+      {
+        "path": "docs/REVUE_SESSION_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "d9526eab80f2e55e612674aaf9ac3ab95f867777b1f8037710f95a3cba110bc2"
+      },
+      {
+        "path": "docs/SPORTS_CATALOGUE_2026-11-02.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6f5aa5daa74e3f384f4f722545e8aa259a252ff7ef16cfc9ee38594aea959722"
+      },
+      {
+        "path": "docs/STRATEGIE_PERPLEXITY_COUVERTURE_2026-10-16.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "1b29e704ea31524afd82db6923108269d39def87385855883950d9416f03b098"
+      },
+      {
+        "path": "docs/STRIPE_RECOVERY_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "9b6d8ec0347482e8f159937b370113e461c36e04d045fcb8c55e0d1d1dd307a9"
+      },
+      {
+        "path": "docs/STRIPE_SANDBOX_ISOLATION_2026-11-05.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "8c286a5acf31ba2ea3c91216a41ac33e5031ddb563d60776dc0feb242e19e648"
+      },
+      {
+        "path": "docs/STRIPE_TELEGRAM_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "15d3e1e1e5c44602695237463c1caac970dc941a881ed9ffc04282fbd83e8ada"
+      },
+      {
+        "path": "docs/SUIVI_PERSONNEL_DEMO_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "6a392f9452fa75ee597dce1d3203611089833e5a399cf904ec5f463b8ce3622f"
+      },
+      {
+        "path": "docs/SUPABASE_PGVECTOR_S2_2026-11-03.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "5a45d377102f8c34e43c677d4affae31058067267417e6f483d40f08d1fbd0c3"
+      },
+      {
+        "path": "docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "a606fbe823df09d6abcfa163b7ec831d47f2eda6619885238c181aace1f81cd0"
+      },
+      {
+        "path": "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0c895a009c6ed734cbcca0d2aab69c088346cf8036dbc935229d3e1aa990ee8e"
+      },
+      {
+        "path": "docs/UI_AUTOMATION_FALLBACK_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "bf5d58d6836be2ec0e1325677183267fbdbcd1b82a1919123932117dbd73ae7e"
+      },
+      {
+        "path": "docs/VALIDATION_CANDIDAT_ARC3_3_2026-11-06.md",
+        "status": "preuve-active-rangement",
+        "replacement": null,
+        "sha256": "5b0f5dbcbab255725dff53e43526be099ff7080b517ec97b0369fa5f8dfdea43"
+      },
+      {
+        "path": "docs/architecture/AGENTIC_REFACTOR_2026-11-03.md",
+        "status": "plan-et-preuve-datee-atelier",
+        "replacement": null,
+        "sha256": "ddc0f0194a1d6e66bfcfb35394fb090411def3dbeb575d2a3c8b485b3062b74f"
+      },
+      {
+        "path": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+        "status": "canonique-memoire-rag",
+        "replacement": null,
+        "sha256": "7a0899a3ba9e858b102cd82a7fd862582f11a54c3123f67d1fd956f8f622b2c9"
+      },
+      {
+        "path": "docs/architecture/ARCHITECTURE_TARGET_GYM.md",
+        "status": "cible-architecture-non-preuve-runtime",
+        "replacement": null,
+        "sha256": "ca86242aa8f5f7d56eec770a66496a7f1c74087e0d84dd4cd2e5f58b82e5dd2d"
+      },
+      {
+        "path": "docs/architecture/MOBILE_HOME_ARCHITECTURE.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0e1f54c7d2447bca0f6f3e539a73aed612f305219c452aa51505bf58409509b3"
+      },
+      {
+        "path": "docs/architecture/MOBILE_PERFORMANCE_STATUS.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "1c01dd6292c1939e885b9d0397fd94fee0184475d0ee0ea5663f7151086ec90b"
+      },
+      {
+        "path": "docs/architecture/RAG_PREPRODUCTION_REPORT_2026-09-28.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "509f0528e18c32f19cd6b08d6c5c9c728026c09b1e1324f80633e65ede1701cf"
+      },
+      {
+        "path": "docs/architecture/RAG_READINESS_GYM.md",
+        "status": "criteres-rag-non-activation",
+        "replacement": null,
+        "sha256": "0bf70c26aa1c71ef843afac875b455000141f397170f0bac4e91466276277c4d"
+      },
+      {
+        "path": "docs/architecture/README.md",
+        "status": "index-architecture",
+        "replacement": null,
+        "sha256": "38aa1de8c54f2d266400d44570beb948df7e0602c27d1b64045f953981a82025"
+      },
+      {
+        "path": "docs/archives/ETAT_REPRISE_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "259e19d40a1279b9ee7d2d2e1bd21f4b16faeb3a7c3b97698977599abe8c6127"
+      },
+      {
+        "path": "docs/archives/ETAT_REPRISE_AVANT_CONSOLIDATION_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "5911b1ffb6ecc5fb2ced170d53f190279123b6aea7a89fcb905db352f5e099f2"
+      },
+      {
+        "path": "docs/assets/ai-visuals-2026-10-28/generation-prompts.md",
+        "status": "preuve-a-contextualiser",
+        "replacement": null,
+        "sha256": "b1419a220398ec8785e3687c41340898499a3e075bde045ec58042e41948a694"
+      },
+      {
+        "path": "docs/audits/architecture-2026-11-05/CIBLE_ET_PLAN.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "b43991652bfdc47345da079931d532de2878e8a5fd188bab35866c72607d6278"
+      },
+      {
+        "path": "docs/audits/architecture-2026-11-05/CONSTATS.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "c6d398388826a8dc5efcb9d4de62536fca93ce634c0655ac7f0b9c1405260fab"
+      },
+      {
+        "path": "docs/audits/architecture-2026-11-05/COUVERTURE.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "2f5aec61bf83ae2ff6d65b8fea36e1693076f6c48bdde349fb7fe113f33041a8"
+      },
+      {
+        "path": "docs/audits/architecture-2026-11-05/RAPPORT.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e233680b452d9447707086c1ce9e30b5cfa3150e8efa87e2e583822cdcced13a"
+      },
+      {
+        "path": "docs/design/DESIGN_TOKENS.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "fcca80a44a30c02e54c525dbf50034e558d7e1eab7768e5c01a04cf877c4410d"
+      },
+      {
+        "path": "docs/design/VISUAL_CHANGELOG.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "93b51f71e9983955114eb6954332c40da2946da5ed872caa2fa9f234588e975b"
+      },
+      {
+        "path": "docs/design/VISUAL_REFERENCE_CONTRACT.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "c5cbea95dd8a908aea6a40faa1d5b661e65507b9f762f0e6f30798ee1dcfc403"
+      },
+      {
+        "path": "docs/mcp/MCP_TOOL_CONTRACT_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "383718ff3917f1e843a3db88431f214db7ef9d3aa339a57daef2a0ad1944faab"
+      },
+      {
+        "path": "docs/sources/AUDIT_PAIEMENTS_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e7ff8be1a00fcffccaec41fa054d9d8c0fee04b7a8d3f4b989de4a71f9becfe8"
+      },
+      {
+        "path": "docs/sources/PROMPT_MAITRE_V3_2026-10-17.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "e7be56d6717993e7855091a21853a180b0559f70803c819384f5def7cd309cbd"
+      },
+      {
+        "path": "docs/sources/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "40ec37f31e2225910c43f5a84008afb5a14449cbe8c5129686573e3910748f8d"
+      },
+      {
+        "path": "docs/sources/REA_UIUX_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "4bb858b5b849168abb5fb346f6434fe1ff354a624e578c8f41c98ed63e518d92"
+      },
+      {
+        "path": "docs/sources/V5_ADAPTATIVE_2026-10-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "02185aedd3c71872c55b71e33cab6801cd09ac98d5864a067e69db103c370650"
+      },
+      {
+        "path": "docs/tests/VISUAL_ACCEPTANCE.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "fda639d00975179089bf2b39fd81a4848cd795c234b9288f5e67c1b02da33dd1"
+      },
+      {
+        "path": "governance/FIL_ROUGE_OPERATOIRE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "37113ef78a17743797713cd9f65b8d8d3d2176ede9c27767383d4f7d9982f899"
+      },
+      {
+        "path": "governance/PREPRODUCTION_CURRENT_STATUS_2026-09-18.md",
+        "status": "rapport-date-non-consigne-permanente",
+        "replacement": null,
+        "sha256": "0247974754b92165f5e60bcb30e1f746b9db70350ff54293d284b68543f7784e"
+      },
+      {
+        "path": "governance/PRODUCTION_HANDOFF_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "dd8aa1b5fbe9eed2b83ef259cca10d643353702cbe57f340cb0f3636efa85385"
+      },
+      {
+        "path": "governance/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0d05a1d0c2bbd84f3519bfd6793d63e61ddb704b6a295c7a636b312c3a263f8f"
+      },
+      {
+        "path": "governance/TRACEABILITY_MATRIX_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "113e91125306c2d3cfa9763fc50615f36f5edbd7845b061a67fd919659704174"
+      },
+      {
+        "path": "governance/USER_STORIES_MVP_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0e233febcbcde1f08149098eb0b169373a5f1e09a36e53b318a99d50f8768669"
+      },
+      {
+        "path": "governance/ai/AGENT_MISSION_EXECUTION_PROMPT.md",
+        "status": "contrat-runner-historique",
+        "replacement": "AGENTS.md",
+        "sha256": "e2dfe7e961445393250b6a811af9faf468f829187a4a63fe93c2484222106d36"
+      },
+      {
+        "path": "governance/ai/ARCHITECTURE_IA_RAG_GYM.md",
+        "status": "historique-confirme",
+        "replacement": "docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md",
+        "sha256": "a3444b0e0083b4a476d94773d36a325c31be21080cc3d22643dd2e0d53d60d37"
+      },
+      {
+        "path": "governance/ai/CONTEXT_RAG_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "29c10883085408afb387a47de7e20e18344a0e672e77a97a635db03f484871db"
+      },
+      {
+        "path": "governance/ai/CYCLE_001_ORCHESTRATION_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "6bf4ef583f8bc5da0a4b9d340559c6da02e0fa280237d1aba7eb04ea2d96310e"
+      },
+      {
+        "path": "governance/ai/CYCLE_002_FICHE_COACH_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "125a88c5e097ac9c441a28f0cf6def42640843ca241a173ad6bd0ee9238c4713"
+      },
+      {
+        "path": "governance/ai/CYCLE_003_CRENEAU_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "ac2207d466a21356ff742276c1fbbd8a49c15308e3974f6aa381024c6d64eb76"
+      },
+      {
+        "path": "governance/ai/CYCLE_004_RECAPITULATIF_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "07b9ba272346fc3e58443800925ca2d10975f2b15421e85861afdeb0a31a4ff1"
+      },
+      {
+        "path": "governance/ai/CYCLE_005_PAIEMENT_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "41497c6c3d619c7c413c206d837e716a57d53cf29ecb96ebfbb2df06dc3cee9f"
+      },
+      {
+        "path": "governance/ai/CYCLE_006_TUNNEL_TRANSVERSE_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "77f9e42101ee12f4204171dae754c9b13525467bf592fa250ab1455038e8eb57"
+      },
+      {
+        "path": "governance/ai/CYCLE_007_HAUT_FUNNEL_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "0199685e29c084cc68dc05ceda27f156ef9a4eac4de92d71774b76fcf2892e7f"
+      },
+      {
+        "path": "governance/ai/CYCLE_008_COMPTE_BIFURCATIONS_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "5c2172d4e4c696c53d3a43e2574c7d439a6d6beed291db28a595dca1312dd56a"
+      },
+      {
+        "path": "governance/ai/CYCLE_009_INSCRIPTION_CLUB_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "5988365cb578d13b8d8241bd104fed87985529bf4ecfbcb125aa40ebfefdafc3"
+      },
+      {
+        "path": "governance/ai/CYCLE_010_SHELL_NEXT_QA_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "838c15f4505534a82619700737141518931356ab440beb5cf4b12d1b5ac44688"
+      },
+      {
+        "path": "governance/ai/CYCLE_011_QA_PLAYWRIGHT_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "f88cdfdc2ffcec245df105fffe6d126223201e3e37077a91c147af52270ee9c9"
+      },
+      {
+        "path": "governance/ai/CYCLE_012_AUDIT_VISUEL_PLAYWRIGHT_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "0e1cf06bdac2fe660ee031174806b24464c186467d4c5bb79e38e0237077d542"
+      },
+      {
+        "path": "governance/ai/CYCLE_013_VALIDATION_TUNNEL_METIER_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "267877f989d0b481aca31f7bc155f5ccd7143a9ace9556c3a578b59ccdf2e58b"
+      },
+      {
+        "path": "governance/ai/CYCLE_014_SEO_METADATA_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "2a7c9c2675535f0283a8516815d3ae1b48b8b6d9ce8869d0ed4b41156a7fdaed"
+      },
+      {
+        "path": "governance/ai/DECISIONS_LOG_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "b5a210ff99521b91a26ac21974141de80b3bd31f76557d10c8e0b03322c2511e"
+      },
+      {
+        "path": "governance/ai/LOT_AUTO_AUDIT_VISUEL_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "6dd4864f60283d6e5d8001516fd6b917e2f88eb8111d6c8a173222f4ffee344f"
+      },
+      {
+        "path": "governance/ai/LOT_AUTO_BUILD_SUPERVISION_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "75f6d869833711d5cebced6b8807fd1cd9916adc14265be75e9685af5c099900"
+      },
+      {
+        "path": "governance/ai/LOT_AUTO_GIT_CHECKPOINT_GYM.md",
+        "status": "historique-orchestration",
+        "replacement": "scripts/README.md",
+        "sha256": "515b77d3d926fca741113dcb505bea076454bee567494627e4d9e6ac393c067c"
+      },
+      {
+        "path": "governance/ai/MODE_AUTO_PROJET_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0d08d2d65b401258d466f876d5e87fc8be7c12c6c70e6c3d0a50556ad74e728e"
+      },
+      {
+        "path": "governance/ai/MVP_ROUTE_CONTROL_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "93b2f65c3182dfdbd80cb33f8ffa68cb0eff4a37e80f743b57082d589af83e25"
+      },
+      {
+        "path": "governance/ai/NEXT_MISSION_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "f8f581a51531a6652184040e72f0d72b18ff101960d0b96b7d86cbb88810d64c"
+      },
+      {
+        "path": "governance/ai/ORCHESTRATEUR_LOTS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "ee7150df450699d0b7f700d2e81dd61f51275e5f740f2980c3d8861bb0600b59"
+      },
+      {
+        "path": "governance/ai/PHASES_EXECUTION_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "82773a4a3ae873c5d183d91241246d00ede8b97944b25b1a54eeb92d860b9971"
+      },
+      {
+        "path": "governance/ai/PLAYWRIGHT_AUTONOMIE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "4a5ec844166c5586efb15fc81a49dd08359e4dd083738f3c67f034466a3c30d0"
+      },
+      {
+        "path": "governance/ai/SUPERVISEUR_FIL_ROUGE_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "31f8842ac0454351540a463c2a1ba2642a7ec7ec07bba174ad109469b54adbaf"
+      },
+      {
+        "path": "governance/ai/auto_build_supervision_journal.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "3689686511b8610f586e3268a5b70e2773ee39bca494a38250660696dfc8b13d"
+      },
+      {
+        "path": "governance/ai/auto_git_checkpoint_journal.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0cf0370d6e735f8e70ffbf9bcf5642b5cf547c7656f32626e86ee942dec7fb15"
+      },
+      {
+        "path": "governance/ai/auto_mode_journal.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "0f7ff76f7e32cad11b0caf75479e338978c857c656bf09d9774d677690b035aa"
+      },
+      {
+        "path": "governance/ai/auto_orchestrator_journal.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "5f19970bbc33f6982e67725d7e338e49297f235fd7aeacba0ac58374e927ae8e"
+      },
+      {
+        "path": "governance/ai/auto_visual_audit_journal.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "1dd479985b34ab5a0e4704a82ec4d7ba45acf10d632e63f68b7cb0e3c47afd6b"
+      },
+      {
+        "path": "governance/ai/last_supervision_report.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "1c9e7b9cf255d5b8586a7c331271a17abb5bc5019d992cc3a420f9a386e68736"
+      },
+      {
+        "path": "governance/prompts/PROMPT_CTO_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "d3ba3044b313f03a19797940233e1c5214927fdc15d4d3a232e7e31aaa97a1da"
+      },
+      {
+        "path": "governance/prompts/PROMPT_DESIGN_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "df9331d66edc7a0f2930b576702a87d77104338d6336fb1b4fd69e1bb9c64667"
+      },
+      {
+        "path": "governance/prompts/PROMPT_DEVOPS_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "378730f473ecf292f6eac8dd4c289004c69ca743880b1419d71b151ac4f3c522"
+      },
+      {
+        "path": "governance/prompts/PROMPT_PRODUCT_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "6575cadebc3456e0774d9fbb1a8b5dad7c27408f1a8958ddaac493edab826797"
+      },
+      {
+        "path": "governance/prompts/PROMPT_QA_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "2a9848851d03024c652987b183e2d6a720bd3212b6e380e73363243510901592"
+      },
+      {
+        "path": "governance/prompts/PROMPT_SEO_GYM.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "d248ffd0259cb20b95274b2482c82ab48b455552a7f742f7c0586bef34a9f98d"
+      },
+      {
+        "path": "governance/roles/README_CTO.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "09046261aa3a03325bbbc288bfa6e1206463fb4d682f326751b71a0dc0bdea8f"
+      },
+      {
+        "path": "governance/roles/README_DESIGN.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "19fb55b8096993b1af355031c9690ca71a91a16ca8b7af765a4ac8f33316b094"
+      },
+      {
+        "path": "governance/roles/README_DEVOPS.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "2448194953b0abc499802b3f48e81c0bce997391329656d725aad5b1b4cbd047"
+      },
+      {
+        "path": "governance/roles/README_PRODUCT.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "7a4a5932b9cb27471e08596953131e6990523c92818be8cf70eaccd24af8586f"
+      },
+      {
+        "path": "governance/roles/README_QA.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "365cece74a37ba191cefea4487a631ed71514db5ade42594096da069e0fb47c2"
+      },
+      {
+        "path": "governance/roles/README_SEO.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "6998b30ef3735f38d6dfc29f240b77f64b7804828ee8a3c8412f773ddfe3c1e2"
+      },
+      {
+        "path": "gym-next/public/design_assets/providers/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "7c0f13a69b7e777d268457e91941143a3080eb8edb97a9757bcd6e6dbeb27ee7"
+      },
+      {
+        "path": "n8n/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "7f60be8119726b05bc1ee90c5339b7086151c19c545338e2edb22de5768b946e"
+      },
+      {
+        "path": "project_readable/INDEX.md",
+        "status": "copie-export-non-canonique",
+        "replacement": null,
+        "sha256": "ba10a6e0544e04d1fe4537c43dd0e889a0640cc10182ada1d39de62f41a0ce4e"
+      },
+      {
+        "path": "project_readable/README.md",
+        "status": "copie-export-non-canonique",
+        "replacement": null,
+        "sha256": "250d7cdc87a1e6f42e944229e1982c900a1be7404df2b7269c59b4ae8fb6bd34"
+      },
+      {
+        "path": "prototypes/README.md",
+        "status": "guide-apercu-local",
+        "replacement": null,
+        "sha256": "4acde50415ba65f50d0e7eaa6e41450540663084f1914d7161e8e31c6c476401"
+      },
+      {
+        "path": "scripts/README.md",
+        "status": "guide-entrees-encadrees",
+        "replacement": null,
+        "sha256": "cc2f86ceb631c9e5b5cfa3ccc3cfa57a85eb2f1f4ccf6fca3bd618dda0dda7c3"
+      },
+      {
+        "path": "supabase/README.md",
+        "status": "index-donnees-selon-lot",
+        "replacement": null,
+        "sha256": "f2e81417f64356bdf7f04f487029cb7e8e5d046f3e92879ad61e9d77794c55dd"
+      },
+      {
+        "path": "tools/agentic-workbench/AGENTS.md",
+        "status": "instructions-atelier-local",
+        "replacement": null,
+        "sha256": "ce24274447d49c8f525df408f9973d6e4cdebc90469543887a9d4f923ac42ee6"
+      },
+      {
+        "path": "tools/agentic-workbench/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "a5059c74d7531a24efb634d00ef53ae369ba062a25cd5a8ef7c6932d84014799"
+      },
+      {
+        "path": "tools/documentation-audit/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "b92e2df42ec37735d85edb8e4f09a44d305f3a8109ae55413f33d22ca1247791"
+      },
+      {
+        "path": "tools/payment-reconciliation/AGENTS.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "9596ed3b82a960fad4d788cb1b87d5b6f443a66aa03ada94c3ebe36e49c56015"
+      },
+      {
+        "path": "tools/payment-reconciliation/LOCAL_ADAPTERS.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "693ed9cb72dd52c7796b3bf5f2bb6f6f537dd01e666536d5830b328bd4bb4646"
+      },
+      {
+        "path": "tools/payment-reconciliation/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "ab574af51113f654ddfcf7719ff0c3ed5d2404a5d87b68edb761d42c4d58b9cc"
+      },
+      {
+        "path": "tools/public-assets/README.md",
+        "status": "a-qualifier-selon-lot",
+        "replacement": null,
+        "sha256": "b07b7e0398ea302f759febfda3a532c5c2f486cbc41c5c060d2566e5542e81eb"
+      }
+    ],
+    "exactDuplicateGroups": [],
+    "omitted": []
+  },
+  "ci": {
+    "branch": "design/refonte-progressive-lot1",
+    "scope": "Local declarations only; no Actions run, remote settings or branch-protection check",
+    "workflows": [
+      {
+        "path": ".github/workflows/agentic-local.yml",
+        "sha256": "46a390050747908f5a59a5a4a6a11853e14a522b323c3a8a2f674b44625dffb7",
+        "name": "Agentic workbench (local-only checks)",
+        "events": {
+          "workflow_dispatch": ""
+        },
+        "pushWouldMatchCurrentBranch": false,
+        "jobs": [
+          {
+            "id": "offline-checks",
+            "condition": null,
+            "steps": [
+              {
+                "name": "(unnamed)",
+                "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "commands": []
+              },
+              {
+                "name": "(unnamed)",
+                "uses": "actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                "commands": []
+              },
+              {
+                "name": "Offline graph, retrieval, provenance and Kanban checks",
+                "uses": null,
+                "commands": [
+                  "node --test tools/agentic-workbench/tests/*.test.mjs"
+                ]
+              },
+              {
+                "name": "Existing lexical corpus and evaluation gates",
+                "uses": null,
+                "commands": [
+                  "node scripts/check-rag-corpus.mjs",
+                  "node scripts/evaluate-rag-corpus.mjs"
+                ]
+              },
+              {
+                "name": "Existing tracked-secret check",
+                "uses": null,
+                "commands": [
+                  "node scripts/check-tracked-secrets.mjs"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "path": ".github/workflows/mvp-gates.yml",
+        "sha256": "f52bb2f634ad85ccc0f6b0e6290cc214dfdea3f4119b6c1087291aeed2b33afe",
+        "name": "GetYourMentor MVP gates",
+        "events": {
+          "workflow_dispatch": "",
+          "push": {
+            "branches": [
+              "feat/nextjs-migration",
+              "main"
+            ]
+          },
+          "pull_request": {
+            "branches": [
+              "feat/nextjs-migration",
+              "main",
+              "feat/visual-contract-next-step"
+            ]
+          }
+        },
+        "pushWouldMatchCurrentBranch": false,
+        "jobs": [
+          {
+            "id": "validate",
+            "condition": null,
+            "steps": [
+              {
+                "name": "Checkout",
+                "uses": "actions/checkout@v7",
+                "commands": []
+              },
+              {
+                "name": "Setup Node.js",
+                "uses": "actions/setup-node@v7",
+                "commands": []
+              },
+              {
+                "name": "Install dependencies",
+                "uses": null,
+                "commands": [
+                  "npm ci"
+                ]
+              },
+              {
+                "name": "Check TypeScript",
+                "uses": null,
+                "commands": [
+                  "npm run check:types"
+                ]
+              },
+              {
+                "name": "Audit production dependencies",
+                "uses": null,
+                "commands": [
+                  "npm audit --omit=dev --audit-level=high"
+                ]
+              },
+              {
+                "name": "Verify preproduction environment template",
+                "uses": null,
+                "commands": [
+                  "npm run check:preproduction-template"
+                ]
+              },
+              {
+                "name": "Verify tracked secrets",
+                "uses": null,
+                "commands": [
+                  "npm run check:tracked-secrets"
+                ]
+              },
+              {
+                "name": "Verify Netlify deployment contract",
+                "uses": null,
+                "commands": [
+                  "npm run check:netlify-config"
+                ]
+              },
+              {
+                "name": "Verify n8n workflow exports",
+                "uses": null,
+                "commands": [
+                  "npm run check:n8n-workflows"
+                ]
+              },
+              {
+                "name": "Verify Supabase application schema",
+                "uses": null,
+                "commands": [
+                  "npm run check:supabase-schema"
+                ]
+              },
+              {
+                "name": "Verify production configuration gate",
+                "uses": null,
+                "commands": [
+                  "npm run check:production-config"
+                ]
+              },
+              {
+                "name": "Reject demo and acceptance modes in production",
+                "uses": null,
+                "commands": [
+                  "npm run check:production-config"
+                ]
+              },
+              {
+                "name": "Build production bundle",
+                "uses": null,
+                "commands": [
+                  "npm run build"
+                ]
+              },
+              {
+                "name": "Verify client/server secret boundary",
+                "uses": null,
+                "commands": [
+                  "npm run check:client-secret-boundary"
+                ]
+              },
+              {
+                "name": "Verify production fail-closed behavior",
+                "uses": null,
+                "commands": [
+                  "npm run check:production-safety"
+                ]
+              },
+              {
+                "name": "Install Chromium",
+                "uses": null,
+                "commands": [
+                  "npx playwright install --with-deps chromium"
+                ]
+              },
+              {
+                "name": "Run acceptance suite",
+                "uses": null,
+                "commands": [
+                  "npx playwright test --reporter=line --workers=1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "production-readiness",
+            "condition": "github.event_name == 'workflow_dispatch'",
+            "steps": [
+              {
+                "name": "Checkout",
+                "uses": "actions/checkout@v7",
+                "commands": []
+              },
+              {
+                "name": "Setup Node.js",
+                "uses": "actions/setup-node@v7",
+                "commands": []
+              },
+              {
+                "name": "Install dependencies",
+                "uses": null,
+                "commands": [
+                  "npm ci"
+                ]
+              },
+              {
+                "name": "Verify complete production configuration",
+                "uses": null,
+                "commands": [
+                  "npm run check:production-config"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "netlify": {
+      "file": "netlify.toml",
+      "sha256": "340dfa75da0842a6ed987988e11e5ee22f9e86584f84500e997423233e7b5ff3",
+      "build": {
+        "base": "gym-next",
+        "command": "npm run build",
+        "publish": ".next"
+      },
+      "plugins": [
+        "@netlify/plugin-nextjs"
+      ],
+      "remoteGitIntegration": "not inspected"
+    }
+  },
+  "siblings": {
+    "scope": "Immediate relevant children of Documents only; other personal/business folders excluded",
+    "countExcludingMain": 76,
+    "counts": {
+      "support-or-copy-without-git-marker": 7,
+      "independent-git-checkout": 1,
+      "registered-worktree": 68
+    },
+    "registeredIncludingMain": 69,
+    "records": [
+      {
+        "name": "GetYourMentor - Copie",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GetYourMentor-site",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "independent-git-checkout",
+        "sharedRepository": false
+      },
+      {
+        "name": "GetYourMentor_Audit_Design_2026-10-15",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GetYourMentor_Checkpoints",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GetYourMentor_Refonte_2026-10-15",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GYM-affiliations-consent",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-affiliations-demo",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-agentic-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-attachment-remote-plan",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-backups",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GYM-beta-feedback",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-booking-consolidation",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-booking-forms-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-booking-recovery-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-booking-review",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-booking-summary-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-cancel-finance",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-cancel-recovery",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-coach-actions",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-coach-collective",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-coach-finance",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-coach-next-session",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-collective-preview-20261028",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-connect-test-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-content-demo",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-contexte-rea",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-demo-completion",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-demo-payment-recovery",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-door-navigation-20261102",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-equipment-entrance-20261102",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-factory-theme-20261021",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-factory-unification-20261028",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-fan-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-finance-month",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-footer-observer-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-git-reconcile-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-group-booking",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-hosted-validation",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-journey-ux-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-kanban-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-language-forms-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-links-netlify-20261102",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-mentor-carousel-20261028",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-mentors-integration-20261102",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-message-attachment-flow",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-message-attachments-review",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-message-file-faults",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-message-filters",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-message-templates",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-messaging-completion",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-motion-20261030",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-navigation-refonte-20261028",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-offers-demo",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-payment-proof",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-planning-slots",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-planning-states",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-private-claim-20261020",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-private-message-observer",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-rag-comparison-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-rag-fixes-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-rag-gates-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-rag-quality-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-realistic-header-20261030",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-reconcile-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": "refs/heads/reconcile/getyourmentor-20261103",
+        "detached": false,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-recrutement-20261022",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-reference-search-20261021",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-reprise-20261018",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GYM-reschedule-recovery",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-s2-qualification-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-s2-recipe-20261104",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-sports-catalogue-20261102",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-strategie-review",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-stripe-telegram-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-structures-messages",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      },
+      {
+        "name": "GYM-tooling",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": false,
+        "gitMarker": false,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "support-or-copy-without-git-marker"
+      },
+      {
+        "name": "GYM-vector-index-20261103",
+        "scope": "Top-level metadata and Git metadata only; no source or secret contents",
+        "hasAppDirectory": true,
+        "gitMarker": true,
+        "synchronization": "not assessed; no merge/push/deletion authorized",
+        "kind": "registered-worktree",
+        "headPresent": true,
+        "branch": null,
+        "detached": true,
+        "sharedRepository": true
+      }
+    ],
+    "limits": [
+      "No recursive file/content audit of siblings",
+      "No worktree status or branch-history compatibility audit",
+      "Name alone does not prove backup role or redundancy",
+      "No stale worktree may be pushed without cleaned-history review"
+    ]
+  }
+}
