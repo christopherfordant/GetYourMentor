@@ -23,7 +23,7 @@ test('projects statuses, attempts and retry boundaries into counts only', () => 
     total: 5,
     statuses: { pending: 1, sending: 1, accepted: 1, failed: 1, uncertain: 1 },
     unknownStatus: 0,
-    attempts: { total: 10, invalidRows: 0 },
+    attempts: { total: 10, overflow: false, invalidRows: 0 },
     createdAt: { invalid: 0, future: 1 },
     retryAt: { scheduled: 3, due: 2, future: 1, invalid: 0 },
   });
@@ -38,7 +38,7 @@ test('handles unknown states, malformed rows and non-finite timestamps without e
     total: 2,
     statuses: { pending: 0, sending: 0, accepted: 0, failed: 0, uncertain: 0 },
     unknownStatus: 2,
-    attempts: { total: 0, invalidRows: 2 },
+    attempts: { total: 0, overflow: false, invalidRows: 2 },
     createdAt: { invalid: 2, future: 0 },
     retryAt: { scheduled: 0, due: 0, future: 0, invalid: 1 },
   });
@@ -56,4 +56,16 @@ test('does not mutate entries and ignores unrecognized PII and error fields', ()
 
 test('rejects a non-finite injected clock with a static message', () => {
   assert.throws(() => projectTelegramOutbox([], NaN), { message: 'now must be a finite timestamp' });
+});
+
+test('saturates attempts at the safe integer limit and signals overflow', () => {
+  const result = projectTelegramOutbox([
+    { status: 'pending', attempts: Number.MAX_SAFE_INTEGER, created: 1 },
+    { status: 'pending', attempts: 1, created: 1 },
+  ], 1);
+  assert.deepEqual(result.attempts, {
+    total: Number.MAX_SAFE_INTEGER,
+    overflow: true,
+    invalidRows: 0,
+  });
 });
