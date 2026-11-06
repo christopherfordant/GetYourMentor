@@ -41,3 +41,17 @@ gym-next/pw_audit_stderr.log
 # automatiquement afin de ne supprimer aucune donnée ni historique.
 /Les Contacts (perso et clubs)/
 /project_readable/Les Contacts (perso et clubs)/
+
+# Internal documents kept local, excluded after history cleanup.
+/Dossier Business Plan/
+/project_readable/Dossier Business Plan/
+/Devis/
+/project_readable/Devis/
+/Financement/
+/project_readable/Financement/
+/Idée V2, V3 etc___/
+/project_readable/Idée V2, V3 etc___/
+/Branding/
+/project_readable/Branding/
+/Les commerciaux/
+/project_readable/Les commerciaux/
