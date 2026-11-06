@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { detectInitialLanguage } from "../components/common/LanguageSelector";
 
+test.use({ locale: "fr-FR" });
+
 test("le sélecteur de langue propose le français et l’anglais", async ({ page }) => {
   await page.goto("/");
   const selector = page.getByLabel("Langue");

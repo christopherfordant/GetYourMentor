@@ -1,10 +1,11 @@
 name: GetYourMentor MVP gates
 
 on:
+  workflow_dispatch:
   push:
     branches: [feat/nextjs-migration, main]
   pull_request:
-    branches: [feat/nextjs-migration, main]
+    branches: [feat/nextjs-migration, main, feat/visual-contract-next-step]
 
 permissions:
   contents: read
@@ -83,20 +84,6 @@ jobs:
           GETYOURMENTOR_ALLOW_DEMO: true
           GETYOURMENTOR_ACCEPTANCE_MODE: true
 
-      - name: Verify complete production configuration
-        run: npm run check:production-config
-        env:
-          SUPABASE_URL: "https://demo-project.supabase.co"
-          SUPABASE_ANON_KEY: "anon-demo"
-          SUPABASE_SERVICE_ROLE_KEY: "service-demo"
-          SESSION_SECRET: "01234567890123456789012345678901"
-          NEXT_PUBLIC_APP_URL: "https://preprod.example.com"
-          PAYMENT_PROVIDER: "stripe"
-          STRIPE_SECRET_KEY: "sk_test_demo"
-          STRIPE_WEBHOOK_SECRET: "whsec_demo"
-          RESEND_API_KEY: "re_demo"
-          RESEND_FROM_EMAIL: "noreply@example.com"
-
       - name: Build production bundle
         run: npm run build
 
@@ -113,3 +100,45 @@ jobs:
         # Le backend de démonstration partage un store mémoire entre les scénarios.
         # Garder un worker unique rend la validation CI déterministe, comme en local.
         run: npx playwright test --reporter=line --workers=1
+
+  production-readiness:
+    name: Production readiness (manual)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: gym-next
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      CRON_SECRET: ${{ secrets.CRON_SECRET }}
+      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+      PAYMENT_PROVIDER: stripe
+      STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+      STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+      LEGAL_ENTITY_NAME: ${{ secrets.LEGAL_ENTITY_NAME }}
+      LEGAL_ENTITY_ADDRESS: ${{ secrets.LEGAL_ENTITY_ADDRESS }}
+      LEGAL_CONTACT_EMAIL: ${{ secrets.LEGAL_CONTACT_EMAIL }}
+      LEGAL_REGISTRATION: ${{ secrets.LEGAL_REGISTRATION }}
+      LEGAL_DIRECTOR_NAME: ${{ secrets.LEGAL_DIRECTOR_NAME }}
+      LEGAL_CONTENT_APPROVED: ${{ secrets.LEGAL_CONTENT_APPROVED }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: gym-next/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify complete production configuration
+        run: npm run check:production-config
