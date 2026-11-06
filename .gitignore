@@ -42,3 +42,17 @@ gym-next/pw_audit_stderr.log
 # automatiquement afin de ne supprimer aucune donnée ni historique.
 /Les Contacts (perso et clubs)/
 /project_readable/Les Contacts (perso et clubs)/
+
+# Documents internes conserves localement, retrait du suivi le 6 novembre 2026.
+/Dossier Business Plan/
+/Devis/
+/Financement/
+/Idée V2, V3 etc___/
+/Branding/
+/Les commerciaux/
+/project_readable/Dossier Business Plan/
+/project_readable/Devis/
+/project_readable/Financement/
+/project_readable/Idée V2, V3 etc___/
+/project_readable/Branding/
+/project_readable/Les commerciaux/
