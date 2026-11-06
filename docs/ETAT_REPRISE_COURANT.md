@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : retrait Git et purge historique autorisee
+
+Demande explicite utilisateur : retirer six dossiers internes et leurs copies project_readable de Git et de l historique GitHub. Douze exclusions gitignore,44 fichiers desindexes et copies locales SHA256 identiques.18 branches/1 tag reecrits atomiquement avec leases, arbres hors perimetre identiques et historique des chemins vide; refs PR1 head/merge actualisees et verifiees sans ces chemins. Les SHA des rapports historiques sont des anciennes references; map privee disponible.
+
+Sauvegarde complete : delivery-private/history-cleanup-20261106/backup-local.git, ne pas publier. Branche locale active realignee sans changer index ou fichiers. Anciens worktrees/historiques locaux preserves : NE PAS les fusionner/pousser tels quels. Hook pre-push local ajoute, ancien historique refuse/nouveau accepte; autres clones non proteges automatiquement. Autorisation exceptionnelle de reecriture pour ce lot seulement, pas de force-push permanent.
+
+Rapport docs/RETRAIT_DOCUMENTS_INTERNES_2026-11-06.md. Branches/tag/PR verifies, pas de garantie de purge physique des caches GitHub ou forks; support GitHub eventuellement necessaire. Aucun achat, operation financiere ou deploiement lance manuellement. Reprendre le prochain lot uniquement sur historique nettoye. Historique suivant conserve.
+
 ## Reprise active - 6 novembre 2026 : ARC1 cycle metier supprime
 
 Contrat StructureOffer extrait dans lib/domain/structure-offer.ts et tableau demo existant dans repositories/structure-offer-memory.ts. Le service conserve ses exports historiques; le repository importe directement donnees et type. Aucun corps de fonction metier modifie, aucun registre global ajoute. Cycle coaches/reservations/payments/repository/structure-offers supprime : meme analyse AST,1 groupe avant et0 apres,385 puis388 sources.
