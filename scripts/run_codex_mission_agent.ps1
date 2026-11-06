@@ -3,6 +3,12 @@ param(
     [switch]$DryRun
 )
 
+# Legacy entry: inspect before any state, executable, log or process access.
+$ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'orchestration_gate.ps1') -EntryPoint 'run_codex_mission_agent.ps1' -DryRun:$DryRun
+if ($DryRun) { return }
+
+
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 $StatePath = Join-Path $Root "governance\ai\auto_mode_state.json"

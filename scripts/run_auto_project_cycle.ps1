@@ -1,3 +1,10 @@
+param([switch]$DryRun)
+
+# Legacy entry: inspect before any state, executable, log or process access.
+$ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'orchestration_gate.ps1') -EntryPoint 'run_auto_project_cycle.ps1' -DryRun:$DryRun
+if ($DryRun) { return }
+
 $ErrorActionPreference = "Stop"
 
 $Root = Split-Path -Parent $PSScriptRoot

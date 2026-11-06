@@ -1,6 +1,13 @@
 param(
-    [int]$IntervalMinutes = 30
+    [int]$IntervalMinutes = 30,
+    [switch]$DryRun
 )
+
+# Legacy entry: inspect before any state, executable, log or process access.
+$ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'orchestration_gate.ps1') -EntryPoint 'start_auto_project_loop.ps1' -DryRun:$DryRun
+if ($DryRun) { return }
+
 
 $ErrorActionPreference = "Stop"
 

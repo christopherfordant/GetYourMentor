@@ -1,8 +1,15 @@
 param(
     [int]$Hours = 8,
     [int]$IntervalMinutes = 45,
-    [int]$MaxLotsPerPass = 2
+    [int]$MaxLotsPerPass = 2,
+    [switch]$DryRun
 )
+
+# Legacy entry: inspect before any state, executable, log or process access.
+$ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'orchestration_gate.ps1') -EntryPoint 'start_auto_night_run.ps1' -DryRun:$DryRun
+if ($DryRun) { return }
+
 
 $ErrorActionPreference = "Stop"
 

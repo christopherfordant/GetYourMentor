@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : ARC2 orchestration historique encadree
+
+Catalogue38 scripts racine et guide scripts/README.md.12 entrees historiques (agent, orchestration, lots et boucles) refusent l execution avant contexte, logs ou processus; -DryRun retourne uniquement un descriptif sans effets. Aucun switch d activation ajoute. Nouvel inventaire lecture seule show_orchestration_status.ps1. Les controles pre-push ponctuels restent applicables; helpers UI historiques hors procedure, jamais source de consentement.
+
+31 tests Windows/PowerShell en fixtures isolees PASS, aucun agent lance; corps historiques conserves. Inventaire reel execute sans ecriture. Etat READY non assimilable a permission. Aucun processus courant/autre worktree inspecte ou arrete; gardes non retroactives et non sandbox OS. Aucun parcours metier, build ou service distant modifie/execute.
+
+Rapport docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md; catalogue docs/architecture/orchestration-scripts-2026-11-06.json; preuves docs/assets/orchestration-2026-11-06/. GYM-ARC2 et4 enfants termines localement,35 tests atelier/Kanban PASS et tableau controle ordinateur/mobile. A5/H1 inchanges. Modifications anterieures a preserver; utiliser historique Git nettoye. Prochaine priorite : ARC-03, inventorier prototypes sous public/design_assets et references avant tout deplacement. Historique conserve.
+
 ## Reprise active - 6 novembre 2026 : TS1 controle TypeScript et build retablis
 
 Exclusion ciblee de playwright-artifacts dans gym-next/tsconfig.json, sans changer strictness/options/include ni code metier.20 erreurs historiques avant,0 apres;470 racines dont92 archives deviennent378 sources actives. Erreur TS2322 injectee en memoire dans un fichier actif toujours detectee; aucune erreur ecrite sur disque.92 sources archives et18 modifications anterieures SHA256 identiques.

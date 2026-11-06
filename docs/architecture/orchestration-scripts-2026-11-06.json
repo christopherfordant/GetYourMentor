@@ -1,0 +1,336 @@
+{
+  "version": 1,
+  "date": "2026-11-06",
+  "scope": "Root scripts only, static classification; not process activation evidence",
+  "rules": [
+    "One supervised lot; no extra agent or unattended loop",
+    "READY and role names are planning metadata, not permissions",
+    "DryRun on historical-disabled entries is a descriptor only, not a successful execution",
+    "No UI helper grants consent or authorization"
+  ],
+  "scripts": [
+    {
+      "name": "capture-beta-mockup.cjs",
+      "classification": "manual-specialized-tool",
+      "usage": "Inspect prerequisites and output paths before explicit use",
+      "bodyCapabilitiesObserved": [
+        "process",
+        "state-or-file-write",
+        "network-or-browser"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "check_visual_contract.ps1",
+      "classification": "read-only-control",
+      "usage": "Explicit local inspection; old state is informational only",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "clipboard_continue.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "complete_auto_mission.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "extract_project_docs.py",
+      "classification": "manual-specialized-tool",
+      "usage": "Inspect prerequisites and output paths before explicit use",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "fil_rouge_supervisor.py",
+      "classification": "manual-control-with-writes",
+      "usage": "Required targeted pre-push check; updates report/state, not read-only",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "focus_authorization_prompt.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "hosted-core-ui.cjs",
+      "classification": "remote-recipe-requires-authorization",
+      "usage": "Historical remote browser recipe; not executed",
+      "bodyCapabilitiesObserved": [
+        "process",
+        "state-or-file-write",
+        "network-or-browser"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "mempalace.cmd",
+      "classification": "manual-memory-tool",
+      "usage": "Explicit command only; contents and runtime not audited here",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "mempalace.ps1",
+      "classification": "manual-memory-tool",
+      "usage": "Explicit command only; contents and runtime not audited here",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "orchestration_gate.ps1",
+      "classification": "read-only-control",
+      "usage": "Explicit local inspection; old state is informational only",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "pre_push_fil_rouge_check.ps1",
+      "classification": "manual-control-with-writes",
+      "usage": "Required targeted pre-push check; updates report/state, not read-only",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "read_auto_project_state.ps1",
+      "classification": "read-only-control",
+      "usage": "Explicit local inspection; old state is informational only",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_build_supervision_lot.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_git_checkpoint_lot.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write",
+        "git-mutation"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_mission_planning.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_orchestrator.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_project_cycle.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_auto_visual_audit_lot.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "process",
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "run_codex_mission_agent.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "agent-cli"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "show_orchestration_status.ps1",
+      "classification": "read-only-control",
+      "usage": "Explicit local inspection; old state is informational only",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_auto_night_run.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "loop",
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_auto_orchestrator_loop.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "loop",
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_auto_project_loop.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "loop",
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_clipboard_continue.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_fil_rouge_supervisor.ps1",
+      "classification": "historical-disabled",
+      "usage": "-DryRun descriptor only; execution refused before effects",
+      "bodyCapabilitiesObserved": [
+        "loop"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_focus_authorization_prompt.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_type_continue_debug.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_type_continue_helper.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_type_continue_panel.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_type_continue_panel_winforms.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_ui_accept_fallback.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "start_ui_accept_stack.ps1",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [
+        "process"
+      ],
+      "runtimeVerified": false
+    },
+    {
+      "name": "type_continue_debug.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "type_continue_helper.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "type_continue_panel.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "ui_accept_fallback.ahk",
+      "classification": "legacy-interactive-excluded",
+      "usage": "Not part of approved procedure; do not automate consent or use as authorization",
+      "bodyCapabilitiesObserved": [],
+      "runtimeVerified": false
+    },
+    {
+      "name": "verify-external-blobs.cjs",
+      "classification": "manual-specialized-tool",
+      "usage": "Inspect prerequisites and output paths before explicit use",
+      "bodyCapabilitiesObserved": [
+        "state-or-file-write"
+      ],
+      "runtimeVerified": false
+    }
+  ]
+}

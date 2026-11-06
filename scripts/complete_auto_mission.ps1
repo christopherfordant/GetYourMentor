@@ -2,8 +2,15 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$MissionId,
     [Parameter(Mandatory = $true)]
-    [string]$EvidencePath
+    [string]$EvidencePath,
+    [switch]$DryRun
 )
+
+# Legacy entry: inspect before any state, executable, log or process access.
+$ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'orchestration_gate.ps1') -EntryPoint 'complete_auto_mission.ps1' -DryRun:$DryRun
+if ($DryRun) { return }
+
 
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot

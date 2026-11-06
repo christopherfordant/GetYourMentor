@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-06",
+  "guardTestsPassed": 31,
+  "testsSkipped": 0,
+  "rootScriptsClassified": 38,
+  "guardedHistoricalEntries": 12,
+  "historicalBodiesPreserved": {
+    "complete_auto_mission.ps1": true,
+    "run_auto_build_supervision_lot.ps1": true,
+    "run_auto_git_checkpoint_lot.ps1": true,
+    "run_auto_mission_planning.ps1": true,
+    "run_auto_orchestrator.ps1": true,
+    "run_auto_project_cycle.ps1": true,
+    "run_auto_visual_audit_lot.ps1": true,
+    "run_codex_mission_agent.ps1": true,
+    "start_auto_night_run.ps1": true,
+    "start_auto_orchestrator_loop.ps1": true,
+    "start_auto_project_loop.ps1": true,
+    "start_fil_rouge_supervisor.ps1": true
+  },
+  "previewWrites": false,
+  "agentStarted": false,
+  "realServiceAccess": false,
+  "runningProcessesInspected": false,
+  "readonlyInventoryExecuted": true,
+  "kanbanTestsPassed": 35,
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "preexistingModifiedFilesHashIdentical": 18,
+  "preexistingTicketsIdentical": true
+}

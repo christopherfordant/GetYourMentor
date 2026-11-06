@@ -2011,6 +2011,191 @@
       "objective": "Documenter et preparer la livraison",
       "parent": "GYM-TS1",
       "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Classification et gardes locales, aucun agent ni ordonnanceur execute",
+      "role": "Architecture",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Inventaire racine complet, historiques bloques avant effets, apercu sans ecriture, preuves et guide"
+      ],
+      "files": [
+        "scripts/orchestration_gate.ps1",
+        "scripts/show_orchestration_status.ps1",
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md"
+      ],
+      "tests": [
+        "31 tests PASS;12 gardes et apercus sans effets;inventaire38 scripts"
+      ],
+      "evidence": [
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "docs/assets/orchestration-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "ARC-03 : examiner les prototypes publics et leurs consommateurs",
+      "id": "GYM-ARC2",
+      "title": "Encadrer les scripts d orchestration actifs et historiques",
+      "objective": "Traiter la recommandation ARC-02 sans activer un agent",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Classification et gardes locales, aucun agent ni ordonnanceur execute",
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Inventaire racine complet, historiques bloques avant effets, apercu sans ecriture, preuves et guide"
+      ],
+      "files": [
+        "scripts/orchestration_gate.ps1",
+        "scripts/show_orchestration_status.ps1",
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md"
+      ],
+      "tests": [
+        "31 tests PASS;12 gardes et apercus sans effets;inventaire38 scripts"
+      ],
+      "evidence": [
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "docs/assets/orchestration-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "ARC-03 : examiner les prototypes publics et leurs consommateurs",
+      "id": "GYM-ARC2.1",
+      "title": "Classer les entrees et leurs effets",
+      "objective": "Classer les entrees et leurs effets",
+      "parent": "GYM-ARC2",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Classification et gardes locales, aucun agent ni ordonnanceur execute",
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC2.1"
+      ],
+      "acceptance": [
+        "Inventaire racine complet, historiques bloques avant effets, apercu sans ecriture, preuves et guide"
+      ],
+      "files": [
+        "scripts/orchestration_gate.ps1",
+        "scripts/show_orchestration_status.ps1",
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md"
+      ],
+      "tests": [
+        "31 tests PASS;12 gardes et apercus sans effets;inventaire38 scripts"
+      ],
+      "evidence": [
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "docs/assets/orchestration-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "ARC-03 : examiner les prototypes publics et leurs consommateurs",
+      "id": "GYM-ARC2.2",
+      "title": "Garder les historiques et rendre les apercus sans ecriture",
+      "objective": "Garder les historiques et rendre les apercus sans ecriture",
+      "parent": "GYM-ARC2",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Classification et gardes locales, aucun agent ni ordonnanceur execute",
+      "role": "QA",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC2.2"
+      ],
+      "acceptance": [
+        "Inventaire racine complet, historiques bloques avant effets, apercu sans ecriture, preuves et guide"
+      ],
+      "files": [
+        "scripts/orchestration_gate.ps1",
+        "scripts/show_orchestration_status.ps1",
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md"
+      ],
+      "tests": [
+        "31 tests PASS;12 gardes et apercus sans effets;inventaire38 scripts"
+      ],
+      "evidence": [
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "docs/assets/orchestration-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "ARC-03 : examiner les prototypes publics et leurs consommateurs",
+      "id": "GYM-ARC2.3",
+      "title": "Verifier refus et inventaire dans des fixtures isolees",
+      "objective": "Verifier refus et inventaire dans des fixtures isolees",
+      "parent": "GYM-ARC2",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Classification et gardes locales, aucun agent ni ordonnanceur execute",
+      "role": "DevOps",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC2.3"
+      ],
+      "acceptance": [
+        "Inventaire racine complet, historiques bloques avant effets, apercu sans ecriture, preuves et guide"
+      ],
+      "files": [
+        "scripts/orchestration_gate.ps1",
+        "scripts/show_orchestration_status.ps1",
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md"
+      ],
+      "tests": [
+        "31 tests PASS;12 gardes et apercus sans effets;inventaire38 scripts"
+      ],
+      "evidence": [
+        "docs/ORCHESTRATION_ENTREES_ET_GARDES_2026-11-06.md",
+        "docs/assets/orchestration-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "ARC-03 : examiner les prototypes publics et leurs consommateurs",
+      "id": "GYM-ARC2.4",
+      "title": "Documenter et preparer la livraison controlee",
+      "objective": "Documenter et preparer la livraison controlee",
+      "parent": "GYM-ARC2",
+      "status": "done"
     }
   ]
 }
