@@ -1,7 +1,7 @@
 {
   "version": 1,
   "updated": "2026-11-06",
-  "mode": "simulation de repartition des roles, execution sequentielle",
+  "mode": "Roles de planification et premier lot natif supervise a deux executants, sans autonomie persistante",
   "roles": [
     "Architecture",
     "RAG",
@@ -2508,7 +2508,7 @@
     {
       "sprint": "S2",
       "priority": "P1",
-      "assignment": "native-agent-planned",
+      "assignment": "native-agent",
       "due": "2026-11-07",
       "actualHours": null,
       "role": "Architecture",
@@ -2523,22 +2523,35 @@
         "Allowlist respectee,compatibilite et tests locaux,revue coordinateur avant integration"
       ],
       "tests": [
-        "A executer : tests unitaires bornes puis types/Kanban combines"
+        "9 tests unitaires,types globaux,31 gardes et35 tests Kanban PASS;tableau ordinateur/mobile valide"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/COMPTE_RENDU.md",
+        "docs/assets/parallel-2026-11-07/checks.json"
+      ],
       "files": [],
       "blocker": null,
-      "next": "Premier lot parallele borne,revue avant cloture",
+      "next": "Lot termine sans poursuite automatique;H1.5.2 a preparer dans un lot distinct",
       "id": "GYM-ARC5",
       "title": "Separer types purs et fixtures avec facade compatible",
       "objective": "Separer types purs et fixtures avec facade compatible",
-      "status": "progress",
-      "scope": "Execution native isolee sans service distant"
+      "status": "done",
+      "scope": "Execution native isolee sans service distant",
+      "execution": {
+        "kind": "native-agent",
+        "agentId": "/root/arc5",
+        "phase": "valide et integre",
+        "model": "gpt-6.1-sol",
+        "worktree": "GYM-parallel-arc5-20261107",
+        "mechanism": "native collaboration tools; separate VS Code folder view",
+        "completed": true
+      },
+      "parent": "GYM-PAR1"
     },
     {
       "sprint": "S2",
       "priority": "P1",
-      "assignment": "native-agent-planned",
+      "assignment": "native-agent",
       "due": "2026-11-07",
       "actualHours": null,
       "role": "DevOps",
@@ -2553,17 +2566,128 @@
         "Allowlist respectee,compatibilite et tests locaux,revue coordinateur avant integration"
       ],
       "tests": [
-        "A executer : tests unitaires bornes puis types/Kanban combines"
+        "9 tests unitaires,types globaux,31 gardes et35 tests Kanban PASS;tableau ordinateur/mobile valide"
+      ],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/COMPTE_RENDU.md",
+        "docs/assets/parallel-2026-11-07/checks.json"
+      ],
+      "files": [],
+      "blocker": null,
+      "next": "Lot termine sans poursuite automatique;H1.5.2 a preparer dans un lot distinct",
+      "id": "GYM-H1.5.1",
+      "title": "Projeter des indicateurs Telegram expurges en lecture seule",
+      "objective": "Projeter des indicateurs Telegram expurges en lecture seule",
+      "status": "done",
+      "scope": "Execution native isolee sans service distant",
+      "parent": "GYM-H1.5",
+      "execution": {
+        "kind": "native-agent",
+        "agentId": "/root/telegram_metrics",
+        "phase": "valide et integre",
+        "model": "gpt-6-luna",
+        "worktree": "GYM-parallel-telegram-20261107",
+        "mechanism": "native collaboration tools; separate VS Code folder view",
+        "completed": true
+      }
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "coordinator",
+      "due": "2026-11-07",
+      "actualHours": null,
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "dependencies": [
+        "GYM-ARC4"
+      ],
+      "acceptance": [
+        "Deux missions isolees,preuves,relecture et validation combinee avant push"
+      ],
+      "tests": [
+        "9 tests unitaires,types globaux,31 gardes et35 tests Kanban PASS;tableau ordinateur/mobile valide"
+      ],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/COMPTE_RENDU.md",
+        "docs/assets/parallel-2026-11-07/checks.json"
+      ],
+      "files": [],
+      "blocker": null,
+      "next": "Lot termine sans poursuite automatique;H1.5.2 a preparer dans un lot distinct",
+      "scope": "Premier lot parallele borne",
+      "id": "GYM-PAR1",
+      "title": "Premier lot natif parallele et integration supervisee",
+      "objective": "Premier lot natif parallele et integration supervisee",
+      "status": "done"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "coordinator",
+      "due": "2026-11-07",
+      "actualHours": null,
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "dependencies": [
+        "GYM-ARC5",
+        "GYM-H1.5.1"
+      ],
+      "acceptance": [
+        "Deux missions isolees,preuves,relecture et validation combinee avant push"
+      ],
+      "tests": [
+        "9 tests unitaires,types globaux,31 gardes et35 tests Kanban PASS;tableau ordinateur/mobile valide"
+      ],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/COMPTE_RENDU.md",
+        "docs/assets/parallel-2026-11-07/checks.json"
+      ],
+      "files": [],
+      "blocker": null,
+      "next": "Lot termine sans poursuite automatique;H1.5.2 a preparer dans un lot distinct",
+      "scope": "Premier lot parallele borne",
+      "id": "GYM-PAR1.2",
+      "title": "Revoir et integrer les deux resultats independants",
+      "objective": "Revoir et integrer les deux resultats independants",
+      "status": "done",
+      "parent": "GYM-PAR1"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "coordinator",
+      "due": "2026-11-07",
+      "actualHours": null,
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "dependencies": [
+        "GYM-H1.5.1"
+      ],
+      "acceptance": [
+        "Deux missions isolees,preuves,relecture et validation combinee avant push"
+      ],
+      "tests": [
+        "A preparer : integration et reprise sans renvoi aveugle"
       ],
       "evidence": [],
       "files": [],
       "blocker": null,
-      "next": "Premier lot parallele borne,revue avant cloture",
-      "id": "GYM-H1.5.1",
-      "title": "Projeter des indicateurs Telegram expurges en lecture seule",
-      "objective": "Projeter des indicateurs Telegram expurges en lecture seule",
-      "status": "progress",
-      "scope": "Execution native isolee sans service distant",
+      "next": "Lot distinct avant cloture H1.5",
+      "scope": "Suite non executee : integration,alertes et traitement429/panne/incertain;aucun envoi autorise par cette preparation",
+      "id": "GYM-H1.5.2",
+      "title": "Raccorder supervision et verifier reprises Telegram",
+      "objective": "Raccorder supervision et verifier reprises Telegram",
+      "status": "prepare",
       "parent": "GYM-H1.5"
     }
   ]

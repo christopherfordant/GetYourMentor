@@ -15,6 +15,7 @@ function card(ticket){
  const n=el('button',undefined,'ticket'+(ticket.priority==='P0'?' p0':'')+(status==='blocked'?' blocked':'')+(status==='done'?' completed':'')+(t.manual?' manual':''));
  n.type='button';n.dataset.ticket=t.id;n.draggable=true;
  n.append(el('span',t.id,'id'),el('h3',t.title),el('span',t.role,'tag'),el('span',`${t.estimateHours[0]}–${t.estimateHours[1]} h · ${t.due.slice(5).split('-').reverse().join('/')}`,'meta'));
+ if(t.execution?.kind==='native-agent')n.append(el('span',`Agent natif ${t.execution.agentId} · ${t.execution.phase}`,'meta'));
  if(t.manual)n.append(el('span','Statut manuel','meta'));
  n.addEventListener('click',()=>openTicket(t.id));
  n.addEventListener('dragstart',event=>{event.dataTransfer.setData('text/plain',t.id);event.dataTransfer.effectAllowed='move';});return n;
@@ -44,6 +45,7 @@ function openTicket(id,status,error=''){
  const original=data.tickets.find(t=>t.id===id);if(!original)return;selectedId=id;const t=effective(original,changes),leaf=isLeaf(original,data.tickets);
  $('ticket-id').textContent=`${t.id} · ${t.priority} · ${t.sprint}`;$('ticket-title').textContent=t.title;const details=$('ticket-details');details.replaceChildren();
  for(const [label,value] of [['Responsable',t.role+' (rôle planifié)'],['Objectif',t.objective],['Périmètre',t.scope],['Statut',statuses[ticketStatus(id,data.tickets,changes)]],['Charge estimée',t.estimateHours.join('–')+' h'],['Temps mesuré','Non disponible'],['Remise proposée',t.due],['Dépendances',t.dependencies.join(', ')||'Aucune'],['Fichiers',t.files.join(', ')],['Tests attendus',t.tests.join(' ; ')],['Preuves',t.evidence.join(' ; ')||'Aucune'],['Prochaine action',t.next]])details.append(el('p',`${label} : ${value}`));
+ if(t.execution?.kind==='native-agent')for(const [label,value] of [['Agent réellement lancé',t.execution.agentId],['Mécanisme','Délégation native de la conversation ; distincte de VS Code'],['Phase',t.execution.phase],['Modèle demandé',t.execution.model],['Worktree',t.execution.worktree]])details.append(el('p',`${label} : ${value}`));
  const list=el('ul');for(const criterion of t.acceptance)list.append(el('li',criterion));details.append(list);
  for(const child of data.tickets.filter(c=>c.parent===id)){const n=el('p',`${child.id} · ${statuses[leafStatus(child)]} · ${child.title}`);details.append(n);}
  $('ticket-edit').hidden=!leaf;$('ticket-status').value=status??t.status;$('ticket-blocker').value=t.blocker??'';$('ticket-evidence').value='';$('ticket-verified').checked=false;$('ticket-feedback').textContent=error;

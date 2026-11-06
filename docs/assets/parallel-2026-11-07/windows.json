@@ -1,0 +1,10 @@
+﻿{
+    "titles":  [
+                   "ARC5.md - GYM-parallel-arc5-20261107 - Visual Studio Code",
+                   "H15_METRICS.md - GYM-parallel-telegram-20261107 - Visual Studio Code"
+               ],
+    "visibleWindowCount":  2,
+    "method":  "Read-only EnumWindows, expected worktree titles only",
+    "extensions":  "CLI requested --disable-extensions",
+    "nativeAgentsAreIndependentOfWindows":  true
+}

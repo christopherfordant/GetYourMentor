@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-07",
+  "lot": "GYM-PAR1",
+  "nativeAgentsActuallyLaunched": 2,
+  "concurrencyObserved": true,
+  "agentsCompleted": true,
+  "visibleVSCodeWindowsObserved": 2,
+  "controlledVSCodeChatSessions": 0,
+  "unitTests": {
+    "passed": 9,
+    "failed": 0
+  },
+  "globalTypes": {
+    "passed": true,
+    "nodeMaxOldSpaceMiB": 384
+  },
+  "legacyGuardTests": {
+    "passed": 31,
+    "failed": 0
+  },
+  "kanbanTests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "agentWorktreesClean": {
+    "GYM-parallel-arc5-20261107": true,
+    "GYM-parallel-telegram-20261107": true
+  },
+  "nativeBadgesAndExecutionDetailsVerified": true,
+  "preexistingDirtyFilesByteIdentical": 18,
+  "ARC5Complete": true,
+  "H1_5_1Complete": true,
+  "H1_5ParentComplete": false,
+  "remainingTelegramTask": "GYM-H1.5.2 prepare",
+  "localBuilds": 0,
+  "newPackages": 0,
+  "deployed": false,
+  "oldLaunchersEnabled": false,
+  "realTelegramNotifications": 0,
+  "externalBusinessServicesAccessed": false,
+  "resourceLimit": "RAM8GiB,<1GiB free observed;single global compiler;no heavy build",
+  "quotaAndTokens": "not accessible;no claim of free execution",
+  "newAPIProvisioned": false
+}
