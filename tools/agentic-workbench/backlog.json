@@ -2196,6 +2196,147 @@
       "objective": "Documenter et preparer la livraison controlee",
       "parent": "GYM-ARC2",
       "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Inventaire public local sans deplacement, suppression ou deploiement",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC2"
+      ],
+      "acceptance": [
+        "Inventorier les assets et leurs consommateurs avant toute mutation; conserver les incertitudes"
+      ],
+      "files": [
+        "tools/public-assets/audit.py",
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+      ],
+      "tests": [
+        "8 tests Python PASS;35 tests Kanban PASS"
+      ],
+      "evidence": [
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md",
+        "docs/assets/public-assets-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "id": "GYM-ARC3",
+      "title": "Distinguer ressources actives et demonstrations publiques",
+      "objective": "Distinguer ressources actives et demonstrations publiques",
+      "status": "progress"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Inventaire public local sans deplacement, suppression ou deploiement",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC2"
+      ],
+      "acceptance": [
+        "Inventorier les assets et leurs consommateurs avant toute mutation; conserver les incertitudes"
+      ],
+      "files": [
+        "tools/public-assets/audit.py",
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+      ],
+      "tests": [
+        "8 tests Python PASS;35 tests Kanban PASS"
+      ],
+      "evidence": [
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md",
+        "docs/assets/public-assets-2026-11-06/inventory.json"
+      ],
+      "blocker": null,
+      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "id": "GYM-ARC3.1",
+      "title": "Inventorier assets publics, consommateurs et incertitudes",
+      "objective": "Inventorier assets publics, consommateurs et incertitudes",
+      "status": "done",
+      "parent": "GYM-ARC3"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Lot ulterieur non execute",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3.1"
+      ],
+      "acceptance": [
+        "Preserver medias applicatifs, references et historique; prouver preview et build apres deplacement"
+      ],
+      "files": [
+        "tools/public-assets/audit.py",
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+      ],
+      "tests": [
+        "A executer : preview locale, dependances relatives, liens conserves et build isole apres deplacement"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "id": "GYM-ARC3.2",
+      "title": "Extraire les demonstrations avec preview locale et mapping",
+      "objective": "Extraire les demonstrations avec preview locale et mapping",
+      "status": "backlog",
+      "parent": "GYM-ARC3"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Lot ulterieur non execute",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC3.2"
+      ],
+      "acceptance": [
+        "Preserver medias applicatifs, references et historique; prouver preview et build apres deplacement"
+      ],
+      "files": [
+        "tools/public-assets/audit.py",
+        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+      ],
+      "tests": [
+        "A executer : preview locale, dependances relatives, liens conserves et build isole apres deplacement"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "id": "GYM-ARC3.3",
+      "title": "Verifier demos, liens et build apres extraction",
+      "objective": "Verifier demos, liens et build apres extraction",
+      "status": "backlog",
+      "parent": "GYM-ARC3"
     }
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-06",
+  "ticket": "GYM-ARC3.1",
+  "scope": "Static inventory only; no moves",
+  "inventory": {
+    "assets": 116,
+    "bytes": 22084835,
+    "htmlEntries": 4,
+    "sourceFilesRead": 888,
+    "references": 513,
+    "skipped": 1
+  },
+  "reproducibleAgainstWorkingTree": true,
+  "publicAssetHashesVerified": 116,
+  "preexistingDirtyFilesByteIdentical": 18,
+  "oldKanbanTicketsUnchanged": true,
+  "pythonTests": {
+    "pass": 8,
+    "fail": 0
+  },
+  "kanbanTests": {
+    "pass": 35,
+    "fail": 0
+  },
+  "browserKanban": [
+    "desktop",
+    "mobile"
+  ],
+  "applicationBuild": "not rerun: no application/public/config file changed",
+  "remoteServicesAccessed": false,
+  "deployed": false,
+  "filesMoved": 0,
+  "arc3Parent": "progress",
+  "remaining": [
+    "ARC3.2",
+    "ARC3.3"
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "executed": false,
+  "entries": [
+    {
+      "current": "gym-next/public/design_assets/carousel-large-2026-11-03/index.html",
+      "proposed": "prototypes/design-assets/carousel-large-2026-11-03/index.html",
+      "status": "proposal-not-moved",
+      "consumers": [
+        {
+          "source": "docs/CARROUSELS_LARGES_2026-11-03.md",
+          "line": 7,
+          "category": "documentation",
+          "target": "carousel-large-2026-11-03/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        }
+      ],
+      "requirements": [
+        "Preserve original bytes and SHA256",
+        "Update live preview tests and current documentation; retain historical evidence with mapping",
+        "Resolve local resource URLs against retained public assets via loopback-only preview server",
+        "Verify dependencies and representative production build before removal from public"
+      ]
+    },
+    {
+      "current": "gym-next/public/design_assets/door-transition-2026-11-02/index.html",
+      "proposed": "prototypes/design-assets/door-transition-2026-11-02/index.html",
+      "status": "proposal-not-moved",
+      "consumers": [
+        {
+          "source": "docs/DEMO_TRANSITION_PORTES_2026-11-02.md",
+          "line": 18,
+          "category": "documentation",
+          "target": "door-transition-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/ETAT_REPRISE_COURANT.md",
+          "line": 404,
+          "category": "documentation",
+          "target": "door-transition-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/assets/links-netlify-2026-11-02/prepared-source.json",
+          "line": 305,
+          "category": "documentation",
+          "target": "door-transition-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "gym-next/tests/door-transition-demo.spec.ts",
+          "line": 4,
+          "category": "tooling-or-config",
+          "target": "door-transition-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        }
+      ],
+      "requirements": [
+        "Preserve original bytes and SHA256",
+        "Update live preview tests and current documentation; retain historical evidence with mapping",
+        "Resolve local resource URLs against retained public assets via loopback-only preview server",
+        "Verify dependencies and representative production build before removal from public"
+      ]
+    },
+    {
+      "current": "gym-next/public/design_assets/header-equipment-2026-10-30/apercu.html",
+      "proposed": "prototypes/design-assets/header-equipment-2026-10-30/apercu.html",
+      "status": "proposal-not-moved",
+      "consumers": [
+        {
+          "source": "docs/ETAT_REPRISE_COURANT.md",
+          "line": 442,
+          "category": "documentation",
+          "target": "header-equipment-2026-10-30/apercu.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/ICONES_REALISTES_2026-11-02.md",
+          "line": 17,
+          "category": "documentation",
+          "target": "header-equipment-2026-10-30/",
+          "kind": "prefix",
+          "matchedAssets": 16
+        },
+        {
+          "source": "docs/assets/equipment-entrance-2026-11-02/verification.json",
+          "line": 67,
+          "category": "documentation",
+          "target": "header-equipment-2026-10-30/apercu.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/assets/equipment-entrance-2026-11-02/verification.json",
+          "line": 71,
+          "category": "documentation",
+          "target": "header-equipment-2026-10-30/apercu.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/assets/links-netlify-2026-11-02/prepared-source.json",
+          "line": 309,
+          "category": "documentation",
+          "target": "header-equipment-2026-10-30/apercu.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "gym-next/components/discovery/SportIcon.tsx",
+          "line": 5,
+          "category": "application-source",
+          "target": "header-equipment-2026-10-30/",
+          "kind": "prefix",
+          "matchedAssets": 16
+        },
+        {
+          "source": "gym-next/components/navigation/SportMotionIcon.tsx",
+          "line": 8,
+          "category": "application-source",
+          "target": "header-equipment-2026-10-30/",
+          "kind": "prefix",
+          "matchedAssets": 16
+        },
+        {
+          "source": "gym-next/tests/equipment-entrance.spec.ts",
+          "line": 3,
+          "category": "tooling-or-config",
+          "target": "header-equipment-2026-10-30/apercu.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "gym-next/tests/sports-catalogue.spec.ts",
+          "line": 23,
+          "category": "tooling-or-config",
+          "target": "header-equipment-2026-10-30/",
+          "kind": "prefix",
+          "matchedAssets": 16
+        }
+      ],
+      "requirements": [
+        "Preserve original bytes and SHA256",
+        "Update live preview tests and current documentation; retain historical evidence with mapping",
+        "Resolve local resource URLs against retained public assets via loopback-only preview server",
+        "Verify dependencies and representative production build before removal from public"
+      ]
+    },
+    {
+      "current": "gym-next/public/design_assets/pentagon-carousel-2026-11-02/index.html",
+      "proposed": "prototypes/design-assets/pentagon-carousel-2026-11-02/index.html",
+      "status": "proposal-not-moved",
+      "consumers": [
+        {
+          "source": "docs/ETAT_REPRISE_COURANT.md",
+          "line": 378,
+          "category": "documentation",
+          "target": "pentagon-carousel-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/PENTAGONE_RALENTI_2026-11-02.md",
+          "line": 11,
+          "category": "documentation",
+          "target": "pentagon-carousel-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/PENTAGONE_RALENTI_2026-11-02.md",
+          "line": 49,
+          "category": "documentation",
+          "target": "pentagon-carousel-2026-11-02",
+          "kind": "prefix",
+          "matchedAssets": 5
+        },
+        {
+          "source": "docs/assets/links-netlify-2026-11-02/prepared-source.json",
+          "line": 347,
+          "category": "documentation",
+          "target": "pentagon-carousel-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "docs/assets/pentagon-carousel-2026-11-02/verification.json",
+          "line": 115,
+          "category": "documentation",
+          "target": "pentagon-carousel-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        },
+        {
+          "source": "gym-next/public/design_assets/pentagon-carousel-2026-11-02/index.html",
+          "line": 65,
+          "category": "public-text",
+          "target": "pentagon-carousel-2026-11-02/",
+          "kind": "prefix",
+          "matchedAssets": 5
+        },
+        {
+          "source": "gym-next/tests/pentagon-preview.spec.ts",
+          "line": 3,
+          "category": "tooling-or-config",
+          "target": "pentagon-carousel-2026-11-02/index.html",
+          "kind": "exact",
+          "matchedAssets": 1
+        }
+      ],
+      "requirements": [
+        "Preserve original bytes and SHA256",
+        "Update live preview tests and current documentation; retain historical evidence with mapping",
+        "Resolve local resource URLs against retained public assets via loopback-only preview server",
+        "Verify dependencies and representative production build before removal from public"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : ARC3.1 inventaire des prototypes publics
+
+116 fichiers design_assets/22084835 octets,4 HTML;888 sources texte et513 references statiques.33 fichiers avec reference applicative exacte,46 proteges par prefixe dynamique,34 a revoir et3 entrees HTML candidates. Header importe entrance.js et ses medias : aucun dossier deplace globalement. Les4 demonstrations ont des references documentaires,3 des tests URL; plan de correspondance seulement propose hors public.
+
+Outil lecture seule tools/public-assets/audit.py et8 tests isoles PASS.35 tests Kanban PASS; GYM-ARC3.1 termine, parent ARC3 en cours, .2/.3 backlog. Aucun fichier public/applicatif modifie, build non relance; pas validation runtime/deploiement.54 litteraux outils/public sans fichier exact ne sont pas54 liens casses prouves;1 document non UTF8 omis explicitement. Anciens brouillons et preuves preserves.
+
+Rapport docs/ASSETS_PUBLICS_ARC3_2026-11-06.md et docs/assets/public-assets-2026-11-06/. Prochain lot ARC3.2 : preview locale hors public, resolution des dependances et extraction ciblee des demos avec mapping; conserver entrance.js/images et preuves historiques. ARC3.3 build isole et controles avant cloture. Pas d autorisation distante implicite; historique Git nettoye seulement.
+
 ## Reprise active - 6 novembre 2026 : ARC2 orchestration historique encadree
 
 Catalogue38 scripts racine et guide scripts/README.md.12 entrees historiques (agent, orchestration, lots et boucles) refusent l execution avant contexte, logs ou processus; -DryRun retourne uniquement un descriptif sans effets. Aucun switch d activation ajoute. Nouvel inventaire lecture seule show_orchestration_status.ps1. Les controles pre-push ponctuels restent applicables; helpers UI historiques hors procedure, jamais source de consentement.
