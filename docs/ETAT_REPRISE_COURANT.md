@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : TS1 controle TypeScript et build retablis
+
+Exclusion ciblee de playwright-artifacts dans gym-next/tsconfig.json, sans changer strictness/options/include ni code metier.20 erreurs historiques avant,0 apres;470 racines dont92 archives deviennent378 sources actives. Erreur TS2322 injectee en memoire dans un fichier actif toujours detectee; aucune erreur ecrite sur disque.92 sources archives et18 modifications anterieures SHA256 identiques.
+
+Commande npm run check:types PASS. Build Next isole PASS avec92 sources archives copiees, sans .env/coffre ni services metier; police Google Fonts publique autorisee apres un premier essai hors ligne bloque. Frontiere secrets client PASS. Build d origine et serveurs applicatifs non remplaces, aucun deploiement. Snapshot inclut et preserve les brouillons anterieurs sans les approuver.
+
+Rapport docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md, preuves docs/assets/types-scope-2026-11-06/. GYM-TS1 et4 enfants termines dans ce perimetre;35 tests atelier/Kanban PASS et affichage controle ordinateur/mobile. A5/H1 et recette distante inchanges. Prochain lot recommande : ARC-02, clarifier scripts d orchestration actifs/historiques sans lancer d agent. Utiliser uniquement historique Git nettoye; anciennes copies non fusionnables telles quelles. Historique conserve.
+
 ## Reprise active - 6 novembre 2026 : retrait Git et purge historique autorisee
 
 Demande explicite utilisateur : retirer six dossiers internes et leurs copies project_readable de Git et de l historique GitHub. Douze exclusions gitignore,44 fichiers desindexes et copies locales SHA256 identiques.18 branches/1 tag reecrits atomiquement avec leases, arbres hors perimetre identiques et historique des chemins vide; refs PR1 head/merge actualisees et verifiees sans ces chemins. Les SHA des rapports historiques sont des anciennes references; map privee disponible.

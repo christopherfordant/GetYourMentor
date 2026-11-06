@@ -1826,6 +1826,191 @@
       "objective": "Documenter et preparer la livraison controlee",
       "parent": "GYM-ARC1",
       "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Perimetre TypeScript local; aucune suppression archive ni service distant",
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Archives historiques exclues sans masquer les erreurs des sources actives; commande standard et build isole verifies"
+      ],
+      "files": [
+        "gym-next/tsconfig.json"
+      ],
+      "tests": [
+        "Types standard PASS; erreur active detectee; build isole et frontiere secrets client PASS;92 archives intactes"
+      ],
+      "evidence": [
+        "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "docs/assets/types-scope-2026-11-06/compiler.json",
+        "docs/assets/types-scope-2026-11-06/build.json",
+        "docs/assets/types-scope-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Lot distinct ARC-02 : cadrage des scripts actifs et historiques",
+      "id": "GYM-TS1",
+      "title": "Fiabiliser le perimetre TypeScript des sources actives",
+      "objective": "Retirer les copies historiques du programme de compilation sans supprimer les preuves",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Perimetre TypeScript local; aucune suppression archive ni service distant",
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Archives historiques exclues sans masquer les erreurs des sources actives; commande standard et build isole verifies"
+      ],
+      "files": [
+        "gym-next/tsconfig.json"
+      ],
+      "tests": [
+        "Types standard PASS; erreur active detectee; build isole et frontiere secrets client PASS;92 archives intactes"
+      ],
+      "evidence": [
+        "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "docs/assets/types-scope-2026-11-06/compiler.json",
+        "docs/assets/types-scope-2026-11-06/build.json",
+        "docs/assets/types-scope-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Lot distinct ARC-02 : cadrage des scripts actifs et historiques",
+      "id": "GYM-TS1.1",
+      "title": "Confirmer le perimetre actif et les erreurs historiques",
+      "objective": "Confirmer le perimetre actif et les erreurs historiques",
+      "parent": "GYM-TS1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Perimetre TypeScript local; aucune suppression archive ni service distant",
+      "role": "Architecture",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-TS1.1"
+      ],
+      "acceptance": [
+        "Archives historiques exclues sans masquer les erreurs des sources actives; commande standard et build isole verifies"
+      ],
+      "files": [
+        "gym-next/tsconfig.json"
+      ],
+      "tests": [
+        "Types standard PASS; erreur active detectee; build isole et frontiere secrets client PASS;92 archives intactes"
+      ],
+      "evidence": [
+        "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "docs/assets/types-scope-2026-11-06/compiler.json",
+        "docs/assets/types-scope-2026-11-06/build.json",
+        "docs/assets/types-scope-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Lot distinct ARC-02 : cadrage des scripts actifs et historiques",
+      "id": "GYM-TS1.2",
+      "title": "Exclure uniquement les archives de sources",
+      "objective": "Exclure uniquement les archives de sources",
+      "parent": "GYM-TS1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Perimetre TypeScript local; aucune suppression archive ni service distant",
+      "role": "QA",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-TS1.2"
+      ],
+      "acceptance": [
+        "Archives historiques exclues sans masquer les erreurs des sources actives; commande standard et build isole verifies"
+      ],
+      "files": [
+        "gym-next/tsconfig.json"
+      ],
+      "tests": [
+        "Types standard PASS; erreur active detectee; build isole et frontiere secrets client PASS;92 archives intactes"
+      ],
+      "evidence": [
+        "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "docs/assets/types-scope-2026-11-06/compiler.json",
+        "docs/assets/types-scope-2026-11-06/build.json",
+        "docs/assets/types-scope-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Lot distinct ARC-02 : cadrage des scripts actifs et historiques",
+      "id": "GYM-TS1.3",
+      "title": "Verifier types, erreur active et build isole",
+      "objective": "Verifier types, erreur active et build isole",
+      "parent": "GYM-TS1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Perimetre TypeScript local; aucune suppression archive ni service distant",
+      "role": "DevOps",
+      "estimateHours": [
+        0.25,
+        1
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-TS1.3"
+      ],
+      "acceptance": [
+        "Archives historiques exclues sans masquer les erreurs des sources actives; commande standard et build isole verifies"
+      ],
+      "files": [
+        "gym-next/tsconfig.json"
+      ],
+      "tests": [
+        "Types standard PASS; erreur active detectee; build isole et frontiere secrets client PASS;92 archives intactes"
+      ],
+      "evidence": [
+        "docs/TYPESCRIPT_PERIMETRE_ACTIF_2026-11-06.md",
+        "docs/assets/types-scope-2026-11-06/compiler.json",
+        "docs/assets/types-scope-2026-11-06/build.json",
+        "docs/assets/types-scope-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Lot distinct ARC-02 : cadrage des scripts actifs et historiques",
+      "id": "GYM-TS1.4",
+      "title": "Documenter et preparer la livraison",
+      "objective": "Documenter et preparer la livraison",
+      "parent": "GYM-TS1",
+      "status": "done"
     }
   ]
 }

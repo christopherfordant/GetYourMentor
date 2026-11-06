@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-06",
+  "beforeErrors": 20,
+  "beforeErrorFiles": [
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/app/creneau/page.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/app/paiement/page.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/components/payment-legacy/PaiementLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/app/paiement/page.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/components/payment-legacy/PaiementLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/tests/payment-adapters.spec.ts",
+    "playwright-artifacts/group-booking/delivery-originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/refonte-lot1-2026-10-15/originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/strategie-2026-10-16/avant/AccountLegacyPage.tsx"
+  ],
+  "afterErrors": 0,
+  "rootFilesBefore": 470,
+  "rootFilesAfter": 378,
+  "excludedArchiveSources": 92,
+  "onlyArchiveRootsRemoved": true,
+  "archivesInCompiledProgram": 0,
+  "compilerOptionsUnchanged": true,
+  "includeUnchanged": true,
+  "activeTypeErrorStillDetected": true,
+  "sentinelWrittenToDisk": false,
+  "method": "Same TypeScript compiler, original configuration captured locally; faulty active source supplied in memory only"
+}

@@ -1,0 +1,58 @@
+{
+  "desktop": {
+    "cards": [
+      {
+        "id": "GYM-TS1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.4",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parent": "done",
+    "localStorageKeys": [],
+    "context": "Fresh context; existing user drafts not touched",
+    "source": "http://127.0.0.1:4325/backlog.json"
+  },
+  "mobile": {
+    "cards": [
+      {
+        "id": "GYM-TS1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-TS1.4",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parent": "done",
+    "localStorageKeys": [],
+    "context": "Fresh context; existing user drafts not touched",
+    "source": "http://127.0.0.1:4325/backlog.json"
+  }
+}
