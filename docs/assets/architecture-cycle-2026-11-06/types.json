@@ -1,0 +1,20 @@
+{
+  "beforeGlobalErrors": 20,
+  "afterGlobalErrors": 20,
+  "identicalGlobalDiagnostics": true,
+  "globalErrorLocations": [
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/app/creneau/page.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/app/paiement/page.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/delivery-originals/gym-next/components/payment-legacy/PaiementLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/app/paiement/page.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/components/payment-legacy/PaiementLegacyPage.tsx",
+    "playwright-artifacts/booking-consolidation/originals/gym-next/tests/payment-adapters.spec.ts",
+    "playwright-artifacts/group-booking/delivery-originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/refonte-lot1-2026-10-15/originals/gym-next/components/account-legacy/AccountLegacyPage.tsx",
+    "playwright-artifacts/strategie-2026-10-16/avant/AccountLegacyPage.tsx"
+  ],
+  "activeErrors": [],
+  "method": "TypeScript compiler API same tsconfig; baseline restores original three file contents through CompilerHost in memory and excludes new files; active check excludes only playwright-artifacts without altering project configuration"
+}

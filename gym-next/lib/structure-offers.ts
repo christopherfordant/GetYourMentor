@@ -8,8 +8,12 @@ import { mutateDemoState, readDemoState } from "@/lib/repositories/demo-state";
 import { listReservations } from "@/lib/reservations";
 import type { Reservation } from "@/lib/domain";
 
-export type StructureOffer = { id: string; ownerEmail: string; coachId: string; title: string; duration: string; slots: string[]; capacity?: number; createdAt: string; source?: "coach" | "structure"; location?: string; sport?: string };
-export const memoryStructureOffers: StructureOffer[] = [];
+import type { StructureOffer } from "@/lib/domain/structure-offer";
+import { memoryStructureOffers } from "@/lib/repositories/structure-offer-memory";
+
+// Preserve existing consumers without making repositories depend on this service.
+export type { StructureOffer } from "@/lib/domain/structure-offer";
+export { memoryStructureOffers } from "@/lib/repositories/structure-offer-memory";
 const memory = memoryStructureOffers;
 
 export async function hasActiveOfferAffiliation(offer: StructureOffer) {

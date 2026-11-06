@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "mode": "simulation de repartition des roles, execution sequentielle",
   "roles": [
     "Architecture",
@@ -1646,6 +1646,186 @@
       ],
       "blocker": null,
       "next": "Non autorisee, aucun acces distant execute"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Correction locale ARC-01 sans changement metier ni appel distant",
+      "role": "Architecture",
+      "estimateHours": [
+        4,
+        8
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Cycle de cinq modules supprime; contrats et modes preserves; preuves locales et Kanban verifies"
+      ],
+      "files": [
+        "gym-next/lib/structure-offers.ts",
+        "gym-next/lib/repositories/reservation-repository.ts"
+      ],
+      "tests": [
+        "8 tests locaux PASS; zero cycle statique; types actifs PASS;20 erreurs historiques globales inchangees"
+      ],
+      "evidence": [
+        "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "docs/assets/architecture-cycle-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves; correction des archives TypeScript dans un lot distinct",
+      "id": "GYM-ARC1",
+      "title": "Supprimer le cycle metier des offres et reservations",
+      "objective": "Traiter PROPOSITION-ARC-01 sans refonte globale",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Correction locale ARC-01 sans changement metier ni appel distant",
+      "role": "Architecture",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "acceptance": [
+        "Cycle de cinq modules supprime; contrats et modes preserves; preuves locales et Kanban verifies"
+      ],
+      "files": [
+        "gym-next/lib/structure-offers.ts",
+        "gym-next/lib/repositories/reservation-repository.ts"
+      ],
+      "tests": [
+        "8 tests locaux PASS; zero cycle statique; types actifs PASS;20 erreurs historiques globales inchangees"
+      ],
+      "evidence": [
+        "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "docs/assets/architecture-cycle-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves; correction des archives TypeScript dans un lot distinct",
+      "id": "GYM-ARC1.1",
+      "title": "Confirmer le diagnostic et les tests de reference",
+      "objective": "Confirmer le diagnostic et les tests de reference",
+      "parent": "GYM-ARC1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Correction locale ARC-01 sans changement metier ni appel distant",
+      "role": "Architecture",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC1.1"
+      ],
+      "acceptance": [
+        "Cycle de cinq modules supprime; contrats et modes preserves; preuves locales et Kanban verifies"
+      ],
+      "files": [
+        "gym-next/lib/structure-offers.ts",
+        "gym-next/lib/repositories/reservation-repository.ts"
+      ],
+      "tests": [
+        "8 tests locaux PASS; zero cycle statique; types actifs PASS;20 erreurs historiques globales inchangees"
+      ],
+      "evidence": [
+        "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "docs/assets/architecture-cycle-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves; correction des archives TypeScript dans un lot distinct",
+      "id": "GYM-ARC1.2",
+      "title": "Extraire le contrat et le tableau demo partages",
+      "objective": "Extraire le contrat et le tableau demo partages",
+      "parent": "GYM-ARC1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Correction locale ARC-01 sans changement metier ni appel distant",
+      "role": "QA",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC1.2"
+      ],
+      "acceptance": [
+        "Cycle de cinq modules supprime; contrats et modes preserves; preuves locales et Kanban verifies"
+      ],
+      "files": [
+        "gym-next/lib/structure-offers.ts",
+        "gym-next/lib/repositories/reservation-repository.ts"
+      ],
+      "tests": [
+        "8 tests locaux PASS; zero cycle statique; types actifs PASS;20 erreurs historiques globales inchangees"
+      ],
+      "evidence": [
+        "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "docs/assets/architecture-cycle-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves; correction des archives TypeScript dans un lot distinct",
+      "id": "GYM-ARC1.3",
+      "title": "Verifier types, contrats et dependances",
+      "objective": "Verifier types, contrats et dependances",
+      "parent": "GYM-ARC1",
+      "status": "done"
+    },
+    {
+      "sprint": "S1",
+      "priority": "P1",
+      "assignment": "simulated-role",
+      "due": "2026-11-06",
+      "scope": "Correction locale ARC-01 sans changement metier ni appel distant",
+      "role": "DevOps",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-ARC1.3"
+      ],
+      "acceptance": [
+        "Rapport, preuves et etat de reprise prepares; controle du Kanban avant livraison finale"
+      ],
+      "files": [
+        "gym-next/lib/structure-offers.ts",
+        "gym-next/lib/repositories/reservation-repository.ts"
+      ],
+      "tests": [
+        "8 tests locaux PASS; zero cycle statique; types actifs PASS;20 erreurs historiques globales inchangees"
+      ],
+      "evidence": [
+        "docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md",
+        "docs/assets/architecture-cycle-2026-11-06/checks.json"
+      ],
+      "blocker": null,
+      "next": "Conserver preuves; correction des archives TypeScript dans un lot distinct",
+      "id": "GYM-ARC1.4",
+      "title": "Documenter et preparer la livraison controlee",
+      "objective": "Documenter et preparer la livraison controlee",
+      "parent": "GYM-ARC1",
+      "status": "done"
     }
   ]
 }

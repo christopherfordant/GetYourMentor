@@ -1,0 +1,5 @@
+{
+  "gym-next/lib/structure-offers.ts": true,
+  "gym-next/lib/repositories/reservation-repository.ts": true,
+  "extractedTypeUnchanged": true
+}

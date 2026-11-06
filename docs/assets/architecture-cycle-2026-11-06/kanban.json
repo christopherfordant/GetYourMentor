@@ -1,0 +1,58 @@
+{
+  "desktop": {
+    "cards": [
+      {
+        "id": "GYM-ARC1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.4",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parent": "done",
+    "localStorageKeys": [],
+    "context": "Fresh context; existing user drafts not touched",
+    "source": "http://127.0.0.1:4325/backlog.json"
+  },
+  "mobile": {
+    "cards": [
+      {
+        "id": "GYM-ARC1.1",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.2",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.3",
+        "status": "done",
+        "manual": false
+      },
+      {
+        "id": "GYM-ARC1.4",
+        "status": "done",
+        "manual": false
+      }
+    ],
+    "parent": "done",
+    "localStorageKeys": [],
+    "context": "Fresh context; existing user drafts not touched",
+    "source": "http://127.0.0.1:4325/backlog.json"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-06",
+  "baselineCommit": "2a6063b5d702bad0a4dc95f9d5df0f6193a4b079",
+  "beforeTests": 3,
+  "afterTests": 8,
+  "newContractTests": 4,
+  "beforeStaticCycles": 1,
+  "afterStaticCycles": 0,
+  "beforeSourceFiles": 385,
+  "afterSourceFiles": 388,
+  "activeTypeErrors": 0,
+  "globalTypeErrorsBefore": 20,
+  "globalTypeErrorsAfter": 20,
+  "globalDiagnosticsIdentical": true,
+  "buildExecuted": false,
+  "externalServiceCalls": false,
+  "secretsLoaded": false,
+  "businessFunctionBodiesUnchanged": true,
+  "limits": [
+    "Static graph excludes dynamic imports and require",
+    "Global typecheck remains failing on archived source copies",
+    "Hosted demo document port injected; no real Blobs or Supabase tested"
+  ],
+  "kanbanTests": 35,
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "preexistingModifiedFilesHashIdentical": 18,
+  "preexistingTicketsIdentical": true
+}

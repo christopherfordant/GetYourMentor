@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : ARC1 cycle metier supprime
+
+Contrat StructureOffer extrait dans lib/domain/structure-offer.ts et tableau demo existant dans repositories/structure-offer-memory.ts. Le service conserve ses exports historiques; le repository importe directement donnees et type. Aucun corps de fonction metier modifie, aucun registre global ajoute. Cycle coaches/reservations/payments/repository/structure-offers supprime : meme analyse AST,1 groupe avant et0 apres,385 puis388 sources.
+
+3 tests de reference PASS puis8 tests locaux PASS dont4 nouveaux contrats : capacite/chevauchement, partage de la facade, document demo injecte, separation persiste/demo et refus fallback production. Types actifs sans erreur. Controle TypeScript global reste en echec :20 diagnostics dans playwright-artifacts, prouves identiques avant/apres via CompilerHost. Ni tsconfig ni archives modifies, aucun build revendique. Rapport docs/ARCHITECTURE_CYCLE_ARC1_2026-11-06.md et preuves docs/assets/architecture-cycle-2026-11-06/.
+
+GYM-ARC1 et4 enfants valides dans le perimetre local; Kanban4325 controle ordinateur/mobile,35 tests atelier/Kanban PASS. A5/H1 et recette distante inchanges. Aucun secret charge, service distant, paiement, notification, migration ou deploiement. Modifications anterieures preservees. Prochain lot recommande : clarifier sources actives/archives pour fiabiliser le controle TypeScript global, sans refonte implicite. Historique conserve.
+
 ## Reprise active - 5 novembre 2026 : audit architecture et rangement livre
 
 Audit documentaire dans docs/audits/architecture-2026-11-05/ : verdict partiel, assistant lexical local et embeddings/vectoriel de recette prepares, pas d agent autonome applicatif demontre. Lanceur Codex de developpement present mais non execute/verifie ici; roles Kanban simules et A5 en backlog. Inventaire metadata41288 dossiers/306968 fichiers avec5 refus de repertoire et6 erreurs de stat, dependances/prive sans lecture de contenu; pas une lecture integrale de tous les fichiers. Analyse AST385 sources/681 imports internes, un cycle metier de5 modules, zero doublon exact dans ce sous-ensemble.

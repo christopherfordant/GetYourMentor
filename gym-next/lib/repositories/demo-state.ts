@@ -11,7 +11,7 @@ import type { ClubLead } from "@/lib/clubs";
 import type { Message } from "@/lib/messages";
 import type { Review } from "@/lib/reviews";
 import type { CommissionSettings } from "@/lib/repositories/commission-repository";
-import type { StructureOffer } from "@/lib/structure-offers";
+import type { StructureOffer } from "@/lib/domain/structure-offer";
 
 export type DemoUser = { passwordHash: string; salt: string; role: "sportif" | "coach" | "club"; coachId?: string };
 export type DemoState = {
