@@ -1378,7 +1378,7 @@
       "title": "Superviser reprises Telegram et erreurs expurgees",
       "objective": "Superviser reprises Telegram et erreurs expurgees",
       "parent": "GYM-H1",
-      "status": "prepare",
+      "status": "progress",
       "role": "DevOps",
       "estimateHours": [
         2,
@@ -2504,6 +2504,67 @@
       "objective": "Confirmer les dossiers voisins et verifier la livraison",
       "status": "done",
       "parent": "GYM-ARC4"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "native-agent-planned",
+      "due": "2026-11-07",
+      "actualHours": null,
+      "role": "Architecture",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "dependencies": [
+        "GYM-ARC4"
+      ],
+      "acceptance": [
+        "Allowlist respectee,compatibilite et tests locaux,revue coordinateur avant integration"
+      ],
+      "tests": [
+        "A executer : tests unitaires bornes puis types/Kanban combines"
+      ],
+      "evidence": [],
+      "files": [],
+      "blocker": null,
+      "next": "Premier lot parallele borne,revue avant cloture",
+      "id": "GYM-ARC5",
+      "title": "Separer types purs et fixtures avec facade compatible",
+      "objective": "Separer types purs et fixtures avec facade compatible",
+      "status": "progress",
+      "scope": "Execution native isolee sans service distant"
+    },
+    {
+      "sprint": "S2",
+      "priority": "P1",
+      "assignment": "native-agent-planned",
+      "due": "2026-11-07",
+      "actualHours": null,
+      "role": "DevOps",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "dependencies": [
+        "GYM-B1.4"
+      ],
+      "acceptance": [
+        "Allowlist respectee,compatibilite et tests locaux,revue coordinateur avant integration"
+      ],
+      "tests": [
+        "A executer : tests unitaires bornes puis types/Kanban combines"
+      ],
+      "evidence": [],
+      "files": [],
+      "blocker": null,
+      "next": "Premier lot parallele borne,revue avant cloture",
+      "id": "GYM-H1.5.1",
+      "title": "Projeter des indicateurs Telegram expurges en lecture seule",
+      "objective": "Projeter des indicateurs Telegram expurges en lecture seule",
+      "status": "progress",
+      "scope": "Execution native isolee sans service distant",
+      "parent": "GYM-H1.5"
     }
   ]
 }

@@ -1,5 +1,11 @@
 # GetYourMentor — consignes obligatoires de reprise
 
+## Exception utilisateur bornée — 7 novembre 2026, premier lot parallèle
+
+La consigne utilisateur jointe du 7 novembre autorise pour ce seul lot deux agents exécutants natifs supervisés, sur des worktrees neufs de l'historique nettoyé : ARC-05 (types/fixtures compatibles) et H1.5.1 (projection locale expurgée de supervision Telegram). Cette exception remplace les anciennes interdictions générales de délégation uniquement dans ce périmètre ; elle ne réactive aucun lanceur/boucle historique. Pas de sous-délégation, nouvelle tâche autonome, API payante supplémentaire, compte, opération distante, migration, notification, paiement ou déploiement.
+
+Chaque exécutant travaille uniquement dans son worktree et son allowlist. Le coordinateur seul modifie Kanban, reprise, décisions et instructions communes, effectue l'intégration ciblée autorisée et le push final. Les exécutants peuvent préparer un commit ciblé sans push ; aucun ancien historique fusionné, force-push ou protection désactivée. Les fenêtres VS Code sont des vues du travail, distinctes de l'exécution native des agents. Un seul contrôle lourd/build/campagne navigateur à la fois, aucune modification des brouillons antérieurs. Missions et preuve dans `docs/multi-agent/2026-11-07/`. Arrêt après le premier lot validé, sans poursuite automatique.
+
 ## Chantier documentaire local — 3 novembre 2026
 
 Pour la refonte agentique, consulter `docs/architecture/AGENTIC_REFACTOR_2026-11-03.md`, le Kanban versionné et `tools/agentic-workbench/AGENTS.md`. L'atelier actuel est extractif, local et sans modèle ; ses rôles planifiés ne sont pas des agents lancés. Ne pas publier les documents internes ou ajouter des outils de mutation. Les consignes de sécurité, Git, reprise et exécution séquentielle ci-dessous restent applicables.
