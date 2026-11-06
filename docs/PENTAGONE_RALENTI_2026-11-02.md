@@ -1,3 +1,7 @@
+# Mise à jour du 6 novembre 2026
+
+Le prototype pentagonal historique est conservé hors `public`. Aperçu : [guide local](../prototypes/README.md), sur `http://127.0.0.1:4336/design_assets/pentagon-carousel-2026-11-02/index.html`. Ce rangement ne réintroduit pas ce rendu dans le produit. Les preuves qui suivent sont conservées.
+
 # Ouverture ralentie et carrousel pentagonal — 2 novembre 2026
 
 ## Périmètre livré

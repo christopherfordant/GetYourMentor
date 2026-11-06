@@ -1,5 +1,7 @@
 # Inventaire local des ressources publiques
 
+Aperçu des prototypes extraits : [guide](../../prototypes/README.md), commande `node tools/public-assets/preview.mjs`. La recette HTTP est `node --test tools/public-assets/preview.test.mjs` ; les scénarios de démonstration utilisent `tools/public-assets/prototypes.config.cjs`. L'inventaire ci-dessous reste statique et ne doit pas assimiler les anciens chemins publics des rapports historiques à des erreurs du site actif.
+
 Depuis la racine du dépôt, avec Python standard et Git :
 
 ```powershell

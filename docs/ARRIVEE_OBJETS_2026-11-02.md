@@ -1,3 +1,7 @@
+# Mise à jour du 6 novembre 2026
+
+L'HTML de démonstration est désormais hors `public`. Aperçu courant : [guide local](../prototypes/README.md), sur `http://127.0.0.1:4336/design_assets/header-equipment-2026-10-30/apercu.html`. Le script `entrance.js` et les médias du header restent en place. Les preuves historiques ci-dessous ne sont pas réécrites.
+
 # Arrivée des objets sportifs — 2 novembre 2026
 
 ## Demande et intégration

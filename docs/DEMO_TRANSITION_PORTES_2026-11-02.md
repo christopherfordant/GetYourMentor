@@ -1,3 +1,7 @@
+# Mise à jour du 6 novembre 2026
+
+Le prototype est désormais hors `public`. Aperçu courant : [guide local](../prototypes/README.md), sur `http://127.0.0.1:4336/design_assets/door-transition-2026-11-02/index.html`. Les preuves et chemins ci-dessous restent historiques ; la navigation 3D du produit est distincte.
+
 # Démonstration « page en deux battants » — 2 novembre 2026
 
 ## Périmètre autorisé

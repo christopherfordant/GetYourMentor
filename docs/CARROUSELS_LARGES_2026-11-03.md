@@ -1,3 +1,7 @@
+# Mise à jour du 6 novembre 2026
+
+La démonstration a quitté `public`. Aperçu courant : [guide local](../prototypes/README.md), sur `http://127.0.0.1:4336/design_assets/carousel-large-2026-11-03/index.html`. Les constats et chemins qui suivent décrivent la livraison historique.
+
 # Comparaison de carrousels larges — 3 novembre 2026
 
 Demande utilisateur : remplacer la silhouette haute du pentagone par une scène large, des cartes carrées et davantage de faces ; montrer plusieurs choix avant intégration.

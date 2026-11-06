@@ -1,0 +1,2 @@
+# Preserve the exact historical demo bytes, independently of checkout EOL rules.
+design-assets/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

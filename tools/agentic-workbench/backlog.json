@@ -2275,7 +2275,7 @@
       "priority": "P1",
       "assignment": "simulated-role",
       "due": "2026-11-06",
-      "scope": "Lot ulterieur non execute",
+      "scope": "Six fichiers extraits avec empreintes, serveur loopback isole et tests des prototypes;aucun deploiement",
       "role": "Architecture",
       "estimateHours": [
         1,
@@ -2289,19 +2289,24 @@
         "Preserver medias applicatifs, references et historique; prouver preview et build apres deplacement"
       ],
       "files": [
-        "tools/public-assets/audit.py",
-        "docs/ASSETS_PUBLICS_ARC3_2026-11-06.md"
+        "prototypes/manifest.json",
+        "prototypes/README.md",
+        "tools/public-assets/preview.cjs",
+        "tools/public-assets/preview.mjs"
       ],
       "tests": [
-        "A executer : preview locale, dependances relatives, liens conserves et build isole apres deplacement"
+        "4 tests serveur PASS;16 scenarios navigateur PASS;types PASS;35 tests Kanban PASS"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/EXTRACTION_PROTOTYPES_ARC3_2_2026-11-06.md",
+        "docs/assets/prototype-extraction-2026-11-06/extraction.json"
+      ],
       "blocker": null,
-      "next": "ARC3.2 : preview hors public puis deplacement cible et controle",
+      "next": "ARC3.3 : build isole et controles applicatifs avant cloture",
       "id": "GYM-ARC3.2",
       "title": "Extraire les demonstrations avec preview locale et mapping",
       "objective": "Extraire les demonstrations avec preview locale et mapping",
-      "status": "backlog",
+      "status": "done",
       "parent": "GYM-ARC3"
     },
     {

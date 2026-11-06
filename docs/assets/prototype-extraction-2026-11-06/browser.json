@@ -1,0 +1,60 @@
+{
+  "carousel-desktop": {
+    "images": 9,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": true
+  },
+  "doors-desktop": {
+    "images": 0,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "equipment-desktop": {
+    "images": 14,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "pentagon-desktop": {
+    "images": 3,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "desktop-errors": {
+    "pageErrors": [],
+    "externalRequests": [],
+    "failedResponses": []
+  },
+  "carousel-mobile": {
+    "images": 9,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": true
+  },
+  "doors-mobile": {
+    "images": 0,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "equipment-mobile": {
+    "images": 14,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "pentagon-mobile": {
+    "images": 3,
+    "allImagesLoaded": true,
+    "overflow": 0,
+    "carouselTwentyAndContinuousRotation": false
+  },
+  "mobile-errors": {
+    "pageErrors": [],
+    "externalRequests": [],
+    "failedResponses": []
+  }
+}

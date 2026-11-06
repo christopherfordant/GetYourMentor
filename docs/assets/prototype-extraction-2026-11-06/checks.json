@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-06",
+  "ticket": "GYM-ARC3.2",
+  "moves": 6,
+  "exactBytesPreserved": true,
+  "retainedPublicAssets": 110,
+  "preexistingDirtyFilesUnchanged": 18,
+  "httpServerTests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "playwrightPrototypeTests": {
+    "passed": 16,
+    "failed": 0,
+    "finalRun": "delivery-private/arc32-prototypes-final.log"
+  },
+  "typecheck": {
+    "passed": true,
+    "command": "npm run check:types"
+  },
+  "kanbanTests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "kanbanBrowser": [
+    "desktop",
+    "mobile"
+  ],
+  "previewsChecked": [
+    "four desktop",
+    "four mobile"
+  ],
+  "browserErrors": 0,
+  "remoteRequests": 0,
+  "carouselTwentyCardsAndContinuousRotation": true,
+  "build": "not run;ARC3.3 pending",
+  "applicationBrowserTests": "not run;ARC3.3 pending",
+  "parentARC3": "progress",
+  "deployed": false,
+  "manualPreview": "http://127.0.0.1:4336/",
+  "correctionsDuringValidation": [
+    "Mixed app/preview reduced-motion test split;both responsibilities retained",
+    "Playwright import interoperability fixed with typed CommonJS core and ESM CLI"
+  ]
+}

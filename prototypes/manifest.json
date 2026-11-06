@@ -1,0 +1,550 @@
+{
+  "version": 1,
+  "entries": {
+    "/design_assets/ai-2026-10-28/coach-basketball-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-basketball-1280.webp",
+      "sha256": "650f0719b89ca93bb63a84626344485b1055b2863e6497fc9621609d5ddc62b9",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/coach-basketball-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-basketball-640.webp",
+      "sha256": "76b6474a773b07a664903f16eab45c82262805f012bb7065ad3744732110e032",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/coach-fitness-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-fitness-1280.webp",
+      "sha256": "801462471650495fac96b7c98e1618b11e2c4bdb685aeb29e867e49f477b2580",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/coach-fitness-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-fitness-640.webp",
+      "sha256": "31af3fc0122fd0da706b4cfde33931493379852038d1aa12799c4cdaa10b0111",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/coach-football-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-football-1280.webp",
+      "sha256": "96c5fe4aadebb845aae8346829b02161345a76ad347299601867e7c87cf17cc7",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/coach-football-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/coach-football-640.webp",
+      "sha256": "946d73aea9508f75fe05bdd06add975838aeedaf4ca0d56d17a1e6ae8985ba57",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/icons/basketball.svg": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/icons/basketball.svg",
+      "sha256": "f8902495be84e9993a25f4b67f7be606dba0c35e5405cc2eeff4f29d6c5fc657",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/icons/combat.svg": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/icons/combat.svg",
+      "sha256": "da4d9b990cb08a12e91651bbf9cad429a1910852e537c5098b2cfe95745bc1ff",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/icons/fitness.svg": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/icons/fitness.svg",
+      "sha256": "b5930a58e85ecde108b62ae9aa1daea9a92a5220afac0f57c211e0e1f9d67868",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/icons/football.svg": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/icons/football.svg",
+      "sha256": "7d26eb5ebabb5ae8ca15371cddd9c48e028fea374f5a1edbccc9a9388d5e75de",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-basketball-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-basketball-1280.webp",
+      "sha256": "8970f7fa24d453f9f2a43c8bfd0e681e925dc4a6c15eb0e8c53f34f9f0ea3620",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-basketball-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-basketball-640.webp",
+      "sha256": "1bccaa3c7ef0fca3fc1d9f3c490b9186cca0a19987db66ed5b05c0b7e74cd1a6",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-combat-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-combat-1280.webp",
+      "sha256": "0e8cdbe5612566654fab627fbc3fa1886048d546117b2ac96115fc78398f5463",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-combat-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-combat-640.webp",
+      "sha256": "c197edd00505370ae440e3dbe9e2a2d6585158f82fb662b0a7b86f747205e5fc",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-fitness-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-fitness-1280.webp",
+      "sha256": "22abd4509707a0da7b28eebd742be21a02e883ceb07d0a98db241defd310d00c",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-fitness-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-fitness-640.webp",
+      "sha256": "dd888d1dd8bff86dcb67959e57cae74894456831abfa1f5f1b51e28d6bcecaf2",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-football-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-football-1280.webp",
+      "sha256": "a08ea66587fd0aa4ab60e5743fe54ffb0d60a2251d8dbe191920484467ef0a3e",
+      "moved": false
+    },
+    "/design_assets/ai-2026-10-28/scene-football-640.webp": {
+      "file": "gym-next/public/design_assets/ai-2026-10-28/scene-football-640.webp",
+      "sha256": "07717219a337c3e82a02c0b33632e39e74a64193234f8b2f2ed8fb647e6f6794",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-boxe-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-boxe-1280.webp",
+      "sha256": "476483255e7b024e4d88e65265a73e5db2d7d2c0f392f6f69bfb087a195924b1",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-boxe-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-boxe-640.webp",
+      "sha256": "f53e66d8e5b2eba8593bdf4a0c51cecb33f574a0d0f3392c0ecc99fb6abcdcf2",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-crossfit-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-crossfit-1280.webp",
+      "sha256": "d34469f2d7618f960d7fd8851da5256acb4ae397649ecc0e63103f31f214daa7",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-crossfit-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-crossfit-640.webp",
+      "sha256": "7b1b43e8f83b7a944a8dbea82dd75a7bb233fdf89001ece566defeb7ac981ccd",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-musculation-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-musculation-1280.webp",
+      "sha256": "34438bb1fd1dbb080c860b722a715d80042459ee3cd65da3cb28016f48c45e47",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-musculation-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-musculation-640.webp",
+      "sha256": "587f0381b39cc9a1cedda2b8ea0f966845948be3582aea1d846cc59de49dd995",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-padel-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-padel-1280.webp",
+      "sha256": "6e84014b2a727c3d7fd09080ad9400be29fb3aac873c545b6d7bb3afc91cffcd",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-padel-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-padel-640.webp",
+      "sha256": "e20833d615818fce0dddd4cae74762c7a8bfc8cb018d1b5f2c9052d5ea9c6d5c",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-pilates-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-pilates-1280.webp",
+      "sha256": "6e0a35bf12379b7d93c0e0b468f928c61d80a09c540a6b43670f5fba54e706ec",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-pilates-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-pilates-640.webp",
+      "sha256": "759dab11e0a3e7aa546c90e9fd1ce74df29aad67d02efd4e130343da6196c733",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-preparation-physique-1280.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-preparation-physique-1280.webp",
+      "sha256": "79ac868096909636910ebe939613e995251d3df0688515e34555ebe0e29f1b49",
+      "moved": false
+    },
+    "/design_assets/ai-coaches-2026-11-03/coach-preparation-physique-640.webp": {
+      "file": "gym-next/public/design_assets/ai-coaches-2026-11-03/coach-preparation-physique-640.webp",
+      "sha256": "8dc6553f45348ca4e27e4315408b05e94e4a97a14c535f10d502045741a06489",
+      "moved": false
+    },
+    "/design_assets/carousel-large-2026-11-03/demo.js": {
+      "file": "prototypes/design-assets/carousel-large-2026-11-03/demo.js",
+      "sha256": "0f4fa78dd3f97bc077a3b6f64db544539bd20ccf2b3ce1001fd5cc6a0abe8386",
+      "moved": true
+    },
+    "/design_assets/carousel-large-2026-11-03/index.html": {
+      "file": "prototypes/design-assets/carousel-large-2026-11-03/index.html",
+      "sha256": "438d9293a56638c2c591ab5b4ad81960da9180fffbc4f1b5fa55e1abe51e6846",
+      "moved": true
+    },
+    "/design_assets/carousel-large-2026-11-03/style.css": {
+      "file": "prototypes/design-assets/carousel-large-2026-11-03/style.css",
+      "sha256": "99a6f6d78613baab06c346182117e9b4858d59ca7da781656a368f8844381e64",
+      "moved": true
+    },
+    "/design_assets/content_library/basketball/basketball-shooting-court.jpg": {
+      "file": "gym-next/public/design_assets/content_library/basketball/basketball-shooting-court.jpg",
+      "sha256": "438959711e2a3bd7edfa8113625fedc513db05a3d227ab3773b77a9eac076840",
+      "moved": false
+    },
+    "/design_assets/content_library/basketball/basketball-training-athlete.jpg": {
+      "file": "gym-next/public/design_assets/content_library/basketball/basketball-training-athlete.jpg",
+      "sha256": "19a5ff49278fd86be3cfb6d96f634b3a5e7beb1fb113d520d8ab29eb0fa1cff2",
+      "moved": false
+    },
+    "/design_assets/content_library/combat/combat-boxer-portrait.jpg": {
+      "file": "gym-next/public/design_assets/content_library/combat/combat-boxer-portrait.jpg",
+      "sha256": "a8537bf3a6da4ca16ac243d696c29cca0fdeba7e5f044d20c082f6c7fe165086",
+      "moved": false
+    },
+    "/design_assets/content_library/combat/combat-muay-thai-kick.jpg": {
+      "file": "gym-next/public/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
+      "sha256": "e021ff83a45bbfa6ca13a190d6456aac79a3f55c304c3d0dbf64e23f83bbfb42",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/basketball.jpg": {
+      "file": "gym-next/public/design_assets/content_library/emergent/basketball.jpg",
+      "sha256": "deb53a805288e4f8269363d362d69a63aeac131fb185b626d1f11e3f80e0ac4e",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/combat.jpg": {
+      "file": "gym-next/public/design_assets/content_library/emergent/combat.jpg",
+      "sha256": "3c81ad90418cb42ee74ac9800b30dd97e16ee4609e1505a5705db04bffb9c49b",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/fitness.jpg": {
+      "file": "gym-next/public/design_assets/content_library/emergent/fitness.jpg",
+      "sha256": "3d387dbd04fd3202b662073088de3b302ffc521d534a3e706e44126f43c1b41d",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/football.jpg": {
+      "file": "gym-next/public/design_assets/content_library/emergent/football.jpg",
+      "sha256": "3a5455cb8feea47c43655e8c935f1e23b94309aa83b9d602b855b240e7083f4c",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/hero-athlete.jpg": {
+      "file": "gym-next/public/design_assets/content_library/emergent/hero-athlete.jpg",
+      "sha256": "e408e117fae52e563922dd3378353ac4de65744e21738413ebb85d5c5acdcb9d",
+      "moved": false
+    },
+    "/design_assets/content_library/emergent/hero-athlete.webp": {
+      "file": "gym-next/public/design_assets/content_library/emergent/hero-athlete.webp",
+      "sha256": "b99bd87cfdf2f3e78d7290e6b8f5d00293dd587a2443661038ccb8ed86be3a5a",
+      "moved": false
+    },
+    "/design_assets/content_library/fitness/fitness-bench-trainer.jpg": {
+      "file": "gym-next/public/design_assets/content_library/fitness/fitness-bench-trainer.jpg",
+      "sha256": "810e5900cd6471299e55eb73d9eea4df87d513f7e5bec5c67f04fce9f63f251a",
+      "moved": false
+    },
+    "/design_assets/content_library/fitness/fitness-coach-plank.jpg": {
+      "file": "gym-next/public/design_assets/content_library/fitness/fitness-coach-plank.jpg",
+      "sha256": "9785a135ff461b57b4f0b527dabeda95b3fae7af3cf6d599a9c9039c28ee724f",
+      "moved": false
+    },
+    "/design_assets/content_library/football/football-coach-rain.jpg": {
+      "file": "gym-next/public/design_assets/content_library/football/football-coach-rain.jpg",
+      "sha256": "933cd2875e09e925e03701384dcb7c2637f4978fc4abd635c14d5db229627027",
+      "moved": false
+    },
+    "/design_assets/content_library/football/football-field-mentor.jpg": {
+      "file": "gym-next/public/design_assets/content_library/football/football-field-mentor.jpg",
+      "sha256": "52a72aa61e7e9451d462d7223ffa9bbe50d5bc243903d46ee28d28b9e720c857",
+      "moved": false
+    },
+    "/design_assets/content_library/football/football-youth-coach.jpg": {
+      "file": "gym-next/public/design_assets/content_library/football/football-youth-coach.jpg",
+      "sha256": "bf2863c28ccbcaff668cc9363c89cd4a5429f3d5bfb4febf5ce89d8ddf9cf6c1",
+      "moved": false
+    },
+    "/design_assets/content_library/web_reference/basketball-coaching.jpg": {
+      "file": "gym-next/public/design_assets/content_library/web_reference/basketball-coaching.jpg",
+      "sha256": "86b48806621b296de31bbc0e9da98bc43b99137561024ed4966ff8227e959ff5",
+      "moved": false
+    },
+    "/design_assets/content_library/web_reference/fitness-training.jpg": {
+      "file": "gym-next/public/design_assets/content_library/web_reference/fitness-training.jpg",
+      "sha256": "71bd7d3caf4d519dea5ed6d1e17ee7b7ad36a34ac9da9a254883a052dfb72483",
+      "moved": false
+    },
+    "/design_assets/content_library/web_reference/football-coaching.jpg": {
+      "file": "gym-next/public/design_assets/content_library/web_reference/football-coaching.jpg",
+      "sha256": "c787b3df20288fd1c2fda3353328456b4eb29845c423cbc4a6cc2e30caa4d234",
+      "moved": false
+    },
+    "/design_assets/door-transition-2026-11-02/accueil-desktop.webp": {
+      "file": "gym-next/public/design_assets/door-transition-2026-11-02/accueil-desktop.webp",
+      "sha256": "ba24be1b02fb0c334a8ea0902671991af0204d9291a7be3c77c57772b0a1323d",
+      "moved": false
+    },
+    "/design_assets/door-transition-2026-11-02/accueil-mobile.webp": {
+      "file": "gym-next/public/design_assets/door-transition-2026-11-02/accueil-mobile.webp",
+      "sha256": "ebe336745951bbc92da03ce8fb14bb7220d09310917aa362b6e0bec3597247a4",
+      "moved": false
+    },
+    "/design_assets/door-transition-2026-11-02/annuaire-desktop.webp": {
+      "file": "gym-next/public/design_assets/door-transition-2026-11-02/annuaire-desktop.webp",
+      "sha256": "cb136a3538214d95a371a51a33701f541b6aafd0e8d7de02b52d19c73be009e6",
+      "moved": false
+    },
+    "/design_assets/door-transition-2026-11-02/annuaire-mobile.webp": {
+      "file": "gym-next/public/design_assets/door-transition-2026-11-02/annuaire-mobile.webp",
+      "sha256": "408f1aecd107151999046aa50e4258960a38fb000790cbfdda08a5974426a4de",
+      "moved": false
+    },
+    "/design_assets/door-transition-2026-11-02/index.html": {
+      "file": "prototypes/design-assets/door-transition-2026-11-02/index.html",
+      "sha256": "63e6555d134c39fa3d3bbea3d0b6980fa635ce9655a1143d6ca3fcb5a3e1cf73",
+      "moved": true
+    },
+    "/design_assets/gym_premium_planity_like_bg.svg": {
+      "file": "gym-next/public/design_assets/gym_premium_planity_like_bg.svg",
+      "sha256": "3e6f6e68ba38846c7ad260c20d1a92efa38538febba04c9ef71ecaab906bd8f0",
+      "moved": false
+    },
+    "/design_assets/gym_premium_planity_like_bg_4sports.svg": {
+      "file": "gym-next/public/design_assets/gym_premium_planity_like_bg_4sports.svg",
+      "sha256": "76e98ed0cc5c521cb2d5bf0e783d6733b2e9f320db6d55b561884662b9085a34",
+      "moved": false
+    },
+    "/design_assets/gym_premium_planity_like_bg_4sports_v3.svg": {
+      "file": "gym-next/public/design_assets/gym_premium_planity_like_bg_4sports_v3.svg",
+      "sha256": "4e6e978607815cad0f9a9d6c69d4df7e2801e00a053ace2b01b95a18e62e35ab",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/apercu.html": {
+      "file": "prototypes/design-assets/header-equipment-2026-10-30/apercu.html",
+      "sha256": "941e9bb3d6b5e1e99485f7c1f520c0477486e8e573f2f29be59ccb926fa831c3",
+      "moved": true
+    },
+    "/design_assets/header-equipment-2026-10-30/basketball-shoes.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/basketball-shoes.webp",
+      "sha256": "b980084aff74e4a101abb47f597959cf319d31bf10ded15be46e999fc3ce7c3b",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/basketball.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/basketball.webp",
+      "sha256": "5853d380405db26f969c730a7d928e00f67f79d6fd87f40ab2bfb1abbc6d601c",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/boxing-glove.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/boxing-glove.webp",
+      "sha256": "6cb75cdb2cb89c1459f5499347868a763fa7cc89279b6ad99067520262645f4c",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/dumbbell.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/dumbbell.webp",
+      "sha256": "eec1cb8699b724f4efbd836f6d2ef346a8f09c6beb9b9abbee1db3392bd74f11",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/entrance.js": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/entrance.js",
+      "sha256": "9014e90274d1ae7051678ab49697c677444d08da2196ee83e52ccdbabc5e0626",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/focus-mitt.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/focus-mitt.webp",
+      "sha256": "37a90c131da53740ee337b9c0d4e0d6c120ac16e091a5f9e7d892625eb90c671",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/football-ball.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/football-ball.webp",
+      "sha256": "54ca70c80abaa2d84168f7018574f6c471ee86affb469a18e897d8b695b56425",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/football-cone.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/football-cone.webp",
+      "sha256": "c7964217376be165a666aab48b4931fca0732043366a1150dacf49ea5b833e6e",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/kettlebell.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/kettlebell.webp",
+      "sha256": "90204b5e2a96f5084f89f0db37fe133e5ba4a588e00cc9f8343affdd70a52194",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/padel-racket-original.png": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/padel-racket-original.png",
+      "sha256": "aa70d68f386f027ee14559684774018b01f4cf4100c36a2d68aea14257c9be54",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/padel-racket.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/padel-racket.webp",
+      "sha256": "0102bb0cfabdcf06570569d73b28bf021e645bbd160652606f3e6d4badcc83c8",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/resistance-band.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/resistance-band.webp",
+      "sha256": "da7632be53490080b7e2b94d14b8e4736147cd95961c209ff138d317a1a16dd4",
+      "moved": false
+    },
+    "/design_assets/header-equipment-2026-10-30/shin-guards.webp": {
+      "file": "gym-next/public/design_assets/header-equipment-2026-10-30/shin-guards.webp",
+      "sha256": "c00f068685025c9f30f78efe427acea2b3a38ed64c84b529468787fcaf8367d8",
+      "moved": false
+    },
+    "/design_assets/hero_accueil_whatsapp.jpeg": {
+      "file": "gym-next/public/design_assets/hero_accueil_whatsapp.jpeg",
+      "sha256": "53d07724596869a1d886387bc7ad4fefedc599c383d39b7b3a5e242d5d2494fa",
+      "moved": false
+    },
+    "/design_assets/logo-getyourmentor-signup.png": {
+      "file": "gym-next/public/design_assets/logo-getyourmentor-signup.png",
+      "sha256": "80528e013c5d5336b180d261870943f5898a8af0f5c3d071de7ad889a5225969",
+      "moved": false
+    },
+    "/design_assets/motion/basketball-hoop-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/basketball-hoop-realistic.png",
+      "sha256": "5d5de88123b14e1158b596943eec9649e1ae947aae2e2184f98090f75a79a27c",
+      "moved": false
+    },
+    "/design_assets/motion/basketball-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/basketball-realistic.png",
+      "sha256": "51aeed5ff91d559de99828ee793a95a43e9bca7665ce8b48cc9eea2244e7cb4d",
+      "moved": false
+    },
+    "/design_assets/motion/basketball-shoes-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/basketball-shoes-realistic.png",
+      "sha256": "562be50d4f70dea92cd14cd5638dc3b85137dfa64dea1164a8fa9b13c76c25b1",
+      "moved": false
+    },
+    "/design_assets/motion/basketball.svg": {
+      "file": "gym-next/public/design_assets/motion/basketball.svg",
+      "sha256": "6fd54117a070d1b1575657c268b4107cdfb40ea5a4e3b17e6adb6d0cce5ef078",
+      "moved": false
+    },
+    "/design_assets/motion/boxing-glove-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/boxing-glove-realistic.png",
+      "sha256": "31baa6b368602d59dc5d107e77e59182451635b2bcc264b9081bd22b8c165253",
+      "moved": false
+    },
+    "/design_assets/motion/boxing-glove.svg": {
+      "file": "gym-next/public/design_assets/motion/boxing-glove.svg",
+      "sha256": "06074ca7c553beb60645922e1cb1f817a0728ccecb8e785a3c3517dc0b29f9e8",
+      "moved": false
+    },
+    "/design_assets/motion/dumbbell-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/dumbbell-realistic.png",
+      "sha256": "813e997aaeaab4d7e897df3ceaaa870591e427becb2b8b6459c18526785adb4d",
+      "moved": false
+    },
+    "/design_assets/motion/dumbbell.svg": {
+      "file": "gym-next/public/design_assets/motion/dumbbell.svg",
+      "sha256": "770243901ba685674c1b6ccdeee935de098315ae35115a957e8a4ffc5acf3a42",
+      "moved": false
+    },
+    "/design_assets/motion/focus-mitt-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/focus-mitt-realistic.png",
+      "sha256": "9f474b18b7c5fc9cbb733db52ff259b8f7fee501db98e9bdd341f39696676df1",
+      "moved": false
+    },
+    "/design_assets/motion/football-ball-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/football-ball-realistic.png",
+      "sha256": "c0f3d29ab24082753886dcc916d27c069cf19032fe1535be704f6a8fdf3f8ef0",
+      "moved": false
+    },
+    "/design_assets/motion/football-ball.svg": {
+      "file": "gym-next/public/design_assets/motion/football-ball.svg",
+      "sha256": "5c47d1e6fc89269fdaa4d858b86916f7908dd7be99ff8ac8f0911306f8cfc6ad",
+      "moved": false
+    },
+    "/design_assets/motion/football-boots-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/football-boots-realistic.png",
+      "sha256": "67934c30ffc8af228e4e3eadd361f7f19bc88fb62d76596e4e5cc78754c98aea",
+      "moved": false
+    },
+    "/design_assets/motion/football-cone-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/football-cone-realistic.png",
+      "sha256": "f681c75c098ff084e8f3392e47322ba2430248a5949488c33b7ca1761c6f8677",
+      "moved": false
+    },
+    "/design_assets/motion/kettlebell-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/kettlebell-realistic.png",
+      "sha256": "edd5be776b811b7da2a322b9cca0835fb8717012fab9bb4db31f071d6131143a",
+      "moved": false
+    },
+    "/design_assets/motion/resistance-band-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/resistance-band-realistic.png",
+      "sha256": "41f63928f7927e0903cbbd214f27531d55f6fbd71b4abf64f6bc60ded4d86da0",
+      "moved": false
+    },
+    "/design_assets/motion/shin-guards-realistic.png": {
+      "file": "gym-next/public/design_assets/motion/shin-guards-realistic.png",
+      "sha256": "a45b7740e42ddb63a77eb8bc112d645ac9293179d886f73c7cdaf490c2795117",
+      "moved": false
+    },
+    "/design_assets/pentagon-carousel-2026-11-02/coach-basketball-640.webp": {
+      "file": "gym-next/public/design_assets/pentagon-carousel-2026-11-02/coach-basketball-640.webp",
+      "sha256": "76b6474a773b07a664903f16eab45c82262805f012bb7065ad3744732110e032",
+      "moved": false
+    },
+    "/design_assets/pentagon-carousel-2026-11-02/coach-fitness-640.webp": {
+      "file": "gym-next/public/design_assets/pentagon-carousel-2026-11-02/coach-fitness-640.webp",
+      "sha256": "31af3fc0122fd0da706b4cfde33931493379852038d1aa12799c4cdaa10b0111",
+      "moved": false
+    },
+    "/design_assets/pentagon-carousel-2026-11-02/coach-football-640.webp": {
+      "file": "gym-next/public/design_assets/pentagon-carousel-2026-11-02/coach-football-640.webp",
+      "sha256": "946d73aea9508f75fe05bdd06add975838aeedaf4ca0d56d17a1e6ae8985ba57",
+      "moved": false
+    },
+    "/design_assets/pentagon-carousel-2026-11-02/index.html": {
+      "file": "prototypes/design-assets/pentagon-carousel-2026-11-02/index.html",
+      "sha256": "1570029609cd176f329660fbd06d727cb0b7b4a6632464050fe51d0240fc8a67",
+      "moved": true
+    },
+    "/design_assets/planity_like_4sports_real_athletes_bg.jpg": {
+      "file": "gym-next/public/design_assets/planity_like_4sports_real_athletes_bg.jpg",
+      "sha256": "bb8804d3d208765e8c9ee707a3657ab5e9dcd84a68f9475a2d93bb0e0ba1e048",
+      "moved": false
+    },
+    "/design_assets/planity_like_4sports_real_athletes_bg.png": {
+      "file": "gym-next/public/design_assets/planity_like_4sports_real_athletes_bg.png",
+      "sha256": "e86503500c0d47dd23641db7e09b8717837a73847f8b548fd2978d26939ad2b0",
+      "moved": false
+    },
+    "/design_assets/planity_like_free_sport_bg.jpg": {
+      "file": "gym-next/public/design_assets/planity_like_free_sport_bg.jpg",
+      "sha256": "92379d3293bfd619b45779cf90d7fae77f8f24cd21e84777523bb4529fec4d71",
+      "moved": false
+    },
+    "/design_assets/planity_like_free_sport_bg.png": {
+      "file": "gym-next/public/design_assets/planity_like_free_sport_bg.png",
+      "sha256": "238a02612642dbafaa03c5091278c9576d37b861672c30dcf317fc0e1ea12b63",
+      "moved": false
+    },
+    "/design_assets/providers/google-g.png": {
+      "file": "gym-next/public/design_assets/providers/google-g.png",
+      "sha256": "d1ce9c2af0b10a7333abc99bc706f9a6a199e5b65bf3e3009624f076b8638e6a",
+      "moved": false
+    },
+    "/design_assets/sport_image_candidates_contact_sheet.jpg": {
+      "file": "gym-next/public/design_assets/sport_image_candidates_contact_sheet.jpg",
+      "sha256": "193298d32c360fcf2c80c1cae29e5810f138e55931f1b9dc9191351d13ded28b",
+      "moved": false
+    },
+    "/design_assets/sports_sources/basketball.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/basketball.jpg",
+      "sha256": "40ba8115351be1b564be32a3dfb76b5cdef56bce3b25b3a03552d07df9318006",
+      "moved": false
+    },
+    "/design_assets/sports_sources/combat.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/combat.jpg",
+      "sha256": "ea44cd5b85f7294ce88af4de4a5ee6032d2333193b03057f95618877d96e6717",
+      "moved": false
+    },
+    "/design_assets/sports_sources/fitness.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/fitness.jpg",
+      "sha256": "017f0214c3f562046fbc3feb624c6b40a6cfe90636ccd75fad1c145170ef9524",
+      "moved": false
+    },
+    "/design_assets/sports_sources/football.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/football.jpg",
+      "sha256": "9d048fc73c73b082f57bd6f65b1515b8085e63223ebfd552fc0598df04409a77",
+      "moved": false
+    },
+    "/design_assets/sports_sources/image_accueil.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/image_accueil.jpg",
+      "sha256": "85c5a2fa6ba1002c026a1cea372f515378aa098f6eb2c53c5628c4edfc2a89c8",
+      "moved": false
+    },
+    "/design_assets/sports_sources/image_accueil_site_v2.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/image_accueil_site_v2.jpg",
+      "sha256": "9c5b0e498ea1af7e1c85ab9fbc212053eedf4728d3c95320df8ab6f811b2484a",
+      "moved": false
+    },
+    "/design_assets/sports_sources/image_accueil_site_v3.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/image_accueil_site_v3.jpg",
+      "sha256": "c567a26d3e9126e238c8815bb17ab213d966060fd1a84752cd079b7f305272d4",
+      "moved": false
+    },
+    "/design_assets/sports_sources/image_accueil_site_v4.jpg": {
+      "file": "gym-next/public/design_assets/sports_sources/image_accueil_site_v4.jpg",
+      "sha256": "e0801e2b964f0a6ed6802bb756c0e675c6bd82c9daa1048565bba3523043571e",
+      "moved": false
+    }
+  }
+}

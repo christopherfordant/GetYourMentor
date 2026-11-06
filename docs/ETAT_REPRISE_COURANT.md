@@ -1,3 +1,11 @@
+## Reprise active - 6 novembre 2026 : ARC3.2 extraction locale des demonstrations
+
+4 HTML et2 fichiers propres au comparatif carrousels deplaces vers prototypes/design-assets, six SHA256 preserves et110 fichiers publics inchanges dont entrance.js/images du header. Manifeste109 ressources pour serveur local127.0.0.1:4336 uniquement, aucun acces aux API/comptes/documents prives. Guide prototypes/README.md. Apercu manuel lance pour controle; Ctrl+C pour arreter, commande de reouverture documentee.
+
+Fixture Playwright partagee pour serveur ephemere et suites normales conservees; controle header reel separe du prototype, captures historiques non ecrasees.4 tests serveur et16 scenarios demo PASS;types PASS,35 tests Kanban PASS. Quatre demos ordinateur/mobile sans erreurs ni requetes externes;eventail20 cartes et rotations continues verifies.18 brouillons anterieurs preserves. Aucun build, header applicatif ou deploiement revendique.
+
+Rapport docs/EXTRACTION_PROTOTYPES_ARC3_2_2026-11-06.md et preuves docs/assets/prototype-extraction-2026-11-06/. ARC3.2 termine,parent ARC3 en cours,.3 backlog. Prochaine priorite ARC3.3 : build isole, verifier prototypes absents du candidat et ressources du vrai site conservees, avant cloture. Pas de service distant,migration,paiement,notification ou agent. Les chemins historiques sous design_assets ne sont disponibles que sur le serveur de preview, pas rediriges dans Next.
+
 ## Reprise active - 6 novembre 2026 : ARC3.1 inventaire des prototypes publics
 
 116 fichiers design_assets/22084835 octets,4 HTML;888 sources texte et513 references statiques.33 fichiers avec reference applicative exacte,46 proteges par prefixe dynamique,34 a revoir et3 entrees HTML candidates. Header importe entrance.js et ses medias : aucun dossier deplace globalement. Les4 demonstrations ont des references documentaires,3 des tests URL; plan de correspondance seulement propose hors public.

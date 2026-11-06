@@ -1,3 +1,7 @@
+# Mise à jour du 6 novembre 2026
+
+Les images utilisées par le site restent dans `public`. Seul l'HTML d'aperçu a été extrait ; ouverture actuelle via le [guide local](../prototypes/README.md) et `http://127.0.0.1:4336/design_assets/header-equipment-2026-10-30/apercu.html`. Les preuves de cette livraison restent historiques.
+
 # Équipements réalistes du header — reprise du 2 novembre 2026
 
 ## Demande et périmètre

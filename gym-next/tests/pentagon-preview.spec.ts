@@ -1,13 +1,13 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './helpers/prototype-test';
 import fs from 'node:fs/promises';
 const preview = '/design_assets/pentagon-carousel-2026-11-02/index.html';
-const evidence = '../docs/assets/pentagon-carousel-2026-11-02';
+const evidence = '../delivery-private/prototype-tests/pentagon';
 
 for (const width of [320, 390, 768, 1440]) {
-  test(`pentagonal geometry, readable cards and no overflow at ${width}px`, async ({ page }, info) => {
+  test(`pentagonal geometry, readable cards and no overflow at ${width}px`, async ({ page, prototypeURL }, info) => {
     await page.setViewportSize({ width, height: 1000 });
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.goto(preview);
+    await page.goto(new URL(preview, prototypeURL).href);
     await expect(page.locator('#stage')).toHaveAttribute('data-ready', 'true');
     await expect(page.locator('#stage')).toHaveAttribute('data-step', '0');
     await expect(page.locator('.face')).toHaveCount(5);
@@ -37,8 +37,8 @@ for (const width of [320, 390, 768, 1440]) {
   });
 }
 
-test('unbounded rotations in both directions, keyboard and rapid clicks', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto(preview);
+test('unbounded rotations in both directions, keyboard and rapid clicks', async ({ page, prototypeURL }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto(new URL(preview, prototypeURL).href);
   for (let i = 0; i < 6; i++) await page.getByRole('button', { name: 'Face suivante', exact: true }).click();
   await expect(page.locator('#stage')).toHaveAttribute('data-step', '6');
   await expect(page.locator('#stage')).toHaveAttribute('data-active', '1');
@@ -53,8 +53,8 @@ test('unbounded rotations in both directions, keyboard and rapid clicks', async 
   expect(await page.locator('#ring').evaluate(element => element.getAnimations().length)).toBe(0);
 });
 
-test('swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(preview);
+test('swipe changes face; vertical gestures preserve scrolling; reduced motion is immediate', async ({ page, prototypeURL }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.goto(new URL(preview, prototypeURL).href);
   const stage = page.locator('#stage');
   await stage.dispatchEvent('pointerdown', { pointerId: 1, clientX: 260, clientY: 300, isPrimary: true, pointerType: 'touch' });
   await stage.dispatchEvent('pointerup', { pointerId: 1, clientX: 140, clientY: 307, isPrimary: true, pointerType: 'touch' });
@@ -69,9 +69,9 @@ test('swipe changes face; vertical gestures preserve scrolling; reduced motion i
   await expect(stage).toHaveAttribute('data-state', 'idle');
 });
 
-test('missing portrait retains textual information and usable navigation', async ({ page }) => {
+test('missing portrait retains textual information and usable navigation', async ({ page, prototypeURL }) => {
   await page.route('**/coach-basketball-640.webp', route => route.abort());
-  await page.goto(preview);
+  await page.goto(new URL(preview, prototypeURL).href);
   await expect(page.locator('.face').first().locator('img')).toBeHidden();
   await expect(page.locator('.face').first()).toContainText('Portrait indisponible');
   await expect(page.getByRole('heading', { name: 'Steven Fordant' })).toBeVisible();
@@ -79,8 +79,8 @@ test('missing portrait retains textual information and usable navigation', async
   await expect(page.locator('#stage')).toHaveAttribute('data-active', '1');
 });
 
-test('keyboard retains focus when leaving the active card link', async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto(preview);
+test('keyboard retains focus when leaving the active card link', async ({ page, prototypeURL }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto(new URL(preview, prototypeURL).href);
   await page.locator('.face[data-active="true"] .cta').focus();
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('#stage')).toBeFocused();
@@ -91,7 +91,7 @@ test('keyboard retains focus when leaving the active card link', async ({ page }
   await expect(page.locator('#stage')).toHaveAttribute('data-state', 'idle');
 });
 
-test('door opening uses full slow duration and remains alive after former cleanup deadline', async ({ page }) => {
+test('door opening uses full slow duration and remains alive after former cleanup deadline', async ({ page, prototypeURL }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' }); await page.goto('/');
   const reject = page.getByRole('button', { name: 'Refuser le non n\u00e9cessaire', exact: true });
   await expect(reject).toBeVisible(); await reject.click();

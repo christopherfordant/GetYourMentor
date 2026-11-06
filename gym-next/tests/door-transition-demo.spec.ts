@@ -1,9 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './helpers/prototype-test';
 import fs from 'node:fs/promises';
-const proof='../docs/assets/door-transition-2026-11-02';
-const url='/design_assets/door-transition-2026-11-02/index.html';
+const proof='../delivery-private/prototype-tests/doors';
+const url = '/design_assets/door-transition-2026-11-02/index.html';
 for(const [size,width,height] of [['desktop',1440,900],['mobile',390,780]] as const){
-  test(`capture source pages ${size}`,async({page})=>{
+  test(`capture source pages ${size}`,async({page, prototypeURL})=>{
     await page.setViewportSize({width,height});
     await page.emulateMedia({reducedMotion:'reduce'});
     await fs.mkdir(proof,{recursive:true});
@@ -21,9 +21,9 @@ for(const [size,width,height] of [['desktop',1440,900],['mobile',390,780]] as co
 }
 
 for(const width of [390,1440]){
-  test(`door demo opens opposite battants and brings destination forward at ${width}px`,async({page})=>{
+  test(`door demo opens opposite battants and brings destination forward at ${width}px`,async({page, prototypeURL})=>{
     await page.setViewportSize({width,height:1000});
-    await page.goto(url);const stage=page.locator('#stage');
+    await page.goto(new URL(url, prototypeURL).href);const stage=page.locator('#stage');
     await expect(stage).toHaveAttribute('data-state','idle');
     await expect(stage).toHaveAttribute('data-page','accueil');
     await page.locator('#speed').selectOption('2200');
@@ -47,8 +47,8 @@ for(const width of [390,1440]){
   });
 }
 
-test('door demo supports explicit replay, escape, resize and no-motion path',async({page})=>{
-  await page.emulateMedia({reducedMotion:'reduce'});await page.goto(url);
+test('door demo supports explicit replay, escape, resize and no-motion path',async({page, prototypeURL})=>{
+  await page.emulateMedia({reducedMotion:'reduce'});await page.goto(new URL(url, prototypeURL).href);
   const stage=page.locator('#stage');await expect(stage).toHaveAttribute('data-state','idle');
   expect(await stage.evaluate(element=>element.getAnimations({subtree:true}).length)).toBe(0);
   await page.locator('#speed').selectOption('2200');
@@ -64,8 +64,8 @@ test('door demo supports explicit replay, escape, resize and no-motion path',asy
   await expect(page.locator('#play')).toHaveAttribute('aria-disabled','false');
 });
 
-test('door demo reports missing snapshots instead of opening an empty destination',async({page})=>{
-  await page.route('**/annuaire-desktop.webp',route=>route.abort());await page.goto(url);
+test('door demo reports missing snapshots instead of opening an empty destination',async({page, prototypeURL})=>{
+  await page.route('**/annuaire-desktop.webp',route=>route.abort());await page.goto(new URL(url, prototypeURL).href);
   await expect(page.locator('#stage')).toHaveAttribute('data-state','error');
   await expect(page.getByRole('status')).toContainText('Captures indisponibles');
   await expect(page.locator('#play')).toBeDisabled();

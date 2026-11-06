@@ -1,8 +1,9 @@
-import { test, expect, type Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
+import { test, expect } from './helpers/prototype-test';
 import fs from 'node:fs/promises';
 const preview = '/design_assets/header-equipment-2026-10-30/apercu.html';
 const layer = '[data-equipment-entrance-layer]';
-const evidence = '../docs/assets/equipment-entrance-2026-11-02';
+const evidence = '../delivery-private/prototype-tests/equipment';
 async function settled(page: Page) {
   await expect(page.locator('.sportsPanel')).toHaveAttribute('data-equipment-intro', 'settled');
   await expect(page.locator(layer)).toHaveCount(0);
@@ -10,10 +11,10 @@ async function settled(page: Page) {
 }
 
 for (const width of [390, 1440]) {
-  test(`objects travel across the viewport then settle without moving links at ${width}px`, async ({ page }) => {
+  test(`objects travel across the viewport then settle without moving links at ${width}px`, async ({ page, prototypeURL }) => {
     await page.setViewportSize({ width, height: 1000 });
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    await page.goto(preview);
+    await page.goto(new URL(preview, prototypeURL).href);
     await settled(page);
     const initial = await page.getByRole('navigation', { name: 'Sports', exact: true }).boundingBox();
     await page.getByRole('button', { name: 'Rejouer l’arrivée' }).click();
@@ -43,9 +44,9 @@ for (const width of [390, 1440]) {
   });
 }
 
-test('escape, resize and repeated replay restore originals and remove every overlay', async ({ page }) => {
+test('escape, resize and repeated replay restore originals and remove every overlay', async ({ page, prototypeURL }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  await page.goto(preview);
+  await page.goto(new URL(preview, prototypeURL).href);
   await settled(page);
   const replay = page.getByRole('button', { name: 'Rejouer l’arrivée' });
   await replay.click();
@@ -62,12 +63,16 @@ test('escape, resize and repeated replay restore originals and remove every over
   await settled(page);
 });
 
-test('reduced motion stays static until the preview is explicitly enabled', async ({ page }) => {
+test('actual home header respects reduced motion', async ({ page, prototypeURL }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
   await expect(page.locator('#platform-sports')).toHaveAttribute('data-equipment-intro', 'skipped');
   await expect(page.locator(layer)).toHaveCount(0);
-  await page.goto(preview);
+});
+
+test('reduced motion stays static until the preview is explicitly enabled', async ({ page, prototypeURL }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(new URL(preview, prototypeURL).href);
   await expect(page.getByRole('checkbox')).not.toBeChecked();
   await expect(page.locator(layer)).toHaveCount(0);
   await page.getByRole('button', { name: 'Rejouer l’arrivée' }).click();
@@ -77,7 +82,7 @@ test('reduced motion stays static until the preview is explicitly enabled', asyn
   await settled(page);
 });
 
-test('actual home header starts once and its sport links work during the arrival', async ({ page }) => {
+test('actual home header starts once and its sport links work during the arrival', async ({ page, prototypeURL }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');
   await expect(page.locator('#platform-sports')).toHaveAttribute('data-equipment-intro', /running|settled/);
@@ -88,7 +93,7 @@ test('actual home header starts once and its sport links work during the arrival
   await expect(page.locator(layer)).toHaveCount(0);
 });
 
-test('mobile header waits for first Sports opening and does not replay after reopening', async ({ page }) => {
+test('mobile header waits for first Sports opening and does not replay after reopening', async ({ page, prototypeURL }) => {
   await page.setViewportSize({ width: 390, height: 1000 });
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/');
