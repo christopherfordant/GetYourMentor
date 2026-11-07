@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-07",
+  "base": "6e62d05",
+  "mechanism": "Native delegation in this conversation; separate clean Git worktrees",
+  "simultaneousRunningObserved": true,
+  "newVSCodeWindowsOpened": 0,
+  "windowsRequired": false,
+  "subdelegation": false,
+  "agents": [
+    {
+      "id": "/root/telegram_reader2",
+      "ticket": "GYM-H1.5.2.1",
+      "modelRequested": "gpt-6.1-sol",
+      "effort": "medium",
+      "worktree": "C:/Users/cashe/Documents/GYM-parallel2-reader-20261107",
+      "sourceCommit": "d11f79d335c735f44b0a95328745aa6aa287b294",
+      "integratedCommit": "b56462e",
+      "completed": true
+    },
+    {
+      "id": "/root/telegram_failure2",
+      "ticket": "GYM-H1.5.2.2",
+      "modelRequested": "gpt-6.1-sol",
+      "effort": "medium",
+      "worktree": "C:/Users/cashe/Documents/GYM-parallel2-tests-20261107",
+      "sourceCommit": "2fabf32840de7124129063acc8437e01ec7e5513",
+      "integratedCommit": "df5eb3c",
+      "completed": true
+    }
+  ],
+  "sharedDependencies": "Ignored node_modules junctions to primary checkout; no install",
+  "quotaAndTokenCounts": "not accessible",
+  "paidAPIProvisioned": false,
+  "externalBusinessServiceCalls": false,
+  "completed": true,
+  "continuation": false,
+  "coordinatorCorrection": "43b06b9",
+  "mutationBodyUnchanged": true
+}

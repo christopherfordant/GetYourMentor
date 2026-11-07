@@ -1,3 +1,13 @@
+## Reprise active - 7 novembre 2026 : second lot natif termine sans fenetre IDE supplementaire
+
+Nouvelle consigne utilisateur executee avec deux agents natifs concurrents depuis la conversation,worktrees neufs GYM-parallel2-reader-20261107 et GYM-parallel2-tests-20261107,base6e62d05. Aucun lancement VS Code supplementaire ni pilotage de conversations IDE. Missions terminees,sans continuation automatique;AGENTS ferme ce lot.
+
+H1.5.2 : lecteur serveur readTelegramSnapshot sans mutation (GET seulement a distance,lecture locale serialisee sans creation),projection readTelegramSupervision expurgee et interne non exposee. Corps mutateTelegram identique. Agent QA reproduit2 echeances429 infinies;coordinateur corrige avec fallback60s pour calcul non fini. Sources d11f79d/2fabf32 integrees b56462e/df5eb3c;correctif43b06b9.
+
+54 tests cibles,types globaux,31 gardes historiques et35 tests Kanban PASS;tableau ordinateur/mobile avec agents reels et tickets valides.18 brouillons preserves;pas de build global,service metier distant,secret,notification,migration ou deploiement. H1.5.2 et enfants termines;H1.5 reste en cours avec H1.5.3 prepare,exposition operateur/alertes/exploitation non activees. A5/Q2 inchanges.
+
+Rapport docs/multi-agent/2026-11-07/LOT2_COMPTE_RENDU.md;preuves docs/assets/parallel2-2026-11-07/;procedure docs/TELEGRAM_SUPERVISION_REPRISE_2026-11-07.md. Prochain lot recommande cadrage H1.5.3 sans renvoi aveugle ni operation distante implicite. Historique suivant preserve.
+
 ## Reprise active - 7 novembre 2026 : premier lot parallele natif termine
 
 Exception utilisateur bornee consignee dans AGENTS.md et docs/multi-agent/2026-11-07/. Deux agents natifs reellement lances et observes en cours simultanement : /root/arc5 (gpt-6.1-sol medium) et /root/telegram_metrics (gpt-6-luna medium). Deux fenetres VS Code visibles sur worktrees neufs GYM-parallel-arc5-20261107 et GYM-parallel-telegram-20261107;extensions desactivees au lancement pour limiter charge. Ce ne sont pas des conversations IDE pilotees,mais les vues de dossiers des agents coordonnes ici. Pas de boucle persistante,ancien lanceur reactive,nouvelle API ou sous-delegation.

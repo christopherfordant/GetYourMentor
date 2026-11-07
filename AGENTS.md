@@ -4,6 +4,8 @@ La derni?re consigne utilisateur autorise un second lot born?, coordonn? dans la
 
 # GetYourMentor — consignes obligatoires de reprise
 
+Cloture du second lot : missions terminees,voir `docs/multi-agent/2026-11-07/LOT2_COMPTE_RENDU.md`. Cette consigne ne lance aucune boucle persistante et ne permet pas de rejouer les missions fermees. Reprendre uniquement un nouveau lot borne demande par l utilisateur.
+
 ## Exception utilisateur bornée — 7 novembre 2026, premier lot parallèle
 
 La consigne utilisateur jointe du 7 novembre autorise pour ce seul lot deux agents exécutants natifs supervisés, sur des worktrees neufs de l'historique nettoyé : ARC-05 (types/fixtures compatibles) et H1.5.1 (projection locale expurgée de supervision Telegram). Cette exception remplace les anciennes interdictions générales de délégation uniquement dans ce périmètre ; elle ne réactive aucun lanceur/boucle historique. Pas de sous-délégation, nouvelle tâche autonome, API payante supplémentaire, compte, opération distante, migration, notification, paiement ou déploiement.

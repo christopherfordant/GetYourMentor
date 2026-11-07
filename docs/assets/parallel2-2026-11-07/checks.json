@@ -1,0 +1,43 @@
+{
+  "unit": {
+    "command": "node --test tools/domain-contracts/domain.test.cjs tools/telegram-observability/project.test.cjs tools/telegram-observability/reader.test.cjs tools/telegram-observability/flush.test.cjs",
+    "tests": 54,
+    "passed": 54,
+    "failed": 0
+  },
+  "before429Fix": {
+    "tests": 38,
+    "passed": 36,
+    "failed": 2,
+    "cases": [
+      "Infinity retry_after",
+      "1e308 multiplication overflow"
+    ]
+  },
+  "types": {
+    "exitCode": 0,
+    "command": "node --max-old-space-size=384 gym-next/node_modules/typescript/bin/tsc --noEmit --incremental false --project gym-next/tsconfig.json"
+  },
+  "kanban": {
+    "tests": 35,
+    "passed": 35,
+    "initialIncompleteTicketMetadataFailure": "Corrected missing test descriptions on two new tickets; no test weakened"
+  },
+  "guards": {
+    "tests": 31,
+    "passed": 31
+  },
+  "browser": {
+    "desktop": true,
+    "mobile": true,
+    "scope": "Kanban only; fresh isolated contexts; loopback4325; no user localStorage touched"
+  },
+  "priorDraftsPreserved": 18,
+  "agentWorktreesClean": true,
+  "existingMutationBodyUnchanged": true,
+  "nextServerOnlyAliasVerified": true,
+  "buildExecuted": false,
+  "externalBusinessCalls": false,
+  "realNotificationsSent": 0,
+  "deployment": false
+}

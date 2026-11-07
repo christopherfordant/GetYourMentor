@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated": "2026-11-06",
-  "mode": "Roles de planification et premier lot natif supervise a deux executants, sans autonomie persistante",
+  "updated": "2026-11-07",
+  "mode": "Roles de planification et lots natifs supervises bornes, sans fenetres IDE requises ni autonomie persistante",
   "roles": [
     "Architecture",
     "RAG",
@@ -1390,7 +1390,7 @@
       "acceptance": [
         "429/panne/uncertain et reprises verifies sans renvoi aveugle; alertes sans secrets"
       ],
-      "next": "Preparer un lot borne selon audit; dates proposees a replanifier selon capacite"
+      "next": "H1.5.3 : cadrer exposition operateur et alertes;aucune reprise aveugle ou activation distante"
     },
     {
       "sprint": "S2",
@@ -2674,21 +2674,155 @@
         "GYM-H1.5.1"
       ],
       "acceptance": [
-        "Deux missions isolees,preuves,relecture et validation combinee avant push"
+        "Lecture sans mutation et projection expurgee verifiees",
+        "429,panne,incertain et controles absence de renvoi verifies en fixtures",
+        "Procedure operateur et limites documentees;pas de service distant"
       ],
       "tests": [
-        "A preparer : integration et reprise sans renvoi aveugle"
+        "54 tests locaux PASS;types PASS;tests Kanban/gardes et navigateur consignes dans preuves"
       ],
-      "evidence": [],
-      "files": [],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/LOT2_COMPTE_RENDU.md",
+        "docs/assets/parallel2-2026-11-07/checks.json"
+      ],
+      "files": [
+        "gym-next/lib/telegram-supervision.ts",
+        "gym-next/lib/telegram-state.ts",
+        "gym-next/lib/telegram.ts",
+        "docs/TELEGRAM_SUPERVISION_REPRISE_2026-11-07.md"
+      ],
       "blocker": null,
-      "next": "Lot distinct avant cloture H1.5",
-      "scope": "Suite non executee : integration,alertes et traitement429/panne/incertain;aucun envoi autorise par cette preparation",
+      "next": "H1.5.3 reste ouvert;aucune exposition operateur ni reprise distante activee",
+      "scope": "Lot local H1.5.2: lecture seule,tests synthetiques et procedure;aucune route publique ni reprise activee",
       "id": "GYM-H1.5.2",
       "title": "Raccorder supervision et verifier reprises Telegram",
       "objective": "Raccorder supervision et verifier reprises Telegram",
-      "status": "prepare",
+      "status": "done",
       "parent": "GYM-H1.5"
+    },
+    {
+      "id": "GYM-H1.5.2.1",
+      "title": "Lire la supervision Telegram sans ecriture",
+      "objective": "Lire la supervision Telegram sans ecriture",
+      "parent": "GYM-H1.5.2",
+      "status": "done",
+      "sprint": "S2",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "native-agent",
+      "due": "2026-11-07",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.5.1"
+      ],
+      "scope": "Local synthetique uniquement,sans appel metier externe ni fenetre VS Code supplementaire",
+      "acceptance": [
+        "Resultat relu et tests verifies avant cloture"
+      ],
+      "tests": [
+        "7 tests lecteur+5 projection PASS"
+      ],
+      "files": [
+        "gym-next/lib/telegram-state.ts",
+        "gym-next/lib/telegram-supervision.ts",
+        "tools/telegram-observability/reader.test.cjs"
+      ],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/reader2-result.md",
+        "docs/assets/parallel2-2026-11-07/checks.json"
+      ],
+      "blocker": null,
+      "next": "Resultat relu et integre;aucune poursuite automatique",
+      "execution": {
+        "kind": "native-agent",
+        "agentId": "/root/telegram_reader2",
+        "phase": "valide et integre",
+        "model": "gpt-6.1-sol medium",
+        "worktree": "C:/Users/cashe/Documents/GYM-parallel2-reader-20261107",
+        "completed": true
+      }
+    },
+    {
+      "id": "GYM-H1.5.2.2",
+      "title": "Verifier pannes et reprises Telegram en fixtures",
+      "objective": "Verifier pannes et reprises Telegram en fixtures",
+      "parent": "GYM-H1.5.2",
+      "status": "done",
+      "sprint": "S2",
+      "priority": "P1",
+      "role": "QA",
+      "assignment": "native-agent",
+      "due": "2026-11-07",
+      "estimateHours": [
+        0.5,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.5.1"
+      ],
+      "scope": "Local synthetique uniquement,sans appel metier externe ni fenetre VS Code supplementaire",
+      "acceptance": [
+        "Resultat relu et tests verifies avant cloture"
+      ],
+      "tests": [
+        "38 tests moteur PASS apres correction429;2 regressions reproduites avant"
+      ],
+      "files": [
+        "tools/telegram-observability/flush.test.cjs"
+      ],
+      "evidence": [
+        "docs/multi-agent/2026-11-07/failure2-result.md",
+        "docs/assets/parallel2-2026-11-07/checks.json"
+      ],
+      "blocker": null,
+      "next": "Resultat relu et integre;aucune poursuite automatique",
+      "execution": {
+        "kind": "native-agent",
+        "agentId": "/root/telegram_failure2",
+        "phase": "valide et integre",
+        "model": "gpt-6.1-sol medium",
+        "worktree": "C:/Users/cashe/Documents/GYM-parallel2-tests-20261107",
+        "completed": true
+      }
+    },
+    {
+      "id": "GYM-H1.5.3",
+      "parent": "GYM-H1.5",
+      "title": "Cadrer acces operateur et alertes Telegram",
+      "objective": "Definir autorisations,exposition et recette exploitation sans renvoi aveugle",
+      "status": "prepare",
+      "sprint": "S2",
+      "priority": "P1",
+      "role": "DevOps",
+      "assignment": "coordinator",
+      "due": "2026-11-13",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-H1.5.2"
+      ],
+      "scope": "Suite non executee:autorisation operateur,alertes et verification externe distincte si autorisee",
+      "acceptance": [
+        "Acces global reserve aux operateurs autorises",
+        "Alerte expurgee et procedure uncertain validees avant activation"
+      ],
+      "tests": [
+        "A preparer : refus non autorise,redaction,exploitation et recette externe bornee"
+      ],
+      "files": [
+        "docs/TELEGRAM_SUPERVISION_REPRISE_2026-11-07.md"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Cadrer avant tout branchement ou envoi externe"
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "desktop": {
+    "nativeBadgesVerified": true,
+    "detailsShowActualAgents": true,
+    "completed": [
+      "GYM-H1.5.2",
+      "GYM-H1.5.2.1",
+      "GYM-H1.5.2.2"
+    ],
+    "telegramParent": "progress",
+    "followup": "H1.5.3 prepare",
+    "A5": "backlog",
+    "userDraftsUntouched": true
+  },
+  "mobile": {
+    "nativeBadgesVerified": true,
+    "detailsShowActualAgents": true,
+    "completed": [
+      "GYM-H1.5.2",
+      "GYM-H1.5.2.1",
+      "GYM-H1.5.2.2"
+    ],
+    "telegramParent": "progress",
+    "followup": "H1.5.3 prepare",
+    "A5": "backlog",
+    "userDraftsUntouched": true
+  }
+}
