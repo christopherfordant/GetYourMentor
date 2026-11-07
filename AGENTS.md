@@ -1,3 +1,7 @@
+## Nouveau lot autoris? ? 7 novembre 2026, sans fen?tres VS Code suppl?mentaires
+
+La derni?re consigne utilisateur autorise un second lot born?, coordonn? dans la conversation : deux agents natifs en worktrees neufs pour H1.5.2, lecture expurg?e et tests synth?tiques de panne/reprise. Aucune nouvelle fen?tre VS Code, sous-d?l?gation, API payante configur?e, ancien lanceur, service distant m?tier, secret, notification, migration ou d?ploiement. Les anciennes interdictions g?n?rales de d?l?gation sont remplac?es uniquement pour ce lot. Le coordinateur r?serve Kanban, instructions, reprise, int?gration des seuls commits revus et push cibl? sur la branche courante. Un seul contr?le lourd ? la fois ; pr?server tous les brouillons. Arr?ter apr?s livraison, sans boucle persistante. Les anciennes missions ARC5/H1.5.1 restent cl?tur?es.
+
 # GetYourMentor — consignes obligatoires de reprise
 
 ## Exception utilisateur bornée — 7 novembre 2026, premier lot parallèle
