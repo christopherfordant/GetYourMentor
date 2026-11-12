@@ -2939,13 +2939,13 @@
       "estimateHours": [2, 5],
       "actualHours": null,
       "dependencies": ["GYM-D1.3"],
-      "scope": "Inclure profils de test, réservations, sessions, données de notification et Auth selon la politique de rétention ; ne jamais supprimer les fixtures partagées.",
+      "scope": "Session individuelle effaçable, avec rétention automatique cible de 24 h à valider ; inclure profils, réservations et références de notification. Ne jamais supprimer les fixtures partagées.",
       "acceptance": ["Session de test isolée par visiteur", "Action explicite d'effacement authentifiée/possédée", "Relecture prouvant absence de résidus et refus d'effacer les données d'un autre"],
       "tests": ["Tests suppression complète et idempotente", "Tests d'accès croisé refusé"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
       "blocker": "Dépend du schéma et de la RLS dédiés (GYM-D1.3).",
-      "next": "Définir la portée de suppression avant d'ouvrir l'accès public."
+      "next": "Valider dans le schéma et les tests la rétention cible de 24 h, l'effacement idempotent et le refus des suppressions croisées."
     },
     {
       "id": "GYM-D1.5",
@@ -2961,13 +2961,13 @@
       "estimateHours": [3, 6],
       "actualHours": null,
       "dependencies": ["GYM-D1.3", "GYM-D1.4"],
-      "scope": "Ne pas publier les comptes partagés de /demo ; validation coach simulée et étiquetée, paiement non financier. Aucune vraie IA revendiquée.",
-      "acceptance": ["Parcours coach et sportif indépendants et reproductibles", "Aucune donnée testeur visible à un autre", "Étapes d'acceptation et paiement affichées comme simulation"],
+      "scope": "Deux parcours individuels séparés, sans compte partagé. Coach et créneaux fictifs, validation déterministe annoncée comme simulée, paiement non financier sans saisie ni stockage PAN/CVC. Aucune vraie IA revendiquée.",
+      "acceptance": ["Entrées coach et sportif distinctes sans identifiants partagés", "Aucune donnée testeur visible à un autre", "Acceptation et paiement présentés comme simulations, sans collecte de carte réelle"],
       "tests": ["Recette E2E avec identités jetables isolées", "Rejeu, erreur et suppression vérifiés"],
-      "files": ["gym-next/app/demo/page.tsx", "gym-next/components/home/RoleJourneys.tsx"],
+      "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
-      "blocker": "La page locale actuelle expose des identifiants de comptes partagés et n'est pas publiable telle quelle.",
-      "next": "Adapter après livraison des sessions et politiques de données isolées."
+      "blocker": "La route /demo est absente du site lié au portfolio et aucun projet Supabase dédié n'est disponible. Les comptes partagés de l'ancien candidat ne sont pas retenus.",
+      "next": "Après cible isolée et tests RLS locaux, construire les deux parcours individuels dans la source du site réellement lié au portfolio."
     },
     {
       "id": "GYM-D1.6",
@@ -2983,13 +2983,13 @@
       "estimateHours": [2, 4],
       "actualHours": null,
       "dependencies": ["GYM-D1.2", "GYM-D1.5"],
-      "scope": "Telegram facultatif et initié par le testeur via un mécanisme prévu à cet effet ; aucun numéro, token ou identifiant n'est saisi dans le client. Solution alternative : confirmation de démonstration sur le site.",
+      "scope": "Confirmation sur le site par défaut ; aucune notification au téléphone ou bot personnel du propriétaire. Telegram reste une option ultérieure avec consentement explicite, bot dédié et révocation ; aucune saisie de numéro ou token côté client.",
       "acceptance": ["Consentement clair avant appairage/envoi", "Bot dédié et secrets serveur, ou repli d'interface sans prétendre à une livraison Telegram", "Révocation et suppression des références de session documentées"],
       "tests": ["Tests consentement absent/refusé/révoqué", "Test de notification uniquement en compte/bot de démonstration autorisé"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
-      "blocker": "Aucun bot public dédié ni consentement testeur configuré/recetté pour cette cible.",
-      "next": "Décider bot dédié ou repli visuel avant d'activer une notification externe."
+      "blocker": "Aucun bot public dédié ni consentement testeur configuré/recetté pour cette cible ; confirmation à l'écran retenue par défaut.",
+      "next": "Ne traiter l'option Telegram qu'après réalisation du parcours de base, avec bot séparé, consentement testé et révocation."
     },
     {
       "id": "GYM-D1.7",
@@ -3005,10 +3005,10 @@
       "estimateHours": [1, 2],
       "actualHours": null,
       "dependencies": ["GYM-D1.5", "GYM-D1.6"],
-      "scope": "Textes du site GetYourMentor, pas du portfolio personnel ; ne pas annoncer une IA, un paiement ou une réservation réels.",
-      "acceptance": ["Accueil met en évidence les deux parcours disponibles", "Consentement et absence de débit exposés avant l'essai", "Aucune contradiction entre accueil, inscription, coach, réservation et paiement"],
+      "scope": "Textes du site GetYourMentor, pas du portfolio personnel ; distinguer coach fictif, créneau fictif, acceptation simulée et confirmation de paiement non financière. Aucune revendication d'IA, de paiement ou de réservation réels.",
+      "acceptance": ["Accueil met en évidence les deux parcours individuels", "Absence de débit et de collecte de données de carte exposées avant l'essai", "Aucune contradiction entre accueil, inscription, coach, réservation et paiement"],
       "tests": ["Revue exhaustive des chaînes concernées et Playwright sur routes principales"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
       "blocker": null,
       "next": "Éditer après stabilisation du périmètre réellement disponible."
