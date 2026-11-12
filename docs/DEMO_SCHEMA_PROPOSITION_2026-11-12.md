@@ -30,3 +30,9 @@ Cette proposition ne constitue pas une migration prête à appliquer ni une int�
 ## Tickets
 
 GYM-D1.2 reste bloqué jusqu'à la désignation d'un projet de démo isolé. GYM-D1.3 reste bloqué : seul un brouillon local est prêt et ses tests doivent être revus puis exécutés sur Supabase local. GYM-D1.4 à GYM-D1.9 restent dans leurs statuts précédents, car leurs critères applicatifs ou distants ne sont pas satisfaits. Les statuts sont consignés dans le Kanban ; aucun ticket n'est fermé par cette proposition.
+
+## Mise à jour — 12 novembre 2026 : projet isolé et pgTAP
+
+Le projet `getyourmentor-demo-recruiter` (réf. `rqxoovriacgoriimpbwi`, région Paris, offre Free) a depuis été créé et vérifié Healthy. La migration `001_demo_schema.sql` est appliquée à ce projet dédié seulement. Les 34 assertions pgTAP de `002_demo_rls_tests.sql` passent, et la requête après rollback confirme zéro donnée synthétique résiduelle. Le détail est consigné dans `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md`.
+
+Les constats précédents de ce document décrivent l'état antérieur au provisionnement. La proposition reste non intégrée aux parcours applicatifs. Aucun site Netlify ni variable n'a été connecté. Une migration de retour, la revue applicative/client-serveur et la configuration du site Netlify exact restent à faire ; ne pas réutiliser `getyourmentor-preprod`.

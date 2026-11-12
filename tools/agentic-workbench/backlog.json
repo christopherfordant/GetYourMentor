@@ -2856,8 +2856,8 @@
       "tests": ["Campagne Playwright desktop/mobile isolée", "Tests RLS par rôle et de suppression", "Contrôles de configuration de publication"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
-      "blocker": "La démo publique n'offre pas encore de parcours testable (/demo renvoie 404). Le tableau Supabase connecté ne montre aucun projet dédié ; getyourmentor-preprod reste réservé à la recette et un ancien projet personnel est en pause.",
-      "next": "Désigner ou provisionner un projet Supabase de démo strictement isolé, puis reprendre les sous-tickets dans l'ordre des dépendances."
+      "blocker": "La base de démonstration dédiée existe et son schéma/RLS passe les tests, mais aucun parcours applicatif n'est intégré ou publié. Le site Netlify relié au portfolio et sa frontière de secrets doivent encore être établis avant la configuration.",
+      "next": "Identifier le site Netlify exact relié depuis le portfolio ; terminer l'intégration et les contrôles avant toute publication."
     },
     {
       "id": "GYM-D1.1",
@@ -2879,14 +2879,14 @@
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
       "evidence": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
       "blocker": null,
-      "next": "Attendre le projet de base de démonstration isolé avant le raccordement."
+      "next": "Le projet dédié est provisionné ; poursuivre GYM-D1.2 pour établir la cible Netlify et sa configuration sûre."
     },
     {
       "id": "GYM-D1.2",
       "parent": "GYM-D1",
       "title": "Provisionner et isoler le projet Supabase de démonstration",
       "objective": "Séparer les données publiques de démonstration de la recette et de toute production métier",
-      "status": "blocked",
+      "status": "progress",
       "sprint": "S4",
       "priority": "P0",
       "role": "DevOps",
@@ -2895,20 +2895,20 @@
       "estimateHours": [1, 3],
       "actualHours": null,
       "dependencies": ["GYM-D1.1"],
-      "scope": "Aucune création ni modification distante effectuée. Projet dédié requis ; ne pas réutiliser la recette sans nouvel audit et arbitrage explicite.",
+      "scope": "Projet dédié créé : getyourmentor-demo-recruiter (rqxoovriacgoriimpbwi), région Paris, offre Free. Migration appliquée à cette base uniquement ; aucune variable Netlify ni intégration applicative. Secrets absents du dépôt.",
       "acceptance": ["Projet Supabase dédié identifié et autorisé", "Clés publiques/serveur rangées dans les secrets du bon site Netlify", "Aucune clé privilégiée incluse dans un bundle client"],
       "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "Le tableau de l'organisation Supabase consultée liste getyourmentor-preprod et un projet personnel en pause ; aucun projet démo isolé n'existe et aucune création n'a été autorisée. L'offre gratuite affiche deux projets listés.",
-      "next": "Le propriétaire doit désigner un projet déjà isolé ou créer le projet démo dans une organisation avec capacité disponible. Ne pas réactiver/supprimer l'ancien projet ni réutiliser la recette sans arbitrage."
+      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md", "supabase/proposals/demo-public-20261112/001_demo_schema.sql"],
+      "blocker": "La configuration des variables de démo dans le bon site Netlify et la vérification de la frontière client/serveur restent à faire. Le site exact relié au portfolio doit être confirmé avant toute configuration.",
+      "next": "Identifier le site Netlify lié au portfolio, vérifier la cible et le code client/serveur, puis configurer les secrets uniquement dans le gestionnaire du site de démo."
     },
     {
       "id": "GYM-D1.3",
       "parent": "GYM-D1",
       "title": "Définir le schéma de démo, les fixtures et la RLS",
       "objective": "Persister les parcours de test sans permettre à un visiteur de lire ou modifier les données d'un autre",
-      "status": "blocked",
+      "status": "progress",
       "sprint": "S4",
       "priority": "P0",
       "role": "Securite",
@@ -2917,13 +2917,13 @@
       "estimateHours": [3, 6],
       "actualHours": null,
       "dependencies": ["GYM-D1.2"],
-      "scope": "Brouillon SQL local non appliqué : sessions, fixtures, réservations simulées, RLS et effacement par session. pgTAP proposé avec identités synthétiques ; revue et exécution exigées sur Supabase local avant toute migration distante.",
+      "scope": "Schéma appliqué au projet de démonstration dédié uniquement. pgTAP : 34 assertions réussies sur les rôles anon, sportif, coach et service, l'isolation, l'effacement, les fixtures et les valeurs simulées. Une migration de retour et la revue de compatibilité applicative restent nécessaires.",
       "acceptance": ["Accès filtré par propriétaire/tenant pour coach et sportif", "Fixtures partagées non modifiables hors périmètre", "Tests RLS positif/négatif et migrations réversibles disponibles"],
       "tests": ["Tests SQL sous anon, sportif, coach et rôle serveur", "Contrôle de non-fuite inter-visiteurs"],
       "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql", "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql", "supabase/proposals/demo-public-20261112/README.md", "supabase/proposals/demo-public-20261112/validate-proposal.mjs", "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
-      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
-      "blocker": "GYM-D1.2 est bloqué : aucun projet de démo isolé n'est disponible. En plus, Supabase CLI, PostgreSQL/psql et Docker ne sont pas installés ici ; les assertions pgTAP et la RLS réelle restent non exécutées.",
-      "next": "Après désignation du projet, installer/activer l'outillage local, relire le schéma, exécuter les 34 assertions sur une base jetable, puis corriger avant toute migration."
+      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md", "docs/SUPABASE_DEMO_PROVISION_2026-11-12.md", "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql"],
+      "blocker": "Préparer une migration de retour et faire relire la compatibilité avec le candidat applicatif avant d'intégrer les parcours. La réussite pgTAP ne valide pas l'application ni une sécurité globale.",
+      "next": "Ajouter une migration de retour vérifiable, puis examiner la compatibilité entre le schéma et les routes applicatives avant tout raccordement."
     },
     {
       "id": "GYM-D1.4",

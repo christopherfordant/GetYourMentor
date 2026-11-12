@@ -1,3 +1,13 @@
+## Reprise active — 12 novembre 2026 : base Supabase dédiée créée
+
+Le projet Supabase `getyourmentor-demo-recruiter` (réf. `rqxoovriacgoriimpbwi`, région Paris `eu-west-3`) a été créé dans l’organisation connectée sur l’offre Free ; statut observé Healthy. Le projet de recette `getyourmentor-preprod` et l’ancien projet en pause n’ont pas été modifiés. Aucune clé n’est copiée dans ce dépôt ou dans la conversation.
+
+La migration `supabase/proposals/demo-public-20261112/001_demo_schema.sql` a été appliquée uniquement à ce projet. pgTAP : 34/34 assertions passent sur l’accès anon, les rôles sportif/coach/serveur, l’isolation, l’effacement, les fixtures, Telegram et l’interdiction des états réels. Une requête après rollback confirme zéro ligne synthétique résiduelle. Voir le relevé détaillé `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md`.
+
+GYM-D1.2 et D1.3 sont en cours, pas terminés : le projet est provisionné et le schéma testé, mais la migration de retour, l’intégration applicative, la frontière client/serveur et l’identification/configuration du bon site Netlify restent à traiter. Aucun site, aucune variable Netlify, aucun parcours utilisateur, compte réel, paiement, message Telegram ou déploiement n’a été modifié/testé. Ne pas utiliser `getyourmentor-preprod`.
+
+Les paragraphes plus anciens ci-dessous décrivent des contrôles antérieurs à la création et sont conservés comme historique.
+
 ## Reprise active — 12 novembre 2026 : cadrage démo publique recruteur
 
 ## Décision produit — parcours de démonstration recruteur (12 novembre 2026)

@@ -58,3 +58,9 @@ Une proposition locale non appliquée est documentée dans `docs/DEMO_SCHEMA_PRO
 Le script de tests contient 34 assertions pgTAP avec des identités synthétiques, mais celles-ci n'ont pas été exécutées. Supabase CLI, `psql` et Docker sont absents de l'environnement. Le contrôle statique Node, les 35 tests de l'atelier et `git diff --check` passent. GYM-D1.2 et GYM-D1.3 restent bloqués ; les tickets aval ne sont pas clos. Aucun parcours applicatif, RLS exécutée, migration, paiement, message, changement Netlify ou déploiement n'est revendiqué.
 
 Commit ciblé de la proposition : `302cf8f5047c8b55a49cfa576df6819efe7a2f37`, poussé sur `demo/public-recruiter-schema-20261112` ; le SHA de `git ls-remote` correspond. Aucun PR, fusion ni déploiement n'a été effectué.
+
+## Mise à jour — base isolée créée (12 novembre 2026)
+
+Depuis l'audit décrit plus haut, le propriétaire a autorisé le provisionnement d'une base de test isolée. Le projet `getyourmentor-demo-recruiter` (`rqxoovriacgoriimpbwi`, région Paris, offre Free) est désormais créé et Healthy. La migration de schéma a été appliquée à cette cible uniquement et les 34 assertions pgTAP passent ; le rollback a été confirmé sans données synthétiques résiduelles. Le rapport est dans `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md`.
+
+Cette base n'est pas raccordée au site public. Le lien du portfolio continue de viser `getyourmentor-demo-20261014.netlify.app`, dont la route `/demo` était absente au contrôle précédent. Aucun paramètre Netlify, parcours utilisateur, notification ou déploiement n'a été modifié. GYM-D1.2 et D1.3 demeurent en cours : l'intégration, la migration de retour et les vérifications de frontière applicative restent à faire. Les constats antérieurs sur l'absence de projet dédié sont conservés comme historique.

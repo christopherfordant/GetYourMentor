@@ -1,18 +1,20 @@
-# Proposition de stockage de la démo publique
+# Schéma de démonstration recruteur — état courant
 
-Cette proposition n'est **ni une migration prête à appliquer ni une intégration applicative**. Elle ne doit jamais être appliquée à `getyourmentor-preprod` ni à une base de production. Le projet de démo n'étant pas disponible, aucune cible ne peut être associée ou testée.
+Le schéma de `001_demo_schema.sql` est appliqué uniquement au projet Supabase dédié `getyourmentor-demo-recruiter` (réf. non secrète `rqxoovriacgoriimpbwi`, région Paris, offre Free). Il ne doit jamais être appliqué à `getyourmentor-preprod` ou à une base de production.
 
-Le schéma isole des sessions coach/sportif rattachées à `auth.users`, des profils fictifs, des réservations de démonstration dont validation et paiement sont contraints à `simulated`, et une liaison Telegram optionnelle avec identifiant chiffré côté serveur. Les clients ne peuvent lire que les profils fictifs publics et les données auxquelles leur `auth.uid()` est associé. Les mutations de réservations et le cycle Telegram restent côté serveur ; les routes devront revérifier l'identité et le propriétaire avant d'utiliser `service_role`.
+Le modèle sépare les sessions coach/sportif, les profils fictifs, les réservations dont l'approbation et le paiement sont contraints à `simulated`, et les liaisons Telegram protégées côté serveur. L'accès est limité par RLS. Les parcours et mutations applicatifs ne sont pas encore implémentés.
 
-La suppression d'une session efface ses profils coach et ses réservations sportives. La suppression du compte Auth nécessite une route serveur authentifiée qui supprime uniquement l'utilisateur courant après confirmation ; supprimer un coach ne doit pas supprimer les réservations appartenant aux sportifs. Les clés de chiffrement et `service_role` ne sont jamais envoyées au client.
+## Contrôles
 
-## Prérequis d'exécution
+`002_demo_rls_tests.sql` contient 34 assertions pgTAP avec identités synthétiques. Les tests ont été exécutés dans le projet dédié : les 34 assertions passent. Ils couvrent les accès anon, sportif, coach et service, l'isolation des données, les fixtures, l'effacement, Telegram et le rejet des modes réels. Les données synthétiques sont dans une transaction annulée ; une vérification a confirmé zéro utilisateur de test, session, coach, réservation ou liaison Telegram restant.
 
-- projet Supabase dédié à la démonstration, avec politiques et API configurées ;
-- Supabase CLI, Docker et PostgreSQL de test disponibles ;
-- deux utilisateurs Auth jetables créés dans la transaction de test ;
-- revue du schéma et des migrations de l'application avant d'ajouter les adaptations du dépôt.
+Consulter `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md` pour les preuves et les limites. Le résultat ne valide ni l'application, ni le site Netlify, ni la sécurité globale.
 
-Le fichier `002_demo_rls_tests.sql` prépare 34 assertions pgTAP avec trois utilisateurs synthétiques : visiteur `anon`, deux testeurs distincts (coach et sportifs) sous `authenticated`, et vérification des privilèges du service serveur. Il inclut visibilité inter-testeurs, suppression refusée d'une session étrangère et d'une fixture commune, effacement propre et maintien des données de l'autre testeur, consentement/révocation Telegram et rejet des modes d'approbation/paiement non simulés. Il devra être revu puis exécuté par `supabase test db` sur une base locale jetable avant toute migration distante.
+## Garde-fous et suite
 
-Aucun résultat pgTAP ou RLS réelle n'est revendiqué dans cette livraison. Seuls le contrôle statique et l'intégrité textuelle sont exécutables ici : Supabase CLI, `psql` et Docker ne sont pas disponibles. Le rôle `anon` reçoit `SELECT` sur les sessions uniquement parce que la politique des coachs fictifs évalue une sous-requête sur cette table ; aucune politique de session ne cible `anon`, donc RLS doit lui renvoyer zéro ligne. Les coachs fictifs restent les seules lignes publiques des profils.
+- Aucun secret ou clé de projet dans Git ou la conversation ; les secrets sont à saisir uniquement dans le gestionnaire du site démo confirmé.
+- Le projet de recette `getyourmentor-preprod` et le projet personnel en pause n'ont pas été touchés.
+- Le site GetYourMentor du portfolio n'est pas connecté à cette base.
+- Préparer une migration de retour et examiner la compatibilité des routes avant l'intégration.
+- Confirmer le site Netlify exact depuis le lien du portfolio avant d'y configurer la moindre variable.
+- Ne pas annoncer un vrai coach IA, un paiement réel, ou une notification Telegram fonctionnelle : aucun n'est raccordé ici.

@@ -1,5 +1,5 @@
--- pgTAP draft for a disposable local Supabase database only.
--- Not executed in this delivery. Never run against preprod or production.
+-- pgTAP for a disposable local database or a dedicated recruiter-demo project only.
+-- Synthetic data is rolled back. Never run against preprod or production.
 begin;
 
 -- Fixed synthetic identities make cross-tenant assertions repeatable.
@@ -50,7 +50,7 @@ set local role anon;
 select set_config('request.jwt.claim.sub', '', true);
 select is((select count(*)::int from public.gym_demo_coaches), 1, 'visitor sees the shared fixture, not private coach profiles');
 select is((select count(*)::int from public.gym_demo_sessions), 0, 'visitor cannot see sessions because no anon RLS policy exists');
-select is((select count(*)::int from public.gym_demo_reservations), 0, 'visitor cannot see reservations');
+select ok(not has_table_privilege('anon', 'public.gym_demo_reservations', 'select'), 'visitor has no SQL privilege to read reservations');
 
 reset role;
 set local role authenticated;
@@ -58,8 +58,10 @@ select set_config('request.jwt.claim.sub', 'd1000000-0000-4000-8000-000000000001
 select is((select count(*)::int from public.gym_demo_sessions), 1, 'athlete sees only their session');
 select is((select count(*)::int from public.gym_demo_reservations), 1, 'athlete sees their own reservation');
 select is((select count(*)::int from public.gym_demo_reservations where id = 'd1300000-0000-4000-8000-000000000002'), 0, 'athlete cannot see another athlete reservation');
-select is((with deleted as (delete from public.gym_demo_sessions where id = 'd1100000-0000-4000-8000-000000000002' returning id) select count(*)::int from deleted), 0, 'athlete cannot delete another users session');
-select is((with deleted as (delete from public.gym_demo_coaches where id = 'd1200000-0000-4000-8000-000000000001' returning id) select count(*)::int from deleted), 0, 'athlete cannot delete a shared fixture');
+with deleted as (delete from public.gym_demo_sessions where id = 'd1100000-0000-4000-8000-000000000002' returning id)
+select is((select count(*)::int from deleted), 0, 'athlete cannot delete another users session');
+with deleted as (delete from public.gym_demo_coaches where id = 'd1200000-0000-4000-8000-000000000001' returning id)
+select is((select count(*)::int from deleted), 0, 'athlete cannot delete a shared fixture');
 
 select set_config('request.jwt.claim.sub', 'd1000000-0000-4000-8000-000000000002', true);
 select is((select count(*)::int from public.gym_demo_coaches where id = 'd1200000-0000-4000-8000-000000000002'), 1, 'coach sees their own profile');
@@ -78,7 +80,8 @@ select is((select count(*)::int from public.gym_demo_telegram_links where sessio
 reset role;
 set local role authenticated;
 select set_config('request.jwt.claim.sub', 'd1000000-0000-4000-8000-000000000001', true);
-select is((with deleted as (delete from public.gym_demo_sessions where id = 'd1100000-0000-4000-8000-000000000001' returning id) select count(*)::int from deleted), 1, 'athlete can delete their own demo session');
+with deleted as (delete from public.gym_demo_sessions where id = 'd1100000-0000-4000-8000-000000000001' returning id)
+select is((select count(*)::int from deleted), 1, 'athlete can delete their own demo session');
 select is((select count(*)::int from public.gym_demo_sessions where id = 'd1100000-0000-4000-8000-000000000001'), 0, 'deleted session is no longer visible');
 select is((select count(*)::int from public.gym_demo_reservations where id = 'd1300000-0000-4000-8000-000000000001'), 0, 'deleting athlete session removes its reservation');
 select set_config('request.jwt.claim.sub', 'd1000000-0000-4000-8000-000000000003', true);
@@ -86,8 +89,8 @@ select is((select count(*)::int from public.gym_demo_sessions), 1, 'another athl
 select is((select count(*)::int from public.gym_demo_reservations), 1, 'another athletes reservation survives a users deletion');
 
 reset role;
-select throws_ok($$insert into public.gym_demo_reservations (athlete_session_id, coach_id, coach_name_snapshot, sport_snapshot, service_snapshot, appointment_at, display_price_cents, approval_mode) values ('d1100000-0000-4000-8000-000000000001', 'd1200000-0000-4000-8000-000000000002', 'Coach test B', 'Natation', 'Séance de test', now(), 4000, 'real')$$, '23514', 'non-simulated coach approval is rejected');
-select throws_ok($$insert into public.gym_demo_reservations (athlete_session_id, coach_id, coach_name_snapshot, sport_snapshot, service_snapshot, appointment_at, display_price_cents, payment_mode) values ('d1100000-0000-4000-8000-000000000001', 'd1200000-0000-4000-8000-000000000002', 'Coach test B', 'Natation', 'Séance de test', now(), 4000, 'live')$$, '23514', 'non-simulated payment is rejected');
+select throws_ok($$insert into public.gym_demo_reservations (athlete_session_id, coach_id, coach_name_snapshot, sport_snapshot, service_snapshot, appointment_at, display_price_cents, approval_mode) values ('d1100000-0000-4000-8000-000000000003', 'd1200000-0000-4000-8000-000000000002', 'Coach test B', 'Natation', 'Séance de test', now(), 4000, 'real')$$, '23514', 'new row for relation "gym_demo_reservations" violates check constraint "gym_demo_reservations_approval_mode_check"', 'non-simulated coach approval is rejected');
+select throws_ok($$insert into public.gym_demo_reservations (athlete_session_id, coach_id, coach_name_snapshot, sport_snapshot, service_snapshot, appointment_at, display_price_cents, payment_mode) values ('d1100000-0000-4000-8000-000000000003', 'd1200000-0000-4000-8000-000000000002', 'Coach test B', 'Natation', 'Séance de test', now(), 4000, 'live')$$, '23514', 'new row for relation "gym_demo_reservations" violates check constraint "gym_demo_reservations_payment_mode_check"', 'non-simulated payment is rejected');
 
 select * from finish();
 rollback;
