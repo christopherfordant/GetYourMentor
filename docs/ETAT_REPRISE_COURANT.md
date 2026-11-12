@@ -4,7 +4,7 @@ Le projet Supabase dedie est cree et les 34 assertions pgTAP passent (voir `docs
 
 L'audit `docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md` confirme que l'accueil Netlify public repond 200, `/demo` repond 404, et le site relie au portfolio est `getyourmentor-demo-20261014` ; `gregarious-fox-fff605` reste exclu. Le candidat local a un cookie `gym_session`, des repositories historiques et un garde `isHostedDemo()` qui refuse Supabase : ajouter des variables seules ne connectera donc pas la nouvelle base. Le brouillon `/demo` du checkout de travail contient encore des comptes partages ; il n'a pas ete copie ou modifie.
 
-`GYM-D1.2` et `GYM-D1.3` restent en cours ; `GYM-D1.4` demeure bloque par l'adaptateur applicatif, l'effacement Auth et la retention 24 h non automatisee/non testee. Aucun secret Netlify, migration distante, notification ni deploiement dans ce lot. Branche `demo/public-recruiter-schema-20261112` ; push et SHA distant a verifier avant livraison.
+`GYM-D1.2` et `GYM-D1.3` restent en cours ; `GYM-D1.4` demeure bloque par l'adaptateur applicatif, l'effacement Auth et la retention 24 h non automatisee/non testee. Aucun secret Netlify, migration distante, notification ni deploiement dans ce lot. Branche `demo/public-recruiter-schema-20261112` ; push normal effectue et SHA distant verifie apres livraison.
 ## Reprise active — 12 novembre 2026 : base Supabase dédiée créée
 
 Le projet Supabase `getyourmentor-demo-recruiter` (réf. `rqxoovriacgoriimpbwi`, région Paris `eu-west-3`) a été créé dans l’organisation connectée sur l’offre Free ; statut observé Healthy. Le projet de recette `getyourmentor-preprod` et l’ancien projet en pause n’ont pas été modifiés. Aucune clé n’est copiée dans ce dépôt ou dans la conversation.
