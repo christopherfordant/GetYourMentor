@@ -64,3 +64,7 @@ Commit ciblé de la proposition : `302cf8f5047c8b55a49cfa576df6819efe7a2f37`, po
 Depuis l'audit décrit plus haut, le propriétaire a autorisé le provisionnement d'une base de test isolée. Le projet `getyourmentor-demo-recruiter` (`rqxoovriacgoriimpbwi`, région Paris, offre Free) est désormais créé et Healthy. La migration de schéma a été appliquée à cette cible uniquement et les 34 assertions pgTAP passent ; le rollback a été confirmé sans données synthétiques résiduelles. Le rapport est dans `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md`.
 
 Cette base n'est pas raccordée au site public. Le lien du portfolio continue de viser `getyourmentor-demo-20261014.netlify.app`, dont la route `/demo` était absente au contrôle précédent. Aucun paramètre Netlify, parcours utilisateur, notification ou déploiement n'a été modifié. GYM-D1.2 et D1.3 demeurent en cours : l'intégration, la migration de retour et les vérifications de frontière applicative restent à faire. Les constats antérieurs sur l'absence de projet dédié sont conservés comme historique.
+
+## Mise a jour - 12 novembre : route publique et integration
+
+Recontrole HTTP public : l'accueil de `getyourmentor-demo-20261014` repond `200`, `/demo` repond toujours `404`. L'audit en lecture seule du candidat applicatif est consigne dans `docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md`. Le mode heberge courant refuse la presence des variables Supabase et les routes de reservation n'utilisent pas les tables `gym_demo_*` : ne pas configurer les variables Netlify avant adaptation et controles de la frontiere serveur.

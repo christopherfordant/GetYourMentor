@@ -18,3 +18,7 @@ Consulter `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md` pour les preuves et les l
 - Préparer une migration de retour et examiner la compatibilité des routes avant l'intégration.
 - Confirmer le site Netlify exact depuis le lien du portfolio avant d'y configurer la moindre variable.
 - Ne pas annoncer un vrai coach IA, un paiement réel, ou une notification Telegram fonctionnelle : aucun n'est raccordé ici.
+
+## Marche arriere et compatibilite
+
+`003_rollback_empty_demo_schema.sql` est une marche arriere manuelle, transactionnelle, avec verrouillage et refus si une des quatre tables contient des donnees. Verifier la reference projet `rqxoovriacgoriimpbwi` dans le tableau avant execution. Elle n'a pas ete executee. L'audit de compatibilite est dans `docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md` : l'auth anonyme et les repositories `gym_demo_*` ne sont pas encore raccordes au candidat applicatif.

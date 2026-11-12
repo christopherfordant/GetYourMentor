@@ -36,3 +36,7 @@ Après rollback, un contrôle SQL a confirmé zéro ligne de test dans `auth.use
 ## Suite nécessaire
 
 Identifier le site Netlify exact lié depuis le portfolio, confirmer qu’il est bien réservé à la démo, puis configurer ses seules variables de démo au moyen du tableau de bord. Les valeurs sensibles doivent être saisies dans le gestionnaire de secrets du fournisseur, jamais dans Git, un document, un bundle navigateur ou cette conversation. Avant d’activer l’application, préparer une migration de retour, les routes serveur d’effacement/authentification et une revue d’exposition client/serveur. Garder `getyourmentor-preprod` hors de ce chantier.
+
+## Suite - audit de compatibilite et marche arriere
+
+La marche arriere manuelle `supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql` est ajoutee. Elle verrouille les tables et refuse leur suppression si des lignes existent. Elle n'a pas ete executee. `docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md` documente les incompatibilites du candidat local et confirme que la cible publique garde `/demo` en 404. Aucune configuration Netlify ou migration distante supplementaire n'a ete faite.

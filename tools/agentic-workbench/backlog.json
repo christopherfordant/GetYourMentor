@@ -2895,13 +2895,13 @@
       "estimateHours": [1, 3],
       "actualHours": null,
       "dependencies": ["GYM-D1.1"],
-      "scope": "Projet dédié créé : getyourmentor-demo-recruiter (rqxoovriacgoriimpbwi), région Paris, offre Free. Migration appliquée à cette base uniquement ; aucune variable Netlify ni intégration applicative. Secrets absents du dépôt.",
+      "scope": "Projet dedie getyourmentor-demo-recruiter (rqxoovriacgoriimpbwi), region Paris, offre Free ; schema isole applique et controle. Domaine public lie au portfolio identifie ; aucune variable Netlify ni cle ecrite. Compatibilite applicative non etablie.",
       "acceptance": ["Projet Supabase dédié identifié et autorisé", "Clés publiques/serveur rangées dans les secrets du bon site Netlify", "Aucune clé privilégiée incluse dans un bundle client"],
       "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
-      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md", "supabase/proposals/demo-public-20261112/001_demo_schema.sql"],
-      "blocker": "La configuration des variables de démo dans le bon site Netlify et la vérification de la frontière client/serveur restent à faire. Le site exact relié au portfolio doit être confirmé avant toute configuration.",
-      "next": "Identifier le site Netlify lié au portfolio, vérifier la cible et le code client/serveur, puis configurer les secrets uniquement dans le gestionnaire du site de démo."
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
+      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
+      "blocker": "Site exact identifie (getyourmentor-demo-20261014, distinct de gregarious-fox-fff605), mais le candidat sort du mode hosted demo des que Supabase est configure. La nouvelle frontiere serveur/client doit etre implemente et revue avant tout secret Netlify.",
+      "next": "Construire l adaptateur du parcours recruteur sur la branche applicative dediee, puis ajouter uniquement les variables demo au site confirme apres revue des artefacts client."
     },
     {
       "id": "GYM-D1.3",
@@ -2917,13 +2917,13 @@
       "estimateHours": [3, 6],
       "actualHours": null,
       "dependencies": ["GYM-D1.2"],
-      "scope": "Schéma appliqué au projet de démonstration dédié uniquement. pgTAP : 34 assertions réussies sur les rôles anon, sportif, coach et service, l'isolation, l'effacement, les fixtures et les valeurs simulées. Une migration de retour et la revue de compatibilité applicative restent nécessaires.",
+      "scope": "Schema applique au projet dedie uniquement ; 34 assertions pgTAP reussies pour les roles, isolation, effacement, fixtures, Telegram et valeurs simulees. Marche arriere transactionnelle ajoutee et refuse si les tables contiennent des lignes ; compatibilite du candidat documentee mais non integree. Marche arriere non executee.",
       "acceptance": ["Accès filtré par propriétaire/tenant pour coach et sportif", "Fixtures partagées non modifiables hors périmètre", "Tests RLS positif/négatif et migrations réversibles disponibles"],
       "tests": ["Tests SQL sous anon, sportif, coach et rôle serveur", "Contrôle de non-fuite inter-visiteurs"],
-      "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql", "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql", "supabase/proposals/demo-public-20261112/README.md", "supabase/proposals/demo-public-20261112/validate-proposal.mjs", "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
-      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md", "docs/SUPABASE_DEMO_PROVISION_2026-11-12.md", "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql"],
-      "blocker": "Préparer une migration de retour et faire relire la compatibilité avec le candidat applicatif avant d'intégrer les parcours. La réussite pgTAP ne valide pas l'application ni une sécurité globale.",
-      "next": "Ajouter une migration de retour vérifiable, puis examiner la compatibilité entre le schéma et les routes applicatives avant tout raccordement."
+      "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql","supabase/proposals/demo-public-20261112/README.md","supabase/proposals/demo-public-20261112/validate-proposal.mjs","docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
+      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
+      "blocker": "Le candidat conserve ses cookies et repositories historiques : authentification anonyme, mutations gym_demo_* et suppression Auth sans adaptateur applicatif. La marche arriere existe mais non executee ; aucun moteur SQL local jetable relance dans ce lot.",
+      "next": "Implementer et tester le contrat applicatif isole, puis executer les controles integration et reversibilite dans un environnement jetable autorise."
     },
     {
       "id": "GYM-D1.4",
