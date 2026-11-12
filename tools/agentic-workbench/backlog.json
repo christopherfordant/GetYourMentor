@@ -2856,7 +2856,7 @@
       "tests": ["Campagne Playwright desktop/mobile isolée", "Tests RLS par rôle et de suppression", "Contrôles de configuration de publication"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
       "evidence": [],
-      "blocker": "La démo publique n'offre pas encore de parcours testable (/demo renvoie 404). Le tableau Supabase connecté ne montre aucun projet dédié ; getyourmentor-preprod reste réservé à la recette et un ancien projet personnel est inactif.",
+      "blocker": "La démo publique n'offre pas encore de parcours testable (/demo renvoie 404). Le tableau Supabase connecté ne montre aucun projet dédié ; getyourmentor-preprod reste réservé à la recette et un ancien projet personnel est en pause.",
       "next": "Désigner ou provisionner un projet Supabase de démo strictement isolé, puis reprendre les sous-tickets dans l'ordre des dépendances."
     },
     {
@@ -2900,8 +2900,8 @@
       "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md"],
       "evidence": [],
-      "blocker": "Le tableau de l'organisation Supabase consultée liste getyourmentor-preprod (actif, interdit pour la démo) et un projet personnel inactif ; aucun projet démo isolé n'existe et aucune création n'a été autorisée. L'offre gratuite affiche deux projets listés.",
-      "next": "Le propriétaire doit désigner un projet déjà isolé ou créer le projet démo dans une organisation avec capacité disponible. Ne pas restaurer/supprimer l'ancien projet ni réutiliser la recette sans arbitrage."
+      "blocker": "Le tableau de l'organisation Supabase consultée liste getyourmentor-preprod et un projet personnel en pause ; aucun projet démo isolé n'existe et aucune création n'a été autorisée. L'offre gratuite affiche deux projets listés.",
+      "next": "Le propriétaire doit désigner un projet déjà isolé ou créer le projet démo dans une organisation avec capacité disponible. Ne pas réactiver/supprimer l'ancien projet ni réutiliser la recette sans arbitrage."
     },
     {
       "id": "GYM-D1.3",

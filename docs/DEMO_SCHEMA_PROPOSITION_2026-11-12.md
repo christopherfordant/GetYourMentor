@@ -4,9 +4,9 @@ Date : 12 novembre 2026. Ce document décrit une proposition non appliquée. Auc
 
 ## Projet Supabase dédié
 
-La liste de projets de l'organisation Supabase actuellement connectée a été consultée en lecture seule : elle contient `getyourmentor-preprod` (actif) et un ancien projet personnel (inactif). Aucun projet réservé à la démo n'y est disponible. L'organisation indique l'offre gratuite et deux projets listés. Le projet de recette ne doit pas être réutilisé, et l'ancien projet n'a été ni restauré ni supprimé.
+La liste de projets de l'organisation Supabase actuellement connectée a été consultée en lecture seule : elle contient `getyourmentor-preprod` et un ancien projet personnel en pause. Aucun projet réservé à la démo n'y est disponible. L'organisation indique l'offre gratuite et deux projets listés. Le projet de recette ne doit pas être réutilisé, et l'ancien projet n'a été ni restauré ni supprimé.
 
-Étape propriétaire requise : désigner un projet déjà strictement isolé et destiné à cette démo, ou créer un projet de démo dans une organisation disposant d'une capacité disponible. Si l'organisation actuelle est retenue, son propriétaire doit d'abord examiner lui-même l'ancien projet inactif et choisir comment libérer une place ; aucune suppression ou restauration n'est autorisée par cette demande. Ne transmettre aucune clé dans la conversation. Après désignation, la référence du projet peut être saisie localement dans un environnement dédié, puis les tests exécutés sur une base locale jetable avant toute migration.
+Étape propriétaire requise : désigner un projet déjà strictement isolé et destiné à cette démo, ou créer un projet de démo dans une organisation disposant d'une capacité disponible. Si l'organisation actuelle est retenue, son propriétaire doit d'abord examiner lui-même l'ancien projet en pause et choisir comment libérer une place ; aucune suppression ou restauration n'est autorisée par cette demande. Ne transmettre aucune clé dans la conversation. Après désignation, la référence du projet peut être saisie localement dans un environnement dédié, puis les tests exécutés sur une base locale jetable avant toute migration.
 
 ## Proposition locale
 
