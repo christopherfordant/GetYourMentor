@@ -1,3 +1,23 @@
+## Reprise active - 12 novembre 2026 : audit Git, publication et Supabase
+
+Demande : reprendre proprement, trier l'état Git/VS Code/GitHub et préserver le portfolio, GetYourMentor et Supabase. Aucun fichier applicatif, réglage Netlify, schéma ou donnée Supabase n'a été modifié dans ce contrôle.
+
+Git : la branche de travail `design/refonte-progressive-lot1` est à `892ecba8a081de29336e482824d7a177726c48a7`, identique au SHA lu par `git ls-remote` pour sa branche distante. Elle n'a donc pas de commit local non poussé. Le checkout porte cependant 18 fichiers suivis modifiés et de nombreux fichiers non suivis ; l'inventaire Git a compté 48 735 chemins non suivis. Aucun de ces brouillons n'a été indexé, commité ou supprimé. `feat/nextjs-migration` et `main` ont des historiques divergents au regard des références locales ; `feat/nextjs-migration` est en outre la branche de publication Netlify. Aucun rebase, fusion, force-push ni push sur cette branche n'a été fait.
+
+GitHub : l'unique PR ouverte observée est #1, `feat/v5-adaptive-intelligence-pilot` vers `feat/visual-contract-next-step`. Le dernier workflow visible date du 13 octobre 2026 ; aucun résultat CI récent n'atteste les brouillons actuels. Les lots validés et déjà documentés ARC5/H1.5.2 sont intégrés dans `892ecba` et poussés sur la branche design ; leurs rapports et contrôles du 7 novembre restent les preuves de référence. Aucun commit supplémentaire n'était justifié par cet audit seul.
+
+Publication : Netlify `gregarious-fox-fff605` sert `feat/nextjs-migration@6e04508`; la publication automatique est activée pour cette branche. Le dernier essai affiché (`1da7030`, 6 novembre) a échoué car le contributeur Git n'était pas reconnu par le plan du compte. L'endpoint public `/api/health` annonce `mode=production` et `supabase=true`. La source de ce SHA définit ce contrôle par la seule présence de l'URL et des clés, pas par une lecture/écriture SQL : la connectivité réelle n'est donc pas prouvée par ce résultat.
+
+Supabase : le `SUPABASE_URL` configuré dans Netlify correspond au projet `getyourmentor-preprod` (référence `pqxqqbwesfrefzjoawmx`). Le tableau Supabase confirme « Restoration complete » ; son sélecteur affiche la branche `main` avec le badge `Production`. Cette base de recette est donc référencée par un environnement Netlify de production. Aucun SQL, aucune lecture de table, migration ou écriture n'a été effectué. **Ne pas modifier cette configuration** avant d'établir si une base de production distincte existe et laquelle doit porter les données réelles.
+
+Dépôt d'export `C:/Users/cashe/Documents/GetYourMentor-site` : `main` et `origin/main` sont identiques à `e2cf5105a44d0c060ecf5648f6349351aa885eee`. Deux captures non suivies dans `gym-next/assets/journey-ux-2026-10-20/` sont préservées. Son README le qualifie de démonstration autonome, exportée d'une version antérieure, sans secrets, CI/CD ni lien de déploiement transférés. Il n'est pas le dépôt source du site Netlify inspecté.
+
+Hygiène : 75 worktrees Git sont enregistrés ; le contrôle groupé de leur propreté a été interrompu car trop lent, donc leur état individuel reste inconnu. Aucun worktree, dossier VS Code, branche GitHub ou artefact n'a été fermé/supprimé. Les 16 processus `Code` observés ne permettent pas de déduire le nombre de fenêtres. Étape suivante recommandée : confirmer la cible Supabase de production, puis réaliser un inventaire borné des worktrees par lots avant toute suppression ; examiner et tester séparément les 18 modifications suivies avant tout commit ciblé.
+
+État livré : audit et preuves de lecture seulement ; aucun déploiement et aucune régression provoquée. Historique antérieur conservé.
+
+Gate pré-push Fil Rouge exécuté dans un worktree temporaire isolé, avec ce seul document modifié : **CONFORME**. `git diff --check` : PASS. Ce rapport d'exécution temporaire n'est pas intégré aux fichiers applicatifs ni aux modifications locales préexistantes.
+
 ## Reprise active - 7 novembre 2026 : second lot natif termine sans fenetre IDE supplementaire
 
 Nouvelle consigne utilisateur executee avec deux agents natifs concurrents depuis la conversation,worktrees neufs GYM-parallel2-reader-20261107 et GYM-parallel2-tests-20261107,base6e62d05. Aucun lancement VS Code supplementaire ni pilotage de conversations IDE. Missions terminees,sans continuation automatique;AGENTS ferme ce lot.
