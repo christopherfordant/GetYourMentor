@@ -1,3 +1,17 @@
+## Reprise active - migration progressive Blobs vers Supabase recruteur (12 novembre 2026)
+
+Audit en lecture seule : `docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md`. Le dépôt applicatif isolé est `christopherfordant/GetYourMentor`, branche `demo/recruiter-supabase-adapter-20261112`, base `58a9f32876fe6918234f63d383e9fd2b375d656d`. Le checkout principal et ses brouillons n’ont pas été modifiés.
+
+Contrôle public du 12 novembre : l’URL du portfolio ouvre `https://getyourmentor-demo-20261014.netlify.app/`; l’accueil répond 200, `/api/health` répond 200 (`mode=demo`, `supabase=false`) et `/demo` répond 404. La recette d’octobre documente le store Blobs `gym-isolated-demo-v1`, clé `state`, document JSON partagé avec CAS. Le build public ne fournit pas de SHA/branche; sa branche exacte n’est pas vérifiée. Aucun compte ou parcours métier n’a été écrit pendant le contrôle.
+
+Aucun adaptateur ajouté : `gym_demo_*` ne modélise pas les créneaux coach ni l’idempotence de réservation; la RLS ne limite pas explicitement les opérations aux utilisateurs Auth anonymes. L’effacement Auth et la purge de 24 h ne sont pas raccordés. Ajouter seulement les variables Supabase ferait sortir le runtime Blobs et pourrait router vers les tables métier `gym_*`. Ne pas ajouter de variable, ne pas basculer et ne pas utiliser de fallback silencieux.
+
+Kanban GYM-D1 mis à jour sans fermer les tickets : D1.2/D1.3 restent en progression; D1.4 bloqué; D1.5–D1.7 en préparation; D1.8/D1.9 ouverts. Aucun changement runtime, aucune dépendance installée, aucune lecture/écriture Supabase, modification Netlify, notification ou déploiement.
+
+Contrôles locaux : validateur statique du schéma PASS; tests de l’atelier 35/35 PASS; JSON Kanban, `git diff --check` et scan de secrets suivis PASS. Le build/typecheck n’a pas été lancé (documentation seulement, dépendances du worktree absentes). Le scan du bundle a été tenté mais `.next/static` est absent; aucune conclusion sur un bundle compilé n’est revendiquée.
+
+Prochaine priorité : proposer une migration additive locale et pgTAP pour les créneaux, l’idempotence/transitions atomiques et la RLS anon-only; exécuter uniquement sur moteur local/jetable. Construire ensuite les routes/repository isolés puis l’effacement/purge. Configurer ou publier sur Netlify requiert un lot distinct après vérification du build et de sa branche.
+
 ## Reprise active - 12 novembre 2026 : marche arriere et compatibilite
 
 Le projet Supabase dedie est cree et les 34 assertions pgTAP passent (voir `docs/SUPABASE_DEMO_PROVISION_2026-11-12.md`). Lot suivant termine : marche arriere manuelle et protegee ajoutee dans `supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql` ; validation statique du schema, des tests RLS et du garde-fou de retour PASS. Cette marche arriere n'a pas ete executee.

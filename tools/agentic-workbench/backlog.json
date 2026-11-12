@@ -2855,9 +2855,9 @@
       ],
       "tests": ["Campagne Playwright desktop/mobile isolée", "Tests RLS par rôle et de suppression", "Contrôles de configuration de publication"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "La base de démonstration dédiée existe et son schéma/RLS passe les tests, mais aucun parcours applicatif n'est intégré ou publié. Le site Netlify relié au portfolio et sa frontière de secrets doivent encore être établis avant la configuration.",
-      "next": "Identifier le site Netlify exact relié depuis le portfolio ; terminer l'intégration et les contrôles avant toute publication."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Le schéma Supabase dédié est provisionné et testé, mais le contrat applicatif reste incomplet (créneaux, rejeu/idempotence, RLS anon-only, effacement Auth et purge TTL). Le build public actuel ne révèle pas sa branche source; aucun adaptateur ni déploiement n’est validé.",
+      "next": "Compléter et tester le contrat Supabase de démonstration, puis développer un chemin individuel isolé; établir le lien build/branche Netlify avant une configuration ou publication séparée."
     },
     {
       "id": "GYM-D1.1",
@@ -2877,9 +2877,9 @@
       "acceptance": ["URL GetYourMentor liée au portfolio identifiée", "Projet Supabase de recette et autre site Netlify distingués", "État Git et modifications antérieures préservés"],
       "tests": ["Inspection Playwright du site public et de /demo", "Vérification Git et revue documentaire ciblée"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
-      "evidence": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
+      "evidence": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
       "blocker": null,
-      "next": "Le projet dédié est provisionné ; poursuivre GYM-D1.2 pour établir la cible Netlify et sa configuration sûre."
+      "next": "Cible URL/site ID confirmée. La liaison exacte entre l’artefact actuellement servi et une branche Git reste à obtenir depuis les métadonnées Netlify avant tout déploiement."
     },
     {
       "id": "GYM-D1.2",
@@ -2899,9 +2899,9 @@
       "acceptance": ["Projet Supabase dédié identifié et autorisé", "Clés publiques/serveur rangées dans les secrets du bon site Netlify", "Aucune clé privilégiée incluse dans un bundle client"],
       "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
-      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
-      "blocker": "Site exact identifie (getyourmentor-demo-20261014, distinct de gregarious-fox-fff605), mais le candidat sort du mode hosted demo des que Supabase est configure. La nouvelle frontiere serveur/client doit etre implemente et revue avant tout secret Netlify.",
-      "next": "Construire l adaptateur du parcours recruteur sur la branche applicative dediee, puis ajouter uniquement les variables demo au site confirme apres revue des artefacts client."
+      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Le projet dédié existe, mais aucun adaptateur n’est intégré et la cible de déploiement n’a pas de correspondance build/branche vérifiée. isHostedDemo() refuse actuellement les variables Supabase; aucune variable ne doit être ajoutée avant la frontière dédiée et le scan client.",
+      "next": "Valider le contrat applicatif (Auth anonyme, créneaux, mutations serveur, effacement et TTL), puis auditer le build et confirmer la cible Netlify avant d’y ranger les secrets."
     },
     {
       "id": "GYM-D1.3",
@@ -2921,9 +2921,9 @@
       "acceptance": ["Accès filtré par propriétaire/tenant pour coach et sportif", "Fixtures partagées non modifiables hors périmètre", "Tests RLS positif/négatif et migrations réversibles disponibles"],
       "tests": ["Tests SQL sous anon, sportif, coach et rôle serveur", "Contrôle de non-fuite inter-visiteurs"],
       "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql","supabase/proposals/demo-public-20261112/README.md","supabase/proposals/demo-public-20261112/validate-proposal.mjs","docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
-      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
-      "blocker": "Le candidat conserve ses cookies et repositories historiques : authentification anonyme, mutations gym_demo_* et suppression Auth sans adaptateur applicatif. La marche arriere existe mais non executee ; aucun moteur SQL local jetable relance dans ce lot.",
-      "next": "Implementer et tester le contrat applicatif isole, puis executer les controles integration et reversibilite dans un environnement jetable autorise."
+      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Le schéma existant passe les 34 assertions archivées, mais ne modélise pas les créneaux coach, l’idempotence/résultat de rejeu ni les transitions atomiques; la RLS ne documente pas une restriction anon-only. Le retour est statique et non exécuté.",
+      "next": "Proposer une migration additive et des assertions pgTAP pour créneaux, rejeu, transitions et RLS anon-only; exécuter uniquement sur une base locale/jetable avant de considérer l’adaptateur."
     },
     {
       "id": "GYM-D1.4",
@@ -2943,9 +2943,9 @@
       "acceptance": ["Session de test isolée par visiteur", "Action explicite d'effacement authentifiée/possédée", "Relecture prouvant absence de résidus et refus d'effacer les données d'un autre"],
       "tests": ["Tests suppression complète et idempotente", "Tests d'accès croisé refusé"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "Dépend du schéma et de la RLS dédiés (GYM-D1.3).",
-      "next": "Valider dans le schéma et les tests la rétention cible de 24 h, l'effacement idempotent et le refus des suppressions croisées."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Dépend du contrat d’isolation corrigé de GYM-D1.3; suppression Auth serveur et purge automatique réelle des sessions expirées non implémentées ni testées.",
+      "next": "Après GYM-D1.3, créer un endpoint serveur de suppression Auth idempotent et une purge TTL testée; prouver l’isolation entre deux testeurs et la protection des fixtures."
     },
     {
       "id": "GYM-D1.5",
@@ -2965,9 +2965,9 @@
       "acceptance": ["Entrées coach et sportif distinctes sans identifiants partagés", "Aucune donnée testeur visible à un autre", "Acceptation et paiement présentés comme simulations, sans collecte de carte réelle"],
       "tests": ["Recette E2E avec identités jetables isolées", "Rejeu, erreur et suppression vérifiés"],
       "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "La route /demo est absente du site lié au portfolio et aucun projet Supabase dédié n'est disponible. Les comptes partagés de l'ancien candidat ne sont pas retenus.",
-      "next": "Après cible isolée et tests RLS locaux, construire les deux parcours individuels dans la source du site réellement lié au portfolio."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Le projet Supabase dédié est disponible, mais aucun repository/route recruteur n’est raccordé; le site public /demo répond 404 et les sessions Blobs/mot de passe sont incompatibles avec Auth anonyme.",
+      "next": "Après validation du contrat et de l’adaptateur isolé, créer les entrées coach/sportif sans comptes partagés et tester les opérations sur des données synthétiques."
     },
     {
       "id": "GYM-D1.6",
@@ -2987,9 +2987,9 @@
       "acceptance": ["Consentement clair avant appairage/envoi", "Bot dédié et secrets serveur, ou repli d'interface sans prétendre à une livraison Telegram", "Révocation et suppression des références de session documentées"],
       "tests": ["Tests consentement absent/refusé/révoqué", "Test de notification uniquement en compte/bot de démonstration autorisé"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
       "blocker": "Aucun bot public dédié ni consentement testeur configuré/recetté pour cette cible ; confirmation à l'écran retenue par défaut.",
-      "next": "Ne traiter l'option Telegram qu'après réalisation du parcours de base, avec bot séparé, consentement testé et révocation."
+      "next": "Garder la confirmation à l’écran par défaut; ne traiter un bot dédié qu’après le parcours de base, avec consentement et révocation testés."
     },
     {
       "id": "GYM-D1.7",
@@ -3009,9 +3009,9 @@
       "acceptance": ["Accueil met en évidence les deux parcours individuels", "Absence de débit et de collecte de données de carte exposées avant l'essai", "Aucune contradiction entre accueil, inscription, coach, réservation et paiement"],
       "tests": ["Revue exhaustive des chaînes concernées et Playwright sur routes principales"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": null,
-      "next": "Éditer après stabilisation du périmètre réellement disponible."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Les routes et parcours recruteur ne sont pas intégrés; les textes ne doivent pas annoncer une capacité absente.",
+      "next": "Réviser les textes publics seulement après stabilisation et recette du périmètre effectivement disponible."
     },
     {
       "id": "GYM-D1.8",
@@ -3031,8 +3031,8 @@
       "acceptance": ["Scénarios coach et sportif passent de bout en bout", "Données privées et effacement validés", "Pas de clé privilégiée client, de paiement réel ou de message Telegram non consenti"],
       "tests": ["Playwright desktop/mobile, RLS et contrôles de configuration", "Vérification manuelle après rechargement de l'URL publiée"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "Dépend des sous-tickets de stockage, parcours et consentement.",
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Parcours et adaptateur Supabase non implémentés; aucun test public d’isolation, d’effacement ou de confirmation simulée.",
       "next": "Ne pas marquer terminé avant preuve publiée et testée."
     },
     {
@@ -3053,8 +3053,8 @@
       "acceptance": ["Netlify cible, branche, site id et variables confirment l'environnement démo isolé", "Version HTTPS répond après déploiement et deux parcours vérifiés", "Lien du portfolio pointe vers cette URL et aucun déploiement ne touche l'ancien site"],
       "tests": ["Comparaison SHA/artifact et navigation depuis le portfolio public", "Smoke test public sans accès ni compte réel"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md"],
-      "evidence": [],
-      "blocker": "Candidat non recetté, projet de base dédiée absent et configuration Netlify du site lié non établie comme isolée.",
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
+      "blocker": "Aucun candidat intégré/recetté; la réponse publique ne révèle pas la branche source du build actuel. Aucune configuration Netlify ou publication n’est autorisée dans ce lot.",
       "next": "Déploiement interdit tant que les dépendances et l'isolation ne sont pas validées."
     }
   ]
