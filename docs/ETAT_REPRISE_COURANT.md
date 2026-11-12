@@ -1,3 +1,11 @@
+## Reprise active — 12 novembre 2026 : cadrage démo publique recruteur
+
+Le lien GetYourMentor du portfolio vise `https://getyourmentor-demo-20261014.netlify.app/` ; le portfolio est statique et n'a pas de base applicative. L'accueil public annonce une démo non commerciale, cinq profils et l'impossibilité de réserver réellement. `/demo` retourne HTTP 404. Un candidat local non vérifié expose des comptes fictifs partagés et utilise Netlify Blobs ; il ne convient pas à des données privées par recruteur ni à une base Supabase. Le contrôle santé de l'ancien déploiement ne prouve pas une lecture métier Supabase.
+
+Seul projet Supabase identifié : `getyourmentor-preprod` (`pqxqqbwesfrefzjoawmx`), référencé par un autre site Netlify déclaré en mode production. Ne pas le raccorder aux visiteurs ou modifier sa configuration/données. Recommandation : projet Supabase de démo isolé, données synthétiques, RLS testée, effacement individuel, paiement non financier, validation coach annoncée comme simulée, Telegram seulement après consentement/avec bot dédié ou repli à l'écran.
+
+Rapport : `docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md`. Tickets GYM-D1 et GYM-D1.1–D1.9 ajoutés à `tools/agentic-workbench/backlog.json` ; D1.1 est terminé sur les preuves d'inspection, D1 est en backlog, provisionnement Supabase isolé D1.2 bloqué, dépendances suivantes non marquées terminées. Dates/estimations sont des propositions, temps réels inconnus. Aucun changement applicatif, compte, variable Netlify, donnée/base distante, migration, paiement, Telegram ou déploiement dans ce lot. Modifications limitées au rapport et au Kanban, commit/push ciblés sur la branche design ; nombreux brouillons antérieurs conservés.
+
 ## Reprise active - 12 novembre 2026 : audit Git, publication et Supabase
 
 Demande : reprendre proprement, trier l'état Git/VS Code/GitHub et préserver le portfolio, GetYourMentor et Supabase. Aucun fichier applicatif, réglage Netlify, schéma ou donnée Supabase n'a été modifié dans ce contrôle.
