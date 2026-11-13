@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {proposeMove,ticketStatus} from '../board-policy.mjs';
+import {proposeMove,ticketStatus,targetIdOf} from '../board-policy.mjs';
 const base=(id,status='ready',parent='P')=>({id,status,parent,dependencies:[],evidence:[],blocker:null});
 test('parent status follows children; reopening prevents completed parent',()=>{
  const tickets=[{...base('P','done',null)}, {...base('a','done'),evidence:['proof']},{...base('b','done'),evidence:['proof']}];
@@ -21,4 +21,10 @@ test('WIP, valid statuses and a blocking reason are enforced',()=>{
  assert(proposeMove({ticketId:'c',status:'fake',tickets,changes:{}}).error);
  assert(proposeMove({ticketId:'c',status:'blocked',tickets,changes:{}}).error);
  assert.equal(proposeMove({ticketId:'c',status:'blocked',tickets,changes:{},blocker:'Access missing'}).patch.blocker,'Access missing');
+});
+test('tickets inherit an explicit site target from their parent lot',()=>{
+ const tickets=[{...base('HIST','ready',null),targetId:'connect-test-history'},{...base('HIST.1','ready','HIST')},{...base('DEMO','ready',null),targetId:'portfolio-linked-demo'},{...base('DEMO.1','ready','DEMO')},{...base('LOCAL.1','ready','LOCAL')}];
+ assert.equal(targetIdOf(tickets[1],tickets),'connect-test-history');
+ assert.equal(targetIdOf(tickets[3],tickets),'portfolio-linked-demo');
+ assert.equal(targetIdOf(tickets[4],tickets),'gym-main');
 });

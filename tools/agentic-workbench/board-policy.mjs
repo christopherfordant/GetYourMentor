@@ -1,6 +1,11 @@
 export const statuses={backlog:'Backlog',prepare:'À préparer',ready:'Prêt',progress:'En cours',review:'En revue',verify:'À vérifier',done:'Terminé',blocked:'Bloqué'};
 export const isLeaf=(ticket,tickets)=>!tickets.some(child=>child.parent===ticket.id);
 export const effective=(ticket,changes)=>({...ticket,...changes[ticket.id]});
+export function targetIdOf(ticket,tickets,defaultTarget='gym-main'){
+ if(ticket?.targetId)return ticket.targetId;
+ const parent=ticket?.parent?tickets.find(item=>item.id===ticket.parent):null;
+ return parent?.targetId??defaultTarget;
+}
 export function ticketStatus(id,tickets,changes){
  const ticket=tickets.find(t=>t.id===id);if(!ticket)return 'backlog';
  const children=tickets.filter(t=>t.parent===id);if(!children.length)return effective(ticket,changes).status;

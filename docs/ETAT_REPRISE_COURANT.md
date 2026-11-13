@@ -1,3 +1,7 @@
+## Reprise active - 13 novembre 2026 : Kanban unifie par environnement
+
+Le Kanban de reference reste `tools/agentic-workbench/backlog.json` dans le depot principal. Son interface expose maintenant un filtre et des badges de cible. GYM-B1 est conserve comme recette Connect historique sur `getyourmentor-preprod` ; il ne vaut pas validation du site du portfolio. GYM-D1 a ete actualise depuis le commit valide `7622fa06cf6737ffb5ba4afa7db337e52a51690d` du worktree isole : le projet Supabase demo existe, mais l application publique n y est pas encore raccordee ni deployee. Etats, regles et sprints : `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`. Aucun code metier, environnement distant ou deploiement modifie.
+
 ## Reprise active — 12 novembre 2026 : cadrage démo publique recruteur
 
 Le lien GetYourMentor du portfolio vise `https://getyourmentor-demo-20261014.netlify.app/` ; le portfolio est statique et n'a pas de base applicative. L'accueil public annonce une démo non commerciale, cinq profils et l'impossibilité de réserver réellement. `/demo` retourne HTTP 404. Un candidat local non vérifié expose des comptes fictifs partagés et utilise Netlify Blobs ; il ne convient pas à des données privées par recruteur ni à une base Supabase. Le contrôle santé de l'ancien déploiement ne prouve pas une lecture métier Supabase.

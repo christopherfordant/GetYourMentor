@@ -1,4 +1,4 @@
-import {statuses,isLeaf,effective,ticketStatus,proposeMove} from './board-policy.mjs';
+import {statuses,isLeaf,effective,ticketStatus,targetIdOf,proposeMove} from './board-policy.mjs';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 const $=id=>document.getElementById(id);let storageKey;const previousDrafts=[];
 let data,changes={},selectedId;
@@ -12,18 +12,19 @@ function move(id,status,extra={}){
 }
 function card(ticket){
  const t=effective(ticket,changes),status=leafStatus(ticket);
+ const target=data.targets?.find(item=>item.id===targetIdOf(ticket,data.tickets));
  const n=el('button',undefined,'ticket'+(ticket.priority==='P0'?' p0':'')+(status==='blocked'?' blocked':'')+(status==='done'?' completed':'')+(t.manual?' manual':''));
- n.type='button';n.dataset.ticket=t.id;n.draggable=true;
- n.append(el('span',t.id,'id'),el('h3',t.title),el('span',t.role,'tag'),el('span',`${t.estimateHours[0]}–${t.estimateHours[1]} h · ${t.due.slice(5).split('-').reverse().join('/')}`,'meta'));
+ n.type='button';n.dataset.ticket=t.id;n.dataset.target=targetIdOf(ticket,data.tickets);n.draggable=true;
+ n.append(el('span',t.id,'id'),el('span',target?.label??'Dépôt principal','target-badge'),el('h3',t.title),el('span',t.role,'tag'),el('span',`${t.estimateHours[0]}–${t.estimateHours[1]} h · ${t.due.slice(5).split('-').reverse().join('/')}`,'meta'));
  if(t.execution?.kind==='native-agent')n.append(el('span',`Agent natif ${t.execution.agentId} · ${t.execution.phase}`,'meta'));
  if(t.manual)n.append(el('span','Statut manuel','meta'));
  n.addEventListener('click',()=>openTicket(t.id));
  n.addEventListener('dragstart',event=>{event.dataTransfer.setData('text/plain',t.id);event.dataTransfer.effectAllowed='move';});return n;
 }
 function render(){
- const sprint=$('sprint').value,role=$('role').value,search=$('search').value.toLowerCase().trim();
+ const sprint=$('sprint').value,role=$('role').value,target=$('target').value,search=$('search').value.toLowerCase().trim();
  const leaves=data.tickets.filter(t=>isLeaf(t,data.tickets));
- const visible=leaves.filter(t=>(sprint==='all'||t.sprint===sprint)&&(role==='all'||t.role===role)&&`${t.id} ${t.title} ${data.tickets.find(p=>p.id===t.parent)?.title}`.toLowerCase().includes(search));
+ const visible=leaves.filter(t=>(sprint==='all'||t.sprint===sprint)&&(role==='all'||t.role===role)&&(target==='all'||targetIdOf(t,data.tickets)===target)&&`${t.id} ${t.title} ${data.tickets.find(p=>p.id===t.parent)?.title} ${data.targets?.find(item=>item.id===targetIdOf(t,data.tickets))?.label??''}`.toLowerCase().includes(search));
  $('stats').textContent=`${visible.length} sous-tickets · ${visible.filter(t=>leafStatus(t)==='done').length} terminés · ${leaves.filter(t=>leafStatus(t)==='progress').length}/2 en cours`;
  const board=$('board');board.replaceChildren(el('div','Lots / sous-tickets','corner'));
  for(const [key,label] of Object.entries(statuses)){const head=el('div',label,'column-head');head.append(el('span',`${visible.filter(t=>leafStatus(t)===key).length}${key==='progress'?'/2':''}`));board.append(head);}
@@ -31,7 +32,8 @@ function render(){
  for(const parent of parents){
   const children=visible.filter(t=>t.parent===parent.id);if(!children.length)continue;
   const lane=el('div',undefined,'lane-title');const button=el('button',parent.title);button.type='button';button.addEventListener('click',()=>openTicket(parent.id));
-  lane.append(el('small',`${parent.id} / ${parent.sprint}`),button,el('small',`${children.length} sous-tickets · ${parent.due}`),el('strong',statuses[ticketStatus(parent.id,data.tickets,changes)]));board.append(lane);
+  const laneTarget=data.targets?.find(item=>item.id===targetIdOf(parent,data.tickets));
+  lane.append(el('small',`${parent.id} / ${parent.sprint}`),button,el('small',laneTarget?.label??'Dépôt principal','target-lane'),el('small',`${children.length} sous-tickets · ${parent.due}`),el('strong',statuses[ticketStatus(parent.id,data.tickets,changes)]));board.append(lane);
   for(const key of Object.keys(statuses)){
    const cell=el('div',undefined,'cell');cell.dataset.status=key;cell.dataset.parent=parent.id;cell.setAttribute('aria-label',`${parent.title} : ${statuses[key]}`);
    for(const ticket of children.filter(t=>leafStatus(t)===key))cell.append(card(ticket));
@@ -44,7 +46,8 @@ function render(){
 function openTicket(id,status,error=''){
  const original=data.tickets.find(t=>t.id===id);if(!original)return;selectedId=id;const t=effective(original,changes),leaf=isLeaf(original,data.tickets);
  $('ticket-id').textContent=`${t.id} · ${t.priority} · ${t.sprint}`;$('ticket-title').textContent=t.title;const details=$('ticket-details');details.replaceChildren();
- for(const [label,value] of [['Responsable',t.role+' (rôle planifié)'],['Objectif',t.objective],['Périmètre',t.scope],['Statut',statuses[ticketStatus(id,data.tickets,changes)]],['Charge estimée',t.estimateHours.join('–')+' h'],['Temps mesuré','Non disponible'],['Remise proposée',t.due],['Dépendances',t.dependencies.join(', ')||'Aucune'],['Fichiers',t.files.join(', ')],['Tests attendus',t.tests.join(' ; ')],['Preuves',t.evidence.join(' ; ')||'Aucune'],['Prochaine action',t.next]])details.append(el('p',`${label} : ${value}`));
+ const target=data.targets?.find(item=>item.id===targetIdOf(t,data.tickets));
+ for(const [label,value] of [['Cible',target?.detail??'Dépôt principal'],['Responsable',t.role+' (rôle planifié)'],['Objectif',t.objective],['Périmètre',t.scope],['Statut',statuses[ticketStatus(id,data.tickets,changes)]],['Charge estimée',t.estimateHours.join('–')+' h'],['Temps mesuré','Non disponible'],['Remise proposée',t.due],['Dépendances',t.dependencies.join(', ')||'Aucune'],['Fichiers',t.files.join(', ')],['Tests attendus',t.tests.join(' ; ')],['Preuves',t.evidence.join(' ; ')||'Aucune'],['Prochaine action',t.next]])details.append(el('p',`${label} : ${value}`));
  if(t.execution?.kind==='native-agent')for(const [label,value] of [['Agent réellement lancé',t.execution.agentId],['Mécanisme','Délégation native de la conversation ; distincte de VS Code'],['Phase',t.execution.phase],['Modèle demandé',t.execution.model],['Worktree',t.execution.worktree]])details.append(el('p',`${label} : ${value}`));
  const list=el('ul');for(const criterion of t.acceptance)list.append(el('li',criterion));details.append(list);
  for(const child of data.tickets.filter(c=>c.parent===id)){const n=el('p',`${child.id} · ${statuses[leafStatus(child)]} · ${child.title}`);details.append(n);}
@@ -55,11 +58,11 @@ for(const [key,label] of Object.entries(statuses)){const option=el('option',labe
 $('close-dialog').addEventListener('click',()=>$('ticket-dialog').close());
 $('ticket-form').addEventListener('submit',event=>{event.preventDefault();const error=move(selectedId,$('ticket-status').value,{evidence:$('ticket-evidence').value,verified:$('ticket-verified').checked,blocker:$('ticket-blocker').value});$('ticket-feedback').textContent=error??'';if(!error){$('ticket-dialog').close();document.querySelector(`[data-ticket="${selectedId}"]`)?.focus();}});
 for(const button of document.querySelectorAll('[data-view]'))button.addEventListener('click',()=>{for(const id of ['planning','roles','assistant'])$(id).hidden=id!==button.dataset.view;for(const b of document.querySelectorAll('[data-view]'))b.setAttribute('aria-pressed',String(b===button));});
-for(const id of ['sprint','role','search'])$(id).addEventListener(id==='search'?'input':'change',()=>data&&render());
+for(const id of ['sprint','role','target','search'])$(id).addEventListener(id==='search'?'input':'change',()=>data&&render());
 $('reset').addEventListener('click',()=>{changes={};save();render();message('Vue initiale rétablie. Le dossier source n’a pas été modifié.');});
 $('export-previous').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({exportKind:'preserved-previous-browser-drafts',drafts:previousDrafts},null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download='GetYourMentor-anciens-deplacements.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
 $('export').addEventListener('click',()=>{if(!data)return;const exported={...data,exportKind:'manual-browser-planning-copy',tickets:data.tickets.map(t=>({...effective(t,changes),status:leafStatus(t)}))};const url=URL.createObjectURL(new Blob([JSON.stringify(exported,null,2)],{type:'application/json'}));const a=el('a');a.href=url;a.download='GetYourMentor-kanban-local.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
-try{const response=await fetch('/backlog.json');if(!response.ok)throw Error();data=await response.json();for(const s of data.sprints){const option=el('option',`${s.id} · ${s.start} → ${s.end}`);option.value=s.id;$('sprint').append(option);}for(const role of data.roles){const option=el('option',role);option.value=role;$('role').append(option);}
+try{const response=await fetch('/backlog.json');if(!response.ok)throw Error();data=await response.json();for(const s of data.sprints){const option=el('option',`${s.id} · ${s.start} → ${s.end}`);option.value=s.id;$('sprint').append(option);}for(const role of data.roles){const option=el('option',role);option.value=role;$('role').append(option);}for(const target of data.targets??[]){const option=el('option',target.label);option.value=target.id;$('target').append(option);}
  try{const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(data.tickets)));storageKey='gym-kanban-local-v3-'+Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
  for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(key!==storageKey&&(key==='gym-kanban-local-v2'||key?.startsWith('gym-kanban-local-v3-'))){const raw=localStorage.getItem(key);let same=false;try{same=JSON.parse(raw)?.base===JSON.stringify(data.tickets);}catch{}if(!same)previousDrafts.push({key,raw});}}
  if(previousDrafts.length){$('export-previous').hidden=false;message('Le dossier source a chang\u00e9 : vos anciens d\u00e9placements sont conserv\u00e9s et exportables, mais ne sont pas appliqu\u00e9s automatiquement.');}
