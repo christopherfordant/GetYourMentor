@@ -1,3 +1,13 @@
+## Reprise active — contrôle local D1.3 — 13 novembre 2026
+
+Le Kanban GYM-D1 reste la référence : D1.2 et D1.3 sont `progress`; D1.4 est `blocked`; aucun parcours n'est raccordé ou publié par ce lot. Docker est exclu des prochaines étapes opérationnelles, sans effacer les références historiques aux contrôles précédents.
+
+Le contrôle local en lecture seule a trouvé les binaires PostgreSQL 12 (`initdb`, `pg_ctl`, `psql`) et un service Windows déjà actif. Le service et son répertoire de données préexistant n'ont pas été utilisés. pgTAP, `pg_prove` et Supabase CLI ne sont pas disponibles dans l'environnement vérifié. Aucun outil n'a été installé et aucun cluster n'a été créé. Les 25 assertions pgTAP et le test de concurrence de D1.3 restent à exécuter sur un environnement local/jetable dédié. Détails : `docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md`.
+
+Le site ciblé reste `https://getyourmentor-demo-20261014.netlify.app/`; les vérifications publiques précédentes indiquent `/demo` en 404 et `supabase=false`. Aucune configuration Netlify, donnée distante, notification ou déploiement n'a été modifié dans ce lot. L'ancien site `gregarious-fox-fff605` et le projet `getyourmentor-preprod` restent hors périmètre.
+
+Prochaine action : obtenir un runner PostgreSQL local jetable déjà muni de pgTAP (ou une décision distincte autorisant une installation locale), puis exécuter les assertions et le test concurrent sans accéder à une base distante. Maintenir D1.3 ouvert jusque-là ; ne pas commencer l'adaptateur ni modifier les statuts pour libérer une place.
+
 ## Reprise active - migration progressive Blobs vers Supabase recruteur (12 novembre 2026)
 
 Audit en lecture seule : `docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md`. Le dépôt applicatif isolé est `christopherfordant/GetYourMentor`, branche `demo/recruiter-supabase-adapter-20261112`, base `58a9f32876fe6918234f63d383e9fd2b375d656d`. Le checkout principal et ses brouillons n’ont pas été modifiés.

@@ -2922,8 +2922,9 @@
       "tests": ["Tests SQL sous anon, sportif, coach et rôle serveur", "Contrôle de non-fuite inter-visiteurs"],
       "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql","supabase/proposals/demo-public-20261112/README.md","supabase/proposals/demo-public-20261112/validate-proposal.mjs","docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
       "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Le schéma existant passe les 34 assertions archivées, mais ne modélise pas les créneaux coach, l’idempotence/résultat de rejeu ni les transitions atomiques; la RLS ne documente pas une restriction anon-only. Le retour est statique et non exécuté.",
-      "next": "Proposer une migration additive et des assertions pgTAP pour créneaux, rejeu, transitions et RLS anon-only; exécuter uniquement sur une base locale/jetable avant de considérer l’adaptateur."
+      "blocker": "Le schéma existant passe les 34 assertions archivées, mais ne modélise pas les créneaux coach, l’idempotence/résultat de rejeu ni les transitions atomiques; la RLS ne documente pas une restriction anon-only. Le retour est statique et non exécuté. Le contrôle local du 13 novembre a trouvé PostgreSQL 12 mais pas pgTAP, pg_prove ou Supabase CLI; le service présent est préexistant et ne doit pas servir aux essais. Les 25 assertions et le test concurrent restent non exécutés.",
+      "next": "Obtenir un runner PostgreSQL local/jetable déjà muni de pgTAP (ou une décision distincte autorisant son installation locale), puis exécuter les assertions et le test concurrent. Docker est exclu; aucune base distante ne doit servir de contournement. Maintenir le ticket ouvert jusque-là.",
+      "environmentEvidence": ["docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md"]
     },
     {
       "id": "GYM-D1.4",
