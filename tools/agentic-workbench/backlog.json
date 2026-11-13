@@ -2899,9 +2899,9 @@
       "acceptance": ["Projet Supabase dédié identifié et autorisé", "Clés publiques/serveur rangées dans les secrets du bon site Netlify", "Aucune clé privilégiée incluse dans un bundle client"],
       "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
-      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Le projet dédié existe, mais aucun adaptateur n’est intégré et la cible de déploiement n’a pas de correspondance build/branche vérifiée. isHostedDemo() refuse actuellement les variables Supabase; aucune variable ne doit être ajoutée avant la frontière dédiée et le scan client.",
-      "next": "Valider le contrat applicatif (Auth anonyme, créneaux, mutations serveur, effacement et TTL), puis auditer le build et confirmer la cible Netlify avant d’y ranger les secrets."
+      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md"],
+      "blocker": "Le projet dédié existe, mais aucun adaptateur n’est intégré et la provenance du déploiement public (dépôt, branche, SHA publié, base/commande build) n’est pas confirmée. Contrôle du 2026-11-14 : /api/health répond supabase=false et /demo répond 404. isHostedDemo() refuse actuellement les variables Supabase ; ne configurer aucune variable avant l’adaptateur dédié et le scan client.",
+      "next": "Obtenir dans le tableau de bord Netlify les métadonnées non secrètes du site getyourmentor-demo-20261014 (dépôt, branche de production, dernier SHA publié, base et commande build), les comparer au dépôt, puis reprendre le contrat et la frontière serveur. Ne transmettre aucune clé."
     },
     {
       "id": "GYM-D1.3",
