@@ -2964,10 +2964,11 @@
         "docs/SUPABASE_DEMO_PROVISION_2026-11-12.md",
         "supabase/proposals/demo-public-20261112/001_demo_schema.sql",
         "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md",
-        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"
+        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
+        "docs/DEMO_D1_2_BUILD_AUDIT_2026-11-13.md"
       ],
-      "blocker": "Le projet dédié existe, mais aucun adaptateur n’est intégré et la cible de déploiement n’a pas de correspondance build/branche vérifiée. isHostedDemo() refuse actuellement les variables Supabase; aucune variable ne doit être ajoutée avant la frontière dédiée et le scan client.",
-      "next": "Valider le contrat applicatif (Auth anonyme, créneaux, mutations serveur, effacement et TTL), puis auditer le build et confirmer la cible Netlify avant d’y ranger les secrets.",
+      "blocker": "Le build Next.js, le contrôle Netlify statique et le scan .next/static passent sur le code actuel, mais celui-ci n’expose pas de route /demo et isHostedDemo() refuse les variables Supabase. L’identité du site Netlify et la correspondance du build avec sa branche ne sont pas vérifiables depuis ce checkout (aucun .netlify/state.json ni site_id dans netlify.toml). Aucun secret ne doit être configuré avant l’adaptation applicative et la confirmation de la cible.",
+      "next": "Confirmer en lecture seule l’identifiant du site Netlify portfolio-linked-demo et les métadonnées de sa branche/build. Ensuite, concevoir l’adaptateur isolé (Auth anonyme, créneaux, mutations serveur, effacement/TTL), puis refaire le scan des artefacts avant toute configuration de variables.",
       "targetId": "portfolio-linked-demo"
     },
     {

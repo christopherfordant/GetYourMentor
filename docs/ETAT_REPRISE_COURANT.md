@@ -694,3 +694,11 @@ Aucun déploiement dans le lot documentaire courant ; la livraison Netlify de so
 ## Reprise suivante
 Prochain lot V1 recommandé : recommandations explicables, source BP p.50 ; réutiliser catalogue et préférences explicitement choisies, sans données de santé ou scores prédictifs inventés. Vérifier l'absence actuelle avant création et définir une tranche bornée. La finition accueil Factory reste requise avant recette finale mais passe après les lacunes métier prioritaires. Ne pas recommencer réservation/paiement/suivi/export calendrier. Aucun déploiement implicite ; candidat hébergé final à autoriser séparément.
 Ne pas recommencer les onglets coach/footer : [lot précédent](COACH_ONGLETS_FOOTER_2026-10-21.md), bases livrées 7aebba1 privé / 342e62b public, 18 tests privés et 8 publics lors de cette livraison. Socle Factory : REFONTE_FACTORY_2026-10-21.md.
+
+## Reprise active — audit local GYM-D1.2 (13 novembre 2026)
+
+Le Kanban versionné est la référence : GYM-D1.2 reste `progress`, aucun ticket n’a été clôturé. L’audit du build est consigné dans `docs/DEMO_D1_2_BUILD_AUDIT_2026-11-13.md`. Sur le code applicatif identique au commit `ebd5ea40cff3076f57a14d3e0d12249417a7d4f5`, `npm ci` a ajouté 78 paquets et rapporté une vulnérabilité critique ; `npm run build`, `npm run check:client-secret-boundary` après build et `npm run check:netlify-config` ont réussi. Aucune correction automatique de dépendance.
+
+Constats : aucune route `/demo`; `isHostedDemo()` refuse les variables Supabase; le build Netlify est configuré avec `base=gym-next`, `npm run build`, `publish=.next`. Le checkout ne contient pas de liaison `.netlify/state.json` ni `site_id`; l’identité du site, la branche de build et l’artefact public restent à confirmer en lecture seule depuis Netlify. Aucun secret, changement Netlify, migration distante ou déploiement.
+
+Prochaine action : vérifier l’identité et les métadonnées de build du site `portfolio-linked-demo` sans modifier ses paramètres. Après confirmation seulement, reprendre l’adaptateur de démonstration et son audit de sécurité avant toute variable.
