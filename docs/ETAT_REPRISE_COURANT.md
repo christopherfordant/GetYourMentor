@@ -2,6 +2,8 @@
 
 Référence de travail obligatoire pour les prochains lots : `tools/agentic-workbench/backlog.json`. Choisir la prochaine tâche à partir de ses priorités, dépendances, cibles et preuves ; les changements de cartes dans le navigateur sont des brouillons. Les tickets ne sont clôturés qu'après contrôles documentés. Voir `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`.
 
+GYM-D1.3 a avancé sur la branche isolée `demo/recruiter-supabase-adapter-20261112`, commit `ebd5ea40cff3076f57a14d3e0d12249417a7d4f5` : proposition additive créneaux/idempotence/transitions et smoke PostgreSQL 12.15 avec shim local. Le Kanban canonique conserve D1.3 en cours : les assertions pgTAP Supabase et un test de concurrence restent à exécuter. Aucun adaptateur, changement distant ou déploiement n’a été réalisé. Détail : `docs/GYM_D1_3_SCHEMA_STATUS_2026-11-13.md`.
+
 Le Kanban de reference reste `tools/agentic-workbench/backlog.json` dans le depot principal. Son interface expose maintenant un filtre et des badges de cible. GYM-B1 est conserve comme recette Connect historique sur `getyourmentor-preprod` ; il ne vaut pas validation du site du portfolio. GYM-D1 a ete actualise depuis le commit valide `7622fa06cf6737ffb5ba4afa7db337e52a51690d` du worktree isole : le projet Supabase demo existe, mais l application publique n y est pas encore raccordee ni deployee. Etats, regles et sprints : `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`. Aucun code metier, environnement distant ou deploiement modifie.
 
 ## Reprise active — 12 novembre 2026 : cadrage démo publique recruteur

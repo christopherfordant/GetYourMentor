@@ -2995,20 +2995,27 @@
         "supabase/proposals/demo-public-20261112/001_demo_schema.sql",
         "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql",
         "supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql",
+        "supabase/proposals/demo-public-20261112/004_demo_schedule_idempotency.sql",
+        "supabase/proposals/demo-public-20261112/005_demo_schedule_idempotency_tests.sql",
+        "supabase/proposals/demo-public-20261112/006_rollback_schedule_idempotency.sql",
+        "supabase/proposals/demo-public-20261112/007_postgres12_contract_smoke.sql",
+        "supabase/proposals/demo-public-20261112/008_postgres12_auth_shim_bootstrap.sql",
         "supabase/proposals/demo-public-20261112/README.md",
         "supabase/proposals/demo-public-20261112/validate-proposal.mjs",
         "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md",
-        "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"
+        "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md",
+        "docs/GYM_D1_3_SCHEMA_STATUS_2026-11-13.md"
       ],
       "evidence": [
         "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md",
         "docs/SUPABASE_DEMO_PROVISION_2026-11-12.md",
         "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql",
         "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md",
-        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"
+        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
+        "docs/GYM_D1_3_SCHEMA_STATUS_2026-11-13.md"
       ],
-      "blocker": "Le schéma existant passe les 34 assertions archivées, mais ne modélise pas les créneaux coach, l’idempotence/résultat de rejeu ni les transitions atomiques; la RLS ne documente pas une restriction anon-only. Le retour est statique et non exécuté.",
-      "next": "Proposer une migration additive et des assertions pgTAP pour créneaux, rejeu, transitions et RLS anon-only; exécuter uniquement sur une base locale/jetable avant de considérer l’adaptateur.",
+      "blocker": "Une migration additive et un smoke comportemental passent sur PostgreSQL 12.15 avec un shim auth local. Ce n’est pas une validation Supabase ; les 25 assertions pgTAP et la concurrence réelle n’ont pas été exécutées. L’adaptateur n’est pas intégré.",
+      "next": "Exécuter les 25 assertions pgTAP et les contrôles des rôles dans une instance Supabase locale/jetable, tester deux réservations concurrentes, puis revoir la migration avant toute intégration. Ne pas appliquer sur un projet distant.",
       "targetId": "portfolio-linked-demo"
     },
     {
