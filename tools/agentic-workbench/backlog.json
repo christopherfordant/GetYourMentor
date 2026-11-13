@@ -2884,9 +2884,9 @@
     {
       "id": "GYM-D1.2",
       "parent": "GYM-D1",
-      "title": "Provisionner et isoler le projet Supabase de démonstration",
+      "title": "Provisionner et identifier les environnements isolés de démonstration",
       "objective": "Séparer les données publiques de démonstration de la recette et de toute production métier",
-      "status": "progress",
+      "status": "done",
       "sprint": "S4",
       "priority": "P0",
       "role": "DevOps",
@@ -2895,13 +2895,15 @@
       "estimateHours": [1, 3],
       "actualHours": null,
       "dependencies": ["GYM-D1.1"],
-      "scope": "Projet dedie getyourmentor-demo-recruiter (rqxoovriacgoriimpbwi), region Paris, offre Free ; schema isole applique et controle. Domaine public lie au portfolio identifie ; aucune variable Netlify ni cle ecrite. Compatibilite applicative non etablie.",
-      "acceptance": ["Projet Supabase dédié identifié et autorisé", "Clés publiques/serveur rangées dans les secrets du bon site Netlify", "Aucune clé privilégiée incluse dans un bundle client"],
-      "tests": ["Contrôle de projet et variables par identifiant non secret", "Analyse de frontière client/serveur"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md"],
+      "scope": "Projet dedie getyourmentor-demo-recruiter (rqxoovriacgoriimpbwi), region Paris, offre Free ; schema isole applique et controle. Site Netlify cible et deploy actuellement publie identifies. Aucun secret/configuration applicative n'est necessaire avant l'adaptateur ; la source SHA publiee est connue, mais le deploiement CLI n'a pas de branche Git de production attestee.",
+      "acceptance": ["Projet Supabase dédié identifié, autorisé et distinct de la recette/production", "Site Netlify lié au portfolio identifié par nom, URL et Site ID ; dernier artefact et source SHA consignés", "Frontière client/serveur du candidat contrôlée sans clés configurées ; aucune clé privilégiée présente dans les bundles vérifiés", "Les variables Supabase sont explicitement différées jusqu'à l'adaptateur sécurisé et au ticket D1.9"],
+      "tests": ["Contrôle en lecture seule du projet Supabase et du site Netlify par identifiants non secrets", "Contrôle de l'URL, du Site ID, du déploiement publié et du SHA source", "Égalité du sous-arbre gym-next entre le SHA source publié et le candidat", "Build et scan client/serveur du candidat sans secrets, preuve auditée"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md"],
       "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md"],
-      "blocker": "Le projet dédié existe, mais aucun adaptateur n’est intégré et la provenance du déploiement public (dépôt, branche, SHA publié, base/commande build) n’est pas confirmée. Contrôle du 2026-11-14 : /api/health répond supabase=false et /demo répond 404. isHostedDemo() refuse actuellement les variables Supabase ; ne configurer aucune variable avant l’adaptateur dédié et le scan client.",
-      "next": "Obtenir dans le tableau de bord Netlify les métadonnées non secrètes du site getyourmentor-demo-20261014 (dépôt, branche de production, dernier SHA publié, base et commande build), les comparer au dépôt, puis reprendre le contrat et la frontière serveur. Ne transmettre aucune clé."
+      "manual": true,
+      "manuallyVerifiedAt": "2026-11-13T23:42:34.000Z",
+      "blocker": null,
+      "next": "D1.2 est terminé sur son périmètre de préparation et d'identification. Poursuivre D1.3 avec le contrat d'acteur fictif stable et d'acceptation automatique ; ne pas configurer les variables Supabase avant D1.9. Le déploiement Netlify actuel est un envoi CLI sans branche de production attestée."
     },
     {
       "id": "GYM-D1.3",
@@ -2922,8 +2924,8 @@
       "tests": ["34 assertions pgTAP base et 25 assertions additives sous anon, sportif, coach et rôle serveur sur PostgreSQL local jetable", "Deux processus concurrents : rejeu idempotent et réservation d'un même créneau", "Nouvelles assertions requises : acteur fictif créé/réutilisé une seule fois, mutation visiteur refusée, acceptation limitée aux fixtures de démo et suppression qui préserve les fixtures", "Rollback protégé refusé sur schéma non vide puis exécuté sur schéma vide", "Contrôle de non-fuite inter-visiteurs"],
       "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql","supabase/proposals/demo-public-20261112/README.md","supabase/proposals/demo-public-20261112/validate-proposal.mjs","docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md","docs/assets/demo-schema-d13-2026-11-13/local-pgtap-002.log","docs/assets/demo-schema-d13-2026-11-13/local-pgtap-005-pass.log"],
-      "blocker": "Les 34 assertions de base, 25 assertions additives, deux scénarios concurrents et le rollback sont vérifiés sur PostgreSQL 12.15 jetable avec shim Auth, mais pas sur le runtime Supabase. La nouvelle règle d'acteur fictif stable et d'acceptation automatique requiert des assertions/migration dédiées. D1.2 reste progress ; ne pas utiliser le service Windows existant ni une base distante pour ces contrôles.",
-      "next": "Après résolution de D1.2, ajouter l'identifiant stable de fixture/acteur et le contrat atomique de demande-acceptation au schéma local, puis tester création/réutilisation, accès client interdit, concurrence et rollback avant tout adaptateur.",
+      "blocker": "Les 34 assertions de base, 25 assertions additives, deux scénarios concurrents et le rollback sont vérifiés sur PostgreSQL 12.15 jetable avec shim Auth, mais pas sur le runtime Supabase. La règle du 14 novembre d'acteur fictif stable et d'acceptation automatique requiert des assertions/migration dédiées. Ne pas utiliser le service Windows existant ni une base distante pour ces contrôles.",
+      "next": "Ajouter un acteur serveur stable par fixture fictive et une opération atomique de réservation + acceptation limitée aux fixtures ; tester création/réutilisation, mutation client interdite, concurrence, idempotence et rollback sur PostgreSQL local jetable. Puis exécuter les tests du schéma sur un runtime Supabase local/jetable si disponible avant l'adaptateur.",
       "environmentEvidence": ["docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md","docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md"]
     },
     {
@@ -3055,8 +3057,8 @@
       "tests": ["Comparaison SHA/artifact et navigation depuis le portfolio public", "Smoke test public sans accès ni compte réel"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Aucun candidat intégré/recetté; la réponse publique ne révèle pas la branche source du build actuel. Aucune configuration Netlify ou publication n’est autorisée dans ce lot.",
-      "next": "Déploiement interdit tant que les dépendances et l'isolation ne sont pas validées."
+      "blocker": "Le site getyourmentor-demo-20261014 (Site ID 86e0379e-4d1a-4cf0-936c-1439397354f4) publie actuellement un artefact CLI (deploy 6af5b42d9df69449340b3d31, source SHA 892ecba8a081de29336e482824d7a177726c48a7) ; Netlify n'atteste pas de branche de production Git pour cet envoi. Aucun candidat intégré/recetté. Les variables Supabase ne sont pas encore configurées.",
+      "next": "Après validation des dépendances, préparer un artefact depuis un checkout propre de la branche autorisée et consigner branche, SHA, commande/build vérifiés et Site ID avant la publication CLI ciblée. Configurer uniquement les variables nécessaires après scan client/serveur et recette complète."
     }
   ]
 }
