@@ -37,3 +37,9 @@ Les déplacements effectués dans l’interface sont des brouillons dans le stoc
 ## Sélection de ticket et reprise ciblée — 13 novembre
 
 Le lecteur local `tools/agentic-workbench/task-context.mjs` fournit `--ticket ID`, `--ticket ID --details` et `--next`. Il lit uniquement le backlog versionné, ne modifie ni le Kanban ni son localStorage, et n'ouvre pas les fichiers référencés par un ticket. `--next` exige un ticket feuille au statut `ready` et des dépendances au statut `done` ; en l'absence d'un tel ticket, il expose ce fait ainsi que des candidats non validés. Procédure détaillée et contrôles : `docs/KANBAN_CONTEXT_READER_2026-11-13.md`.
+
+### Chantier distinct : plateforme de développement agentique réutilisable
+
+Après le lot K1, le cadrage `docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md` a ajouté GYM-PLAT et ses huit sous-tickets au backlog versionné : PLAT.1 est planifié comme terminé après ses contrôles ; le parent reste en cours et les lots PLAT.2–PLAT.8 ne sont pas déclarés prêts ni réalisés. Les sprints S6–S8 sont des propositions conditionnelles, avec dates et charges non contractuelles. Cette initiative concerne l’outillage local multi-projet, pas l’orchestration documentaire métier GYM-A5. Le lecteur sélectif existant doit être réutilisé avant toute généralisation. Aucun agent LLM additionnel, framework, base mémoire ou service distant n’est adopté par le cadrage.
+
+Le backlog contient maintenant 96 tickets sur 8 sprints. Cette évolution conserve les 87 tickets préexistants et ajoute neuf identifiants GYM-PLAT, sans modifier les statuts des chantiers antérieurs.

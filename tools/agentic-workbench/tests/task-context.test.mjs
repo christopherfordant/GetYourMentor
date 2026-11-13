@@ -34,8 +34,10 @@ test('CLI accepts only fixed ticket and next queries',async()=>{
  const result=await main(['--next']);assert.equal(result.status,'no-ready-ticket');
 });
 
-test('canonical backlog retains all tickets and the new selector task',async()=>{
+test('canonical backlog retains previous tickets and tracks the platform plan',async()=>{
  const data=JSON.parse(await readFile(path.join(root,'tools/agentic-workbench/backlog.json'),'utf8'));
- assert.equal(data.tickets.length,87);assert(data.tickets.some(ticket=>ticket.id==='GYM-K1'));assert(data.tickets.some(ticket=>ticket.id==='GYM-K1.1'&&ticket.parent==='GYM-K1'));
+ assert.equal(data.tickets.length,96);assert.equal(data.tickets.filter(ticket=>!ticket.id.startsWith('GYM-PLAT')).length,87);
+ assert(data.tickets.some(ticket=>ticket.id==='GYM-K1'));assert(data.tickets.some(ticket=>ticket.id==='GYM-K1.1'&&ticket.parent==='GYM-K1'));
+ assert(data.tickets.some(ticket=>ticket.id==='GYM-PLAT.1'&&ticket.status==='done'));assert(data.tickets.some(ticket=>ticket.id==='GYM-PLAT.8'&&ticket.status==='backlog'));
  assert.equal(new Set(data.tickets.map(ticket=>ticket.id)).size,data.tickets.length);
 });

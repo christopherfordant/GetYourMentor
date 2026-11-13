@@ -49,6 +49,30 @@
       "end": "2026-11-20",
       "goal": "Reduce repeated context transfer using the canonical Kanban and concise resumption state.",
       "capacityAssumption": "Bounded maintenance sprint; indicative dates, no capacity commitment."
+    },
+    {
+      "id": "S6",
+      "title": "Contrat portable et adaptateurs",
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "goal": "Définir le contrat commun et valider les premiers adaptateurs de projet et d’assistant.",
+      "capacityAssumption": "Dates et charges proposées, non contractuelles ; un exécutant séquentiel."
+    },
+    {
+      "id": "S7",
+      "title": "Reprise, preuves et garde-fous",
+      "start": "2026-12-07",
+      "end": "2026-12-11",
+      "goal": "Tester la reprise après interruption, les checkpoints ciblés, les permissions et les journaux expurgés.",
+      "capacityAssumption": "Planification conditionnelle à la validation de S6 ; aucun temps réel mesuré."
+    },
+    {
+      "id": "S8",
+      "title": "Portabilité et décision d’outillage",
+      "start": "2026-12-14",
+      "end": "2026-12-18",
+      "goal": "Prouver le contrat sur un projet synthétique puis décider si un framework ou un RAG est nécessaire.",
+      "capacityAssumption": "Dates proposées ; aucun framework ou service payant présumé."
     }
   ],
   "tickets": [
@@ -3348,6 +3372,364 @@
       ],
       "blocker": null,
       "next": "Use task-context.mjs for the next session; --next currently reports no ready ticket.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT",
+      "parent": null,
+      "title": "Reusable agentic development platform",
+      "objective": "Build a portable, secure and verifiable development workflow across projects and coding assistants, reusing the canonical Kanban and existing context tools.",
+      "status": "progress",
+      "sprint": "S6",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-18",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Local development tooling and governance only. No business-flow changes, remote migrations, paid services or deployment.",
+      "acceptance": [
+        "A documented and validated project contract exists",
+        "A single canonical task source is used per project; no duplicate Kanban or memory database",
+        "Task selection, context retrieval, resume, evidence, tests and Git checkpoint are verifiable",
+        "Cross-project reuse is proven before claiming portability",
+        "Frameworks and RAG are adopted only after a baseline comparison shows a need and no material regression"
+      ],
+      "tests": [
+        "Review child-ticket evidence and local test results"
+      ],
+      "files": [
+        "docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md"
+      ],
+      "evidence": [
+        "docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md"
+      ],
+      "blocker": null,
+      "next": "Start GYM-PLAT.2 after reviewing the documented architecture and verifying the current branch and worktree.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.1",
+      "parent": "GYM-PLAT",
+      "title": "Audit requirements and document the reusable-platform architecture",
+      "objective": "Reconcile the visible ChatGPT Classic requirements with GetYourMentor’s delivered tooling and produce a phased, evidence-based plan.",
+      "status": "done",
+      "sprint": "S5",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-11-20",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Local read-only audit and documentation; no application or service changes.",
+      "acceptance": [
+        "Conversation-derived requirements and uncertain tool names are distinguished from confirmed decisions",
+        "Existing Kanban, context reader, resumption and document assistant are assessed without duplication",
+        "Architecture alternatives, risks, phases, acceptance checks and external approval needs are documented"
+      ],
+      "tests": [
+        "JSON validation and Kanban ID/dependency integrity",
+        "Targeted task-context tests",
+        "Review Git diff and source references"
+      ],
+      "files": [
+        "docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md",
+        "tools/agentic-workbench/backlog.json",
+        "docs/ETAT_REPRISE_COURANT.md"
+      ],
+      "evidence": [
+        "docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md"
+      ],
+      "blocker": null,
+      "next": "Use GYM-PLAT.2 as the next planning task; no implementation framework is selected.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.2",
+      "parent": "GYM-PLAT",
+      "title": "Define the minimal portable project contract",
+      "objective": "Specify per-project sources, instructions, safety boundaries, tests and resume references without hard-coded personal paths.",
+      "status": "backlog",
+      "sprint": "S6",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-04",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.1"
+      ],
+      "scope": "Local documentation/schema proposal; preserve existing Kanban formats until compatibility is verified.",
+      "acceptance": [
+        "Contract identifies the project’s canonical task source, instructions, resume file, permitted roots and validation commands",
+        "Contract validation rejects missing or unsafe paths and does not expose secrets",
+        "GetYourMentor can be represented without copying its private master documents",
+        "Existing task records remain readable; any future storage migration requires a verified backup and rollback plan"
+      ],
+      "tests": [
+        "Schema/contract tests against current GYM configuration and synthetic invalid configurations"
+      ],
+      "files": [
+        "tools/agentic-workbench/AGENTS.md",
+        "tools/agentic-workbench/README.md",
+        "project contract location to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Inspect current reader and project instructions before proposing any config file.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.3",
+      "parent": "GYM-PLAT",
+      "title": "Generalize the read-only task-source adapter",
+      "objective": "Reuse the existing task-context selector behind an explicit project adapter while preserving deterministic selection.",
+      "status": "backlog",
+      "sprint": "S6",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-04",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.2"
+      ],
+      "scope": "Read-only local tooling; no LLM call, task mutation or arbitrary file access.",
+      "acceptance": [
+        "GetYourMentor adapter reads only its canonical backlog",
+        "Lookup, readiness, dependencies and progressive details are consistent with current CLI behavior",
+        "A configurable output bound is added only if a concrete consumer need is verified; required criteria and evidence are never silently truncated",
+        "A synthetic second schema can be tested without scanning another real project",
+        "No valid existing tickets are lost or silently reclassified, and unchanged task records remain compatible"
+      ],
+      "tests": [
+        "Unit tests for current and synthetic adapters; malformed input; no-ready and dependency cases",
+        "Verify unchanged backlog count/content except approved Kanban additions"
+      ],
+      "files": [
+        "tools/agentic-workbench/task-context.mjs",
+        "tools/agentic-workbench/tests/task-context.test.mjs",
+        "adapter modules to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Do not begin until GYM-PLAT.2 is reviewed and done.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.4",
+      "parent": "GYM-PLAT",
+      "title": "Add thin Codex and Claude Code project instruction adapters",
+      "objective": "Make both coding assistants follow the same project contract without duplicating policy or assuming undocumented capabilities.",
+      "status": "backlog",
+      "sprint": "S6",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-04",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.2"
+      ],
+      "scope": "Documentation/configuration only; no global user settings change.",
+      "acceptance": [
+        "Each adapter points to the same canonical project contract and Kanban source",
+        "Assistant-specific behavior is based on current official documentation",
+        "No duplicated conflicting rules, hidden API calls or global config changes"
+      ],
+      "tests": [
+        "Static checks for required references and duplicated policy drift",
+        "Manual smoke in each available assistant, otherwise report unavailable"
+      ],
+      "files": [
+        "AGENTS.md",
+        "CLAUDE.md or verified project-specific equivalent",
+        "project contract to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Verify current assistant integration points before creating or editing files.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.5",
+      "parent": "GYM-PLAT",
+      "title": "Verify interruption recovery, evidence journal and targeted Git checkpoints",
+      "objective": "Prove a task can resume with its decisions and evidence while limiting rollback to a reviewed change.",
+      "status": "backlog",
+      "sprint": "S7",
+      "priority": "P1",
+      "role": "QA",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        2,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.3",
+        "GYM-PLAT.4"
+      ],
+      "scope": "Synthetic local workflow only; never reset or rewrite user branches.",
+      "acceptance": [
+        "Interruption/resume scenario recovers task, decision references, test state and next action",
+        "Journal records ticket, changed paths, commands/results and commit SHA without secrets or full prompt contents",
+        "Official task status persists only through the versioned source workflow; browser localStorage remains an explicitly labeled draft",
+        "Task completion is blocked when a required check fails",
+        "Rollback demonstration reverts only a disposable fixture commit"
+      ],
+      "tests": [
+        "Automated interruption/resume fixture",
+        "Git rollback test in temporary repository"
+      ],
+      "files": [
+        "docs/ETAT_REPRISE_COURANT.md",
+        "existing Git/checkpoint scripts to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Do not test rollback against the live GetYourMentor worktree.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.6",
+      "parent": "GYM-PLAT",
+      "title": "Define tool permissions, human gates and privacy-safe observability",
+      "objective": "Bound file, shell and remote capabilities by task risk and retain enough evidence to diagnose failures.",
+      "status": "backlog",
+      "sprint": "S7",
+      "priority": "P1",
+      "role": "Securite",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.2"
+      ],
+      "scope": "Local policy and synthetic tests; no credential access or external service setup.",
+      "acceptance": [
+        "Read-only is default; write scope is tied to an approved task",
+        "Remote changes, deployment, migration, payment and notifications require target-specific authorization",
+        "Logs exclude secrets and full user content",
+        "Actual token/credit values are reported only when a trustworthy counter is available"
+      ],
+      "tests": [
+        "Allow/deny tests for file and command categories",
+        "Secret redaction tests over synthetic events",
+        "Manual review of human-gate matrix"
+      ],
+      "files": [
+        "AGENTS.md",
+        "tools/agentic-workbench/AGENTS.md",
+        "privacy-safe event logger location to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Derive permissions from current documented rules; do not add a general-purpose shell agent.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.7",
+      "parent": "GYM-PLAT",
+      "title": "Prove portability on a synthetic second project",
+      "objective": "Test the project contract and assistant adapters without loading unrelated personal folders or private data.",
+      "status": "backlog",
+      "sprint": "S8",
+      "priority": "P1",
+      "role": "QA",
+      "assignment": "coordinator",
+      "due": "2026-12-18",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.3",
+        "GYM-PLAT.4",
+        "GYM-PLAT.5",
+        "GYM-PLAT.6"
+      ],
+      "scope": "Temporary synthetic fixture only; no broad Documents scan.",
+      "acceptance": [
+        "One task is selected, worked, checked and resumed using a second project fixture",
+        "No GetYourMentor-only path or policy is required by the portable core",
+        "Codex/Claude compatibility results are stated only for environments actually exercised"
+      ],
+      "tests": [
+        "End-to-end fixture run with interruption and denial cases",
+        "Compare context payload sizes as bytes only if it can change the design"
+      ],
+      "files": [
+        "synthetic fixture and tests under tools/agentic-workbench/tests/ or a new isolated tooling package"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Wait for portable contract, adapters, recovery and security gates.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-PLAT.8",
+      "parent": "GYM-PLAT",
+      "title": "Decide whether framework, RAG or external integrations add net value",
+      "objective": "Compare optional orchestration and retrieval technologies against the deterministic baseline before adoption.",
+      "status": "backlog",
+      "sprint": "S8",
+      "priority": "P2",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-18",
+      "estimateHours": [
+        2,
+        4
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PLAT.7"
+      ],
+      "scope": "Evaluation and optional local prototype; no paid service, deployment or production integration.",
+      "acceptance": [
+        "Evaluation covers LangGraph, LangChain, Spec Kit and any precisely identified requested tool only when relevant",
+        "Baseline and success criteria are fixed before tests",
+        "Quality, reliability, recovery, maintenance, privacy and actual usage counters (if available) are compared",
+        "No dependency is adopted without measured need and no material regression"
+      ],
+      "tests": [
+        "Reproducible local comparison on the same synthetic workflow",
+        "Dependency/license review for any prototype"
+      ],
+      "files": [
+        "docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md",
+        "benchmark fixture to be confirmed"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Do not install or adopt any framework until GYM-PLAT.7 supplies a concrete gap.",
       "targetId": "gym-main"
     }
   ],
