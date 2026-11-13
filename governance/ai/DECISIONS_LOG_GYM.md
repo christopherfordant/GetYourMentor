@@ -1,5 +1,13 @@
 # Decisions Log GYM
 
+## 2026-11-14 — Démo recruteur : parcours sportif unique et acceptation automatique fictive
+
+- Décision utilisateur : le testeur ne suit que le parcours sportif ; un acteur coach fictif est créé au besoin ou réutilisé puis accepte automatiquement la réservation de démonstration.
+- Pourquoi : éviter le second compte coach et rendre la démonstration du choix du coach jusqu’au paiement simulé testable par un recruteur.
+- Garde-fous : les coachs sélectionnables pour cette acceptation sont des fixtures fictives uniquement ; ne jamais fabriquer l’accord d’un coach réel ni revendiquer une IA. Création/réutilisation serveur stable et idempotente ; paiement sans fournisseur ni collecte de carte ; effacement du testeur préserve les acteurs partagés. Telegram est différé et n’est pas un prérequis.
+- Impact : la décision détaillée du 12 novembre est conservée comme historique et supplantée pour ce flux par `docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md`. Les critères D1 sont alignés, mais les statuts restent inchangés tant que les preuves ne satisfont pas les dépendances.
+- État vérifié : `docs/ETAT_REPRISE_COURANT.md`, contrôle HTTP public du 14 novembre et `tools/agentic-workbench/backlog.json`. Aucun code applicatif, migration distante, configuration Netlify ou déploiement réalisé.
+
 ## 2026-10-15 — Maquette HTML intégralement validée
 
 - La validation actuelle porte sur tous les éléments de la maquette, pas sur une recoloration de l’ancien accueil.

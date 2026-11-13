@@ -68,3 +68,9 @@ Cette base n'est pas raccordée au site public. Le lien du portfolio continue de
 ## Mise a jour - 12 novembre : route publique et integration
 
 Recontrole HTTP public : l'accueil de `getyourmentor-demo-20261014` repond `200`, `/demo` repond toujours `404`. L'audit en lecture seule du candidat applicatif est consigne dans `docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md`. Le mode heberge courant refuse la presence des variables Supabase et les routes de reservation n'utilisent pas les tables `gym_demo_*` : ne pas configurer les variables Netlify avant adaptation et controles de la frontiere serveur.
+
+## Addendum du 14 novembre — décision d’un parcours sportif unique
+
+La décision utilisateur du 14 novembre est consignée dans `docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md` et remplace la proposition antérieure de deux entrées coach/sportif pour le parcours recruteur. Le visiteur ne crée qu’une session de sportif. Après sélection d’un coach fictif et d’un créneau fictif, le serveur crée ou réutilise un acteur fictif stable, puis réalise une acceptation automatique de démonstration ; le sportif peut ensuite confirmer un paiement simulé. Aucun compte coach ni action manuelle n’est requis. Les coachs réels ne doivent jamais être auto-acceptés. L’acteur est distinct d’une personne réelle, non modifiable par le visiteur et conservé lors de l’effacement des données personnelles du testeur.
+
+Cette décision est documentaire : aucun parcours n’est raccordé. Au contrôle HTTP du 14 novembre, la cible répond à l’accueil `200`, `/api/health` `200` (`mode=demo`, `supabase=false`) et `/demo` `404`. Les statuts D1.2–D1.9 restent ceux du Kanban ; les critères de D1.3 et des tickets aval sont ajustés, mais les preuves précédentes ne démontrent pas encore la création/réutilisation de l’acteur ni le parcours applicatif. Telegram reste différé et n’est pas une dépendance du parcours principal.

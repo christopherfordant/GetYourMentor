@@ -1,3 +1,15 @@
+## Reprise active — décision du parcours sportif unique — 14 novembre 2026
+
+La consigne utilisateur du 14 novembre remplace le parcours recruteur à deux comptes décrit dans la décision du 12 novembre : le testeur suit uniquement le parcours sportif. Pour un coach fictif de démonstration sélectionné, le serveur doit créer au besoin ou réutiliser un acteur fictif stable puis accepter la demande de façon déterministe, idempotente et atomique avec la réservation du créneau. Aucun compte coach, action manuelle, vraie décision de coach/IA, paiement réel ni notification Telegram n’est nécessaire. Les détails et limites sont dans `docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md` ; l’ancienne décision est conservée comme historique.
+
+État vérifié dans le worktree isolé `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112` : HEAD local et distant `714234a0cf88b8387aec9835c8af05d2da48f06b`, worktree propre avant ce lot. Le checkout principal `C:/Users/cashe/Documents/GetYourMentor` sur `design/refonte-progressive-lot1` contient de nombreux changements préexistants suivis et non suivis ; ils n’ont pas été modifiés ni repris.
+
+Contrôle HTTP public du 14 novembre : accueil `200`; `/api/health` `200`, `mode=demo`, `ready=true`, `supabase=false`; `/demo` `404`. Le projet Supabase dédié et la proposition `gym_demo_*` sont documentés, mais le runtime Supabase n’est pas validé. Les preuves PostgreSQL 12.15 avec shim Auth du 13 novembre (34 + 25 assertions, concurrence et rollback) ne couvrent pas encore l’acteur fictif créé/réutilisé ni l’adaptateur web. Aucune migration distante, variable Netlify, notification, paiement ou publication n’a été effectuée.
+
+Kanban ajusté pour refléter le choix produit, sans changement de statut : D1.2/D1.3 `progress`, D1.4 `blocked`, D1.5/D1.6/D1.7 `prepare`, D1.8/D1.9 `backlog`. Telegram ne bloque plus l’alignement des textes ni la recette du parcours de base. D1.3 doit recevoir des tests de profil acteur fictif stable/idempotent et d’acceptation limitée aux fixtures avant l’intégration applicative. Ne pas commencer l’adaptateur tant que les dépendances D1.2–D1.4 ne sont pas satisfaites.
+
+Prochaine action : lever les critères ouverts de D1.2 sans modifier Netlify — vérifier la correspondance build/dépôt/branche de la cible et la frontière serveur. Puis adapter et tester le contrat D1.3 sur une base locale jetable, avant D1.4 et l’implémentation. Cette reprise n’a pas encore fait de commit/push.
+
 ## Reprise active — validation locale D1.3 — 13 novembre 2026
 
 Le Kanban GYM-D1 reste la référence : D1.2 et D1.3 sont `progress`; D1.4 est `blocked`; aucun parcours n'est raccordé ou publié par ce lot. Docker est exclu des prochaines étapes opérationnelles, sans effacer les références historiques aux contrôles précédents.
