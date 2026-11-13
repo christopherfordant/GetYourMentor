@@ -7,6 +7,11 @@ const dir = path.dirname(fileURLToPath(import.meta.url));
 const schema = await readFile(path.join(dir, "001_demo_schema.sql"), "utf8");
 const tests = await readFile(path.join(dir, "002_demo_rls_tests.sql"), "utf8");
 const rollback = await readFile(path.join(dir, "003_rollback_empty_demo_schema.sql"), "utf8");
+const schedule = await readFile(path.join(dir, "004_demo_schedule_idempotency.sql"), "utf8");
+const scheduleTests = await readFile(path.join(dir, "005_demo_schedule_idempotency_tests.sql"), "utf8");
+const scheduleRollback = await readFile(path.join(dir, "006_rollback_schedule_idempotency.sql"), "utf8");
+const localSmoke = await readFile(path.join(dir, "007_postgres12_contract_smoke.sql"), "utf8");
+const localBootstrap = await readFile(path.join(dir, "008_postgres12_auth_shim_bootstrap.sql"), "utf8");
 
 for (const table of ["gym_demo_sessions", "gym_demo_coaches", "gym_demo_reservations", "gym_demo_telegram_links"]) {
   assert.match(schema, new RegExp(`create table if not exists public\\.${table}\\b`, "i"), `${table} table`);
@@ -34,4 +39,28 @@ for (const table of ["gym_demo_telegram_links", "gym_demo_reservations", "gym_de
   assert.match(rollback, new RegExp(`exists \\(select 1 from public\\.${table} limit 1\\)`, "i"), `rollback checks ${table} is empty`);
 }
 assert.doesNotMatch(rollback, /cascade/i, "rollback must not cascade beyond the demo schema");
-console.log("Static proposal checks: PASS (schema, grants, RLS, role/isolation scenarios, simulated-only fields, guarded rollback)");
+assert.match(schedule, /create table public\.gym_demo_slots/i, "coach availability slots are modelled");
+for (const column of ["slot_id", "idempotency_key", "request_fingerprint"]) {
+  assert.match(schedule, new RegExp(`add column ${column}\\b`, "i"), `${column} is added without replacing existing rows`);
+  assert.match(scheduleTests, new RegExp(`has_column\\('public', 'gym_demo_reservations', '${column}'`), `${column} has pgTAP coverage`);
+}
+assert.match(schedule, /pg_advisory_xact_lock[\s\S]*hashtextextended/i, "repeated concurrent keys are serialized");
+assert.match(schedule, /for update/i, "slot and reservation transitions use row locks");
+assert.match(schedule, /set state = 'booked'/i, "booking holds the slot in the same transaction");
+assert.match(schedule, /set state = 'available'/i, "cancellation releases the slot in the same transaction");
+assert.match(schedule, /security definer[\s\S]*set search_path = pg_catalog/i, "server functions use a constrained search path");
+assert.match(schedule, /revoke all on function[\s\S]*from public, anon, authenticated/i, "mutation functions are not callable by browser roles");
+assert.match(schedule, /grant execute on function[\s\S]*to service_role/i, "only server role can call mutations");
+assert.match(scheduleTests, /select plan\(25\)/i, "schedule test plan declares 25 assertions");
+for (const scenario of ["anon sees only the shared fixture slot", "same-key replay creates no duplicate reservation", "second athlete cannot double-book a held slot", "cancellation releases the slot atomically", "repeating the same final transition is idempotent"]) {
+  assert.ok(scheduleTests.includes(scenario), `schedule pgTAP scenario: ${scenario}`);
+}
+assert.match(scheduleRollback, /lock table[\s\S]*in access exclusive mode/i, "additive rollback locks affected tables");
+assert.match(scheduleRollback, /Rollback refused:[^']*schedule slots or idempotency reservation data exist/i, "additive rollback refuses non-empty new data");
+assert.doesNotMatch(scheduleRollback, /cascade/i, "additive rollback does not cascade");
+assert.match(localBootstrap, /TEST HARNESS ONLY[\s\S]*Never run this file on Supabase/i, "plain PostgreSQL auth shim is clearly non-Supabase");
+assert.match(localSmoke, /begin;[\s\S]*rollback;/i, "local behavioral smoke is transaction-scoped");
+for (const scenario of ["anon fixture visibility failed", "same-key replay returned a different id", "double booking unexpectedly accepted", "cancellation did not release slot", "final state unexpectedly reversed"]) {
+  assert.ok(localSmoke.includes(scenario), `local PostgreSQL smoke scenario: ${scenario}`);
+}
+console.log("Static proposal checks: PASS (base schema, RLS, fixtures, additive slots, idempotency, atomic transitions, guarded rollback)");

@@ -37,3 +37,13 @@ L'inspection du checkout principal a été en lecture seule. Il contient des cha
 4. Déployer seulement après validation du build, de la frontière client/serveur, des parcours isolés et de la configuration du site Netlify `getyourmentor-demo-20261014`.
 
 GYM-D1.2 et GYM-D1.3 restent en cours. GYM-D1.4 reste bloqué sur l'absence de l'implémentation applicative et de la purge testée ; les tickets dépendants ne sont pas clos.
+
+## Addendum du 13 novembre — proposition additive D1.3
+
+Le lot local ajoute `004_demo_schedule_idempotency.sql`, 25 assertions pgTAP proposées dans `005_demo_schedule_idempotency_tests.sql`, un rollback protégé (`006`) et un smoke reproductible pour PostgreSQL 12 (`007`). Le schéma de base n'est pas remplacé. Les créneaux relient un coach à une plage horaire ; les fonctions serveur verrouillent le créneau, limitent les mutations au rôle serveur et rendent la réservation/répétition du même idempotency key atomique. Une clé réutilisée avec une charge différente est refusée. L'annulation libère le créneau ; un état final ne peut pas être inversé par cette fonction. Aucun paiement ou envoi Telegram n'est déclenché.
+
+Contrôles exécutés : le validateur statique passe ; les 35 tests Node du workbench passent ; `001` puis `004` ont été appliqués à une instance temporaire **PostgreSQL 12.15 standard**, isolée du service PostgreSQL existant. Le script `007`, avec shim local minimal pour `auth.users`, `auth.uid()`, `auth.role()` et les rôles Supabase, a passé les contrôles d'accès fixture/public, de confidentialité des créneaux privés, de permissions des mutations, de rejeu, de double réservation, d'annulation/réservation suivante et de transitions finales. Le rollback `006` a été vérifié : refus si des créneaux existent, puis succès après retrait des données synthétiques. Un premier essai a trouvé un ordre de suppression FK incorrect ; le rollback a été corrigé et rejoué avec succès.
+
+Limites : PostgreSQL 12 avec shim ne prouve pas la compatibilité avec la version/configuration Supabase. Supabase CLI et l'extension pgTAP n'étaient pas disponibles dans cet environnement ; les 25 assertions pgTAP de `005` ne sont donc **pas exécutées**. Aucune migration distante, variable Netlify, donnée de projet Supabase, code applicatif ni publication n'a été touchée. GYM-D1.3 reste en cours ; ne pas raccorder l'adaptateur avant une revue et l'exécution des tests pgTAP sur un moteur Supabase local/jetable.
+
+Le résumé et le périmètre du contrôle sont archivés dans `docs/assets/demo-schema-d13-2026-11-13/CONTROL_RESULTS.md`.
