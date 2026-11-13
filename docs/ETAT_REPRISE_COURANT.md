@@ -1,6 +1,6 @@
 ## Reprise active — 13 novembre 2026 : contrat portable GYM-PLAT.2
 
-GYM-PLAT.2 est terminé dans le worktree `C:\Users\cashe\Documents\GYM-Agentic-platform-plan-20261113`, branche `docs/reusable-agentic-platform-20261113`, base vérifiée `176d06a89b51298302edffc51dc88025f7de083a`. Le commit de ce lot et son SHA distant seront consignés dans le rapport de livraison. Le contrat v1 est additif : le Kanban reste la source canonique, aucun ticket existant n’a été migré et le lecteur actuel ne consomme pas encore ce profil.
+GYM-PLAT.2 est terminé dans le worktree `C:\Users\cashe\Documents\GYM-Agentic-platform-plan-20261113`, branche `docs/reusable-agentic-platform-20261113`, base vérifiée `176d06a89b51298302edffc51dc88025f7de083a`. Commit de réalisation vérifié sur origin : dc271e1d6d168f04b0eee09822f6368a02f68c62. Le contrat v1 est additif : le Kanban reste la source canonique, aucun ticket existant n’a été migré et le lecteur actuel ne consomme pas encore ce profil.
 
 Livrables : `docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md`, `tools/agentic-workbench/project-contract.gym.json` et validateur local. Trois tests ciblés vérifient le profil, les références manquantes/absolues/avec traversée, les champs secrets inconnus, les commandes et les limites de lecture. Aucune valeur reçue n’est renvoyée. Aucun second dépôt indépendant n’a été validé ; ne pas revendiquer la portabilité avant un fixture synthétique en PLAT.3 et un éventuel second dépôt désigné.
 

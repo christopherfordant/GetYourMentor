@@ -10,7 +10,7 @@
     "canonicalBacklogUntouched": "87/87 preexisting tickets unchanged vs base; 96 total",
     "contractTests": "3 pass, 0 fail",
     "fullSuite": "44 pass, 0 fail",
-    "gitDiffCheck": "pending"
+    "gitDiffCheck": "pass"
   },
   "scope": "local-only; no application flows, remote accounts, databases, deployment, external service, or secret values changed",
   "browser": {
@@ -22,5 +22,7 @@
     "ticketStatus": "done",
     "horizontalOverflow": false,
     "pageErrors": []
-  }
+  },
+  "commitSha": "dc271e1d6d168f04b0eee09822f6368a02f68c62",
+  "remoteSha": "dc271e1d6d168f04b0eee09822f6368a02f68c62"
 }
