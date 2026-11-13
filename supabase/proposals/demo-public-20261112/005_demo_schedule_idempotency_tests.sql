@@ -52,7 +52,7 @@ select set_config('request.jwt.claim.sub', 'd2000000-0000-4000-8000-000000000001
 select is((select count(*)::int from public.gym_demo_slots where id = 'd2300000-0000-4000-8000-000000000001'), 1, 'athlete sees a fixture slot');
 select is((select count(*)::int from public.gym_demo_slots where id = 'd2300000-0000-4000-8000-000000000002'), 0, 'athlete cannot see another coach private slot');
 select throws_ok($$select public.gym_demo_book_slot('d2100000-0000-4000-8000-000000000001', 'd2300000-0000-4000-8000-000000000001', 'd2400000-0000-4000-8000-000000000001', 'slot-one')$$,
-  '42501', 'server role required', 'authenticated user cannot book through server-only function');
+  '42501', 'permission denied for function gym_demo_book_slot', 'authenticated user cannot book through server-only function');
 
 reset role;
 set local role authenticated;
