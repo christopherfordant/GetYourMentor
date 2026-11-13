@@ -1,3 +1,11 @@
+## Reprise active — 13 novembre 2026 : contrat portable GYM-PLAT.2
+
+GYM-PLAT.2 est terminé dans le worktree `C:\Users\cashe\Documents\GYM-Agentic-platform-plan-20261113`, branche `docs/reusable-agentic-platform-20261113`, base vérifiée `176d06a89b51298302edffc51dc88025f7de083a`. Le commit de ce lot et son SHA distant seront consignés dans le rapport de livraison. Le contrat v1 est additif : le Kanban reste la source canonique, aucun ticket existant n’a été migré et le lecteur actuel ne consomme pas encore ce profil.
+
+Livrables : `docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md`, `tools/agentic-workbench/project-contract.gym.json` et validateur local. Trois tests ciblés vérifient le profil, les références manquantes/absolues/avec traversée, les champs secrets inconnus, les commandes et les limites de lecture. Aucune valeur reçue n’est renvoyée. Aucun second dépôt indépendant n’a été validé ; ne pas revendiquer la portabilité avant un fixture synthétique en PLAT.3 et un éventuel second dépôt désigné.
+
+GYM-PLAT.2 est suivi comme terminé avec les preuves dans le Kanban et `docs/assets/agentic-platform-contract-2026-11-13/verification.json`. Suite complète : 44/44 tests passés ; validateur GYM : OK ; Playwright a vérifié la carte et son statut sur ordinateur (1440 px) et mobile (390 px), sans débordement ni erreur de page. Le SHA de livraison est consigné dans le compte rendu final. Prochaine tâche : GYM-PLAT.3, uniquement après revue du contrat ; définir un adaptateur de lecture borné et des tests synthétiques sans scanner un autre dépôt réel. Aucun parcours métier, stockage, framework ou service distant modifié.
+
 ## Reprise active — 13 novembre 2026 : cadrage plateforme agentique réutilisable
 
 Échange « ChatGPT Classic » lu visuellement sur le bureau à partir de la demande de plateforme agentique réutilisable. Un export intégral n’était pas disponible ; l’image jointe a été ouverte et ses noms d’outils incertains sont signalés dans `docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md`. Inventaire ciblé confirme l’existant : atelier local, backlog versionné, `task-context.mjs` en lecture seule, relais et assistant documentaire lexical séparé. Aucun LangGraph/LangChain/agent de développement actif n’est confirmé.

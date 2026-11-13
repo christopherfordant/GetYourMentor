@@ -40,6 +40,11 @@ Le lecteur local `tools/agentic-workbench/task-context.mjs` fournit `--ticket ID
 
 ### Chantier distinct : plateforme de développement agentique réutilisable
 
-Après le lot K1, le cadrage `docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md` a ajouté GYM-PLAT et ses huit sous-tickets au backlog versionné : PLAT.1 est planifié comme terminé après ses contrôles ; le parent reste en cours et les lots PLAT.2–PLAT.8 ne sont pas déclarés prêts ni réalisés. Les sprints S6–S8 sont des propositions conditionnelles, avec dates et charges non contractuelles. Cette initiative concerne l’outillage local multi-projet, pas l’orchestration documentaire métier GYM-A5. Le lecteur sélectif existant doit être réutilisé avant toute généralisation. Aucun agent LLM additionnel, framework, base mémoire ou service distant n’est adopté par le cadrage.
+Après le lot K1, le cadrage `docs/PLATEFORME_AGENTIQUE_REUTILISABLE.md` a ajouté GYM-PLAT et ses huit sous-tickets au backlog versionné : PLAT.1 et PLAT.2 sont terminés avec leurs preuves locales ; le parent reste en cours et les lots PLAT.3–PLAT.8 ne sont pas déclarés prêts ni réalisés. Les sprints S6–S8 sont des propositions conditionnelles, avec dates et charges non contractuelles. Cette initiative concerne l’outillage local multi-projet, pas l’orchestration documentaire métier GYM-A5. Le lecteur sélectif existant doit être réutilisé avant toute généralisation. Aucun agent LLM additionnel, framework, base mémoire ou service distant n’est adopté par le cadrage.
 
 Le backlog contient maintenant 96 tickets sur 8 sprints. Cette évolution conserve les 87 tickets préexistants et ajoute neuf identifiants GYM-PLAT, sans modifier les statuts des chantiers antérieurs.
+
+
+### Contrat portable GYM-PLAT.2
+
+GYM-PLAT.2 est terminé : contrat v1 additif, profil `project-contract.gym.json`, validateur local et tests synthétiques. Le Kanban reste canonique, les 87 tickets antérieurs sont inchangés et l’adaptateur ne consomme pas encore le contrat. La portabilité multi-projet n’est pas prouvée par ce lot. Voir `docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md` et les preuves `docs/assets/agentic-platform-contract-2026-11-13/verification.json`.

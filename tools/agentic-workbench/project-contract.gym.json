@@ -1,0 +1,46 @@
+{
+  "contractVersion": 1,
+  "project": {
+    "id": "getyourmentor",
+    "name": "GetYourMentor"
+  },
+  "repositoryRoot": ".",
+  "taskSource": {
+    "format": "gym-kanban-v1",
+    "path": "tools/agentic-workbench/backlog.json",
+    "canonical": true
+  },
+  "instructions": [
+    "AGENTS.md",
+    "BRANCH_STRATEGY_GYM.md",
+    "tools/agentic-workbench/AGENTS.md"
+  ],
+  "resumeFile": "docs/ETAT_REPRISE_COURANT.md",
+  "permittedReadPaths": [
+    "AGENTS.md",
+    "BRANCH_STRATEGY_GYM.md",
+    "docs",
+    "tools/agentic-workbench"
+  ],
+  "evidencePaths": [
+    "docs/assets",
+    "docs/multi-agent"
+  ],
+  "validationCommands": [
+    {
+      "id": "agentic-workbench-tests",
+      "program": "node",
+      "args": [
+        "--test",
+        "tools/agentic-workbench/tests/*.test.mjs"
+      ],
+      "cwd": "."
+    }
+  ],
+  "security": {
+    "secretValues": "forbidden",
+    "secretReferences": "environment-variable-names-only",
+    "remoteActions": "require-task-and-target-authorization",
+    "defaultWriteAccess": "none"
+  }
+}

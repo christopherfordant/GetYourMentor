@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-13",
+  "branch": "docs/reusable-agentic-platform-20261113",
+  "baseSha": "176d06a89b51298302edffc51dc88025f7de083a",
+  "contract": "tools/agentic-workbench/project-contract.gym.json",
+  "validator": "tools/agentic-workbench/project-contract.mjs",
+  "checks": {
+    "currentGymProfile": "pass",
+    "invalidPathAndSecretCases": "pass",
+    "canonicalBacklogUntouched": "87/87 preexisting tickets unchanged vs base; 96 total",
+    "contractTests": "3 pass, 0 fail",
+    "fullSuite": "44 pass, 0 fail",
+    "gitDiffCheck": "pending"
+  },
+  "scope": "local-only; no application flows, remote accounts, databases, deployment, external service, or secret values changed",
+  "browser": {
+    "url": "http://127.0.0.1:4327/",
+    "httpStatus": 200,
+    "desktopWidth": 1440,
+    "mobileWidth": 390,
+    "ticketVisible": true,
+    "ticketStatus": "done",
+    "horizontalOverflow": false,
+    "pageErrors": []
+  }
+}

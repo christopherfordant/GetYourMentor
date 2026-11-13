@@ -30,3 +30,8 @@ Réservé au poste du propriétaire sur loopback. Host et origine contrôlés ; 
 État courant : `docs/RAG_REGRESSIONS_CORRIGEES_2026-11-03.md`. Les deux régressions revues sont corrigées, avec un budget de huit passages, 7 200 unités de texte JavaScript, trois passages par document et cinq documents prioritaires avant les compléments. Les extraits restent exacts ; aucune détection sémantique universelle des contradictions. Évaluation de référence 12/12, nouveaux contrôles 2/3 : un faux positif hors sujet reste ouvert. Aucun workflow GitHub Actions exécuté.
 
 Les déplacements utilisent maintenant une clé locale par version du dossier (SHA256). Les anciennes clés restent intactes et exportables avec « Exporter mes anciens déplacements ». Une ancienne vue correspondant exactement au dossier est reprise ; une vue d'un autre dossier n'est pas appliquée silencieusement. Les tests navigateur utilisent leurs propres contextes, jamais le localStorage de la session utilisateur.
+
+
+## Contrat de projet
+
+Le profil du dépôt est décrit dans `project-contract.gym.json` et validé avec `node tools/agentic-workbench/project-contract.mjs`. La spécification est dans `docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md`. Le validateur vérifie les références relatives et leurs limites sans exécuter les commandes décrites, lire les documents référencés ou exposer les valeurs reçues. Le contrat ne remplace pas `backlog.json`, les instructions du dépôt ou le relais de reprise.

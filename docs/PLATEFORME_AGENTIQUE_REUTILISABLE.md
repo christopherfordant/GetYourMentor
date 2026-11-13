@@ -6,7 +6,7 @@ Date du cadrage : 13 novembre 2026. Ce document pilote un chantier versionné da
 
 La demande a été relue dans la fenêtre locale « ChatGPT Classic », dans la conversation « Docker expliqué en français », à partir du passage où Christopher demande une véritable plateforme agentique réutilisable. La lecture s’est faite visuellement dans l’application ; aucun export intégral de la conversation ni copie de capture n’est archivé. Le périmètre retenu couvre les messages visibles après ce passage jusqu’aux demandes sur la sélection ciblée du Kanban, les limites de contexte, la reprise, les coûts et les tests. Les formulations ci-dessous sont des synthèses, non des citations exhaustives.
 
-L’image jointe à la demande a été ouverte dans cette fenêtre. Elle liste notamment GitHub Spec Kit, Voiceflow avec un CRM (Notion, Airtable ou HubSpot selon le besoin), « Open claw »/OpenClaw, « Babylovegrowththai », « Explee », Higgsfield, Heycatchai et Crush AI. Certains noms sont peu lisibles ou incertains dans la capture ; ils sont enregistrés comme pistes à vérifier, pas comme choix confirmés. Le mot « Cambon » dans le message utilisateur n’est pas identifiable avec certitude. Aucune disponibilité, licence, gratuité, tendance ou intégrabilité de ces outils n’est affirmée ici.
+L’image jointe à la demande a été ouverte dans cette fenêtre. Elle liste notamment GitHub Spec Kit, Voiceflow avec un CRM (Notion, Airtable ou HubSpot selon le besoin), « Open claw »/OpenClaw, « Babylovegrowth AI », « Explee », Higgsfield, Heycatchai et Crush AI. Certains noms sont peu lisibles ou incertains dans la capture ; ils sont enregistrés comme pistes à vérifier, pas comme choix confirmés. Le terme « Cambon » a été confirmé comme désignant le Kanban. Aucune disponibilité, licence, gratuité, tendance ou intégrabilité de ces outils n’est affirmée ici.
 
 ## Exigences retrouvées
 
@@ -73,8 +73,8 @@ Architecture progressive proposée :
 | RAG/embeddings/pgvector | Recherche dans un corpus documentaire volumineux ou sémantique | Hors sélecteur de tickets ; l’assistant RAG existant reste séparé et soumis à ses tickets/validations |
 | GitHub Spec Kit | Formalisation spec → plan → tâches | Piste de comparaison locale et non obligatoire ; le Kanban et ses critères existent déjà |
 | OpenClaw / catalogue d’API publique | Intégrations externes éventuelles | Aucun branchement sans source officielle, périmètre, licence, allowlist, gestion des secrets et tests de sécurité |
-| Voiceflow + CRM, Babylovegrowth, Explee, Higgsfield, Heycatchai, Crush AI | Automatisation de conversation, visibilité, contenus ou publication selon le produit exact | Hors noyau de développement agentique ; à examiner uniquement pour un besoin produit indépendant et après vérification des noms, prix, données et droits |
-| « Cambon » | Référence incertaine dans le texte transcrit | Non évaluée ; ne pas deviner l’outil visé |
+| Voiceflow + CRM, Babylovegrowth AI, Explee, Higgsfield, Heycatchai, Crush AI | Automatisation de conversation, visibilité, contenus ou publication selon le produit exact | Hors noyau de développement agentique ; à examiner uniquement pour un besoin produit indépendant et après vérification des noms, prix, données et droits |
+| Kanban | Référence confirmée par l’utilisateur : le tableau Kanban versionné existant. | Évalué dans le présent contrat ; `backlog.json` reste la source canonique. |
 
 ## Plan durable piloté par le Kanban
 
@@ -82,8 +82,8 @@ Les estimations sont des fourchettes de planification, pas du temps passé. Les 
 
 | Ticket | Lot / objectif | Dépendances | Fichiers candidats à confirmer | Critères d’acceptation et contrôles | Risques / accès |
 |---|---|---|---|---|---|
-| GYM-PLAT.1 | Audit ciblé, exigences et choix d’architecture documentés | — | Ce document ; relais ; backlog | Provenance et statuts distingués ; existant réutilisé ; alternatives et limites consignées ; JSON et liens vérifiés | Conversation visuelle non exportée ; noms partiellement ambigus. Réalisé dans ce premier lot |
-| GYM-PLAT.2 | Définir un contrat portable de projet et la frontière entre données canoniques, reprise et preuves | PLAT.1 | `tools/agentic-workbench/AGENTS.md`, README du workbench, éventuel `project.yaml` à décider | Contrat minimal documenté ; validation stricte ; ancien Kanban préservé ; aucun secret ou chemin personnel ; test d’un projet exemple | Toute migration de format demande sauvegarde, compatibilité rétroactive et revue |
+| GYM-PLAT.1 | Audit ciblé, exigences et choix d’architecture documentés | — | Ce document ; relais ; backlog | Provenance et statuts distingués ; existant réutilisé ; alternatives et limites consignées ; JSON et liens vérifiés | Conversation visuelle non exportée ; noms incertains signalés ; Babylovegrowth AI et Kanban ont ensuite été clarifiés par l’utilisateur. Réalisé dans ce premier lot |
+| GYM-PLAT.2 | Définir un contrat portable de projet et la frontière entre données canoniques, reprise et preuves | PLAT.1 | `tools/agentic-workbench/project-contract.gym.json`, `project-contract.mjs`, README et tests | Contrat minimal documenté ; validation stricte ; ancien Kanban préservé ; aucun secret ou chemin personnel ; test d’un projet exemple | Toute migration de format demande sauvegarde, compatibilité rétroactive et revue |
 | GYM-PLAT.3 | Extraire/réutiliser un adaptateur Kanban local en lecture seule | PLAT.2 | `task-context.mjs`, tests associés, `backlog.json` | Lookup ID, prochaine tâche admissible, dépendances, aucun prêt, schémas invalides, tests sans écriture, taille de sortie configurable si justifiée, compatibilité des anciennes tâches ; pas de lecture globale par LLM | Ne généraliser que si le contrat ajoute une capacité mesurable sans casser l’atelier |
 | GYM-PLAT.4 | Fournir des consignes minces Codex/Claude Code pour le même flux | PLAT.2 | `AGENTS.md`, `CLAUDE.md` éventuel, docs d’usage | Les deux environnements renvoient au même contrat ; commandes et limites vérifiées ; aucun doublon de règles divergentes | Vérifier la documentation officielle et les versions au moment du ticket |
 | GYM-PLAT.5 | Formaliser reprise, preuve et checkpoints Git par tâche | PLAT.3, PLAT.4 | `docs/ETAT_REPRISE_COURANT.md`, tests, scripts existants | Reprise après interruption démontrée ; lien ticket→preuve→SHA ; rollback ciblé testé sur fixture ; pas de reset global | Commit/push dépendent des protections et de la branche ; déploiement toujours séparé |
@@ -108,3 +108,10 @@ Contrôles exécutés : suite Node de l’atelier **41/41 PASS** ; `--ticket GYM
 ## Conditions de reprise
 
 Au début de chaque lot, vérifier le dépôt, la branche, les modifications locales et l’état distant ; lire ce document par section et le relais courant, puis récupérer la tâche avec `node tools/agentic-workbench/task-context.mjs --ticket ID` et `--details` si nécessaire. Ne pas compter une carte locale comme preuve. Arrêter au premier lot contrôlé si le contexte disponible ne permet plus de vérifier correctement ; mettre alors à jour le relais court avec les résultats, preuves, blocages, branche/SHA et prochaine action. Aucun compteur de tokens ou de crédits n’est inventé.
+
+
+## GYM-PLAT.2 — contrat minimal de projet
+
+Le contrat v1, son profil GetYourMentor, son validateur local et ses tests sont documentés dans [CONTRAT_PROJET_AGENTIQUE_2026-11-13.md](CONTRAT_PROJET_AGENTIQUE_2026-11-13.md). Il est additif et ne déplace pas la source canonique du Kanban. Le validateur refuse les références manquantes, absolues ou hors allowlist et ne renvoie pas les valeurs fournies en erreur. Il décrit les tests sans les exécuter automatiquement.
+
+Contrôles du lot : le profil GYM passe ; trois tests du contrat couvrent le profil réel, les chemins invalides, les champs secrets imprévus, une commande risquée et l’allowlist. Aucun second dépôt pertinent et indépendant n’a été utilisé : la portabilité reste à prouver au moyen d’une fixture synthétique en PLAT.3 et, plus tard, d’un dépôt réellement désigné si disponible.

@@ -3457,7 +3457,7 @@
       "parent": "GYM-PLAT",
       "title": "Define the minimal portable project contract",
       "objective": "Specify per-project sources, instructions, safety boundaries, tests and resume references without hard-coded personal paths.",
-      "status": "backlog",
+      "status": "done",
       "sprint": "S6",
       "priority": "P1",
       "role": "Architecture",
@@ -3482,13 +3482,18 @@
         "Schema/contract tests against current GYM configuration and synthetic invalid configurations"
       ],
       "files": [
-        "tools/agentic-workbench/AGENTS.md",
-        "tools/agentic-workbench/README.md",
-        "project contract location to be confirmed"
+        "docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md",
+        "tools/agentic-workbench/project-contract.gym.json",
+        "tools/agentic-workbench/project-contract.mjs",
+        "tools/agentic-workbench/tests/project-contract.test.mjs",
+        "tools/agentic-workbench/README.md"
       ],
-      "evidence": [],
+      "evidence": [
+        "docs/CONTRAT_PROJET_AGENTIQUE_2026-11-13.md",
+        "docs/assets/agentic-platform-contract-2026-11-13/verification.json"
+      ],
       "blocker": null,
-      "next": "Inspect current reader and project instructions before proposing any config file.",
+      "next": "Review the versioned contract; begin GYM-PLAT.3 only after confirming the additive boundary and fixture-based adapter scope.",
       "targetId": "gym-main"
     },
     {
