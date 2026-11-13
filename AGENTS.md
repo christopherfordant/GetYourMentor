@@ -4,6 +4,12 @@ La derni?re consigne utilisateur autorise un second lot born?, coordonn? dans la
 
 # GetYourMentor — consignes obligatoires de reprise
 
+## Référence de travail obligatoire : Kanban versionné
+
+Pour tout lot GetYourMentor, `tools/agentic-workbench/backlog.json` est la référence de travail pour les tickets, leur priorité, leur sprint, leurs dépendances, leur cible et leur statut. Le lire au début du lot avec `docs/ETAT_REPRISE_COURANT.md`, puis choisir la prochaine tâche réalisable à partir des tickets et de leurs critères, plutôt que d'inventer un chantier parallèle.
+
+Les décisions produit restent gouvernées par les décisions actives et les documents maîtres ; le Kanban organise leur exécution et ne les remplace pas. Une carte déplacée dans l'interface ou stockée dans le `localStorage` du navigateur est un brouillon, jamais une mise à jour officielle. Ne marque un ticket terminé qu'après vérification de ses critères et consignation de preuves réelles dans le backlog. Respecte les dépendances ; ne clôture un parent qu'une fois ses sous-tickets nécessaires validés. Les copies de backlog dans un worktree ou un dossier d'export ne font foi qu'après rapprochement explicite avec le backlog du dépôt principal.
+
 Cloture du second lot : missions terminees,voir `docs/multi-agent/2026-11-07/LOT2_COMPTE_RENDU.md`. Cette consigne ne lance aucune boucle persistante et ne permet pas de rejouer les missions fermees. Reprendre uniquement un nouveau lot borne demande par l utilisateur.
 
 ## Exception utilisateur bornée — 7 novembre 2026, premier lot parallèle
