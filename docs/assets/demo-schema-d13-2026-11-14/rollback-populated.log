@@ -1,0 +1,1 @@
+Rollback check on populated fixture data: refused as intended (psql exit code 3). Error: Rollback refused: fixture actors, slots, or reservations exist.

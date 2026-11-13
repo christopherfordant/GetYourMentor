@@ -12,6 +12,9 @@ const scheduleTests = await readFile(path.join(dir, "005_demo_schedule_idempoten
 const scheduleRollback = await readFile(path.join(dir, "006_rollback_schedule_idempotency.sql"), "utf8");
 const localSmoke = await readFile(path.join(dir, "007_postgres12_contract_smoke.sql"), "utf8");
 const localBootstrap = await readFile(path.join(dir, "008_postgres12_auth_shim_bootstrap.sql"), "utf8");
+const fixtureActor = await readFile(path.join(dir, "009_demo_fixture_actor_booking.sql"), "utf8");
+const fixtureRollback = await readFile(path.join(dir, "010_rollback_fixture_actor_booking.sql"), "utf8");
+const fixtureTests = await readFile(path.join(dir, "011_demo_fixture_actor_booking_tests.sql"), "utf8");
 
 for (const table of ["gym_demo_sessions", "gym_demo_coaches", "gym_demo_reservations", "gym_demo_telegram_links"]) {
   assert.match(schema, new RegExp(`create table if not exists public\\.${table}\\b`, "i"), `${table} table`);
@@ -63,4 +66,17 @@ assert.match(localSmoke, /begin;[\s\S]*rollback;/i, "local behavioral smoke is t
 for (const scenario of ["anon fixture visibility failed", "same-key replay returned a different id", "double booking unexpectedly accepted", "cancellation did not release slot", "final state unexpectedly reversed"]) {
   assert.ok(localSmoke.includes(scenario), `local PostgreSQL smoke scenario: ${scenario}`);
 }
-console.log("Static proposal checks: PASS (base schema, RLS, fixtures, additive slots, idempotency, atomic transitions, guarded rollback)");
+assert.match(fixtureActor, /create unique index gym_demo_coaches_fixture_key_idx/i, "stable actor key is unique");
+assert.match(fixtureActor, /on conflict \(fixture_key\)[\s\S]*do nothing/i, "actor creation is idempotent");
+assert.match(fixtureActor, /status, approval_mode, display_price_cents[\s\S]*'accepted', 'simulated'/i, "fixture booking is atomically accepted as simulation");
+assert.match(fixtureActor, /set state = 'booked'/i, "fixture slot is held in booking transaction");
+assert.match(fixtureActor, /gym_demo_confirm_simulated_payment[\s\S]*payment_status = 'simulated_confirmed'/i, "payment is a server-side simulated state only");
+assert.match(fixtureActor, /revoke all on function public\.gym_demo_book_and_accept_fixture[\s\S]*from public, anon, authenticated/i, "booking mutation is server-only");
+assert.match(fixtureActor, /revoke all on function public\.gym_demo_confirm_simulated_payment[\s\S]*from public, anon, authenticated/i, "payment mutation is server-only");
+assert.match(fixtureRollback, /Rollback refused: fixture actors, slots, or reservations exist/i, "new rollback preserves application data");
+assert.match(fixtureRollback, /fixture catalogue differs from the seeded proposal/i, "rollback verifies seeded catalogue before removal");
+assert.match(fixtureTests, /select plan\(33\)/i, "fixture tests declare the assertion plan");
+for (const scenario of ["server creates the stable coach actor and accepts the demo booking atomically", "retry reuses the same fictitious actor", "visitor cannot delete or change shared actor", "real or unknown coach cannot enter the automatic acceptance path", "server records only simulated payment confirmation", "another athlete cannot confirm this reservation payment"]) {
+  assert.ok(fixtureTests.includes(scenario), `fixture actor pgTAP scenario: ${scenario}`);
+}
+console.log("Static proposal checks: PASS (base schema, RLS, slots, idempotency, fixture actor, atomic demo acceptance/payment, guarded rollbacks)");

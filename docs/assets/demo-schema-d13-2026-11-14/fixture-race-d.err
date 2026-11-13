@@ -1,0 +1,2 @@
+psql:C:/Users/cashe/Documents/GYM-demo-isolated-20261112/docs/assets/demo-schema-d13-2026-11-14/fixture-race-d.sql:4: ERROR:  demo slot unavailable
+CONTEXT:  PL/pgSQL function public.gym_demo_book_and_accept_fixture(uuid,text,text,uuid) line 70 at RAISE

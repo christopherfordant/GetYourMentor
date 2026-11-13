@@ -1,0 +1,35 @@
+1..34
+ok 1 - demo sessions table exists
+ok 2 - demo coaches table exists
+ok 3 - demo reservations table exists
+ok 4 - telegram links table exists
+ok 5 - Table public.gym_demo_sessions should have the correct policies
+ok 6 - Table public.gym_demo_coaches should have the correct policies
+ok 7 - Table public.gym_demo_reservations should have the correct policies
+ok 8 - Table public.gym_demo_telegram_links should have the correct policies
+ok 9 - anon has only the SQL privilege needed by the fixture policy predicate
+ok 10 - anon can read only fixture coaches through RLS
+ok 11 - client cannot write reservation/payment state directly
+ok 12 - client cannot read encrypted Telegram destination
+ok 13 - server role has reservation operations
+ok 14 - visitor sees the shared fixture, not private coach profiles
+ok 15 - visitor cannot see sessions because no anon RLS policy exists
+ok 16 - visitor has no SQL privilege to read reservations
+ok 17 - athlete sees only their session
+ok 18 - athlete sees their own reservation
+ok 19 - athlete cannot see another athlete reservation
+ok 20 - athlete cannot delete another users session
+ok 21 - athlete cannot delete a shared fixture
+ok 22 - coach sees their own profile
+ok 23 - coach sees reservations linked to their own profile
+ok 24 - coach cannot see an unrelated fixture reservation
+ok 25 - server role can read reservations for controlled processing
+ok 26 - server stores a Telegram link only after a consent timestamp exists
+ok 27 - server can record Telegram consent revocation
+ok 28 - athlete can delete their own demo session
+ok 29 - deleted session is no longer visible
+ok 30 - deleting athlete session removes its reservation
+ok 31 - another athlete session survives a users deletion
+ok 32 - another athletes reservation survives a users deletion
+ok 33 - non-simulated coach approval is rejected
+ok 34 - non-simulated payment is rejected

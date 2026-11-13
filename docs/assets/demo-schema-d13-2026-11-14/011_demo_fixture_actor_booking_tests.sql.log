@@ -1,0 +1,34 @@
+1..33
+ok 1 - synthetic coach catalogue exists
+ok 2 - allow-listed demo slots exist
+ok 3 - stable actor key is stored on coach
+ok 4 - Table public.gym_demo_fixture_catalog should have the correct policies
+ok 5 - Table public.gym_demo_fixture_slot_templates should have the correct policies
+ok 6 - visitor cannot mutate fixture catalogue
+ok 7 - visitor cannot mutate slot templates
+ok 8 - anon cannot create actor or accept booking
+ok 9 - athlete client cannot confirm payment directly
+ok 10 - athlete client cannot trigger auto-accept directly
+ok 11 - visitor can read the active fictitious coach choice
+ok 12 - visitor can read allow-listed demo time choices
+ok 13 - visitor cannot create a shared fixture actor
+ok 14 - visitor cannot create a shared fixture actor
+ok 15 - server creates the stable coach actor and accepts the demo booking atomically
+ok 16 - one shared actor is created for the fixture key
+ok 17 - new booking is accepted as a simulation and payment has not yet been confirmed
+ok 18 - slot is held in the booking transaction
+ok 19 - identical retry returns the same reservation
+ok 20 - retry reuses the same fictitious actor
+ok 21 - identical retry does not duplicate the booking
+ok 22 - same idempotency key cannot change the selected time
+ok 23 - real or unknown coach cannot enter the automatic acceptance path
+ok 24 - unapproved times cannot be booked
+ok 25 - coach session cannot book as an athlete
+ok 26 - server records only simulated payment confirmation
+ok 27 - simulated payment confirmation is idempotent
+ok 28 - payment state is marked simulated only
+ok 29 - another athlete cannot confirm this reservation payment
+ok 30 - unknown reservation cannot be paid
+ok 31 - payment mutation remains server-only
+ok 32 - booking mutation remains server-only
+ok 33 - visitor cannot delete or change shared actor

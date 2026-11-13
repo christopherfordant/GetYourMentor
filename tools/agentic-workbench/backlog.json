@@ -2910,45 +2910,118 @@
       "parent": "GYM-D1",
       "title": "Définir le schéma de démo, les fixtures et la RLS",
       "objective": "Persister les parcours de test sans permettre à un visiteur de lire ou modifier les données d'un autre",
-      "status": "progress",
+      "status": "done",
       "sprint": "S4",
       "priority": "P0",
       "role": "Securite",
       "assignment": "simulated-role",
       "due": "2026-11-25",
-      "estimateHours": [3, 6],
+      "estimateHours": [
+        3,
+        6
+      ],
       "actualHours": null,
-      "dependencies": ["GYM-D1.2"],
+      "dependencies": [
+        "GYM-D1.2"
+      ],
       "scope": "Contrat de stockage du parcours sportif unique. Le coach sélectionnable est une fixture fictive ; un acteur fictif stable est créé ou réutilisé côté serveur, sans compte coach ni copie de données réelles. La demande, l'acceptation simulée et la réservation du créneau sont atomiques/idempotentes. Paiement simulé uniquement. Compatibilité Supabase applicative non intégrée.",
-      "acceptance": ["Accès filtré par propriétaire de session sportive et acteurs fictifs partagés protégés", "Création/réutilisation idempotente d'un acteur de démonstration par fixture ; aucune modification ou suppression par le visiteur", "Acceptation automatique limitée aux coachs fictifs et atomique avec la réservation ; aucune décision fabriquée pour un coach réel", "Tests RLS positif/négatif, concurrence, paiement simulé et migrations réversibles disponibles"],
-      "tests": ["34 assertions pgTAP base et 25 assertions additives sous anon, sportif, coach et rôle serveur sur PostgreSQL local jetable", "Deux processus concurrents : rejeu idempotent et réservation d'un même créneau", "Nouvelles assertions requises : acteur fictif créé/réutilisé une seule fois, mutation visiteur refusée, acceptation limitée aux fixtures de démo et suppression qui préserve les fixtures", "Rollback protégé refusé sur schéma non vide puis exécuté sur schéma vide", "Contrôle de non-fuite inter-visiteurs"],
-      "files": ["supabase/proposals/demo-public-20261112/001_demo_schema.sql","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql","supabase/proposals/demo-public-20261112/README.md","supabase/proposals/demo-public-20261112/validate-proposal.mjs","docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
-      "evidence": ["docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md","docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md","docs/assets/demo-schema-d13-2026-11-13/local-pgtap-002.log","docs/assets/demo-schema-d13-2026-11-13/local-pgtap-005-pass.log"],
-      "blocker": "Les 34 assertions de base, 25 assertions additives, deux scénarios concurrents et le rollback sont vérifiés sur PostgreSQL 12.15 jetable avec shim Auth, mais pas sur le runtime Supabase. La règle du 14 novembre d'acteur fictif stable et d'acceptation automatique requiert des assertions/migration dédiées. Ne pas utiliser le service Windows existant ni une base distante pour ces contrôles.",
-      "next": "Ajouter un acteur serveur stable par fixture fictive et une opération atomique de réservation + acceptation limitée aux fixtures ; tester création/réutilisation, mutation client interdite, concurrence, idempotence et rollback sur PostgreSQL local jetable. Puis exécuter les tests du schéma sur un runtime Supabase local/jetable si disponible avant l'adaptateur.",
-      "environmentEvidence": ["docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md","docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md"]
+      "acceptance": [
+        "Accès filtré par propriétaire de session sportive et acteurs fictifs partagés protégés",
+        "Création/réutilisation idempotente d'un acteur de démonstration par fixture ; aucune modification ou suppression par le visiteur",
+        "Acceptation automatique limitée aux coachs fictifs et atomique avec la réservation ; aucune décision fabriquée pour un coach réel",
+        "Tests RLS positif/négatif, concurrence, paiement simulé et migrations réversibles disponibles"
+      ],
+      "tests": [
+        "34 assertions pgTAP base et 25 assertions additives sous anon, sportif, coach et rôle serveur sur PostgreSQL local jetable",
+        "Deux processus concurrents : rejeu idempotent et réservation d'un même créneau",
+        "Nouvelles assertions requises : acteur fictif créé/réutilisé une seule fois, mutation visiteur refusée, acceptation limitée aux fixtures de démo et suppression qui préserve les fixtures",
+        "Rollback protégé refusé sur schéma non vide puis exécuté sur schéma vide",
+        "Contrôle de non-fuite inter-visiteurs",
+        "33 assertions pgTAP dédiées à l’acteur stable, l’acceptation automatique de fixture, le paiement simulé et les protections de mutation",
+        "Deux processus distincts : rejeu idempotent et réservation concurrente du même créneau",
+        "Rollback refusé avec acteur/réservations présents, puis exécuté après nettoyage synthétique ciblé"
+      ],
+      "files": [
+        "supabase/proposals/demo-public-20261112/001_demo_schema.sql",
+        "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql",
+        "supabase/proposals/demo-public-20261112/003_rollback_empty_demo_schema.sql",
+        "supabase/proposals/demo-public-20261112/README.md",
+        "supabase/proposals/demo-public-20261112/validate-proposal.mjs",
+        "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md",
+        "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md",
+        "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md",
+        "supabase/proposals/demo-public-20261112/004_demo_schedule_idempotency.sql",
+        "supabase/proposals/demo-public-20261112/009_demo_fixture_actor_booking.sql",
+        "supabase/proposals/demo-public-20261112/010_rollback_fixture_actor_booking.sql",
+        "supabase/proposals/demo-public-20261112/011_demo_fixture_actor_booking_tests.sql",
+        "docs/DEMO_SCHEMA_D13_FIXTURE_ACTOR_2026-11-14.md"
+      ],
+      "evidence": [
+        "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md",
+        "docs/SUPABASE_DEMO_PROVISION_2026-11-12.md",
+        "supabase/proposals/demo-public-20261112/002_demo_rls_tests.sql",
+        "docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md",
+        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
+        "docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md",
+        "docs/assets/demo-schema-d13-2026-11-13/local-pgtap-002.log",
+        "docs/assets/demo-schema-d13-2026-11-13/local-pgtap-005-pass.log",
+        "docs/DEMO_SCHEMA_D13_FIXTURE_ACTOR_2026-11-14.md",
+        "docs/assets/demo-schema-d13-2026-11-14/002_demo_rls_tests.sql.log",
+        "docs/assets/demo-schema-d13-2026-11-14/005_demo_schedule_idempotency_tests.sql.log",
+        "docs/assets/demo-schema-d13-2026-11-14/011_demo_fixture_actor_booking_tests.sql.log",
+        "docs/assets/demo-schema-d13-2026-11-14/fixture-race-a.out",
+        "docs/assets/demo-schema-d13-2026-11-14/fixture-race-b.out",
+        "docs/assets/demo-schema-d13-2026-11-14/fixture-race-c.out",
+        "docs/assets/demo-schema-d13-2026-11-14/fixture-race-d.err",
+        "docs/assets/demo-schema-d13-2026-11-14/rollback-populated.log",
+        "docs/assets/demo-schema-d13-2026-11-14/rollback-empty.log"
+      ],
+      "blocker": "Aucun blocage restant pour le contrat de schéma testé localement. Limite distincte : PostgreSQL 12.15 avec shim Auth ne valide pas le runtime Supabase ; aucun adaptateur applicatif n’est raccordé. Vérification du runtime Supabase laissée hors du ticket car Docker est exclu et aucune base distante ne doit servir de substitut.",
+      "next": "Traiter GYM-D1.4 : effacement individuel idempotent, contrôle d’accès croisé et purge TTL des sessions expirées ; garder toute migration distante hors de portée jusqu’à une autorisation dédiée.",
+      "environmentEvidence": [
+        "docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md",
+        "docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md"
+      ]
     },
     {
       "id": "GYM-D1.4",
       "parent": "GYM-D1",
       "title": "Créer des sessions de test individuelles et effaçables",
       "objective": "Supprimer les données de la session sportive du recruteur sans toucher aux acteurs fictifs communs ni aux données d'autres visiteurs",
-      "status": "blocked",
+      "status": "prepare",
       "sprint": "S4",
       "priority": "P0",
       "role": "Architecture",
       "assignment": "simulated-role",
       "due": "2026-11-25",
-      "estimateHours": [2, 5],
+      "estimateHours": [
+        2,
+        5
+      ],
       "actualHours": null,
-      "dependencies": ["GYM-D1.3"],
+      "dependencies": [
+        "GYM-D1.3"
+      ],
       "scope": "Session individuelle de sportif effaçable, avec rétention automatique cible de 24 h à valider ; inclure profil/session du sportif, réservations et références éventuelles de notification. Aucun compte/session coach. Ne jamais supprimer les profils acteurs fictifs partagés.",
-      "acceptance": ["Session sportive de test isolée par visiteur et retrouvable tant que la même identité de démonstration est conservée", "Action explicite d'effacement authentifiée/possédée", "Relecture prouvant absence de résidus, conservation des acteurs fictifs communs et refus d'effacer les données d'un autre"],
-      "tests": ["Tests suppression complète et idempotente", "Tests d'accès croisé refusé"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
-      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Dépend du contrat d’isolation corrigé de GYM-D1.3; suppression Auth serveur et purge automatique réelle des sessions expirées non implémentées ni testées.",
-      "next": "Après GYM-D1.3, créer un endpoint serveur de suppression Auth idempotent et une purge TTL testée; prouver l’isolation entre deux testeurs et la protection des fixtures."
+      "acceptance": [
+        "Session sportive de test isolée par visiteur et retrouvable tant que la même identité de démonstration est conservée",
+        "Action explicite d'effacement authentifiée/possédée",
+        "Relecture prouvant absence de résidus, conservation des acteurs fictifs communs et refus d'effacer les données d'un autre"
+      ],
+      "tests": [
+        "Tests suppression complète et idempotente",
+        "Tests d'accès croisé refusé"
+      ],
+      "files": [
+        "docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md",
+        "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md",
+        "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"
+      ],
+      "evidence": [
+        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"
+      ],
+      "blocker": "D1.3 est maintenant terminé sur son périmètre de schéma local. L’effacement côté serveur et la purge TTL ne sont pas encore implémentés ; aucune suppression Auth ni purge distante n’a été exécutée.",
+      "next": "Préparer puis tester localement l’effacement idempotent du sportif, le refus d’accès croisé et la purge des sessions expirées, en préservant le catalogue/acteur fictif partagé."
     },
     {
       "id": "GYM-D1.5",

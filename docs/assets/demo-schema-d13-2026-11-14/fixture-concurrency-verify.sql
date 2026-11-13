@@ -1,0 +1,3 @@
+select 'fixture_actors=' || count(*) from public.gym_demo_coaches where fixture_key='coach-demo-tennis';
+select 'fixture_reservations=' || count(*) from public.gym_demo_reservations r join public.gym_demo_coaches c on c.id=r.coach_id where c.fixture_key='coach-demo-tennis';
+select 'booked_slots=' || count(*) from public.gym_demo_slots s join public.gym_demo_coaches c on c.id=s.coach_id where c.fixture_key='coach-demo-tennis' and s.state='booked';

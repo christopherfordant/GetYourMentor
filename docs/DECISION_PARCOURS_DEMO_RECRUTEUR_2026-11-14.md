@@ -1,3 +1,7 @@
+# Mise à jour des preuves — 14 novembre 2026
+
+Les essais locaux de D1.3 sont maintenant terminés : migration 009, 33 assertions pgTAP dédiées, concurrence sur rejeu et créneau, et retour arrière protégé. Le ticket est clos uniquement pour le contrat de schéma local ; cela ne valide ni le runtime Supabase, ni l’adaptateur, ni le site publié. Rapport : `docs/DEMO_SCHEMA_D13_FIXTURE_ACTOR_2026-11-14.md`. D1.4 devient la prochaine tâche de préparation.
+
 # Décision produit — parcours sportif unique de démonstration
 
 Date : 14 novembre 2026. Cette décision remplace, pour le parcours public recruteur, la demande du 12 novembre de deux entrées et deux parcours individuels coach/sportif. Elle ne signifie pas que le comportement est implémenté ou publié.
