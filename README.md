@@ -1,76 +1,35 @@
 <p align="center">
-  <img src="assets/getyourmentor-cover.svg" alt="GetYourMentor — Le bon coach. Le prochain cap." width="100%" />
+  <picture>
+    <source srcset="assets/getyourmentor-cover.png" type="image/png" />
+    <img src="assets/getyourmentor-cover.png" alt="GetYourMentor — Le bon coach. Le prochain cap." width="100%" />
+  </picture>
 </p>
 
-<p align="center">
-  <strong>Rendre le coaching sportif individuel plus accessible.</strong><br />
-  Une vision produit pour connecter les sportifs aux coachs qui les feront progresser.
-</p>
+# GetYourMentor
 
-<p align="center">
-  <img alt="Statut : conception du MVP" src="https://img.shields.io/badge/STATUT-CONCEPTION_DU_MVP-b9ff66?style=flat-square&amp;labelColor=101827" />
-  <img alt="Approche : web responsive" src="https://img.shields.io/badge/APPROCHE-WEB_RESPONSIVE-e4eaf3?style=flat-square&amp;labelColor=101827" />
-</p>
+Un projet de plateforme de coaching sportif individuel : aider les sportifs à trouver un coach et simplifier la réservation des séances.
 
-<p align="center">
-  <a href="#la-vision">La vision</a> · <a href="#le-parcours-cible">Le parcours</a> · <a href="#explorer-le-projet">La documentation</a> · <a href="https://github.com/christopherfordant">Le créateur</a>
-</p>
+**[Découvrir GetYourMentor dans mon portfolio →](https://christopher-fordant-portfolio.netlify.app/projets#getyourmentor)**
 
----
+[Voir l’accueil du portfolio : mon parcours, mes projets et ma démarche →](https://christopher-fordant-portfolio.netlify.app/)
 
-## La vision
+## Comprendre ce dépôt
 
-Trouver un coach devrait être le début du progrès. GetYourMentor vise une expérience simple : découvrir un professionnel adapté, comprendre son offre et réserver une séance en confiance.
+Ce dépôt rassemble les documents de travail de GetYourMentor : vision produit, parcours utilisateur, spécifications du MVP et éléments d’architecture. Le README est cette page d’accueil : il sert à orienter le lecteur vers le projet et sa documentation.
 
-| Pour les sportifs | Pour les coachs | À terme, pour les clubs |
-| :--- | :--- | :--- |
-| Trouver un accompagnement adapté à leur sport, leur niveau et leur budget. | Présenter leur expertise et simplifier la gestion de leur activité. | Structurer une offre de coaching et créer de nouvelles collaborations. |
+Pour découvrir le travail réalisé, les démonstrations et leurs limites, commencez par le **[portfolio](https://christopher-fordant-portfolio.netlify.app/projets#getyourmentor)**. Les documents ci-dessous décrivent le cadrage et les objectifs du projet ; ils ne constituent pas à eux seuls un état à jour de toutes les fonctionnalités développées.
 
-## Le parcours cible
+## Documentation du projet
 
-```mermaid
-flowchart LR
-    A["01 · Trouver un coach"] --> B["02 · Choisir une séance"]
-    B --> C["03 · Réserver et payer"]
-    C --> D["04 · Progresser"]
-```
-
-**Une priorité : réduire la distance entre l’envie de s’entraîner et la première séance.**
-
-## Un MVP concentré sur l’essentiel
-
-| Étape | Fonctionnalités prévues |
+| Document | Contenu |
 | :--- | :--- |
-| **Découvrir** | Recherche par sport et localisation, profils, tarifs et éléments de confiance. |
-| **Réserver** | Choix d’une séance, disponibilité ou demande de créneau, confirmation et paiement. |
-| **Accompagner** | Espace sportif, gestion des demandes côté coach et avis après séance. |
-| **Opérer** | Vérification des coachs et suivi des réservations dans un back-office minimal. |
-
-> **État du projet : conception et préparation du MVP.** Ce dépôt rassemble le cadrage produit, les parcours, les spécifications et des éléments d’architecture. Les fonctionnalités décrites sont des objectifs de développement ; ce dépôt ne fournit pas encore une application complète à lancer.
-
-## Explorer le projet
-
-| Point d’entrée | Ce que vous y trouverez |
-| :--- | :--- |
-| [Document maître](DOCUMENT_MAITRE_GYM.md) | Vision, périmètre du MVP et priorités. |
-| [Écrans du MVP](MVP_ECRANS_GYM.md) | Parcours et spécifications écran par écran. |
-| [Direction Figma](FIGMA_MAQUETTE_GYM.md) | Préparation de la maquette et validation de l’expérience. |
-| [Architecture mémoire](ARCHITECTURE_MEMOIRE_GYM.md) | Organisation proposée des données et de la mémoire du projet. |
+| [Document maître](DOCUMENT_MAITRE_GYM.md) | Vision et périmètre du projet. |
+| [Écrans du MVP](MVP_ECRANS_GYM.md) | Parcours et spécifications fonctionnelles. |
+| [Maquette Figma](FIGMA_MAQUETTE_GYM.md) | Préparation de l’expérience et des écrans. |
+| [Architecture mémoire](ARCHITECTURE_MEMOIRE_GYM.md) | Organisation proposée des données. |
 | [Schéma Supabase](SUPABASE_SCHEMA_GYM.sql) | Base SQL de travail. |
-| [Workflows n8n](N8N_WORKFLOWS_GYM.md) | Automatisations envisagées pour les opérations. |
-| [Organisation Trello](TRELLO_SETUP_GYM.md) | Structuration du travail et suivi des actions. |
-
-## Les prochains caps
-
-- [ ] Valider le périmètre et les disciplines prioritaires.
-- [ ] Tester une maquette courte du parcours de réservation.
-- [ ] Construire le cœur du MVP et vérifier l’expérience de bout en bout.
-- [ ] Recueillir les retours des premiers coachs et sportifs pilotes.
+| [Workflows n8n](N8N_WORKFLOWS_GYM.md) | Automatisations envisagées. |
 
 ---
 
-<p align="center">
-  <strong>Une ambition sportive. Une approche produit. Des étapes concrètes.</strong><br /><br />
-  Porté par <a href="https://github.com/christopherfordant">Christopher Fordant</a><br />
-  <sub>Échanger sur le projet : ouvrir une discussion via les issues du dépôt.</sub>
-</p>
+Projet porté par **[Christopher Fordant](https://github.com/christopherfordant)** · En recherche d’une formation POEI ou d’un emploi en développement web et automatisation.
