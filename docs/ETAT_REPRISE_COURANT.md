@@ -1,3 +1,9 @@
+## Reprise active - 13 novembre 2026 : lecteur de contexte Kanban
+
+GYM-K1 et GYM-K1.1 sont termines sur la branche isolee `chore/kanban-context-selector-20261113`. `tools/agentic-workbench/task-context.mjs` offre `--ticket ID`, `--ticket ID --details` et `--next`, en lecture seule du backlog canonique. `--next` rend `no-ready-ticket` quand aucun ticket feuille n'est au statut `ready` avec dependances `done`; les candidats affiches ne sont pas reclassifies. Suite de tests : 41/41 ; Playwright manuel en contextes neufs a 1440 et 390 px. Comparaison de taille texte, pas de tokens : 117 098 octets backlog / 3 396 octets contexte detaille GYM-D1.3 / 6 825 octets reponse sans ticket pret. Preuves : `docs/KANBAN_CONTEXT_READER_2026-11-13.md` et `docs/assets/kanban-context-reader-2026-11-13/verification.json`. Aucun changement RAG, metier, base distante ou interface. `tools/agentic-workbench/tests/browser-check.cjs` conserve des attentes numeriques obsoletes et n'a pas ete execute ; le controle navigateur cible a ete execute separement.
+
+Worktree isole : `C:\Users\cashe\Documents\GYM-kanban-context-20261113`, branche `chore/kanban-context-selector-20261113`, cree depuis `fd4d6896ef224b69f3eb48baac27340d40c4ee5f`. Le depot principal et ses brouillons sont intacts. Etape de livraison : verifier le diff cible, lancer a nouveau la suite apres cloture, commit/push normal et comparer le SHA distant.
+
 ## Reprise active - 13 novembre 2026 : Kanban unifie par environnement
 
 Référence de travail obligatoire pour les prochains lots : `tools/agentic-workbench/backlog.json`. Choisir la prochaine tâche à partir de ses priorités, dépendances, cibles et preuves ; les changements de cartes dans le navigateur sont des brouillons. Les tickets ne sont clôturés qu'après contrôles documentés. Voir `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`.

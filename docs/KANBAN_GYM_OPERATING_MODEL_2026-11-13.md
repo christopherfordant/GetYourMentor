@@ -33,3 +33,7 @@ Les déplacements effectués dans l’interface sont des brouillons dans le stoc
 - Playwright local : le filtre « Démo liée au portfolio » affiche les neuf cartes D1 et exclut les cartes de recette historique ; la fiche D1.2 expose le nom du projet Supabase dédié. Ordinateur et mobile contrôlés, sans erreur de page ; le document ne déborde pas à 390 px.
 - Captures : `docs/assets/kanban-operating-model-2026-11-13/desktop-portfolio-demo.png` et `mobile-portfolio-demo.png`.
 - Ce travail concerne le Kanban local. Aucun parcours métier, service distant ou site publié n’a été modifié.
+
+## Sélection de ticket et reprise ciblée — 13 novembre
+
+Le lecteur local `tools/agentic-workbench/task-context.mjs` fournit `--ticket ID`, `--ticket ID --details` et `--next`. Il lit uniquement le backlog versionné, ne modifie ni le Kanban ni son localStorage, et n'ouvre pas les fichiers référencés par un ticket. `--next` exige un ticket feuille au statut `ready` et des dépendances au statut `done` ; en l'absence d'un tel ticket, il expose ce fait ainsi que des candidats non validés. Procédure détaillée et contrôles : `docs/KANBAN_CONTEXT_READER_2026-11-13.md`.

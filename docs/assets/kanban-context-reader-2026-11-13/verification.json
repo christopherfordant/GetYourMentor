@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-13",
+  "branch": "chore/kanban-context-selector-20261113",
+  "baseSha": "fd4d6896ef224b69f3eb48baac27340d40c4ee5f",
+  "tests": {
+    "command": "node --test tools/agentic-workbench/tests/*.test.mjs",
+    "passed": 41,
+    "failed": 0
+  },
+  "browser": [
+    {
+      "viewport": 1440,
+      "search": "GYM-K1.1",
+      "ticketDetailDialog": true,
+      "horizontalOverflow": false,
+      "freshBrowserContext": true
+    },
+    {
+      "viewport": 390,
+      "search": "GYM-K1.1",
+      "ticketDetailDialog": true,
+      "horizontalOverflow": false,
+      "freshBrowserContext": true
+    }
+  ],
+  "selector": {
+    "command": "node tools/agentic-workbench/task-context.mjs --next",
+    "result": "no-ready-ticket",
+    "invalidTicketExitCode": 2
+  },
+  "sizeProxy": {
+    "canonicalBacklogBytes": 117098,
+    "selectedTicketWithDetailsBytes": 3396,
+    "selectedTicketCompactBytes": 1299,
+    "measure": "Pretty-printed UTF-8 JSON output bytes only; not token or credit usage",
+    "noReadyCandidatesBytes": 6825
+  },
+  "limitations": [
+    "Historical browser-check.cjs uses fixed counts for a prior backlog and was not run; isolated Playwright smoke was executed instead.",
+    "The canonical backlog is read in full locally to compute priority and dependencies; only selected context is emitted."
+  ],
+  "backlog": {
+    "ticketCount": 87,
+    "sprintCount": 5,
+    "existingTicketsPreserved": true,
+    "newItems": [
+      "GYM-K1",
+      "GYM-K1.1"
+    ]
+  }
+}

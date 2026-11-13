@@ -41,6 +41,14 @@
       "end": "2026-11-27",
       "goal": "Préparer les parcours coach et sportif avec stockage isolé, paiement simulé et consentement Telegram",
       "capacityAssumption": "Dates estimatives ; le projet Supabase dédié existe, mais restent à terminer le contrat applicatif, l’isolation/effacement, la recette et la vérification du déploiement."
+    },
+    {
+      "id": "S5",
+      "title": "Kanban context and resumption",
+      "start": "2026-11-13",
+      "end": "2026-11-20",
+      "goal": "Reduce repeated context transfer using the canonical Kanban and concise resumption state.",
+      "capacityAssumption": "Bounded maintenance sprint; indicative dates, no capacity commitment."
     }
   ],
   "tickets": [
@@ -3263,6 +3271,84 @@
       "blocker": "Aucun candidat intégré/recetté; la réponse publique ne révèle pas la branche source du build actuel. Aucune configuration Netlify ou publication n’est autorisée dans ce lot.",
       "next": "Déploiement interdit tant que les dépendances et l'isolation ne sont pas validées.",
       "targetId": "portfolio-linked-demo"
+    },
+    {
+      "id": "GYM-K1",
+      "parent": null,
+      "title": "Improve Kanban task selection and context resumption",
+      "objective": "Reduce repeated context transfer while keeping backlog.json as the only official ticket source.",
+      "status": "done",
+      "sprint": "S5",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-11-20",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Local process and tooling only; no business flows, RAG architecture, storage, Kanban UI or remote services changed.",
+      "acceptance": [
+        "A bounded context reader is tracked by a child ticket and verified before closure",
+        "The official backlog and resumable state remain separate, with no parallel database or duplicate task board",
+        "No actual token or credit savings is claimed without accessible telemetry"
+      ],
+      "tests": [
+        "Review the child ticket evidence and local test results"
+      ],
+      "files": [
+        "docs/KANBAN_CONTEXT_READER_2026-11-13.md"
+      ],
+      "evidence": [
+        "docs/assets/kanban-context-reader-2026-11-13/verification.json"
+      ],
+      "blocker": null,
+      "next": "Use task-context.mjs for the next session; --next currently reports no ready ticket.",
+      "targetId": "gym-main"
+    },
+    {
+      "id": "GYM-K1.1",
+      "parent": "GYM-K1",
+      "title": "Add a local read-only ticket context selector",
+      "objective": "Retrieve one ticket, its dependency summaries and optional details from the canonical backlog.",
+      "status": "done",
+      "sprint": "S5",
+      "priority": "P1",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-11-20",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Read-only local access to backlog.json; no arbitrary file reads or browser localStorage status.",
+      "acceptance": [
+        "Lookup by ID returns official status, priority, target and resolved dependency summaries",
+        "Progressive details include objective, scope, acceptance, files, tests and evidence",
+        "Next selection respects ready status, completed dependencies and priority; explicitly reports when no ticket is ready",
+        "No arbitrary file access and no status inferred from browser localStorage",
+        "Tests cover lookup, dependencies, no-ready outcome, canonical backlog integrity and invalid arguments"
+      ],
+      "tests": [
+        "node --test tools/agentic-workbench/tests/task-context.test.mjs",
+        "node --test tools/agentic-workbench/tests/*.test.mjs",
+        "Playwright desktop/mobile Kanban smoke in isolated browser contexts"
+      ],
+      "files": [
+        "tools/agentic-workbench/task-context.mjs",
+        "tools/agentic-workbench/tests/task-context.test.mjs",
+        "docs/KANBAN_CONTEXT_READER_2026-11-13.md"
+      ],
+      "evidence": [
+        "docs/assets/kanban-context-reader-2026-11-13/verification.json"
+      ],
+      "blocker": null,
+      "next": "Use task-context.mjs for the next session; --next currently reports no ready ticket.",
+      "targetId": "gym-main"
     }
   ],
   "targets": [

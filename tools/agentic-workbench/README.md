@@ -7,6 +7,16 @@ node --test tools/agentic-workbench/tests/*.test.mjs
 node tools/agentic-workbench/server.mjs
 ```
 
+Pour une reprise ciblee, le lecteur local en lecture seule utilise uniquement le Kanban canonique :
+
+```powershell
+node tools/agentic-workbench/task-context.mjs --ticket GYM-D1.3
+node tools/agentic-workbench/task-context.mjs --ticket GYM-D1.3 --details
+node tools/agentic-workbench/task-context.mjs --next
+```
+
+`--ticket` retourne le contexte de base et les resumes de dependances ; `--details` ajoute les criteres, fichiers, tests et preuves. `--next` ne choisit qu'un ticket feuille en statut officiel `ready` dont les dependances sont terminees. S'il n'en existe aucun, la commande le dit et liste des candidats sans changer leur statut. Aucun chemin arbitraire, localStorage, modele ou service externe n'est lu.
+
 Ouvrir http://127.0.0.1:4325/ ; Ctrl+C pour arrêter. Node 22 ou plus récent. Aucun paquet nécessaire au serveur ou aux tests Node. Le contrôle navigateur optionnel réutilise Playwright existant : `node tools/agentic-workbench/tests/browser-check.cjs`, serveur déjà ouvert.
 
 Le Kanban reprend `backlog.json` : un couloir par ticket parent, des post-it pour ses sous-tickets et une fiche accessible au clic, au clavier et au tactile. Glisser-déposer entre colonnes dans le même couloir ; alternative par sélection du statut dans la fiche. Filtres sprint, rôle et texte, limite de deux tâches en cours, contrôle des dépendances et preuve explicitement vérifiée pour une nouvelle clôture.
