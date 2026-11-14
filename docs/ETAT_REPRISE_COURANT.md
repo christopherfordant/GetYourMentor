@@ -6,9 +6,9 @@ Ajout local de la page `/demo`, du catalogue de fixtures, de la reservation idem
 
 Controles : typecheck, build Next, scan secret client, configuration Netlify et secrets suivis, validateur D1 et 35 tests atelier : reussis. Playwright : 30/30 passes desktop et mobile, avec doubles API/Supabase (aucune preuve d'integration au runtime reel). Rapport : `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md`.
 
-GYM-D1.5 avance en `progress`, pas termine : il reste a tester les RPC et RLS sur l'environnement de demonstration autorise, puis la cible publique apres les criteres de D1.8/D1.9. Le site public n'a pas ete controle de nouveau ; derniere preuve archivee : `/api/health` indique `supabase=false`, `/demo` repond 404. Ne pas modifier Netlify ni deployer sans le lot explicite de recette/publication.
+GYM-D1.5 avance en `progress`, pas termine : il reste a tester les RPC et RLS sur l'environnement de demonstration autorise. Recontrole public en lecture seule apres le push : `/` 200, `/api/health` 200 (`mode=demo`, `supabase=false`), `/demo` 404. Aucune migration distante, variable Netlify ou publication n'a ete modifiee. Le processus local inspecte ne disposait pas des variables de session/Supabase attendues (noms seulement, valeurs non lues).
 
-Prochaine action : preparer une recette runtime isolee pour les fonctions D1.3/D1.4 et routes D1.5 sans creer ni migrer une base distante dans ce lot ; confirmer la migration cible avant de configurer les variables. Kanban : GYM-D1.5 reste en cours avec blocage runtime, GYM-D1.6 Telegram reste differe.
+Prochaine action : obtenir un environnement de recette dedie deja configure avec les migrations D1.3/D1.4, puis executer la recette E2E/RLS autorisee pour D1.5/D1.8. Le runtime public indique actuellement Supabase inactif ; toute configuration de variables ou migration exige un lot explicitement autorise. Kanban : GYM-D1.5 reste en cours avec blocage runtime, D1.6 Telegram reste differe et D1.7 depend encore de D1.5.
 
 ## Historique — contrat local GYM-D1.4 livré — 14 novembre 2026
 
