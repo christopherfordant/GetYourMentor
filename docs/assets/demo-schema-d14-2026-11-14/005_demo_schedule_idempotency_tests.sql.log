@@ -1,0 +1,33 @@
+1..25
+ok 1 - coach slots table exists
+ok 2 - reservation keeps its selected slot reference
+ok 3 - reservation stores an idempotency key
+ok 4 - reservation stores a non-sensitive request fingerprint
+ok 5 - Table public.gym_demo_slots should have the correct policies
+ok 6 - anon cannot invoke booking mutation
+ok 7 - authenticated cannot invoke state transition
+ok 8 - client cannot mutate slots directly
+anon
+
+ok 9 - anon sees only the shared fixture slot
+ok 10 - anon cannot see a private coach slot
+authenticated
+d2000000-0000-4000-8000-000000000001
+ok 11 - athlete sees a fixture slot
+ok 12 - athlete cannot see another coach private slot
+ok 13 - authenticated user cannot book through server-only function
+authenticated
+d2000000-0000-4000-8000-000000000002
+ok 14 - coach sees their own private slot
+service_role
+ok 15 - server books an available fixture slot
+ok 16 - same request replay returns the original reservation
+ok 17 - same-key replay creates no duplicate reservation
+ok 18 - same key with different payload is rejected
+ok 19 - second athlete cannot double-book a held slot
+ok 20 - server cancellation performs a state transition
+ok 21 - cancellation releases the slot atomically
+ok 22 - another athlete can book a released slot
+ok 23 - server can accept a requested demonstration reservation
+ok 24 - repeating the same final transition is idempotent
+ok 25 - accepted reservation cannot be silently reversed

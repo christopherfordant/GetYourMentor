@@ -1,3 +1,11 @@
+## Reprise active — avancement local GYM-D1.4 — 14 novembre 2026
+
+Dans le checkout isolé `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, ajout local des migrations proposées `012_demo_session_erasure.sql` et tests `013_demo_session_erasure_tests.sql`. L’effacement sportif est limité à `auth.uid()` et cascade sur les données du testeur ; les créneaux fictifs futurs sont libérés, les coachs fictifs partagés préservés. La fonction TTL côté serveur supprime les sessions sportives expirées ; rétention par défaut 24 h.
+
+Contrôles réellement exécutés sur PostgreSQL 12.15 jetable avec shim Auth, assertions pgTAP 1.3.0 via `psql` : suites 002 34/34, 005 25/25, 011 33/33, 013 21/21, toutes sans `not ok`, transactions synthétiques annulées et zéro résidu relevé. Le cluster a été arrêté ; le service PostgreSQL Windows préexistant est toujours `Running`. Rapport : `docs/DEMO_SCHEMA_D14_ERASURE_2026-11-14.md`, journaux sous `docs/assets/demo-schema-d14-2026-11-14/`. Aucun Docker, runtime Supabase distant, réglage Netlify, notification ou déploiement.
+
+GYM-D1.4 passe de `prepare` à `progress`, sans être terminé : aucune route applicative n’appelle l’effacement ni n’expire le cookie, l’identité Auth reste présente et la purge TTL n’est pas planifiée. La connexion Supabase du site public n’est pas démontrée ; l’état précédemment vérifié était `supabase=false` et `/demo` 404. D1.5 reste en préparation et dépend de la fin applicative de D1.4. Prochaine action précise : dans l’adaptateur, authentifier côté serveur l’identité de démo, raccorder l’effacement (y compris la suppression Auth serveur de cette identité après vérification), ajouter l’appel planifié TTL compatible avec le site cible, puis tester l’intégration avant fermeture.
+
 ## Reprise active — schéma D1.3 testé — 14 novembre 2026
 
 Travail effectué dans le worktree isolé `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, base de travail `545b95ca5bb09cd674338703a98421d2d303b5dd`. Le distant était aligné avant ce lot. Le checkout principal `GetYourMentor` et ses changements préexistants n’ont pas été touchés.

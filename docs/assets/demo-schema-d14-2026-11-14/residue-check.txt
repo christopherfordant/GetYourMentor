@@ -1,0 +1,2 @@
+users|sessions|coaches|reservations|slots|telegram_refs
+0|0|0|0|0|0

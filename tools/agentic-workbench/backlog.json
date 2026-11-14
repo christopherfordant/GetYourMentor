@@ -2988,7 +2988,7 @@
       "parent": "GYM-D1",
       "title": "Créer des sessions de test individuelles et effaçables",
       "objective": "Supprimer les données de la session sportive du recruteur sans toucher aux acteurs fictifs communs ni aux données d'autres visiteurs",
-      "status": "prepare",
+      "status": "progress",
       "sprint": "S4",
       "priority": "P0",
       "role": "Architecture",
@@ -3009,19 +3009,25 @@
         "Relecture prouvant absence de résidus, conservation des acteurs fictifs communs et refus d'effacer les données d'un autre"
       ],
       "tests": [
-        "Tests suppression complète et idempotente",
-        "Tests d'accès croisé refusé"
+        "21 assertions pgTAP locales : effacement authentifié/idempotent, accès croisé, résidus, références Telegram, disponibilité des créneaux, fixtures préservées et TTL 24 h",
+        "Suites de non-régression locales : 002 (34), 005 (25), 011 (33) après migration d’effacement",
+        "À compléter : tests route serveur, suppression de l’identité Auth et invocation planifiée de purge"
       ],
       "files": [
         "docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md",
         "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md",
-        "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"
+        "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md",
+        "supabase/proposals/demo-public-20261112/012_demo_session_erasure.sql",
+        "supabase/proposals/demo-public-20261112/013_demo_session_erasure_tests.sql",
+        "supabase/proposals/demo-public-20261112/validate-proposal.mjs"
       ],
       "evidence": [
-        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"
+        "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
+        "docs/DEMO_SCHEMA_D14_ERASURE_2026-11-14.md",
+        "docs/assets/demo-schema-d14-2026-11-14/"
       ],
-      "blocker": "D1.3 est maintenant terminé sur son périmètre de schéma local. L’effacement côté serveur et la purge TTL ne sont pas encore implémentés ; aucune suppression Auth ni purge distante n’a été exécutée.",
-      "next": "Préparer puis tester localement l’effacement idempotent du sportif, le refus d’accès croisé et la purge des sessions expirées, en préservant le catalogue/acteur fictif partagé."
+      "blocker": "Le contrat SQL local et 21 assertions sont validés sur PostgreSQL 12.15 avec shim Auth, mais aucune route applicative ne raccorde l'effacement au parcours. La purge TTL n'est pas planifiée automatiquement. Les identités auth.users restent présentes après effacement des données de parcours ; runtime Supabase et effacement complet Auth non vérifiés.",
+      "next": "Dans le lot d'adaptateur D1.5, ajouter le handler serveur d'effacement relié à l'identité vérifiée, supprimer l'identité Auth via Admin API uniquement côté serveur après contrôle d'appartenance, puis raccorder un ordonnanceur de purge TTL au site dédié après validation de sa configuration. Exécuter des tests d'intégration avant de fermer D1.4."
     },
     {
       "id": "GYM-D1.5",

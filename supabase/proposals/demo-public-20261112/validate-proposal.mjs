@@ -15,6 +15,8 @@ const localBootstrap = await readFile(path.join(dir, "008_postgres12_auth_shim_b
 const fixtureActor = await readFile(path.join(dir, "009_demo_fixture_actor_booking.sql"), "utf8");
 const fixtureRollback = await readFile(path.join(dir, "010_rollback_fixture_actor_booking.sql"), "utf8");
 const fixtureTests = await readFile(path.join(dir, "011_demo_fixture_actor_booking_tests.sql"), "utf8");
+const erasure = await readFile(path.join(dir, "012_demo_session_erasure.sql"), "utf8");
+const erasureTests = await readFile(path.join(dir, "013_demo_session_erasure_tests.sql"), "utf8");
 
 for (const table of ["gym_demo_sessions", "gym_demo_coaches", "gym_demo_reservations", "gym_demo_telegram_links"]) {
   assert.match(schema, new RegExp(`create table if not exists public\\.${table}\\b`, "i"), `${table} table`);
@@ -79,4 +81,13 @@ assert.match(fixtureTests, /select plan\(33\)/i, "fixture tests declare the asse
 for (const scenario of ["server creates the stable coach actor and accepts the demo booking atomically", "retry reuses the same fictitious actor", "visitor cannot delete or change shared actor", "real or unknown coach cannot enter the automatic acceptance path", "server records only simulated payment confirmation", "another athlete cannot confirm this reservation payment"]) {
   assert.ok(fixtureTests.includes(scenario), `fixture actor pgTAP scenario: ${scenario}`);
 }
-console.log("Static proposal checks: PASS (base schema, RLS, slots, idempotency, fixture actor, atomic demo acceptance/payment, guarded rollbacks)");
+assert.match(erasure, /gym_demo_delete_my_athlete_session[\s\S]*owner_user_id = auth\.uid\(\)[\s\S]*role = 'sportif'/i, "self-erasure is restricted to caller's athlete session");
+assert.match(erasure, /revoke all on function public\.gym_demo_delete_my_athlete_session[\s\S]*from public, anon/i, "self-erasure is not public or anonymous");
+assert.match(erasure, /gym_demo_purge_expired_athlete_sessions[\s\S]*auth\.role\(\)[\s\S]*service_role/i, "TTL purge is server-role only");
+assert.match(erasure, /role = 'sportif' and expires_at <= statement_timestamp\(\)/i, "TTL purge is limited to expired athlete sessions");
+assert.match(erasure, /before delete on public\.gym_demo_reservations/i, "deleting reservation releases its reusable slot");
+assert.match(erasureTests, /select plan\(21\)/i, "session erasure suite declares 21 assertions");
+for (const scenario of ["another athlete cannot erase a session they do not own", "repeating self-erasure is idempotent", "deletion removes notification consent references", "shared fake coach actor survives tester erasure", "TTL purge removes expired athlete session data only", "repeating the TTL purge is idempotent", "new demo session defaults to a 24-hour retention window"]) {
+  assert.ok(erasureTests.includes(scenario), `session erasure pgTAP scenario: ${scenario}`);
+}
+console.log("Static proposal checks: PASS (base schema, RLS, idempotency, fixture actor, simulated booking/payment, session erasure, TTL purge contract, slot release, guarded rollbacks)");

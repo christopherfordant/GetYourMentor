@@ -1,0 +1,27 @@
+1..21
+ok 1 - authenticated role can request own athlete-session deletion
+ok 2 - anonymous role cannot invoke self-erasure
+ok 3 - server role can run the TTL purge
+ok 4 - browser role cannot run the TTL purge
+authenticated
+d4100000-0000-4000-8000-000000000002
+ok 5 - another athlete cannot erase a session they do not own
+ok 6 - cross-user attempt does not expose the target session
+ok 7 - cross-user attempt leaves the caller session intact
+authenticated
+d4100000-0000-4000-8000-000000000001
+ok 8 - athlete owner can erase their own active session
+ok 9 - repeating self-erasure is idempotent
+ok 10 - deletion leaves no athlete reservation
+ok 11 - deletion removes notification consent references
+ok 12 - shared fake coach actor survives tester erasure
+ok 13 - self-erasure releases the reusable future slot
+service_role
+ok 14 - TTL purge removes expired athlete session data only
+ok 15 - repeating the TTL purge is idempotent
+ok 16 - TTL purge removes expired athlete session
+ok 17 - TTL purge cascades expired reservations
+ok 18 - TTL purge does not remove coach sessions
+ok 19 - TTL purge preserves shared fake coach actor
+ok 20 - TTL purge releases the expired reservation slot
+ok 21 - new demo session defaults to a 24-hour retention window
