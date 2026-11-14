@@ -25,6 +25,41 @@ export type DemoPurgeConfig = { supabaseUrl: string; serviceRoleKey: string };
 
 type Fetcher = typeof fetch;
 
+function requestCookieValue(request: Request) {
+  const prefix = `${DEMO_SESSION_COOKIE}=`;
+  const item = request.headers.get("cookie")?.split(";").map((part) => part.trim()).find((part) => part.startsWith(prefix));
+  const value = item?.slice(prefix.length);
+  return value && value.length <= 16_384 ? value : null;
+}
+
+export function serializeDemoSessionCookie(value: string, expiresAt: number) {
+  const maxAge = Math.max(0, Math.min(DEMO_SESSION_TTL_SECONDS, Math.floor((expiresAt - Date.now()) / 1000)));
+  return `${DEMO_SESSION_COOKIE}=${value}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}`;
+}
+
+export const clearDemoSessionCookie = `${DEMO_SESSION_COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0`;
+
+export async function resolveRecruiterDemoSession(
+  request: Request,
+  config: DemoSessionConfig,
+  requireStoredRow = true,
+  fetcher: Fetcher = fetch,
+) {
+  const token = requestCookieValue(request);
+  if (!token) return null;
+  const session = openDemoSession(token, config.cookieSecret);
+  if (!session) return null;
+  const refreshed = await refreshRecruiterDemoSession(config, session, fetcher);
+  if (!refreshed || (requireStoredRow && !await hasDemoSessionRow(config, refreshed, fetcher))) return null;
+  return {
+    session: refreshed,
+    renewed: refreshed.accessToken !== session.accessToken || refreshed.refreshToken !== session.refreshToken,
+    cookie: refreshed.accessToken !== session.accessToken || refreshed.refreshToken !== session.refreshToken
+      ? serializeDemoSessionCookie(sealDemoSession(refreshed, config.cookieSecret), refreshed.expiresAt)
+      : undefined,
+  };
+}
+
 export function getDemoSessionConfig(env: NodeJS.ProcessEnv = process.env): DemoSessionConfig | null {
   try {
     const app = new URL(env.NEXT_PUBLIC_APP_URL ?? "");

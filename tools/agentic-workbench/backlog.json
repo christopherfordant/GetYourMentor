@@ -3040,7 +3040,7 @@
       "parent": "GYM-D1",
       "title": "Rendre testable le parcours sportif avec coach fictif",
       "objective": "Permettre au recruteur de choisir un coach et un créneau fictifs, soumettre une demande, obtenir l'acceptation déterministe de démonstration et confirmer le paiement simulé sans compte coach séparé",
-      "status": "prepare",
+      "status": "progress",
       "sprint": "S4",
       "priority": "P0",
       "role": "Architecture",
@@ -3051,11 +3051,11 @@
       "dependencies": ["GYM-D1.3", "GYM-D1.4"],
       "scope": "Un parcours individuel de sportif, sans compte coach ni identifiants partagés. Sélection limitée aux coachs fictifs de démonstration ; acteur créé au besoin ou réutilisé de façon stable côté serveur. Acceptation automatique déterministe annoncée comme simulée ; paiement non financier sans saisie ni stockage PAN/CVC. Aucune vraie IA revendiquée et aucun coach réel accepté automatiquement.",
       "acceptance": ["Le sportif réalise tout le parcours sans création d'un second compte coach", "L'acteur fictif est créé une seule fois ou réutilisé de manière idempotente et ne peut être manipulé par le visiteur", "Acceptation automatique limitée à la démo, réservation persistée et données isolées par testeur", "Le paiement est simulé, impossible avant acceptation et sans collecte de carte réelle ; message final explicite sur l'absence de paiement réel"],
-      "tests": ["Recette E2E du parcours sportif avec identités jetables isolées", "Réutilisation acteur, créneau indisponible, rejeu, accès croisé, erreur, paiement simulé et suppression vérifiés"],
-      "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
-      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Le parcours réservation /demo et ses routes métier Supabase ne sont pas encore implémentés ; le site public observé précédemment répond 404 et supabase=false. La session serveur D1.4 et les contrats SQL D1.3 sont prêts localement. Le checkout principal contient un brouillon /demo non suivi et des changements préexistants : ne pas le copier en bloc.",
-      "next": "Construire dans ce worktree isolé la page /demo du seul parcours sportif : commencer/relire sa session via /api/demo/session, charger uniquement les coachs/slots fictifs, puis raccorder réservation/acceptation et paiement simulé via fonctions D1.3. Ne pas utiliser les paiements ni le stockage Blobs existants ; tests avec doubles locaux jusqu’à D1.8/D1.9."
+      "tests": ["Recette E2E du parcours sportif avec identites jetables isolees", "Reutilisation acteur, creneau indisponible, rejeu, acces croise, erreur, paiement simule et suppression verifies", "Playwright desktop Chromium et mobile Chromium : parcours UI avec API simulees, acceptation de demonstration, paiement simule, effacement et absence de debordement", "Tests directs des routes avec Auth/PostgREST/RPC simules : session possedee, catalogue en liste blanche, RPC service-role, HTTP 409 si creneau indisponible, aucun appel fournisseur de paiement", "Recette navigateur contre le Supabase de demonstration et verification RLS encore requises avant cloture"],
+      "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md", "gym-next/components/demo/DemoBooking.tsx", "gym-next/components/demo/DemoBooking.module.css", "gym-next/app/api/demo/catalog/route.ts", "gym-next/app/api/demo/reservations/route.ts", "gym-next/app/api/demo/payment/route.ts", "gym-next/lib/demo-recruiter-booking.ts", "gym-next/lib/demo-recruiter-session.ts", "gym-next/tests/demo-booking.spec.ts"],
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md"],
+      "blocker": "Les tests de la page et des routes passent avec des doubles HTTP, mais aucune exécution contre le runtime Supabase dédié n’a eu lieu. Il reste à vérifier les migrations/RPC D1.3-D1.4 présentes sur cette cible, l’isolation RLS, l’idempotence/concurrence et l’effacement de bout en bout avant de satisfaire la recette du ticket. Le site public n’a pas été redéployé et son /demo reste rapporté 404 dans la dernière preuve archivée.",
+      "next": "Quand le runtime de démonstration est autorisé et ses migrations confirmées, exécuter la recette E2E avec deux identités jetables : réservation/acceptation/paiement simulé, rejeu, créneau concurrent, lecture croisée refusée, persistance après reconnexion et effacement. Sinon, conserver le ticket en cours et ne pas modifier les variables ou la base distante."
     },
     {
       "id": "GYM-D1.6",

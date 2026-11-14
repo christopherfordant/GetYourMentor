@@ -1,4 +1,16 @@
-## Reprise active — contrat local GYM-D1.4 livré — 14 novembre 2026
+## Reprise active — GYM-D1.5 parcours sportif local — 14 novembre 2026
+
+Worktree isole `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Debut du lot : HEAD et distant `42e7ef8e856083a6cde0095129fef0308ffdc253`. Les autres worktrees et le checkout principal n'ont pas ete modifies.
+
+Ajout local de la page `/demo`, du catalogue de fixtures, de la reservation idempotente, de l'acceptation de demonstration, du paiement non financier, de la consultation des propres reservations et de l'effacement individuel. Les routes reutilisent la session chiffre D1.4 ; les mutations verifient Auth anonyme + session possedee avant les RPC serveur D1.3. Aucun appel Stripe/Telegram ni aucune migration ou connexion distante.
+
+Controles : typecheck, build Next, scan secret client, configuration Netlify et secrets suivis, validateur D1 et 35 tests atelier : reussis. Playwright : 30/30 passes desktop et mobile, avec doubles API/Supabase (aucune preuve d'integration au runtime reel). Rapport : `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md`.
+
+GYM-D1.5 avance en `progress`, pas termine : il reste a tester les RPC et RLS sur l'environnement de demonstration autorise, puis la cible publique apres les criteres de D1.8/D1.9. Le site public n'a pas ete controle de nouveau ; derniere preuve archivee : `/api/health` indique `supabase=false`, `/demo` repond 404. Ne pas modifier Netlify ni deployer sans le lot explicite de recette/publication.
+
+Prochaine action : preparer une recette runtime isolee pour les fonctions D1.3/D1.4 et routes D1.5 sans creer ni migrer une base distante dans ce lot ; confirmer la migration cible avant de configurer les variables. Kanban : GYM-D1.5 reste en cours avec blocage runtime, GYM-D1.6 Telegram reste differe.
+
+## Historique — contrat local GYM-D1.4 livré — 14 novembre 2026
 
 Checkout isolé C:/Users/cashe/Documents/GYM-demo-isolated-20261112, branche demo/recruiter-supabase-adapter-20261112. Au début du lot, branche et distant alignés sur 11d1b5980f27fd4d70494a8c5bdc971f55aaa7df. Le checkout principal et ses modifications locales n’ont pas été touchés.
 
