@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EditorialHome } from "@/components/home/EditorialHome";
+import { getDemoSessionConfig } from "@/lib/demo-recruiter-session";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -9,5 +10,5 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  return <EditorialHome />;
+  return <EditorialHome recruiterDemoAvailable={getDemoSessionConfig() !== null} />;
 }
