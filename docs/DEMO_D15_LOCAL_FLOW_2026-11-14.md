@@ -4,6 +4,16 @@
 
 Le worktree est maintenant au commit parent `7fac27396f0756ffafb4a98f3a7a7a450a9282d5`. Le parcours `/demo` échoue désormais de façon explicite et sans proposer un démarrage impossible lorsque l’API signale que Supabase démo n’est pas configuré. Les routes catalogue, réservations et paiement répondent toutes 503 sans appel réseau quand la configuration est absente.
 
+### Précontrôle distant en lecture seule
+
+Session navigateur déjà ouverte, compte et cible vérifiés : Netlify `getyourmentor-demo-20261014`, Site ID `86e0379e-4d1a-4cf0-936c-1439397354f4` ; Supabase `getyourmentor-demo-recruiter`, ref `rqxoovriacgoriimpbwi`, région `eu-west-3`, statut `Healthy`, distinct de `getyourmentor-preprod`. Le dashboard Supabase indique « No migrations » et aucun dépôt Git connecté.
+
+Des requêtes SQL strictement en lecture seule sur les catalogues système ont trouvé quatre tables publiques `gym_demo_*` : `coaches`, `reservations`, `sessions`, `telegram_links`. RLS est activé sur les quatre ; nombre de politiques respectif : 4, 1, 3 et 0. Aucun RPC `gym_demo_*` n’est présent. Les tables `gym_demo_slots`, `gym_demo_fixture_catalog` et `gym_demo_fixture_slot_templates` attendues par les migrations applicatives ne sont pas présentes. Aucune ligne métier ni valeur de secret n’a été lue. Le schéma distant correspond donc à une base partielle préexistante, pas au contrat complet des migrations D1.3/D1.4.
+
+Dans les variables du seul site Netlify cible, les noms visibles sont `DEPLOY_ENV`, `GETYOURMENTOR_ALLOW_DEMO`, `NEXT_PUBLIC_APP_URL`, `PAYMENT_PROVIDER`, `PLATFORM_COMMISSION_BPS` et `SESSION_SECRET`. Aucun `SITE_ID` ni variable `GYM_DEMO_*` n’est présent dans cette liste. La valeur de `SESSION_SECRET` n’a pas été consultée ; l’interface la signale comme probablement sensible mais non marquée comme secret. Le contrôle public reste `/api/health` avec `supabase=false` et `/demo` en 404.
+
+Aucune migration distante, modification de variable, lecture de donnée métier, publication ou notification n’a été effectuée. Avant tout raccordement, il faut réconcilier le schéma existant sans rejouer `001` à l’aveugle, tester l’enchaînement additif 004/009/012 contre cette base réelle, puis autoriser explicitement l’application distante et la configuration du site cible. Le ticket reste ouvert.
+
 Contrôles de cette tranche : `npm run check:types`, `npm run build`, `npm run check:client-secret-boundary`, `npm run check:netlify-config`, `npm run check:tracked-secrets`, `node --test tools/agentic-workbench/tests/*.test.mjs` (35/35) et Playwright `tests/demo-booking.spec.ts tests/demo-recruiter-session.spec.ts` (34/34 sur desktop et mobile). Les tests de parcours et d’API utilisent des réponses simulées ; ils ne prouvent pas l’intégration au runtime Supabase.
 
 Recontrôle HTTP public par `curl.exe` : `/` 200, `/api/health` 200 avec `mode=demo`, `ready=true`, `supabase=false`, et `/demo` 404. Le site public n’a pas reçu ce correctif. La configuration runtime dédiée et la publication restent donc bloquantes ; aucun réglage Netlify, secret, migration distante ni déploiement n’a été touché.
