@@ -42,6 +42,7 @@ export default function DemoBooking() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [unavailable, setUnavailable] = useState(false);
 
   const loadPrivateState = useCallback(async () => {
     const session = await request<{ active: boolean }>("/api/demo/session");
@@ -64,7 +65,10 @@ export default function DemoBooking() {
   useEffect(() => {
     let mounted = true;
     void loadPrivateState().catch((cause: unknown) => {
-      if (mounted) setError(cause instanceof Error ? cause.message : "La démonstration est indisponible.");
+      if (!mounted) return;
+      const message = cause instanceof Error ? cause.message : "La démonstration est indisponible.";
+      setUnavailable(/configur/i.test(message));
+      setError(message);
     }).finally(() => { if (mounted) setLoading(false); });
     return () => { mounted = false; };
   }, [loadPrivateState]);
@@ -77,9 +81,14 @@ export default function DemoBooking() {
     setBusy(true); setError(""); setNotice("");
     try {
       await request("/api/demo/session", { method: "POST", body: "{}" });
+      setUnavailable(false);
       await loadPrivateState();
       setNotice("Votre session de démonstration est prête. Elle est conservée sur cet appareil pendant 24 heures.");
-    } catch (cause) { setError(cause instanceof Error ? cause.message : "Impossible de démarrer la session."); }
+    } catch (cause) {
+      const message = cause instanceof Error ? cause.message : "Impossible de démarrer la session.";
+      setUnavailable(/configur/i.test(message));
+      setError(message);
+    }
     finally { setBusy(false); }
   }
 
@@ -130,7 +139,13 @@ export default function DemoBooking() {
 
         {error && <p className={styles.error} role="alert">{error}</p>}
         {notice && <p className={styles.success} role="status">{notice}</p>}
-        {loading ? <p className={styles.status} role="status">Vérification de votre session…</p> : !active ? (
+        {loading ? <p className={styles.status} role="status">Vérification de votre session…</p> : unavailable ? (
+          <section className={styles.startCard} aria-labelledby="unavailable-title">
+            <span className={styles.step}>!</span>
+            <div><h2 id="unavailable-title">Parcours indisponible sur cet environnement</h2><p>La connexion de démonstration n’est pas configurée ici. Aucune session ni donnée n’a été créée. Revenez à GetYourMentor et réessayez lorsque le parcours sera activé.</p></div>
+            <a className={styles.secondary} href="/">Retour au site</a>
+          </section>
+        ) : !active ? (
           <section className={styles.startCard} aria-labelledby="start-title">
             <span className={styles.step}>01</span>
             <div><h2 id="start-title">Démarrer votre session de test</h2><p>Une session anonyme et isolée permet de retrouver vos réservations sur cet appareil. Elle expire après 24 heures et peut être effacée à tout moment.</p></div>

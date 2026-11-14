@@ -1,6 +1,14 @@
 # GYM-D1.5 — première tranche du parcours sportif local
 
-Date : 14 novembre 2026. Worktree `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Le lot part du commit `42e7ef8e856083a6cde0095129fef0308ffdc253` ; aucun autre worktree n’a été modifié.
+## Complément de contrôle — 14 novembre 2026
+
+Le worktree est maintenant au commit parent `7fac27396f0756ffafb4a98f3a7a7a450a9282d5`. Le parcours `/demo` échoue désormais de façon explicite et sans proposer un démarrage impossible lorsque l’API signale que Supabase démo n’est pas configuré. Les routes catalogue, réservations et paiement répondent toutes 503 sans appel réseau quand la configuration est absente.
+
+Contrôles de cette tranche : `npm run check:types`, `npm run build`, `npm run check:client-secret-boundary`, `npm run check:netlify-config`, `npm run check:tracked-secrets`, `node --test tools/agentic-workbench/tests/*.test.mjs` (35/35) et Playwright `tests/demo-booking.spec.ts tests/demo-recruiter-session.spec.ts` (34/34 sur desktop et mobile). Les tests de parcours et d’API utilisent des réponses simulées ; ils ne prouvent pas l’intégration au runtime Supabase.
+
+Recontrôle HTTP public par `curl.exe` : `/` 200, `/api/health` 200 avec `mode=demo`, `ready=true`, `supabase=false`, et `/demo` 404. Le site public n’a pas reçu ce correctif. La configuration runtime dédiée et la publication restent donc bloquantes ; aucun réglage Netlify, secret, migration distante ni déploiement n’a été touché.
+
+Contexte historique de l’implémentation initiale : worktree `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, départ au commit `42e7ef8e856083a6cde0095129fef0308ffdc253` ; aucun autre worktree n’a été modifié.
 
 ## Réalisation
 

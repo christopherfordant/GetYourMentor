@@ -134,3 +134,47 @@ test("parcours /demo de bout en bout avec réservation et paiement simulés sur 
   await expect(page.getByRole("button", { name: "Commencer le parcours" })).toBeVisible();
   await expect(page.getByText("Les profils fictifs partagés ont été conservés.")).toBeVisible();
 });
+
+test("API demo fails closed when demo Supabase is not configured", async () => {
+  const keys = Object.keys(demoEnv);
+  const previous = Object.fromEntries(keys.map((key) => [key, process.env[key]]));
+  const previousFetch = global.fetch;
+  for (const key of keys) delete process.env[key];
+  let fetchCalled = false;
+  global.fetch = async () => { fetchCalled = true; throw new Error("unexpected network call"); };
+  try {
+    const origin = "https://getyourmentor-demo-20261014.netlify.app";
+    const catalog = await catalogGET();
+    const mine = await reservationGET(new Request(`${origin}/api/demo/reservations`));
+    const booking = await reservationPOST(new Request(`${origin}/api/demo/reservations`, {
+      method: "POST", headers: { origin, "content-type": "application/json" },
+      body: JSON.stringify({ fixtureKey: coach.fixtureKey, slotKey: "tennis-matin", idempotencyKey: "423e4567-e89b-42d3-a456-426614174000" }),
+    }));
+    const payment = await paymentPOST(new Request(`${origin}/api/demo/payment`, {
+      method: "POST", headers: { origin, "content-type": "application/json" },
+      body: JSON.stringify({ reservationId }),
+    }));
+
+    expect([catalog.status, mine.status, booking.status, payment.status]).toEqual([503, 503, 503, 503]);
+    expect(fetchCalled).toBe(false);
+  } finally {
+    global.fetch = previousFetch;
+    for (const key of keys) {
+      const value = previous[key];
+      if (typeof value === "string") process.env[key] = value;
+      else delete process.env[key];
+    }
+  }
+});
+
+test("/demo explains that the parcours is unavailable when not configured", async ({ page }) => {
+  await page.route("**/api/demo/session", async (route) => route.fulfill({
+    status: 503,
+    json: { error: "La démonstration n’est pas configurée sur cette cible" },
+  }));
+
+  await page.goto("/demo");
+  await expect(page.getByRole("heading", { name: "Parcours indisponible sur cet environnement" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Commencer le parcours" })).toHaveCount(0);
+  await expect(page.getByRole("link", { name: "Retour au site" })).toHaveAttribute("href", "/");
+});

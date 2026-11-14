@@ -1,5 +1,7 @@
 ## Reprise active — GYM-D1.5 parcours sportif local — 14 novembre 2026
 
+Mise a jour de reprise : sur la branche `demo/recruiter-supabase-adapter-20261112`, apres le parent `7fac27396f0756ffafb4a98f3a7a7a450a9282d5`, `/demo` affiche maintenant un etat d’indisponibilite lorsque la configuration Supabase de demo manque. Les routes catalogue, reservations et paiement repondent 503 sans appel reseau dans ce cas. Controles : typecheck, build, frontiere secret client, configuration Netlify, secrets suivis, 35 tests atelier et 34/34 tests Playwright desktop/mobile reussis. Recontrole public via curl : `/` 200, `/api/health` 200 (`mode=demo`, `ready=true`, `supabase=false`), `/demo` 404. Correctif local non publie. D1.5 reste `progress`, bloque sur runtime Supabase et preuve du parcours public. Aucun reglage Netlify ni migration distante.
+
 Worktree isole `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Debut du lot : HEAD et distant `42e7ef8e856083a6cde0095129fef0308ffdc253`. Les autres worktrees et le checkout principal n'ont pas ete modifies.
 
 Ajout local de la page `/demo`, du catalogue de fixtures, de la reservation idempotente, de l'acceptation de demonstration, du paiement non financier, de la consultation des propres reservations et de l'effacement individuel. Les routes reutilisent la session chiffre D1.4 ; les mutations verifient Auth anonyme + session possedee avant les RPC serveur D1.3. Aucun appel Stripe/Telegram ni aucune migration ou connexion distante.
