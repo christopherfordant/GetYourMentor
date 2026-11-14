@@ -2988,7 +2988,7 @@
       "parent": "GYM-D1",
       "title": "Créer des sessions de test individuelles et effaçables",
       "objective": "Supprimer les données de la session sportive du recruteur sans toucher aux acteurs fictifs communs ni aux données d'autres visiteurs",
-      "status": "progress",
+      "status": "done",
       "sprint": "S4",
       "priority": "P0",
       "role": "Architecture",
@@ -3011,7 +3011,7 @@
       "tests": [
         "21 assertions pgTAP locales : effacement authentifié/idempotent, accès croisé, résidus, références Telegram, disponibilité des créneaux, fixtures préservées et TTL 24 h",
         "Suites de non-régression locales : 002 (34), 005 (25), 011 (33) après migration d’effacement",
-        "À compléter : tests route serveur, suppression de l’identité Auth et invocation planifiée de purge"
+        "12 tests Playwright locaux avec réponses Supabase simulées : handlers session/création-relecture-effacement, Auth anonyme, cookie, renouvellement, ownership RLS, endpoint cron, purge TTL, origine et refus par défaut"
       ],
       "files": [
         "docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md",
@@ -3019,15 +3019,21 @@
         "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md",
         "supabase/proposals/demo-public-20261112/012_demo_session_erasure.sql",
         "supabase/proposals/demo-public-20261112/013_demo_session_erasure_tests.sql",
-        "supabase/proposals/demo-public-20261112/validate-proposal.mjs"
+        "supabase/proposals/demo-public-20261112/validate-proposal.mjs",
+        "gym-next/lib/demo-recruiter-session.ts",
+        "gym-next/app/api/demo/session/route.ts",
+        "gym-next/app/api/cron/demo-session-purge/route.ts",
+        "gym-next/netlify/functions/demo-session-purge-schedule.mts",
+        "gym-next/tests/demo-recruiter-session.spec.ts"
       ],
       "evidence": [
         "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
         "docs/DEMO_SCHEMA_D14_ERASURE_2026-11-14.md",
-        "docs/assets/demo-schema-d14-2026-11-14/"
+        "docs/assets/demo-schema-d14-2026-11-14/",
+        "docs/DEMO_D14_SESSION_RUNTIME_2026-11-14.md"
       ],
-      "blocker": "Le contrat SQL local et 21 assertions sont validés sur PostgreSQL 12.15 avec shim Auth, mais aucune route applicative ne raccorde l'effacement au parcours. La purge TTL n'est pas planifiée automatiquement. Les identités auth.users restent présentes après effacement des données de parcours ; runtime Supabase et effacement complet Auth non vérifiés.",
-      "next": "Dans le lot d'adaptateur D1.5, ajouter le handler serveur d'effacement relié à l'identité vérifiée, supprimer l'identité Auth via Admin API uniquement côté serveur après contrôle d'appartenance, puis raccorder un ordonnanceur de purge TTL au site dédié après validation de sa configuration. Exécuter des tests d'intégration avant de fermer D1.4."
+      "blocker": null,
+      "next": "GYM-D1.5 est maintenant éligible : créer le parcours sportif local en réutilisant le service /api/demo/session et les fonctions SQL D1.3 ; garder l’intégration réelle réservée à la recette D1.8/D1.9."
     },
     {
       "id": "GYM-D1.5",
@@ -3048,8 +3054,8 @@
       "tests": ["Recette E2E du parcours sportif avec identités jetables isolées", "Réutilisation acteur, créneau indisponible, rejeu, accès croisé, erreur, paiement simulé et suppression vérifiés"],
       "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Aucun repository/route de démo n'est raccordé ; au contrôle du 14 novembre le site public /demo répond 404 et /api/health indique supabase=false. D1.3 et D1.4 ne satisfont pas encore leurs prérequis. Le checkout principal contient un brouillon /demo non suivi et des changements préexistants : ne pas le copier en bloc.",
-      "next": "Après résolution de D1.2, validation du schéma D1.3 adapté et implémentation de l'effacement D1.4, construire une route dédiée au seul parcours sportif dans un worktree propre."
+      "blocker": "Le parcours réservation /demo et ses routes métier Supabase ne sont pas encore implémentés ; le site public observé précédemment répond 404 et supabase=false. La session serveur D1.4 et les contrats SQL D1.3 sont prêts localement. Le checkout principal contient un brouillon /demo non suivi et des changements préexistants : ne pas le copier en bloc.",
+      "next": "Construire dans ce worktree isolé la page /demo du seul parcours sportif : commencer/relire sa session via /api/demo/session, charger uniquement les coachs/slots fictifs, puis raccorder réservation/acceptation et paiement simulé via fonctions D1.3. Ne pas utiliser les paiements ni le stockage Blobs existants ; tests avec doubles locaux jusqu’à D1.8/D1.9."
     },
     {
       "id": "GYM-D1.6",

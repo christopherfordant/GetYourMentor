@@ -1,4 +1,14 @@
-## Reprise active — avancement local GYM-D1.4 — 14 novembre 2026
+## Reprise active — contrat local GYM-D1.4 livré — 14 novembre 2026
+
+Checkout isolé C:/Users/cashe/Documents/GYM-demo-isolated-20261112, branche demo/recruiter-supabase-adapter-20261112. Au début du lot, branche et distant alignés sur 11d1b5980f27fd4d70494a8c5bdc971f55aaa7df. Le checkout principal et ses modifications locales n’ont pas été touchés.
+
+Le cycle de session sportive anonyme est implémenté localement : création et vérification Auth, cookie chiffré HttpOnly/Secure/SameSite=Strict limité à 24 h, relecture/renouvellement, effacement SQL possédé puis suppression de l’identité anonyme, route cron protégée et fonction Netlify horaire ciblée sur le site de démo. Aucun parcours coach, paiement réel, notification ni stockage Blobs de réservation n’est raccordé à ces routes.
+
+Contrôles : typecheck, build Next, 12 tests Playwright avec faux serveur Supabase (aucune requête réseau), scan de frontière client/serveur, contrôles Netlify/secrets, validateur du schéma et 35 tests de l’atelier : réussis. Preuve : docs/DEMO_D14_SESSION_RUNTIME_2026-11-14.md. GYM-D1.4 est clos pour le contrat et l’implémentation locale testés avec doubles. L’exécution sur le runtime Supabase et l’invocation Netlify réelle restent à vérifier aux tickets D1.8/D1.9 ; aucune configuration ou publication n’a eu lieu.
+
+Prochaine tâche éligible : GYM-D1.5 — construire la page /demo du seul parcours sportif dans ce worktree isolé, en réutilisant /api/demo/session et les fonctions SQL D1.3. Le site public n’a pas été réactualisé ; la dernière observation archivée indique encore supabase=false et /demo 404.
+
+## Historique — avancement local GYM-D1.4 — 14 novembre 2026
 
 Dans le checkout isolé `C:/Users/cashe/Documents/GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, ajout local des migrations proposées `012_demo_session_erasure.sql` et tests `013_demo_session_erasure_tests.sql`. L’effacement sportif est limité à `auth.uid()` et cascade sur les données du testeur ; les créneaux fictifs futurs sont libérés, les coachs fictifs partagés préservés. La fonction TTL côté serveur supprime les sessions sportives expirées ; rétention par défaut 24 h.
 
