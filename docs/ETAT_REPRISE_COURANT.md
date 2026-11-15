@@ -1,3 +1,8 @@
+## Point de reprise — 15 novembre 2026
+
+Reprise vérifiée sur `demo/recruiter-supabase-adapter-20261112` au commit `9e8d08711bf14861e020253629066cd9bb63384d`. Playwright : 36/36 tests ciblés du parcours recruteur réussis (API Supabase simulée). Contrôle public : `/` 200, `/api/health` 200 avec `supabase=false`, `/demo` 404. GYM-D1.5 reste `progress` ; aucune écriture Supabase ni modification Netlify/déploiement. Les migrations locales 001/004/009/012 sont déjà couvertes par les preuves D1.3/D1.4. Prochaine étape : lot explicitement autorisé pour appliquer 004/009/012 au seul projet Supabase dédié et vérifier runtime/RLS ; variables Netlify différées à D1.9 conformément à D1.2.
+
+
 ## Reprise active — GYM-D1.5 parcours sportif local — 14 novembre 2026
 
 Point d’avancement recruteur — 14 novembre : l’accueil local propose désormais le parcours sportif `/demo` uniquement lorsque la configuration exacte de démonstration est complète. Le bloc indique le coach fictif, l’acceptation de démonstration et le paiement sans carte ni débit réel. Build, contrôles de frontière/configuration et 36 tests Playwright ciblés desktop/mobile réussis. D1.5 reste `progress` : le runtime Supabase/RLS et la disponibilité publique ne sont pas validés. Rapport : `docs/DEMO_RECRUITER_ENTRY_2026-11-14.md`. Aucun réglage Netlify, migration distante ni déploiement effectué.
