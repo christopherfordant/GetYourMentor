@@ -3345,8 +3345,8 @@
         "project_readable/INDEX.json",
         "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md"
       ],
-      "blocker": "Revue humaine du developpeur encore attendue. La suppression physique de la copie HTML/CSS/JS documentaire est reportee car elle depasse le budget de revue de 400 lignes; le rapport de lot delimite ce qui reste. Le workflow GitHub ne sera execute qu a l ouverture d une pull request.",
-      "next": "Faire examiner le diff et la carte d organisation par le developpeur ; decouper ensuite le retrait de l archive docs/prototype-site en lots relisibles compatibles avec le garde de 400 lignes, ou la conserver si la valeur historique justifie ce cout.",
+      "blocker": "Revue humaine du developpeur attendue. Le retrait de docs/prototype-site represente environ 8205 lignes de code supprimees et depasse le garde PR de 400; ne pas contourner le controle ni morceler artificiellement une archive. Elle reste conservee comme archive historique hors des index et parcours actifs.",
+      "next": "Faire examiner le commit d audit et la carte d organisation par le developpeur. Recommandation: conserver docs/prototype-site comme archive historique. Si sa suppression est toujours souhaitee, obtenir une approbation explicite des mainteneurs pour une revue volumineuse; ne pas exclure le chemin du garde ni decouper artificiellement le fichier.",
       "targetId": "gym-main"
     }
   ],
