@@ -1,3 +1,11 @@
+## Point de reprise — 16 novembre 2026, préflight D1.8
+
+Après le commit `3cc3e0e62e567207228f5d4396e02365e64bdf82`, branche et upstream sont synchronisés. Le brouillon utilisateur `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` demeure modifié mais hors index. D1.5–D1.7 restent terminés dans le périmètre du candidat local ; D1.8 passe à `blocked`, D1.9 reste en attente.
+
+Préflight sans écriture : le projet Netlify cible s’ouvre, mais l’écran Environment variables ne rend aucun détail exploitable dans la session automatisée. Aucun `netlify` CLI, `.netlify/state.json` ni `netlify.toml` n’est présent dans le checkout. `npx --yes netlify-cli@latest status` n’a rien affiché avant interruption ; aucune installation n’est revendiquée. Aucun secret, réglage ou déploiement n’a été modifié. L’isolation du contexte Preview et de ses variables n’est donc pas prouvée.
+
+Prochaine action : rétablir un accès de lecture aux pages Deploys et Environment variables du site `getyourmentor-demo-20261014`, puis vérifier que les variables peuvent être limitées aux Deploy Previews sans héritage Production. Ne rien configurer avant cette vérification. Rapport local candidat : `docs/DEMO_D1_LOCAL_READINESS_2026-11-16.md`. Le site public reste `supabase=false` et `/demo` 404 selon le contrôle déjà archivé ; aucune publication n’a été tentée.
+
 ## Point de reprise — 16 novembre 2026, readiness locale D1
 
 Branche `demo/recruiter-supabase-adapter-20261112`, départ `4cfc0934b39d1718ee4a6923791daf46aafcc453`, upstream synchronisé au départ. Les tests ciblés ont été relancés après clarification du texte d’accueil : Playwright D1 (36/36 desktop/mobile) et `npm run check:types` réussis. Ces parcours utilisent des réponses Supabase simulées ; ils n’attestent pas du runtime distant.

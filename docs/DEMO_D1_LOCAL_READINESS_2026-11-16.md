@@ -13,6 +13,8 @@ Le chantier est désormais séparé ainsi :
 
 Le futur aperçu doit être vérifié dans Netlify avant configuration. Le dashboard du site indique un dernier déploiement depuis CLI et aucun dépôt Git n’est documenté dans les preuves actuelles. L’interface Netlify ouverte en lecture seule montre le projet `getyourmentor-demo-20261014`, l’activité de déploiement et la séparation Production/Previews. Cela ne prouve ni l’existence d’une branche de prévisualisation raccordée, ni que les variables serveur peuvent être isolées dans ce projet. Aucun réglage ou déploiement n’a été effectué.
 
+Préflight complémentaire : la page Environment variables s’ouvre mais ne rend aucun détail exploitable dans la session automatisée. Aucun CLI `netlify`, fichier `.netlify/state.json` ni `netlify.toml` n’est présent dans le checkout. La commande de statut `npx --yes netlify-cli@latest status` n’a produit aucune sortie et a été interrompue ; aucune installation réussie n’est constatée. L’accès technique ne permet donc pas encore de confirmer la portée deploy-preview des variables.
+
 ## Résultats candidats locaux
 
 - Accueil : l’entrée recruteur annonce explicitement l’acceptation automatique simulée, le paiement sans carte ni débit et l’absence de décision par un coach réel ou une IA. Elle reste conditionnée à la configuration serveur de la démo.

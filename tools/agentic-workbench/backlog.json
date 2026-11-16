@@ -2856,8 +2856,8 @@
       "tests": ["Campagne Playwright desktop/mobile isolée", "Tests RLS par rôle et de suppression", "Contrôles de configuration de publication"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md"],
-      "blocker": "Les contrats, l’adaptateur local et les tests ciblés existent ; 004/009/012 sont appliquées au projet Supabase dédié, sans recette applicative runtime. Le site public répond encore supabase=false et /demo 404. Le Kanban contient un cycle : D1.5/D1.8 exigent un runtime connecté, mais D1.2 reporte les variables à D1.9, dépendant de D1.8.",
-      "next": "Résoudre le cycle de dépendances avant de poursuivre la recette : prévoir un runtime d’aperçu isolé avec configuration serveur dédiée avant D1.8, et garder la publication finale après validation. Aucun parcours réel, paiement réel, transfert Connect ou notification Telegram par défaut."
+      "blocker": "D1.5–D1.7 sont clôturés pour le candidat local uniquement. D1.8 est bloqué au préflight : la page Netlify des variables reste vide dans la session, aucun CLI ni état de site local n’est disponible, et l’essai de consultation CLI n’a produit aucune réponse. L’isolation des variables Preview n’est pas démontrée ; aucune configuration ni publication n’a eu lieu. Le runtime public reste supabase=false et /demo 404.",
+      "next": "Débloquer l’accès en lecture aux paramètres du projet Netlify getyourmentor-demo-20261014, vérifier la portée Deploy Preview des variables et l’isolation du site avant toute configuration. Garder la Production intacte ; puis réaliser la recette D1.8 et seulement ensuite envisager D1.9."
     },
     {
       "id": "GYM-D1.1",
@@ -3109,7 +3109,7 @@
       "parent": "GYM-D1",
       "title": "Isoler un aperçu runtime et recetter Supabase/RLS et le parcours",
       "objective": "Prouver le fonctionnement, l'isolation des visiteurs et le paiement sans mouvement d'argent avant publication",
-      "status": "ready",
+      "status": "blocked",
       "sprint": "S4",
       "priority": "P0",
       "role": "QA",
@@ -3123,8 +3123,8 @@
       "tests": ["Préflight Netlify en lecture seule : cible, nature de l’aperçu, portée des variables et possibilité de rollback","Playwright desktop/mobile sur URL d’aperçu après rechargement","RLS et isolation avec deux identités anonymes jetables sur Supabase démo","Vérification santé runtime, effacement/fixtures, absence d’appel financier ou notification externe et absence de secret dans les bundles"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md","docs/DEMO_D1_LOCAL_READINESS_2026-11-16.md"],
-      "blocker": null,
-      "next": "Commencer par le préflight Netlify sans mutation. N’ajouter des variables qu’au contexte d’aperçu après preuve de son isolation ; si cette preuve échoue, arrêter et documenter le blocage."
+      "blocker": "Le préflight Netlify n’a pas pu confirmer la portée des variables ni l’isolation du déploiement d’aperçu : la page de configuration ouverte dans la session ne rend aucun contenu exploitable ; aucun CLI Netlify ni fichier d’association locale n’est présent. Une tentative npx netlify-cli status est restée sans sortie et a été interrompue. Aucun secret ou réglage n’a été consulté ou modifié.",
+      "next": "Rendre consultables les paramètres Environment variables et Deploys du projet cible, ou fournir un accès de lecture fonctionnel. Vérifier d’abord la portée deploy-preview et l’absence d’héritage Production ; ne configurer les variables de démo qu’après cette preuve. Aucun déploiement tant que le contrôle échoue."
     },
     {
       "id": "GYM-D1.9",
