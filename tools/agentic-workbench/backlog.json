@@ -2856,8 +2856,8 @@
       "tests": ["Campagne Playwright desktop/mobile isolée", "Tests RLS par rôle et de suppression", "Contrôles de configuration de publication"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Le projet et le schéma dédiés existent ; les tests SQL locaux ont réussi avec shim Auth, mais pas sur le runtime Supabase. Le contrat applicatif reste incomplet (profil acteur fictif stable, création/réutilisation atomique, acceptation automatique, session/effacement et purge TTL). Le site public répond encore supabase=false et /demo 404 ; la correspondance build/branche Netlify n'est pas établie.",
-      "next": "Résoudre GYM-D1.2, compléter et tester le contrat D1.3 pour le parcours sportif simplifié, puis réaliser l'adaptateur isolé. Maintenir Telegram différé et vérifier séparément toute future publication."
+      "blocker": "Les contrats, l’adaptateur local et les tests ciblés existent ; 004/009/012 sont appliquées au projet Supabase dédié, sans recette applicative runtime. Le site public répond encore supabase=false et /demo 404. Le Kanban contient un cycle : D1.5/D1.8 exigent un runtime connecté, mais D1.2 reporte les variables à D1.9, dépendant de D1.8.",
+      "next": "Résoudre le cycle de dépendances avant de poursuivre la recette : prévoir un runtime d’aperçu isolé avec configuration serveur dédiée avant D1.8, et garder la publication finale après validation. Aucun parcours réel, paiement réel, transfert Connect ou notification Telegram par défaut."
     },
     {
       "id": "GYM-D1.1",
@@ -3101,8 +3101,8 @@
       "tests": ["Revue exhaustive des chaînes concernées et Playwright sur routes principales"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Les routes et parcours recruteur ne sont pas intégrés; les textes ne doivent pas annoncer une capacité absente.",
-      "next": "Réviser les textes publics seulement après stabilisation et recette du périmètre effectivement disponible."
+      "blocker": "Les textes et le parcours existent dans le candidat local, mais le candidat n’est pas publié et le site public renvoie encore /demo 404. Le libellé public doit être vérifié après une recette runtime, afin de ne pas annoncer une capacité non disponible.",
+      "next": "Après recette du runtime d’aperçu, aligner les textes de l’accueil, de la réservation et du paiement sur les fonctions effectivement disponibles ; conserver le statut prepare d’ici là."
     },
     {
       "id": "GYM-D1.8",
@@ -3123,8 +3123,8 @@
       "tests": ["Playwright desktop/mobile, RLS et contrôles de configuration", "Vérification manuelle après rechargement de l'URL publiée"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md"],
-      "blocker": "Parcours et adaptateur Supabase non implémentés; aucun test public d’isolation, d’effacement ou de confirmation simulée.",
-      "next": "Ne pas marquer terminé avant preuve publiée et testée."
+      "blocker": "Le parcours/adaptateur est présent dans le candidat local et les migrations sont appliquées sur le Supabase dédié. Les tests locaux utilisent des doubles ; aucun test d’isolation, d’effacement ou de paiement simulé n’a encore été effectué avec le runtime Supabase connecté. Le site public renvoie /demo 404 et /api/health indique supabase=false.",
+      "next": "Après résolution du cycle D1.5/D1.8/D1.9, exécuter la recette de bout en bout sur un aperçu isolé et protégé avant toute publication finale ; ne pas marquer terminé sans ces preuves."
     },
     {
       "id": "GYM-D1.9",
