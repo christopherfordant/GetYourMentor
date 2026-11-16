@@ -3354,7 +3354,7 @@
         "docs/PROJECT_STRUCTURE.md"
       ],
       "blocker": "Revue humaine du developpeur attendue. Le retrait de docs/prototype-site represente environ 8205 lignes de code supprimees et depasse le garde PR de 400; ne pas contourner le controle ni morceler artificiellement une archive. Elle reste conservee comme archive historique hors des index et parcours actifs.",
-      "next": "Faire examiner le commit d audit et la carte d organisation par le developpeur. Recommandation: conserver docs/prototype-site comme archive historique. Si sa suppression est toujours souhaitee, obtenir une approbation explicite des mainteneurs pour une revue volumineuse; ne pas exclure le chemin du garde ni decouper artificiellement le fichier.",
+      "next": "Cartographier les dossiers racine encore suivis: verifier leurs usages dans le code, scripts, RAG, index et visualiseur. Deplacer vers Archive les seuls contenus confirmes historiques apres mise a jour des consommateurs et controle des liens. Garder les donnees privees dans leur emplacement securise. Faire examiner le retrait volumineux de docs/prototype-site par le developpeur avant decision.",
       "targetId": "gym-main"
     }
   ],
