@@ -8,6 +8,8 @@ Garde de diff ajouté : `tools/review-diff-budget.mjs`, tests Node et workflow P
 
 Branche de travail : `design/refonte-progressive-lot1` ; état initial connu à `fd4d6896ef224b69f3eb48baac27340d40c4ee5f`. La branche n’a pas été basculée, fusionnée ou réécrite. Les autres changements locaux préexistants sont préservés. La revue humaine du développeur reste à faire ; ne pas déplacer les autres documents racine avant d’avoir cartographié leurs consommateurs. Le Kanban versionné compte 86 tickets ; `GYM-ARC6` est en cours, avec la revue humaine et l’exécution du workflow encore attendues.
 
+Livraison ciblée : commit `3c3abe3196c2c7426e031d195a53d8929ee50886`, poussé normalement sur la même branche ; `git ls-remote` et l’upstream ont confirmé ce SHA. Les modifications de travail sans rapport sont toujours présentes et non indexées.
+
 ## Reprise active - 13 novembre 2026 : Kanban unifie par environnement
 
 Référence de travail obligatoire pour les prochains lots : `tools/agentic-workbench/backlog.json`. Choisir la prochaine tâche à partir de ses priorités, dépendances, cibles et preuves ; les changements de cartes dans le navigateur sont des brouillons. Les tickets ne sont clôturés qu'après contrôles documentés. Voir `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`.
