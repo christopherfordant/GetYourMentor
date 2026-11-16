@@ -1,0 +1,76 @@
+# Index de l archive locale
+
+Date: 2026-11-16. Les fichiers sont locaux et ignores par Git. Le SHA-256 ci-dessous releve le contenu archive apres deplacement; il sert au controle et a la restauration.
+
+| Chemin source | Chemin archive | Octets | SHA-256 |
+|---|---|---:|---|
+| `attachment-worktree.log` | `Archive/logs-and-snapshots/attachment-worktree.log` | 7544 | `EAF9CEC47E952F631B475D9FA948CF9423D7EC9DCDBFD4942AEC9A8EC428F89A` |
+| `audit-emergent-language.yml` | `Archive/logs-and-snapshots/audit-emergent-language.yml` | 46046 | `8E305D2C1B410E8BEEBD1EDF7EB5ACD774221B2F4A9E02F0ED6DBB6B4242885B` |
+| `audit-emergent-now.txt` | `Archive/logs-and-snapshots/audit-emergent-now.txt` | 46046 | `8E305D2C1B410E8BEEBD1EDF7EB5ACD774221B2F4A9E02F0ED6DBB6B4242885B` |
+| `audit-local-after.yml` | `Archive/logs-and-snapshots/audit-local-after.yml` | 57444 | `404A77BC304452189EC5F518EA10CA430BE99275EEDBD84F5551E214EBD82DA1` |
+| `emergent-audit-home.png` | `Archive/visual-captures/emergent-audit-home.png` | 261920 | `A470F1C15ED9E2503A6960AD8D5C5D4B8B2496233AD8A60AD7EAD0EF19FDC05E` |
+| `emergent-current.png` | `Archive/visual-captures/emergent-current.png` | 273914 | `AFDCCA637E1564905EA49A200E297F9D7A88EBAA12619780364CBF53BC7CB3CB` |
+| `emergent-current.yml` | `Archive/logs-and-snapshots/emergent-current.yml` | 45980 | `ADAAC54EAE77CCE12F5EEC6728624A71C0FABB538528EA5061FBF366A2CF6A93` |
+| `emergent-header-hero-baseline.png` | `Archive/visual-captures/emergent-header-hero-baseline.png` | 644460 | `7EFA822B6E2400340577F202AF5AC3E76949E40F045CA8B7548F1D527A5920DB` |
+| `emergent-language-state.js` | `Archive/browser-probes/emergent-language-state.js` | 339 | `FA9EC3EB680D40B144040F586CCF8A5A4159CBE8281A7A676D3E2F986B88BE58` |
+| `emergent-popular-reference.png` | `Archive/visual-captures/emergent-popular-reference.png` | 644963 | `5388FEF016359A61508FC90F516989BB0158A584E97AC6AB90D1912CC6A7537E` |
+| `file-faults-worktree.log` | `Archive/logs-and-snapshots/file-faults-worktree.log` | 7632 | `0B272B72568EE9384253CCA295EEB62731DF09F624EA395A5DBC8A6097752785` |
+| `inspect-header.js` | `Archive/browser-probes/inspect-header.js` | 226 | `3E008CB621E9E1A30980C59FCA169DC27E98020D90E00A340BC553BA61859942` |
+| `inspect-hero.js` | `Archive/browser-probes/inspect-hero.js` | 255 | `67916ADA6342CCCB6DA8C59D1877B44767894FBA17B3237D15C2A83BC79C395D` |
+| `inspect-language-menu.js` | `Archive/browser-probes/inspect-language-menu.js` | 302 | `C02BFE450C70241138B0E8BF4E4159D957A75E9A00387D02B30D8E87D37990DF` |
+| `inspect-padding.js` | `Archive/browser-probes/inspect-padding.js` | 200 | `8DF88D902A54BC49BCCC98708742B746A7C5989B852B1CCFE6ADAF87BD2312A8` |
+| `inspect-rules.js` | `Archive/browser-probes/inspect-rules.js` | 262 | `8BB6A0FB7353C6767A3811C7B7DBB6EE21F6653AA3847F7E63CD3A0B3263EA6A` |
+| `inspect-viewport.js` | `Archive/browser-probes/inspect-viewport.js` | 376 | `AD94D9FE38C2EEF405706FB2EBE0E86C2F6BC13F2F097A366ADE39556F867896` |
+| `journey-current-after.png` | `Archive/visual-captures/journey-current-after.png` | 151096 | `7F357F63B7C7A23753028255E5F3737A7F3D02D897D0EBFB060E6D9700906B20` |
+| `journey-current-after-cookie.png` | `Archive/visual-captures/journey-current-after-cookie.png` | 162128 | `8CDEEEF6D0AA9088558CF6C2D6C448C01B0DE9FA52017EB72861BD6B9F4F506C` |
+| `journey-current-before.png` | `Archive/visual-captures/journey-current-before.png` | 99877 | `6DB5786276D8619BF1B653C18E8626A333DD6F3C7662392B8D8BB187AC3EC457` |
+| `journey-diagnostic.png` | `Archive/visual-captures/journey-diagnostic.png` | 151096 | `7F357F63B7C7A23753028255E5F3737A7F3D02D897D0EBFB060E6D9700906B20` |
+| `journey-emergent-reference.png` | `Archive/visual-captures/journey-emergent-reference.png` | 99877 | `6DB5786276D8619BF1B653C18E8626A333DD6F3C7662392B8D8BB187AC3EC457` |
+| `journey-final-check.png` | `Archive/visual-captures/journey-final-check.png` | 182997 | `3F0A534373FFCA605A8E46CB76CDAB7FAF3864E8416DEC8069FD40259FAD8E11` |
+| `journey-line-after.png` | `Archive/visual-captures/journey-line-after.png` | 19376 | `336ED42AAC142FE8EF7C5A4F87563D17A852A51249E41024B437D1E4D706FE3F` |
+| `local-after-header.png` | `Archive/visual-captures/local-after-header.png` | 31910 | `B1B00FBDE34CF32AAE1B3A65C6A8223446C350AB70A5C4C9FBD81DEEAEB5A2CB` |
+| `local-audit-home.png` | `Archive/visual-captures/local-audit-home.png` | 578696 | `E14B08E5EEB4E0CC88E98F53BC8B66795CADADDB8420808756213890689ED4F6` |
+| `local-current.png` | `Archive/visual-captures/local-current.png` | 31872 | `16F26B618C380215198CF8699582497853D54AA5EDE04011583EA2F81538E573` |
+| `local-current.yml` | `Archive/logs-and-snapshots/local-current.yml` | 57448 | `F036F9C76E0297652FC4B0533C5150BCF92B0254764675CADE28815CEDEA08F7` |
+| `local-final.png` | `Archive/visual-captures/local-final.png` | 31966 | `7C79576B49EB85883630607E6CDB0206A97FB00FE4DD5881523D315D099A4995` |
+| `local-header-hero-after.png` | `Archive/visual-captures/local-header-hero-after.png` | 579339 | `C248EBAB891BA9C36E700DA47BF3FE4BFC6877083344B3D722B7FD7A62270FA4` |
+| `local-header-hero-after-2.png` | `Archive/visual-captures/local-header-hero-after-2.png` | 579307 | `4B0C31328535147AD494E217CB6013C1535E74F36E52B4845E08356FAE20D910` |
+| `local-header-hero-after-3.png` | `Archive/visual-captures/local-header-hero-after-3.png` | 579307 | `4B0C31328535147AD494E217CB6013C1535E74F36E52B4845E08356FAE20D910` |
+| `local-header-hero-after-4.png` | `Archive/visual-captures/local-header-hero-after-4.png` | 579307 | `4B0C31328535147AD494E217CB6013C1535E74F36E52B4845E08356FAE20D910` |
+| `local-header-hero-after-5.png` | `Archive/visual-captures/local-header-hero-after-5.png` | 576415 | `CEEE1B70E4A296584F04E1DC8DC196EC3F17E250499B881DF5F278FE8028D756` |
+| `local-header-hero-baseline.png` | `Archive/visual-captures/local-header-hero-baseline.png` | 576443 | `F4F5C1AFD7503821E9E6435200F382948A8B19AA19307FFFB7F406F84152A7EB` |
+| `local-hero-interaction.js` | `Archive/browser-probes/local-hero-interaction.js` | 353 | `4F7F160ED8E508A747A87302BAFE8CA9DC0AA2146627AEACED00C2AEE49CF28C` |
+| `local-language-state.js` | `Archive/browser-probes/local-language-state.js` | 389 | `19567153600731FF6A62F3E43D2ACB3DEC58179E9BBFC05646B9B7196057E68D` |
+| `local-popular-after.png` | `Archive/visual-captures/local-popular-after.png` | 576728 | `E5F4FDA56655CA98A8176079A47C954CBF2C2E47DDCB9D947E18B1FE72909F56` |
+| `matched-height-rules.js` | `Archive/browser-probes/matched-height-rules.js` | 421 | `1E00637C6C1176E4FB273ADC63C70D1C8DA4561C64C20D2FFFB0474FE683733C` |
+| `matched-padding-rules.js` | `Archive/browser-probes/matched-padding-rules.js` | 372 | `B3D37E03A2D312FC82D68F8814CD661346C09C099F84A35BF3067B9788231F62` |
+| `observer-worktree.log` | `Archive/logs-and-snapshots/observer-worktree.log` | 7782 | `A3D1F18D4C9E76F69C2F39D1BE27AFBD4A20C08D522DC971148975B52A6336A3` |
+| `playwright-artifacts/sql-editor.png` | `Archive/test-output/playwright-artifacts/sql-editor.png` | 28140 | `9FBF46DE81953C56E3CA9DDF998398CDE8AF2605707E0C6F238A819BBD3400F8` |
+| `playwright-artifacts/sql-editor-after.png` | `Archive/test-output/playwright-artifacts/sql-editor-after.png` | 46317 | `001C94F93CEDDB1074D5D88F08C80532DEA39083011D5E4D091E1121C7B5FFF4` |
+| `prototype_site_GYM.zip` | `Archive/old-bundle/prototype_site_GYM.zip` | 38884 | `C8A021E56D7D92509D953D0E2FD53EA04A3867045B351A6E88B67EF1FBA7E70B` |
+| `pw-carousel-ancestors.js` | `Archive/browser-probes/pw-carousel-ancestors.js` | 285 | `70F0896AF87763C9A21092E4D1CB57EFDAC1B81B491B2694D95445E4C05B558E` |
+| `pw-carousel-cycle.js` | `Archive/browser-probes/pw-carousel-cycle.js` | 399 | `057316447C87C597874EC12D55683D6675844CD8C2038E6511D7D810D3A73120` |
+| `pw-carousel-measure.js` | `Archive/browser-probes/pw-carousel-measure.js` | 461 | `BC3A2983FA550D8A2E10FF74B490B85766E93AEE55AB6B088C670064D011C17D` |
+| `pw-carousel-scroll-measure.js` | `Archive/browser-probes/pw-carousel-scroll-measure.js` | 575 | `3D4EFB4365CB3653E524D163C8F262D052A66F9CFB47C0C9E6023009DEE741EB` |
+| `pw-journey-children.js` | `Archive/browser-probes/pw-journey-children.js` | 375 | `99BD902F7C8EF08A1F556784082C8E2230FB1A31A75F1BE17B16FBA4353846BE` |
+| `pw-journey-interactions.js` | `Archive/browser-probes/pw-journey-interactions.js` | 428 | `AB1E566DB66C2B19CF7960571A29178A1A4C5A19E99365EC02C252FD9E01C94A` |
+| `pw-journey-measure.js` | `Archive/browser-probes/pw-journey-measure.js` | 507 | `9EE77B87617103208B34B64F9DA36F6FD1EF283C365823D5D70493C40A4CEAE2` |
+| `pw-journey-reference-grid.js` | `Archive/browser-probes/pw-journey-reference-grid.js` | 355 | `85A77692A77F6774EA02880696167066F5F0125CE5717548B6240B62562AD05F` |
+| `pw-journey-style.js` | `Archive/browser-probes/pw-journey-style.js` | 720 | `75ABD7F37060519250822087F9E30BCA1D97DEBC02D57F447B7E187E2742BB26` |
+| `pw-language-cycle.js` | `Archive/browser-probes/pw-language-cycle.js` | 655 | `2BE5D7F6BB08A63F22F46815C2BDE891C0579D9044772423C784A418C8843A41` |
+| `pw-measure.js` | `Archive/browser-probes/pw-measure.js` | 581 | `5037C5D7FBCD87878F27D31FCF048ACD5A88C305FEB792530C16A52CD02C9055` |
+| `pw-ref-carousel-measure.js` | `Archive/browser-probes/pw-ref-carousel-measure.js` | 564 | `37634C085C4BAD31A3CFC13C047BC674AE3EAF2E8DAAA76167F5839A8D8B8B7D` |
+| `pw-scroll-journey.js` | `Archive/browser-probes/pw-scroll-journey.js` | 189 | `8F5AFA6306DD0CE9A691E8F6AB47A0EF107F72A783A871C12E7AC740B6A1C461` |
+| `pw-scroll-sports.js` | `Archive/browser-probes/pw-scroll-sports.js` | 194 | `4119991725EA98A30EC39FA2C125D46A9B0F9FBF4B0FED37B59266982B1403EA` |
+| `pw-select-language.js` | `Archive/browser-probes/pw-select-language.js` | 379 | `704DCCA26168A50219C2089E8DE5BCA0A341178411829798A480D82961A2DCA2` |
+| `pw-sports-interactions.js` | `Archive/browser-probes/pw-sports-interactions.js` | 330 | `C60C3A6081964FC2F6F842F3DC6C42E928F174242148CE035829E917EA62ADDD` |
+| `pw-sports-measure.js` | `Archive/browser-probes/pw-sports-measure.js` | 641 | `C3AD39DB53457E47F2E6B56CCEF71E72F389EB25998D286BD6301FB7B924F212` |
+| `remote-plan-worktree.log` | `Archive/logs-and-snapshots/remote-plan-worktree.log` | 7908 | `48A75DFF3E98766069EB0BC379245B55154EE068886C4A5F451373FA0F1613A7` |
+| `scripts/__pycache__/extract_project_docs.cpython-313.pyc` | `Archive/python-caches/scripts/__pycache__/extract_project_docs.cpython-313.pyc` | 26166 | `F36F7A2C7C266137E2F8CB2F2EA24BB5B0B1152D7F70A0A2B356F3CCEC32CCAB` |
+| `scripts/__pycache__/fil_rouge_supervisor.cpython-313.pyc` | `Archive/python-caches/scripts/__pycache__/fil_rouge_supervisor.cpython-313.pyc` | 13448 | `A5C6FE6D4DA41D4DA4263D9AF7883BC970942248BEE277CBC5373007E4D5B4F7` |
+| `test-results/.last-run.json` | `Archive/test-output/test-results/.last-run.json` | 45 | `91D1C43004802CD49950D78EB11C8FA7D05DA8FFFFE219A8B13B2F561BC00903` |
+| `tmp_menu_accueil_profil_coach.jpg` | `Archive/visual-captures/tmp_menu_accueil_profil_coach.jpg` | 618226 | `66203194E51E3C0613317B6A47D90E59F9E9FF182D51B2CB2A72292CBCB7D15A` |
+| `tools/documentation-audit/__pycache__/audit.cpython-313.pyc` | `Archive/python-caches/tools/documentation-audit/__pycache__/audit.cpython-313.pyc` | 14791 | `06A6B825B30A17F73A19913DD536C89A9209070376237B04230458039A023207` |
+| `tools/documentation-audit/__pycache__/test_audit.cpython-313.pyc` | `Archive/python-caches/tools/documentation-audit/__pycache__/test_audit.cpython-313.pyc` | 9023 | `ABC3226B92725F66F9368FC4B84968B991F4E0FB95CDD43E01CE1A56BD991384` |
+| `tools/public-assets/__pycache__/audit.cpython-313.pyc` | `Archive/python-caches/tools/public-assets/__pycache__/audit.cpython-313.pyc` | 12365 | `8F502A206A223C452D37B0DA2E82B39E6131C55E23ECB9F17986021E0902DC5B` |
+| `tools/public-assets/__pycache__/test_audit.cpython-313.pyc` | `Archive/python-caches/tools/public-assets/__pycache__/test_audit.cpython-313.pyc` | 7919 | `11DB6B08638D819862820B2A33344309C5B5946508DFC15DB95BD7F806ECCEBC` |

@@ -3297,7 +3297,8 @@
         "Index generated mis a jour : 43 entrees du prototype/design retirees, 33 sources absentes retirees de l index, 17 apercus indisponibles et 501 sources presentes, 18 apercus dedoublonnes retires et liens canoniques controles",
         "Hubs regeneres depuis l index filtre : 644 et 124 liens locaux verifies, zero lien manquant",
         "Audit statique : 27 paires de binaires compares SHA-256, 9 cibles du manifeste resolues, references prototype validees et inventaire public sans ressource sans reference (limite : references statiques uniquement)",
-        "git diff --cached --check (PASS sur le p?rim?tre cibl?)"
+        "Archive locale : 70 fichiers de revue controles par existence, chemin source absent, taille et SHA-256 ; contenu ignore par Git, index et README suivis",
+        "git diff --cached --check (PASS sur le perimetre cible)"
       ],
       "files": [
         ".gitignore",
@@ -3330,7 +3331,11 @@
         "project_readable/scripts/extract_project_docs.py.txt",
         "project_readable/visualiser-documents.html.txt",
         "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md",
-        "docs/prototype-site/"
+        "docs/prototype-site/",
+        ".gitignore",
+        "Archive/README.md",
+        "Archive/INDEX.md",
+        "docs/PROJECT_STRUCTURE.md"
       ],
       "evidence": [
         "assets/README.md",
@@ -3343,7 +3348,10 @@
         "docs/ETAT_REPRISE_COURANT.md",
         "project_readable/INDEX.md",
         "project_readable/INDEX.json",
-        "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md"
+        "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md",
+        "Archive/INDEX.md",
+        "Archive/README.md",
+        "docs/PROJECT_STRUCTURE.md"
       ],
       "blocker": "Revue humaine du developpeur attendue. Le retrait de docs/prototype-site represente environ 8205 lignes de code supprimees et depasse le garde PR de 400; ne pas contourner le controle ni morceler artificiellement une archive. Elle reste conservee comme archive historique hors des index et parcours actifs.",
       "next": "Faire examiner le commit d audit et la carte d organisation par le developpeur. Recommandation: conserver docs/prototype-site comme archive historique. Si sa suppression est toujours souhaitee, obtenir une approbation explicite des mainteneurs pour une revue volumineuse; ne pas exclure le chemin du garde ni decouper artificiellement le fichier.",

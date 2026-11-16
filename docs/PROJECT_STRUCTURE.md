@@ -34,3 +34,6 @@ Les anciennes extractions texte correspondantes ont été retirées de `project_
 - Les documents maîtres à la racine restent là pour éviter de casser les consommateurs existants. Tout autre déplacement doit d’abord cartographier les références, adapter les consommateurs dans le même changement, puis vérifier les tests concernés.
 - Les artefacts locaux créés par certains anciens scripts peuvent continuer à utiliser le chemin ignoré `delivery-private/`. Les anciens artefacts ont été archivés hors dépôt ; une exécution future peut recréer un dossier local ignoré à cet emplacement.
 - Les brouillons, captures et fichiers non suivis préexistants n’ont pas été triés ni déplacés dans ce lot. Ils doivent être examinés par propriétaire avant toute suppression ou reclassement.
+## Archive locale
+
+`Archive/` est un rangement local ignore par Git pour les artefacts de revue et sorties temporaires retires de la racine. `Archive/README.md` et `Archive/INDEX.md` sont suivis ; les 70 fichiers locaux qu ils recensent ne le sont pas. Le manifeste conserve leurs chemins d origine et empreintes pour restauration. Les dossiers sources suivis, les documents de reference, les donnees de contact et les materiaux commerciaux ne sont pas deplaces par ce lot.

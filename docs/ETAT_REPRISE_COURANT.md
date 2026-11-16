@@ -1,5 +1,10 @@
 # Reprise active — 16 novembre 2026 : préparation de la revue développeur
 
+### Archive locale des artefacts temporaires (16 novembre 2026)
+
+Le dossier `Archive/` regroupe 70 captures, scripts de diagnostic, journaux, sorties Playwright, caches Python et un ancien ZIP auparavant a la racine (8 523 281 octets). Les fichiers ont ete deplaces, pas supprimes ; taille, existence et SHA-256 verifies apres deplacement. `Archive/INDEX.md` donne les chemins de restauration et empreintes. Le contenu est ignore par Git ; seul le README et l index sont suivis. Les sources applicatives, dossiers de reference suivis, documents prives/commerciaux, contacts, configuration d editeur et sessions Playwright actives restent a leur emplacement.
+
+
 ### Dernier lot — audit de structure et nettoyage ciblé (16 novembre 2026)
 
 La source applicative du dépôt est `gym-next/` : `netlify.toml` configure cette base, `npm run build` et `.next`. `prototype-site/` reste le prototype historique utilisé comme référence de migration. `docs/prototype-site/` est une copie historique partielle (18 fichiers, 14 identiques avant correction des chemins ; CSS incomplet). Elle reste suivie comme archive historique, hors des index et parcours actifs : son retrait représente environ 8 205 lignes de code supprimées. Une suppression ne doit pas être morcelée artificiellement ni exclue du garde de revue de 400 lignes ; elle nécessiterait une approbation explicite des mainteneurs pour une revue volumineuse. Le routage documentaire, les index et les outils pointent vers `prototype-site/` comme référence canonique.

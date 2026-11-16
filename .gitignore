@@ -75,3 +75,6 @@ gym-next/pw_audit_stderr.log
 /project_readable/Stratégie/
 /project_readable/Analyse concurrents/
 /project_readable/Sondage/
+
+# Local archive of review captures and test artifacts
+/Archive/
