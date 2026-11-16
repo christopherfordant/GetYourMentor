@@ -2895,15 +2895,15 @@
       "estimateHours": [1, 3],
       "actualHours": null,
       "dependencies": ["GYM-D1.1"],
-      "scope": "Projet de démonstration dédié identifié (rqxoovriacgoriimpbwi), région Paris, offre Free. Le contrôle en lecture seule du 14 novembre a confirmé uniquement les quatre tables de base compatibles avec 001 ; les tables fixtures/slots et RPC des migrations applicatives restent absentes. Site Netlify cible et déploiement publié identifiés. Les variables applicatives restent différées jusqu’à D1.9 ; la source SHA publiée est connue, mais l’envoi CLI ne fournit pas de branche Git de production attestée.",
+      "scope": "Projet Supabase de démonstration dédié identifié (rqxoovriacgoriimpbwi), région Paris, offre Free. Les migrations additives 004/009/012 ont été appliquées manuellement le 16 novembre et sont documentées dans DEMO_REMOTE_MIGRATIONS_2026-11-16.md. Site Netlify cible et déploiement publié identifiés ; les variables applicatives restent différées jusqu’à D1.9. L’envoi CLI publié n’atteste pas de branche Git de production.",
       "acceptance": ["Projet Supabase dédié identifié, autorisé et distinct de la recette/production", "Site Netlify lié au portfolio identifié par nom, URL et Site ID ; dernier artefact et source SHA consignés", "Frontière client/serveur du candidat contrôlée sans clés configurées ; aucune clé privilégiée présente dans les bundles vérifiés", "Les variables Supabase sont explicitement différées jusqu'à l'adaptateur sécurisé et au ticket D1.9"],
       "tests": ["Contrôle en lecture seule du projet Supabase et du site Netlify par identifiants non secrets", "Contrôle de l'URL, du Site ID, du déploiement publié et du SHA source", "Égalité du sous-arbre gym-next entre le SHA source publié et le candidat", "Build et scan client/serveur du candidat sans secrets, preuve auditée"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md"],
-      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md","docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"],
+      "evidence": ["docs/SUPABASE_DEMO_PROVISION_2026-11-12.md","supabase/proposals/demo-public-20261112/001_demo_schema.sql","docs/DEMO_SCHEMA_INTEGRATION_AUDIT_2026-11-12.md","docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_D1_2_PREFLIGHT_NETLIFY_2026-11-14.md","docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"],
       "manual": true,
       "manuallyVerifiedAt": "2026-11-13T23:42:34.000Z",
       "blocker": null,
-      "next": "D1.2 est terminé sur son périmètre de préparation et d'identification. Poursuivre D1.3 avec le contrat d'acteur fictif stable et d'acceptation automatique ; ne pas configurer les variables Supabase avant D1.9. Le déploiement Netlify actuel est un envoi CLI sans branche de production attestée."
+      "next": "D1.2 reste terminé sur le périmètre d’identification. Le schéma dédié a maintenant reçu 004/009/012 ; les variables Netlify restent reportées à D1.9. La cible publique reste à raccorder et à valider selon les dépendances D1.5 à D1.9."
     },
     {
       "id": "GYM-D1.3",
@@ -2954,7 +2954,8 @@
         "supabase/proposals/demo-public-20261112/009_demo_fixture_actor_booking.sql",
         "supabase/proposals/demo-public-20261112/010_rollback_fixture_actor_booking.sql",
         "supabase/proposals/demo-public-20261112/011_demo_fixture_actor_booking_tests.sql",
-        "docs/DEMO_SCHEMA_D13_FIXTURE_ACTOR_2026-11-14.md"
+        "docs/DEMO_SCHEMA_D13_FIXTURE_ACTOR_2026-11-14.md",
+        "docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"
       ],
       "evidence": [
         "docs/DEMO_SCHEMA_PROPOSITION_2026-11-12.md",
@@ -2974,10 +2975,11 @@
         "docs/assets/demo-schema-d13-2026-11-14/fixture-race-c.out",
         "docs/assets/demo-schema-d13-2026-11-14/fixture-race-d.err",
         "docs/assets/demo-schema-d13-2026-11-14/rollback-populated.log",
-        "docs/assets/demo-schema-d13-2026-11-14/rollback-empty.log"
+        "docs/assets/demo-schema-d13-2026-11-14/rollback-empty.log",
+        "docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"
       ],
-      "blocker": "Aucun blocage restant pour le contrat de schéma testé localement. Limite distincte : PostgreSQL 12.15 avec shim Auth ne valide pas le runtime Supabase ; aucun adaptateur applicatif n’est raccordé. Vérification du runtime Supabase laissée hors du ticket car Docker est exclu et aucune base distante ne doit servir de substitut.",
-      "next": "Traiter GYM-D1.4 : effacement individuel idempotent, contrôle d’accès croisé et purge TTL des sessions expirées ; garder toute migration distante hors de portée jusqu’à une autorisation dédiée.",
+      "blocker": "Le contrat et les tests locaux restent validés, et les migrations additives ont été exécutées sur le projet Supabase dédié le 16 novembre. Cela ne constitue pas une recette runtime ; l’éditeur n’enregistre pas encore de journal de migration réconcilié. Les autorisations de bout en bout restent à vérifier contre Supabase après raccordement serveur.",
+      "next": "D1.3 reste terminé pour son périmètre de schéma et tests locaux. Les objets 004/009/012 sont appliqués au projet dédié (preuve DEMO_REMOTE_MIGRATIONS_2026-11-16.md) ; poursuivre avec D1.5/D1.8 pour la recette runtime quand le raccordement serveur est disponible. Ne pas rejouer ces scripts sans vérifier leur état.",
       "environmentEvidence": [
         "docs/DEMO_SCHEMA_RUNTIME_PREFLIGHT_2026-11-13.md",
         "docs/DEMO_SCHEMA_PGTAP_CONCURRENCY_2026-11-13.md"
@@ -3030,10 +3032,11 @@
         "docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md",
         "docs/DEMO_SCHEMA_D14_ERASURE_2026-11-14.md",
         "docs/assets/demo-schema-d14-2026-11-14/",
-        "docs/DEMO_D14_SESSION_RUNTIME_2026-11-14.md"
+        "docs/DEMO_D14_SESSION_RUNTIME_2026-11-14.md",
+        "docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"
       ],
       "blocker": null,
-      "next": "GYM-D1.5 est maintenant éligible : créer le parcours sportif local en réutilisant le service /api/demo/session et les fonctions SQL D1.3 ; garder l’intégration réelle réservée à la recette D1.8/D1.9."
+      "next": "Le contrat D1.4 et ses tests locaux sont terminés ; la migration 012 est maintenant appliquée au projet Supabase dédié (preuve DEMO_REMOTE_MIGRATIONS_2026-11-16.md). La route applicative, l’effacement réel et la purge hébergée restent à vérifier dans la recette runtime D1.5/D1.8."
     },
     {
       "id": "GYM-D1.5",
@@ -3053,9 +3056,9 @@
       "acceptance": ["Le sportif réalise tout le parcours sans création d'un second compte coach", "L'acteur fictif est créé une seule fois ou réutilisé de manière idempotente et ne peut être manipulé par le visiteur", "Acceptation automatique limitée à la démo, réservation persistée et données isolées par testeur", "Le paiement est simulé, impossible avant acceptation et sans collecte de carte réelle ; message final explicite sur l'absence de paiement réel"],
       "tests": ["Recette E2E du parcours sportif avec identites jetables isolees", "Reutilisation acteur, creneau indisponible, rejeu, acces croise, erreur, paiement simule et suppression verifies", "Playwright desktop Chromium et mobile Chromium : parcours UI avec API simulees, acceptation de demonstration, paiement simule, effacement et absence de debordement", "Sans configuration demo : panneau d’indisponibilite visible et routes catalogue/reservation/paiement renvoyant 503 sans appel reseau", "Tests directs des routes avec Auth/PostgREST/RPC simules : session possedee, catalogue en liste blanche, RPC service-role, HTTP 409 si creneau indisponible, aucun appel fournisseur de paiement", "Recette navigateur contre le Supabase de demonstration et verification RLS encore requises avant cloture"],
       "files": ["gym-next/app/demo/page.tsx", "gym-next/app/page.tsx", "gym-next/components/home/HomePageClient.tsx", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md", "gym-next/components/demo/DemoBooking.tsx", "gym-next/components/demo/DemoBooking.module.css", "gym-next/app/api/demo/catalog/route.ts", "gym-next/app/api/demo/reservations/route.ts", "gym-next/app/api/demo/payment/route.ts", "gym-next/lib/demo-recruiter-booking.ts", "gym-next/lib/demo-recruiter-session.ts", "gym-next/tests/demo-booking.spec.ts", "gym-next/tests/demo-home-entry.spec.ts"],
-      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md", "docs/DEMO_RECRUITER_ENTRY_2026-11-14.md"],
-      "blocker": "Le précontrôle Supabase en lecture seule du 14 novembre confirme le projet dédié sain, mais aucune migration enregistrée, seulement les tables de base coaches/reservations/sessions/telegram_links, sans tables fixture/slots ni RPC gym_demo_* attendues par l'adaptateur. RLS actif sur les quatre tables ; telegram_links a zéro politique. Le site Netlify cible ne liste ni SITE_ID ni variables GYM_DEMO_*. /api/health répond supabase=false et /demo 404. Les tests locaux utilisent des doubles HTTP ; aucune recette runtime n'a eu lieu. Aucune donnée métier ni valeur secrète n'a été lue et aucune écriture distante effectuée.",
-      "next": "Les migrations 001/004/009/012 et assertions pgTAP ont déjà été validées sur une base PostgreSQL locale jetable (preuves D1.3/D1.4) : ne pas les rejouer sans changement. D1.2 reporte la configuration Netlify à D1.9. Le schéma Supabase distant contient la base 001, mais pas les tables/RPC applicatives : prochaine étape, dans un lot explicitement autorisé aux écritures distantes, appliquer uniquement les migrations additives 004/009/012 au projet dédié, puis vérifier RPC/RLS et le parcours E2E avec identités jetables. Garder D1.5 ouvert jusqu’aux preuves runtime ; poursuivre ensuite D1.7, D1.8 et D1.9 selon leurs dépendances."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md","docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md","docs/DEMO_RECRUITER_ENTRY_2026-11-14.md","docs/DEMO_REMOTE_MIGRATIONS_2026-11-16.md"],
+      "blocker": "Les migrations 004/009/012 sont maintenant appliquées au projet Supabase dédié et les trois nouvelles tables ont RLS activé, mais le parcours n’a pas été exécuté contre ce runtime. Contrôle public du 16 novembre : /api/health renvoie supabase=false et /demo renvoie 404. Le site Netlify reste donc non raccordé/non publié avec ce candidat ; les tests navigateur locaux utilisent des doubles. Pas de configuration Netlify ni de déploiement dans ce lot.",
+      "next": "Ne pas rejouer les migrations déjà appliquées. Préparer la recette runtime du parcours sur le projet dédié selon les dépendances Kanban ; les variables Netlify restent reportées à D1.9. Maintenir D1.5 en progress jusqu’à preuve E2E/RLS réelle, puis poursuivre D1.7/D1.8/D1.9 dans leur ordre de dépendance."
     },
     {
       "id": "GYM-D1.6",
