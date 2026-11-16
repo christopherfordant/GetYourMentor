@@ -13,7 +13,7 @@ Verrou immédiat contre doubles soumissions. Réponse 2xx contrôlée : identit�
 
 ## Vérifications
 49 tests Playwright locaux PASS, un worker : booking-form-contract, booking-request-form, booking-editorial et group-booking-foundation. Tests purs de contrats/capacité ; erreurs réseau et réponses injectées ; parcours intégré anonyme créant une demande dans le stockage local, réception du reçu puis navigation au récapitulatif, lecture anonyme par identifiant refusée (401). Ce dernier test ne valide pas une connexion ni un paiement.
-Rendu et clavier à 320/390/768/1440 px ; captures finales 390 et 1440 inspectées visuellement dans assets/booking-form-2026-10-20. Pas de capture avant créée ce lot. Playwright MCP non confirmé ; recette effectuée avec Playwright local.
+Rendu et clavier à 320/390/768/1440 px ; captures finales 390 et 1440 inspectées visuellement dans assets/evidence/booking-form-2026-10-20. Pas de capture avant créée ce lot. Playwright MCP non confirmé ; recette effectuée avec Playwright local.
 Typage, build et frontière secrets client : voir verification.json pour le résultat final. Aucun déploiement ni recette RLS/Stripe/Netlify distante.
 
 ## Limites et reprise
@@ -44,7 +44,7 @@ Hors démo isolée ou sans secret suffisamment long : reprise non activée. Les 
 ### Preuves et contre-revue
 55 scénarios distincts PASS dans la recette locale finale : contrats de reçu, nouvelles tentatives, API authentifiées/anonymes, formulaire et fondations collectives. Tests purs et doubles CAS : concurrence, empreinte, expiration, capacité, réponse de stockage perdue après commit, panne avant écriture. Tests intégrés : création concurrente réelle en mémoire, relecture du même reçu, isolation entre navigateurs/comptes, refus sans cookie, disponibilité publique expurgée. Navigateur : perte de réponse avec écriture réelle puis rechargement/relecture ; perte avant écriture puis reprise explicite ; erreur de reprise injectée ; changement de compte ; aucune réussite fictive.
 Les premières exécutions ont révélé une lecture de corps de réponse après navigation et des dates de test en collision avec le stockage conservé. Corrigées par interception/transmission du vrai reçu avant navigation et choix d'un créneau de test après les dates déjà présentes ; aucune assertion de capacité supprimée. Exécution finale 55/55.
-Clavier et absence de débordement contrôlés à 320/390/768/1440 ; captures finales 390/1440 inspectées, service synthétique et profil démo existant. Aucun journal brut, cookie, contexte, reçu privé ou fichier de session publié. Typage/build/frontière client et scan des secrets : résultats finaux dans assets/booking-recovery-2026-10-20/verification.json.
+Clavier et absence de débordement contrôlés à 320/390/768/1440 ; captures finales 390/1440 inspectées, service synthétique et profil démo existant. Aucun journal brut, cookie, contexte, reçu privé ou fichier de session publié. Typage/build/frontière client et scan des secrets : résultats finaux dans assets/evidence/booking-recovery-2026-10-20/verification.json.
 La configuration Playwright fournit une clé de signature aléatoire éphémère au seul serveur d'acceptation existant ; aucun secret réel et aucun nouveau contournement d'authentification. Ne pas confondre cette configuration avec la recette de ce lot, faite sur serveur dev normal et clé éphémère.
 
 ### Prochaine action

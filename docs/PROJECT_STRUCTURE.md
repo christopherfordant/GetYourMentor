@@ -12,8 +12,12 @@ Mis à jour le 16 novembre 2026 pour préparer la revue d’architecture.
 | `tools/` | Outils locaux, Kanban versionné, vérifications et scripts de maintenance. |
 | `scripts/` | Commandes de dépôt et génération documentaire. |
 | `docs/` | Architecture, procédures, preuves et comptes rendus. |
+| `assets/design/` | Sources visuelles et images de travail non servies directement par l’application. |
+| `assets/evidence/` | Captures et résultats de vérification classés par parcours ou contrôle. |
 | `prototypes/` et `gym-next/public/design_assets/` | Démonstrations visuelles ; ne pas les confondre avec le code produit actif. |
 | Racine | Documents maîtres et quelques entrées historiques conservés car leurs chemins sont référencés par les scripts et la gouvernance. |
+
+Les deux anciens dossiers racine `design_assets/` et `assets/` ont été regroupés sous `assets/`, respectivement dans `assets/design/` et `assets/evidence/`. Les chemins `gym-next/public/design_assets/` restent séparés : ils contiennent les médias effectivement servis par le site et leurs URLs publiques ne doivent pas être remplacées par les chemins des sources de travail. Le manifeste `assets/design/content_library/sources.json` utilise des chemins relatifs afin de rester portable entre clones.
 
 ## Matériel déplacé hors dépôt
 

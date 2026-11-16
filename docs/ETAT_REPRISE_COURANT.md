@@ -1,5 +1,9 @@
 # Reprise active — 16 novembre 2026 : préparation de la revue développeur
 
+### Organisation des ressources locales
+
+Les deux dossiers de ressources de la racine ont été réunis sous `assets/` : les captures et rapports de contrôle sont dans `assets/evidence/<parcours>/`, les sources visuelles dans `assets/design/`. Les rapports qui citaient les anciens chemins `assets/<parcours>/` ont été mis à jour. `assets/design/content_library/sources.json` emploie désormais des chemins relatifs vérifiés. Les ressources publiées restent dans `gym-next/public/design_assets/` ; `docs/assets/` reste l’archive de preuves documentaires. Aucun contenu image n’a été modifié. GYM-ARC6 reste en cours.
+
 Chantier `GYM-ARC6` en cours. Les éléments commerciaux (21 fichiers : plans, devis, financement, pitch decks, stratégie, analyse concurrentielle et sondage) et l’archive locale `delivery-private` ont été déplacés hors du dépôt, dans `../GetYourMentor-private/`. Vérification après déplacement : 21 fichiers commerciaux ; 10 797 fichiers et 1 231 571 545 octets dans l’archive `delivery-private`. Une racine locale `delivery-private/` vide et ignorée a été recréée pour préserver les chemins attendus par les anciens outils. Aucun historique Git n’a été réécrit.
 
 Le générateur `scripts/extract_project_docs.py` lit maintenant les chemins suivis par Git et ignore les fichiers supprimés ou absents. Les extractions commerciales générées ont été retirées ; les index/hubs issus du jeu existant ont été filtrés de toutes les entrées correspondant aux sources déplacées. Une vérification Python confirme que le générateur voit 2 413 sources suivies existantes et que les index actuels ne référencent aucune source déplacée.
