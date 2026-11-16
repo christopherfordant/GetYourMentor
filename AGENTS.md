@@ -26,6 +26,10 @@ Pour la refonte agentique, consulter `docs/architecture/AGENTIC_REFACTOR_2026-11
 
 Avant toute intervention, lire la « Procédure obligatoire à chaque demande » de [BRANCH_STRATEGY_GYM.md](BRANCH_STRATEGY_GYM.md), puis les documents qu’elle désigne.
 
+## Diffs faciles à relire
+
+Les pull requests sont contrôlées par `Review diff budget` (`tools/review-diff-budget.mjs`). La limite par défaut est de 400 lignes de code modifiées (ajouts + suppressions), hors documentation Markdown, binaires, dépendances verrouillées, snapshots et sorties générées. Si le seuil est dépassé, découper le travail en changements autonomes ; ne pas sacrifier les tests ou une correction nécessaire pour réduire le chiffre. Ce contrôle est déterministe et ne lance pas d’agent IA.
+
 À chaque prompt : inventaire Git et documentaire au départ ; vérification, documentation, commit ciblé et push sur la branche appropriée avant la réponse finale de livraison ; confirmation du SHA distant. Préserver les changements antérieurs non vérifiés. Aucun commit vide pour une simple discussion.
 
 Les mises à jour intermédiaires restent possibles. Si le push est bloqué, le signaler précisément sans contourner les contrôles. Aucun force-push, fusion ou déploiement en production n’est autorisé par cette règle.

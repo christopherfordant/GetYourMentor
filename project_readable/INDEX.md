@@ -1,10 +1,9 @@
 # Lecture du projet
 
-Ce dossier contient des versions lisibles des documents du projet quand le fichier d'origine est binaire ou mal encodé.
+Ce dossier contient des versions lisibles des documents du projet quand le fichier d?origine est binaire ou mal encod?.
 
 | Fichier source | Statut | Version lisible |
 | --- | --- | --- |
-| `Analyse concurrents/L_offre des concurrents.docx` | `ok` | `project_readable/Analyse concurrents/L_offre des concurrents.docx.txt` |
 | `ARCHITECTURE_MEMOIRE_GYM.md` | `ok` | `project_readable/ARCHITECTURE_MEMOIRE_GYM.md.txt` |
 | `Ateliers/Atelier Marketing/Cibles _ Utilisations_.xlsx` | `ok` | `project_readable/Ateliers/Atelier Marketing/Cibles _ Utilisations_.xlsx.txt` |
 | `Ateliers/Sports - Cibles/Basketball.docx` | `ok` | `project_readable/Ateliers/Sports - Cibles/Basketball.docx.txt` |
@@ -13,10 +12,7 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `Ateliers/Sports - Cibles/Sport de combat.docx` | `ok` | `project_readable/Ateliers/Sports - Cibles/Sport de combat.docx.txt` |
 | `BRANCH_STRATEGY_GYM.md` | `ok` | `project_readable/BRANCH_STRATEGY_GYM.md.txt` |
 | `Branding/Branding _vu par Madison_.docx` | `ok` | `project_readable/Branding/Branding _vu par Madison_.docx.txt` |
-| `Bussiness Plan.pdf` | `ok` | `project_readable/Bussiness Plan.pdf.txt` |
 | `CARTOGRAPHIE_GLOBALE_GYM.md` | `ok` | `project_readable/CARTOGRAPHIE_GLOBALE_GYM.md.txt` |
-| `Copie de Devis DEV - GetYourMentor.pdf` | `ok` | `project_readable/Copie de Devis DEV - GetYourMentor.pdf.txt` |
-| `DECK.pdf` | `ok` | `project_readable/DECK.pdf.txt` |
 | `design_assets/content_library/basketball/basketball-shooting-court.jpg` | `image_asset` | `` |
 | `design_assets/content_library/basketball/basketball-training-athlete.jpg` | `image_asset` | `` |
 | `design_assets/content_library/combat/combat-boxer-portrait.jpg` | `image_asset` | `` |
@@ -100,16 +96,6 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `docs/prototype-site/sport.html` | `ok` | `project_readable/docs/prototype-site/sport.html.txt` |
 | `docs/prototype-site/styles.css` | `ok` | `project_readable/docs/prototype-site/styles.css.txt` |
 | `DOCUMENT_MAITRE_GYM.md` | `ok` | `project_readable/DOCUMENT_MAITRE_GYM.md.txt` |
-| `Dossier Banque/Bussiness Plan.docx` | `ok` | `project_readable/Dossier Banque/Bussiness Plan.docx.txt` |
-| `Dossier Banque/Copie de Devis AVOCATE DROIT NUMERIQUE.pdf` | `ok` | `project_readable/Dossier Banque/Copie de Devis AVOCATE DROIT NUMERIQUE.pdf.txt` |
-| `Dossier Banque/Copie de Devis DEV - GetYourMentor.pdf` | `ok` | `project_readable/Dossier Banque/Copie de Devis DEV - GetYourMentor.pdf.txt` |
-| `Dossier Banque/Copie de Devis PEJ AVEC SON EQUIPE.docx` | `ok` | `project_readable/Dossier Banque/Copie de Devis PEJ AVEC SON EQUIPE.docx.txt` |
-| `Dossier Banque/Copie de Devis PEJ seul.docx` | `ok` | `project_readable/Dossier Banque/Copie de Devis PEJ seul.docx.txt` |
-| `Dossier Banque/Copie de GetYourMentor MVP Fonctionnalités.xlsx` | `ok` | `project_readable/Dossier Banque/Copie de GetYourMentor MVP Fonctionnalités.xlsx.txt` |
-| `Dossier Banque/Copie de GYM Pitch Deck Presentation.pdf` | `ok` | `project_readable/Dossier Banque/Copie de GYM Pitch Deck Presentation.pdf.txt` |
-| `Dossier Banque/Copie de Prévis v2.xls` | `legacy_xls_not_supported` | `` |
-| `Dossier Banque/Devis APP + Site web avec création de contenue.pdf` | `ok` | `project_readable/Dossier Banque/Devis APP + Site web avec création de contenue.pdf.txt` |
-| `Dossier Banque/Devis Boulanger.pdf` | `ok` | `project_readable/Dossier Banque/Devis Boulanger.pdf.txt` |
 | `Dossier Business Plan/A retenir (en cours).docx` | `ok` | `project_readable/Dossier Business Plan/A retenir (en cours).docx.txt` |
 | `Dossier Business Plan/Bussiness_Plan_1.1 (2).docx` | `ok` | `project_readable/Dossier Business Plan/Bussiness_Plan_1.1 (2).docx.txt` |
 | `Dossier Business Plan/GYM_Couts_Infrastructure Mensuel.xlsx` | `ok` | `project_readable/Dossier Business Plan/GYM_Couts_Infrastructure Mensuel.xlsx.txt` |
@@ -560,8 +546,6 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `Parcours Utilisateur (user flow)/Maquettes/Maket GYM_ coach création profil.pptx` | `ok` | `project_readable/Parcours Utilisateur (user flow)/Maquettes/Maket GYM_ coach création profil.pptx.txt` |
 | `Parcours Utilisateur (user flow)/Maquettes/Maquette Figma.docx` | `ok` | `` |
 | `Parcours Utilisateur (user flow)/Parcours Utilisateur COACH.docx` | `ok` | `project_readable/Parcours Utilisateur (user flow)/Parcours Utilisateur COACH.docx.txt` |
-| `Pitch Deck/GYM Pitch Deck Presentation.pdf` | `ok` | `project_readable/Pitch Deck/GYM Pitch Deck Presentation.pdf.txt` |
-| `Pitch Deck/Les priorités dans le pitch deck.docx` | `ok` | `project_readable/Pitch Deck/Les priorités dans le pitch deck.docx.txt` |
 | `PREVIEW_MAQUETTE_GYM.html` | `ok` | `project_readable/PREVIEW_MAQUETTE_GYM.html.txt` |
 | `PREVIEW_MAQUETTE_GYM.md` | `ok` | `project_readable/PREVIEW_MAQUETTE_GYM.md.txt` |
 | `Projet et Organisation GYM_/Projet  “GetYourMentor”.pptx` | `ok` | `project_readable/Projet et Organisation GYM_/Projet  “GetYourMentor”.pptx.txt` |
@@ -588,7 +572,6 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `prototype_site_GYM.zip` | `binary_or_auxiliary` | `` |
 | `RESPONSIVE_LAYOUT_GYM.md` | `ok` | `project_readable/RESPONSIVE_LAYOUT_GYM.md.txt` |
 | `scripts/extract_project_docs.py` | `ok` | `project_readable/scripts/extract_project_docs.py.txt` |
-| `Sondage/A rappeler pour sondage.docx` | `ok` | `project_readable/Sondage/A rappeler pour sondage.docx.txt` |
 | `SOURCES_PRIORITAIRES_2026_03_19.md` | `ok` | `project_readable/SOURCES_PRIORITAIRES_2026_03_19.md.txt` |
 | `Stratégie/Idée Com/1. Tour de France des clubs.docx` | `ok` | `project_readable/Stratégie/Idée Com/1. Tour de France des clubs.docx.txt` |
 | `Stratégie/Idée Com/Idée janv 26.docx` | `ok` | `project_readable/Stratégie/Idée Com/Idée janv 26.docx.txt` |

@@ -10,7 +10,7 @@
 
 ## Sources et règles de lecture
 
-Source : `Stratégie/Stratégie_/Stratégie perplexity.pdf`, **25 pages physiques**, lues intégralement et rendues localement avec MuPDF. Originaux préservés, aucun document envoyé à un service externe. Extraction : glyphes de puces, tirets et numéros parfois convertis en NUL ; tableaux et structure vérifiés sur les rendus. Captures de contact dans `docs/assets/strategie-2026-10-16/`. Ce PDF est un guide de recommandations et d'exemples, pas un cahier des charges prioritaire ni une preuve de résultats commerciaux.
+Source historique : document stratégique de 25 pages, conservé dans l’archive privée locale hors dépôt depuis le 16 novembre 2026 ; son contenu a été lu et synthétisé lors de l’audit de 2026. Les originaux ne sont pas disponibles dans les clones Git.
 
 Références prioritaires : `DOCUMENT_MAITRE_GYM.md` (§0, §5, §6, filtres et règles de lancement), MVP PDF p.1, devis PDF p.1–2, Business Plan p.28–36 et p.49–51/62–64. Les pages indiquées sont les pages physiques des PDF. Décisions actives : commission séances 15 % administrable, historiques conservés, quatre sports, comptes sportif/coach/structure/admin, demande acceptée avant paiement. Mode démo exclusivement, aucune facturation ou communication externe.
 

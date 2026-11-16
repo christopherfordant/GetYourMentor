@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "mode": "Roles de planification et lots natifs supervises bornes, sans fenetres IDE requises ni autonomie persistante",
   "roles": [
     "Architecture",
@@ -3263,6 +3263,59 @@
       "blocker": "Aucun candidat intégré/recetté; la réponse publique ne révèle pas la branche source du build actuel. Aucune configuration Netlify ou publication n’est autorisée dans ce lot.",
       "next": "Déploiement interdit tant que les dépendances et l'isolation ne sont pas validées.",
       "targetId": "portfolio-linked-demo"
+    },
+    {
+      "id": "GYM-ARC6",
+      "title": "Pr?parer le d?p?t ? une revue de code efficace",
+      "objective": "Sortir les archives commerciales du d?p?t courant et limiter les diffs de code ? une taille relisible.",
+      "status": "progress",
+      "sprint": "S3",
+      "priority": "P2",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-11-20",
+      "estimateHours": [
+        1,
+        3
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Hygiene locale du d?p?t et garde d?terministe des pull requests. Aucun changement m?tier, aucune suppression d?historique Git, aucun d?ploiement.",
+      "acceptance": [
+        "Documents commerciaux et archive priv?e pr?serv?s hors du d?p?t courant, avec index/documentation mis ? jour",
+        "Extraction documentaire limit?e aux fichiers suivis par Git et les sources d?plac?es absentes des index g?n?r?s",
+        "Garde de revue compte ajouts + suppressions de code sous une limite explicite et donne un rapport par fichier",
+        "Workflow PR en lecture seule, sans agent IA, secret, d?pendance payante ni d?clenchement sur push",
+        "Aucun brouillon ou changement ant?rieur hors p?rim?tre supprim? ou inclus dans le lot"
+      ],
+      "tests": [
+        "node --test tools/review-diff-budget.test.mjs (5/5 PASS)",
+        "PowerShell : node --test sur les fichiers *.test.mjs de tools/agentic-workbench/tests (36/36 PASS)",
+        "Assertions Python : g?n?rateur limit? aux sources suivies et index sans sources commerciales d?plac?es",
+        "git diff --cached --check (PASS sur le p?rim?tre cibl?)"
+      ],
+      "files": [
+        ".gitignore",
+        "AGENTS.md",
+        "scripts/extract_project_docs.py",
+        "tools/review-diff-budget.mjs",
+        "tools/review-diff-budget.test.mjs",
+        ".github/workflows/review-diff-budget.yml",
+        "docs/PROJECT_STRUCTURE.md",
+        "docs/sources/README.md",
+        "governance/fil_rouge_manifest.json",
+        "governance/ai/CONTEXT_RAG_GYM.md"
+      ],
+      "evidence": [
+        "docs/PROJECT_STRUCTURE.md",
+        "docs/REVIEW_DIFF_BUDGET.md",
+        "docs/ETAT_REPRISE_COURANT.md",
+        "project_readable/INDEX.md",
+        "project_readable/INDEX.json"
+      ],
+      "blocker": "Revue humaine du d?veloppeur encore attendue. Le workflow GitHub ne sera ex?cut? qu?? l?ouverture d?une pull request ; aucun alignement de branche ni d?ploiement n?a ?t? effectu?.",
+      "next": "Faire examiner le diff et la carte d?organisation par le d?veloppeur ; d?cider ensuite de la branche de revue selon BRANCH_STRATEGY_GYM.md.",
+      "targetId": "gym-main"
     }
   ],
   "targets": [

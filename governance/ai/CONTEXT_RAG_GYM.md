@@ -10,18 +10,18 @@ Conserver une memoire projet compacte, lisible et priorisee afin d'eviter la per
 
 ## Source de verite
 
-Priorite documentaire :
+Priorité documentaire :
 
 1. `DOCUMENT_MAITRE_GYM.md`
-2. `Bussiness Plan.pdf`
-3. `GetYourMentor MVP_V1 - Fonctionnalites generales.pdf`
-4. `Copie de Devis DEV - GetYourMentor.pdf`
-5. `MVP_ECRANS_GYM.md`
-6. `DESIGN_SYSTEM_GYM.md`
-7. `MIGRATION_NEXT_GYM.md`
-8. `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
-9. `governance/roles/*.md`
-10. le code actif
+2. `GetYourMentor MVP_V1 - Fonctionnalités générales.pdf`
+3. `MVP_ECRANS_GYM.md`
+4. `DESIGN_SYSTEM_GYM.md`
+5. `MIGRATION_NEXT_GYM.md`
+6. `docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md`
+7. `governance/roles/*.md`
+8. le code actif
+
+Les sources business et commerciales sont conservées hors du dépôt ; elles ne font pas partie du corpus Git.
 
 ## Fil rouge actif
 

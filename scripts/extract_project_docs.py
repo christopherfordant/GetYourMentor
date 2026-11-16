@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import html
+import os
 import re
+import subprocess
 import sys
 import zipfile
 from pathlib import Path
@@ -230,12 +232,24 @@ def extract_document(path: Path) -> tuple[str | None, str]:
 
 
 def iter_project_files() -> Iterable[Path]:
-    for path in sorted(ROOT.rglob("*")):
-        if not path.is_file():
+    result = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-files", "-z"],
+        check=True,
+        capture_output=True,
+    )
+    tracked_paths = sorted(
+        Path(os.fsdecode(raw_path))
+        for raw_path in result.stdout.split(b"\0")
+        if raw_path
+    )
+    for relative_path in tracked_paths:
+        if should_skip(relative_path):
             continue
-        if should_skip(path.relative_to(ROOT)):
-            continue
-        yield path
+        path = ROOT / relative_path
+        # A tracked file can be absent in the working tree while being moved
+        # or deleted. Never make the extractor fail or revive it from history.
+        if path.is_file():
+            yield path
 
 
 def write_preview(source: Path, content: str) -> Path:

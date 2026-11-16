@@ -1,3 +1,13 @@
+# Reprise active — 16 novembre 2026 : préparation de la revue développeur
+
+Chantier `GYM-ARC6` en cours. Les éléments commerciaux (21 fichiers : plans, devis, financement, pitch decks, stratégie, analyse concurrentielle et sondage) et l’archive locale `delivery-private` ont été déplacés hors du dépôt, dans `../GetYourMentor-private/`. Vérification après déplacement : 21 fichiers commerciaux ; 10 797 fichiers et 1 231 571 545 octets dans l’archive `delivery-private`. Une racine locale `delivery-private/` vide et ignorée a été recréée pour préserver les chemins attendus par les anciens outils. Aucun historique Git n’a été réécrit.
+
+Le générateur `scripts/extract_project_docs.py` lit maintenant les chemins suivis par Git et ignore les fichiers supprimés ou absents. Les extractions commerciales générées ont été retirées ; les index/hubs issus du jeu existant ont été filtrés de toutes les entrées correspondant aux sources déplacées. Une vérification Python confirme que le générateur voit 2 408 sources suivies existantes et que les index actuels ne référencent aucune source déplacée.
+
+Garde de diff ajouté : `tools/review-diff-budget.mjs`, tests Node et workflow PR `.github/workflows/review-diff-budget.yml`. Limite : 400 lignes de code modifiées (ajouts + suppressions), sans documentation, binaire, lockfile, snapshot ou sortie générée. C’est une règle déterministe, pas un agent IA. Les 5 tests du garde et les 36 tests de l’atelier Kanban passent ; le workflow distant n’a pas encore été déclenché par une pull request.
+
+Branche de travail : `design/refonte-progressive-lot1` ; état initial connu à `fd4d6896ef224b69f3eb48baac27340d40c4ee5f`. La branche n’a pas été basculée, fusionnée ou réécrite. Les autres changements locaux préexistants sont préservés. La revue humaine du développeur reste à faire ; ne pas déplacer les autres documents racine avant d’avoir cartographié leurs consommateurs. Le Kanban versionné compte 86 tickets ; `GYM-ARC6` est en cours, avec la revue humaine et l’exécution du workflow encore attendues.
+
 ## Reprise active - 13 novembre 2026 : Kanban unifie par environnement
 
 Référence de travail obligatoire pour les prochains lots : `tools/agentic-workbench/backlog.json`. Choisir la prochaine tâche à partir de ses priorités, dépendances, cibles et preuves ; les changements de cartes dans le navigateur sont des brouillons. Les tickets ne sont clôturés qu'après contrôles documentés. Voir `docs/KANBAN_GYM_OPERATING_MODEL_2026-11-13.md`.

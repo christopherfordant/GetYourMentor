@@ -1,13 +1,5 @@
 [
   {
-    "label": "Analyse concurrents/L_offre des concurrents.docx",
-    "source": "Analyse concurrents/L_offre des concurrents.docx",
-    "preview": "project_readable/Analyse concurrents/L_offre des concurrents.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
     "label": "ARCHITECTURE_MEMOIRE_GYM.md",
     "source": "ARCHITECTURE_MEMOIRE_GYM.md",
     "preview": "project_readable/ARCHITECTURE_MEMOIRE_GYM.md.txt",
@@ -72,35 +64,11 @@
     "is_image": "0"
   },
   {
-    "label": "Bussiness Plan.pdf",
-    "source": "Bussiness Plan.pdf",
-    "preview": "project_readable/Bussiness Plan.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
     "label": "CARTOGRAPHIE_GLOBALE_GYM.md",
     "source": "CARTOGRAPHIE_GLOBALE_GYM.md",
     "preview": "project_readable/CARTOGRAPHIE_GLOBALE_GYM.md.txt",
     "status": "ok",
     "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "Copie de Devis DEV - GetYourMentor.pdf",
-    "source": "Copie de Devis DEV - GetYourMentor.pdf",
-    "preview": "project_readable/Copie de Devis DEV - GetYourMentor.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "DECK.pdf",
-    "source": "DECK.pdf",
-    "preview": "project_readable/DECK.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
     "is_image": "0"
   },
   {
@@ -765,86 +733,6 @@
     "preview": "project_readable/DOCUMENT_MAITRE_GYM.md.txt",
     "status": "ok",
     "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Bussiness Plan.docx",
-    "source": "Dossier Banque/Bussiness Plan.docx",
-    "preview": "project_readable/Dossier Banque/Bussiness Plan.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de Devis AVOCATE DROIT NUMERIQUE.pdf",
-    "source": "Dossier Banque/Copie de Devis AVOCATE DROIT NUMERIQUE.pdf",
-    "preview": "project_readable/Dossier Banque/Copie de Devis AVOCATE DROIT NUMERIQUE.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de Devis DEV - GetYourMentor.pdf",
-    "source": "Dossier Banque/Copie de Devis DEV - GetYourMentor.pdf",
-    "preview": "project_readable/Dossier Banque/Copie de Devis DEV - GetYourMentor.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de Devis PEJ AVEC SON EQUIPE.docx",
-    "source": "Dossier Banque/Copie de Devis PEJ AVEC SON EQUIPE.docx",
-    "preview": "project_readable/Dossier Banque/Copie de Devis PEJ AVEC SON EQUIPE.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de Devis PEJ seul.docx",
-    "source": "Dossier Banque/Copie de Devis PEJ seul.docx",
-    "preview": "project_readable/Dossier Banque/Copie de Devis PEJ seul.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de GetYourMentor MVP Fonctionnalités.xlsx",
-    "source": "Dossier Banque/Copie de GetYourMentor MVP Fonctionnalités.xlsx",
-    "preview": "project_readable/Dossier Banque/Copie de GetYourMentor MVP Fonctionnalités.xlsx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de GYM Pitch Deck Presentation.pdf",
-    "source": "Dossier Banque/Copie de GYM Pitch Deck Presentation.pdf",
-    "preview": "project_readable/Dossier Banque/Copie de GYM Pitch Deck Presentation.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Copie de Prévis v2.xls",
-    "source": "Dossier Banque/Copie de Prévis v2.xls",
-    "preview": "",
-    "status": "legacy_xls_not_supported",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Devis APP + Site web avec création de contenue.pdf",
-    "source": "Dossier Banque/Devis APP + Site web avec création de contenue.pdf",
-    "preview": "project_readable/Dossier Banque/Devis APP + Site web avec création de contenue.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Dossier Banque/Devis Boulanger.pdf",
-    "source": "Dossier Banque/Devis Boulanger.pdf",
-    "preview": "project_readable/Dossier Banque/Devis Boulanger.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
     "is_image": "0"
   },
   {
@@ -4448,22 +4336,6 @@
     "is_image": "0"
   },
   {
-    "label": "Pitch Deck/GYM Pitch Deck Presentation.pdf",
-    "source": "Pitch Deck/GYM Pitch Deck Presentation.pdf",
-    "preview": "project_readable/Pitch Deck/GYM Pitch Deck Presentation.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Pitch Deck/Les priorités dans le pitch deck.docx",
-    "source": "Pitch Deck/Les priorités dans le pitch deck.docx",
-    "preview": "project_readable/Pitch Deck/Les priorités dans le pitch deck.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
     "label": "PREVIEW_MAQUETTE_GYM.html",
     "source": "PREVIEW_MAQUETTE_GYM.html",
     "preview": "project_readable/PREVIEW_MAQUETTE_GYM.html.txt",
@@ -4669,14 +4541,6 @@
     "preview": "project_readable/scripts/extract_project_docs.py.txt",
     "status": "ok",
     "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "Sondage/A rappeler pour sondage.docx",
-    "source": "Sondage/A rappeler pour sondage.docx",
-    "preview": "project_readable/Sondage/A rappeler pour sondage.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
     "is_image": "0"
   },
   {
