@@ -85,6 +85,7 @@ test("routes serveur n’exposent que les fixtures et isolent les mutations par 
     expect(payment.status).toBe(200);
     expect(await payment.json()).toEqual({ confirmed: true, realPayment: false });
     expect(calls.some((call) => /stripe|payment_intent/i.test(call.url))).toBe(false);
+    expect(calls.some((call) => /telegram/i.test(call.url))).toBe(false);
   }, mockedSupabaseFetch("success", calls));
 });
 
@@ -127,6 +128,7 @@ test("parcours /demo de bout en bout avec réservation et paiement simulés sur 
   await expect(page.getByText("La réservation de démonstration a été acceptée automatiquement.")).toBeVisible();
   await page.getByRole("button", { name: "Confirmer le paiement simulé" }).click();
   await expect(page.getByRole("status").filter({ hasText: "Paiement de démonstration confirmé." })).toBeVisible();
+  await expect(page.getByText("Aucun paiement ni message externe")).toBeVisible();
   await expect(page.getByRole("button", { name: "Effacer mes données de démonstration" })).toBeVisible();
   const dimensions = await page.locator("body").evaluate((element) => ({ scroll: element.scrollWidth, client: element.clientWidth }));
   expect(dimensions.scroll).toBeLessThanOrEqual(dimensions.client + 1);
