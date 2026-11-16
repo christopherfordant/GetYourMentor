@@ -467,27 +467,27 @@ const bookingGeoDictionary = {
 const bookingVisualDictionary = {
   football: {
     hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/football/football-field-mentor.jpg") center 18% / cover no-repeat',
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../../assets/design/content_library/football/football-field-mentor.jpg") center 18% / cover no-repeat',
     photo:
-      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/football/football-youth-coach.jpg") center 18% / cover no-repeat',
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../../assets/design/content_library/football/football-youth-coach.jpg") center 18% / cover no-repeat',
   },
   basketball: {
     hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/basketball/basketball-training-athlete.jpg") center 14% / cover no-repeat',
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../../assets/design/content_library/basketball/basketball-training-athlete.jpg") center 14% / cover no-repeat',
     photo:
-      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/basketball/basketball-shooting-court.jpg") center 24% / cover no-repeat',
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../../assets/design/content_library/basketball/basketball-shooting-court.jpg") center 24% / cover no-repeat',
   },
   "metiers-de-la-forme": {
     hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.12), rgba(14, 18, 28, 0.08)), url("../design_assets/sports_sources/fitness.jpg") center 10% / cover no-repeat',
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.12), rgba(14, 18, 28, 0.08)), url("../../assets/design/sports_sources/fitness.jpg") center 10% / cover no-repeat',
     photo:
-      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/fitness/fitness-coach-plank.jpg") center 8% / cover no-repeat',
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../../assets/design/content_library/fitness/fitness-coach-plank.jpg") center 8% / cover no-repeat',
   },
   "sports-de-combat": {
     hero:
-      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../design_assets/content_library/combat/combat-muay-thai-kick.jpg") center 18% / cover no-repeat',
+      'linear-gradient(180deg, rgba(14, 18, 28, 0.14), rgba(14, 18, 28, 0.10)), url("../../assets/design/content_library/combat/combat-muay-thai-kick.jpg") center 18% / cover no-repeat',
     photo:
-      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../design_assets/content_library/combat/combat-boxer-portrait.jpg") center 16% / cover no-repeat',
+      'linear-gradient(180deg, rgba(8, 14, 22, 0.12), rgba(8, 14, 22, 0.18)), url("../../assets/design/content_library/combat/combat-boxer-portrait.jpg") center 16% / cover no-repeat',
   },
 };
 

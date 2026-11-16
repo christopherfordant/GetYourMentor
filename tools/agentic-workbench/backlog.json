@@ -3286,7 +3286,7 @@
         "Extraction documentaire limit?e aux fichiers suivis par Git et les sources d?plac?es absentes des index g?n?r?s",
         "Garde de revue compte ajouts + suppressions de code sous une limite explicite et donne un rapport par fichier",
         "Workflow PR en lecture seule, sans agent IA, secret, d?pendance payante ni d?clenchement sur push",
-        "Ressources locales regroup?es sous assets/design et assets/evidence sans casser les r?f?rences ni les chemins publics de l?application",
+        "Ressources visuelles centralis?es sous assets/design et preuves sous assets/evidence ; copie docs/design_assets supprim?e apr?s comparaison des contenus, r?f?rences du prototype corrig?es et chemins publics pr?serv?s",
         "Aucun brouillon ou changement ant?rieur hors p?rim?tre supprim? ou inclus dans le lot"
       ],
       "tests": [
@@ -3311,6 +3311,10 @@
         "docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md",
         "docs/RECAPITULATIF_SERVEUR_2026-10-20.md",
         "docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md",
+        "docs/prototype-site/accueil.html",
+        "docs/prototype-site/app.js",
+        "docs/prototype-site/inscription-club.html",
+        "docs/prototype-site/styles.css",
         "docs/sources/README.md",
         "governance/fil_rouge_manifest.json",
         "governance/ai/CONTEXT_RAG_GYM.md"
@@ -3320,6 +3324,7 @@
         "docs/PROJECT_STRUCTURE.md",
         "assets/design/content_library/sources.json",
         "assets/evidence/",
+        "docs/prototype-site/",
         "docs/REVIEW_DIFF_BUDGET.md",
         "docs/ETAT_REPRISE_COURANT.md",
         "project_readable/INDEX.md",

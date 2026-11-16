@@ -17,7 +17,7 @@ Mis à jour le 16 novembre 2026 pour préparer la revue d’architecture.
 | `prototypes/` et `gym-next/public/design_assets/` | Démonstrations visuelles ; ne pas les confondre avec le code produit actif. |
 | Racine | Documents maîtres et quelques entrées historiques conservés car leurs chemins sont référencés par les scripts et la gouvernance. |
 
-Les deux anciens dossiers racine `design_assets/` et `assets/` ont été regroupés sous `assets/`, respectivement dans `assets/design/` et `assets/evidence/`. Les chemins `gym-next/public/design_assets/` restent séparés : ils contiennent les médias effectivement servis par le site et leurs URLs publiques ne doivent pas être remplacées par les chemins des sources de travail. Le manifeste `assets/design/content_library/sources.json` utilise des chemins relatifs afin de rester portable entre clones.
+Les anciens dossiers racine `design_assets/` et `assets/`, ainsi que leur copie `docs/design_assets/`, ont été regroupés sous `assets/`, respectivement dans `assets/design/` et `assets/evidence/`. Le prototype documentaire `docs/prototype-site/` référence maintenant la source visuelle commune. Les chemins `gym-next/public/design_assets/` restent séparés : ils contiennent les médias effectivement servis par le site et leurs URLs publiques ne doivent pas être remplacées par les chemins des sources de travail. `docs/assets/` reste réservé aux preuves documentaires. Le manifeste `assets/design/content_library/sources.json` utilise des chemins relatifs afin de rester portable entre clones.
 
 ## Matériel déplacé hors dépôt
 
