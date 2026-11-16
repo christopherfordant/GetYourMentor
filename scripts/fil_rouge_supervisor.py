@@ -158,7 +158,7 @@ def check_change_governance_sync(manifest: dict, state_diff: dict[str, list[str]
     changed_code = [
         rel
         for rel in changed_all
-        if rel.startswith("gym-next/") or rel.startswith("prototype-site/") or rel.startswith("docs/prototype-site/")
+        if rel.startswith("gym-next/") or rel.startswith("prototype-site/")
     ]
 
     if changed_code and not changed_governance:

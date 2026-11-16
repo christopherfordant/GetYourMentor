@@ -12,12 +12,14 @@ Mis à jour le 16 novembre 2026 pour préparer la revue d’architecture.
 | `tools/` | Outils locaux, Kanban versionné, vérifications et scripts de maintenance. |
 | `scripts/` | Commandes de dépôt et génération documentaire. |
 | `docs/` | Architecture, procédures, preuves et comptes rendus. |
-| `assets/design/` | Sources visuelles et images de travail non servies directement par l’application. |
+| `assets/design/` | Provenance et sources de travail non servies ; les binaires utilisés par l’application restent dans son dossier public unique. |
 | `assets/evidence/` | Captures et résultats de vérification classés par parcours ou contrôle. |
-| `prototypes/` et `gym-next/public/design_assets/` | Démonstrations visuelles ; ne pas les confondre avec le code produit actif. |
+| `prototype-site/` | Prototype historique utilisé comme référence par la migration ; ce n’est pas l’application déployée. |
+| `prototypes/design-assets/` | Démonstrations visuelles isolées, conservées séparément du produit. |
+| `gym-next/public/design_assets/` | Médias statiques servis par l’application et réutilisés par le prototype historique. |
 | Racine | Documents maîtres et quelques entrées historiques conservés car leurs chemins sont référencés par les scripts et la gouvernance. |
 
-Les anciens dossiers racine `design_assets/` et `assets/`, ainsi que leur copie `docs/design_assets/`, ont été regroupés sous `assets/`, respectivement dans `assets/design/` et `assets/evidence/`. Le prototype documentaire `docs/prototype-site/` référence maintenant la source visuelle commune. Les chemins `gym-next/public/design_assets/` restent séparés : ils contiennent les médias effectivement servis par le site et leurs URLs publiques ne doivent pas être remplacées par les chemins des sources de travail. `docs/assets/` reste réservé aux preuves documentaires. Le manifeste `assets/design/content_library/sources.json` utilise des chemins relatifs afin de rester portable entre clones.
+Les anciennes sources visuelles racine et leur copie `docs/design_assets/` ont été consolidées : les binaires identiques sont conservés une seule fois sous `gym-next/public/design_assets/`, avec le manifeste de provenance sous `assets/design/`. `prototype-site/` est la référence historique canonique. `docs/prototype-site/` reste archivée temporairement dans ce lot, car son retrait complet dépasserait la limite de revue de 400 lignes ; elle n’est plus le point d’entrée documentaire ni une source active. `docs/index.html` redirige vers le prototype racine. `docs/assets/` reste réservé aux preuves.
 
 ## Matériel déplacé hors dépôt
 

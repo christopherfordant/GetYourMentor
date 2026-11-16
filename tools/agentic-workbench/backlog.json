@@ -3286,7 +3286,7 @@
         "Extraction documentaire limit?e aux fichiers suivis par Git et les sources d?plac?es absentes des index g?n?r?s",
         "Garde de revue compte ajouts + suppressions de code sous une limite explicite et donne un rapport par fichier",
         "Workflow PR en lecture seule, sans agent IA, secret, d?pendance payante ni d?clenchement sur push",
-        "Ressources visuelles centralis?es sous assets/design et preuves sous assets/evidence ; copie docs/design_assets supprim?e apr?s comparaison des contenus, r?f?rences du prototype corrig?es et chemins publics pr?serv?s",
+        "Manifeste de provenance conserve sous assets/design ; copies binaires exactes supprimees apres comparaison SHA-256, prototype pointe vers les medias publics uniques et aucune ressource publique supprimee",
         "Aucun brouillon ou changement ant?rieur hors p?rim?tre supprim? ou inclus dans le lot"
       ],
       "tests": [
@@ -3294,6 +3294,9 @@
         "PowerShell : node --test sur les fichiers *.test.mjs de tools/agentic-workbench/tests (36/36 PASS)",
         "Assertions Python : g?n?rateur limit? aux sources suivies et index sans sources commerciales d?plac?es",
         "V?rification des chemins du manifeste des visuels et des r?f?rences aux preuves apr?s reclassement",
+        "Index generated mis a jour : 43 entrees du prototype/design retirees, 33 sources absentes retirees de l index, 17 apercus indisponibles et 501 sources presentes, 18 apercus dedoublonnes retires et liens canoniques controles",
+        "Hubs regeneres depuis l index filtre : 644 et 124 liens locaux verifies, zero lien manquant",
+        "Audit statique : 27 paires de binaires compares SHA-256, 9 cibles du manifeste resolues, references prototype validees et inventaire public sans ressource sans reference (limite : references statiques uniquement)",
         "git diff --cached --check (PASS sur le p?rim?tre cibl?)"
       ],
       "files": [
@@ -3311,27 +3314,39 @@
         "docs/PARCOURS_PRIVE_ERGONOMIE_2026-10-20.md",
         "docs/RECAPITULATIF_SERVEUR_2026-10-20.md",
         "docs/TRANSPORT_PREUVE_PRIVEE_2026-10-20.md",
-        "docs/prototype-site/accueil.html",
-        "docs/prototype-site/app.js",
-        "docs/prototype-site/inscription-club.html",
-        "docs/prototype-site/styles.css",
+        "prototype-site/accueil.html",
+        "prototype-site/app.js",
+        "prototype-site/inscription-club.html",
+        "prototype-site/styles.css",
         "docs/sources/README.md",
         "governance/fil_rouge_manifest.json",
-        "governance/ai/CONTEXT_RAG_GYM.md"
+        "governance/ai/CONTEXT_RAG_GYM.md",
+        "docs/index.html",
+        "visualiser-documents.html",
+        "visualiser-documents-design-mvp.html",
+        "scripts/fil_rouge_supervisor.py",
+        "docs/AUDIT_SOURCE_VERITE_NETTOYAGE_2026-11-16.md",
+        "project_readable/assets/design/content_library/sources.json.txt",
+        "project_readable/scripts/extract_project_docs.py.txt",
+        "project_readable/visualiser-documents.html.txt",
+        "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md",
+        "docs/prototype-site/"
       ],
       "evidence": [
         "assets/README.md",
         "docs/PROJECT_STRUCTURE.md",
         "assets/design/content_library/sources.json",
         "assets/evidence/",
-        "docs/prototype-site/",
+        "prototype-site/",
         "docs/REVIEW_DIFF_BUDGET.md",
+        "docs/AUDIT_SOURCE_VERITE_NETTOYAGE_2026-11-16.md",
         "docs/ETAT_REPRISE_COURANT.md",
         "project_readable/INDEX.md",
-        "project_readable/INDEX.json"
+        "project_readable/INDEX.json",
+        "docs/assets/audit-source-truth-2026-11-16/cleanup-verification.md"
       ],
-      "blocker": "Revue humaine du d?veloppeur encore attendue. Le workflow GitHub ne sera ex?cut? qu?? l?ouverture d?une pull request ; aucun alignement de branche ni d?ploiement n?a ?t? effectu?.",
-      "next": "Faire examiner le diff et la carte d?organisation par le d?veloppeur ; d?cider ensuite de la branche de revue selon BRANCH_STRATEGY_GYM.md.",
+      "blocker": "Revue humaine du developpeur encore attendue. La suppression physique de la copie HTML/CSS/JS documentaire est reportee car elle depasse le budget de revue de 400 lignes; le rapport de lot delimite ce qui reste. Le workflow GitHub ne sera execute qu a l ouverture d une pull request.",
+      "next": "Faire examiner le diff et la carte d organisation par le developpeur ; decouper ensuite le retrait de l archive docs/prototype-site en lots relisibles compatibles avec le garde de 400 lignes, ou la conserver si la valeur historique justifie ce cout.",
       "targetId": "gym-main"
     }
   ],

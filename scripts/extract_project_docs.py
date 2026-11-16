@@ -54,7 +54,6 @@ FOCUSED_KEYWORDS = (
     "preview",
     "mvp",
     "prototype-site",
-    "docs/prototype-site",
     "design_assets",
     "montage_planity",
     "parcours utilisateur",
@@ -75,7 +74,8 @@ NS = {
 
 
 def should_skip(path: Path) -> bool:
-    return any(part in SKIP_PARTS for part in path.parts)
+    relative = path.as_posix()
+    return any(part in SKIP_PARTS for part in path.parts) or relative.startswith("docs/prototype-site/")
 
 
 def is_auxiliary(path: Path) -> bool:
@@ -404,8 +404,8 @@ code{background:#10141a;padding:2px 6px;border-radius:6px}
         "<li><code>FIGMA_MAQUETTE_GYM.md</code></li>"
         "<li><code>FIGMA_CONTENU_ECRANS_GYM.md</code></li>"
         "<li><code>FIGMA_MICROCOPY_TUNNEL_GYM.md</code></li>"
-        "<li><code>prototype-site/</code></li>"
-        "<li><code>design_assets/</code></li>"
+        "<li><code>prototype-site/</code> (reference historique canonique)</li>"
+        "<li><code>gym-next/public/design_assets/</code> (médias servis)</li>"
         "</ul></section>",
     ]
     parts.append("<div class='grid'>")

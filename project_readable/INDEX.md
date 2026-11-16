@@ -4,6 +4,7 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 
 | Fichier source | Statut | Version lisible |
 | --- | --- | --- |
+| `assets/design/content_library/sources.json` | `ok` | `project_readable/assets/design/content_library/sources.json.txt` |
 | `ARCHITECTURE_MEMOIRE_GYM.md` | `ok` | `project_readable/ARCHITECTURE_MEMOIRE_GYM.md.txt` |
 | `Ateliers/Atelier Marketing/Cibles _ Utilisations_.xlsx` | `ok` | `project_readable/Ateliers/Atelier Marketing/Cibles _ Utilisations_.xlsx.txt` |
 | `Ateliers/Sports - Cibles/Basketball.docx` | `ok` | `project_readable/Ateliers/Sports - Cibles/Basketball.docx.txt` |
@@ -13,34 +14,6 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `BRANCH_STRATEGY_GYM.md` | `ok` | `project_readable/BRANCH_STRATEGY_GYM.md.txt` |
 | `Branding/Branding _vu par Madison_.docx` | `ok` | `project_readable/Branding/Branding _vu par Madison_.docx.txt` |
 | `CARTOGRAPHIE_GLOBALE_GYM.md` | `ok` | `project_readable/CARTOGRAPHIE_GLOBALE_GYM.md.txt` |
-| `design_assets/content_library/basketball/basketball-shooting-court.jpg` | `image_asset` | `` |
-| `design_assets/content_library/basketball/basketball-training-athlete.jpg` | `image_asset` | `` |
-| `design_assets/content_library/combat/combat-boxer-portrait.jpg` | `image_asset` | `` |
-| `design_assets/content_library/combat/combat-muay-thai-kick.jpg` | `image_asset` | `` |
-| `design_assets/content_library/fitness/fitness-bench-trainer.jpg` | `image_asset` | `` |
-| `design_assets/content_library/fitness/fitness-coach-plank.jpg` | `image_asset` | `` |
-| `design_assets/content_library/football/football-coach-rain.jpg` | `image_asset` | `` |
-| `design_assets/content_library/football/football-field-mentor.jpg` | `image_asset` | `` |
-| `design_assets/content_library/football/football-youth-coach.jpg` | `image_asset` | `` |
-| `design_assets/content_library/sources.json` | `ok` | `project_readable/design_assets/content_library/sources.json.txt` |
-| `design_assets/gym_premium_planity_like_bg.svg` | `image_asset` | `` |
-| `design_assets/gym_premium_planity_like_bg_4sports.svg` | `image_asset` | `` |
-| `design_assets/gym_premium_planity_like_bg_4sports_v3.svg` | `image_asset` | `` |
-| `design_assets/hero_accueil_whatsapp.jpeg` | `image_asset` | `` |
-| `design_assets/info_resa_accueil.jpeg` | `image_asset` | `` |
-| `design_assets/planity_like_4sports_real_athletes_bg.jpg` | `image_asset` | `` |
-| `design_assets/planity_like_4sports_real_athletes_bg.png` | `image_asset` | `` |
-| `design_assets/planity_like_free_sport_bg.jpg` | `image_asset` | `` |
-| `design_assets/planity_like_free_sport_bg.png` | `image_asset` | `` |
-| `design_assets/sport_image_candidates_contact_sheet.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/basketball.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/combat.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/fitness.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/football.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/image_accueil.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/image_accueil_site_v2.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/image_accueil_site_v3.jpg` | `image_asset` | `` |
-| `design_assets/sports_sources/image_accueil_site_v4.jpg` | `image_asset` | `` |
 | `DESIGN_SYSTEM_GYM.md` | `ok` | `project_readable/DESIGN_SYSTEM_GYM.md.txt` |
 | `Devis/DEVIS AVOCATE DROIT NUMERIQUE détaillé.docx` | `ok` | `project_readable/Devis/DEVIS AVOCATE DROIT NUMERIQUE détaillé.docx.txt` |
 | `Devis/Devis AVOCATE DROIT NUMERIQUE.pdf` | `ok` | `project_readable/Devis/Devis AVOCATE DROIT NUMERIQUE.pdf.txt` |
@@ -48,53 +21,10 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `Devis/Devis Dev - GetYourMentor chargé pour banque.pdf` | `ok` | `project_readable/Devis/Devis Dev - GetYourMentor chargé pour banque.pdf.txt` |
 | `Devis/Devis PEJ AVEC SON EQUIPE.docx` | `ok` | `project_readable/Devis/Devis PEJ AVEC SON EQUIPE.docx.txt` |
 | `Devis/Devis PEJ seul.docx` | `ok` | `project_readable/Devis/Devis PEJ seul.docx.txt` |
-| `docs/design_assets/content_library/basketball/basketball-shooting-court.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/basketball/basketball-training-athlete.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/combat/combat-boxer-portrait.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/combat/combat-muay-thai-kick.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/fitness/fitness-bench-trainer.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/fitness/fitness-coach-plank.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/football/football-coach-rain.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/football/football-field-mentor.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/football/football-youth-coach.jpg` | `image_asset` | `` |
-| `docs/design_assets/content_library/sources.json` | `ok` | `project_readable/docs/design_assets/content_library/sources.json.txt` |
-| `docs/design_assets/gym_premium_planity_like_bg.svg` | `image_asset` | `` |
-| `docs/design_assets/gym_premium_planity_like_bg_4sports.svg` | `image_asset` | `` |
-| `docs/design_assets/gym_premium_planity_like_bg_4sports_v3.svg` | `image_asset` | `` |
-| `docs/design_assets/hero_accueil_whatsapp.jpeg` | `image_asset` | `` |
-| `docs/design_assets/info_resa_accueil.jpeg` | `image_asset` | `` |
-| `docs/design_assets/planity_like_4sports_real_athletes_bg.jpg` | `image_asset` | `` |
-| `docs/design_assets/planity_like_4sports_real_athletes_bg.png` | `image_asset` | `` |
-| `docs/design_assets/planity_like_free_sport_bg.jpg` | `image_asset` | `` |
-| `docs/design_assets/planity_like_free_sport_bg.png` | `image_asset` | `` |
-| `docs/design_assets/sport_image_candidates_contact_sheet.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/basketball.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/combat.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/fitness.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/football.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/image_accueil_site_v2.jpg` | `image_asset` | `` |
-| `docs/design_assets/sports_sources/image_accueil_site_v4.jpg` | `image_asset` | `` |
 | `docs/index.html` | `ok` | `project_readable/docs/index.html.txt` |
 | `docs/montage_planity/image libre de droit sportif - Recherche Images_files/istockphoto-1364045027-170667a.jpg` | `image_asset` | `` |
 | `docs/montage_planity/image libre de droit sportif - Recherche Images_files/pexels-olly-3760259.jpg` | `image_asset` | `` |
 | `docs/montage_planity/image_accueil.jpg` | `image_asset` | `` |
-| `docs/prototype-site/accueil.html` | `ok` | `project_readable/docs/prototype-site/accueil.html.txt` |
-| `docs/prototype-site/app.js` | `ok` | `project_readable/docs/prototype-site/app.js.txt` |
-| `docs/prototype-site/choix-coach-creneau.html` | `ok` | `project_readable/docs/prototype-site/choix-coach-creneau.html.txt` |
-| `docs/prototype-site/coach-profil.html` | `ok` | `project_readable/docs/prototype-site/coach-profil.html.txt` |
-| `docs/prototype-site/compte.html` | `ok` | `project_readable/docs/prototype-site/compte.html.txt` |
-| `docs/prototype-site/devenir-partenaire.html` | `ok` | `project_readable/docs/prototype-site/devenir-partenaire.html.txt` |
-| `docs/prototype-site/index.html` | `ok` | `project_readable/docs/prototype-site/index.html.txt` |
-| `docs/prototype-site/mon-compte.html` | `ok` | `project_readable/docs/prototype-site/mon-compte.html.txt` |
-| `docs/prototype-site/paiement.html` | `ok` | `project_readable/docs/prototype-site/paiement.html.txt` |
-| `docs/prototype-site/recapitulatif-reservation.html` | `ok` | `project_readable/docs/prototype-site/recapitulatif-reservation.html.txt` |
-| `docs/prototype-site/recherche-coachs.html` | `ok` | `project_readable/docs/prototype-site/recherche-coachs.html.txt` |
-| `docs/prototype-site/rendez-vous.html` | `ok` | `project_readable/docs/prototype-site/rendez-vous.html.txt` |
-| `docs/prototype-site/reservation-recapitulatif.html` | `ok` | `project_readable/docs/prototype-site/reservation-recapitulatif.html.txt` |
-| `docs/prototype-site/reserver-seance.html` | `ok` | `project_readable/docs/prototype-site/reserver-seance.html.txt` |
-| `docs/prototype-site/selection-coachs.html` | `ok` | `project_readable/docs/prototype-site/selection-coachs.html.txt` |
-| `docs/prototype-site/sport.html` | `ok` | `project_readable/docs/prototype-site/sport.html.txt` |
-| `docs/prototype-site/styles.css` | `ok` | `project_readable/docs/prototype-site/styles.css.txt` |
 | `DOCUMENT_MAITRE_GYM.md` | `ok` | `project_readable/DOCUMENT_MAITRE_GYM.md.txt` |
 | `Dossier Business Plan/A retenir (en cours).docx` | `ok` | `project_readable/Dossier Business Plan/A retenir (en cours).docx.txt` |
 | `Dossier Business Plan/Bussiness_Plan_1.1 (2).docx` | `ok` | `project_readable/Dossier Business Plan/Bussiness_Plan_1.1 (2).docx.txt` |
@@ -125,24 +55,24 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `Les commerciaux/Contenu de la formation.docx` | `ok` | `project_readable/Les commerciaux/Contenu de la formation.docx.txt` |
 | `Les commerciaux/Formation des commerciaux_.docx` | `ok` | `project_readable/Les commerciaux/Formation des commerciaux_.docx.txt` |
 | `Les commerciaux/Recrutement des commerciaux.docx` | `ok` | `project_readable/Les commerciaux/Recrutement des commerciaux.docx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf.txt` |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf` | `ok` | |
 | `Les Contacts (perso et clubs)/Contact clubs de hand/Contact Charente Maritime.docx` | `ok` | `` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx.txt` |
-| `Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf.txt` |
-| `Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx.txt` |
-| `Les Contacts (perso et clubs)/Notre reseau sportif.xlsx` | `ok` | `project_readable/Les Contacts (perso et clubs)/Notre reseau sportif.xlsx.txt` |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf` | `ok` | |
+| `Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx` | `ok` | |
+| `Les Contacts (perso et clubs)/Notre reseau sportif.xlsx` | `ok` | |
 | `montage_planity/.gitkeep` | `binary_or_auxiliary` | `` |
 | `montage_planity/etap1.png` | `image_asset` | `` |
 | `montage_planity/etap2.png` | `image_asset` | `` |
@@ -573,10 +503,5 @@ Ce dossier contient des versions lisibles des documents du projet quand le fichi
 | `RESPONSIVE_LAYOUT_GYM.md` | `ok` | `project_readable/RESPONSIVE_LAYOUT_GYM.md.txt` |
 | `scripts/extract_project_docs.py` | `ok` | `project_readable/scripts/extract_project_docs.py.txt` |
 | `SOURCES_PRIORITAIRES_2026_03_19.md` | `ok` | `project_readable/SOURCES_PRIORITAIRES_2026_03_19.md.txt` |
-| `Stratégie/Idée Com/1. Tour de France des clubs.docx` | `ok` | `project_readable/Stratégie/Idée Com/1. Tour de France des clubs.docx.txt` |
-| `Stratégie/Idée Com/Idée janv 26.docx` | `ok` | `project_readable/Stratégie/Idée Com/Idée janv 26.docx.txt` |
-| `Stratégie/Road Map/Janvier.pdf` | `ok` | `project_readable/Stratégie/Road Map/Janvier.pdf.txt` |
-| `Stratégie/Stratégie_/Stratégie perplexity.pdf` | `ok` | `project_readable/Stratégie/Stratégie_/Stratégie perplexity.pdf.txt` |
-| `SUPABASE_SCHEMA_GYM.sql` | `ok` | `project_readable/SUPABASE_SCHEMA_GYM.sql.txt` |
 | `TRELLO_SETUP_GYM.md` | `ok` | `project_readable/TRELLO_SETUP_GYM.md.txt` |
 | `visualiser-documents.html` | `ok` | `project_readable/visualiser-documents.html.txt` |

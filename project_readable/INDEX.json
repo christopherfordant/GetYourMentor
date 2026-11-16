@@ -1,5 +1,13 @@
 [
   {
+    "label": "assets/design/content_library/sources.json",
+    "source": "assets/design/content_library/sources.json",
+    "preview": "project_readable/assets/design/content_library/sources.json.txt",
+    "status": "ok",
+    "group": "Fichiers texte et web",
+    "is_image": "0"
+  },
+  {
     "label": "ARCHITECTURE_MEMOIRE_GYM.md",
     "source": "ARCHITECTURE_MEMOIRE_GYM.md",
     "preview": "project_readable/ARCHITECTURE_MEMOIRE_GYM.md.txt",
@@ -72,230 +80,6 @@
     "is_image": "0"
   },
   {
-    "label": "design_assets/content_library/basketball/basketball-shooting-court.jpg",
-    "source": "design_assets/content_library/basketball/basketball-shooting-court.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/basketball/basketball-training-athlete.jpg",
-    "source": "design_assets/content_library/basketball/basketball-training-athlete.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/combat/combat-boxer-portrait.jpg",
-    "source": "design_assets/content_library/combat/combat-boxer-portrait.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/combat/combat-muay-thai-kick.jpg",
-    "source": "design_assets/content_library/combat/combat-muay-thai-kick.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/fitness/fitness-bench-trainer.jpg",
-    "source": "design_assets/content_library/fitness/fitness-bench-trainer.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/fitness/fitness-coach-plank.jpg",
-    "source": "design_assets/content_library/fitness/fitness-coach-plank.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/football/football-coach-rain.jpg",
-    "source": "design_assets/content_library/football/football-coach-rain.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/football/football-field-mentor.jpg",
-    "source": "design_assets/content_library/football/football-field-mentor.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/football/football-youth-coach.jpg",
-    "source": "design_assets/content_library/football/football-youth-coach.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/content_library/sources.json",
-    "source": "design_assets/content_library/sources.json",
-    "preview": "project_readable/design_assets/content_library/sources.json.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "design_assets/gym_premium_planity_like_bg.svg",
-    "source": "design_assets/gym_premium_planity_like_bg.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/gym_premium_planity_like_bg_4sports.svg",
-    "source": "design_assets/gym_premium_planity_like_bg_4sports.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/gym_premium_planity_like_bg_4sports_v3.svg",
-    "source": "design_assets/gym_premium_planity_like_bg_4sports_v3.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/hero_accueil_whatsapp.jpeg",
-    "source": "design_assets/hero_accueil_whatsapp.jpeg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/info_resa_accueil.jpeg",
-    "source": "design_assets/info_resa_accueil.jpeg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/planity_like_4sports_real_athletes_bg.jpg",
-    "source": "design_assets/planity_like_4sports_real_athletes_bg.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/planity_like_4sports_real_athletes_bg.png",
-    "source": "design_assets/planity_like_4sports_real_athletes_bg.png",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/planity_like_free_sport_bg.jpg",
-    "source": "design_assets/planity_like_free_sport_bg.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/planity_like_free_sport_bg.png",
-    "source": "design_assets/planity_like_free_sport_bg.png",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sport_image_candidates_contact_sheet.jpg",
-    "source": "design_assets/sport_image_candidates_contact_sheet.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/basketball.jpg",
-    "source": "design_assets/sports_sources/basketball.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/combat.jpg",
-    "source": "design_assets/sports_sources/combat.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/fitness.jpg",
-    "source": "design_assets/sports_sources/fitness.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/football.jpg",
-    "source": "design_assets/sports_sources/football.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/image_accueil.jpg",
-    "source": "design_assets/sports_sources/image_accueil.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/image_accueil_site_v2.jpg",
-    "source": "design_assets/sports_sources/image_accueil_site_v2.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/image_accueil_site_v3.jpg",
-    "source": "design_assets/sports_sources/image_accueil_site_v3.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "design_assets/sports_sources/image_accueil_site_v4.jpg",
-    "source": "design_assets/sports_sources/image_accueil_site_v4.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
     "label": "DESIGN_SYSTEM_GYM.md",
     "source": "DESIGN_SYSTEM_GYM.md",
     "preview": "project_readable/DESIGN_SYSTEM_GYM.md.txt",
@@ -352,214 +136,6 @@
     "is_image": "0"
   },
   {
-    "label": "docs/design_assets/content_library/basketball/basketball-shooting-court.jpg",
-    "source": "docs/design_assets/content_library/basketball/basketball-shooting-court.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/basketball/basketball-training-athlete.jpg",
-    "source": "docs/design_assets/content_library/basketball/basketball-training-athlete.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/combat/combat-boxer-portrait.jpg",
-    "source": "docs/design_assets/content_library/combat/combat-boxer-portrait.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
-    "source": "docs/design_assets/content_library/combat/combat-muay-thai-kick.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/fitness/fitness-bench-trainer.jpg",
-    "source": "docs/design_assets/content_library/fitness/fitness-bench-trainer.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/fitness/fitness-coach-plank.jpg",
-    "source": "docs/design_assets/content_library/fitness/fitness-coach-plank.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/football/football-coach-rain.jpg",
-    "source": "docs/design_assets/content_library/football/football-coach-rain.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/football/football-field-mentor.jpg",
-    "source": "docs/design_assets/content_library/football/football-field-mentor.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/football/football-youth-coach.jpg",
-    "source": "docs/design_assets/content_library/football/football-youth-coach.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/content_library/sources.json",
-    "source": "docs/design_assets/content_library/sources.json",
-    "preview": "project_readable/docs/design_assets/content_library/sources.json.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/design_assets/gym_premium_planity_like_bg.svg",
-    "source": "docs/design_assets/gym_premium_planity_like_bg.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/gym_premium_planity_like_bg_4sports.svg",
-    "source": "docs/design_assets/gym_premium_planity_like_bg_4sports.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/gym_premium_planity_like_bg_4sports_v3.svg",
-    "source": "docs/design_assets/gym_premium_planity_like_bg_4sports_v3.svg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/hero_accueil_whatsapp.jpeg",
-    "source": "docs/design_assets/hero_accueil_whatsapp.jpeg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/info_resa_accueil.jpeg",
-    "source": "docs/design_assets/info_resa_accueil.jpeg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/planity_like_4sports_real_athletes_bg.jpg",
-    "source": "docs/design_assets/planity_like_4sports_real_athletes_bg.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/planity_like_4sports_real_athletes_bg.png",
-    "source": "docs/design_assets/planity_like_4sports_real_athletes_bg.png",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/planity_like_free_sport_bg.jpg",
-    "source": "docs/design_assets/planity_like_free_sport_bg.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/planity_like_free_sport_bg.png",
-    "source": "docs/design_assets/planity_like_free_sport_bg.png",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sport_image_candidates_contact_sheet.jpg",
-    "source": "docs/design_assets/sport_image_candidates_contact_sheet.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/basketball.jpg",
-    "source": "docs/design_assets/sports_sources/basketball.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/combat.jpg",
-    "source": "docs/design_assets/sports_sources/combat.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/fitness.jpg",
-    "source": "docs/design_assets/sports_sources/fitness.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/football.jpg",
-    "source": "docs/design_assets/sports_sources/football.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/image_accueil_site_v2.jpg",
-    "source": "docs/design_assets/sports_sources/image_accueil_site_v2.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
-    "label": "docs/design_assets/sports_sources/image_accueil_site_v4.jpg",
-    "source": "docs/design_assets/sports_sources/image_accueil_site_v4.jpg",
-    "preview": "",
-    "status": "image_asset",
-    "group": "Images et visuels",
-    "is_image": "1"
-  },
-  {
     "label": "docs/index.html",
     "source": "docs/index.html",
     "preview": "project_readable/docs/index.html.txt",
@@ -590,142 +166,6 @@
     "status": "image_asset",
     "group": "Images et visuels",
     "is_image": "1"
-  },
-  {
-    "label": "docs/prototype-site/accueil.html",
-    "source": "docs/prototype-site/accueil.html",
-    "preview": "project_readable/docs/prototype-site/accueil.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/app.js",
-    "source": "docs/prototype-site/app.js",
-    "preview": "project_readable/docs/prototype-site/app.js.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/choix-coach-creneau.html",
-    "source": "docs/prototype-site/choix-coach-creneau.html",
-    "preview": "project_readable/docs/prototype-site/choix-coach-creneau.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/coach-profil.html",
-    "source": "docs/prototype-site/coach-profil.html",
-    "preview": "project_readable/docs/prototype-site/coach-profil.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/compte.html",
-    "source": "docs/prototype-site/compte.html",
-    "preview": "project_readable/docs/prototype-site/compte.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/devenir-partenaire.html",
-    "source": "docs/prototype-site/devenir-partenaire.html",
-    "preview": "project_readable/docs/prototype-site/devenir-partenaire.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/index.html",
-    "source": "docs/prototype-site/index.html",
-    "preview": "project_readable/docs/prototype-site/index.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/mon-compte.html",
-    "source": "docs/prototype-site/mon-compte.html",
-    "preview": "project_readable/docs/prototype-site/mon-compte.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/paiement.html",
-    "source": "docs/prototype-site/paiement.html",
-    "preview": "project_readable/docs/prototype-site/paiement.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/recapitulatif-reservation.html",
-    "source": "docs/prototype-site/recapitulatif-reservation.html",
-    "preview": "project_readable/docs/prototype-site/recapitulatif-reservation.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/recherche-coachs.html",
-    "source": "docs/prototype-site/recherche-coachs.html",
-    "preview": "project_readable/docs/prototype-site/recherche-coachs.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/rendez-vous.html",
-    "source": "docs/prototype-site/rendez-vous.html",
-    "preview": "project_readable/docs/prototype-site/rendez-vous.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/reservation-recapitulatif.html",
-    "source": "docs/prototype-site/reservation-recapitulatif.html",
-    "preview": "project_readable/docs/prototype-site/reservation-recapitulatif.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/reserver-seance.html",
-    "source": "docs/prototype-site/reserver-seance.html",
-    "preview": "project_readable/docs/prototype-site/reserver-seance.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/selection-coachs.html",
-    "source": "docs/prototype-site/selection-coachs.html",
-    "preview": "project_readable/docs/prototype-site/selection-coachs.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/sport.html",
-    "source": "docs/prototype-site/sport.html",
-    "preview": "project_readable/docs/prototype-site/sport.html.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "docs/prototype-site/styles.css",
-    "source": "docs/prototype-site/styles.css",
-    "preview": "project_readable/docs/prototype-site/styles.css.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
   },
   {
     "label": "DOCUMENT_MAITRE_GYM.md",
@@ -970,7 +410,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 01.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -978,7 +418,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 02.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -986,7 +426,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 03.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -994,7 +434,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 04.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1002,7 +442,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Clubs FFF département 05.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1010,7 +450,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Contact Agent de joueur FFF.docx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1018,7 +458,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Distric de l_ain.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1026,7 +466,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de Football/Feuille de calcul sans titre.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1034,7 +474,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CALVADOS.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1042,7 +482,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire-CD-18.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1050,7 +490,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/ANNUAIRE-CD36-1.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1058,7 +498,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Annuaire_CD28HB_2022-2023_V2.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1074,7 +514,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Document sans titre.docx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1082,7 +522,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf",
     "source": "Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact clubs de hand/Présidents Clubs.pdf.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1090,7 +530,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx",
     "source": "Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contact coach/Contacts coachs.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1098,7 +538,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx",
     "source": "Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Contacts clubs de basket.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -1106,7 +546,7 @@
   {
     "label": "Les Contacts (perso et clubs)/Notre reseau sportif.xlsx",
     "source": "Les Contacts (perso et clubs)/Notre reseau sportif.xlsx",
-    "preview": "project_readable/Les Contacts (perso et clubs)/Notre reseau sportif.xlsx.txt",
+    "preview": "",
     "status": "ok",
     "group": "Documents bureautiques",
     "is_image": "0"
@@ -4547,46 +3987,6 @@
     "label": "SOURCES_PRIORITAIRES_2026_03_19.md",
     "source": "SOURCES_PRIORITAIRES_2026_03_19.md",
     "preview": "project_readable/SOURCES_PRIORITAIRES_2026_03_19.md.txt",
-    "status": "ok",
-    "group": "Fichiers texte et web",
-    "is_image": "0"
-  },
-  {
-    "label": "Stratégie/Idée Com/1. Tour de France des clubs.docx",
-    "source": "Stratégie/Idée Com/1. Tour de France des clubs.docx",
-    "preview": "project_readable/Stratégie/Idée Com/1. Tour de France des clubs.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Stratégie/Idée Com/Idée janv 26.docx",
-    "source": "Stratégie/Idée Com/Idée janv 26.docx",
-    "preview": "project_readable/Stratégie/Idée Com/Idée janv 26.docx.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Stratégie/Road Map/Janvier.pdf",
-    "source": "Stratégie/Road Map/Janvier.pdf",
-    "preview": "project_readable/Stratégie/Road Map/Janvier.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "Stratégie/Stratégie_/Stratégie perplexity.pdf",
-    "source": "Stratégie/Stratégie_/Stratégie perplexity.pdf",
-    "preview": "project_readable/Stratégie/Stratégie_/Stratégie perplexity.pdf.txt",
-    "status": "ok",
-    "group": "Documents bureautiques",
-    "is_image": "0"
-  },
-  {
-    "label": "SUPABASE_SCHEMA_GYM.sql",
-    "source": "SUPABASE_SCHEMA_GYM.sql",
-    "preview": "project_readable/SUPABASE_SCHEMA_GYM.sql.txt",
     "status": "ok",
     "group": "Fichiers texte et web",
     "is_image": "0"

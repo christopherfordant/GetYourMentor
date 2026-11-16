@@ -1,5 +1,17 @@
 # Reprise active — 16 novembre 2026 : préparation de la revue développeur
 
+### Dernier lot — audit de structure et nettoyage ciblé (16 novembre 2026)
+
+La source applicative du dépôt est `gym-next/` : `netlify.toml` configure cette base, `npm run build` et `.next`. `prototype-site/` reste le prototype historique utilisé comme référence de migration. `docs/prototype-site/` est une copie historique partielle (18 fichiers, 14 identiques avant correction des chemins ; CSS incomplet). Elle reste suivie dans ce lot comme archive : son retrait dépasserait le garde de revue de 400 lignes de code. Le routage documentaire, les index et les outils pointent vers `prototype-site/` comme référence canonique.
+
+Les 27 fichiers binaires sous `assets/design/` avaient tous un homologue exact SHA-256 dans `gym-next/public/design_assets/` (10 423 070 octets) ; les copies ont été retirées et les neuf entrées du manifeste `assets/design/content_library/sources.json` pointent désormais vers les médias publics uniques. Aucun média public n’a été supprimé. L’audit statique ne classe aucun des 110 médias publics comme sans référence, mais ne prouve pas leur joignabilité runtime ; les éléments à revoir restent en place.
+
+Le site portfolio, le site GetYourMentor lié au portfolio et l’ancienne URL `gregarious-fox-fff605` répondaient en HTTP 200 lors du contrôle. L’API health de la cible liée au portfolio rapportait `mode: demo` et `supabase: null`. Le commit et la branche de déploiement Netlify ne sont pas vérifiés : CLI absente et tableau de bord inaccessible dans ce lot. Ne déduire aucun rattachement de `.netlify/state.json`.
+
+Rapport : `docs/AUDIT_SOURCE_VERITE_NETTOYAGE_2026-11-16.md`. GYM-ARC6 reste `progress` ; la revue humaine attendue n’est pas remplacée par cet audit. Tests locaux : validation JSON, chemins du manifeste et du prototype, SHA-256 des doublons avant retrait, inventaire conservateur des assets, compilation Python et `git diff --check`. Pas de build Next, migration, modification Netlify ni déploiement.
+
+Prochaine action : revue humaine du diff d’organisation. Si l’identification exacte de la publication est nécessaire, consulter en lecture seule le site, le dépôt et le dernier déploiement depuis le tableau de bord Netlify, puis consigner branche et SHA. Les autres modifications locales et les worktrees restent préservés.
+
 ### Organisation des ressources locales
 
 Les dossiers de ressources racine et la copie `docs/design_assets/` ont été regroupés sous `assets/` : les captures et rapports de contrôle sont dans `assets/evidence/<parcours>/`, les sources visuelles dans `assets/design/`. Les 25 fichiers image/maquette de `docs/design_assets/` étaient identiques à leurs homologues sous `assets/design/` ; les métadonnées des neuf entrées de provenance concordaient, et le manifeste canonique garde des chemins relatifs. Les liens du prototype `docs/prototype-site/` ont été réorientés. `gym-next/public/design_assets/` reste séparé et intact ; `docs/assets/` reste l’archive de preuves documentaires. Aucun contenu image n’a été modifié. GYM-ARC6 reste en cours.

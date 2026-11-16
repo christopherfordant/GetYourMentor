@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import html
+import os
 import re
+import subprocess
 import sys
 import zipfile
 from pathlib import Path
@@ -51,7 +53,6 @@ FOCUSED_KEYWORDS = (
     "preview",
     "mvp",
     "prototype-site",
-    "docs/prototype-site",
     "design_assets",
     "montage_planity",
     "parcours utilisateur",
@@ -71,7 +72,8 @@ NS = {
 }
 
 def should_skip(path: Path) -> bool:
-    return any(part in SKIP_PARTS for part in path.parts)
+    relative = path.as_posix()
+    return any(part in SKIP_PARTS for part in path.parts) or relative.startswith("docs/prototype-site/")
 
 def is_auxiliary(path: Path) -> bool:
     as_posix = path.as_posix()
@@ -215,12 +217,24 @@ def extract_document(path: Path) -> tuple[str | None, str]:
         return None, f"error: {exc}"
 
 def iter_project_files() -> Iterable[Path]:
-    for path in sorted(ROOT.rglob("*")):
-        if not path.is_file():
+    result = subprocess.run(
+        ["git", "-C", str(ROOT), "ls-files", "-z"],
+        check=True,
+        capture_output=True,
+    )
+    tracked_paths = sorted(
+        Path(os.fsdecode(raw_path))
+        for raw_path in result.stdout.split(b"\0")
+        if raw_path
+    )
+    for relative_path in tracked_paths:
+        if should_skip(relative_path):
             continue
-        if should_skip(path.relative_to(ROOT)):
-            continue
-        yield path
+        path = ROOT / relative_path
+        # A tracked file can be absent in the working tree while being moved
+        # or deleted. Never make the extractor fail or revive it from history.
+        if path.is_file():
+            yield path
 
 def write_preview(source: Path, content: str) -> Path:
     relative = source.relative_to(ROOT)
@@ -369,8 +383,8 @@ code{background:#10141a;padding:2px 6px;border-radius:6px}
         "<li><code>FIGMA_MAQUETTE_GYM.md</code></li>"
         "<li><code>FIGMA_CONTENU_ECRANS_GYM.md</code></li>"
         "<li><code>FIGMA_MICROCOPY_TUNNEL_GYM.md</code></li>"
-        "<li><code>prototype-site/</code></li>"
-        "<li><code>design_assets/</code></li>"
+        "<li><code>prototype-site/</code> (reference historique canonique)</li>"
+        "<li><code>gym-next/public/design_assets/</code> (médias servis)</li>"
         "</ul></section>",
     ]
     parts.append("<div class='grid'>")
