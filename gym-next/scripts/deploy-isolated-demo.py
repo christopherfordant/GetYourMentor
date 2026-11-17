@@ -113,7 +113,7 @@ try:
         '};\n'
     )
     (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
-    plugin_config=base+f'[[plugins]]\npackage = "{runtime_plugin.as_posix()}"\n'
+    plugin_config=base+f'[[plugins]]\npackage = "{runtime_plugin.relative_to(app).as_posix()}"\n'
     temporary.write_text(plugin_config,encoding="utf-8")
     command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
     if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
