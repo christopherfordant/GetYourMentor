@@ -5,13 +5,14 @@ export const DEMO_SESSION_TTL_SECONDS = 60 * 60 * 24;
 export const DEMO_SITE_ID = "86e0379e-4d1a-4cf0-936c-1439397354f4";
 export const DEMO_SUPABASE_HOST = "rqxoovriacgoriimpbwi.supabase.co";
 const DEMO_HOST = "getyourmentor-demo-20261014.netlify.app";
+const DEMO_PREVIEW_HOST = "gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app";
 
 function isAllowedDemoAppUrl(app: URL, env: NodeJS.ProcessEnv) {
   if (app.protocol !== "https:" || app.username || app.password || app.port || app.pathname !== "/" || app.search || app.hash) return false;
   if (app.hostname === DEMO_HOST) return !env.CONTEXT || env.CONTEXT === "production";
-  return app.hostname.endsWith(`--${DEMO_HOST}`)
-    && env.CONTEXT === "deploy-preview"
-    && env.DEPLOY_PRIME_URL === app.origin;
+  // A fixed, site-owned draft alias is stable even when Netlify's per-deploy
+  // DEPLOY_PRIME_URL points at its unique deployment URL.
+  return app.hostname === DEMO_PREVIEW_HOST && env.CONTEXT === "deploy-preview";
 }
 
 export type RecruiterDemoSession = {
@@ -41,6 +42,24 @@ export function isDemoRecruiterEntryEnabled(env: NodeJS.ProcessEnv = process.env
   } catch {
     return false;
   }
+}
+
+export function getDemoSessionAvailability(env: NodeJS.ProcessEnv = process.env) {
+  if (env.GYM_DEMO_SESSION_ENABLED !== "true") return "disabled" as const;
+  if (env.DEPLOY_ENV !== "demo") return "wrong-environment" as const;
+  if (env.SITE_ID !== DEMO_SITE_ID) return "wrong-site" as const;
+  try {
+    const app = new URL(env.NEXT_PUBLIC_APP_URL ?? "");
+    if (!isAllowedDemoAppUrl(app, env)) return "origin-not-allowed" as const;
+    const supabase = new URL(env.GYM_DEMO_SUPABASE_URL ?? "");
+    if (supabase.protocol !== "https:" || supabase.hostname !== DEMO_SUPABASE_HOST) return "storage-unconfigured" as const;
+  } catch {
+    return "configuration-invalid" as const;
+  }
+  if (!(env.GYM_DEMO_SUPABASE_PUBLISHABLE_KEY ?? "").startsWith("sb_publishable_")
+    || !(env.GYM_DEMO_SUPABASE_SECRET_KEY ?? "").startsWith("sb_secret_")) return "service-keys-missing" as const;
+  if ((env.GYM_DEMO_SESSION_SECRET ?? "").length < 32) return "session-secret-missing" as const;
+  return "ready" as const;
 }
 
 function requestCookieValue(request: Request) {
@@ -79,6 +98,7 @@ export async function resolveRecruiterDemoSession(
 }
 
 export function getDemoSessionConfig(env: NodeJS.ProcessEnv = process.env): DemoSessionConfig | null {
+  if (getDemoSessionAvailability(env) !== "ready") return null;
   try {
     const app = new URL(env.NEXT_PUBLIC_APP_URL ?? "");
     const supabase = new URL(env.GYM_DEMO_SUPABASE_URL ?? "");
@@ -88,11 +108,6 @@ export function getDemoSessionConfig(env: NodeJS.ProcessEnv = process.env): Demo
       secretKey: env.GYM_DEMO_SUPABASE_SECRET_KEY ?? "",
       cookieSecret: env.GYM_DEMO_SESSION_SECRET ?? "",
     };
-    if (env.GYM_DEMO_SESSION_ENABLED !== "true" || env.DEPLOY_ENV !== "demo"
-      || env.SITE_ID !== DEMO_SITE_ID || !isAllowedDemoAppUrl(app, env)
-      || supabase.protocol !== "https:" || supabase.hostname !== DEMO_SUPABASE_HOST
-      || !config.publishableKey.startsWith("sb_publishable_") || !config.secretKey.startsWith("sb_secret_")
-      || config.cookieSecret.length < 32) return null;
     return config;
   } catch {
     return null;

@@ -8,5 +8,5 @@ test("l’endpoint de santé signale explicitement le mode de démonstration", a
   expect(body.mode).toBe("demo");
   expect(body.ready).toBeTruthy();
   expect(body.checks).toEqual({ publicUrl: false, sessionSecret: true, cronSecret: false, supabase: false, stripe: false, resend: false, legal: false });
-  expect(body.recruiterDemo).toEqual({ available: false, storage: "supabase" });
+  expect(body.recruiterDemo).toEqual({ available: false, storage: "supabase", status: "disabled" });
 });
