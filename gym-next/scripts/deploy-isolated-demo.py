@@ -19,7 +19,7 @@ def source_hashes():
     extras=subprocess.check_output(["git","ls-files","--others","--exclude-standard","gym-next/app","gym-next/components","gym-next/lib","gym-next/public"],cwd=ROOT,text=True).splitlines()
     assert not set(extras)-set(paths), "Unreviewed application files: abort"
     hashes={}
-    text_extensions={".ts",".tsx",".js",".jsx",".mjs",".cjs",".json",".css",".md",".html",".svg",".txt",".toml",".yml",".yaml",".py",".example",""}
+    text_extensions={".ts",".tsx",".mts",".cts",".js",".jsx",".mjs",".cjs",".json",".css",".md",".html",".svg",".txt",".toml",".yml",".yaml",".py",".example",""}
     for path in paths:
         actual=(ROOT/path).read_bytes()
         expected=expected_files[path]
