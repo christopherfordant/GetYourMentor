@@ -103,6 +103,7 @@ try:
     # The existing --prepared manifest still guards the source used for this build.
     runtime_plugin=Path(tempfile.mkdtemp(prefix="gym-demo-runtime-plugin-",dir=app/".netlify"))
     (runtime_plugin/"package.json").write_text(json.dumps({"name":"gym-demo-runtime-materializer","version":"1.0.0","type":"module","main":"index.mjs"}),encoding="utf-8")
+    (runtime_plugin/"manifest.yml").write_text("name: gym-demo-runtime-materializer\n",encoding="utf-8")
     runtime_plugin_entry={
         "python":sys.executable,
         "script":str(app/"scripts/prepare-netlify-runtime.py"),
