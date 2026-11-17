@@ -49,19 +49,22 @@ secret_names={"GYM_DEMO_SUPABASE_SECRET_KEY","GYM_DEMO_SESSION_SECRET","GYM_DEMO
 env=dict(os.environ)
 for key in list(env):
     if key.startswith(("SUPABASE_","NEXT_PUBLIC_SUPABASE_","GYM_DEMO_","STRIPE_","RESEND_","LEGAL_")) or key in ["OPENAI_API_KEY","ANTHROPIC_API_KEY","GEMINI_API_KEY","GETYOURMENTOR_ACCEPTANCE_MODE"]: env.pop(key,None)
+missing_branch_variables=[]
 for item in variables:
     specific=[v for v in item["values"] if (v.get("context")==deploy_context or (preview_mode and v.get("context")=="branch")) and (not preview_mode or v.get("context_parameter")==PREVIEW_ALIAS)]
+    if preview_mode and (item["key"].startswith("GYM_DEMO_") or item["key"]=="NEXT_PUBLIC_APP_URL") and not specific:
+        missing_branch_variables.append(item["key"])
+        continue
     shared=[v for v in item["values"] if v.get("context")=="all"]
     values=specific or shared
-    assert values, "Missing demo environment variable"
-    if preview_mode and item["key"].startswith("GYM_DEMO_"):
-        assert specific, "Demo configuration must be scoped to the exact preview branch alias"
+    assert values, "Missing environment variable: "+item["key"]
     if item["key"] in secret_names:
         # Netlify intentionally withholds secret values from its API. The authenticated
         # CLI build/runtime fetches them from the project; never copy them into this process.
         continue
     assert values[0].get("value"), "Missing non-secret demo environment variable"
     env[item["key"]]=values[0]["value"]
+assert not missing_branch_variables, "Missing variables for exact branch context branch:"+PREVIEW_ALIAS+": "+", ".join(missing_branch_variables)
 assert env["DEPLOY_ENV"]=="demo" and env["GETYOURMENTOR_ALLOW_DEMO"]=="true" and env["PAYMENT_PROVIDER"]=="local" and env["NEXT_PUBLIC_APP_URL"]==deploy_url
 assert len(env["SESSION_SECRET"])>=32 and env["PLATFORM_COMMISSION_BPS"]=="1500"
 assert env["GYM_DEMO_SESSION_ENABLED"]=="true" and env["GYM_DEMO_SUPABASE_URL"]=="https://rqxoovriacgoriimpbwi.supabase.co"

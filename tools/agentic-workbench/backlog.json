@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "mode": "Roles de planification et lots natifs supervises bornes, sans fenetres IDE requises ni autonomie persistante",
   "roles": [
     "Architecture",
@@ -3123,8 +3123,8 @@
       "tests": ["Préflight Netlify en lecture seule : cible, nature de l’aperçu, portée des variables et possibilité de rollback","Playwright desktop/mobile sur URL d’aperçu après rechargement","RLS et isolation avec deux identités anonymes jetables sur Supabase démo","Vérification santé runtime, effacement/fixtures, absence d’appel financier ou notification externe et absence de secret dans les bundles"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md", "gym-next/lib/demo-recruiter-session.ts", "gym-next/scripts/deploy-isolated-demo.py", "gym-next/app/sitemap.ts", "gym-next/tests/demo-recruiter-session.spec.ts", "gym-next/tests/seo-metadata.spec.ts"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md", "docs/DEMO_D1_LOCAL_READINESS_2026-11-16.md", "docs/DEMO_D1_8_ALIAS_CONTEXT_2026-11-17.md"],
-      "blocker": "Le déploiement brouillon par alias est classé Netlify `branch-deploy` (branche gym-demo-preview-20261117), alors que les valeurs GYM_DEMO_* sont définies uniquement pour `deploy-preview`. Contrôles HTTP : /demo 200 ; /api/health 200 avec recruiterDemo.status=disabled et Supabase=false ; /api/demo/catalog 503. robots.txt interdit l’indexation, mais le sitemap liste l’alias et X-Robots-Tag est absent. Les correctifs locaux de sitemap/en-têtes ne sont pas encore publiés ; le parcours Supabase distant n’a pas été testé.",
-      "next": "Dans Netlify, ajouter les variables de démo au seul contexte de branche gym-demo-preview-20261117 (portées fonctions/runtime) et NEXT_PUBLIC_APP_URL vers l’alias. Conserver les valeurs deploy-preview et laisser Production vide. Puis lancer le garde-fou, redéployer le même alias avec les correctifs sitemap/en-têtes, et tester deux sessions, persistance, isolation, paiement simulé et effacement. Aucun secret dans Git ou la conversation."
+      "blocker": "Le déploiement par alias reste `branch-deploy`, alors que les six GYM_DEMO_* ne sont renseignées que pour `deploy-preview`; NEXT_PUBLIC_APP_URL n’a pas de valeur pour la branche gym-demo-preview-20261117. Les routes restent désactivées (/api/health: recruiterDemo.status=disabled ; /api/demo/catalog: 503). Le sitemap/en-têtes corrigés localement ne sont pas encore déployés.",
+      "next": "Configurer dans Netlify les six GYM_DEMO_* et NEXT_PUBLIC_APP_URL au seul contexte branch:gym-demo-preview-20261117 ; le préflight les nomme sans afficher de valeur secrète. Puis relancer le garde-fou, déployer le même alias avec les correctifs sitemap/en-têtes et tester deux sessions, persistance, isolation, paiement simulé et effacement. Production reste inchangée."
     },
     {
       "id": "GYM-D1.9",

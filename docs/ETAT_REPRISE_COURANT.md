@@ -1,3 +1,9 @@
+## Point de reprise - 18 novembre 2026, D1.8 toujours bloqué
+
+Recontrôle en lecture seule : branche `demo/recruiter-supabase-adapter-20261112` au SHA `76bdf996df4169e374ae8c048292cfaebc606ee1`, identique au distant. Netlify classe toujours l’alias comme `branch-deploy`; les six `GYM_DEMO_*` restent configurées uniquement en `deploy-preview`, sans valeurs pour la branche exacte, et `NEXT_PUBLIC_APP_URL` n’a pas de valeur spécifique pour cette branche. `/api/health` reste `recruiterDemo.status=disabled`, `/api/demo/catalog` reste 503.
+
+Amélioration du préflight : il énumère maintenant les sept variables de branche manquantes et s’arrête avant le build ; `py_compile` passe et aucun `netlify.toml` temporaire n’est créé. Aucun nouveau déploiement. D1.8 reste `blocked`, D1.9 `backlog`. Suite précise : saisir dans Netlify, contexte `branch:gym-demo-preview-20261117`, les variables `GYM_DEMO_SESSION_ENABLED`, `GYM_DEMO_SUPABASE_URL`, `GYM_DEMO_SUPABASE_PUBLISHABLE_KEY`, `GYM_DEMO_SUPABASE_SECRET_KEY`, `GYM_DEMO_SESSION_SECRET`, `GYM_DEMO_PURGE_SECRET`, et `NEXT_PUBLIC_APP_URL` vers l’alias. Ne pas mettre les secrets dans Git/chat ni modifier Production. Rapport : `docs/DEMO_D1_8_ALIAS_CONTEXT_2026-11-17.md`.
+
 ## Point de reprise - 17 novembre 2026, aperçu D1.8
 
 Branche `demo/recruiter-supabase-adapter-20261112`, commit local et distant avant ce lot `d3da6a8a883138a5afe69d0c3e7b5d0c4000de2d`. Le brouillon préexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et le cache Python non suivi sont préservés.

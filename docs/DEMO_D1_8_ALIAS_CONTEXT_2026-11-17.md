@@ -31,6 +31,12 @@ Le prochain contrôle distant nécessite, dans Netlify, des valeurs pour le seul
 - Le test unitaire du sitemap vérifie désormais qu’un hôte de démonstration ne figure pas dans le sitemap.
 - `git diff --check` : réussi.
 
+## Reprise - 18 novembre 2026
+
+Le commit `76bdf996df4169e374ae8c048292cfaebc606ee1` reste synchronisé entre la branche locale et GitHub. Le site Netlify et l’alias gardent les mêmes métadonnées ; les six `GYM_DEMO_*` manquent toujours au contexte exact `branch:gym-demo-preview-20261117`, et `NEXT_PUBLIC_APP_URL` n’a pas de valeur spécifique pour cette branche. Les contrôles HTTP confirment encore la démo désactivée et le catalogue en 503.
+
+Le préflight `python gym-next/scripts/deploy-isolated-demo.py --preview` a été exécuté après `py_compile`. Il s’arrête avant le build, liste les sept variables de branche manquantes et ne crée pas de `netlify.toml` temporaire. Aucun nouveau déploiement ni changement de compte n’a eu lieu.
+
 ## Suite
 
 GYM-D1.8 reste `blocked` : l’alias existe mais n’est pas raccordé à Supabase au runtime, et le parcours isolé n’a pas été testé. GYM-D1.9 reste `backlog`. Après configuration du contexte de branche exact, relancer le garde-fou, redéployer le même alias et contrôler santé, parcours complet, persistance, isolation et effacement avec deux sessions jetables avant de modifier les statuts.
