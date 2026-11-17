@@ -1,5 +1,5 @@
 """Build, verify runtime packaging, then deploy ONLY the existing isolated demo."""
-import hashlib, io, json, os, re, subprocess, sys, tarfile, urllib.request, zipfile
+import hashlib, io, json, os, re, shutil, subprocess, sys, tarfile, tempfile, urllib.request, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 SITE="86e0379e-4d1a-4cf0-936c-1439397354f4"
@@ -69,6 +69,7 @@ assert cli.is_file(), "Existing Netlify CLI not found; no automatic installation
 app=ROOT/"gym-next";temporary=app/"netlify.toml"
 assert not temporary.exists(), "Refuse to overwrite application configuration"
 base='[build]\nbase = "'+app.as_posix()+'"\ncommand = "npm run build"\npublish = "'+(app/".next").as_posix()+'"\n[build.environment]\nNODE_VERSION = "22"\n[[plugins]]\npackage = "@netlify/plugin-nextjs"\n'
+runtime_plugin=None
 temporary.write_text(base,encoding="utf-8")
 try:
     if "--prepared" not in sys.argv:
@@ -91,9 +92,36 @@ try:
         print("Verified isolated-demo package prepared; no publication requested",flush=True)
         sys.exit(0)
     print("Publishing verified package to the isolated demo only",flush=True)
-    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--no-build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
+    # Netlify CLI requires --context to accompany a build. For a context-scoped
+    # draft deploy, keep that supported path and materialize the Windows runtime
+    # bundle in a final local onPostBuild plugin, after the Next adapter finishes.
+    # The existing --prepared manifest still guards the source used for this build.
+    runtime_plugin=Path(tempfile.mkdtemp(prefix="gym-demo-runtime-plugin-",dir=app/".netlify"))
+    (runtime_plugin/"package.json").write_text(json.dumps({"name":"gym-demo-runtime-materializer","version":"1.0.0","type":"module"}),encoding="utf-8")
+    runtime_plugin_entry={
+        "python":sys.executable,
+        "script":str(app/"scripts/prepare-netlify-runtime.py"),
+        "cwd":str(ROOT),
+    }
+    plugin_source=(
+        'import { spawnSync } from "node:child_process";\n'
+        f'const config={json.dumps(runtime_plugin_entry)};\n'
+        'export const onPostBuild=async()=>{\n'
+        '  const result=spawnSync(config.python,[config.script],{cwd:config.cwd,stdio:"inherit",windowsHide:true});\n'
+        '  if(result.error) throw result.error;\n'
+        '  if(result.status!==0) throw new Error("Runtime package verification failed");\n'
+        '};\n'
+    )
+    (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
+    plugin_config=base+f'[[plugins]]\npackage = "{runtime_plugin.as_posix()}"\n'
+    temporary.write_text(plugin_config,encoding="utf-8")
+    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
     if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
     else: command.append("--prod")
     subprocess.run(command,cwd=app,env=env,check=True)
+    assert source_hashes()==verified_sources, "Source changed during publication"
+    with zipfile.ZipFile(archive) as bundle:
+        assert "node_modules/next/dist/server/lib/start-server.js" in bundle.namelist(), "Published runtime package lost the Next server"
 finally:
     temporary.unlink()
+    if runtime_plugin is not None: shutil.rmtree(runtime_plugin)
