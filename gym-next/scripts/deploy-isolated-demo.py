@@ -7,7 +7,8 @@ URL="https://getyourmentor-demo-20261014.netlify.app"
 PREVIEW_ALIAS="gym-demo-preview-20261117"
 PREVIEW_URL=f"https://{PREVIEW_ALIAS}--getyourmentor-demo-20261014.netlify.app"
 preview_mode="--preview" in sys.argv
-deploy_context="deploy-preview" if preview_mode else "production"
+deploy_context="branch-deploy" if preview_mode else "production"
+netlify_context=f"branch:{PREVIEW_ALIAS}" if preview_mode else "production"
 deploy_url=PREVIEW_URL if preview_mode else URL
 source_commit=os.environ.get("GYM_DEMO_SOURCE_COMMIT") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
 assert re.fullmatch(r"[0-9a-f]{40}",source_commit), "A full source commit is required"
@@ -49,12 +50,12 @@ env=dict(os.environ)
 for key in list(env):
     if key.startswith(("SUPABASE_","NEXT_PUBLIC_SUPABASE_","GYM_DEMO_","STRIPE_","RESEND_","LEGAL_")) or key in ["OPENAI_API_KEY","ANTHROPIC_API_KEY","GEMINI_API_KEY","GETYOURMENTOR_ACCEPTANCE_MODE"]: env.pop(key,None)
 for item in variables:
-    specific=[v for v in item["values"] if v.get("context")==deploy_context]
+    specific=[v for v in item["values"] if (v.get("context")==deploy_context or (preview_mode and v.get("context")=="branch")) and (not preview_mode or v.get("context_parameter")==PREVIEW_ALIAS)]
     shared=[v for v in item["values"] if v.get("context")=="all"]
     values=specific or shared
     assert values, "Missing demo environment variable"
     if preview_mode and item["key"].startswith("GYM_DEMO_"):
-        assert specific, "Demo configuration must be scoped to Deploy Previews"
+        assert specific, "Demo configuration must be scoped to the exact preview branch alias"
     if item["key"] in secret_names:
         # Netlify intentionally withholds secret values from its API. The authenticated
         # CLI build/runtime fetches them from the project; never copy them into this process.
@@ -71,6 +72,7 @@ assert cli.is_file(), "Existing Netlify CLI not found; no automatic installation
 app=ROOT/"gym-next";temporary=app/"netlify.toml"
 assert not temporary.exists(), "Refuse to overwrite application configuration"
 base='[build]\nbase = "'+app.as_posix()+'"\ncommand = "npm run build"\npublish = "'+(app/".next").as_posix()+'"\n[build.environment]\nNODE_VERSION = "22"\n[[plugins]]\npackage = "@netlify/plugin-nextjs"\n'
+post_process='\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n'
 runtime_plugin=None
 temporary.write_text(base,encoding="utf-8")
 try:
@@ -92,7 +94,7 @@ try:
         prepared.get("sources",{}).pop("gym-next/scripts/deploy-isolated-demo.py",None)
         assert prepared.get("sourceCommit")==source_commit and prepared.get("sources")==verified_sources, "Prepared source is stale or unverified: abort"
     else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
-    temporary.write_text(base+'\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n',encoding="utf-8")
+    temporary.write_text(base+post_process,encoding="utf-8")
     if "--prepare-only" in sys.argv:
         print("Verified isolated-demo package prepared; no publication requested",flush=True)
         sys.exit(0)
@@ -119,9 +121,9 @@ try:
         '};\n'
     )
     (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
-    plugin_config=base+f'[[plugins]]\npackage = "./{runtime_plugin.relative_to(app).as_posix()}"\n'
+    plugin_config=base+post_process+f'[[plugins]]\npackage = "./{runtime_plugin.relative_to(app).as_posix()}"\n'
     temporary.write_text(plugin_config,encoding="utf-8")
-    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--message","GetYourMentor isolated demo: verified source "+source_commit]
+    command=["node",str(cli),"deploy","--site",SITE,"--context",netlify_context,"--build","--message","GetYourMentor isolated demo: verified source "+source_commit]
     if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
     else: command.append("--prod")
     subprocess.run(command,cwd=app,env=env,check=True)

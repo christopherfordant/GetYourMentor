@@ -1,4 +1,23 @@
 import { expect, test } from "@playwright/test";
+import sitemap from "../app/sitemap";
+
+test("le sitemap ne référence pas l'hôte d'une démonstration", () => {
+  const keys = ["DEPLOY_ENV", "GETYOURMENTOR_ALLOW_DEMO", "PAYMENT_PROVIDER", "SESSION_SECRET", "SITE_ID", "NEXT_PUBLIC_APP_URL", "SUPABASE_URL", "NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "SUPABASE_ANON_KEY", "STRIPE_SECRET_KEY", "STRIPE_WEBHOOK_SECRET", "RESEND_API_KEY"];
+  const previous = new Map(keys.map((key) => [key, process.env[key]]));
+  for (const key of keys) delete process.env[key];
+  Object.assign(process.env, {
+    DEPLOY_ENV: "demo", GETYOURMENTOR_ALLOW_DEMO: "true", PAYMENT_PROVIDER: "local",
+    SESSION_SECRET: "demo-only-session-secret-with-more-than-32-characters", SITE_ID: "86e0379e-4d1a-4cf0-936c-1439397354f4",
+    NEXT_PUBLIC_APP_URL: "https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app",
+  });
+  try { expect(sitemap()).toEqual([]); }
+  finally {
+    for (const key of keys) {
+      const value = previous.get(key);
+      if (value === undefined) delete process.env[key]; else process.env[key] = value;
+    }
+  }
+});
 
 test("la page d'accueil expose les métadonnées SEO essentielles", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });

@@ -35,12 +35,12 @@ test("runtime config accepte seulement le site et le projet de d√©monstration d√
   expect(getDemoSessionConfig({ ...env, GYM_DEMO_SESSION_SECRET: "short" })).toBeNull();
   expect(isDemoRecruiterEntryEnabled(env)).toBe(true);
   const previewUrl = "https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app";
-  const previewEnv = { ...env, CONTEXT: "deploy-preview", DEPLOY_PRIME_URL: "https://a1b2c3--getyourmentor-demo-20261014.netlify.app", NEXT_PUBLIC_APP_URL: previewUrl } as NodeJS.ProcessEnv;
+  const previewEnv = { ...env, CONTEXT: "branch-deploy", DEPLOY_PRIME_URL: "https://a1b2c3--getyourmentor-demo-20261014.netlify.app", NEXT_PUBLIC_APP_URL: previewUrl } as NodeJS.ProcessEnv;
   expect(getDemoSessionConfig(previewEnv)).not.toBeNull();
   expect(getDemoPurgeConfig(previewEnv)).not.toBeNull();
   expect(isDemoRecruiterEntryEnabled(previewEnv)).toBe(true);
   expect(getDemoSessionConfig({ ...previewEnv, NEXT_PUBLIC_APP_URL: "https://other--getyourmentor-demo-20261014.netlify.app" })).toBeNull();
-  expect(getDemoSessionConfig({ ...previewEnv, CONTEXT: "branch-deploy" })).toBeNull();
+  expect(getDemoSessionConfig({ ...previewEnv, CONTEXT: "deploy-preview" })).toBeNull();
   expect(isDemoRecruiterEntryEnabled({ ...env, CONTEXT: "branch-deploy" })).toBe(false);
   expect(isDemoRecruiterEntryEnabled({ ...env, SITE_ID: "other" })).toBe(false);
   expect(isDemoRecruiterEntryEnabled({ ...env, NEXT_PUBLIC_APP_URL: "https://gregarious-fox-fff605.netlify.app" })).toBe(false);

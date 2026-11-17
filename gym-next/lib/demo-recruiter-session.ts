@@ -12,7 +12,9 @@ function isAllowedDemoAppUrl(app: URL, env: NodeJS.ProcessEnv) {
   if (app.hostname === DEMO_HOST) return !env.CONTEXT || env.CONTEXT === "production";
   // A fixed, site-owned draft alias is stable even when Netlify's per-deploy
   // DEPLOY_PRIME_URL points at its unique deployment URL.
-  return app.hostname === DEMO_PREVIEW_HOST && env.CONTEXT === "deploy-preview";
+  // Netlify assigns an alias deploy to the named branch-deploy context, not
+  // the Deploy Preview context. Keep this exact host/context pair isolated.
+  return app.hostname === DEMO_PREVIEW_HOST && env.CONTEXT === "branch-deploy";
 }
 
 export type RecruiterDemoSession = {

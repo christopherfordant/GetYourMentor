@@ -1,3 +1,13 @@
+## Point de reprise - 17 novembre 2026, aperçu D1.8
+
+Branche `demo/recruiter-supabase-adapter-20261112`, commit local et distant avant ce lot `d3da6a8a883138a5afe69d0c3e7b5d0c4000de2d`. Le brouillon préexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et le cache Python non suivi sont préservés.
+
+Un déploiement brouillon a été envoyé au seul site Netlify `getyourmentor-demo-20261014`, alias `https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app`. Netlify le classe `branch-deploy`, branche `gym-demo-preview-20261117`, et non `deploy-preview`. Les variables `GYM_DEMO_*` sont définies pour `deploy-preview` seulement, absentes de la branche de l’alias et de Production. Résultats HTTP : `/demo` 200, `/api/health` 200 avec Supabase faux et démo désactivée, `/api/demo/catalog` 503. `robots.txt` interdit l’indexation, mais le sitemap liste l’alias et l’en-tête `X-Robots-Tag` manque ; les correctifs locaux de sitemap et d’assemblage Netlify attendent un futur déploiement. Aucun parcours distant ni rendu visuel n’est validé ; aucune publication Production, migration, réservation, paiement ou notification n’a eu lieu. Preuve : `docs/DEMO_D1_8_ALIAS_CONTEXT_2026-11-17.md`.
+
+Correction locale : le code accepte l’alias exact uniquement en `branch-deploy` ; le script exige des variables pour cette branche exacte et passe `branch:<alias>` au CLI. Le sitemap de démonstration est aussi exclu et le script conserve les en-têtes de protection au prochain déploiement. Tests ciblés réussis après un build local propre. GYM-D1.8 reste `blocked`, GYM-D1.9 reste `backlog` ; le Kanban reflète ces faits.
+
+Action requise : dans Netlify, configurer les variables de démo pour le seul contexte de branche `gym-demo-preview-20261117`, y compris `NEXT_PUBLIC_APP_URL` vers l’alias et les portées fonctions/runtime. Garder Production vide et conserver les valeurs `deploy-preview`. Ne communiquer aucun secret. Après configuration, reconstruire et contrôler le même alias, puis tester deux sessions Supabase pour la persistance, l’isolation, le paiement simulé et l’effacement.
+
 ## Point de reprise — 16 novembre 2026, préflight D1.8
 
 Après le commit `3cc3e0e62e567207228f5d4396e02365e64bdf82`, branche et upstream sont synchronisés. Le brouillon utilisateur `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` demeure modifié mais hors index. D1.5–D1.7 restent terminés dans le périmètre du candidat local ; D1.8 passe à `blocked`, D1.9 reste en attente.
