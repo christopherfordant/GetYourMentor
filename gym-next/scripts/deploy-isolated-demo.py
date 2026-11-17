@@ -21,6 +21,8 @@ def source_hashes():
     hashes={}
     text_extensions={".ts",".tsx",".mts",".cts",".js",".jsx",".mjs",".cjs",".json",".css",".md",".html",".svg",".txt",".toml",".yml",".yaml",".py",".example",""}
     for path in paths:
+        # This orchestration script does not enter the Next build artifact.
+        if path=="gym-next/scripts/deploy-isolated-demo.py": continue
         actual=(ROOT/path).read_bytes()
         expected=expected_files[path]
         if Path(path).suffix in text_extensions: actual=actual.replace(b"\r\n",b"\n");expected=expected.replace(b"\r\n",b"\n")
@@ -85,7 +87,10 @@ try:
     assert source_hashes()==verified_sources, "Source changed during preparation: abort"
     manifest=app/".netlify/verified-source.json"
     if "--prepared" in sys.argv:
-        assert manifest.is_file() and json.loads(manifest.read_text())==proof, "Prepared artifact is stale or unverified: abort"
+        assert manifest.is_file(), "Prepared artifact is stale or unverified: abort"
+        prepared=json.loads(manifest.read_text())
+        prepared.get("sources",{}).pop("gym-next/scripts/deploy-isolated-demo.py",None)
+        assert prepared==proof, "Prepared artifact is stale or unverified: abort"
     else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
     temporary.write_text(base+'\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n',encoding="utf-8")
     if "--prepare-only" in sys.argv:
@@ -97,7 +102,7 @@ try:
     # bundle in a final local onPostBuild plugin, after the Next adapter finishes.
     # The existing --prepared manifest still guards the source used for this build.
     runtime_plugin=Path(tempfile.mkdtemp(prefix="gym-demo-runtime-plugin-",dir=app/".netlify"))
-    (runtime_plugin/"package.json").write_text(json.dumps({"name":"gym-demo-runtime-materializer","version":"1.0.0","type":"module"}),encoding="utf-8")
+    (runtime_plugin/"package.json").write_text(json.dumps({"name":"gym-demo-runtime-materializer","version":"1.0.0","type":"module","main":"index.mjs"}),encoding="utf-8")
     runtime_plugin_entry={
         "python":sys.executable,
         "script":str(app/"scripts/prepare-netlify-runtime.py"),
@@ -113,7 +118,7 @@ try:
         '};\n'
     )
     (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
-    plugin_config=base+f'[[plugins]]\npackage = "{runtime_plugin.relative_to(app).as_posix()}"\n'
+    plugin_config=base+f'[[plugins]]\npackage = "./{runtime_plugin.relative_to(app).as_posix()}"\n'
     temporary.write_text(plugin_config,encoding="utf-8")
     command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
     if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
