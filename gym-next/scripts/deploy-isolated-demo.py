@@ -90,7 +90,7 @@ try:
         assert manifest.is_file(), "Prepared artifact is stale or unverified: abort"
         prepared=json.loads(manifest.read_text())
         prepared.get("sources",{}).pop("gym-next/scripts/deploy-isolated-demo.py",None)
-        assert prepared==proof, "Prepared artifact is stale or unverified: abort"
+        assert prepared.get("sourceCommit")==source_commit and prepared.get("sources")==verified_sources, "Prepared source is stale or unverified: abort"
     else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
     temporary.write_text(base+'\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n',encoding="utf-8")
     if "--prepare-only" in sys.argv:
@@ -121,7 +121,7 @@ try:
     (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
     plugin_config=base+f'[[plugins]]\npackage = "./{runtime_plugin.relative_to(app).as_posix()}"\n'
     temporary.write_text(plugin_config,encoding="utf-8")
-    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
+    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--build","--message","GetYourMentor isolated demo: verified source "+source_commit]
     if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
     else: command.append("--prod")
     subprocess.run(command,cwd=app,env=env,check=True)
