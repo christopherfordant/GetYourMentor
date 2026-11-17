@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import {
   cronAuthorized, createRecruiterDemoSession, DEMO_SESSION_TTL_SECONDS, eraseRecruiterDemoSession,
-  getDemoPurgeConfig, getDemoSessionConfig, hasDemoSessionRow, openDemoSession,
+  getDemoPurgeConfig, getDemoSessionConfig, hasDemoSessionRow, isDemoRecruiterEntryEnabled, openDemoSession,
   purgeExpiredRecruiterDemoSessions, refreshRecruiterDemoSession, sameOriginRequest,
   sealDemoSession, type DemoSessionConfig, type RecruiterDemoSession,
 } from "../lib/demo-recruiter-session";
@@ -10,7 +10,7 @@ import { POST as purgeRoute } from "../app/api/cron/demo-session-purge/route";
 
 const secret = "fixture-only-session-key-with-at-least-32-chars";
 const config: DemoSessionConfig = {
-  supabaseUrl: "https://rqxoovriacgoriimpbwi.supabase.co", anonKey: "anon-fixture", serviceRoleKey: "service-fixture", cookieSecret: secret,
+  supabaseUrl: "https://rqxoovriacgoriimpbwi.supabase.co", publishableKey: "sb_publishable_fixture", secretKey: "sb_secret_fixture", cookieSecret: secret,
 };
 const athlete: RecruiterDemoSession = {
   userId: "8cde8df1-5ec2-47d3-9fa2-714145eb8981", sessionId: "e2e0d625-9d25-4aa1-b005-cb4832ca3063",
@@ -22,15 +22,28 @@ test("runtime config accepte seulement le site et le projet de démonstration d�
   const env = {
     NODE_ENV: "production", GYM_DEMO_SESSION_ENABLED: "true", DEPLOY_ENV: "demo", SITE_ID: "86e0379e-4d1a-4cf0-936c-1439397354f4",
     NEXT_PUBLIC_APP_URL: "https://getyourmentor-demo-20261014.netlify.app", GYM_DEMO_SUPABASE_URL: config.supabaseUrl,
-    GYM_DEMO_SUPABASE_ANON_KEY: config.anonKey, GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY: config.serviceRoleKey,
+    GYM_DEMO_SUPABASE_PUBLISHABLE_KEY: config.publishableKey, GYM_DEMO_SUPABASE_SECRET_KEY: config.secretKey,
     GYM_DEMO_SESSION_SECRET: secret, GYM_DEMO_PURGE_SECRET: secret,
   } as NodeJS.ProcessEnv;
   expect(getDemoSessionConfig(env)).not.toBeNull();
   expect(getDemoPurgeConfig(env)).toMatchObject({ supabaseUrl: config.supabaseUrl });
   expect(getDemoSessionConfig({ ...env, SITE_ID: "other" })).toBeNull();
   expect(getDemoSessionConfig({ ...env, GYM_DEMO_SUPABASE_URL: "https://example.supabase.co" })).toBeNull();
+  expect(getDemoSessionConfig({ ...env, GYM_DEMO_SUPABASE_PUBLISHABLE_KEY: "anon-legacy-fixture" })).toBeNull();
+  expect(getDemoSessionConfig({ ...env, GYM_DEMO_SUPABASE_SECRET_KEY: "service_role-legacy-fixture" })).toBeNull();
   expect(getDemoSessionConfig({ ...env, NEXT_PUBLIC_APP_URL: "https://gregarious-fox-fff605.netlify.app" })).toBeNull();
   expect(getDemoSessionConfig({ ...env, GYM_DEMO_SESSION_SECRET: "short" })).toBeNull();
+  expect(isDemoRecruiterEntryEnabled(env)).toBe(true);
+  const previewUrl = "https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app";
+  const previewEnv = { ...env, CONTEXT: "deploy-preview", DEPLOY_PRIME_URL: previewUrl, NEXT_PUBLIC_APP_URL: previewUrl } as NodeJS.ProcessEnv;
+  expect(getDemoSessionConfig(previewEnv)).not.toBeNull();
+  expect(getDemoPurgeConfig(previewEnv)).not.toBeNull();
+  expect(isDemoRecruiterEntryEnabled(previewEnv)).toBe(true);
+  expect(getDemoSessionConfig({ ...previewEnv, DEPLOY_PRIME_URL: "https://other.netlify.app" })).toBeNull();
+  expect(getDemoSessionConfig({ ...previewEnv, CONTEXT: "branch-deploy" })).toBeNull();
+  expect(isDemoRecruiterEntryEnabled({ ...env, CONTEXT: "branch-deploy" })).toBe(false);
+  expect(isDemoRecruiterEntryEnabled({ ...env, SITE_ID: "other" })).toBe(false);
+  expect(isDemoRecruiterEntryEnabled({ ...env, NEXT_PUBLIC_APP_URL: "https://gregarious-fox-fff605.netlify.app" })).toBe(false);
 });
 
 test("cookie chiffré accepte une session valide et refuse altération, autre secret et expiration", () => {
@@ -61,15 +74,18 @@ test("création vérifie le caractère anonyme puis persiste une session individ
 
 test("un utilisateur non anonyme est refusé et son identité fraîchement créée est compensée", async () => {
   const calls: string[] = [];
-  const fetcher: typeof fetch = async (input) => {
+  let adminHeaders = new Headers();
+  const fetcher: typeof fetch = async (input, init) => {
     const url = String(input); calls.push(url);
     if (url.endsWith("/auth/v1/signup")) return json({ access_token: "access", refresh_token: "refresh", expires_in: 3600, user: { id: athlete.userId } });
     if (url.endsWith("/auth/v1/user")) return json({ id: athlete.userId, is_anonymous: false });
-    if (url.includes("/auth/v1/admin/users/")) return json({ id: athlete.userId }, 200);
+    if (url.includes("/auth/v1/admin/users/")) { adminHeaders = new Headers(init?.headers); return json({ id: athlete.userId }, 200); }
     throw new Error(`unexpected URL ${url}`);
   };
   await expect(createRecruiterDemoSession(config, fetcher)).rejects.toThrow("identité anonyme");
   expect(calls.at(-1)).toContain("/auth/v1/admin/users/");
+  expect(adminHeaders.get("apikey")).toBe(config.secretKey);
+  expect(adminHeaders.get("Authorization")).toBeNull();
   expect(calls.some((url) => url.includes("/rest/v1/gym_demo_sessions"))).toBe(false);
 });
 
@@ -94,9 +110,9 @@ test("relecture RLS requête uniquement la ligne sportive détenue par l'identit
 });
 
 test("effacement supprime d'abord les données possédées, puis l'identité Auth vérifiée", async () => {
-  const calls: Array<{ url: string; method: string; body?: string }> = [];
+  const calls: Array<{ url: string; method: string; body?: string; headers?: Headers }> = [];
   const fetcher: typeof fetch = async (input, init) => {
-    const url = String(input), method = init?.method ?? "GET"; calls.push({ url, method, body: init?.body?.toString() });
+    const url = String(input), method = init?.method ?? "GET"; calls.push({ url, method, body: init?.body?.toString(), headers: new Headers(init?.headers) });
     return url.includes("/rpc/gym_demo_delete_my_athlete_session") ? json(true) : json({ id: athlete.userId });
   };
   await eraseRecruiterDemoSession(config, athlete, fetcher);
@@ -104,13 +120,15 @@ test("effacement supprime d'abord les données possédées, puis l'identité Aut
   expect(JSON.parse(calls[0].body ?? "{}")).toEqual({ p_session_id: athlete.sessionId });
   expect(calls[1]).toMatchObject({ method: "DELETE" });
   expect(calls[1].url).toContain(encodeURIComponent(athlete.userId));
+  expect(calls[1].headers?.get("apikey")).toBe(config.secretKey);
+  expect(calls[1].headers?.get("Authorization")).toBeNull();
 });
 
 test("purge TTL ne supprime que les identités anonymes expirées et suspend tout si le contrôle échoue", async () => {
   const userId = athlete.userId;
-  const calls: Array<{ url: string; method: string }> = [];
+  const calls: Array<{ url: string; method: string; headers?: Headers }> = [];
   const fetcher: typeof fetch = async (input, init) => {
-    const url = String(input), method = init?.method ?? "GET"; calls.push({ url, method });
+    const url = String(input), method = init?.method ?? "GET"; calls.push({ url, method, headers: new Headers(init?.headers) });
     if (url.includes("/rest/v1/gym_demo_sessions?")) return json([{ owner_user_id: userId }]);
     if (url.includes("/auth/v1/admin/users/") && method === "GET") return json({ user: { id: userId, is_anonymous: true } });
     if (url.includes("/auth/v1/admin/users/") && method === "DELETE") return json({ id: userId });
@@ -119,6 +137,10 @@ test("purge TTL ne supprime que les identités anonymes expirées et suspend tou
   };
   expect(await purgeExpiredRecruiterDemoSessions(config, fetcher)).toEqual({ identitiesDeleted: 1, residualSessionsDeleted: 0 });
   expect(calls.map((call) => call.method)).toEqual(["GET", "GET", "DELETE", "POST"]);
+  for (const call of calls) {
+    expect(call.headers?.get("apikey")).toBe(config.secretKey);
+    expect(call.headers?.get("Authorization")).toBeNull();
+  }
   const unsafe: typeof fetch = async (input, init) => String(input).includes("/rest/v1/gym_demo_sessions?")
     ? json([{ owner_user_id: userId }])
     : json({ user: { id: userId, is_anonymous: false } });
@@ -146,14 +168,14 @@ test("la route de session ne s’active pas en local sans la configuration dédi
 });
 
 test("routes réelles : démarrage, relecture, effacement Auth et cookie exclusivement simulés", async () => {
-  const envKeys = ["GYM_DEMO_SESSION_ENABLED", "DEPLOY_ENV", "SITE_ID", "NEXT_PUBLIC_APP_URL", "GYM_DEMO_SUPABASE_URL", "GYM_DEMO_SUPABASE_ANON_KEY", "GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY", "GYM_DEMO_SESSION_SECRET"];
+  const envKeys = ["GYM_DEMO_SESSION_ENABLED", "DEPLOY_ENV", "SITE_ID", "NEXT_PUBLIC_APP_URL", "GYM_DEMO_SUPABASE_URL", "GYM_DEMO_SUPABASE_PUBLISHABLE_KEY", "GYM_DEMO_SUPABASE_SECRET_KEY", "GYM_DEMO_SESSION_SECRET"];
   const previous = new Map(envKeys.map((key) => [key, process.env[key]]));
   const originalFetch = globalThis.fetch;
   let identityDeletes = 0, sessionDeletes = 0;
   Object.assign(process.env, {
     GYM_DEMO_SESSION_ENABLED: "true", DEPLOY_ENV: "demo", SITE_ID: "86e0379e-4d1a-4cf0-936c-1439397354f4",
     NEXT_PUBLIC_APP_URL: "https://getyourmentor-demo-20261014.netlify.app", GYM_DEMO_SUPABASE_URL: config.supabaseUrl,
-    GYM_DEMO_SUPABASE_ANON_KEY: config.anonKey, GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY: config.serviceRoleKey,
+    GYM_DEMO_SUPABASE_PUBLISHABLE_KEY: config.publishableKey, GYM_DEMO_SUPABASE_SECRET_KEY: config.secretKey,
     GYM_DEMO_SESSION_SECRET: secret,
   });
   globalThis.fetch = (async (input, init) => {
@@ -200,14 +222,14 @@ test("routes réelles : démarrage, relecture, effacement Auth et cookie exclusi
 });
 
 test("route cron vérifie son secret avant la purge et ne renvoie aucune configuration", async () => {
-  const envKeys = ["GYM_DEMO_SESSION_ENABLED", "DEPLOY_ENV", "SITE_ID", "NEXT_PUBLIC_APP_URL", "GYM_DEMO_SUPABASE_URL", "GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY", "GYM_DEMO_PURGE_SECRET"];
+  const envKeys = ["GYM_DEMO_SESSION_ENABLED", "DEPLOY_ENV", "SITE_ID", "NEXT_PUBLIC_APP_URL", "GYM_DEMO_SUPABASE_URL", "GYM_DEMO_SUPABASE_SECRET_KEY", "GYM_DEMO_PURGE_SECRET"];
   const previous = new Map(envKeys.map((key) => [key, process.env[key]]));
   const originalFetch = globalThis.fetch;
   let providerCalls = 0;
   Object.assign(process.env, {
     GYM_DEMO_SESSION_ENABLED: "true", DEPLOY_ENV: "demo", SITE_ID: "86e0379e-4d1a-4cf0-936c-1439397354f4",
     NEXT_PUBLIC_APP_URL: "https://getyourmentor-demo-20261014.netlify.app", GYM_DEMO_SUPABASE_URL: config.supabaseUrl,
-    GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY: config.serviceRoleKey, GYM_DEMO_PURGE_SECRET: secret,
+    GYM_DEMO_SUPABASE_SECRET_KEY: config.secretKey, GYM_DEMO_PURGE_SECRET: secret,
   });
   globalThis.fetch = (async (input) => {
     providerCalls++;

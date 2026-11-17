@@ -6,6 +6,14 @@ export const DEMO_SITE_ID = "86e0379e-4d1a-4cf0-936c-1439397354f4";
 export const DEMO_SUPABASE_HOST = "rqxoovriacgoriimpbwi.supabase.co";
 const DEMO_HOST = "getyourmentor-demo-20261014.netlify.app";
 
+function isAllowedDemoAppUrl(app: URL, env: NodeJS.ProcessEnv) {
+  if (app.protocol !== "https:" || app.username || app.password || app.port || app.pathname !== "/" || app.search || app.hash) return false;
+  if (app.hostname === DEMO_HOST) return !env.CONTEXT || env.CONTEXT === "production";
+  return app.hostname.endsWith(`--${DEMO_HOST}`)
+    && env.CONTEXT === "deploy-preview"
+    && env.DEPLOY_PRIME_URL === app.origin;
+}
+
 export type RecruiterDemoSession = {
   userId: string;
   sessionId: string;
@@ -16,14 +24,24 @@ export type RecruiterDemoSession = {
 
 export type DemoSessionConfig = {
   supabaseUrl: string;
-  anonKey: string;
-  serviceRoleKey: string;
+  publishableKey: string;
+  secretKey: string;
   cookieSecret: string;
 };
 
-export type DemoPurgeConfig = { supabaseUrl: string; serviceRoleKey: string };
+export type DemoPurgeConfig = { supabaseUrl: string; secretKey: string };
 
 type Fetcher = typeof fetch;
+
+export function isDemoRecruiterEntryEnabled(env: NodeJS.ProcessEnv = process.env) {
+  try {
+    const app = new URL(env.NEXT_PUBLIC_APP_URL ?? "");
+    return env.GYM_DEMO_SESSION_ENABLED === "true" && env.DEPLOY_ENV === "demo"
+      && env.SITE_ID === DEMO_SITE_ID && isAllowedDemoAppUrl(app, env);
+  } catch {
+    return false;
+  }
+}
 
 function requestCookieValue(request: Request) {
   const prefix = `${DEMO_SESSION_COOKIE}=`;
@@ -66,14 +84,15 @@ export function getDemoSessionConfig(env: NodeJS.ProcessEnv = process.env): Demo
     const supabase = new URL(env.GYM_DEMO_SUPABASE_URL ?? "");
     const config = {
       supabaseUrl: supabase.origin,
-      anonKey: env.GYM_DEMO_SUPABASE_ANON_KEY ?? "",
-      serviceRoleKey: env.GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY ?? "",
+      publishableKey: env.GYM_DEMO_SUPABASE_PUBLISHABLE_KEY ?? "",
+      secretKey: env.GYM_DEMO_SUPABASE_SECRET_KEY ?? "",
       cookieSecret: env.GYM_DEMO_SESSION_SECRET ?? "",
     };
     if (env.GYM_DEMO_SESSION_ENABLED !== "true" || env.DEPLOY_ENV !== "demo"
-      || env.SITE_ID !== DEMO_SITE_ID || app.protocol !== "https:" || app.hostname !== DEMO_HOST
+      || env.SITE_ID !== DEMO_SITE_ID || !isAllowedDemoAppUrl(app, env)
       || supabase.protocol !== "https:" || supabase.hostname !== DEMO_SUPABASE_HOST
-      || !config.anonKey || !config.serviceRoleKey || config.cookieSecret.length < 32) return null;
+      || !config.publishableKey.startsWith("sb_publishable_") || !config.secretKey.startsWith("sb_secret_")
+      || config.cookieSecret.length < 32) return null;
     return config;
   } catch {
     return null;
@@ -85,10 +104,11 @@ export function getDemoPurgeConfig(env: NodeJS.ProcessEnv = process.env): DemoPu
     const app = new URL(env.NEXT_PUBLIC_APP_URL ?? env.URL ?? "");
     const supabase = new URL(env.GYM_DEMO_SUPABASE_URL ?? "");
     if (env.GYM_DEMO_SESSION_ENABLED !== "true" || env.DEPLOY_ENV !== "demo"
-      || env.SITE_ID !== DEMO_SITE_ID || app.protocol !== "https:" || app.hostname !== DEMO_HOST
+      || env.SITE_ID !== DEMO_SITE_ID || !isAllowedDemoAppUrl(app, env)
       || supabase.protocol !== "https:" || supabase.hostname !== DEMO_SUPABASE_HOST
-      || !(env.GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY ?? "") || (env.GYM_DEMO_PURGE_SECRET ?? "").length < 32) return null;
-    return { supabaseUrl: supabase.origin, serviceRoleKey: env.GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY! };
+      || !(env.GYM_DEMO_SUPABASE_SECRET_KEY ?? "").startsWith("sb_secret_")
+      || (env.GYM_DEMO_PURGE_SECRET ?? "").length < 32) return null;
+    return { supabaseUrl: supabase.origin, secretKey: env.GYM_DEMO_SUPABASE_SECRET_KEY! };
   } catch {
     return null;
   }
@@ -143,14 +163,14 @@ async function parseJson(response: Response) {
 async function adminDelete(config: DemoSessionConfig, userId: string, fetcher: Fetcher) {
   return fetcher(`${config.supabaseUrl}/auth/v1/admin/users/${encodeURIComponent(userId)}`, {
     method: "DELETE",
-    headers: headers(config.serviceRoleKey, config.serviceRoleKey),
+    headers: headers(config.secretKey),
     cache: "no-store",
   });
 }
 
 export async function createRecruiterDemoSession(config: DemoSessionConfig, fetcher: Fetcher = fetch): Promise<RecruiterDemoSession> {
   const created = await fetcher(`${config.supabaseUrl}/auth/v1/signup`, {
-    method: "POST", headers: headers(config.anonKey, undefined, { "Content-Type": "application/json" }),
+    method: "POST", headers: headers(config.publishableKey, undefined, { "Content-Type": "application/json" }),
     body: JSON.stringify({ data: { demo_role: "sportif" } }), cache: "no-store",
   });
   const auth = await parseJson(created);
@@ -163,7 +183,7 @@ export async function createRecruiterDemoSession(config: DemoSessionConfig, fetc
 
   try {
     const verified = await fetcher(`${config.supabaseUrl}/auth/v1/user`, {
-      headers: headers(config.anonKey, authSession.access_token), cache: "no-store",
+      headers: headers(config.publishableKey, authSession.access_token), cache: "no-store",
     });
     const profile = await parseJson(verified);
     if (!verified.ok || profile?.id !== userId || profile?.is_anonymous !== true) throw new Error("L’identité anonyme n’a pas été vérifiée");
@@ -171,7 +191,7 @@ export async function createRecruiterDemoSession(config: DemoSessionConfig, fetc
     const expiresAt = Date.now() + DEMO_SESSION_TTL_SECONDS * 1000;
     const stored = await fetcher(`${config.supabaseUrl}/rest/v1/gym_demo_sessions`, {
       method: "POST",
-      headers: headers(config.anonKey, authSession.access_token, { "Content-Type": "application/json", Prefer: "return=representation" }),
+      headers: headers(config.publishableKey, authSession.access_token, { "Content-Type": "application/json", Prefer: "return=representation" }),
       body: JSON.stringify({ owner_user_id: userId, role: "sportif", expires_at: new Date(expiresAt).toISOString() }),
       cache: "no-store",
     });
@@ -187,7 +207,7 @@ export async function createRecruiterDemoSession(config: DemoSessionConfig, fetc
 
 export async function refreshRecruiterDemoSession(config: DemoSessionConfig, session: RecruiterDemoSession, fetcher: Fetcher = fetch): Promise<RecruiterDemoSession | null> {
   const current = await fetcher(`${config.supabaseUrl}/auth/v1/user`, {
-    headers: headers(config.anonKey, session.accessToken), cache: "no-store",
+    headers: headers(config.publishableKey, session.accessToken), cache: "no-store",
   });
   if (current.ok) {
     const user = await parseJson(current);
@@ -195,7 +215,7 @@ export async function refreshRecruiterDemoSession(config: DemoSessionConfig, ses
   }
   if (current.status !== 401 || session.expiresAt <= Date.now()) return null;
   const renewed = await fetcher(`${config.supabaseUrl}/auth/v1/token?grant_type=refresh_token`, {
-    method: "POST", headers: headers(config.anonKey, undefined, { "Content-Type": "application/json" }),
+    method: "POST", headers: headers(config.publishableKey, undefined, { "Content-Type": "application/json" }),
     body: JSON.stringify({ refresh_token: session.refreshToken }), cache: "no-store",
   });
   const data = await parseJson(renewed);
@@ -210,14 +230,14 @@ export async function hasDemoSessionRow(config: DemoSessionConfig, session: Recr
   url.searchParams.set("owner_user_id", `eq.${session.userId}`);
   url.searchParams.set("role", "eq.sportif");
   url.searchParams.set("select", "id");
-  const response = await fetcher(url, { headers: headers(config.anonKey, session.accessToken), cache: "no-store" });
+  const response = await fetcher(url, { headers: headers(config.publishableKey, session.accessToken), cache: "no-store" });
   const rows = await parseJson(response);
   return response.ok && Array.isArray(rows) && rows.some((row) => row?.id === session.sessionId);
 }
 
 export async function eraseRecruiterDemoSession(config: DemoSessionConfig, session: RecruiterDemoSession, fetcher: Fetcher = fetch) {
   const rpc = await fetcher(`${config.supabaseUrl}/rest/v1/rpc/gym_demo_delete_my_athlete_session`, {
-    method: "POST", headers: headers(config.anonKey, session.accessToken, { "Content-Type": "application/json" }),
+    method: "POST", headers: headers(config.publishableKey, session.accessToken, { "Content-Type": "application/json" }),
     body: JSON.stringify({ p_session_id: session.sessionId }), cache: "no-store",
   });
   if (!rpc.ok) throw new Error("L’effacement des données de démonstration a échoué");
@@ -232,22 +252,22 @@ export async function purgeExpiredRecruiterDemoSessions(config: DemoPurgeConfig,
   url.searchParams.set("role", "eq.sportif");
   url.searchParams.set("expires_at", `lte.${new Date().toISOString()}`);
   url.searchParams.set("select", "owner_user_id");
-  const expired = await fetcher(url, { headers: headers(config.serviceRoleKey, config.serviceRoleKey), cache: "no-store" });
+  const expired = await fetcher(url, { headers: headers(config.secretKey), cache: "no-store" });
   const rows = await parseJson(expired);
   if (!expired.ok || !Array.isArray(rows) || rows.some((row) => !isUuid(row?.owner_user_id))) throw new Error("Les sessions expirées n’ont pas pu être vérifiées");
   const uniqueUsers = [...new Set(rows.map((row) => row.owner_user_id as string))];
   for (const userId of uniqueUsers) {
     const userUrl = `${config.supabaseUrl}/auth/v1/admin/users/${encodeURIComponent(userId)}`;
-    const userResponse = await fetcher(userUrl, { headers: headers(config.serviceRoleKey, config.serviceRoleKey), cache: "no-store" });
+    const userResponse = await fetcher(userUrl, { headers: headers(config.secretKey), cache: "no-store" });
     if (userResponse.status === 404) continue;
     const userPayload = await parseJson(userResponse);
     const user = userPayload?.user ?? userPayload;
     if (!userResponse.ok || user?.id !== userId || user?.is_anonymous !== true) throw new Error("Une identité expirée n’a pas été vérifiée comme anonyme ; purge suspendue");
-    const deleted = await fetcher(userUrl, { method: "DELETE", headers: headers(config.serviceRoleKey, config.serviceRoleKey), cache: "no-store" });
+    const deleted = await fetcher(userUrl, { method: "DELETE", headers: headers(config.secretKey), cache: "no-store" });
     if (!deleted.ok && deleted.status !== 404) throw new Error("La suppression d’une identité expirée a échoué ; purge suspendue");
   }
   const response = await fetcher(`${config.supabaseUrl}/rest/v1/rpc/gym_demo_purge_expired_athlete_sessions`, {
-    method: "POST", headers: headers(config.serviceRoleKey, config.serviceRoleKey, { "Content-Type": "application/json" }),
+    method: "POST", headers: headers(config.secretKey, undefined, { "Content-Type": "application/json" }),
     body: "{}", cache: "no-store",
   });
   if (!response.ok) throw new Error("La purge des données expirées a échoué");

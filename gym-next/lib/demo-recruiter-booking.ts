@@ -52,8 +52,8 @@ export async function listDemoFixtures(config: DemoSessionConfig, fetcher: Fetch
   templatesUrl.searchParams.set("select", "fixture_key,slot_key,day_offset,starts_at_utc,duration_minutes");
   templatesUrl.searchParams.set("order", "day_offset.asc,starts_at_utc.asc");
   const [catalogResponse, slotsResponse] = await Promise.all([
-    fetcher(catalogUrl, { headers: restHeaders(config.anonKey), cache: "no-store" }),
-    fetcher(templatesUrl, { headers: restHeaders(config.anonKey), cache: "no-store" }),
+    fetcher(catalogUrl, { headers: restHeaders(config.publishableKey), cache: "no-store" }),
+    fetcher(templatesUrl, { headers: restHeaders(config.publishableKey), cache: "no-store" }),
   ]);
   const catalog = await json(catalogResponse);
   const templates = await json(slotsResponse);
@@ -85,7 +85,7 @@ export async function listMyDemoReservations(
   url.searchParams.set("athlete_session_id", `eq.${session.sessionId}`);
   url.searchParams.set("select", "id,coach_name_snapshot,sport_snapshot,service_snapshot,appointment_at,status,approval_mode,display_price_cents,payment_status,created_at");
   url.searchParams.set("order", "created_at.desc");
-  const response = await fetcher(url, { headers: restHeaders(config.anonKey, session.accessToken), cache: "no-store" });
+  const response = await fetcher(url, { headers: restHeaders(config.publishableKey, session.accessToken), cache: "no-store" });
   const rows = await json(response);
   if (!response.ok || !Array.isArray(rows)) throw new Error("Réservations de démonstration indisponibles");
   return (rows as JsonRecord[]).flatMap((row) => {
@@ -108,7 +108,7 @@ export async function bookDemoFixture(
   if (!/^[a-z0-9_-]{2,40}$/.test(fixtureKey) || !/^[a-z0-9_-]{2,40}$/.test(slotKey)
     || !uuidPattern.test(idempotencyKey)) throw new Error("invalid_request");
   const response = await fetcher(`${config.supabaseUrl}/rest/v1/rpc/gym_demo_book_and_accept_fixture`, {
-    method: "POST", headers: restHeaders(config.serviceRoleKey, config.serviceRoleKey, { "Content-Type": "application/json" }),
+    method: "POST", headers: restHeaders(config.secretKey, undefined, { "Content-Type": "application/json" }),
     body: JSON.stringify({ p_athlete_session_id: session.sessionId, p_fixture_key: fixtureKey,
       p_slot_key: slotKey, p_idempotency_key: idempotencyKey }), cache: "no-store",
   });
@@ -124,7 +124,7 @@ export async function confirmDemoPayment(
 ) {
   if (!uuidPattern.test(reservationId)) throw new Error("invalid_request");
   const response = await fetcher(`${config.supabaseUrl}/rest/v1/rpc/gym_demo_confirm_simulated_payment`, {
-    method: "POST", headers: restHeaders(config.serviceRoleKey, config.serviceRoleKey, { "Content-Type": "application/json" }),
+    method: "POST", headers: restHeaders(config.secretKey, undefined, { "Content-Type": "application/json" }),
     body: JSON.stringify({ p_athlete_session_id: session.sessionId, p_reservation_id: reservationId }), cache: "no-store",
   });
   const body = await json(response);

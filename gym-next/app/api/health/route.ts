@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getRuntimeReadiness, isHostedDemo } from "@/lib/runtime";
 import { readDemoState } from "@/lib/repositories/demo-state";
+import { getDemoSessionConfig } from "@/lib/demo-recruiter-session";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,10 @@ export async function GET() {
   }
   const status = readiness.mode === "demo" ? "demo" : readiness.ready ? "ok" : "degraded";
   return NextResponse.json(
-    { status, mode: readiness.mode, ready: readiness.ready, checks: readiness.checks },
+    {
+      status, mode: readiness.mode, ready: readiness.ready, checks: readiness.checks,
+      recruiterDemo: { available: getDemoSessionConfig() !== null, storage: "supabase" },
+    },
     { status: readiness.ready ? 200 : 503 },
   );
 }

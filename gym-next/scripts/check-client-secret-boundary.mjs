@@ -4,6 +4,9 @@ import path from "node:path";
 const staticDir = path.join(process.cwd(), ".next", "static");
 const forbiddenMarkers = [
   "SUPABASE_SERVICE_ROLE_KEY",
+  "GYM_DEMO_SUPABASE_SECRET_KEY",
+  "GYM_DEMO_SESSION_SECRET",
+  "GYM_DEMO_PURGE_SECRET",
   "STRIPE_SECRET_KEY",
   "STRIPE_WEBHOOK_SECRET",
   "RESEND_API_KEY",

@@ -4,6 +4,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 SITE="86e0379e-4d1a-4cf0-936c-1439397354f4"
 URL="https://getyourmentor-demo-20261014.netlify.app"
+PREVIEW_ALIAS="gym-demo-preview-20261117"
+PREVIEW_URL=f"https://{PREVIEW_ALIAS}--getyourmentor-demo-20261014.netlify.app"
+preview_mode="--preview" in sys.argv
+deploy_context="deploy-preview" if preview_mode else "production"
+deploy_url=PREVIEW_URL if preview_mode else URL
 source_commit=os.environ.get("GYM_DEMO_SOURCE_COMMIT") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
 assert re.fullmatch(r"[0-9a-f]{40}",source_commit), "A full source commit is required"
 with tarfile.open(fileobj=io.BytesIO(subprocess.check_output(["git","archive",source_commit,"gym-next"],cwd=ROOT)),mode="r:") as snapshot:
@@ -33,19 +38,33 @@ site=get("sites/"+SITE)
 assert site["id"]==SITE and site["ssl_url"]==URL and site["name"]=="getyourmentor-demo-20261014", "Wrong site: abort"
 assert not any((site.get("build_settings") or {}).get("env",{}).get(k) for k in ["SUPABASE_URL","SUPABASE_SERVICE_ROLE_KEY","STRIPE_SECRET_KEY","RESEND_API_KEY"]), "Unexpected legacy service configuration"
 variables=get("accounts/"+site["account_id"]+"/env?site_id="+SITE)
-allowed={"DEPLOY_ENV","GETYOURMENTOR_ALLOW_DEMO","PAYMENT_PROVIDER","NEXT_PUBLIC_APP_URL","SESSION_SECRET","PLATFORM_COMMISSION_BPS"}
+allowed={"DEPLOY_ENV","GETYOURMENTOR_ALLOW_DEMO","PAYMENT_PROVIDER","NEXT_PUBLIC_APP_URL","SESSION_SECRET","PLATFORM_COMMISSION_BPS",
+         "GYM_DEMO_SESSION_ENABLED","GYM_DEMO_SUPABASE_URL","GYM_DEMO_SUPABASE_PUBLISHABLE_KEY","GYM_DEMO_SUPABASE_SECRET_KEY",
+         "GYM_DEMO_SESSION_SECRET","GYM_DEMO_PURGE_SECRET"}
 assert {item["key"] for item in variables}==allowed, "Unexpected environment: abort"
+secret_names={"GYM_DEMO_SUPABASE_SECRET_KEY","GYM_DEMO_SESSION_SECRET","GYM_DEMO_PURGE_SECRET"}
 env=dict(os.environ)
 for key in list(env):
-    if key.startswith(("SUPABASE_","NEXT_PUBLIC_SUPABASE_","STRIPE_","RESEND_","LEGAL_")) or key in ["OPENAI_API_KEY","ANTHROPIC_API_KEY","GEMINI_API_KEY","GETYOURMENTOR_ACCEPTANCE_MODE"]: env.pop(key,None)
+    if key.startswith(("SUPABASE_","NEXT_PUBLIC_SUPABASE_","GYM_DEMO_","STRIPE_","RESEND_","LEGAL_")) or key in ["OPENAI_API_KEY","ANTHROPIC_API_KEY","GEMINI_API_KEY","GETYOURMENTOR_ACCEPTANCE_MODE"]: env.pop(key,None)
 for item in variables:
-    values=[v for v in item["values"] if v.get("context") in ("all","production")]
-    assert values and values[0].get("value"), "Missing demo environment variable"
+    specific=[v for v in item["values"] if v.get("context")==deploy_context]
+    shared=[v for v in item["values"] if v.get("context")=="all"]
+    values=specific or shared
+    assert values, "Missing demo environment variable"
+    if preview_mode and item["key"].startswith("GYM_DEMO_"):
+        assert specific, "Demo configuration must be scoped to Deploy Previews"
+    if item["key"] in secret_names:
+        # Netlify intentionally withholds secret values from its API. The authenticated
+        # CLI build/runtime fetches them from the project; never copy them into this process.
+        continue
+    assert values[0].get("value"), "Missing non-secret demo environment variable"
     env[item["key"]]=values[0]["value"]
-assert env["DEPLOY_ENV"]=="demo" and env["GETYOURMENTOR_ALLOW_DEMO"]=="true" and env["PAYMENT_PROVIDER"]=="local" and env["NEXT_PUBLIC_APP_URL"]==URL
+assert env["DEPLOY_ENV"]=="demo" and env["GETYOURMENTOR_ALLOW_DEMO"]=="true" and env["PAYMENT_PROVIDER"]=="local" and env["NEXT_PUBLIC_APP_URL"]==deploy_url
 assert len(env["SESSION_SECRET"])>=32 and env["PLATFORM_COMMISSION_BPS"]=="1500"
-env.update({"SITE_ID":SITE,"NETLIFY_SITE_ID":SITE,"NETLIFY_AUTH_TOKEN":token,"NETLIFY_TELEMETRY_DISABLED":"1"})
-cli=Path(os.environ["LOCALAPPDATA"])/"npm-cache/_npx/da5c1b6ea715e8b4/node_modules/netlify-cli/bin/run.js"
+assert env["GYM_DEMO_SESSION_ENABLED"]=="true" and env["GYM_DEMO_SUPABASE_URL"]=="https://rqxoovriacgoriimpbwi.supabase.co"
+assert env["GYM_DEMO_SUPABASE_PUBLISHABLE_KEY"].startswith("sb_publishable_")
+env.update({"SITE_ID":SITE,"NETLIFY_SITE_ID":SITE,"NETLIFY_AUTH_TOKEN":token,"NETLIFY_TELEMETRY_DISABLED":"1","CONTEXT":deploy_context,"DEPLOY_PRIME_URL":deploy_url})
+cli=Path(os.environ.get("GYM_NETLIFY_CLI",Path(os.environ["LOCALAPPDATA"])/"npm-cache/_npx/da5c1b6ea715e8b4/node_modules/netlify-cli/bin/run.js"))
 assert cli.is_file(), "Existing Netlify CLI not found; no automatic installation"
 app=ROOT/"gym-next";temporary=app/"netlify.toml"
 assert not temporary.exists(), "Refuse to overwrite application configuration"
@@ -53,7 +72,7 @@ base='[build]\nbase = "'+app.as_posix()+'"\ncommand = "npm run build"\npublish =
 temporary.write_text(base,encoding="utf-8")
 try:
     if "--prepared" not in sys.argv:
-        subprocess.run(["node",str(cli),"build","--context","production"],cwd=app,env=env,check=True)
+        subprocess.run(["node",str(cli),"build","--context",deploy_context],cwd=app,env=env,check=True)
         subprocess.run(["node",str(app/"scripts/check-client-secret-boundary.mjs")],cwd=app,env=env,check=True)
         subprocess.run([sys.executable,str(app/"scripts/prepare-netlify-runtime.py")],cwd=ROOT,check=True)
     archive=app/".netlify/functions/___netlify-server-handler.zip"
@@ -72,6 +91,9 @@ try:
         print("Verified isolated-demo package prepared; no publication requested",flush=True)
         sys.exit(0)
     print("Publishing verified package to the isolated demo only",flush=True)
-    subprocess.run(["node",str(cli),"deploy","--site",SITE,"--prod","--no-build","--dir",str(app/".netlify/static"),"--message","GetYourMentor isolated demo: verified source "+source_commit],cwd=app,env=env,check=True)
+    command=["node",str(cli),"deploy","--site",SITE,"--context",deploy_context,"--no-build","--dir",str(app/".netlify/static"),"--functions",str(app/".netlify/functions"),"--message","GetYourMentor isolated demo: verified source "+source_commit]
+    if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
+    else: command.append("--prod")
+    subprocess.run(command,cwd=app,env=env,check=True)
 finally:
     temporary.unlink()

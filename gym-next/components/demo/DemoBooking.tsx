@@ -133,7 +133,8 @@ export default function DemoBooking() {
         <header className={styles.hero}>
           <p className={styles.eyebrow}>PARCOURS SPORTIF · ENVIRONNEMENT DE DÉMONSTRATION</p>
           <h1>Réserver une séance, étape par étape</h1>
-          <p>Choisissez un coach fictif et un créneau, observez l’acceptation de démonstration, puis terminez par un paiement simulé.</p>
+          <p>Vous incarnez Camille, un sportif fictif. Choisissez un coach de démonstration et un créneau ; la demande est acceptée automatiquement pour le scénario, puis vous pouvez confirmer le paiement simulé.</p>
+          <div className={styles.persona}><span>PERSONA DE TEST</span><strong>Camille · sportif fictif</strong><p>Aucun compte nominatif, e-mail ou renseignement personnel n’est demandé.</p></div>
           <div className={styles.notice}><strong>Aucun paiement réel.</strong> Aucune carte bancaire n’est demandée. L’acceptation est automatique et simulée ; aucun coach réel ni aucune IA ne prennent de décision.</div>
         </header>
 

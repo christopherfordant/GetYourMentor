@@ -14,8 +14,8 @@ const reservation = { id: reservationId, coachName: coach.name, sport: "Tennis",
 const demoEnv = {
   GYM_DEMO_SESSION_ENABLED: "true", DEPLOY_ENV: "demo", SITE_ID: "86e0379e-4d1a-4cf0-936c-1439397354f4",
   NEXT_PUBLIC_APP_URL: "https://getyourmentor-demo-20261014.netlify.app",
-  GYM_DEMO_SUPABASE_URL: "https://rqxoovriacgoriimpbwi.supabase.co", GYM_DEMO_SUPABASE_ANON_KEY: "anon-test-only",
-  GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY: "server-only-test-key", GYM_DEMO_SESSION_SECRET: "a-long-local-test-secret-never-used-outside-tests",
+  GYM_DEMO_SUPABASE_URL: "https://rqxoovriacgoriimpbwi.supabase.co", GYM_DEMO_SUPABASE_PUBLISHABLE_KEY: "sb_publishable_test-only",
+  GYM_DEMO_SUPABASE_SECRET_KEY: "sb_secret_test-only", GYM_DEMO_SESSION_SECRET: "a-long-local-test-secret-never-used-outside-tests",
 };
 const session = { userId: "223e4567-e89b-42d3-a456-426614174000", sessionId: "323e4567-e89b-42d3-a456-426614174000",
   accessToken: "athlete-access-token", refreshToken: "athlete-refresh-token", expiresAt: Date.now() + 60 * 60 * 1000 };
@@ -75,8 +75,9 @@ test("routes serveur n’exposent que les fixtures et isolent les mutations par 
     const bookingBody = await booking.json();
     expect(bookingBody).toEqual({ reservationId });
     const rpcCall = calls.find((call) => call.url.endsWith("/rpc/gym_demo_book_and_accept_fixture"));
-    expect(new Headers(rpcCall?.init?.headers).get("Authorization")).toBe(`Bearer ${demoEnv.GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY}`);
-    expect(JSON.stringify(bookingBody)).not.toContain(demoEnv.GYM_DEMO_SUPABASE_SERVICE_ROLE_KEY);
+    expect(new Headers(rpcCall?.init?.headers).get("apikey")).toBe(demoEnv.GYM_DEMO_SUPABASE_SECRET_KEY);
+    expect(new Headers(rpcCall?.init?.headers).get("Authorization")).toBeNull();
+    expect(JSON.stringify(bookingBody)).not.toContain(demoEnv.GYM_DEMO_SUPABASE_SECRET_KEY);
 
     const payment = await paymentPOST(new Request("https://getyourmentor-demo-20261014.netlify.app/api/demo/payment", {
       method: "POST", headers: { cookie: cookieHeader, origin: demoEnv.NEXT_PUBLIC_APP_URL, "content-type": "application/json" },
