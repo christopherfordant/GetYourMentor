@@ -1,10 +1,10 @@
-## Point de reprise — 18 novembre 2026, configuration Netlify partielle D1.8
+## Point de reprise — 18 novembre 2026, configuration Netlify terminée, recette en attente
 
-Branche `demo/recruiter-supabase-adapter-20261112`, HEAD et upstream `aa1ff81aa3442be8da8561e553e01e1e379c0c7a`. Les changements préexistants du brouillon D1.5 et du cache Python sont préservés. Sur le seul site Netlify `getyourmentor-demo-20261014`, six valeurs sont maintenant configurées pour la seule branche `gym-demo-preview-20261117` : session activée, URL Supabase démo, clé publishable, secrets de session/purge et URL de l’alias. Les valeurs ne sont pas consignées. Les contextes Deploy Preview sont conservés ; les variables `GYM_DEMO_*` restent absentes de Production, et le `NEXT_PUBLIC_APP_URL` Production préexistant n’a pas été modifié.
+Branche demo/recruiter-supabase-adapter-20261112, HEAD/upstream au début du lot aa1ff81aa3442be8da8561e553e01e1e379c0c7a ; commit de suivi a verifier dans Git. Sur le seul site Netlify getyourmentor-demo-20261014, les sept variables attendues sont maintenant configurées pour la seule branche gym-demo-preview-20261117. Les trois secrets serveur sont limités à Builds/Functions/Runtime. Aucune valeur secrète n’est consignée ; les valeurs Deploy Preview sont conservées et aucun paramètre Production n’a été modifié.
 
-`GYM_DEMO_SUPABASE_SECRET_KEY` reste manquante pour la branche. Une nouvelle clé serveur temporaire créée lors de l’essai n’a pas pu être récupérée et a été supprimée ; sa disparition a été vérifiée dans Supabase. Aucun déploiement ni changement Production. Contrôle HTTP de l’alias après configuration : `/api/health` 200 mais `supabase=false` et démo désactivée ; `/api/demo/catalog` 503. GYM-D1.8 reste `blocked`, D1.9 `backlog`.
+Le runtime public n’a pas été redéployé : /api/health retourne encore supabase=false et la démo désactivée ; /api/demo/catalog retourne 503. Aucune session ou réservation n’a été créée. GYM-D1.8 reste blocked en attendant le préflight, le déploiement contrôlé du même alias et la recette réelle. D1.9 reste backlog. Le déploiement de l’alias nécessite une autorisation explicite distincte.
 
-Action nécessaire : créer une nouvelle clé secrète dans le projet Supabase `getyourmentor-demo-recruiter` et la saisir directement dans Netlify pour `GYM_DEMO_SUPABASE_SECRET_KEY`, branche `gym-demo-preview-20261117`, portée Builds/Functions/Runtime. Ne pas envoyer la clé dans le chat. Puis relancer le préflight avant tout déploiement/recette. Détails : `docs/DEMO_D1_8_NETLIFY_CONFIG_2026-11-18.md`.
+Détails et preuves : docs/DEMO_D1_8_NETLIFY_CONFIG_2026-11-18.md. Les mises à jour de suivi sont livrées dans le commit 1c0edda ; ce relais sera mis à jour avec le commit de ce lot après push.
 
 ## Point de reprise - 18 novembre 2026, D1.8 toujours bloqué
 
