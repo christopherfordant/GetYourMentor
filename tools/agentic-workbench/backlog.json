@@ -3122,9 +3122,9 @@
       "acceptance": ["Aperçu non-production identifié et séparé de Production ; URL et commit candidat consignés","Configuration Supabase de démonstration active uniquement sur l’aperçu et absente des bundles client","Parcours de bout en bout exécuté sur le vrai runtime dédié : session, coach fictif, réservation, acceptation simulée, paiement simulé et relecture après reconnexion","Deux testeurs isolés : aucun accès croisé ; effacement individuel conserve les fixtures partagées","Aucun paiement réel, appel Stripe/Telegram, secret client ou modification de Production"],
       "tests": ["Préflight Netlify en lecture seule : cible, nature de l’aperçu, portée des variables et possibilité de rollback","Playwright desktop/mobile sur URL d’aperçu après rechargement","RLS et isolation avec deux identités anonymes jetables sur Supabase démo","Vérification santé runtime, effacement/fixtures, absence d’appel financier ou notification externe et absence de secret dans les bundles"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md", "gym-next/lib/demo-recruiter-session.ts", "gym-next/scripts/deploy-isolated-demo.py", "gym-next/app/sitemap.ts", "gym-next/tests/demo-recruiter-session.spec.ts", "gym-next/tests/seo-metadata.spec.ts"],
-      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md", "docs/DEMO_D1_LOCAL_READINESS_2026-11-16.md", "docs/DEMO_D1_8_ALIAS_CONTEXT_2026-11-17.md"],
-      "blocker": "Le déploiement par alias reste `branch-deploy`, alors que les six GYM_DEMO_* ne sont renseignées que pour `deploy-preview`; NEXT_PUBLIC_APP_URL n’a pas de valeur pour la branche gym-demo-preview-20261117. Les routes restent désactivées (/api/health: recruiterDemo.status=disabled ; /api/demo/catalog: 503). Le sitemap/en-têtes corrigés localement ne sont pas encore déployés.",
-      "next": "Configurer dans Netlify les six GYM_DEMO_* et NEXT_PUBLIC_APP_URL au seul contexte branch:gym-demo-preview-20261117 ; le préflight les nomme sans afficher de valeur secrète. Puis relancer le garde-fou, déployer le même alias avec les correctifs sitemap/en-têtes et tester deux sessions, persistance, isolation, paiement simulé et effacement. Production reste inchangée."
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md", "docs/DEMO_D1_LOCAL_READINESS_2026-11-16.md", "docs/DEMO_D1_8_ALIAS_CONTEXT_2026-11-17.md", "docs/DEMO_D1_8_NETLIFY_CONFIG_2026-11-18.md"],
+      "blocker": "Configuration branch-only partielle sur le site cible : six variables sont présentes pour gym-demo-preview-20261117, mais GYM_DEMO_SUPABASE_SECRET_KEY manque pour cette branche. Après configuration, l’alias répond encore /api/health avec supabase=false et demo désactivée, et /api/demo/catalog en 503. Aucun déploiement ni parcours distant n’a été vérifié.",
+      "next": "Créer une nouvelle clé secret dans le projet Supabase getyourmentor-demo-recruiter, la saisir directement dans Netlify pour GYM_DEMO_SUPABASE_SECRET_KEY au seul contexte branch:gym-demo-preview-20261117 (portée Builds/Functions/Runtime), sans la transmettre dans le chat. Puis relancer le préflight ; ne déployer l’alias qu’après réussite du garde-fou et vérification du candidat."
     },
     {
       "id": "GYM-D1.9",
@@ -3145,8 +3145,8 @@
       "tests": ["Comparaison SHA/artifact et navigation depuis le portfolio public", "Smoke test public sans accès ni compte réel"],
       "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md"],
-      "blocker": "D1.8 reste bloqué : l’alias de recette existe, mais son contexte Netlify branch-deploy ne reçoit pas les variables Supabase limitées à Deploy Preview ; le parcours distant n’est pas vérifié.",
-      "next": "Attendre la recette complète D1.8 sur le runtime branch-deploy dédié. Ensuite comparer le candidat vérifié, contrôler le lien du portfolio, puis traiter la publication finale selon l’autorisation et la procédure."
+      "blocker": "GYM-D1.8 reste bloqué : la configuration Netlify branch-only est incomplète (GYM_DEMO_SUPABASE_SECRET_KEY manque) et le parcours distant n’a pas été vérifié.",
+      "next": "Attendre la réussite complète de D1.8 sur le runtime isolé. Ensuite comparer le candidat validé, vérifier le lien portfolio et traiter la publication finale selon ses critères et l’autorisation applicable."
     }
   ]
 }

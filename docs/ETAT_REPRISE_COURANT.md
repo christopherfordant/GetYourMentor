@@ -1,3 +1,11 @@
+## Point de reprise — 18 novembre 2026, configuration Netlify partielle D1.8
+
+Branche `demo/recruiter-supabase-adapter-20261112`, HEAD et upstream `aa1ff81aa3442be8da8561e553e01e1e379c0c7a`. Les changements préexistants du brouillon D1.5 et du cache Python sont préservés. Sur le seul site Netlify `getyourmentor-demo-20261014`, six valeurs sont maintenant configurées pour la seule branche `gym-demo-preview-20261117` : session activée, URL Supabase démo, clé publishable, secrets de session/purge et URL de l’alias. Les valeurs ne sont pas consignées. Les contextes Deploy Preview sont conservés ; les variables `GYM_DEMO_*` restent absentes de Production, et le `NEXT_PUBLIC_APP_URL` Production préexistant n’a pas été modifié.
+
+`GYM_DEMO_SUPABASE_SECRET_KEY` reste manquante pour la branche. Une nouvelle clé serveur temporaire créée lors de l’essai n’a pas pu être récupérée et a été supprimée ; sa disparition a été vérifiée dans Supabase. Aucun déploiement ni changement Production. Contrôle HTTP de l’alias après configuration : `/api/health` 200 mais `supabase=false` et démo désactivée ; `/api/demo/catalog` 503. GYM-D1.8 reste `blocked`, D1.9 `backlog`.
+
+Action nécessaire : créer une nouvelle clé secrète dans le projet Supabase `getyourmentor-demo-recruiter` et la saisir directement dans Netlify pour `GYM_DEMO_SUPABASE_SECRET_KEY`, branche `gym-demo-preview-20261117`, portée Builds/Functions/Runtime. Ne pas envoyer la clé dans le chat. Puis relancer le préflight avant tout déploiement/recette. Détails : `docs/DEMO_D1_8_NETLIFY_CONFIG_2026-11-18.md`.
+
 ## Point de reprise - 18 novembre 2026, D1.8 toujours bloqué
 
 Recontrôle en lecture seule : branche `demo/recruiter-supabase-adapter-20261112` au SHA `76bdf996df4169e374ae8c048292cfaebc606ee1`, identique au distant. Netlify classe toujours l’alias comme `branch-deploy`; les six `GYM_DEMO_*` restent configurées uniquement en `deploy-preview`, sans valeurs pour la branche exacte, et `NEXT_PUBLIC_APP_URL` n’a pas de valeur spécifique pour cette branche. `/api/health` reste `recruiterDemo.status=disabled`, `/api/demo/catalog` reste 503.
