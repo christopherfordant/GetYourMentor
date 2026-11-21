@@ -65,8 +65,11 @@ test("runtime config accepte seulement le site et le projet de d√©monstration d√
   expect(getDemoSessionConfig(previewEnv)).not.toBeNull();
   expect(getDemoPurgeConfig(previewEnv)).not.toBeNull();
   expect(isDemoRecruiterEntryEnabled(previewEnv)).toBe(true);
+  // Netlify Functions expose SITE_ID/URL/SITE_NAME at runtime, but not build CONTEXT.
+  expect(isDemoRecruiterEntryEnabled({ ...previewEnv, CONTEXT: undefined })).toBe(true);
   expect(getDemoSessionConfig({ ...previewEnv, NEXT_PUBLIC_APP_URL: "https://other--getyourmentor-demo-20261014.netlify.app" })).toBeNull();
   expect(getDemoSessionConfig({ ...previewEnv, CONTEXT: "deploy-preview" })).toBeNull();
+  expect(getDemoSessionConfig({ ...previewEnv, CONTEXT: "production" })).toBeNull();
   expect(isDemoRecruiterEntryEnabled({ ...env, CONTEXT: "branch-deploy" })).toBe(false);
   expect(isDemoRecruiterEntryEnabled({ ...env, SITE_ID: "other" })).toBe(false);
   expect(isDemoRecruiterEntryEnabled({ ...env, NEXT_PUBLIC_APP_URL: "https://gregarious-fox-fff605.netlify.app" })).toBe(false);
