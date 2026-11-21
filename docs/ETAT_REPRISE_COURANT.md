@@ -1,3 +1,17 @@
+# Reprise active - 21 novembre 2026 : D1.8, candidat de demo isole
+
+Branche `demo/recruiter-supabase-adapter-20261112`, HEAD local et distant `ff62b55b68bd77a8bd2413be2c3aaf88ca9481c4`. GYM-D1.8 reste **blocked** ; GYM-D1.9 reste **backlog**. Le Kanban versionne (`tools/agentic-workbench/backlog.json`) est la source officielle.
+
+Le script Netlify construit une fois, verifie le runtime puis utilise `netlify deploy --no-build`. Le mode `--prepared` est reserve a l'apercu et controle commit, sources, build ID et empreintes des sorties runtime/statique. Dix tests unitaires, syntaxe Python, diff cible, controles Netlify, schema Supabase statique, secrets suivis, n8n et contrat MCP passent. [Rapport D1.8](DEMO_D1_8_OUTILS_MCP_2026-11-21.md).
+
+Candidat prepare dans le worktree detache `C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121`, Node 22.23.5, source `ff62b55b68bd77a8bd2413be2c3aaf88ca9481c4`, build ID `SIEiZ1CLDKaxOiUXNV4qQ`, SHA-256 ZIP runtime `a816e4f013850bdd6af8f850fc6c1fe02bc7a8817959f2c853d970b5b80f95d4`, SHA-256 bundle statique `2a63ed7908a7569df6b858e2c585151910798dbceb1899d2f486587088404627`. `--preview --prepared --prepare-only` revalide l'artefact sans build ni publication.
+
+Aucun deploiement, reglage de compte ou changement de variable n'a eu lieu. Dernier controle public : `supabase=false`, `/api/demo/catalog` 503 ; le runtime distant n'est pas valide. Prochaine action : apres autorisation explicite, publier uniquement l'apercu avec `python gym-next/scripts/deploy-isolated-demo.py --preview --prepared`, puis verifier URL, health/catalog et scenarios D1.8. Ne pas viser Production, `gregarious-fox-fff605`, `getyourmentor-preprod`, `gym_memory` ou n8n.
+
+Changements locaux preexistants preserves : `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/`. Le bytecode de test non suivi est exclu du commit.
+
+---
+
 ## Point de reprise — 21 novembre 2026, candidat D1.8 prêt pour publication d’aperçu
 
 La branche `demo/recruiter-supabase-adapter-20261112` est au commit `9481824f37f7b0ad4666477f577d0e5800e577d6`, synchronisé avec le distant. Un worktree détaché de préparation existe dans `C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121`, au même SHA. Le candidat Netlify local est vérifié : build réussi, commit source `9481824f37f7b0ad4666477f577d0e5800e577d6`, build ID `jLA3wyT7M4YhtSje4B3zT`, ZIP runtime SHA-256 `38662fb20823f2df4c2df2e901f12a0c2f30b43e1be3f285842bc4fc141c4fec`. Le build s’est exécuté avec Node 24.14.0 alors que la configuration attend Node 22. Ne pas écraser ce candidat si le code n’a pas changé.
