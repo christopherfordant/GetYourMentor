@@ -39,7 +39,7 @@ def build_deploy_command(
 ) -> list[str]:
     command = [
         "node", str(node_cli), "deploy", "--site", site_id,
-        "--no-build", "--message",
+        "--no-build", "--dir", ".netlify/static", "--message",
         f"GetYourMentor isolated demo: verified source {source_commit}",
     ]
     if preview_alias:

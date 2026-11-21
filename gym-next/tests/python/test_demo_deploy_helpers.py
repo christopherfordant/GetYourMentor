@@ -43,6 +43,8 @@ class DeployCommandTests(unittest.TestCase):
         self.assertIn("--no-build", command)
         self.assertNotIn("--build", command)
         self.assertNotIn("--context", command)
+        self.assertIn("--dir", command)
+        self.assertEqual(command[command.index("--dir") + 1], ".netlify/static")
         self.assertIn("--alias", command)
         self.assertEqual(command[command.index("--alias") + 1], "gym-demo-preview-20261117")
         self.assertEqual(command[command.index("--site") + 1], "site-id")
