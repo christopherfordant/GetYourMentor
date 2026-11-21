@@ -1,10 +1,12 @@
-## Point de reprise — 18 novembre 2026, configuration Netlify terminée, recette en attente
+## Point de reprise — 21 novembre 2026, Netlify et architecture
 
-Branche demo/recruiter-supabase-adapter-20261112, HEAD/upstream au début du lot aa1ff81aa3442be8da8561e553e01e1e379c0c7a ; commit de suivi a verifier dans Git. Sur le seul site Netlify getyourmentor-demo-20261014, les sept variables attendues sont maintenant configurées pour la seule branche gym-demo-preview-20261117. Les trois secrets serveur sont limités à Builds/Functions/Runtime. Aucune valeur secrète n’est consignée ; les valeurs Deploy Preview sont conservées et aucun paramètre Production n’a été modifié.
+Branche demo/recruiter-supabase-adapter-20261112. HEAD/upstream au début de cette reprise : 7b46c949fa48f346d80ddfa2ca2e98352f6a5ce0. Brouillon D1.5 et cache Python préexistants préservés.
 
-Le runtime public n’a pas été redéployé : /api/health retourne encore supabase=false et la démo désactivée ; /api/demo/catalog retourne 503. Aucune session ou réservation n’a été créée. GYM-D1.8 reste blocked en attendant le préflight, le déploiement contrôlé du même alias et la recette réelle. D1.9 reste backlog. Le déploiement de l’alias nécessite une autorisation explicite distincte.
+Netlify : les sept variables demeurent configurées pour la seule branche gym-demo-preview-20261117 ; secrets serveur limités à Builds/Functions/Runtime. L’alias répond encore health 200 avec supabase=false et démo désactivée ; /api/demo/catalog renvoie 503. Aucun déploiement ni changement Production.
 
-Détails et preuves : docs/DEMO_D1_8_NETLIFY_CONFIG_2026-11-18.md. Les mises à jour de suivi sont livrées dans le commit 1c0edda ; ce relais sera mis à jour avec le commit de ce lot après push.
+Architecture : docs/architecture/ARCHITECTURE_MEMORY_RAG_GYM.md et n8n/README.md maintiennent n8n hors du chemin réservation/paiement, gym_memory séparé du schéma applicatif et des données gym_demo, et les workflows inactifs. npm run check:n8n-workflows passe : six exports inactifs, aucun secret réel. Aucun workflow, credential ou schéma mémoire n’a été activé/appliqué.
+
+Le manifest local de build vise d3da6a8, alors que le HEAD courant est 7b46c94 ; les changements app entre ces SHA rendent l’artefact obsolète. Il n’a pas été réutilisé et les artefacts .next/.netlify n’ont pas été écrasés. GYM-D1.8 reste blocked, D1.9 backlog. Prochaine action : reconstruire le candidat depuis le HEAD courant dans un espace isolé, contrôler le préflight, puis publier uniquement l’alias et recetter le runtime selon l’autorisation explicite de déploiement. Rapport : docs/DEMO_D1_8_REPRISE_ARCHITECTURE_2026-11-21.md.
 
 ## Point de reprise - 18 novembre 2026, D1.8 toujours bloqué
 
