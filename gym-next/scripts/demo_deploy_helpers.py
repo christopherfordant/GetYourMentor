@@ -4,11 +4,33 @@ import hashlib
 import json
 import zipfile
 from pathlib import Path
+from urllib.parse import urlsplit
 
 
 def validate_deploy_mode(*, preview_mode: bool, prepared_mode: bool) -> None:
     if prepared_mode and not preview_mode:
         raise ValueError("Prepared artifacts are restricted to the isolated preview")
+
+
+def build_netlify_config(app: Path, *, preview_url: str | None) -> str:
+    app_path = app.as_posix()
+    config = (
+        f'[build]\nbase = "{app_path}"\ncommand = "npm run build"\n'
+        f'publish = "{(app / ".next").as_posix()}"\n'
+        '[build.environment]\nNODE_VERSION = "22"\n'
+        '[[plugins]]\npackage = "@netlify/plugin-nextjs"\n'
+    )
+    if preview_url is None:
+        return config
+    parsed = urlsplit(preview_url)
+    if parsed.scheme != "https" or parsed.netloc != "gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app" or parsed.path or parsed.query or parsed.fragment:
+        raise ValueError("Preview URL must be the exact isolated demo alias")
+    return config + (
+        '\n[context.branch-deploy.environment]\n'
+        f'NEXT_PUBLIC_APP_URL = "{preview_url}"\n'
+    )
+
+
 
 
 def build_deploy_command(

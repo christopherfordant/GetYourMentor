@@ -12,6 +12,19 @@ import demo_deploy_helpers as helpers  # noqa: E402
 
 
 class DeployCommandTests(unittest.TestCase):
+    def test_preview_build_config_pins_public_origin_to_the_isolated_alias(self):
+        config = helpers.build_netlify_config(
+            Path("C:/workspace/gym-next"),
+            preview_url="https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app",
+        )
+
+        self.assertIn("[context.branch-deploy.environment]", config)
+        self.assertIn('NEXT_PUBLIC_APP_URL = "https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app"', config)
+
+    def test_preview_build_config_rejects_other_origins(self):
+        with self.assertRaisesRegex(ValueError, "exact isolated demo alias"):
+            helpers.build_netlify_config(Path("C:/workspace/gym-next"), preview_url="https://attacker.example")
+
     def test_prepared_artifact_cannot_target_production(self):
         with self.assertRaisesRegex(ValueError, "isolated preview"):
             helpers.validate_deploy_mode(preview_mode=False, prepared_mode=True)

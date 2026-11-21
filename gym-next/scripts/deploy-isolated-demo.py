@@ -1,7 +1,7 @@
 """Build, verify runtime packaging, then deploy ONLY the existing isolated demo."""
 import hashlib, io, json, os, re, subprocess, sys, tarfile, urllib.request
 from pathlib import Path
-from demo_deploy_helpers import build_deploy_command, hash_directory, validate_deploy_mode, verify_prepared_artifact
+from demo_deploy_helpers import build_deploy_command, build_netlify_config, hash_directory, validate_deploy_mode, verify_prepared_artifact
 ROOT=Path(__file__).resolve().parents[2]
 SITE="86e0379e-4d1a-4cf0-936c-1439397354f4"
 URL="https://getyourmentor-demo-20261014.netlify.app"
@@ -76,7 +76,7 @@ cli=Path(os.environ.get("GYM_NETLIFY_CLI",Path(os.environ["LOCALAPPDATA"])/"npm-
 assert cli.is_file(), "Existing Netlify CLI not found; no automatic installation"
 app=ROOT/"gym-next";temporary=app/"netlify.toml"
 assert not temporary.exists(), "Refuse to overwrite application configuration"
-base='[build]\nbase = "'+app.as_posix()+'"\ncommand = "npm run build"\npublish = "'+(app/".next").as_posix()+'"\n[build.environment]\nNODE_VERSION = "22"\n[[plugins]]\npackage = "@netlify/plugin-nextjs"\n'
+base=build_netlify_config(app,preview_url=deploy_url if preview_mode else None)
 post_process='\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n'
 temporary.write_text(base,encoding="utf-8")
 try:
