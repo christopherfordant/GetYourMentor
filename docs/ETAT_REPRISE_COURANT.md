@@ -1,3 +1,11 @@
+## Point de reprise — 21 novembre 2026, candidat D1.8 prêt pour publication d’aperçu
+
+La branche `demo/recruiter-supabase-adapter-20261112` est au commit `9481824f37f7b0ad4666477f577d0e5800e577d6`, synchronisé avec le distant. Un worktree détaché de préparation existe dans `C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121`, au même SHA. Le candidat Netlify local est vérifié : build réussi, commit source `9481824f37f7b0ad4666477f577d0e5800e577d6`, build ID `jLA3wyT7M4YhtSje4B3zT`, ZIP runtime SHA-256 `38662fb20823f2df4c2df2e901f12a0c2f30b43e1be3f285842bc4fc141c4fec`. Le build s’est exécuté avec Node 24.14.0 alors que la configuration attend Node 22. Ne pas écraser ce candidat si le code n’a pas changé.
+
+`deploy-isolated-demo.py --preview --prepare-only` s’est arrêté avant publication. Aucun réglage Netlify/Supabase distant n’a été changé. Le chemin normal du script appelle `netlify build`, puis `netlify deploy --build` ; le CLI confirme que `deploy` reconstruit par défaut. Avant d’utiliser les crédits Netlify, valider un chemin à build unique et une exécution conforme au Node 22 cible. L’alias répond au dernier contrôle avec health 200/ready mais `supabase=false`, `recruiterDemo.status=disabled`, et `/api/demo/catalog` 503. D1.8 reste `blocked`, D1.9 `backlog`. Après validation du chemin et autorisation explicite, publier uniquement l’aperçu puis exécuter la recette distante à deux sessions ; Production, Telegram, paiements réels, `gym_memory` et n8n restent hors du périmètre.
+
+Contrôles depuis le commit : types, configuration Netlify, schéma Supabase statique, secrets suivis, six exports n8n inactifs, contrat MCP, bundle client/serveur et empaquetage runtime réussis. Le build affiche des avertissements CSS Autoprefixer (`start`/`end`) sans échec. Détail et limites : `docs/DEMO_D1_8_OUTILS_MCP_2026-11-21.md`.
+
 ## Point de reprise — 21 novembre 2026, outils, composants et MCP
 
 Nouvelle vérification sur `demo/recruiter-supabase-adapter-20261112`, HEAD et distant `162e0a26dba8c48d3024fcd8bf1848673ce43761`. Le brouillon `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/` restent préexistants et non modifiés.
