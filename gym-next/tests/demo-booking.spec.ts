@@ -45,6 +45,7 @@ function mockedSupabaseFetch(rpcBehavior: "success" | "conflict" = "success", ca
       sport: coach.sport, city_label: coach.city, service_label: coach.service, display_price_cents: coach.priceCents }]);
     if (url.includes("/rest/v1/gym_demo_fixture_slot_templates?")) return Response.json([{ fixture_key: coach.fixtureKey, slot_key: "tennis-matin",
       day_offset: 2, starts_at_utc: "10:00:00", duration_minutes: 60 }]);
+    if (url.includes("/rest/v1/gym_demo_coaches?")) return Response.json([]);
     if (url.includes("/rest/v1/gym_demo_reservations?")) return Response.json([{ id: reservationId, coach_name_snapshot: coach.name,
       sport_snapshot: coach.sport, service_snapshot: coach.service, appointment_at: reservation.appointmentAt,
       status: "accepted", approval_mode: "simulated", display_price_cents: coach.priceCents, payment_status: "not_started", created_at: reservation.createdAt }]);
@@ -136,6 +137,20 @@ test("parcours /demo de bout en bout avec réservation et paiement simulés sur 
   await page.getByRole("button", { name: "Effacer mes données de démonstration" }).click();
   await expect(page.getByRole("button", { name: "Commencer le parcours" })).toBeVisible();
   await expect(page.getByText("Les profils fictifs partagés ont été conservés.")).toBeVisible();
+});
+
+test("repeated simulated payment remains confirmed on an idempotent response", async () => {
+  const baseFetch = mockedSupabaseFetch();
+  const fetcher: typeof fetch = async (input, init) => String(input).endsWith("/rpc/gym_demo_confirm_simulated_payment")
+    ? Response.json(false) : baseFetch(input, init);
+  await withDemoEnvironment(async () => {
+    const response = await paymentPOST(new Request("https://getyourmentor-demo-20261014.netlify.app/api/demo/payment", {
+      method: "POST", headers: { cookie: cookieHeader, origin: demoEnv.NEXT_PUBLIC_APP_URL, "content-type": "application/json" },
+      body: JSON.stringify({ reservationId }),
+    }));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ confirmed: true, realPayment: false });
+  }, fetcher);
 });
 
 test("API demo fails closed when demo Supabase is not configured", async () => {

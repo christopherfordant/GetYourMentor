@@ -43,6 +43,18 @@ export type DemoReservation = {
   createdAt: string;
 };
 
+function templateStartsAtUtc(dayOffset: number, time: string, now: Date) {
+  const match = /^(\d{2}):(\d{2})(?::(\d{2}))?$/.exec(time);
+  if (!match) return null;
+  const [, hourText, minuteText, secondText = "0"] = match;
+  const hour = Number(hourText);
+  const minute = Number(minuteText);
+  const second = Number(secondText);
+  if (hour > 23 || minute > 59 || second > 59) return null;
+  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + dayOffset,
+    hour, minute, second)).toISOString();
+}
+
 export async function listDemoFixtures(config: DemoSessionConfig, fetcher: Fetcher = fetch): Promise<DemoFixture[]> {
   const catalogUrl = new URL(`${config.supabaseUrl}/rest/v1/gym_demo_fixture_catalog`);
   catalogUrl.searchParams.set("active", "eq.true");
@@ -60,6 +72,40 @@ export async function listDemoFixtures(config: DemoSessionConfig, fetcher: Fetch
   if (!catalogResponse.ok || !slotsResponse.ok || !Array.isArray(catalog) || !Array.isArray(templates)) {
     throw new Error("Catalogue de démonstration indisponible");
   }
+  const activeFixtureKeys = (catalog as JsonRecord[])
+    .map((row) => row.fixture_key)
+    .filter((key): key is string => typeof key === "string" && /^[a-z0-9_-]{2,40}$/.test(key));
+  const bookedSlots = new Set<string>();
+  const coachIdsByFixture = new Map<string, string>();
+  if (activeFixtureKeys.length) {
+    const coachesUrl = new URL(`${config.supabaseUrl}/rest/v1/gym_demo_coaches`);
+    coachesUrl.searchParams.set("is_fixture", "eq.true");
+    coachesUrl.searchParams.set("owner_session_id", "is.null");
+    coachesUrl.searchParams.set("fixture_key", `in.(${activeFixtureKeys.join(",")})`);
+    coachesUrl.searchParams.set("select", "id,fixture_key");
+    const coachesResponse = await fetcher(coachesUrl, { headers: restHeaders(config.publishableKey), cache: "no-store" });
+    const coaches = await json(coachesResponse);
+    if (!coachesResponse.ok || !Array.isArray(coaches)) throw new Error("Demo availability unavailable");
+    for (const row of coaches as JsonRecord[]) {
+      if (typeof row.id === "string" && uuidPattern.test(row.id) && typeof row.fixture_key === "string"
+        && activeFixtureKeys.includes(row.fixture_key)) coachIdsByFixture.set(row.fixture_key, row.id);
+    }
+    if (coachIdsByFixture.size) {
+      const bookedUrl = new URL(`${config.supabaseUrl}/rest/v1/gym_demo_slots`);
+      bookedUrl.searchParams.set("coach_id", `in.(${[...coachIdsByFixture.values()].join(",")})`);
+      bookedUrl.searchParams.set("state", "eq.booked");
+      bookedUrl.searchParams.set("select", "coach_id,starts_at,state");
+      const bookedResponse = await fetcher(bookedUrl, { headers: restHeaders(config.publishableKey), cache: "no-store" });
+      const booked = await json(bookedResponse);
+      if (!bookedResponse.ok || !Array.isArray(booked)) throw new Error("Demo availability unavailable");
+      for (const row of booked as JsonRecord[]) {
+        if (typeof row.coach_id !== "string" || typeof row.starts_at !== "string") continue;
+        const start = new Date(row.starts_at);
+        if (!Number.isNaN(start.getTime())) bookedSlots.add(`${row.coach_id}:${start.toISOString()}`);
+      }
+    }
+  }
+  const now = new Date();
   return (catalog as JsonRecord[]).flatMap((row) => {
     const fixtureKey = row.fixture_key;
     if (typeof fixtureKey !== "string" || !/^[a-z0-9_-]{2,40}$/.test(fixtureKey)
@@ -70,6 +116,9 @@ export async function listDemoFixtures(config: DemoSessionConfig, fetcher: Fetch
       if (typeof slot.slot_key !== "string" || !/^[a-z0-9_-]{2,40}$/.test(slot.slot_key)
         || !Number.isSafeInteger(slot.day_offset) || !Number.isSafeInteger(slot.duration_minutes)
         || typeof slot.starts_at_utc !== "string") return [];
+      const start = templateStartsAtUtc(Number(slot.day_offset), slot.starts_at_utc, now);
+      if (!start || Date.parse(start) <= now.getTime()
+        || bookedSlots.has(`${coachIdsByFixture.get(fixtureKey)}:${start}`)) return [];
       return [{ key: slot.slot_key, dayOffset: Number(slot.day_offset), startsAtUtc: slot.starts_at_utc,
         durationMinutes: Number(slot.duration_minutes) }];
     });
