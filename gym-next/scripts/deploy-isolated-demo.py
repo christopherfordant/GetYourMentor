@@ -1,12 +1,15 @@
 """Build, verify runtime packaging, then deploy ONLY the existing isolated demo."""
-import hashlib, io, json, os, re, shutil, subprocess, sys, tarfile, tempfile, urllib.request, zipfile
+import hashlib, io, json, os, re, subprocess, sys, tarfile, urllib.request
 from pathlib import Path
+from demo_deploy_helpers import build_deploy_command, hash_directory, validate_deploy_mode, verify_prepared_artifact
 ROOT=Path(__file__).resolve().parents[2]
 SITE="86e0379e-4d1a-4cf0-936c-1439397354f4"
 URL="https://getyourmentor-demo-20261014.netlify.app"
 PREVIEW_ALIAS="gym-demo-preview-20261117"
 PREVIEW_URL=f"https://{PREVIEW_ALIAS}--getyourmentor-demo-20261014.netlify.app"
 preview_mode="--preview" in sys.argv
+prepared_mode="--prepared" in sys.argv
+validate_deploy_mode(preview_mode=preview_mode,prepared_mode=prepared_mode)
 deploy_context="branch-deploy" if preview_mode else "production"
 netlify_context=f"branch:{PREVIEW_ALIAS}" if preview_mode else "production"
 deploy_url=PREVIEW_URL if preview_mode else URL
@@ -76,63 +79,38 @@ app=ROOT/"gym-next";temporary=app/"netlify.toml"
 assert not temporary.exists(), "Refuse to overwrite application configuration"
 base='[build]\nbase = "'+app.as_posix()+'"\ncommand = "npm run build"\npublish = "'+(app/".next").as_posix()+'"\n[build.environment]\nNODE_VERSION = "22"\n[[plugins]]\npackage = "@netlify/plugin-nextjs"\n'
 post_process='\n[[headers]]\nfor = "/*"\n[headers.values]\nX-Robots-Tag = "noindex, nofollow"\n[[headers]]\nfor = "/_next/static/*"\n[headers.values]\nCache-Control = "public, max-age=31536000, immutable"\n[[redirects]]\nfrom = "/_next/image"\nto = "/.netlify/images?url=:url&w=:width&q=:quality"\nstatus = 200\n[redirects.query]\nurl = ":url"\nw = ":width"\nq = ":quality"\n'
-runtime_plugin=None
 temporary.write_text(base,encoding="utf-8")
 try:
-    if "--prepared" not in sys.argv:
-        subprocess.run(["node",str(cli),"build","--context",deploy_context],cwd=app,env=env,check=True)
-        subprocess.run(["node",str(app/"scripts/check-client-secret-boundary.mjs")],cwd=app,env=env,check=True)
-        subprocess.run([sys.executable,str(app/"scripts/prepare-netlify-runtime.py")],cwd=ROOT,check=True)
     archive=app/".netlify/functions/___netlify-server-handler.zip"
-    with zipfile.ZipFile(archive) as bundle:
-        assert "node_modules/next/dist/server/lib/start-server.js" in bundle.namelist(), "Missing Next runtime: publication blocked"
-        assert sum(i.file_size for i in bundle.infolist())<250*1024*1024, "Runtime package too large"
-    assert (app/".netlify/static/_next/static").is_dir()
-    proof={"sourceCommit":source_commit,"sources":verified_sources,"archiveSHA256":hashlib.sha256(archive.read_bytes()).hexdigest(),"buildId":(app/".next/BUILD_ID").read_text().strip()}
-    assert source_hashes()==verified_sources, "Source changed during preparation: abort"
     manifest=app/".netlify/verified-source.json"
-    if "--prepared" in sys.argv:
-        assert manifest.is_file(), "Prepared artifact is stale or unverified: abort"
-        prepared=json.loads(manifest.read_text())
-        prepared.get("sources",{}).pop("gym-next/scripts/deploy-isolated-demo.py",None)
-        assert prepared.get("sourceCommit")==source_commit and prepared.get("sources")==verified_sources, "Prepared source is stale or unverified: abort"
-    else: manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
+    build_id_path=app/".next/BUILD_ID"
+    static_dir=app/".netlify/static/_next/static"
+    if not prepared_mode:
+        subprocess.run(["node",str(cli),"build","--context",deploy_context],cwd=app,env=env,check=True)
+        subprocess.run([sys.executable,str(app/"scripts/prepare-netlify-runtime.py")],cwd=ROOT,check=True)
+    subprocess.run(["node",str(app/"scripts/check-client-secret-boundary.mjs")],cwd=app,env=env,check=True)
+    if not prepared_mode:
+        proof={
+            "sourceCommit":source_commit,
+            "sources":verified_sources,
+            "archiveSHA256":hashlib.sha256(archive.read_bytes()).hexdigest(),
+            "staticSHA256":hash_directory(static_dir),
+            "buildId":build_id_path.read_text(encoding="utf-8").strip(),
+        }
+        manifest.write_text(json.dumps(proof,indent=2)+"\n",encoding="utf-8")
+    proof=verify_prepared_artifact(manifest,source_commit,verified_sources,build_id_path,archive,static_dir)
+    assert source_hashes()==verified_sources, "Source changed during preparation: abort"
     temporary.write_text(base+post_process,encoding="utf-8")
     if "--prepare-only" in sys.argv:
         print("Verified isolated-demo package prepared; no publication requested",flush=True)
         sys.exit(0)
     print("Publishing verified package to the isolated demo only",flush=True)
-    # Netlify CLI requires --context to accompany a build. For a context-scoped
-    # draft deploy, keep that supported path and materialize the Windows runtime
-    # bundle in a final local onPostBuild plugin, after the Next adapter finishes.
-    # The existing --prepared manifest still guards the source used for this build.
-    runtime_plugin=Path(tempfile.mkdtemp(prefix="gym-demo-runtime-plugin-",dir=app/".netlify"))
-    (runtime_plugin/"package.json").write_text(json.dumps({"name":"gym-demo-runtime-materializer","version":"1.0.0","type":"module","main":"index.mjs"}),encoding="utf-8")
-    (runtime_plugin/"manifest.yml").write_text("name: gym-demo-runtime-materializer\n",encoding="utf-8")
-    runtime_plugin_entry={
-        "python":sys.executable,
-        "script":str(app/"scripts/prepare-netlify-runtime.py"),
-        "cwd":str(ROOT),
-    }
-    plugin_source=(
-        'import { spawnSync } from "node:child_process";\n'
-        f'const config={json.dumps(runtime_plugin_entry)};\n'
-        'export const onPostBuild=async()=>{\n'
-        '  const result=spawnSync(config.python,[config.script],{cwd:config.cwd,stdio:"inherit",windowsHide:true});\n'
-        '  if(result.error) throw result.error;\n'
-        '  if(result.status!==0) throw new Error("Runtime package verification failed");\n'
-        '};\n'
+    command=build_deploy_command(
+        node_cli=cli,site_id=SITE,context=netlify_context,
+        source_commit=source_commit,preview_alias=PREVIEW_ALIAS if preview_mode else None,
     )
-    (runtime_plugin/"index.mjs").write_text(plugin_source,encoding="utf-8")
-    plugin_config=base+post_process+f'[[plugins]]\npackage = "./{runtime_plugin.relative_to(app).as_posix()}"\n'
-    temporary.write_text(plugin_config,encoding="utf-8")
-    command=["node",str(cli),"deploy","--site",SITE,"--context",netlify_context,"--build","--message","GetYourMentor isolated demo: verified source "+source_commit]
-    if preview_mode: command.extend(["--alias",PREVIEW_ALIAS])
-    else: command.append("--prod")
     subprocess.run(command,cwd=app,env=env,check=True)
     assert source_hashes()==verified_sources, "Source changed during publication"
-    with zipfile.ZipFile(archive) as bundle:
-        assert "node_modules/next/dist/server/lib/start-server.js" in bundle.namelist(), "Published runtime package lost the Next server"
+    verify_prepared_artifact(manifest,source_commit,verified_sources,build_id_path,archive,static_dir)
 finally:
     temporary.unlink()
-    if runtime_plugin is not None: shutil.rmtree(runtime_plugin)
