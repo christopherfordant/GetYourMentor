@@ -1,4 +1,16 @@
-# Reprise active - 21 novembre 2026 : D1.8, candidat de demo isole
+# Reprise active - 21 novembre 2026 : D1.8, correction de disponibilite
+
+Depot `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Le correctif applicatif est au commit `02c657f556369078ca9d15088d5e9469f178e1b3`; les mises a jour Kanban et documentation sont dans le commit de livraison qui suit. Le worktree principal preserve toujours le brouillon `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/`, hors commits.
+
+Audit metier : le catalogue listait les modeles sans lire les creneaux deja reserves. `listDemoFixtures` lit maintenant, avec la cle publishable et sous les RLS des fixtures, les seuls acteurs fictifs publics et leurs creneaux `booked`; il masque les creneaux deja pris ou passes. La reservation reste atomique dans le RPC. Une course apres l'affichage renvoie encore le conflit 409, qui est attendu et n'autorise pas de double reservation.
+
+Le resultat `false` du RPC de paiement simulé signifie « deja confirme » (idempotence), pas « echec ». La route renvoie correctement l'etat final `confirmed: true, realPayment: false`; le test correspondant est ajoute.
+
+Preuves locales : test de disponibilite rouge avant correction puis passe ; suite API/metier ciblee 5/5, parcours navigateur local avec API mockee 2/2 (desktop/mobile), TypeScript, build Next 15.5.27 et frontiere client/serveur PASS. Aucun SQL/migration, acces Supabase distant, appel externe, reglage Netlify ou deploiement. Voir `DEMO_D1_8_LOGIQUE_METIER_2026-11-21.md`.
+
+GYM-D1.8 reste `blocked` : le controle HTTPS refait le 21 novembre retourne HTTP 200 de `/api/health` avec `ready=true` et `checks.supabase=false`. `/api/demo/catalog` retourne HTTP 404 et une page prerendue (`X-Nextjs-Prerender: 1`, age superieur a neuf jours), ce qui ne prouve pas que la route existe dans l'artefact actuellement servi. L'ancien candidat prepare depuis `ff62b55` est obsolete depuis le correctif ; il ne faut pas le publier. Prochaine etape : recreer un candidat Netlify depuis le code au commit `02c657f` dans le worktree isole, puis attendre une autorisation explicite et la confirmation des variables propres a l'apercu avant la recette distante. Production, ancien site, `getyourmentor-preprod`, `gym_memory` et n8n restent hors perimetre.
+
+## Historique precedent - 21 novembre 2026 : candidat de demo isole
 
 Branche `demo/recruiter-supabase-adapter-20261112`, HEAD local et distant `8502f97c0ea6978dc2bf1153acb88013172df2a4` (commit code `ff62b55b68bd77a8bd2413be2c3aaf88ca9481c4`). GYM-D1.8 reste **blocked** ; GYM-D1.9 reste **backlog**. Le Kanban versionne (`tools/agentic-workbench/backlog.json`) est la source officielle.
 
