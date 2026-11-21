@@ -1,3 +1,13 @@
+## Point de reprise — 21 novembre 2026, outils, composants et MCP
+
+Nouvelle vérification sur `demo/recruiter-supabase-adapter-20261112`, HEAD et distant `162e0a26dba8c48d3024fcd8bf1848673ce43761`. Le brouillon `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/` restent préexistants et non modifiés.
+
+Les contrôles locaux `check:netlify-config`, `check:supabase-schema`, `check:tracked-secrets`, `check:n8n-workflows` et `check:mcp-contract` passent. `check:client-secret-boundary` passe uniquement sur l’ancien `.next/static` : cela ne valide pas un build du HEAD courant. `gym-next/node_modules/next/bin/next` est absent ; un serveur Playwright préexistant tourne depuis un autre répertoire. Aucun build concurrent, arrêt de processus ou installation n’a été tenté.
+
+Contrôle HTTPS : `/api/health` répond 200/ready, mais `supabase=false` et `recruiterDemo.status=disabled` ; `/api/demo/catalog` répond 503. D1.8 reste bloqué et D1.9 en backlog. Le contrat MCP du dépôt est une spécification en lecture seule, pas un serveur MCP déployé. Dans cette session, les surfaces MCP disponibles sont GitHub, Context7, Linear et Playwright ; certaines exposent aussi des opérations d’écriture. Leur disponibilité ne constitue pas une autorisation. Aucune connexion MCP dédiée à Supabase, Netlify ou n8n n’est exposée. Le test du contrat MCP vérifie le texte, pas la sécurité d’un serveur réel.
+
+Suite : préparer un build isolé depuis le HEAD courant sans toucher aux artefacts ni processus préexistants, puis demander/obtenir l’autorisation de publier uniquement l’aperçu avant d’exécuter la recette distante. Détails des commandes, limites et inventaire : `docs/DEMO_D1_8_OUTILS_MCP_2026-11-21.md`.
+
 ## Point de reprise — 21 novembre 2026, Netlify et architecture
 
 Branche demo/recruiter-supabase-adapter-20261112. HEAD/upstream au début de cette reprise : 7b46c949fa48f346d80ddfa2ca2e98352f6a5ce0. Brouillon D1.5 et cache Python préexistants préservés.
