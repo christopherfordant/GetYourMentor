@@ -67,3 +67,27 @@ The previous candidate from ff62b55 is superseded by an artifact prepared from d
 - Client/server boundary scan of the newly built .next/static passed with no server-secret marker detected. The script ended with "Verified isolated-demo package prepared; no publication requested". Its temporary gym-next/netlify.toml was removed.
 - Local build only: no deployment, migration, variable change, notification or remote Supabase test occurred. The candidate is ready for preview publication, but D1.8 remains blocked until the published runtime and isolation, persistence and deletion scenarios are verified. The last public state previously observed (supabase=false, catalog 404/prerendered response) remains the latest verified public state.
 - The build worktree remains at 7ae4df2c1d1e3e220b4bed68a63dad984606f3ff. Its pre-existing untracked node22-tools/ and gym-next/scripts/__pycache__/ are preserved.
+
+
+## Mise à jour — 21 novembre 2026 : aperçu opérationnel, blocage Supabase Auth
+
+### Correctifs et déploiement aperçu
+
+- Branche `demo/recruiter-supabase-adapter-20261112`, commit et distant `cd996b0cb7e07a520ded1537cf6dc2e4f90a29bc`. Deux correctifs ciblés règlent la vérification du catalogue Supabase puis l’origine compilée dans le middleware Netlify. Le SHA distant a été contrôlé après chaque push.
+- Artefact préparé depuis `cd996b0` dans le worktree détaché `C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121` : build ID `6yDg8GRzAfi5rOFK8fJMT`, 60 paquets runtime, 54 390 432 octets ; ZIP SHA-256 `969e10de8881feb77583f92e86af846d51af6d80096bbf35942ae83b5db883d9`, bundle statique SHA-256 `90eedfdffd4e96492e061389960877ad54f273cd5db546405b0ed893af62bf06`. Le middleware compilé contient l’origine exacte de l’aperçu et pas l’URL Production.
+- Déploiement manuel limité à l’alias non-production : [aperçu GetYourMentor](https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app), déploiement Netlify `6b01d93c74a0de13d6df3bf8`. Aucun réglage ou déploiement Production n’a été touché.
+
+### Contrôles runtime
+
+- `GET /api/health` : HTTP 200, `ready=true`, `checks.supabase=true`, `checks.demoStateStorage=true`, `recruiterDemo.status=ready`. Le contrôle interroge réellement le catalogue Supabase de démonstration en lecture seule avec la clé publishable ; la clé serveur n’est pas renvoyée.
+- `GET /api/demo/catalog` : HTTP 200, un coach fictif. `GET /demo` : HTTP 200.
+- Le premier POST de session a identifié une origine de middleware compilée vers l’URL Production. Le build d’aperçu injecte maintenant l’URL exacte de l’alias dans le seul contexte `branch-deploy` ; le bundle contrôlé n’embarque plus l’URL Production.
+- Après ce correctif, `POST /api/demo/session` atteint Supabase Auth, mais le parcours répond 503. Une reproduction directe contrôlée vers le projet Supabase dédié retourne HTTP 422 : « Anonymous sign-ins are disabled ». Aucun compte, session ou réservation n’a été créé par ce diagnostic.
+
+### Blocage, sécurité et décision requise
+
+Le parcours utilise une session anonyme pour permettre à un recruteur d’essayer le site sans adresse e-mail ni mot de passe. Cette fonction est actuellement désactivée dans le projet isolé `getyourmentor-demo-recruiter` (`rqxoovriacgoriimpbwi`). L’activation du réglage Auth exige une confirmation immédiate du propriétaire selon la règle Computer Use §2.1. La demande de confirmation est en attente ; aucun réglage Supabase n’a changé.
+
+Supabase recommande un CAPTCHA pour protéger l’authentification anonyme et documente une limite par défaut de 30 créations par heure et par IP. La démo passe par les fonctions Netlify : le comportement de cette limite doit être surveillé avant une diffusion plus large. Références : [Anonymous Sign-Ins](https://supabase.com/docs/guides/auth/auth-anonymous), [Rate limits](https://supabase.com/docs/guides/auth/rate-limits).
+
+GYM-D1.8 reste **blocked** : l’état health et le catalogue sont vérifiés, mais la création de session, la réservation, l’acceptation simulée, le paiement simulé, la reconnexion, l’isolation entre testeurs et l’effacement ne sont pas recettés sur le runtime. Aucun appel à Stripe, Telegram ou paiement réel n’a été effectué. Les autres tickets `progress` GYM-H1 appartiennent à l’ancienne recette Connect ; leurs statuts et environnements n’ont pas été modifiés dans ce lot.

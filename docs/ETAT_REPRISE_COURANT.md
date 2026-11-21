@@ -1,23 +1,21 @@
-# Reprise active - 21 novembre 2026 : D1.8, correction de disponibilite
+# Reprise active — 21 novembre 2026 : D1.8, readiness Supabase et session anonyme
 
-## Current handoff update - preview candidate prepared, 21 November 2026
+## État vérifié le 21 novembre 2026
 
-Remote branch demo/recruiter-supabase-adapter-20261112 is at 7ae4df2c1d1e3e220b4bed68a63dad984606f3ff. In detached worktree C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121, deploy-isolated-demo.py --preview --prepare-only built and verified a candidate from this commit: build ID ZLJDqhvvIi8I6l6va2AK5; runtime ZIP SHA-256 b38485b45df470578caa6af49d17af067eb9d86c06457cb3c953de8947b4582c (54,389,651 bytes); static bundle SHA-256 58bac4793f623a6265b82bebcd663b47c3c8dbf253ce1587774d20dfebddb9df. Next 15.5.29 and Netlify runtime 5.16.8 compiled routes/functions; 60 runtime packages and 572 sources were verified; the client/server scan passed. Preview configuration was checked by variable names only, without revealing secrets.
+- Dépôt `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, HEAD local et distant `cd996b0cb7e07a520ded1537cf6dc2e4f90a29bc`.
+- Deux commits ciblés corrigent `checks.supabase=false` et l’origine middleware compilée vers Production. Les tests ciblés ont passé : 28/28 tests session Playwright, 12/12 tests Python du script de déploiement, TypeScript, AST Python et `git diff --check`.
+- L’aperçu `https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app` a été déployé sur le seul site cible non-production (deploy `6b01d93c74a0de13d6df3bf8`). `/api/health` 200 avec `checks.supabase=true`, `demoStateStorage=true`, `recruiterDemo=ready`; `/api/demo/catalog` 200 (un fixture); `/demo` 200.
+- Blocage métier restant : le POST de session renvoie 503 parce que Supabase Auth répond HTTP 422 « Anonymous sign-ins are disabled ». Aucun utilisateur ni session n’a été créé pendant le diagnostic. L’activation sur le projet dédié attend une confirmation immédiate liée au changement de réglage d’un compte cloud (Computer Use §2.1). Aucune action Auth distante n’a été effectuée.
+- Supabase recommande un CAPTCHA pour ces connexions ; la limite par défaut documentée est de 30 créations anonymes par heure et par IP. Le relais de sortie serveur peut concentrer le quota. Aucune protection CAPTCHA nouvelle n’a été ajoutée.
+- GYM-D1.8 demeure `blocked`; GYM-D1.9 demeure `backlog`. Les tickets `progress` GYM-H1 relèvent de la recette Connect historique et n’ont pas été modifiés dans ce lot.
+- Aucune réservation réelle, aucun paiement, Stripe, Telegram, migration, changement Production ou notification externe.
+- Brouillons préexistants laissés intacts : `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et les caches `__pycache__` non suivis.
 
-No deployment or remote Supabase test was performed. GYM-D1.8 remains blocked until this candidate is published to the preview alias only, then health/catalog, isolated sessions, persistence, deletion and no-external-call behavior are verified. The prior public observation supabase=false and catalog 404/prerendered HTML remains the last verified public state. Next: publish only gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app with --preview --prepared, without rebuilding, then run D1.8 remote checks. Do not touch Production.
+Rapport détaillé : [DEMO_D1_8_OUTILS_MCP_2026-11-21.md](DEMO_D1_8_OUTILS_MCP_2026-11-21.md). Le Kanban versionné reste la référence.
 
-The main worktree remains synchronized at 7ae4df2c1d1e3e220b4bed68a63dad984606f3ff. Pre-existing docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md and gym-next/scripts/__pycache__/ remain untouched and uncommitted.
+## Prochaine action
 
-
-Depot `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Le correctif applicatif est au commit `02c657f556369078ca9d15088d5e9469f178e1b3`; les mises a jour Kanban et documentation sont dans le commit de livraison qui suit. Le worktree principal preserve toujours le brouillon `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/`, hors commits.
-
-Audit metier : le catalogue listait les modeles sans lire les creneaux deja reserves. `listDemoFixtures` lit maintenant, avec la cle publishable et sous les RLS des fixtures, les seuls acteurs fictifs publics et leurs creneaux `booked`; il masque les creneaux deja pris ou passes. La reservation reste atomique dans le RPC. Une course apres l'affichage renvoie encore le conflit 409, qui est attendu et n'autorise pas de double reservation.
-
-Le resultat `false` du RPC de paiement simulé signifie « deja confirme » (idempotence), pas « echec ». La route renvoie correctement l'etat final `confirmed: true, realPayment: false`; le test correspondant est ajoute.
-
-Preuves locales : test de disponibilite rouge avant correction puis passe ; suite API/metier ciblee 5/5, parcours navigateur local avec API mockee 2/2 (desktop/mobile), TypeScript, build Next 15.5.27 et frontiere client/serveur PASS. Aucun SQL/migration, acces Supabase distant, appel externe, reglage Netlify ou deploiement. Voir `DEMO_D1_8_LOGIQUE_METIER_2026-11-21.md`.
-
-GYM-D1.8 reste `blocked` : le controle HTTPS refait le 21 novembre retourne HTTP 200 de `/api/health` avec `ready=true` et `checks.supabase=false`. `/api/demo/catalog` retourne HTTP 404 et une page prerendue (`X-Nextjs-Prerender: 1`, age superieur a neuf jours), ce qui ne prouve pas que la route existe dans l'artefact actuellement servi. L'ancien candidat prepare depuis `ff62b55` est obsolete depuis le correctif ; il ne faut pas le publier. Prochaine etape : recreer un candidat Netlify depuis le code au commit `02c657f` dans le worktree isole, puis attendre une autorisation explicite et la confirmation des variables propres a l'apercu avant la recette distante. Production, ancien site, `getyourmentor-preprod`, `gym_memory` et n8n restent hors perimetre.
+Après confirmation, activer Anonymous sign-ins uniquement dans le projet Supabase `getyourmentor-demo-recruiter`, puis retester deux sessions temporaires : création, réservation sur fixture, acceptation simulée, paiement simulé, persistance après reconnexion, refus d’accès croisé et effacement individuel en conservant le fixture. En l’absence de confirmation, conserver le blocage et ne pas simuler la réussite. Vérifier le SHA distant avant la livraison documentaire.
 
 ## Historique precedent - 21 novembre 2026 : candidat de demo isole
 
