@@ -116,6 +116,27 @@ export function getDemoSessionConfig(env: NodeJS.ProcessEnv = process.env): Demo
   }
 }
 
+export async function checkDemoSupabaseConnection(config: DemoSessionConfig | null, fetcher: Fetcher = fetch) {
+  if (!config) return false;
+  try {
+    const supabase = new URL(config.supabaseUrl);
+    if (supabase.protocol !== "https:" || supabase.hostname !== DEMO_SUPABASE_HOST
+      || supabase.username || supabase.password || supabase.port) return false;
+    const probe = new URL(`${supabase.origin}/rest/v1/gym_demo_fixture_catalog`);
+    probe.searchParams.set("active", "eq.true");
+    probe.searchParams.set("select", "fixture_key");
+    probe.searchParams.set("limit", "1");
+    const response = await fetcher(probe, {
+      headers: { apikey: config.publishableKey, Accept: "application/json" },
+      cache: "no-store",
+      signal: AbortSignal.timeout(4000),
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
 export function getDemoPurgeConfig(env: NodeJS.ProcessEnv = process.env): DemoPurgeConfig | null {
   try {
     const app = new URL(env.NEXT_PUBLIC_APP_URL ?? env.URL ?? "");

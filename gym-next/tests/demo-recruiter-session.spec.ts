@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 import {
-  cronAuthorized, createRecruiterDemoSession, DEMO_SESSION_TTL_SECONDS, eraseRecruiterDemoSession,
+  checkDemoSupabaseConnection, cronAuthorized, createRecruiterDemoSession, DEMO_SESSION_TTL_SECONDS, eraseRecruiterDemoSession,
   getDemoPurgeConfig, getDemoSessionConfig, hasDemoSessionRow, isDemoRecruiterEntryEnabled, openDemoSession,
   purgeExpiredRecruiterDemoSessions, refreshRecruiterDemoSession, sameOriginRequest,
   sealDemoSession, type DemoSessionConfig, type RecruiterDemoSession,
@@ -17,6 +17,32 @@ const athlete: RecruiterDemoSession = {
   accessToken: "access-fixture", refreshToken: "refresh-fixture", expiresAt: Date.now() + DEMO_SESSION_TTL_SECONDS * 1000,
 };
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
+
+test("le diagnostic de sante verifie le catalogue Supabase de demo en lecture seule avec la cle publique", async () => {
+  const calls: Array<{ url: string; init?: RequestInit }> = [];
+  const fetcher: typeof fetch = async (input, init) => {
+    calls.push({ url: String(input), init });
+    return json([]);
+  };
+
+  expect(await checkDemoSupabaseConnection(config, fetcher)).toBe(true);
+  expect(calls).toHaveLength(1);
+  const url = new URL(calls[0].url);
+  expect(url.pathname).toBe("/rest/v1/gym_demo_fixture_catalog");
+  expect(url.searchParams.get("select")).toBe("fixture_key");
+  expect(url.searchParams.get("limit")).toBe("1");
+  expect(calls[0].init?.method).toBeUndefined();
+  expect(calls[0].init?.cache).toBe("no-store");
+  const headers = new Headers(calls[0].init?.headers);
+  expect(headers.get("apikey")).toBe(config.publishableKey);
+  expect(headers.get("Authorization")).toBeNull();
+  expect(JSON.stringify(calls[0].init)).not.toContain(config.secretKey);
+});
+
+test("le diagnostic Supabase échoue fermé si le catalogue est refusé ou inaccessible", async () => {
+  expect(await checkDemoSupabaseConnection(config, async () => json({ message: "denied" }, 403))).toBe(false);
+  expect(await checkDemoSupabaseConnection(config, async () => { throw new Error("offline"); })).toBe(false);
+});
 
 test("runtime config accepte seulement le site et le projet de démonstration désignés", () => {
   const env = {
