@@ -1,5 +1,14 @@
 # Reprise active - 21 novembre 2026 : D1.8, correction de disponibilite
 
+## Current handoff update - preview candidate prepared, 21 November 2026
+
+Remote branch demo/recruiter-supabase-adapter-20261112 is at 7ae4df2c1d1e3e220b4bed68a63dad984606f3ff. In detached worktree C:/Users/cashe/Documents/GYM-demo-d1_8-build-20261121, deploy-isolated-demo.py --preview --prepare-only built and verified a candidate from this commit: build ID ZLJDqhvvIi8I6l6va2AK5; runtime ZIP SHA-256 b38485b45df470578caa6af49d17af067eb9d86c06457cb3c953de8947b4582c (54,389,651 bytes); static bundle SHA-256 58bac4793f623a6265b82bebcd663b47c3c8dbf253ce1587774d20dfebddb9df. Next 15.5.29 and Netlify runtime 5.16.8 compiled routes/functions; 60 runtime packages and 572 sources were verified; the client/server scan passed. Preview configuration was checked by variable names only, without revealing secrets.
+
+No deployment or remote Supabase test was performed. GYM-D1.8 remains blocked until this candidate is published to the preview alias only, then health/catalog, isolated sessions, persistence, deletion and no-external-call behavior are verified. The prior public observation supabase=false and catalog 404/prerendered HTML remains the last verified public state. Next: publish only gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app with --preview --prepared, without rebuilding, then run D1.8 remote checks. Do not touch Production.
+
+The main worktree remains synchronized at 7ae4df2c1d1e3e220b4bed68a63dad984606f3ff. Pre-existing docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md and gym-next/scripts/__pycache__/ remain untouched and uncommitted.
+
+
 Depot `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`. Le correctif applicatif est au commit `02c657f556369078ca9d15088d5e9469f178e1b3`; les mises a jour Kanban et documentation sont dans le commit de livraison qui suit. Le worktree principal preserve toujours le brouillon `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et `gym-next/scripts/__pycache__/`, hors commits.
 
 Audit metier : le catalogue listait les modeles sans lire les creneaux deja reserves. `listDemoFixtures` lit maintenant, avec la cle publishable et sous les RLS des fixtures, les seuls acteurs fictifs publics et leurs creneaux `booked`; il masque les creneaux deja pris ou passes. La reservation reste atomique dans le RPC. Une course apres l'affichage renvoie encore le conflit 409, qui est attendu et n'autorise pas de double reservation.
