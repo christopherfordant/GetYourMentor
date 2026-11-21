@@ -11,7 +11,6 @@ preview_mode="--preview" in sys.argv
 prepared_mode="--prepared" in sys.argv
 validate_deploy_mode(preview_mode=preview_mode,prepared_mode=prepared_mode)
 deploy_context="branch-deploy" if preview_mode else "production"
-netlify_context=f"branch:{PREVIEW_ALIAS}" if preview_mode else "production"
 deploy_url=PREVIEW_URL if preview_mode else URL
 source_commit=os.environ.get("GYM_DEMO_SOURCE_COMMIT") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
 assert re.fullmatch(r"[0-9a-f]{40}",source_commit), "A full source commit is required"
@@ -106,7 +105,7 @@ try:
         sys.exit(0)
     print("Publishing verified package to the isolated demo only",flush=True)
     command=build_deploy_command(
-        node_cli=cli,site_id=SITE,context=netlify_context,
+        node_cli=cli,site_id=SITE,
         source_commit=source_commit,preview_alias=PREVIEW_ALIAS if preview_mode else None,
     )
     subprocess.run(command,cwd=app,env=env,check=True)

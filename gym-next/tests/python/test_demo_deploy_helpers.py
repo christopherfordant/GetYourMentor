@@ -23,13 +23,13 @@ class DeployCommandTests(unittest.TestCase):
         command = helpers.build_deploy_command(
             node_cli=Path("netlify-cli/bin/run.js"),
             site_id="site-id",
-            context="branch:gym-demo-preview-20261117",
             source_commit="a" * 40,
             preview_alias="gym-demo-preview-20261117",
         )
 
         self.assertIn("--no-build", command)
         self.assertNotIn("--build", command)
+        self.assertNotIn("--context", command)
         self.assertIn("--alias", command)
         self.assertEqual(command[command.index("--alias") + 1], "gym-demo-preview-20261117")
         self.assertEqual(command[command.index("--site") + 1], "site-id")
@@ -38,12 +38,12 @@ class DeployCommandTests(unittest.TestCase):
         command = helpers.build_deploy_command(
             node_cli=Path("netlify-cli/bin/run.js"),
             site_id="site-id",
-            context="production",
             source_commit="b" * 40,
             preview_alias=None,
         )
 
         self.assertIn("--no-build", command)
+        self.assertNotIn("--context", command)
         self.assertIn("--prod", command)
         self.assertNotIn("--alias", command)
 

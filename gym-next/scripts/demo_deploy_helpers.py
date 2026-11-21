@@ -12,12 +12,12 @@ def validate_deploy_mode(*, preview_mode: bool, prepared_mode: bool) -> None:
 
 
 def build_deploy_command(
-    *, node_cli: Path, site_id: str, context: str, source_commit: str,
+    *, node_cli: Path, site_id: str, source_commit: str,
     preview_alias: str | None,
 ) -> list[str]:
     command = [
         "node", str(node_cli), "deploy", "--site", site_id,
-        "--context", context, "--no-build", "--message",
+        "--no-build", "--message",
         f"GetYourMentor isolated demo: verified source {source_commit}",
     ]
     if preview_alias:
