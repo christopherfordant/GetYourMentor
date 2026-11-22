@@ -1,3 +1,15 @@
+## Reprise Production commerciale - 22 novembre 2026
+
+- Worktree isole : `C:/Users/cashe/Documents/GYM-production-readiness-20261122`, branche `product/production-readiness-20261122`, base `b551debca6b51c9948ed775f083a9f048948f7c8` depuis `origin/demo/recruiter-supabase-adapter-20261112`. Les changements preexistants de l'autre worktree sont restes intacts.
+- Preflight public en lecture seule : le site principal `getyourmentor-demo-20261014` repond health 200 en mode demo avec `supabase=false`, `stripe=false`, `legal=false`, `cronSecret=false`; `/demo` repond 404. L'apercu demo separe repond health 200 avec Supabase demo et `recruiterDemo=ready`. Voir `docs/PRODUCTION_RUNTIME_PREFLIGHT_2026-11-22.md`.
+- Le code Stripe du candidat reste test-only. Aucun parcours de paiement reel ne doit etre promis ni active.
+- Cadrage durable : `docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md`. Le logout apres paiement peut revoquer la session, mais l'effacement immediat de la reservation et des pieces comptables n'est pas retenu ; definir une regle de retention/anonymisation validee.
+- Kanban : sprint indicatif S5 et tickets GYM-PROD. GYM-PROD.1 est verifie/done ; GYM-PROD.2 est bloque faute de cible Supabase et Netlify Production identifiee. Les travaux Auth, reservation reelle, Stripe Live, notifications, securite et CI/CD restent backlog et dependants. GYM-D1/D1.9 reste distinct.
+- Aucun secret lu ou copie, aucun changement Supabase/Netlify, compte reel, courriel/SMS/Telegram, paiement ou deploiement Production.
+- Prochaine action : identifier en lecture seule les ressources Supabase et Netlify dediees a Production, puis reprendre GYM-PROD.2. Si elles n'existent pas, les designer dans un lot autorise sans reutiliser la demo ou la preproduction.
+
+---
+
 # Reprise active — 22 novembre 2026 : intégration visuelle de la démo au site
 
 - Référence vérifiée avant le lot : branche `demo/recruiter-supabase-adapter-20261112`, SHA local/distant `7a82d91a6ad6fb45c6375b53b1855fd777642ad7`. Le commit `1bd2da3` est le correctif du runtime statique, pas le HEAD courant.

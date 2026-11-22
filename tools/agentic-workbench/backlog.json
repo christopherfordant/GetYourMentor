@@ -41,6 +41,14 @@
       "end": "2026-11-27",
       "goal": "Préparer les parcours coach et sportif avec stockage isolé, paiement simulé et consentement Telegram",
       "capacityAssumption": "Dates proposées, sous réserve de projet Supabase démo disponible et de validation sécurité"
+    },
+    {
+      "id": "S5",
+      "title": "Preparation de la Production commerciale",
+      "start": "2026-11-30",
+      "end": "2026-12-11",
+      "goal": "Isoler les environnements et rendre les parcours reels fiables avant ouverture commerciale",
+      "capacityAssumption": "Plan indicatif ; disponibilite des comptes et delais externes non confirmes"
     }
   ],
   "tickets": [
@@ -3147,6 +3155,314 @@
       "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md", "docs/DEMO_INTEGRATION_SITE_2026-11-22.md"],
       "blocker": "D1.8 is verified on the isolated preview. Final Production publication was not performed; D1.9 still requires target, Production variable and public-flow checks, plus applicable publication authorization.",
       "next": "Prepare the publication preflight only after reviewing anonymous-signup protection and scheduled purge; compare the validated candidate, verify the portfolio link, and confirm authorization before any Production deployment."
+    },
+    {
+      "id": "GYM-PROD",
+      "parent": null,
+      "title": "Preparer GetYourMentor a une ouverture commerciale reelle",
+      "objective": "Inscription verifiee, reservation decidee par le coach reel, paiement Stripe Connect confirme par webhook et historique consultable.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        36,
+        64
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Chantier commercial distinct de GYM-D1. La demo conserve ses fixtures, son projet Supabase et son paiement simule. Aucune cle, donnee ou ressource demo reutilisee comme production.",
+      "acceptance": [
+        "Parcours reel de l'inscription au paiement confirme par webhook",
+        "Environnements production, staging et demo isoles ; RLS, CI/CD, securite et restauration verifies",
+        "Coach responsable accepte ou refuse avant paiement ; reservations et paiements idempotents et auditables",
+        "Politique de session, effacement et conservation definie ; logout ne detruit pas les preuves transactionnelles requises",
+        "SEO, performance, accessibilite, support et rollback controles avant ouverture"
+      ],
+      "tests": [
+        "Tous les tickets GYM-PROD enfants sont termines avec preuves verifiables",
+        "Parcours complet valide en staging puis gate de lancement satisfait"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
+    },
+    {
+      "id": "GYM-PROD.1",
+      "parent": "GYM-PROD",
+      "title": "Etablir l'etat reel des runtimes et protections",
+      "objective": "Comparer le domaine publie, l'apercu et les gardes de paiement dans le code.",
+      "status": "done",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        1,
+        2
+      ],
+      "actualHours": null,
+      "dependencies": [],
+      "scope": "Audit en lecture seule ; aucun compte, secret ou donnees metier consultes.",
+      "acceptance": [
+        "Health public et route /demo controles",
+        "Health de l'apercu demo verifie separement",
+        "Checkout et webhook identifies comme test-only"
+      ],
+      "tests": [
+        "Requetes GET sur health et route archivees",
+        "Revue ciblee de configuration, checkout et webhook"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [
+        "docs/PRODUCTION_RUNTIME_PREFLIGHT_2026-11-22.md",
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "docs/DEMO_D1_8_OUTILS_MCP_2026-11-21.md"
+      ],
+      "blocker": null,
+      "next": "Le domaine public reste en mode demo avec Supabase/Stripe/legal=false et /demo en 404 ; l'apercu isole a Supabase demo actif."
+    },
+    {
+      "id": "GYM-PROD.2",
+      "parent": "GYM-PROD",
+      "title": "Designer et isoler les ressources de Production",
+      "objective": "Identifier le site et contexte Netlify ainsi que le projet Supabase reserves aux utilisateurs reels.",
+      "status": "blocked",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "DevOps",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        2,
+        5
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.1"
+      ],
+      "scope": "Inventaire lecture seule, sans lecture de secrets ni migration distante.",
+      "acceptance": [
+        "Site, depot et branche Production verifies",
+        "Projet Supabase Production distinct de la demo et preproduction confirme",
+        "Scopes Production, Preview et Staging documentes sans valeurs de secrets",
+        "Ressources demo et preproduction restent intactes"
+      ],
+      "tests": [
+        "Verifier les identifiants et contextes depuis les sources autorisees",
+        "Confirmer que la cible ne reutilise pas le projet demo ou preprod"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": "Aucun projet Supabase Production ni mapping Netlify Production n'a ete verifie. Ne pas deduire la cible d'une URL ou cle.",
+      "next": "Reprendre lorsque les ressources Supabase et Netlify Production sont identifiees en lecture seule."
+    },
+    {
+      "id": "GYM-PROD.3",
+      "parent": "GYM-PROD",
+      "title": "Fiabiliser inscription, connexion et recuperation",
+      "objective": "Mettre en oeuvre l'authentification reelle par e-mail verifie et sessions serveur.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Securite",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        5,
+        9
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.2"
+      ],
+      "scope": "Utiliser SMTP transactionnel adapte a Supabase Auth, pas le compte Gmail personnel. SMS uniquement si besoin justifie via fournisseur compatible ; Telegram n'est pas un OTP.",
+      "acceptance": [
+        "Inscription, confirmation, connexion, recuperation, revocation et logout verifies",
+        "Protections contre abus et enumeration de comptes actives",
+        "Secrets auth uniquement serveur et RLS testee"
+      ],
+      "tests": [
+        "Tests E2E d'inscription, confirmation, connexion, recuperation et logout",
+        "Tests RLS sur staging isole"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
+    },
+    {
+      "id": "GYM-PROD.4",
+      "parent": "GYM-PROD",
+      "title": "Livrer le parcours reel reservation et decision coach",
+      "objective": "Le sportif reserve un creneau et le coach authentifie accepte ou refuse avant tout paiement.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Architecture",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        6,
+        11
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.3"
+      ],
+      "scope": "Flux commercial reel uniquement ; aucune acceptation fictive ou automatique.",
+      "acceptance": [
+        "Coach authentifie accepte ou refuse avant paiement",
+        "Reservations persistantes, idempotentes et protegees contre la concurrence",
+        "Reconnexion, conflit de creneau et annulation traites"
+      ],
+      "tests": [
+        "E2E sportif et coach sur staging",
+        "Tests concurrence, idempotence et RLS"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
+    },
+    {
+      "id": "GYM-PROD.5",
+      "parent": "GYM-PROD",
+      "title": "Raccorder Stripe Connect Live de facon exploitable",
+      "objective": "Permettre Checkout apres acceptation et confirmer le paiement cote serveur par webhook.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Securite",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        8,
+        14
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.2",
+        "GYM-PROD.4"
+      ],
+      "scope": "Activation Live soumise aux controles KYC, contrat, responsabilites et configuration du proprietaire.",
+      "acceptance": [
+        "Onboarding Connect coach conforme au modele retenu",
+        "Commission de reference 15 pour cent et base de calcul confirmees avant activation",
+        "Webhook signe et idempotent ; retour navigateur seul insuffisant",
+        "Rejeu, echec, remboursement et contestation gardent un etat coherent",
+        "Cles Live absentes des environnements demo et test"
+      ],
+      "tests": [
+        "Suite sandbox pour succes, echec, webhook duplique et rejeu",
+        "Recette staging sans mouvement d'argent"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
+    },
+    {
+      "id": "GYM-PROD.6",
+      "parent": "GYM-PROD",
+      "title": "Durcir securite, communications et donnees",
+      "objective": "Couvrir RLS, consentements, notification et fin de session sans perdre les traces transactionnelles.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "Securite",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        6,
+        11
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.3",
+        "GYM-PROD.4",
+        "GYM-PROD.5"
+      ],
+      "scope": "Logout apres paiement peut revoquer la session, mais ne supprime pas automatiquement compte, reservation ou preuve de paiement. Definir retention et anonymisation selon obligations validees.",
+      "acceptance": [
+        "RLS croisee, journaux expurges, secrets serveur et sauvegardes verifies",
+        "Logout n'efface pas l'historique transactionnel necessaire",
+        "Politique de suppression et retention definie et validee",
+        "Courriel transactionnel teste ; Telegram optionnel, consenti et retractable"
+      ],
+      "tests": [
+        "Tests multi-utilisateurs, suppression, panne notification et restauration"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
+    },
+    {
+      "id": "GYM-PROD.7",
+      "parent": "GYM-PROD",
+      "title": "Gater CI/CD, qualite et lancement",
+      "objective": "Valider CI, staging, SEO, performance, accessibilite et rollback avant ouverture.",
+      "status": "backlog",
+      "sprint": "S5",
+      "priority": "P0",
+      "role": "QA",
+      "assignment": "coordinator",
+      "due": "2026-12-11",
+      "estimateHours": [
+        7,
+        12
+      ],
+      "actualHours": null,
+      "dependencies": [
+        "GYM-PROD.2",
+        "GYM-PROD.3",
+        "GYM-PROD.4",
+        "GYM-PROD.5",
+        "GYM-PROD.6"
+      ],
+      "scope": "Aucune ouverture Live avant validation des criteres et des prerequis operateur.",
+      "acceptance": [
+        "CI bloque sur echec types, tests, securite ou migrations",
+        "E2E staging desktop/mobile couvre les pannes",
+        "SEO, performance et accessibilite mesures avec seuils explicites",
+        "Cible, support, alertes, rollback et approbation operateur verifies"
+      ],
+      "tests": [
+        "Workflows CI et tests staging ; health, checkout, webhook, SEO et rollback controles"
+      ],
+      "files": [
+        "docs/PLATEFORME_PRODUCTION_GETYOURMENTOR_2026-11-22.md",
+        "gym-next/"
+      ],
+      "evidence": [],
+      "blocker": null,
+      "next": "Suivre les dependances et ne pas ouvrir le parcours commercial avant verification."
     }
   ]
 }
