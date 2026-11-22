@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-11-22",
+  "sourceCommit": "1bd2da3059c3c148497dfc5050719f3f82d2fc6f",
+  "netlifySite": "getyourmentor-demo-20261014",
+  "netlifySiteId": "86e0379e-4d1a-4cf0-936c-1439397354f4",
+  "deployId": "6b02327cd9b8dd164eea04bb",
+  "previewUrl": "https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app",
+  "supabaseProjectRef": "rqxoovriacgoriimpbwi",
+  "anonymousSignInsEnabled": true,
+  "health": {
+    "http": 200,
+    "ready": true,
+    "supabase": true,
+    "demoStateStorage": true,
+    "recruiterDemo": "ready",
+    "cronSecret": false
+  },
+  "assets": {
+    "cssHttp200": 6,
+    "jsHttp200": 9,
+    "consoleErrors": 0
+  },
+  "journey": {
+    "sessionCreated": true,
+    "fictionalCoach": "Coach Demo - Tennis",
+    "reservationAcceptedByDemoRule": true,
+    "simulatedPaymentConfirmed": true,
+    "realPayment": false,
+    "restoredAfterReload": true
+  },
+  "isolation": {
+    "independentSessionReservationCount": 0,
+    "secondSessionDeleteHttp": 200,
+    "secondSessionErased": true
+  },
+  "cleanup": {
+    "primarySessionErasedByUI": true,
+    "subsequentSessionActive": false,
+    "sharedFixtureCountAfterCleanup": 1
+  },
+  "mobile": {
+    "viewportCssWidth": 390,
+    "documentCssWidth": 375,
+    "horizontalOverflow": false
+  },
+  "externalRequestsMatchingStripeCheckoutPaymentIntentTelegram": 0,
+  "notes": [
+    "The Netlify preview was updated; Production was not deployed.",
+    "Supabase docs recommend CAPTCHA or Cloudflare Turnstile for anonymous sign-ins and state that Supabase does not automatically delete anonymous users.",
+    "The app custom purge schedule was not verified because the runtime health flag cronSecret=false.",
+    "Anonymous sign-in rate limits are IP-based; server-side request forwarding behavior was not verified in this lot."
+  ]
+}

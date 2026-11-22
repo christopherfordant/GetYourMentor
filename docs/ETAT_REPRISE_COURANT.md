@@ -1,3 +1,16 @@
+# Reprise active - 22 novembre 2026 : GYM-D1.8 recette isolee terminee
+
+- Depot : `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, HEAD local et distant `1bd2da3059c3c148497dfc5050719f3f82d2fc6f`. Le changement local preexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` est reste intact ; les caches Python non suivis sont exclus.
+- Le reglage **Allow anonymous sign-ins** est active uniquement sur le projet Supabase isole `getyourmentor-demo-recruiter` (`rqxoovriacgoriimpbwi`). Aucun autre reglage Auth n'a ete change.
+- Cause du rendu HTML sans styles corrigee : le deploiement prepare publie maintenant `.netlify/static`. Correctif cible dans le commit `1bd2da3` ; build, scan client/serveur et preparation d'artefact reussis. Apercu uniquement : deploy `6b02327cd9b8dd164eea04bb`, [ouvrir l'apercu](https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app/demo). Production et ancien site non touches.
+- Controle runtime : `/api/health` HTTP 200, `ready=true`, `checks.supabase=true`, `checks.demoStateStorage=true`, demo `ready` ; une fixture coach disponible. Six feuilles CSS et neuf scripts JS observes en HTTP 200, zero erreur console.
+- Parcours reellement effectue : session anonyme, coach fictif Tennis, creneau, reservation acceptee par la regle de demo, paiement simule, confirmation "Aucun paiement reel", rechargement avec reservation conservee, puis effacement de la session dans l'interface. Apres effacement, la session est inactive et la fixture commune existe toujours.
+- Isolation : pendant que la premiere session detenait sa reservation, une seconde session avec cookie jar independant a recu zero reservation ; son effacement API a repondu 200. Aucun appel reseau observe vers Stripe, Checkout, Payment Intent ou Telegram.
+- Mobile : viewport 390 CSS px, largeur document 375 CSS px, aucun debordement horizontal. Preuve : `docs/assets/demo-d1-8-runtime-2026-11-22/verification.json`. Rapport : `docs/DEMO_D1_8_OUTILS_MCP_2026-11-21.md`. GYM-D1.8 est `done` ; GYM-D1.9 reste `backlog`, sans publication Production.
+- Limites avant partage large : Supabase recommande CAPTCHA pour l'auth anonyme ; il n'est pas configure. La limite documentee est de 30 creations/heure/IP ; l'architecture via fonctions serveur peut concentrer le quota. Le health affiche aussi `cronSecret=false`, donc la purge planifiee n'a pas ete verifiee. Examiner ces protections avant diffusion plus large.
+
+---
+
 # Reprise active — 21 novembre 2026 : D1.8, readiness Supabase et session anonyme
 
 ## État vérifié le 21 novembre 2026
