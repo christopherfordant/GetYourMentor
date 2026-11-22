@@ -1,6 +1,15 @@
-# Reprise active - 22 novembre 2026 : GYM-D1.8 recette isolee terminee
+# Reprise active — 22 novembre 2026 : intégration visuelle de la démo au site
 
-- Depot : `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, HEAD local et distant `1bd2da3059c3c148497dfc5050719f3f82d2fc6f`. Le changement local preexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` est reste intact ; les caches Python non suivis sont exclus.
+- Référence vérifiée avant le lot : branche `demo/recruiter-supabase-adapter-20261112`, SHA local/distant `7a82d91a6ad6fb45c6375b53b1855fd777642ad7`. Le commit `1bd2da3` est le correctif du runtime statique, pas le HEAD courant.
+- L’accueil de l’aperçu présente déjà un CTA vers `/demo`, mais cette page était visuellement autonome. Modifications locales : shell partagé header/footer, retour accueil adapté au contexte démo, fil d’Ariane, palette noire/orange, titre sans suffixe dupliqué. Aucun changement du parcours métier ou de son stockage.
+- `npm run check:types` passe. Inspection navigateur locale desktop/mobile : route HTTP 200 après correction d’un sélecteur CSS Modules, navigation et pied de page présents, largeur mobile 375 px pour un viewport de 390 px.
+- Le backend local n’est pas configuré ; `/api/demo/session` répond HTTP 503 et l’état indisponible s’affiche. Le parcours de réservation n’a pas été retesté localement. La dernière recette fonctionnelle vérifiée est celle de D1.8, documentée ci-dessous.
+- Aucun déploiement ou réglage distant. GYM-D1.9 reste `backlog`; son critère inclut maintenant l’intégration dans le cadre partagé. L’aperçu public n’a pas reçu la nouvelle présentation.
+- Rapport : `docs/DEMO_INTEGRATION_SITE_2026-11-22.md`. Changement local préexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` et caches Python non suivis préservés.
+
+# Reprise active — 22 novembre 2026 : GYM-D1.8 recette isolée terminée
+
+- Depot : `GYM-demo-isolated-20261112`, branche `demo/recruiter-supabase-adapter-20261112`, commit de correction runtime `1bd2da3059c3c148497dfc5050719f3f82d2fc6f` (le HEAD documentaire suivant est consigné dans la reprise ci-dessus). Le changement local préexistant `docs/DEMO_D15_LOCAL_FLOW_2026-11-14.md` est resté intact ; les caches Python non suivis sont exclus.
 - Le reglage **Allow anonymous sign-ins** est active uniquement sur le projet Supabase isole `getyourmentor-demo-recruiter` (`rqxoovriacgoriimpbwi`). Aucun autre reglage Auth n'a ete change.
 - Cause du rendu HTML sans styles corrigee : le deploiement prepare publie maintenant `.netlify/static`. Correctif cible dans le commit `1bd2da3` ; build, scan client/serveur et preparation d'artefact reussis. Apercu uniquement : deploy `6b02327cd9b8dd164eea04bb`, [ouvrir l'apercu](https://gym-demo-preview-20261117--getyourmentor-demo-20261014.netlify.app/demo). Production et ancien site non touches.
 - Controle runtime : `/api/health` HTTP 200, `ready=true`, `checks.supabase=true`, `checks.demoStateStorage=true`, demo `ready` ; une fixture coach disponible. Six feuilles CSS et neuf scripts JS observes en HTTP 200, zero erreur console.

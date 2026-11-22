@@ -5,7 +5,7 @@ import styles from './navigation.module.css';
 import { SportMotionIcon } from './SportMotionIcon';
 import { playEquipmentEntrance } from '@/public/design_assets/header-equipment-2026-10-30/entrance.js';
 
-export function PlatformHeader({ children, entrance = false }: { children?: ReactNode; entrance?: boolean }) {
+export function PlatformHeader({ children, entrance = false, demo = false }: { children?: ReactNode; entrance?: boolean; demo?: boolean }) {
   const [sportsOpen, setSportsOpen] = useState(false);
   const bell = useRef<HTMLButtonElement>(null);
   const notifications = useRef<HTMLDialogElement>(null);
@@ -23,10 +23,16 @@ export function PlatformHeader({ children, entrance = false }: { children?: Reac
       <a className={styles.brand} href="/" aria-label="GetYourMentor, accueil"><b aria-hidden="true">GYM<span>↗</span></b><span>GetYourMentor</span></a>
       <div className={styles.actions}>
         <button className={styles.sportsToggle} ref={sportsTrigger} aria-expanded={sportsOpen} aria-controls="platform-sports" type="button" onClick={() => setSportsOpen(value => !value)}>Sports</button>
-        <button className={styles.bell} ref={bell} aria-label="Notifications" aria-haspopup="dialog" type="button" onClick={() => { setSportsOpen(false); notifications.current?.showModal(); }}>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" /></svg>
-        </button>
-        <a className={styles.account} href="/compte">Mon compte <span aria-hidden="true">↗</span></a>
+        {demo ? (
+          <a className={styles.account} href="/">Accueil du site <span aria-hidden="true">↗</span></a>
+        ) : (
+          <>
+            <button className={styles.bell} ref={bell} aria-label="Notifications" aria-haspopup="dialog" type="button" onClick={() => { setSportsOpen(false); notifications.current?.showModal(); }}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4" /></svg>
+            </button>
+            <a className={styles.account} href="/compte">Mon compte <span aria-hidden="true">↗</span></a>
+          </>
+        )}
         {children}
       </div>
     </div>

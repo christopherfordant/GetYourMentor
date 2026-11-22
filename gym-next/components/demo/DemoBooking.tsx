@@ -129,7 +129,12 @@ export default function DemoBooking() {
   return (
     <main className={styles.page}>
       <div className={styles.shell}>
-        <a className={styles.back} href="/">← Retour à GetYourMentor</a>
+        <nav className={styles.breadcrumb} aria-label="Fil d’Ariane">
+          <a href="/">GetYourMentor</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Parcours sportif</span>
+          <span className={styles.demoTag}>Démonstration</span>
+        </nav>
         <header className={styles.hero}>
           <p className={styles.eyebrow}>PARCOURS SPORTIF · ENVIRONNEMENT DE DÉMONSTRATION</p>
           <h1>Réserver une séance, étape par étape</h1>

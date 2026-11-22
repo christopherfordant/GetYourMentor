@@ -3140,11 +3140,11 @@
       "estimateHours": [1, 2],
       "actualHours": null,
       "dependencies": ["GYM-D1.8"],
-      "scope": "Publication finale explicite du candidat déjà recetté sur le seul site de démonstration relié au portfolio. Aucun déploiement vers l’ancien site ; aucune promotion implicite depuis un aperçu. Configuration Production seulement après revue des variables et autorisation de publication de la cible.",
-      "acceptance": ["Netlify cible, branche, site id et variables confirment l'environnement démo isolé", "Version HTTPS répond après déploiement et le parcours sportif complet est vérifié", "Lien du portfolio pointe vers cette URL et aucun déploiement ne touche l'ancien site"],
+      "scope": "Publication finale explicite du candidat déjà recetté sur le seul site de démonstration relié au portfolio. La route /demo reprend le cadre de navigation et de pied de page du site tout en restant clairement identifiée comme démonstration isolée. Aucun déploiement vers l’ancien site ; aucune promotion implicite depuis un aperçu. Configuration Production seulement après revue des variables et autorisation de publication de la cible.",
+      "acceptance": ["Netlify cible, branche, site id et variables confirment l'environnement démo isolé", "La page /demo s’inscrit dans le cadre partagé du site et conserve des mentions explicites de démonstration", "Version HTTPS répond après déploiement et le parcours sportif complet est vérifié", "Lien du portfolio pointe vers cette URL et aucun déploiement ne touche l'ancien site"],
       "tests": ["Comparaison SHA/artifact et navigation depuis le portfolio public", "Smoke test public sans accès ni compte réel"],
-      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md"],
-      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md"],
+      "files": ["docs/DEMO_PUBLIQUE_RECRUTEUR_2026-11-12.md", "docs/DECISION_PARCOURS_DEMO_RECRUTEUR_2026-11-14.md", "gym-next/app/demo/page.tsx", "gym-next/components/demo/DemoBooking.tsx", "gym-next/components/demo/DemoBooking.module.css", "gym-next/components/navigation/PlatformHeader.tsx"],
+      "evidence": ["docs/DEMO_BLOBS_SUPABASE_MAPPING_2026-11-12.md", "docs/DEMO_PUBLIC_DEPLOYMENT_GAP_2026-11-16.md", "docs/DEMO_INTEGRATION_SITE_2026-11-22.md"],
       "blocker": "D1.8 is verified on the isolated preview. Final Production publication was not performed; D1.9 still requires target, Production variable and public-flow checks, plus applicable publication authorization.",
       "next": "Prepare the publication preflight only after reviewing anonymous-signup protection and scheduled purge; compare the validated candidate, verify the portfolio link, and confirm authorization before any Production deployment."
     }
