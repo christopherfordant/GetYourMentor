@@ -1,5 +1,14 @@
 ## Reprise Production commerciale - 22 novembre 2026
 
+### Suite de reprise — audit statique de l'authentification
+
+- Branche `product/production-readiness-20261122`, base contrôlée `b10b97aa0180f78f7de93ec9a45d8dbc5e2c6f5f`; le distant était identique avant ce lot. Aucun changement de code applicatif.
+- Audit de `gym-next/lib/auth.ts`, `gym-next/lib/session-envelope.ts`, route logout et tests : le logout expire le cookie local ; `requireRole()` valide une enveloppe scellée sans vérifier une révocation serveur. L'enveloppe peut vivre jusqu'à 7 jours. Le rejeu d'un cookie capturé est un risque déduit du code, non reproduit en runtime. Rapport : `docs/PRODUCTION_AUTH_SESSION_AUDIT_2026-11-22.md`.
+- `GYM-PROD.3.1` consigne cet audit statique comme terminé. `GYM-PROD.3.2` est en préparation pour comparer session Supabase SSR et registre de révocation durable. `GYM-PROD.3.3` reste en backlog et dépend de la cible isolée. Le parent GYM-PROD.3 et GYM-PROD.2 ne sont pas clôturés.
+- Les tests Playwright de `gym-next` ne sont pas exécutés : `gym-next/node_modules` est absent. Aucune session réelle, RLS de production ou révocation distante n'a été testée. Suite de gouvernance `node --test tools/agentic-workbench/tests/*.test.mjs` : 35/35 PASS ; JSON du Kanban valide, 96 tickets, aucun identifiant dupliqué ni dépendance manquante.
+- Prochaine action : débloquer GYM-PROD.2 en identifiant un site/contexte Netlify et un projet Supabase de production/staging distincts ; ensuite décider et implémenter GYM-PROD.3.2 avec un test de rejeu d'un cookie après logout.
+
+
 - Worktree isole : `C:/Users/cashe/Documents/GYM-production-readiness-20261122`, branche `product/production-readiness-20261122`, base `b551debca6b51c9948ed775f083a9f048948f7c8` depuis `origin/demo/recruiter-supabase-adapter-20261112`. Les changements preexistants de l'autre worktree sont restes intacts.
 - Preflight public en lecture seule : le site principal `getyourmentor-demo-20261014` repond health 200 en mode demo avec `supabase=false`, `stripe=false`, `legal=false`, `cronSecret=false`; `/demo` repond 404. L'apercu demo separe repond health 200 avec Supabase demo et `recruiterDemo=ready`. Voir `docs/PRODUCTION_RUNTIME_PREFLIGHT_2026-11-22.md`.
 - Le code Stripe du candidat reste test-only. Aucun parcours de paiement reel ne doit etre promis ni active.
